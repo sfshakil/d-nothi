@@ -1330,12 +1330,6 @@
     <Compile Include="UI\NothiUI\RegisterReportUserControl.Designer.cs">
       <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\NothiUI\UCAllNothiList.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\NothiUI\UCAllNothiList.Designer.cs">
-      <DependentUpon>UCAllNothiList.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\OfficerRowUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1904,9 +1898,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\NothiUI\RegisterReportUserControl.resx">
       <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\NothiUI\UCAllNothiList.resx">
-      <DependentUpon>UCAllNothiList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\OfficerRowUserControl.resx">
       <DependentUpon>OfficerRowUserControl.cs</DependentUpon>

@@ -30,6 +30,7 @@ namespace dNothi.Desktop.UI.Dak
         int end = 10;
         int totalrecord = 0;
         int lastCountValue = 0;
+        int lastrecord = 0;
         string datetextFromtextbox=string.Empty;
 
         IRegisterService _registerService;
@@ -49,7 +50,7 @@ namespace dNothi.Desktop.UI.Dak
             dakPriorityComboBox.DataSource= getShaka();
             dakPriorityComboBox.DisplayMember = "Name";
             dakPriorityComboBox.ValueMember = "Id";
-            //dakPriorityComboBox.SelectedIndex = 0;
+            dakPriorityComboBox.SelectedIndex = 0;
         }
         private List<ComboBoxItem> getList()
         {
@@ -462,6 +463,7 @@ namespace dNothi.Desktop.UI.Dak
                 RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
             }
 
+            lastrecord = RegisterReportlist.Count();
             if (RegisterReportlist.Count <= 0)
             {
                 noRowMessageLabel.Visible = true;
@@ -570,7 +572,7 @@ namespace dNothi.Desktop.UI.Dak
                 page -= 1;
                 start -= pageLimit;
                 end -= pageLimit;
-                lastCountValue-= pageLimit;
+                lastCountValue-= (pageLimit+ lastrecord);
 
             }
             else
@@ -605,12 +607,22 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+        private void RegisterReportUserControl_Load(object sender, EventArgs e)
+        {
+            page = 1;
+            lastCountValue = 0;
+            LoadData();
+            NextPreviousButtonShow();
+        }
+
         private void dakPriorityComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (dakPriorityComboBox.SelectedValue.ToString()!= "dNothi.Desktop.ComboBoxItem")
+            {
                 page = 1;
                 lastCountValue = 0;
                 LoadData();
+            }
            
         }
     }

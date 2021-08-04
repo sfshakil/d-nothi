@@ -189,6 +189,7 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<DakBacaiKaran>>().As<IRepository<DakBacaiKaran>>();
 
             builder.RegisterType<EfRepository<DakRegisterBook>>().As<IRepository<DakRegisterBook>>();
+            builder.RegisterType<EfRepository<NothiRegisterBook>>().As<IRepository<NothiRegisterBook>>();
 
             builder.RegisterType<BasicService>().As<IBasicService>();
 
@@ -311,7 +312,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiOutboxNoteShomuho>().AsSelf();
             builder.RegisterType<NothiInbox>().AsSelf();
             builder.RegisterType<NothiOutbox>().AsSelf();
-            builder.RegisterType<UCAllNothiList>().AsSelf();
+           
             
             builder.RegisterType<DakDecisionTableUserControl>().AsSelf();
             builder.RegisterType<NewNothi>().AsSelf();
