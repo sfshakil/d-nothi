@@ -183,7 +183,7 @@ namespace dNothi.Services.NothiServices
 
 
                 var responseJson = Response.Content;
-
+                responseJson = Utility.ConversionMethod.FilterJsonResponse(responseJson);
                 PotrojariCompleteResponse potrojariResponse = JsonConvert.DeserializeObject<PotrojariCompleteResponse>(responseJson);
                 return potrojariResponse;
             }
