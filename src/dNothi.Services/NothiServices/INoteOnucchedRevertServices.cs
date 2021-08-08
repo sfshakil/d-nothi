@@ -11,5 +11,6 @@ namespace dNothi.Services.NothiServices
     public interface INoteOnucchedRevertServices
     {
         NoteOnucchedRevertResPonse GetNoteOnucchedRevert(DakUserParam _dakuserparam, NothiListRecordsDTO nothiListRecords, NoteSaveDTO newnotedata);
+        NoteFinishedResponse GetNoteFinished(DakUserParam _dakuserparam, string nothi_id , string note_id);
     }
 }

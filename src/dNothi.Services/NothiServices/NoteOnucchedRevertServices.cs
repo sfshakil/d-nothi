@@ -59,5 +59,33 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiNoteOnucchedRevertEndPoint;
         }
+        protected string GetNoteFinishedEndPoint()
+        {
+            return DefaultAPIConfiguration.NoteFinishedEndPoint;
+        }
+
+        public NoteFinishedResponse GetNoteFinished(DakUserParam dakUserParam, string nothi_id, string note_id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNoteFinishedEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("cdesk", "{\"office_id\":" + dakUserParam.office_id + ",\"office_unit_id\":" + dakUserParam.office_unit_id + ",\"designation_id\":" + dakUserParam.designation_id + ",\"officer_id\":" + dakUserParam.officer_id + ",\"user_id\":" + dakUserParam.user_id + ",\"office\":\"" + dakUserParam.office + "\",\"office_unit\":\"" + dakUserParam.office_unit + "\",\"designation\":\"" + dakUserParam.designation + "\",\"officer\":\"" + dakUserParam.officer + "\",\"designation_level\":" + dakUserParam.designation_level + "}");
+                request.AddParameter("note", "{\"nothi_id\":\"" + nothi_id + "\",\"nothi_office\":\"" + dakUserParam.office_id + "\",\"note_id\":\"" + note_id + "\"}");
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NoteFinishedResponse noteFinishedResponse = JsonConvert.DeserializeObject<NoteFinishedResponse>(responseJson);
+                return noteFinishedResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }
