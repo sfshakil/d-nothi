@@ -64,6 +64,7 @@ namespace dNothi.Services.PotroJariGroup.Models
             public string incharge_label { get; set; }
             public int designation_level { get; set; }
             public int designation_sequence { get; set; }
+            public bool isRemoved { get; set; }
         }
 
         public class Record
