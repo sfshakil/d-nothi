@@ -21,6 +21,8 @@ namespace dNothi.Desktop.UI.Dak
         IPotroJariGroupService _potroJariGroupService { get; set; }
        
         IUserService _userService { get; set; }
+
+        private bool isAllChecked = false;
         private string _creator { get; set; }
         public string creator { get => _creator; 
             
@@ -34,10 +36,43 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
+        public bool isPatrajariGroupFromKasra = false;
+        public void ActiveForKasraPatro()
+        {
+            if (isPatrajariGroupFromKasra)
+            {
+                label1.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
+                label4.Visible = true;
+                namePanel.Visible = true;
+                nameTextBox.Visible = true;
+                nameCheckBox.Visible = true;
+                nameCheckBox.Checked = true;
+                allCheckBox.Visible = true;
+                allCheckBox.Checked = true;
+                nCheckBox.Visible = true;
+                nCheckBox.Checked = false;
+
+            }
+            else
+            {
+                label1.Visible = false;
+                label2.Visible = false;
+                label3.Visible = false;
+                label4.Visible = false;
+                namePanel.Visible = false;
+                nameCheckBox.Visible = false;
+                allCheckBox.Visible = false;
+                nCheckBox.Visible = false;
+
+            }
+        }
+
         private string _groupName { get; set; }
-        public string groupName { get => _groupName; set { _groupName = value; lbDetails.Text = value; } }
+        public string groupName { get => _groupName; set { _groupName = value; lbDetails.Text = value; nameTextBox.Text = value; } }
         private int _totalPerson { get; set; }
-        public int totalPerson { get => _totalPerson; set { _totalPerson = value; btnTotalPerson.Text = "মোট সদস্য: "+ ConversionMethod.EnglishNumberToBangla(value.ToString()); } }
+        public int totalPerson { get => _totalPerson; set { _totalPerson = value; totalUserlabel.Text = "মোট সদস্য: "+ ConversionMethod.EnglishNumberToBangla(value.ToString()); } }
 
         private string _privacyType { get; set; }
         public string privacyType { get => _privacyType; set { _privacyType = value; lbNoteNumber.Text = value; } }
@@ -49,6 +84,7 @@ namespace dNothi.Desktop.UI.Dak
         public int id=0;
         private bool isActive = false;
         public List<User> users;
+        public List<User> selectedUsers=new List<User>();
         int clickedId = 0;
 
         public PotrojariGroupContent(IUserService userService, IPotroJariGroupService potroJariGroupService)
@@ -70,8 +106,9 @@ namespace dNothi.Desktop.UI.Dak
         int totalrecord = 0;
 
         public event EventHandler PotrojariEditButtonClick;
-      //  public event EventHandler PotrojariDetailsButtonClick;
+        public event EventHandler PotrojariDetailsButtonClick;
         public event EventHandler PotrojariDeleteButtonClick;
+
         
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -96,6 +133,7 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
+    
         private void Formload()
         {
             page = 1;
@@ -114,17 +152,22 @@ namespace dNothi.Desktop.UI.Dak
 
                 if (menuNo >= 7)
                 {
-                   // List<User> users = potroJariGrouplist.data.records.Where(x=>x.group.id== id).Select(x => x.users).FirstOrDefault();
+                  
                     foreach (var item in users)
                     {
 
                         PotrojariUsersListRowUserControl pgc = new PotrojariUsersListRowUserControl();
-
+                        pgc.id = item.id;
+                        pgc.groupId = item.group_id;
                         pgc.UserName = item.officer;
+                        pgc.designationId = item.designation_id;
                         pgc.UserDesignation = item.designation + ", " + item.office + ", " + item.office_unit;
                         pgc.UserOfficeName = item.officer_email + ", " + item.officer_mobile;
+                        pgc.isPatrajariGroupFromKasra = isPatrajariGroupFromKasra;
+                        pgc.isAllChecked = isAllChecked;
+                       // pgc.userCheckBoxCheckedChanged += delegate (object sender, EventArgs e) { Potrojari_CheckChanged(sender as object, e, item); };
 
-                        UIDesignCommonMethod.AddRowinTable(tableLayoutPanel2, pgc);
+                    UIDesignCommonMethod.AddRowinTable(tableLayoutPanel2, pgc);
 
                     }
                     totalrecord = users.Count;
@@ -141,10 +184,9 @@ namespace dNothi.Desktop.UI.Dak
                 dakListUserParam.limit = pageLimit;
 
                 dakListUserParam.page = pages;
-                // int row = 2;
-
+                
                 var potroJariGrouplist = _potroJariGroupService.GetList(dakListUserParam, menuNo);
-                // RemoveArbitraryRow(tableLayoutPanel1, tableLayoutPanel1.RowCount, 2);
+                
                 if (potroJariGrouplist.status == "success")
                 {
                     foreach (var item in potroJariGrouplist.data.records)
@@ -155,14 +197,8 @@ namespace dNothi.Desktop.UI.Dak
                         pgc.UserName = item.officer;
                         pgc.UserDesignation = item.designation + ", " + item.office + ", " + item.office_unit;
                         pgc.UserOfficeName = item.officer_email + ", " + item.officer_mobile;
-                        ///pgc.Dock = DockStyle.Fill;
-
-
-                        //tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.AutoSize, 45f));
-
-                        //tableLayoutPanel1.Controls.Add(pgc, 0, row);
-                        //row = tableLayoutPanel1.RowCount++;
-
+                        
+                        
                         UIDesignCommonMethod.AddRowinTable(tableLayoutPanel2, pgc);
 
                     }
@@ -173,10 +209,17 @@ namespace dNothi.Desktop.UI.Dak
                 }
 
                
-                  }
+              }
           
         }
-    
+        private void Potrojari_CheckChanged(object sender,EventArgs e, User item)
+        {
+
+            //User user = (User)sender;
+            //selectedUsers.Add(user);
+            //selectedUsers.Add(user);
+
+        }
         private void nextIconButton_Click(object sender, EventArgs e)
         {
             string endrow;
@@ -273,20 +316,22 @@ namespace dNothi.Desktop.UI.Dak
            
             if (isActive == false && id!=clickedId)
             {
-
+                isAllChecked = true;
                 Formload();
                 isActive = true;
                 clickedId = id;
+                
             }
             else
             {
+                isAllChecked = false;
                 clickedId = 0;
                 isActive = false;
                 tableLayoutPanel1.Visible = false;
                 tableLayoutPanel2.Controls.Clear();
             }
-            //if (this.PotrojariDeleteButtonClick != null)
-            //    this.PotrojariDeleteButtonClick(sender, e);
+            if (this.PotrojariDetailsButtonClick != null)
+                this.PotrojariDetailsButtonClick(sender, e);
         }
         private void btnTotalPerson_Click(object sender, EventArgs e)
         {
@@ -303,8 +348,6 @@ namespace dNothi.Desktop.UI.Dak
             //}
 
         }
-
-
         public void SuccessMessage(string Message)
         {
             UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
@@ -354,5 +397,37 @@ namespace dNothi.Desktop.UI.Dak
             btnDelete.IconColor = Color.FromArgb(78, 165, 254);
         }
         ReviewDashBoardContentShare rvwDashBoardContentShare = new ReviewDashBoardContentShare();
+
+        private void namePanel_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+
+        }
+
+
+
+      //  public event EventHandler allCheckBoxChecdChanged;
+
+        private void allCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            //if (isActive == false && id != clickedId)
+            //{
+            //    if (allCheckBox.Checked)
+            //    {
+            //        isAllChecked = true;
+            //    }
+            //    else
+            //    {
+            //        isAllChecked = false;
+            //    }
+            //   Formload();
+            //}
+
+        }
+
+        private void allCheckBox_CheckStateChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

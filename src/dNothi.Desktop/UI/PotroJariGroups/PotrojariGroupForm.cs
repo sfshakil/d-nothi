@@ -517,7 +517,6 @@ namespace dNothi.Desktop.UI.PotroJariGroups
           
             NextPreviousButtonShow();
         }
-
         private void PreviousIconButton_Click(object sender, EventArgs e)
         {
 

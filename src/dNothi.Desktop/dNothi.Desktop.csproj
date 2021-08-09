@@ -669,6 +669,12 @@
     <Compile Include="UI\Dak\ReviewDashBoardContentShare.Designer.cs">
       <DependentUpon>ReviewDashBoardContentShare.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\SingleDakUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\SingleDakUserControl.Designer.cs">
+      <DependentUpon>SingleDakUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\UserProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1598,6 +1604,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\SetKarjodibosh.resx">
       <DependentUpon>SetKarjodibosh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\SingleDakUserControl.resx">
+      <DependentUpon>SingleDakUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraDakNoteDetailForm.resx">
       <DependentUpon>KhosraDakNoteDetailForm.cs</DependentUpon>

@@ -608,7 +608,7 @@ namespace dNothi.Desktop.UI
 
         private void SelectOfficer(FontAwesome.Sharp.IconButton officerSelectButton, Panel officerListPanel, Panel officerEmptyPanel, TableLayoutPanel officerListFlowLayoutPanel)
         {
-            SelectOfficerForm selectOfficerForm = new SelectOfficerForm();
+            var selectOfficerForm =FormFactory.Create<SelectOfficerForm>();
 
             if (officerSelectButton == onumodonkariOfficerSelectButton || officerSelectButton == prerokListShowButton)
             {

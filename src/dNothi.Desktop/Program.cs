@@ -340,6 +340,8 @@ namespace dNothi.Desktop
             builder.RegisterType<UserProfileForm>().AsSelf();
            
             builder.RegisterType<CreateGuardFileTypeForm>().AsSelf();
+            builder.RegisterType<SelectOfficerForm>().AsSelf();
+            
 
 
             builder.RegisterType<GurdFileControl>().AsSelf();

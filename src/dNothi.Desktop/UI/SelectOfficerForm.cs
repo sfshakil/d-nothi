@@ -1,6 +1,11 @@
 ﻿using AutoMapper;
+using dNothi.Desktop.UI.Dak;
+using dNothi.Desktop.UI.Khosra_Potro;
 using dNothi.Desktop.View_Model;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Services.PotroJariGroup;
+using dNothi.Services.UserServices;
+using dNothi.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +22,13 @@ namespace dNothi.Desktop.UI
     {
         List<ViewDesignationSealList> viewDesignationSealLists = new List<ViewDesignationSealList>();
         public List<int> _selectedOfficerDesignations = new List<int>();
-        public SelectOfficerForm()
+        IUserService _userService { get; set; }
+       IPotroJariGroupService _potroJariGroupService { get; set; }
+        public SelectOfficerForm(IUserService userService, IPotroJariGroupService potroJariGroupService)
         {
             InitializeComponent();
+            _userService = userService;
+            _potroJariGroupService = potroJariGroupService;
         }
 
         private void sliderCrossButton_Click(object sender, EventArgs e)
@@ -91,6 +100,7 @@ namespace dNothi.Desktop.UI
         }
         private void SelectOfficerForm_Load(object sender, EventArgs e)
         {
+            Formload();
             Screen scr = Screen.FromPoint(this.Location);
             this.Location = new Point(scr.WorkingArea.Right - this.Width, scr.WorkingArea.Top);
             SetDefaultFont(this.Controls);
@@ -240,10 +250,7 @@ namespace dNothi.Desktop.UI
 
         private void saveOfficerButton_Click(object sender, EventArgs e)
         {
-            
-
-
-
+           
             if (!_selectedOfficerDesignations.Contains(_designationId) && _designationId !=0)
             {
                 OfficerRowUserControl officerRowUserControl = new OfficerRowUserControl();
@@ -358,6 +365,248 @@ namespace dNothi.Desktop.UI
         private void officerRowUserControl1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        #region potraJariGroup
+        int page = 1;
+        int pageLimit = 10;
+        int menuNo = 1;
+        int totalPage = 1;
+        int start = 1;
+        int end = 10;
+        int totalrecord = 0;
+        private void potraJariTabPage_Click(object sender, EventArgs e)
+        {
+            Formload();
+        }
+        private void Formload()
+        {
+            page = 1;
+            start = 1;
+            LoadData(menuNo, page);
+            if (totalrecord < 10) { end = totalrecord; }
+            else { end = 10; }
+            NextPreviousButtonShow();
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+
+        }
+        private void LoadData(int menuNo, int pages)
+        {
+            khosraListTableLayoutPanel.Controls.Clear();
+
+            var dakListUserParam = _userService.GetLocalDakUserParam();
+
+            dakListUserParam.limit = pageLimit;
+
+            dakListUserParam.page = pages;
+
+
+            var potroJariGrouplist = _potroJariGroupService.GetList(dakListUserParam, menuNo);
+            if (potroJariGrouplist.status == "success")
+            {
+                noKhosraPanel.Visible = false;
+                foreach (var item in potroJariGrouplist.data.records)
+                {
+
+                    PotrojariGroupContent pgc = UserControlFactory.Create<PotrojariGroupContent>();
+
+                    pgc.creator = item.group.createdby_officer;
+                    pgc.groupName = item.group.group_name;
+                    pgc.privacyType = item.group.privacy_type;
+                    pgc.totalPerson = item.group.total_users > 0 ? item.group.total_users : 0;
+                    pgc.id = item.group.id;
+                    pgc.users = item.users;
+                  
+
+                    if (dakListUserParam.designation_id == item.group.createdby_designation_id)
+                    {
+                        pgc.isDelete = true;
+                        pgc.isEditable = true;
+                    }
+                    else
+                    {
+                        pgc.isDelete = false;
+                        pgc.isEditable = false;
+                    }
+                    pgc.isPatrajariGroupFromKasra = true;
+                    pgc.ActiveForKasraPatro();
+                   // pgc.PotrojariDeleteButtonClick += delegate (object sender, EventArgs e) { Potrojari_EditButtonClick(sender, e, item); };
+                    //pgc.PotrojariEditButtonClick += delegate (object sender, EventArgs e) { Potrojari_EditButtonClick(sender, e, item); };
+                    //pgc.PotrojariDeleteButtonClick += delegate (object sender, EventArgs e) { potrojarigroup_DeleteButtonClick(sender, e, item.group.id); };
+                    UIDesignCommonMethod.AddRowinTable(khosraListTableLayoutPanel, pgc);
+
+                }
+
+                totalrecord = potroJariGrouplist.data.total_records;
+                totalLabel.Text = "সর্বমোট:" + ConversionMethod.EnglishNumberToBangla(totalrecord.ToString());
+                float pagesize = (float)totalrecord / (float)pageLimit;
+                totalPage = (int)Math.Ceiling(pagesize);
+            }
+            else
+            {
+                noKhosraPanel.Visible = true;
+            }
+
+        }
+
+        #region pagination
+        private void nextIconButton_Click(object sender, EventArgs e)
+        {
+            string endrow;
+
+            if (page <= totalPage)
+            {
+                page += 1;
+                start += pageLimit;
+                end += pageLimit;
+
+            }
+            else
+            {
+                page = totalPage;
+               
+            }
+            endrow = end.ToString();
+            LoadData(menuNo, page);
+            if (totalrecord < end) { endrow = totalrecord.ToString(); }
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(endrow);
+
+            NextPreviousButtonShow();
+        }
+        private void PreviousIconButton_Click(object sender, EventArgs e)
+        {
+
+            if (page > 1)
+            {
+
+                page -= 1;
+                start -= pageLimit;
+                end -= pageLimit;
+
+            }
+            else
+            {
+                page = 1;
+               
+            }
+
+            LoadData(menuNo, page);
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+            NextPreviousButtonShow();
+
+
+        }
+        private void NextPreviousButtonShow()
+        {
+            if (page < totalPage)
+            {
+                if (page == 1 && totalPage > 1)
+                {
+                    PreviousIconButton.Enabled = false;
+                }
+                else
+                {
+                    PreviousIconButton.Enabled = true;
+
+                }
+                nextIconButton.Enabled = true;
+            }
+            if (page == totalPage)
+            {
+                if (page == 1 && totalPage == 1)
+                {
+                    PreviousIconButton.Enabled = false;
+
+                }
+                else
+                {
+                    PreviousIconButton.Enabled = true;
+
+                }
+                nextIconButton.Enabled = false;
+            }
+
+        }
+
+        #endregion
+
+        #endregion
+        List<PrapokDTO> prapokDTOs = new List<PrapokDTO>();
+        private void potraJariIButton_Click(object sender, EventArgs e)
+        {
+            // selectedUsers
+            var potrajaricontentList = khosraListTableLayoutPanel.Controls.OfType<PotrojariGroupContent>().ToList();
+            if(potrajaricontentList!=null)
+            {
+                foreach (var item in potrajaricontentList)
+                {
+                    //Where(x => x.Name == "tableLayoutPanel2")
+                    //TableLayoutPanel s = 
+                    var groupid = item.users.Select(x => x.group_id).FirstOrDefault();
+                    if (item.id > 6)
+                    {
+
+                        var controls = item.Controls.Cast<Control>();
+                        var con = controls.Where(c => c.GetType() == typeof(TableLayoutPanel) && c.Name == "contentTableLayoutPanel").FirstOrDefault();
+                        var data = con.Controls.Cast<Control>().Where(c => c.GetType() == typeof(TableLayoutPanel)).FirstOrDefault();
+                        var data1 = data.Controls.Cast<Control>().Where(c => c.GetType() == typeof(TableLayoutPanel)).FirstOrDefault();
+
+                        var potrajariUsers = data1.Controls.OfType<PotrojariUsersListRowUserControl>().ToList();
+
+                        if (potrajariUsers != null)
+                        {
+                            foreach (var item2 in potrajariUsers)
+                            {
+                                
+                                var control1 = item2.Controls.Cast<Control>();
+                                var con1 = control1.Where(c => c.GetType() == typeof(TableLayoutPanel)).FirstOrDefault();
+                                
+                                var data3 = con1.Controls.Cast<Control>().Where(x => x.GetType() == typeof(CheckBox)).FirstOrDefault();
+                               
+                                if (data3.CanSelect)
+                                {
+                                    //PrapokDTO prapokDTO = new PrapokDTO();
+                                    //prapokDTO.officer_id = item2.id;
+                                    //prapokDTO.officer = item2.UserName;
+                                    //prapokDTO.designation_bng = item2.UserDesignation;
+                                    //prapokDTO.office_address = item2.UserOfficeName;
+
+                                    if (!_selectedOfficerDesignations.Contains(item2.designationId) && item2.designationId != 0)
+                                    {
+                                        OfficerRowUserControl officerRowUserControl = new OfficerRowUserControl();
+                                        officerRowUserControl.officerName = viewDesignationSealLists.FirstOrDefault(a => a.designation_id == item2.designationId).designationwithname;
+                                        officerRowUserControl.designationId = item2.designationId;
+
+                                        officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) { ReloadOfficerList(); };
+                                        officerRowUserControl.Width = officerListFlowLayoutPanel.Width - 50;
+
+                                        _selectedOfficerDesignations.Add(item2.designationId);
+                                        UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officerRowUserControl);
+                                    }
+
+
+
+                                    var officerList = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Hide != true).ToList();
+
+
+                                    _designationId = 0;
+
+                                    if (_isOneOfficerAllowed)
+                                    {
+                                        finalSave(sender, e);
+                                    }
+
+                                    VisibleSaveSingleOfficer();
+                                    //prapokDTOs.Add(prapokDTO);
+                                }
+                            }
+                            
+                        }
+
+                    }
+                }
+               // potrajaricontentList.
+            }
         }
     }
 }

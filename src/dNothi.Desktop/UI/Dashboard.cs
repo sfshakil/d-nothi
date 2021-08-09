@@ -938,6 +938,7 @@ namespace dNothi.Desktop.UI
             LoadPotroTemplate();
             LoadDakStatus();
             LoadThirtPartyService();
+            
 
         }
 
@@ -1164,9 +1165,12 @@ namespace dNothi.Desktop.UI
         {
 
             dakBodyFlowLayoutPanel.Controls.Clear();
+            DakCatagoryList dakCatagoryList = new DakCatagoryList();
+            dakCatagoryList.isInbox = true;
             foreach (DakListRecordsDTO dakListInboxRecordsDTO in dakLists)
             {
-                LoadSingleDakInboxinPanel(dakListInboxRecordsDTO);
+                //LoadSingleDakInboxinPanel(dakListInboxRecordsDTO);
+                LoadSingleDakinPanel(dakListInboxRecordsDTO, dakCatagoryList);
             }
 
         }
@@ -1323,6 +1327,127 @@ namespace dNothi.Desktop.UI
 
 
 
+        }
+
+
+        private void LoadSingleDakinPanel(DakListRecordsDTO dakListInboxRecordsDTO,DakCatagoryList dakCatagoryList)
+        {
+            
+
+
+            SingleDakUserControl dakInboxUserControl = new SingleDakUserControl();
+            SetDakCategory(dakInboxUserControl, dakCatagoryList);
+            
+            dakInboxUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
+            dakInboxUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
+            dakInboxUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
+
+            dakInboxUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
+            try
+            {
+                dakInboxUserControl.sender = dakListInboxRecordsDTO.movement_status.from != null ? dakListInboxRecordsDTO.movement_status.from.officer : string.Empty;
+                dakInboxUserControl.receiver = GetDakListMainReceiverName(dakListInboxRecordsDTO.movement_status);
+
+            }
+            catch
+            {
+
+            }
+
+            dakInboxUserControl.dakViewStatus = dakListInboxRecordsDTO.dak_user.dak_view_status;
+            dakInboxUserControl.attentionTypeIconValue = dakListInboxRecordsDTO.dak_user.attention_type;
+            dakInboxUserControl.dakSecurityIconValue = dakListInboxRecordsDTO.dak_user.dak_security;
+            dakInboxUserControl.dakPrioriy = dakListInboxRecordsDTO.dak_user.dak_priority;
+            dakInboxUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
+            dakInboxUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
+            dakInboxUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
+            dakInboxUserControl.dakid = dakListInboxRecordsDTO.dak_user.dak_id;
+            dakInboxUserControl.dak_Tags = dakListInboxRecordsDTO.dak_Tags;
+            dakInboxUserControl.dakArchiveUserId = dakListInboxRecordsDTO.dak_user.archived_dak_user_id;
+
+            if (_dakForwardService.Is_Locally_Forwarde(dakListInboxRecordsDTO.dak_user.dak_id))
+            {
+                dakInboxUserControl.is_Forwarded = true;
+            }
+            else if (_dakNothijatoService.Is_Locally_Nothijato(dakListInboxRecordsDTO.dak_user.dak_id))
+            {
+                dakInboxUserControl.is_Nothijato = true;
+            }
+            else if (_dakNothivuktoService.Is_Locally_Nothivukto(dakListInboxRecordsDTO.dak_user.dak_id))
+            {
+                dakInboxUserControl.is_Nothivukto = true;
+            }
+            else if (_dakArchiveService.Is_Locally_Archived(dakListInboxRecordsDTO.dak_user.dak_id))
+            {
+                dakInboxUserControl.is_Archived = true;
+            }
+            else if (_dakFolderService.Is_Locally_DakTagged(dakListInboxRecordsDTO.dak_user.dak_id) != null)
+            {
+                List<int> ids = _dakFolderService.Is_Locally_DakTagged(dakListInboxRecordsDTO.dak_user.dak_id);
+                dakInboxUserControl.is_Tag = true;
+
+                dakListInboxRecordsDTO.dak_Tags = GetLocalDakTag(ids, dakListInboxRecordsDTO.dak_user);
+                dakInboxUserControl.dak_Tags = dakListInboxRecordsDTO.dak_Tags;
+
+            }
+            else
+            {
+                dakInboxUserControl.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakInboxUserControl.DakArchiveButtonClick += delegate (object sender, EventArgs e) { DakArchive_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakInboxUserControl.DakAttachmentButton += delegate (object sender, EventArgs e) { DakAttachmentShow_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+                dakInboxUserControl.NothijatoButtonClick += delegate (object sender, EventArgs e) { Nothitejato_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+
+                dakInboxUserControl.DakTagButtonCLick += delegate (object sender, EventArgs e) { DakTag_ButtonClick(sender, e, dakInboxUserControl.dakid, dakListInboxRecordsDTO.dak_Tags, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.is_copied_dak); };
+
+
+                dakInboxUserControl.CheckBoxClick += delegate (object sender, EventArgs e) { SelectorUnselectSingleDak(); };
+
+            }
+
+            dakInboxUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak, dakListInboxRecordsDTO, dakCatagoryList); };
+
+
+            dakInboxUserControl.dak = dakListInboxRecordsDTO;
+            dakInboxUserControl.DakTagShowButtonCLick += delegate (object sender, EventArgs e) { DakTagShow_ButtonClick(dakListInboxRecordsDTO.dak_Tags); };
+
+            UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, dakInboxUserControl);
+
+
+
+
+        }
+
+        private void SetDakCategory(SingleDakUserControl dakInboxUserControl, DakCatagoryList dakCatagoryList)
+        {
+           if(dakCatagoryList._isArchived)
+            {
+                dakInboxUserControl.IsArchivedDak = true;
+            }
+           else if (dakCatagoryList._isInbox)
+            {
+                dakInboxUserControl.IsInboxDak = true;
+            }
+            else if (dakCatagoryList._isOutbox)
+            {
+                dakInboxUserControl.IsOutboxDak = true;
+            }
+            else if (dakCatagoryList._isKhosra)
+            {
+                dakInboxUserControl.IsDraftedDak = true;
+            }
+            else if (dakCatagoryList._isNothijato)
+            {
+                dakInboxUserControl.IsNothijatoDak = true;
+            }
+            else if (dakCatagoryList._isNothivukto)
+            {
+                dakInboxUserControl.IsNothivuktoDak = true;
+            }
+            else if (dakCatagoryList._isSorted)
+            {
+                dakInboxUserControl.IsSortedDak = true;
+            }
+            
         }
 
         private void Nothitejato_ButtonClick(object sender, EventArgs e, int dakid, string dak_type, string dak_subject, int is_copied_dak)
@@ -4128,11 +4253,11 @@ namespace dNothi.Desktop.UI
 
         private void SelectorUnselectDak(bool isChecked)
         {
-            var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakInboxUserControl>().ToList();
+            var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<SingleDakUserControl>().ToList();
 
             if (dakInboxUserControls.Count > 0)
             {
-                foreach (DakInboxUserControl dakInboxUser in dakInboxUserControls)
+                foreach (SingleDakUserControl dakInboxUser in dakInboxUserControls)
                 {
                     dakInboxUser.isChecked = isChecked;
                 }
@@ -4142,7 +4267,7 @@ namespace dNothi.Desktop.UI
         private void SelectorUnselectSingleDak()
         {
             MyToolTip.SetToolTip(multipleDakForwardButton, "ডাক প্রেরণ করুন");
-            var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakInboxUserControl>().ToList();
+            var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<SingleDakUserControl>().ToList();
 
             if (dakInboxUserControls.Count > 0)
             {
@@ -4354,7 +4479,7 @@ namespace dNothi.Desktop.UI
             LoadDetailsOffice();
             LoadDetailsOfficer();
             dakBacaikaranUsersDataLoad();
-            
+            RefreshHideAndShow();
 
 
             DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
@@ -4417,6 +4542,16 @@ namespace dNothi.Desktop.UI
 
 
 
+        }
+
+        private void RefreshHideAndShow()
+        {
+            senderShowHideCheckBox.Checked = HideAndShowData.sender;
+            mainReceiverShowHideCheckBox.Checked = HideAndShowData.mainReceiver;
+            subShowHideCheckBox.Checked = HideAndShowData.subject;
+            decisionShowHideCheckBox.Checked = HideAndShowData.decision;
+            dateShowHideCheckBox.Checked = HideAndShowData.dateAndAttachment;
+            folderShowHideCheckBox.Checked = HideAndShowData.folder;
         }
 
         private void RefreshPagination()
@@ -5588,6 +5723,74 @@ namespace dNothi.Desktop.UI
         private void dakFilterClick(object sender, EventArgs e)
         {
            FilterDakList();
+        }
+
+        private void infoHideShowButton_Click(object sender, EventArgs e)
+        {
+            if (!showHideInfoPanel.Visible)
+            {
+                Point locationOnForm = infoHideShowButton.FindForm().PointToClient(infoHideShowButton.Parent.PointToScreen(infoHideShowButton.Location));
+
+                infoHideShowButton.BackColor = Color.WhiteSmoke;
+                showHideInfoPanel.Location = new Point(locationOnForm.X, locationOnForm.Y + infoHideShowButton.Height);
+                showHideInfoPanel.Visible = true;
+
+
+            }
+            else
+            {
+                infoHideShowButton.BackColor = Color.White;
+                showHideInfoPanel.Visible = false;
+            }
+        }
+
+        private void senderShowHideCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            HideAndShowData.sender = senderShowHideCheckBox.Checked;
+            ChangeShowHideCheckBox();
+
+        }
+
+        private void ChangeShowHideCheckBox()
+        {
+            var singleDakControls = dakBodyFlowLayoutPanel.Controls.OfType<SingleDakUserControl>().ToList();
+            if (singleDakControls != null && singleDakControls.Count > 0)
+            {
+                foreach (var singleDak in singleDakControls)
+                {
+                    singleDak.HideAndShow();
+                }
+            }
+        }
+
+        private void mainReceiverShowHideCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            HideAndShowData.mainReceiver = mainReceiverShowHideCheckBox.Checked;
+            ChangeShowHideCheckBox();
+        }
+
+        private void subShowHideCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            HideAndShowData.subject = subShowHideCheckBox.Checked;
+            ChangeShowHideCheckBox();
+        }
+
+        private void decisionShowHideCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            HideAndShowData.decision = decisionShowHideCheckBox.Checked;
+            ChangeShowHideCheckBox();
+        }
+
+        private void dateShowHideCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            HideAndShowData.dateAndAttachment = dateShowHideCheckBox.Checked;
+            ChangeShowHideCheckBox();
+        }
+
+        private void folderShowHideCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            HideAndShowData.folder = folderShowHideCheckBox.Checked;
+            ChangeShowHideCheckBox();
         }
     }
 
