@@ -9168,11 +9168,21 @@ namespace dNothi.Desktop.UI
         }
         private void btnNothiNoteMovementList_Click(object sender, EventArgs e)
         {
-            NothiNoteMovementList form = new NothiNoteMovementList();
-            //var nothiNoteMovementListform = AttachNothiGuidelinesControlToForm(form);
-            //CalPopUpWindow(nothiNoteMovementListform);
-            var nothiNoteMovementListform = NothiNextStepControlToForm(form);
-            CalPopUpWindow(nothiNoteMovementListform);
+            if (InternetConnection.Check())
+            {
+                _dakuserparam.limit = 10;
+                var nothiMovements = _nothiInboxNote.GetNoteMovements(_dakuserparam, _NoteAllListDataRecordDTO.nothi.id.ToString(), _NoteAllListDataRecordDTO.note.nothi_note_id.ToString());
+
+                NothiNoteMovementList form = new NothiNoteMovementList();
+                form.loadNoteMovement(nothiMovements);
+                var nothiNoteMovementListform = NothiNextStepControlToForm(form);
+                CalPopUpWindow(nothiNoteMovementListform);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+
         }
 
         private void btnAllAttachement_Click(object sender, EventArgs e)
