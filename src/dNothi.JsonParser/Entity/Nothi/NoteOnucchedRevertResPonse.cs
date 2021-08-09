@@ -12,4 +12,9 @@ namespace dNothi.JsonParser.Entity.Nothi
         public string data { get; set; }
         public string message { get; set; }
     }
+    public class NoteFinishedResponse
+    {
+        public string status { get; set; }
+        public string message { get; set; }
+    }
 }
