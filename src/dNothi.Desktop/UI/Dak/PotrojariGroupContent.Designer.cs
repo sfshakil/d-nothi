@@ -30,17 +30,25 @@ namespace dNothi.Desktop.UI.Dak
         private void InitializeComponent()
         {
             this.contentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.totalUserlabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.allCheckBox = new System.Windows.Forms.CheckBox();
+            this.nCheckBox = new System.Windows.Forms.CheckBox();
+            this.nameCheckBox = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.namePanel = new System.Windows.Forms.Panel();
+            this.nameTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.perPageRowLabel = new System.Windows.Forms.Label();
             this.totalLabel = new System.Windows.Forms.Label();
             this.PreviousIconButton = new FontAwesome.Sharp.IconButton();
             this.nextIconButton = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.DetailsIconButton = new FontAwesome.Sharp.IconButton();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btnTotalPerson = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbNoteNumber = new System.Windows.Forms.Label();
             this.detailsPanel = new System.Windows.Forms.Panel();
@@ -51,9 +59,9 @@ namespace dNothi.Desktop.UI.Dak
             this.btnEdit = new FontAwesome.Sharp.IconButton();
             this.contentTableLayoutPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.namePanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.detailsPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -63,14 +71,14 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.contentTableLayoutPanel.AutoSize = true;
             this.contentTableLayoutPanel.ColumnCount = 5;
-            this.contentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.contentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.contentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.contentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.contentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.contentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.contentTableLayoutPanel.Controls.Add(this.totalUserlabel, 2, 0);
             this.contentTableLayoutPanel.Controls.Add(this.tableLayoutPanel1, 1, 1);
             this.contentTableLayoutPanel.Controls.Add(this.panel6, 0, 0);
-            this.contentTableLayoutPanel.Controls.Add(this.panel5, 2, 0);
             this.contentTableLayoutPanel.Controls.Add(this.panel3, 4, 0);
             this.contentTableLayoutPanel.Controls.Add(this.detailsPanel, 1, 0);
             this.contentTableLayoutPanel.Controls.Add(this.panel2, 3, 0);
@@ -81,37 +89,158 @@ namespace dNothi.Desktop.UI.Dak
             this.contentTableLayoutPanel.RowCount = 2;
             this.contentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.contentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.contentTableLayoutPanel.Size = new System.Drawing.Size(887, 118);
+            this.contentTableLayoutPanel.Size = new System.Drawing.Size(887, 310);
             this.contentTableLayoutPanel.TabIndex = 0;
+            // 
+            // totalUserlabel
+            // 
+            this.totalUserlabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.totalUserlabel.AutoSize = true;
+            this.totalUserlabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.totalUserlabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalUserlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.totalUserlabel.Location = new System.Drawing.Point(665, 23);
+            this.totalUserlabel.Name = "totalUserlabel";
+            this.totalUserlabel.Size = new System.Drawing.Size(78, 18);
+            this.totalUserlabel.TabIndex = 71;
+            this.totalUserlabel.Text = "মোট সদস্য: ৫";
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnCount = 2;
             this.contentTableLayoutPanel.SetColumnSpan(this.tableLayoutPanel1, 4);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.allCheckBox, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.nCheckBox, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.nameCheckBox, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.namePanel, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(83, 68);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 10;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(801, 46);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(801, 239);
             this.tableLayoutPanel1.TabIndex = 2;
             this.tableLayoutPanel1.Visible = false;
+            // 
+            // allCheckBox
+            // 
+            this.allCheckBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.allCheckBox.AutoSize = true;
+            this.allCheckBox.Location = new System.Drawing.Point(12, 191);
+            this.allCheckBox.Margin = new System.Windows.Forms.Padding(4);
+            this.allCheckBox.Name = "allCheckBox";
+            this.allCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.allCheckBox.TabIndex = 14;
+            this.allCheckBox.UseVisualStyleBackColor = true;
+            this.allCheckBox.Visible = false;
+            this.allCheckBox.CheckedChanged += new System.EventHandler(this.allCheckBox_CheckedChanged);
+            this.allCheckBox.CheckStateChanged += new System.EventHandler(this.allCheckBox_CheckStateChanged);
+            // 
+            // nCheckBox
+            // 
+            this.nCheckBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nCheckBox.AutoSize = true;
+            this.nCheckBox.Location = new System.Drawing.Point(12, 133);
+            this.nCheckBox.Margin = new System.Windows.Forms.Padding(4);
+            this.nCheckBox.Name = "nCheckBox";
+            this.nCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.nCheckBox.TabIndex = 16;
+            this.nCheckBox.UseVisualStyleBackColor = true;
+            this.nCheckBox.Visible = false;
+            // 
+            // nameCheckBox
+            // 
+            this.nameCheckBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.nameCheckBox.AutoSize = true;
+            this.nameCheckBox.Location = new System.Drawing.Point(12, 90);
+            this.nameCheckBox.Name = "nameCheckBox";
+            this.nameCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.nameCheckBox.TabIndex = 15;
+            this.nameCheckBox.UseVisualStyleBackColor = true;
+            this.nameCheckBox.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("SolaimanLipi", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label4.Location = new System.Drawing.Point(44, 188);
+            this.label4.Margin = new System.Windows.Forms.Padding(4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(126, 21);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "সকলকে বাছাই করুন";
+            this.label4.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label3, 3);
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label3.Location = new System.Drawing.Point(4, 159);
+            this.label3.Margin = new System.Windows.Forms.Padding(4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 21);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "ব্যবহারকারী";
+            this.label3.Visible = false;
+            // 
+            // namePanel
+            // 
+            this.namePanel.AutoSize = true;
+            this.namePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.namePanel.Controls.Add(this.nameTextBox);
+            this.namePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.namePanel.Location = new System.Drawing.Point(44, 73);
+            this.namePanel.Margin = new System.Windows.Forms.Padding(4);
+            this.namePanel.Name = "namePanel";
+            this.namePanel.Size = new System.Drawing.Size(753, 49);
+            this.namePanel.TabIndex = 10;
+            this.namePanel.Visible = false;
+            this.namePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.namePanel_Paint);
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.nameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nameTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameTextBox.Location = new System.Drawing.Point(9, 15);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.PlaceholderText = "জারিকৃত পত্রে যে নাম দেখাবে";
+            this.nameTextBox.Size = new System.Drawing.Size(700, 19);
+            this.nameTextBox.TabIndex = 3;
+            this.nameTextBox.Visible = false;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.AutoSize = true;
             this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel2, 2);
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 43);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 216);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -124,6 +253,7 @@ namespace dNothi.Desktop.UI.Dak
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
             this.panel1.Controls.Add(this.perPageRowLabel);
             this.panel1.Controls.Add(this.totalLabel);
             this.panel1.Controls.Add(this.PreviousIconButton);
@@ -199,6 +329,34 @@ namespace dNothi.Desktop.UI.Dak
             this.nextIconButton.UseVisualStyleBackColor = false;
             this.nextIconButton.Click += new System.EventHandler(this.nextIconButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.label1, 3);
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(4, 44);
+            this.label1.Margin = new System.Windows.Forms.Padding(4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(179, 21);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "জারিকৃত পত্রে যে নাম দেখাবে";
+            this.label1.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("SolaimanLipi", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.Location = new System.Drawing.Point(44, 130);
+            this.label2.Margin = new System.Windows.Forms.Padding(4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(172, 21);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "নির্বাচিত ব্যবহারকারীদের নাম";
+            this.label2.Visible = false;
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -227,41 +385,6 @@ namespace dNothi.Desktop.UI.Dak
             this.DetailsIconButton.TabIndex = 7;
             this.DetailsIconButton.UseVisualStyleBackColor = false;
             this.DetailsIconButton.Click += new System.EventHandler(this.DetailsIconButton_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.btnTotalPerson);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(626, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Padding = new System.Windows.Forms.Padding(5, 10, 5, 20);
-            this.panel5.Size = new System.Drawing.Size(120, 65);
-            this.panel5.TabIndex = 4;
-            this.panel5.MouseLeave += new System.EventHandler(this.detailsPanel_MouseLeave);
-            this.panel5.MouseHover += new System.EventHandler(this.detailsPanel_MouseHover);
-            // 
-            // btnTotalPerson
-            // 
-            this.btnTotalPerson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.btnTotalPerson.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnTotalPerson.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.btnTotalPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTotalPerson.Font = new System.Drawing.Font("SolaimanLipi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTotalPerson.ForeColor = System.Drawing.Color.White;
-            this.btnTotalPerson.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnTotalPerson.IconColor = System.Drawing.SystemColors.Window;
-            this.btnTotalPerson.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnTotalPerson.IconSize = 20;
-            this.btnTotalPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTotalPerson.Location = new System.Drawing.Point(5, 10);
-            this.btnTotalPerson.Margin = new System.Windows.Forms.Padding(0);
-            this.btnTotalPerson.Name = "btnTotalPerson";
-            this.btnTotalPerson.Size = new System.Drawing.Size(110, 29);
-            this.btnTotalPerson.TabIndex = 70;
-            this.btnTotalPerson.Text = "মোট সদস্য: ৫";
-            this.btnTotalPerson.UseVisualStyleBackColor = false;
-            this.btnTotalPerson.Click += new System.EventHandler(this.btnTotalPerson_Click);
             // 
             // panel3
             // 
@@ -298,7 +421,7 @@ namespace dNothi.Desktop.UI.Dak
             this.detailsPanel.Location = new System.Drawing.Point(80, 0);
             this.detailsPanel.Margin = new System.Windows.Forms.Padding(0);
             this.detailsPanel.Name = "detailsPanel";
-            this.detailsPanel.Size = new System.Drawing.Size(546, 65);
+            this.detailsPanel.Size = new System.Drawing.Size(582, 65);
             this.detailsPanel.TabIndex = 0;
             this.detailsPanel.MouseLeave += new System.EventHandler(this.detailsPanel_MouseLeave);
             this.detailsPanel.MouseHover += new System.EventHandler(this.detailsPanel_MouseHover);
@@ -346,6 +469,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // btnDelete
             // 
+            this.btnDelete.AutoSize = true;
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btnDelete.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnDelete.FlatAppearance.BorderSize = 0;
@@ -366,6 +490,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // btnEdit
             // 
+            this.btnEdit.AutoSize = true;
             this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnEdit.FlatAppearance.BorderSize = 0;
@@ -393,19 +518,21 @@ namespace dNothi.Desktop.UI.Dak
             this.Controls.Add(this.contentTableLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "PotrojariGroupContent";
-            this.Size = new System.Drawing.Size(887, 118);
+            this.Size = new System.Drawing.Size(887, 310);
             this.contentTableLayoutPanel.ResumeLayout(false);
             this.contentTableLayoutPanel.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.namePanel.ResumeLayout(false);
+            this.namePanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.detailsPanel.ResumeLayout(false);
             this.detailsPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -419,9 +546,7 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Label lbDetails;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel3;
-        private FontAwesome.Sharp.IconButton btnTotalPerson;
         private System.Windows.Forms.Label lbNoteNumber;
         private FontAwesome.Sharp.IconButton btnDelete;
         private FontAwesome.Sharp.IconButton btnEdit;
@@ -433,5 +558,15 @@ namespace dNothi.Desktop.UI.Dak
         private FontAwesome.Sharp.IconButton PreviousIconButton;
         private FontAwesome.Sharp.IconButton nextIconButton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel namePanel;
+        private PlaceholderTextBox.PlaceholderTextBox nameTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.CheckBox allCheckBox;
+        private System.Windows.Forms.CheckBox nCheckBox;
+        private System.Windows.Forms.CheckBox nameCheckBox;
+        private System.Windows.Forms.Label totalUserlabel;
     }
 }

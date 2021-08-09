@@ -50,12 +50,20 @@ namespace dNothi.Services.NothiReportService
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("cdesk", "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"" + userParam.office_unit + "\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\"}");
                 request.AddParameter("page", userParam.page);
-                request.AddParameter("limit",userParam.limit);
-                request.AddParameter("start_date", fromDate);
-                request.AddParameter("end_date", toDate);
-                request.AddParameter("unit_id", unitid);
-               
+                request.AddParameter("length", userParam.limit);
+                //request.AddParameter("start_date", fromDate);
+                //request.AddParameter("end_date", toDate);
+                // request.AddParameter("unit_id", unitid);
+                string search_params = "office_unit_id=" + unitid + "&last_modified_date=" + fromDate + ":" + toDate + "";
+              
+                request.AddParameter("search_params", search_params);
+
+                //request.AddParameter("search_params", "office_unit_id = 0 & last_modified_date = 2021/07/06:2021/08/04");
+
+                //[search_params] => office_unit_id = 0 & last_modified_date = 2021 / 07 / 06:2021 / 08 / 04
+
                 IRestResponse Response = Api.Execute(request);
+
                 var responseJson = Response.Content;
                 SaveLocalNothiRegisterBook(responseJson,userParam, fromDate, toDate, unitid, nrb, dnc, dnd);
                  nothiRegisterReport = JsonConvert.DeserializeObject<NothiRegisterReport>(responseJson);
