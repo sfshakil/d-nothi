@@ -39,8 +39,8 @@ namespace dNothi.Services.KasaraPatraDashBoardService
               
                 IRestResponse Response = Api.Execute(request);
                 var responseJson = Response.Content;
-               
 
+                responseJson = responseJson.Replace("\"recipient\":[]","\"recipient\":\"\"");
                 KasaraPotro nothikhoshrapotrolist = JsonConvert.DeserializeObject<KasaraPotro>(responseJson, NullDeserializeSetting());
                 return nothikhoshrapotrolist;
             }
@@ -69,7 +69,7 @@ namespace dNothi.Services.KasaraPatraDashBoardService
 
 
                 var responseJson = Response.Content;
-
+                responseJson = responseJson.Replace("\"data\":[]", "\"data\":\"\"");
                 PrapakerTalika nothikhoshrapotrolist = JsonConvert.DeserializeObject<PrapakerTalika>(responseJson, NullDeserializeSetting());
                 return nothikhoshrapotrolist;
             }

@@ -35,16 +35,32 @@
       extended_valid_elements: "a[name|href|target|title|onclick],img[class|src|border=0|alt|title|hspace|vspace|width|height|align|onmouseover|onmouseout|name],hr[class|width|size|noshade],font[face|size|color|style],span[class|align|style]"
 
      
-    
 
     });
+   
+    
   </script>
 <!-- /TinyMCE -->
 
 <body>
   <form method="post">
     <!-- Gets replaced with TinyMCE, remember HTML in a textarea should be encoded -->
+    
 	  <textarea name="tinyMceEditor" cols="1" rows="1" style="width:100%; height: 100%"></textarea>
   </form>
+
+  <script type="text/javascript">
+  
+  $(document).ready(function(){
+
+   alert(1);
+    $('#sovapoti_name').change(function() {
+         alert("call");
+    });
+  
+   });
+
+
+  </Script>
 </body>
 </html>

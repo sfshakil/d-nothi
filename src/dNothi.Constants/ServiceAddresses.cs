@@ -117,6 +117,7 @@ namespace dNothi.Constants
         public const string NothiBibechhoPotroListEndpoint = "/api/nothi_all_potro_list";
         public const string NothiOnuchhedListEndpoint = "/api/nothi/onucched/list";
         public const string NothiPotakaListEndpoint = "/api/nothi/potaka/list";
+        public const string NoteFinishedEndPoint = "/api/nothi/note/finish";
 
 
 

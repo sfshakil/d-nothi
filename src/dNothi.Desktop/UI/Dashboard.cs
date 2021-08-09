@@ -2377,8 +2377,8 @@ namespace dNothi.Desktop.UI
 
             dakTagPanel.Visible = false;
 
-            //bodyTableLayoutPanel.RowStyles[6] = new RowStyle(SizeType.Percent);
-            //bodyTableLayoutPanel.RowStyles[6].Height = 100;
+            bodyTableLayoutPanel.RowStyles[6] = new RowStyle(SizeType.Percent);
+            bodyTableLayoutPanel.RowStyles[6].Height = 100;
             selectDakBoxHolderPanel.Visible = false;
             noDakTableLayoutPanel.Visible = false;
             multipleSelectionPanel.Visible = false;

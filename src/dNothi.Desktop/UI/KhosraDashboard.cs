@@ -311,8 +311,12 @@ namespace dNothi.Desktop.UI
                     commonKhosraRowUserControl.sharokNo = item.Basic.SarokNo +" "+ (item.NoteOwner!=null?item.NoteOwner.NothiSubject:"");
                     commonKhosraRowUserControl.sub = item.Basic.PotroSubject;
                     commonKhosraRowUserControl.date = item.Basic.Modified;
-                    commonKhosraRowUserControl.approver = item.Recipient.Approver.Select(x=>x.Officer+", "+x.Designation).FirstOrDefault();
-                    commonKhosraRowUserControl.sender = item.Recipient.Sender.Select(x => x.Officer + ", " + x.Designation).FirstOrDefault();
+                    if(item.Recipient !=null)
+                    {
+                        commonKhosraRowUserControl.approver = item.Recipient.Approver.Select(x => x.Officer + ", " + x.Designation).FirstOrDefault();
+                        commonKhosraRowUserControl.sender = item.Recipient.Sender.Select(x => x.Officer + ", " + x.Designation).FirstOrDefault();
+
+                    }
                     commonKhosraRowUserControl.daran = item.Basic.NoteOnucchedId>0?"অনুচ্ছেদ":"খসড়া";
                     commonKhosraRowUserControl.ButtonVisibility(subcontrol.Item1, subcontrol.Item2, subcontrol.Item3);
                     commonKhosraRowUserControl.kasaraPotterNam = item.Basic.PotroTypeName;
@@ -431,8 +435,8 @@ namespace dNothi.Desktop.UI
         }
         private void commonKhosraRowUserControl_sampadanButtonClick(object sender, EventArgs e, KasaraPotro.Record kasaraPotro, (NoteListDataRecordNoteDTO, NothiListRecordsDTO, NothiListInboxNoteRecordsDTO) mapmodel)
         {
+            
 
-           
             var khosra = FormFactory.Create<Khosra>();
             var dakListUserParam = _userService.GetLocalDakUserParam();
             dakListUserParam.limit = 10;
@@ -473,7 +477,8 @@ namespace dNothi.Desktop.UI
 
             khosra._khasraPotroTemplateData = khasraPotroTemplateData;
         
-
+            khosra._dakSecurity= Convert.ToInt32(kasaraPotro.Basic.PotroSecurityLevel);
+            khosra._dakPriority= Convert.ToInt32(kasaraPotro.Basic.PotroSecurityLevel);
 
 
             if (prapakerTalika.status == "success")
@@ -482,12 +487,15 @@ namespace dNothi.Desktop.UI
               
                 khosra.LoadAllDesignation();
                
-               
+                if(prapakerTalika != null && prapakerTalika.data != null)
+                {
                 khosra.onulipiOfficerDesignations = prapakerTalika.data.onulipi;
                 khosra.onumodanKariOfficerDesignations = prapakerTalika.data.approver;
                 khosra.prapakOfficerDesignations = prapakerTalika.data.receiver;
                 khosra.prerokOfficerDesignations = prapakerTalika.data.sender;
                 khosra.attensionOfficerDesignations = prapakerTalika.data.attention;
+                }
+               
             }
             //this.ShowInTaskbar = false;
             UIDesignCommonMethod.returnForm = this;
