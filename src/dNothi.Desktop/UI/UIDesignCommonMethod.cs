@@ -18,6 +18,7 @@ namespace dNothi.Desktop.UI
 {
    public class UIDesignCommonMethod
     {
+        
         public static PrapokDTO GetMulPrapokForOwnDesk(DakUserParam dak_List_User_Param)
         {
             PrapokDTO prapokDTO = new PrapokDTO();
@@ -41,6 +42,9 @@ namespace dNothi.Desktop.UI
             prapokDTO.office_unit_code = dak_List_User_Param.unit_id.ToString();
             return prapokDTO;
         }
+
+       
+
         public static Form returnForm { get; set; }
         public static void RightSideWindowSet(Form form)
         {
@@ -724,4 +728,6 @@ namespace dNothi.Desktop.UI
             searchtoTreeView.EndUpdate();
         }
     }
+
+   
 }

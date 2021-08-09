@@ -19,6 +19,7 @@ using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Services.SyncServices;
 using System.Diagnostics;
 using Microsoft.Win32;
+using dNothi.Utility;
 
 namespace dNothi.Desktop.UI
 {
@@ -97,12 +98,16 @@ namespace dNothi.Desktop.UI
                     SaveOrUpdateToken(resmessage?.data?.token);
 
                     DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
-                   // _syncerservice.SyncDak(dakUserParam);
+                    // _syncerservice.SyncDak(dakUserParam);
+
+
+                    HideAndSHow();
 
                     this.Hide();
                     var form = FormFactory.Create<Dashboard>();
 
                     form.ShowDialog();
+
 
                 }
                 else
@@ -128,7 +133,12 @@ namespace dNothi.Desktop.UI
 
             }
         }
-      
+
+        private void HideAndSHow()
+        {
+            HideAndShowData.Refresh();
+        }
+
         private void SaveOrUpdateToken(string token)
         {
             _userService.SaveOrUpdateToken(token);

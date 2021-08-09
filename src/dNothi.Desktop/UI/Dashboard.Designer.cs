@@ -218,6 +218,13 @@
             this.label14 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button11 = new System.Windows.Forms.Button();
+            this.showHideInfoPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.folderShowHideCheckBox = new System.Windows.Forms.CheckBox();
+            this.dateShowHideCheckBox = new System.Windows.Forms.CheckBox();
+            this.decisionShowHideCheckBox = new System.Windows.Forms.CheckBox();
+            this.subShowHideCheckBox = new System.Windows.Forms.CheckBox();
+            this.mainReceiverShowHideCheckBox = new System.Windows.Forms.CheckBox();
+            this.senderShowHideCheckBox = new System.Windows.Forms.CheckBox();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
@@ -272,6 +279,7 @@
             this.modulePanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.showHideInfoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -572,7 +580,7 @@
             this.folderName.Margin = new System.Windows.Forms.Padding(0);
             this.folderName.Name = "folderName";
             this.folderName.Padding = new System.Windows.Forms.Padding(0, 6, 0, 5);
-            this.folderName.Size = new System.Drawing.Size(0, 29);
+            this.folderName.Size = new System.Drawing.Size(0, 32);
             this.folderName.TabIndex = 33;
             this.folderName.Tag = "FolderName";
             this.folderName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -596,6 +604,7 @@
             this.infoHideShowButton.TabIndex = 32;
             this.MyToolTip.SetToolTip(this.infoHideShowButton, "তথ্য গোপন / প্রদর্শন");
             this.infoHideShowButton.UseVisualStyleBackColor = false;
+            this.infoHideShowButton.Click += new System.EventHandler(this.infoHideShowButton_Click);
             // 
             // RefreshButton
             // 
@@ -987,12 +996,12 @@
             this.tableLayoutPanel3.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.calenderIconPictureBox, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(248, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(237, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(109, 41);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(120, 41);
             this.tableLayoutPanel3.TabIndex = 1;
             this.tableLayoutPanel3.Click += new System.EventHandler(this.dateRangeSelect_Click);
             // 
@@ -1005,7 +1014,7 @@
             this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBox2.IconSize = 19;
-            this.iconPictureBox2.Location = new System.Drawing.Point(87, 11);
+            this.iconPictureBox2.Location = new System.Drawing.Point(98, 11);
             this.iconPictureBox2.Name = "iconPictureBox2";
             this.iconPictureBox2.Size = new System.Drawing.Size(19, 19);
             this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -1019,9 +1028,9 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(3, 11);
+            this.label10.Location = new System.Drawing.Point(3, 10);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 18);
+            this.label10.Size = new System.Drawing.Size(65, 21);
             this.label10.TabIndex = 1;
             this.label10.Text = "সময়সীমা";
             this.label10.Click += new System.EventHandler(this.dateRangeSelect_Click);
@@ -1035,7 +1044,7 @@
             this.calenderIconPictureBox.IconColor = System.Drawing.SystemColors.Highlight;
             this.calenderIconPictureBox.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.calenderIconPictureBox.IconSize = 24;
-            this.calenderIconPictureBox.Location = new System.Drawing.Point(60, 8);
+            this.calenderIconPictureBox.Location = new System.Drawing.Point(71, 8);
             this.calenderIconPictureBox.Margin = new System.Windows.Forms.Padding(0);
             this.calenderIconPictureBox.Name = "calenderIconPictureBox";
             this.calenderIconPictureBox.Size = new System.Drawing.Size(24, 24);
@@ -1053,7 +1062,7 @@
             this.dateRangeTextBox.Location = new System.Drawing.Point(8, 11);
             this.dateRangeTextBox.Name = "dateRangeTextBox";
             this.dateRangeTextBox.PlaceholderText = "সময়সীমা";
-            this.dateRangeTextBox.Size = new System.Drawing.Size(237, 19);
+            this.dateRangeTextBox.Size = new System.Drawing.Size(226, 19);
             this.dateRangeTextBox.TabIndex = 4;
             // 
             // panel8
@@ -1140,7 +1149,7 @@
             this.searchDakStatusComboBox.FormattingEnabled = true;
             this.searchDakStatusComboBox.Location = new System.Drawing.Point(3, 3);
             this.searchDakStatusComboBox.Name = "searchDakStatusComboBox";
-            this.searchDakStatusComboBox.Size = new System.Drawing.Size(209, 26);
+            this.searchDakStatusComboBox.Size = new System.Drawing.Size(209, 29);
             this.searchDakStatusComboBox.TabIndex = 2;
             // 
             // searchDakPotroTypeComboBox
@@ -1157,7 +1166,7 @@
             this.searchDakPotroTypeComboBox.Location = new System.Drawing.Point(218, 3);
             this.searchDakPotroTypeComboBox.MaxLength = 10;
             this.searchDakPotroTypeComboBox.Name = "searchDakPotroTypeComboBox";
-            this.searchDakPotroTypeComboBox.Size = new System.Drawing.Size(209, 26);
+            this.searchDakPotroTypeComboBox.Size = new System.Drawing.Size(209, 29);
             this.searchDakPotroTypeComboBox.TabIndex = 3;
             // 
             // searchDakSecurityComboBox
@@ -1170,7 +1179,7 @@
             this.searchDakSecurityComboBox.FormattingEnabled = true;
             this.searchDakSecurityComboBox.Location = new System.Drawing.Point(433, 3);
             this.searchDakSecurityComboBox.Name = "searchDakSecurityComboBox";
-            this.searchDakSecurityComboBox.Size = new System.Drawing.Size(209, 26);
+            this.searchDakSecurityComboBox.Size = new System.Drawing.Size(209, 29);
             this.searchDakSecurityComboBox.TabIndex = 5;
             // 
             // searchDakPriorityComboBox
@@ -1183,7 +1192,7 @@
             this.searchDakPriorityComboBox.FormattingEnabled = true;
             this.searchDakPriorityComboBox.Location = new System.Drawing.Point(648, 3);
             this.searchDakPriorityComboBox.Name = "searchDakPriorityComboBox";
-            this.searchDakPriorityComboBox.Size = new System.Drawing.Size(209, 26);
+            this.searchDakPriorityComboBox.Size = new System.Drawing.Size(209, 29);
             this.searchDakPriorityComboBox.TabIndex = 6;
             // 
             // searchDakTypeComboBox
@@ -1196,7 +1205,7 @@
             this.searchDakTypeComboBox.FormattingEnabled = true;
             this.searchDakTypeComboBox.Location = new System.Drawing.Point(863, 3);
             this.searchDakTypeComboBox.Name = "searchDakTypeComboBox";
-            this.searchDakTypeComboBox.Size = new System.Drawing.Size(209, 26);
+            this.searchDakTypeComboBox.Size = new System.Drawing.Size(209, 29);
             this.searchDakTypeComboBox.TabIndex = 4;
             // 
             // searchOfficeDetailSearch
@@ -1212,7 +1221,7 @@
             this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
             this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
             this.searchOfficeDetailSearch.selectedId = 0;
-            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 44);
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 52);
             this.searchOfficeDetailSearch.TabIndex = 53;
             // 
             // officerSearchList
@@ -1228,7 +1237,7 @@
             this.officerSearchList.Name = "officerSearchList";
             this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
             this.officerSearchList.selectedId = 0;
-            this.officerSearchList.Size = new System.Drawing.Size(516, 44);
+            this.officerSearchList.Size = new System.Drawing.Size(516, 52);
             this.officerSearchList.TabIndex = 52;
             // 
             // label11
@@ -1524,9 +1533,9 @@
             "অপঠিত",
             "মূল-প্রাপক",
             " অনুলিপি"});
-            this.searchThirdPartyComboBox.Location = new System.Drawing.Point(3, 9);
+            this.searchThirdPartyComboBox.Location = new System.Drawing.Point(3, 7);
             this.searchThirdPartyComboBox.Name = "searchThirdPartyComboBox";
-            this.searchThirdPartyComboBox.Size = new System.Drawing.Size(271, 26);
+            this.searchThirdPartyComboBox.Size = new System.Drawing.Size(271, 29);
             this.searchThirdPartyComboBox.TabIndex = 54;
             this.searchThirdPartyComboBox.Text = "সকল ";
             // 
@@ -1549,9 +1558,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(818, 0);
+            this.label9.Location = new System.Drawing.Point(809, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 29);
+            this.label9.Size = new System.Drawing.Size(61, 29);
             this.label9.TabIndex = 33;
             this.label9.Text = "পার্টনার: ";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3294,7 +3303,7 @@
             this.dakTagListBox.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakTagListBox.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.dakTagListBox.FormattingEnabled = true;
-            this.dakTagListBox.ItemHeight = 21;
+            this.dakTagListBox.ItemHeight = 25;
             this.dakTagListBox.Location = new System.Drawing.Point(5, 5);
             this.dakTagListBox.Name = "dakTagListBox";
             this.dakTagListBox.Size = new System.Drawing.Size(143, 86);
@@ -3458,7 +3467,7 @@
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(115, 36);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(107, 24);
+            this.label14.Size = new System.Drawing.Size(130, 27);
             this.label14.TabIndex = 0;
             this.label14.Text = "অন্যান্য মডিউল";
             // 
@@ -3479,6 +3488,157 @@
             this.button11.Size = new System.Drawing.Size(37, 52);
             this.button11.TabIndex = 14;
             this.button11.UseVisualStyleBackColor = false;
+            // 
+            // showHideInfoPanel
+            // 
+            this.showHideInfoPanel.BackColor = System.Drawing.Color.Gainsboro;
+            this.showHideInfoPanel.ColumnCount = 1;
+            this.showHideInfoPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.showHideInfoPanel.Controls.Add(this.folderShowHideCheckBox, 0, 5);
+            this.showHideInfoPanel.Controls.Add(this.dateShowHideCheckBox, 0, 4);
+            this.showHideInfoPanel.Controls.Add(this.decisionShowHideCheckBox, 0, 3);
+            this.showHideInfoPanel.Controls.Add(this.subShowHideCheckBox, 0, 2);
+            this.showHideInfoPanel.Controls.Add(this.mainReceiverShowHideCheckBox, 0, 1);
+            this.showHideInfoPanel.Controls.Add(this.senderShowHideCheckBox, 0, 0);
+            this.showHideInfoPanel.Location = new System.Drawing.Point(526, 166);
+            this.showHideInfoPanel.Name = "showHideInfoPanel";
+            this.showHideInfoPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.showHideInfoPanel.RowCount = 6;
+            this.showHideInfoPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.showHideInfoPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.showHideInfoPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.showHideInfoPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.showHideInfoPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.showHideInfoPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.showHideInfoPanel.Size = new System.Drawing.Size(229, 257);
+            this.showHideInfoPanel.TabIndex = 107;
+            this.showHideInfoPanel.Visible = false;
+            // 
+            // folderShowHideCheckBox
+            // 
+            this.folderShowHideCheckBox.AutoSize = true;
+            this.folderShowHideCheckBox.BackColor = System.Drawing.Color.White;
+            this.folderShowHideCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.folderShowHideCheckBox.FlatAppearance.BorderSize = 0;
+            this.folderShowHideCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.folderShowHideCheckBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.folderShowHideCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.folderShowHideCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.folderShowHideCheckBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.folderShowHideCheckBox.Location = new System.Drawing.Point(1, 211);
+            this.folderShowHideCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.folderShowHideCheckBox.Name = "folderShowHideCheckBox";
+            this.folderShowHideCheckBox.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.folderShowHideCheckBox.Size = new System.Drawing.Size(227, 45);
+            this.folderShowHideCheckBox.TabIndex = 5;
+            this.folderShowHideCheckBox.Text = "  ফোল্ডার";
+            this.folderShowHideCheckBox.UseVisualStyleBackColor = false;
+            this.folderShowHideCheckBox.CheckedChanged += new System.EventHandler(this.folderShowHideCheckBox_CheckedChanged);
+            // 
+            // dateShowHideCheckBox
+            // 
+            this.dateShowHideCheckBox.AutoSize = true;
+            this.dateShowHideCheckBox.BackColor = System.Drawing.Color.White;
+            this.dateShowHideCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateShowHideCheckBox.FlatAppearance.BorderSize = 0;
+            this.dateShowHideCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.dateShowHideCheckBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dateShowHideCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dateShowHideCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateShowHideCheckBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.dateShowHideCheckBox.Location = new System.Drawing.Point(1, 169);
+            this.dateShowHideCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.dateShowHideCheckBox.Name = "dateShowHideCheckBox";
+            this.dateShowHideCheckBox.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.dateShowHideCheckBox.Size = new System.Drawing.Size(227, 42);
+            this.dateShowHideCheckBox.TabIndex = 4;
+            this.dateShowHideCheckBox.Text = "  সংযুক্তি এবং তারিখ";
+            this.dateShowHideCheckBox.UseVisualStyleBackColor = false;
+            this.dateShowHideCheckBox.CheckedChanged += new System.EventHandler(this.dateShowHideCheckBox_CheckedChanged);
+            // 
+            // decisionShowHideCheckBox
+            // 
+            this.decisionShowHideCheckBox.AutoSize = true;
+            this.decisionShowHideCheckBox.BackColor = System.Drawing.Color.White;
+            this.decisionShowHideCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.decisionShowHideCheckBox.FlatAppearance.BorderSize = 0;
+            this.decisionShowHideCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.decisionShowHideCheckBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.decisionShowHideCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.decisionShowHideCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decisionShowHideCheckBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.decisionShowHideCheckBox.Location = new System.Drawing.Point(1, 127);
+            this.decisionShowHideCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.decisionShowHideCheckBox.Name = "decisionShowHideCheckBox";
+            this.decisionShowHideCheckBox.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.decisionShowHideCheckBox.Size = new System.Drawing.Size(227, 42);
+            this.decisionShowHideCheckBox.TabIndex = 3;
+            this.decisionShowHideCheckBox.Text = "  সিদ্ধান্ত";
+            this.decisionShowHideCheckBox.UseVisualStyleBackColor = false;
+            this.decisionShowHideCheckBox.CheckedChanged += new System.EventHandler(this.decisionShowHideCheckBox_CheckedChanged);
+            // 
+            // subShowHideCheckBox
+            // 
+            this.subShowHideCheckBox.AutoSize = true;
+            this.subShowHideCheckBox.BackColor = System.Drawing.Color.White;
+            this.subShowHideCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subShowHideCheckBox.FlatAppearance.BorderSize = 0;
+            this.subShowHideCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.subShowHideCheckBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.subShowHideCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.subShowHideCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.subShowHideCheckBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.subShowHideCheckBox.Location = new System.Drawing.Point(1, 85);
+            this.subShowHideCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.subShowHideCheckBox.Name = "subShowHideCheckBox";
+            this.subShowHideCheckBox.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.subShowHideCheckBox.Size = new System.Drawing.Size(227, 42);
+            this.subShowHideCheckBox.TabIndex = 2;
+            this.subShowHideCheckBox.Text = "  বিষয়";
+            this.subShowHideCheckBox.UseVisualStyleBackColor = false;
+            this.subShowHideCheckBox.CheckedChanged += new System.EventHandler(this.subShowHideCheckBox_CheckedChanged);
+            // 
+            // mainReceiverShowHideCheckBox
+            // 
+            this.mainReceiverShowHideCheckBox.AutoSize = true;
+            this.mainReceiverShowHideCheckBox.BackColor = System.Drawing.Color.White;
+            this.mainReceiverShowHideCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainReceiverShowHideCheckBox.FlatAppearance.BorderSize = 0;
+            this.mainReceiverShowHideCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.mainReceiverShowHideCheckBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.mainReceiverShowHideCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mainReceiverShowHideCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainReceiverShowHideCheckBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.mainReceiverShowHideCheckBox.Location = new System.Drawing.Point(1, 43);
+            this.mainReceiverShowHideCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.mainReceiverShowHideCheckBox.Name = "mainReceiverShowHideCheckBox";
+            this.mainReceiverShowHideCheckBox.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.mainReceiverShowHideCheckBox.Size = new System.Drawing.Size(227, 42);
+            this.mainReceiverShowHideCheckBox.TabIndex = 1;
+            this.mainReceiverShowHideCheckBox.Text = "  মূল প্রাপক";
+            this.mainReceiverShowHideCheckBox.UseVisualStyleBackColor = false;
+            this.mainReceiverShowHideCheckBox.CheckedChanged += new System.EventHandler(this.mainReceiverShowHideCheckBox_CheckedChanged);
+            // 
+            // senderShowHideCheckBox
+            // 
+            this.senderShowHideCheckBox.AutoSize = true;
+            this.senderShowHideCheckBox.BackColor = System.Drawing.Color.White;
+            this.senderShowHideCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.senderShowHideCheckBox.FlatAppearance.BorderSize = 0;
+            this.senderShowHideCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.senderShowHideCheckBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.senderShowHideCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.senderShowHideCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.senderShowHideCheckBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.senderShowHideCheckBox.Location = new System.Drawing.Point(1, 1);
+            this.senderShowHideCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.senderShowHideCheckBox.Name = "senderShowHideCheckBox";
+            this.senderShowHideCheckBox.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.senderShowHideCheckBox.Size = new System.Drawing.Size(227, 42);
+            this.senderShowHideCheckBox.TabIndex = 0;
+            this.senderShowHideCheckBox.Text = "  প্রেরক";
+            this.senderShowHideCheckBox.UseVisualStyleBackColor = false;
+            this.senderShowHideCheckBox.CheckedChanged += new System.EventHandler(this.senderShowHideCheckBox_CheckedChanged);
             // 
             // designationDetailsPanel
             // 
@@ -3509,6 +3669,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1268, 602);
+            this.Controls.Add(this.showHideInfoPanel);
             this.Controls.Add(this.modulePanel);
             this.Controls.Add(this.dakTagPanel);
             this.Controls.Add(this.designationDetailsPanel);
@@ -3609,6 +3770,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.showHideInfoPanel.ResumeLayout(false);
+            this.showHideInfoPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3806,6 +3969,13 @@
         private FontAwesome.Sharp.IconButton dakSortedUserButton;
         private FontAwesome.Sharp.IconButton resetSubjectSearchButton;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.TableLayoutPanel showHideInfoPanel;
+        private System.Windows.Forms.CheckBox folderShowHideCheckBox;
+        private System.Windows.Forms.CheckBox dateShowHideCheckBox;
+        private System.Windows.Forms.CheckBox decisionShowHideCheckBox;
+        private System.Windows.Forms.CheckBox subShowHideCheckBox;
+        private System.Windows.Forms.CheckBox mainReceiverShowHideCheckBox;
+        private System.Windows.Forms.CheckBox senderShowHideCheckBox;
     }
 }
 
