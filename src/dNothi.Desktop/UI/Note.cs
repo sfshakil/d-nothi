@@ -73,6 +73,7 @@ namespace dNothi.Desktop.UI
         INoteOnucchedRevertServices _noteOnucchedRevert { get; set; }
         IOnucchedFileUploadService _onucchedFileUploadService { get; set; }
         INoteSaveService _noteSave { get; set; }
+        INothiInboxNoteServices _nothiInboxNote { get; set; }
         INothiAllNoteServices _nothiAllNote { get; set; }
         IRepository<NoteSaveItemAction> _noteSaveItemAction;
         IRepository<OnuchhedSaveItemAction> _onuchhedSaveItemAction;
@@ -90,7 +91,7 @@ namespace dNothi.Desktop.UI
             IKhoshraPotroServices khoshraPotro, INothivuktoPotroServices nothivuktoPotro, IKhoshraPotroWaitingServices khoshraPotroWaiting, IPotrojariServices potrojariList, INothijatoServices nothijatoList,
             INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList,
             IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched, INoteOnucchedRevertServices noteOnucchedRevert, INoteSaveService noteSave, INothiAllNoteServices nothiAllNote,
-            IOnucchedFileUploadService onucchedFileUploadService, IKhosraSaveService khosraSaveService,
+            IOnucchedFileUploadService onucchedFileUploadService, IKhosraSaveService khosraSaveService, INothiInboxNoteServices nothiInboxNote,
         IRepository<NoteSaveItemAction> noteSaveItemAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction, IRepository<FileUploadAction> fileUploadAction)
         {
             _kasaraPatraDashBoardService = new KararaPotroDashBoardServices();
@@ -121,6 +122,7 @@ namespace dNothi.Desktop.UI
             _noteSaveItemAction = noteSaveItemAction;
             _onuchhedSaveItemAction = onuchhedSaveItemAction;
             _fileUploadAction = fileUploadAction;
+            _nothiInboxNote = nothiInboxNote;
 
             WaitForm = new WaitFormFunc();
             InitializeComponent();
@@ -9167,15 +9169,34 @@ namespace dNothi.Desktop.UI
         private void btnNothiNoteMovementList_Click(object sender, EventArgs e)
         {
             NothiNoteMovementList form = new NothiNoteMovementList();
-            var nothiNoteMovementListform = AttachNothiGuidelinesControlToForm(form);
+            //var nothiNoteMovementListform = AttachNothiGuidelinesControlToForm(form);
+            //CalPopUpWindow(nothiNoteMovementListform);
+            var nothiNoteMovementListform = NothiNextStepControlToForm(form);
             CalPopUpWindow(nothiNoteMovementListform);
         }
 
         private void btnAllAttachement_Click(object sender, EventArgs e)
         {
-            NothiNoteAllAttachement form = new NothiNoteAllAttachement();
-            var nothiNoteMovementListform = AttachNothiGuidelinesControlToForm(form);
-            CalPopUpWindow(nothiNoteMovementListform);
+            if (InternetConnection.Check())
+            {
+                var nothiInboxNote = _nothiInboxNote.GetNoteAttachments(_dakuserparam, _NoteAllListDataRecordDTO.nothi.id.ToString(), _NoteAllListDataRecordDTO.note.nothi_note_id.ToString());
+
+                var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
+                nothiDecisionList.labelText = "নোটের সংযুক্তি";
+                nothiDecisionList.loadNoteRowAttachments(nothiInboxNote, 0);
+                var form = NothiNextStepControlToForm(nothiDecisionList);
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+
+            //NothiNoteAllAttachement form = new NothiNoteAllAttachement();
+            ////var nothiNoteMovementListform = AttachNothiGuidelinesControlToForm(form);
+            ////CalPopUpWindow(nothiNoteMovementListform);
+            //var nothiNoteMovementListform = NothiNextStepControlToForm(form);
+            //CalPopUpWindow(nothiNoteMovementListform);
         }
 
         private void btnCollapseExpand_Click(object sender, EventArgs e)
@@ -9221,7 +9242,9 @@ namespace dNothi.Desktop.UI
         {
             OnumoditoPodobi onumoditoPodobi = new OnumoditoPodobi();
             onumoditoPodobi.GetNothiInboxRecords(records);
-            var form = AttachNothiGuidelinesControlToForm(onumoditoPodobi);
+            //var form = AttachNothiGuidelinesControlToForm(onumoditoPodobi);
+            //CalPopUpWindow(form);
+            var form = NothiNextStepControlToForm(onumoditoPodobi);
             CalPopUpWindow(form);
         }
 

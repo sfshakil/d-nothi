@@ -345,7 +345,7 @@ namespace dNothi.Desktop.UI.Dak
 
                 var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
                 nothiDecisionList.labelText = "নোটের সংযুক্তি";
-                nothiDecisionList.loadNoteRowAttachments(nothiInboxNote);
+                nothiDecisionList.loadNoteRowAttachments(nothiInboxNote, 1);
                 //nothiDecisionList.OnuchhedAdd += delegate (object sender1, EventArgs e1) { OnuchhedAdd_Click(sender1 as string, e1); };
                 var form = NothiNextStepControlToForm(nothiDecisionList);
 
