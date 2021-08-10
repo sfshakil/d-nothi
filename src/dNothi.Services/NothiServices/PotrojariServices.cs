@@ -14,6 +14,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
 namespace dNothi.Services.NothiServices
 {
@@ -95,7 +96,7 @@ namespace dNothi.Services.NothiServices
 
         public PrapakerTalika GetPrapakerTalika(DakUserParam userParam, int potro)
         {
-
+            PrapakerTalika nothikhoshrapotrolist = new PrapakerTalika();
             try
             {
                 var Api = new RestClient(GetAPIDomain() + GetPrapakerTalikaEndPoint());
@@ -112,8 +113,19 @@ namespace dNothi.Services.NothiServices
 
 
                 var responseJson = Response.Content;
-
-                PrapakerTalika nothikhoshrapotrolist = JsonConvert.DeserializeObject<PrapakerTalika>(responseJson);
+                try 
+                {
+                    nothikhoshrapotrolist = JsonConvert.DeserializeObject<PrapakerTalika>(responseJson);
+                }
+                catch
+                {
+                    var parseData = JToken.Parse(JsonConvert.SerializeObject(responseJson));
+                    if (parseData.ToString().Contains("success"))
+                    {
+                        nothikhoshrapotrolist.status = "success";
+                        nothikhoshrapotrolist.data = null;
+                    }
+                }
                 return nothikhoshrapotrolist;
             }
             catch (Exception ex)

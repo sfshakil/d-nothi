@@ -4657,6 +4657,9 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                current_potro_id = 0;
+                _khoshraPotroWaitinDataRecordDTO = null;
+                khoshraPotroWaitinDataRecordMulpotroDTO = null;
                 allLbelButtonPreviousColor();
                 lbAllPotro.BackColor = Color.FromArgb(14, 102, 98);
                 lbAllPotro.ForeColor = Color.FromArgb(191, 239, 237);
@@ -4744,19 +4747,42 @@ namespace dNothi.Desktop.UI
                         allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                             unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
 
-                        if (allPotro.data.records[i].mulpotro.is_main == 1)
-                        {
-                            pnlMulPotroOShonjukti.Visible = true;
-                            lbMulPotroOShonjukti.Visible = true;
-                            btnMulPotroOShonjukti.Visible = true;
+                        //if (allPotro.data.records[i].mulpotro.is_main == 1)
+                        //{
+                        //    pnlMulPotroOShonjukti.Visible = true;
+                        //    lbMulPotroOShonjukti.Visible = true;
+                        //    btnMulPotroOShonjukti.Visible = true;
 
-                            btnMulPotroOShonjukti.Text = string.Concat(allPotro.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        //    btnMulPotroOShonjukti.Text = string.Concat(allPotro.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        //}
+                        //else
+                        //{
+                        //    mulpotroOshongjuktiVisibilityOff();
+                        //}
+                        current_potro_id = allPotro.data.records[i].basic.potrojari_id;
+                        if (current_potro_id == 0 )
+                        {
+                            btnPrapokerTalika.Visible = false;
                         }
                         else
                         {
-                            mulpotroOshongjuktiVisibilityOff();
+                            btnPrapokerTalika.Visible = true;
                         }
+                        _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                        _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<AllPotroDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(allPotro.data.records[i].basic);
+                        _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<AllPotroDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(allPotro.data.records[i].mulpotro);
+                        _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<object, NoteKhoshraListDataRecordNoteOwnerDTO>(allPotro.data.records[i].note_owner);
+                        _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<object, NoteKhoshraListDataRecordNoteOnucchedDTO>(allPotro.data.records[i].note_onucched);
+                        
+                        _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                        _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<AllPotroDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(allPotro.data.records[i].basic);
+                        _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<AllPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(allPotro.data.records[i].mulpotro);
+                        _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<object, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(allPotro.data.records[i].note_onucched);
+                        _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<object, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(allPotro.data.records[i].note_owner);
 
+                        KhosraAttachmentButton(allPotro.data.records[i].basic.potro_pages);
+                        khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                        khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<AllPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(allPotro.data.records[i].mulpotro);
                         totalRange = (i + 1).ToString();
                         if (allPotro.data.records[i].mulpotro.url != "")
                         {
@@ -4865,18 +4891,42 @@ namespace dNothi.Desktop.UI
                     allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                         unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
 
-                    if (allPotro.data.records[i].mulpotro.is_main == 1)
-                    {
-                        pnlMulPotroOShonjukti.Visible = true;
-                        lbMulPotroOShonjukti.Visible = true;
-                        btnMulPotroOShonjukti.Visible = true;
+                    //if (allPotro.data.records[i].mulpotro.is_main == 1)
+                    //{
+                    //    pnlMulPotroOShonjukti.Visible = true;
+                    //    lbMulPotroOShonjukti.Visible = true;
+                    //    btnMulPotroOShonjukti.Visible = true;
 
-                        btnMulPotroOShonjukti.Text = string.Concat(allPotro.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //    btnMulPotroOShonjukti.Text = string.Concat(allPotro.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //}
+                    //else
+                    //{
+                    //    mulpotroOshongjuktiVisibilityOff();
+                    //}
+                    current_potro_id = allPotro.data.records[i].basic.potrojari_id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
                     }
                     else
                     {
-                        mulpotroOshongjuktiVisibilityOff();
+                        btnPrapokerTalika.Visible = true;
                     }
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<AllPotroDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(allPotro.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<AllPotroDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(allPotro.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<object, NoteKhoshraListDataRecordNoteOwnerDTO>(allPotro.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<object, NoteKhoshraListDataRecordNoteOnucchedDTO>(allPotro.data.records[i].note_onucched);
+
+                    _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                    _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<AllPotroDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(allPotro.data.records[i].basic);
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<AllPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(allPotro.data.records[i].mulpotro);
+                    _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<object, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(allPotro.data.records[i].note_onucched);
+                    _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<object, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(allPotro.data.records[i].note_owner);
+
+                    KhosraAttachmentButton(allPotro.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<AllPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(allPotro.data.records[i].mulpotro);
 
                     totalRange = (i + 1).ToString();
                     if (allPotro.data.records[i].mulpotro.url != "")
@@ -4969,18 +5019,42 @@ namespace dNothi.Desktop.UI
                     allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                         unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
 
-                    if (allPotro.data.records[i].mulpotro.is_main == 1)
-                    {
-                        pnlMulPotroOShonjukti.Visible = true;
-                        lbMulPotroOShonjukti.Visible = true;
-                        btnMulPotroOShonjukti.Visible = true;
+                    //if (allPotro.data.records[i].mulpotro.is_main == 1)
+                    //{
+                    //    pnlMulPotroOShonjukti.Visible = true;
+                    //    lbMulPotroOShonjukti.Visible = true;
+                    //    btnMulPotroOShonjukti.Visible = true;
 
-                        btnMulPotroOShonjukti.Text = string.Concat(allPotro.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //    btnMulPotroOShonjukti.Text = string.Concat(allPotro.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //}
+                    //else
+                    //{
+                    //    mulpotroOshongjuktiVisibilityOff();
+                    //}
+                    current_potro_id = allPotro.data.records[i].basic.potrojari_id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
                     }
                     else
                     {
-                        mulpotroOshongjuktiVisibilityOff();
+                        btnPrapokerTalika.Visible = true;
                     }
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<AllPotroDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(allPotro.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<AllPotroDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(allPotro.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<object, NoteKhoshraListDataRecordNoteOwnerDTO>(allPotro.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<object, NoteKhoshraListDataRecordNoteOnucchedDTO>(allPotro.data.records[i].note_onucched);
+
+                    _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                    _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<AllPotroDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(allPotro.data.records[i].basic);
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<AllPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(allPotro.data.records[i].mulpotro);
+                    _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<object, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(allPotro.data.records[i].note_onucched);
+                    _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<object, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(allPotro.data.records[i].note_owner);
+
+                    KhosraAttachmentButton(allPotro.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<AllPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(allPotro.data.records[i].mulpotro);
 
                     totalRange = (i + 1).ToString();
                     if (allPotro.data.records[i].mulpotro.url != "")
@@ -5082,18 +5156,43 @@ namespace dNothi.Desktop.UI
                     allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                         unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
 
-                    if (allPotro.data.records[i].mulpotro.is_main == 1)
-                    {
-                        pnlMulPotroOShonjukti.Visible = true;
-                        lbMulPotroOShonjukti.Visible = true;
-                        btnMulPotroOShonjukti.Visible = true;
+                    //if (allPotro.data.records[i].mulpotro.is_main == 1)
+                    //{
+                    //    pnlMulPotroOShonjukti.Visible = true;
+                    //    lbMulPotroOShonjukti.Visible = true;
+                    //    btnMulPotroOShonjukti.Visible = true;
 
-                        btnMulPotroOShonjukti.Text = string.Concat(allPotro.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //    btnMulPotroOShonjukti.Text = string.Concat(allPotro.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //}
+                    //else
+                    //{
+                    //    mulpotroOshongjuktiVisibilityOff();
+                    //}
+
+                    current_potro_id = allPotro.data.records[i].basic.potrojari_id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
                     }
                     else
                     {
-                        mulpotroOshongjuktiVisibilityOff();
+                        btnPrapokerTalika.Visible = true;
                     }
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<AllPotroDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(allPotro.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<AllPotroDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(allPotro.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<object, NoteKhoshraListDataRecordNoteOwnerDTO>(allPotro.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<object, NoteKhoshraListDataRecordNoteOnucchedDTO>(allPotro.data.records[i].note_onucched);
+
+                    _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                    _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<AllPotroDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(allPotro.data.records[i].basic);
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<AllPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(allPotro.data.records[i].mulpotro);
+                    _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<object, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(allPotro.data.records[i].note_onucched);
+                    _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<object, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(allPotro.data.records[i].note_owner);
+
+                    KhosraAttachmentButton(allPotro.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<AllPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(allPotro.data.records[i].mulpotro);
 
                     totalRange = (i + 1).ToString();
                     if (allPotro.data.records[i].mulpotro.url != "")
@@ -5210,23 +5309,31 @@ namespace dNothi.Desktop.UI
 
                         allPreviousButtonVisibilityOff();
 
-                        string DecodedString = khoshraPotro.data.records[0].mulpotro.potro_description;
+                        string DecodedString = khoshraPotro.data.records[i].mulpotro.potro_description;
                         khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
 
 
-                        current_potro_id = khoshraPotro.data.records[0].basic.id;
-                        KhosraAttachmentButton(khoshraPotro.data.records[0].basic.potro_pages);
+                        current_potro_id = khoshraPotro.data.records[i].basic.id;
+                        if (current_potro_id == 0)
+                        {
+                            btnPrapokerTalika.Visible = false;
+                        }
+                        else
+                        {
+                            btnPrapokerTalika.Visible = true;
+                        }
+                        KhosraAttachmentButton(khoshraPotro.data.records[i].basic.potro_pages);
                         _khoshraPotroWaitinDataRecordDTO = null;
 
-                        _khoshraPotroDataRecordDTO = GetNoteKhosraFromKhosra(khoshraPotro.data.records[0]);
+                        _khoshraPotroDataRecordDTO = GetNoteKhosraFromKhosra(khoshraPotro.data.records[i]);
 
 
                         khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
                         //  khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = khoshraPotro.data.records[0].mulpotro.;
-                        khoshraPotroWaitinDataRecordMulpotroDTO.buttons = khoshraPotro.data.records[0].mulpotro.buttons;
-                        khoshraPotroWaitinDataRecordMulpotroDTO.id = khoshraPotro.data.records[0].mulpotro.id;
-                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = khoshraPotro.data.records[0].mulpotro.potro_cover;
-                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = khoshraPotro.data.records[0].mulpotro.potro_description;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.buttons = khoshraPotro.data.records[i].mulpotro.buttons;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.id = khoshraPotro.data.records[i].mulpotro.id;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = khoshraPotro.data.records[i].mulpotro.potro_cover;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = khoshraPotro.data.records[i].mulpotro.potro_description;
 
 
 
@@ -5265,7 +5372,7 @@ namespace dNothi.Desktop.UI
             i--;
             if (i == 0)
             {
-
+                
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = khoshraPotro.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + khoshraPotro.data.records[i].basic.created;
@@ -5343,6 +5450,29 @@ namespace dNothi.Desktop.UI
 
                     string DecodedString = khoshraPotro.data.records[i].mulpotro.potro_description;
                     khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
+
+                    
+                    current_potro_id = khoshraPotro.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
+                    KhosraAttachmentButton(khoshraPotro.data.records[i].basic.potro_pages);
+                    _khoshraPotroWaitinDataRecordDTO = null;
+
+                    _khoshraPotroDataRecordDTO = GetNoteKhosraFromKhosra(khoshraPotro.data.records[i]);
+
+
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    //  khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = khoshraPotro.data.records[0].mulpotro.;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.buttons = khoshraPotro.data.records[i].mulpotro.buttons;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.id = khoshraPotro.data.records[i].mulpotro.id;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = khoshraPotro.data.records[i].mulpotro.potro_cover;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = khoshraPotro.data.records[i].mulpotro.potro_description;
                 }
                 picBoxFile.Controls.Clear();
             }
@@ -5426,6 +5556,28 @@ namespace dNothi.Desktop.UI
 
                     string DecodedString = khoshraPotro.data.records[i].mulpotro.potro_description;
                     khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
+
+                    current_potro_id = khoshraPotro.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
+                    KhosraAttachmentButton(khoshraPotro.data.records[i].basic.potro_pages);
+                    _khoshraPotroWaitinDataRecordDTO = null;
+
+                    _khoshraPotroDataRecordDTO = GetNoteKhosraFromKhosra(khoshraPotro.data.records[i]);
+
+
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    //  khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = khoshraPotro.data.records[0].mulpotro.;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.buttons = khoshraPotro.data.records[i].mulpotro.buttons;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.id = khoshraPotro.data.records[i].mulpotro.id;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = khoshraPotro.data.records[i].mulpotro.potro_cover;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = khoshraPotro.data.records[i].mulpotro.potro_description;
                 }
                 picBoxFile.Controls.Clear();
             }
@@ -5520,6 +5672,27 @@ namespace dNothi.Desktop.UI
 
                     string DecodedString = khoshraPotro.data.records[i].mulpotro.potro_description;
                     khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
+                    current_potro_id = khoshraPotro.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
+                    KhosraAttachmentButton(khoshraPotro.data.records[i].basic.potro_pages);
+                    _khoshraPotroWaitinDataRecordDTO = null;
+
+                    _khoshraPotroDataRecordDTO = GetNoteKhosraFromKhosra(khoshraPotro.data.records[i]);
+
+
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    //  khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = khoshraPotro.data.records[0].mulpotro.;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.buttons = khoshraPotro.data.records[i].mulpotro.buttons;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.id = khoshraPotro.data.records[i].mulpotro.id;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = khoshraPotro.data.records[i].mulpotro.potro_cover;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = khoshraPotro.data.records[i].mulpotro.potro_description;
                 }
                 picBoxFile.Controls.Clear();
             }
@@ -5536,6 +5709,9 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                current_potro_id = 0;
+                _khoshraPotroWaitinDataRecordDTO = null;
+                khoshraPotroWaitinDataRecordMulpotroDTO = null;
                 allLbelButtonPreviousColor();
                 lbNothivuktoPotro.BackColor = Color.FromArgb(14, 102, 98);
                 lbNothivuktoPotro.ForeColor = Color.FromArgb(191, 239, 237);
@@ -5620,18 +5796,42 @@ namespace dNothi.Desktop.UI
                         allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                             unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
 
-                        if (nothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
-                        {
-                            pnlMulPotroOShonjukti.Visible = true;
-                            lbMulPotroOShonjukti.Visible = true;
-                            btnMulPotroOShonjukti.Visible = true;
+                        //if (nothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
+                        //{
+                        //    pnlMulPotroOShonjukti.Visible = true;
+                        //    lbMulPotroOShonjukti.Visible = true;
+                        //    btnMulPotroOShonjukti.Visible = true;
 
-                            btnMulPotroOShonjukti.Text = string.Concat(nothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        //    btnMulPotroOShonjukti.Text = string.Concat(nothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        //}
+                        //else
+                        //{
+                        //    mulpotroOshongjuktiVisibilityOff();
+                        //}
+                        current_potro_id = nothivuktoPotroResponse.data.records[i].basic.id;
+                        if (current_potro_id == 0)
+                        {
+                            btnPrapokerTalika.Visible = false;
                         }
                         else
                         {
-                            mulpotroOshongjuktiVisibilityOff();
+                            btnPrapokerTalika.Visible = true;
                         }
+                        _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                        _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(nothivuktoPotroResponse.data.records[i].basic);
+                        _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(nothivuktoPotroResponse.data.records[i].mulpotro);
+                        _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(nothivuktoPotroResponse.data.records[i].note_owner);
+                        _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(nothivuktoPotroResponse.data.records[i].note_onucched);
+
+                        _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                        _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(nothivuktoPotroResponse.data.records[i].basic);
+                        _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothivuktoPotroResponse.data.records[i].mulpotro);
+                        _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(nothivuktoPotroResponse.data.records[i].note_onucched);
+                        _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(nothivuktoPotroResponse.data.records[i].note_owner);
+
+                        KhosraAttachmentButton(nothivuktoPotroResponse.data.records[i].basic.potro_pages);
+                        khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                        khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothivuktoPotroResponse.data.records[i].mulpotro);
 
                         totalRange = (i + 1).ToString();
                         if (nothivuktoPotroResponse.data.records[i].mulpotro.url != "")
@@ -5739,18 +5939,43 @@ namespace dNothi.Desktop.UI
                     allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                         unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
 
-                    if (nothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
-                    {
-                        pnlMulPotroOShonjukti.Visible = true;
-                        lbMulPotroOShonjukti.Visible = true;
-                        btnMulPotroOShonjukti.Visible = true;
+                    //if (nothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
+                    //{
+                    //    pnlMulPotroOShonjukti.Visible = true;
+                    //    lbMulPotroOShonjukti.Visible = true;
+                    //    btnMulPotroOShonjukti.Visible = true;
 
-                        btnMulPotroOShonjukti.Text = string.Concat(nothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //    btnMulPotroOShonjukti.Text = string.Concat(nothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //}
+                    //else
+                    //{
+                    //    mulpotroOshongjuktiVisibilityOff();
+                    //}
+                    current_potro_id = nothivuktoPotroResponse.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
                     }
                     else
                     {
-                        mulpotroOshongjuktiVisibilityOff();
+                        btnPrapokerTalika.Visible = true;
                     }
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(nothivuktoPotroResponse.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(nothivuktoPotroResponse.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(nothivuktoPotroResponse.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(nothivuktoPotroResponse.data.records[i].note_onucched);
+
+                    _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                    _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(nothivuktoPotroResponse.data.records[i].basic);
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothivuktoPotroResponse.data.records[i].mulpotro);
+                    _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(nothivuktoPotroResponse.data.records[i].note_onucched);
+                    _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(nothivuktoPotroResponse.data.records[i].note_owner);
+
+                    KhosraAttachmentButton(nothivuktoPotroResponse.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothivuktoPotroResponse.data.records[i].mulpotro);
+
 
                     totalRange = (i + 1).ToString();
                     if (nothivuktoPotroResponse.data.records[i].mulpotro.url != "")
@@ -5849,18 +6074,42 @@ namespace dNothi.Desktop.UI
                     allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                         unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
 
-                    if (nothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
-                    {
-                        pnlMulPotroOShonjukti.Visible = true;
-                        lbMulPotroOShonjukti.Visible = true;
-                        btnMulPotroOShonjukti.Visible = true;
+                    //if (nothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
+                    //{
+                    //    pnlMulPotroOShonjukti.Visible = true;
+                    //    lbMulPotroOShonjukti.Visible = true;
+                    //    btnMulPotroOShonjukti.Visible = true;
 
-                        btnMulPotroOShonjukti.Text = string.Concat(nothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //    btnMulPotroOShonjukti.Text = string.Concat(nothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //}
+                    //else
+                    //{
+                    //    mulpotroOshongjuktiVisibilityOff();
+                    //}
+                    current_potro_id = nothivuktoPotroResponse.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
                     }
                     else
                     {
-                        mulpotroOshongjuktiVisibilityOff();
+                        btnPrapokerTalika.Visible = true;
                     }
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(nothivuktoPotroResponse.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(nothivuktoPotroResponse.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(nothivuktoPotroResponse.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(nothivuktoPotroResponse.data.records[i].note_onucched);
+
+                    _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                    _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(nothivuktoPotroResponse.data.records[i].basic);
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothivuktoPotroResponse.data.records[i].mulpotro);
+                    _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(nothivuktoPotroResponse.data.records[i].note_onucched);
+                    _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(nothivuktoPotroResponse.data.records[i].note_owner);
+
+                    KhosraAttachmentButton(nothivuktoPotroResponse.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothivuktoPotroResponse.data.records[i].mulpotro);
 
                     totalRange = (i + 1).ToString();
                     if (nothivuktoPotroResponse.data.records[i].mulpotro.url != "")
@@ -5950,18 +6199,42 @@ namespace dNothi.Desktop.UI
                     allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                         unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
 
-                    if (nothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
-                    {
-                        pnlMulPotroOShonjukti.Visible = true;
-                        lbMulPotroOShonjukti.Visible = true;
-                        btnMulPotroOShonjukti.Visible = true;
+                    //if (nothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
+                    //{
+                    //    pnlMulPotroOShonjukti.Visible = true;
+                    //    lbMulPotroOShonjukti.Visible = true;
+                    //    btnMulPotroOShonjukti.Visible = true;
 
-                        btnMulPotroOShonjukti.Text = string.Concat(nothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //    btnMulPotroOShonjukti.Text = string.Concat(nothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //}
+                    //else
+                    //{
+                    //    mulpotroOshongjuktiVisibilityOff();
+                    //}
+                    current_potro_id = nothivuktoPotroResponse.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
                     }
                     else
                     {
-                        mulpotroOshongjuktiVisibilityOff();
+                        btnPrapokerTalika.Visible = true;
                     }
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(nothivuktoPotroResponse.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(nothivuktoPotroResponse.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(nothivuktoPotroResponse.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(nothivuktoPotroResponse.data.records[i].note_onucched);
+
+                    _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                    _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(nothivuktoPotroResponse.data.records[i].basic);
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothivuktoPotroResponse.data.records[i].mulpotro);
+                    _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(nothivuktoPotroResponse.data.records[i].note_onucched);
+                    _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(nothivuktoPotroResponse.data.records[i].note_owner);
+
+                    KhosraAttachmentButton(nothivuktoPotroResponse.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothivuktoPotroResponse.data.records[i].mulpotro);
 
                     totalRange = (i + 1).ToString();
                     if (nothivuktoPotroResponse.data.records[i].mulpotro.url != "")
@@ -6084,12 +6357,24 @@ namespace dNothi.Desktop.UI
                         btnKhoshraWaitingNext.Visible = true;
 
                         allPreviousButtonVisibilityOff();
-                        current_potro_id = khoshraPotroWaiting.data.records[0].basic.id;
-                        _khoshraPotroDataRecordDTO = null;
-                        _khoshraPotroWaitinDataRecordDTO = khoshraPotroWaiting.data.records[0];
-                        KhosraAttachmentButton(khoshraPotroWaiting.data.records[0].basic.potro_pages);
-                        khoshraPotroWaitinDataRecordMulpotroDTO = khoshraPotroWaiting.data.records[0].mulpotro;
-                        string DecodedString = khoshraPotroWaiting.data.records[0].mulpotro.potro_description;
+                        current_potro_id = khoshraPotroWaiting.data.records[i].basic.id;
+                        if (current_potro_id == 0)
+                        {
+                            btnPrapokerTalika.Visible = false;
+                        }
+                        else
+                        {
+                            btnPrapokerTalika.Visible = true;
+                        }
+                        _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                        _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<KhoshraPotroWaitinDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(khoshraPotroWaiting.data.records[i].basic);
+                        _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<KhoshraPotroWaitinDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(khoshraPotroWaiting.data.records[i].mulpotro);
+                        _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(khoshraPotroWaiting.data.records[i].note_owner);
+                        _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(khoshraPotroWaiting.data.records[i].note_onucched);
+                        _khoshraPotroWaitinDataRecordDTO = khoshraPotroWaiting.data.records[i];
+                        KhosraAttachmentButton(khoshraPotroWaiting.data.records[i].basic.potro_pages);
+                        khoshraPotroWaitinDataRecordMulpotroDTO = khoshraPotroWaiting.data.records[i].mulpotro;
+                        string DecodedString = khoshraPotroWaiting.data.records[i].mulpotro.potro_description;
                         khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
                         string htmlString = "<head><meta charset=\"UTF-8\"></head>" + Base64Decode1(DecodedString);
 
@@ -6189,7 +6474,23 @@ namespace dNothi.Desktop.UI
                     btnKhoshraWaitingNext.Visible = true;
 
                     allPreviousButtonVisibilityOff();
-
+                    current_potro_id = khoshraPotroWaiting.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<KhoshraPotroWaitinDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(khoshraPotroWaiting.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<KhoshraPotroWaitinDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(khoshraPotroWaiting.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(khoshraPotroWaiting.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(khoshraPotroWaiting.data.records[i].note_onucched);
+                    _khoshraPotroWaitinDataRecordDTO = khoshraPotroWaiting.data.records[i];
+                    KhosraAttachmentButton(khoshraPotroWaiting.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = khoshraPotroWaiting.data.records[i].mulpotro;
                     string DecodedString = khoshraPotroWaiting.data.records[i].mulpotro.potro_description;
                     khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
                 }
@@ -6272,7 +6573,23 @@ namespace dNothi.Desktop.UI
 
                     allPreviousButtonVisibilityOff();
                     btnKhoshraWaitingPrevious.Visible = true;
-
+                    current_potro_id = khoshraPotroWaiting.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<KhoshraPotroWaitinDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(khoshraPotroWaiting.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<KhoshraPotroWaitinDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(khoshraPotroWaiting.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(khoshraPotroWaiting.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(khoshraPotroWaiting.data.records[i].note_onucched);
+                    _khoshraPotroWaitinDataRecordDTO = khoshraPotroWaiting.data.records[i];
+                    KhosraAttachmentButton(khoshraPotroWaiting.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = khoshraPotroWaiting.data.records[i].mulpotro;
                     string DecodedString = khoshraPotroWaiting.data.records[i].mulpotro.potro_description;
                     khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
                 }
@@ -6364,7 +6681,23 @@ namespace dNothi.Desktop.UI
 
                     allPreviousButtonVisibilityOff();
                     btnKhoshraWaitingPrevious.Visible = true;
-
+                    current_potro_id = khoshraPotroWaiting.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<KhoshraPotroWaitinDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(khoshraPotroWaiting.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<KhoshraPotroWaitinDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(khoshraPotroWaiting.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(khoshraPotroWaiting.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(khoshraPotroWaiting.data.records[i].note_onucched);
+                    _khoshraPotroWaitinDataRecordDTO = khoshraPotroWaiting.data.records[i];
+                    KhosraAttachmentButton(khoshraPotroWaiting.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = khoshraPotroWaiting.data.records[i].mulpotro;
                     string DecodedString = khoshraPotroWaiting.data.records[i].mulpotro.potro_description;
                     khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
                 }
@@ -6382,6 +6715,9 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                current_potro_id = 0;
+                _khoshraPotroWaitinDataRecordDTO = null;
+                khoshraPotroWaitinDataRecordMulpotroDTO = null;
                 allLbelButtonPreviousColor();
                 lbPotrojari.BackColor = Color.FromArgb(14, 102, 98);
                 lbPotrojari.ForeColor = Color.FromArgb(191, 239, 237);
@@ -6452,18 +6788,42 @@ namespace dNothi.Desktop.UI
                     }
                     allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                         unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
-                    if (potrojariList.data.records[i].mulpotro.is_main == 1)
-                    {
-                        pnlMulPotroOShonjukti.Visible = true;
-                        lbMulPotroOShonjukti.Visible = true;
-                        btnMulPotroOShonjukti.Visible = true;
+                    //if (potrojariList.data.records[i].mulpotro.is_main == 1)
+                    //{
+                    //    pnlMulPotroOShonjukti.Visible = true;
+                    //    lbMulPotroOShonjukti.Visible = true;
+                    //    btnMulPotroOShonjukti.Visible = true;
 
-                        btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //}
+                    //else
+                    //{
+                    //    mulpotroOshongjuktiVisibilityOff();
+                    //}
+                    current_potro_id = potrojariList.data.records[i].basic.potrojari_id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
                     }
                     else
                     {
-                        mulpotroOshongjuktiVisibilityOff();
+                        btnPrapokerTalika.Visible = true;
                     }
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<PotrojariDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(potrojariList.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<PotrojariDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(potrojariList.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<PotrojariDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(potrojariList.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<PotrojariDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(potrojariList.data.records[i].note_onucched);
+
+                    _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                    _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<PotrojariDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(potrojariList.data.records[i].basic);
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<PotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(potrojariList.data.records[i].mulpotro);
+                    _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<PotrojariDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(potrojariList.data.records[i].note_onucched);
+                    _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<PotrojariDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(potrojariList.data.records[i].note_owner);
+
+                    KhosraAttachmentButton(potrojariList.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<PotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(potrojariList.data.records[i].mulpotro);
 
                     totalRange = (i + 1).ToString();
 
@@ -6570,18 +6930,43 @@ namespace dNothi.Desktop.UI
                 }
                 allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                     unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
-                if (potrojariList.data.records[i].mulpotro.is_main == 1)
-                {
-                    pnlMulPotroOShonjukti.Visible = true;
-                    lbMulPotroOShonjukti.Visible = true;
-                    btnMulPotroOShonjukti.Visible = true;
+                //if (potrojariList.data.records[i].mulpotro.is_main == 1)
+                //{
+                //    pnlMulPotroOShonjukti.Visible = true;
+                //    lbMulPotroOShonjukti.Visible = true;
+                //    btnMulPotroOShonjukti.Visible = true;
 
-                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                //    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                //}
+                //else
+                //{
+                //    mulpotroOshongjuktiVisibilityOff();
+                //}
+                current_potro_id = potrojariList.data.records[i].basic.potrojari_id;
+                if (current_potro_id == 0)
+                {
+                    btnPrapokerTalika.Visible = false;
                 }
                 else
                 {
-                    mulpotroOshongjuktiVisibilityOff();
+                    btnPrapokerTalika.Visible = true;
                 }
+                _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<PotrojariDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(potrojariList.data.records[i].basic);
+                _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<PotrojariDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(potrojariList.data.records[i].mulpotro);
+                _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<PotrojariDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(potrojariList.data.records[i].note_owner);
+                _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<PotrojariDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(potrojariList.data.records[i].note_onucched);
+
+                _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<PotrojariDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(potrojariList.data.records[i].basic);
+                _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<PotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(potrojariList.data.records[i].mulpotro);
+                _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<PotrojariDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(potrojariList.data.records[i].note_onucched);
+                _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<PotrojariDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(potrojariList.data.records[i].note_owner);
+
+                KhosraAttachmentButton(potrojariList.data.records[i].basic.potro_pages);
+                khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<PotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(potrojariList.data.records[i].mulpotro);
+
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -6670,18 +7055,43 @@ namespace dNothi.Desktop.UI
                 }
                 allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                     unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
-                if (potrojariList.data.records[i].mulpotro.is_main == 1)
-                {
-                    pnlMulPotroOShonjukti.Visible = true;
-                    lbMulPotroOShonjukti.Visible = true;
-                    btnMulPotroOShonjukti.Visible = true;
+                //if (potrojariList.data.records[i].mulpotro.is_main == 1)
+                //{
+                //    pnlMulPotroOShonjukti.Visible = true;
+                //    lbMulPotroOShonjukti.Visible = true;
+                //    btnMulPotroOShonjukti.Visible = true;
 
-                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                //    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                //}
+                //else
+                //{
+                //    mulpotroOshongjuktiVisibilityOff();
+                //}
+                current_potro_id = potrojariList.data.records[i].basic.potrojari_id;
+                if (current_potro_id == 0)
+                {
+                    btnPrapokerTalika.Visible = false;
                 }
                 else
                 {
-                    mulpotroOshongjuktiVisibilityOff();
+                    btnPrapokerTalika.Visible = true;
                 }
+                _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<PotrojariDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(potrojariList.data.records[i].basic);
+                _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<PotrojariDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(potrojariList.data.records[i].mulpotro);
+                _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<PotrojariDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(potrojariList.data.records[i].note_owner);
+                _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<PotrojariDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(potrojariList.data.records[i].note_onucched);
+
+                _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<PotrojariDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(potrojariList.data.records[i].basic);
+                _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<PotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(potrojariList.data.records[i].mulpotro);
+                _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<PotrojariDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(potrojariList.data.records[i].note_onucched);
+                _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<PotrojariDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(potrojariList.data.records[i].note_owner);
+
+                KhosraAttachmentButton(potrojariList.data.records[i].basic.potro_pages);
+                khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<PotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(potrojariList.data.records[i].mulpotro);
+
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -6780,18 +7190,43 @@ namespace dNothi.Desktop.UI
                 }
                 allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                     unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
-                if (potrojariList.data.records[i].mulpotro.is_main == 1)
-                {
-                    pnlMulPotroOShonjukti.Visible = true;
-                    lbMulPotroOShonjukti.Visible = true;
-                    btnMulPotroOShonjukti.Visible = true;
+                //if (potrojariList.data.records[i].mulpotro.is_main == 1)
+                //{
+                //    pnlMulPotroOShonjukti.Visible = true;
+                //    lbMulPotroOShonjukti.Visible = true;
+                //    btnMulPotroOShonjukti.Visible = true;
 
-                    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                //    btnMulPotroOShonjukti.Text = string.Concat(potrojariList.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                //}
+                //else
+                //{
+                //    mulpotroOshongjuktiVisibilityOff();
+                //}
+                current_potro_id = potrojariList.data.records[i].basic.potrojari_id;
+                if (current_potro_id == 0)
+                {
+                    btnPrapokerTalika.Visible = false;
                 }
                 else
                 {
-                    mulpotroOshongjuktiVisibilityOff();
+                    btnPrapokerTalika.Visible = true;
                 }
+                _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<PotrojariDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(potrojariList.data.records[i].basic);
+                _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<PotrojariDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(potrojariList.data.records[i].mulpotro);
+                _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<PotrojariDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(potrojariList.data.records[i].note_owner);
+                _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<PotrojariDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(potrojariList.data.records[i].note_onucched);
+
+                _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<PotrojariDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(potrojariList.data.records[i].basic);
+                _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<PotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(potrojariList.data.records[i].mulpotro);
+                _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<PotrojariDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(potrojariList.data.records[i].note_onucched);
+                _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<PotrojariDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(potrojariList.data.records[i].note_owner);
+
+                KhosraAttachmentButton(potrojariList.data.records[i].basic.potro_pages);
+                khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<PotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(potrojariList.data.records[i].mulpotro);
+
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -6832,6 +7267,9 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                current_potro_id = 0;
+                _khoshraPotroWaitinDataRecordDTO = null;
+                khoshraPotroWaitinDataRecordMulpotroDTO = null;
                 allLbelButtonPreviousColor();
                 lbNothijato.BackColor = Color.FromArgb(14, 102, 98);
                 lbNothijato.ForeColor = Color.FromArgb(191, 239, 237);
@@ -6849,6 +7287,84 @@ namespace dNothi.Desktop.UI
                     lbNoteId.Text = "নোটঃ " + string.Concat(nothijatoList.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     lbSubjectSmall.Text = "পত্র: " + nothijatoList.data.records[i].basic.potro_subject;
                     lbTotal.Text = "সর্বমোট: " + string.Concat(nothijatoList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    allMulpotroButtonsVisibilityOff();
+                    int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                        endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
+                    foreach (string btnName in nothijatoList.data.records[i].mulpotro.buttons)
+                    {
+                        if (btnName == "draft_history")
+                        {
+                            draft_history = 1;
+                        }
+                        if (btnName == "clone")
+                        {
+                            clone = 1;
+                        }
+                        if (btnName == "edit")
+                        {
+                            edit = 1;
+                        }
+                        if (btnName == "delete")
+                        {
+                            delete = 1;
+                        }
+                        if (btnName == "approve")
+                        {
+                            approve = 1;
+                        }
+                        if (btnName == "unapprove")
+                        {
+                            unapprove = 1;
+                        }
+                        if (btnName == "potrojari")
+                        {
+                            potrojari = 1;
+                        }
+                        if (btnName == "endorsement")
+                        {
+                            endrosement = 1;
+                        }
+                        if (btnName == "khoshra")
+                        {
+                            khoshra = 1;
+                        }
+                        if (btnName == "full_editable")
+                        {
+                            fulleditable = 1;
+                        }
+                        if (btnName == "custom")
+                        {
+                            custom = 1;
+                        }
+                    }
+                    allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                        unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+
+                    current_potro_id = nothijatoList.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NothijatoDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(nothijatoList.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NothijatoDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(nothijatoList.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NothijatoDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(nothijatoList.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<NothijatoDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(nothijatoList.data.records[i].note_onucched);
+
+                    _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                    _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NothijatoDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(nothijatoList.data.records[i].basic);
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NothijatoDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothijatoList.data.records[i].mulpotro);
+                    _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<NothijatoDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(nothijatoList.data.records[i].note_onucched);
+                    _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NothijatoDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(nothijatoList.data.records[i].note_owner);
+
+                    KhosraAttachmentButton(nothijatoList.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<NothijatoDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothijatoList.data.records[i].mulpotro);
+
                     totalRange = (i + 1).ToString();
 
                     picBoxFile.Visible = false;
@@ -6901,6 +7417,84 @@ namespace dNothi.Desktop.UI
                 lbNoteId.Text = "নোটঃ " + string.Concat(nothijatoList.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 lbSubjectSmall.Text = "পত্র: " + nothijatoList.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(nothijatoList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                allMulpotroButtonsVisibilityOff();
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
+                foreach (string btnName in nothijatoList.data.records[i].mulpotro.buttons)
+                {
+                    if (btnName == "draft_history")
+                    {
+                        draft_history = 1;
+                    }
+                    if (btnName == "clone")
+                    {
+                        clone = 1;
+                    }
+                    if (btnName == "edit")
+                    {
+                        edit = 1;
+                    }
+                    if (btnName == "delete")
+                    {
+                        delete = 1;
+                    }
+                    if (btnName == "approve")
+                    {
+                        approve = 1;
+                    }
+                    if (btnName == "unapprove")
+                    {
+                        unapprove = 1;
+                    }
+                    if (btnName == "potrojari")
+                    {
+                        potrojari = 1;
+                    }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
+                }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+
+                current_potro_id = nothijatoList.data.records[i].basic.id;
+                if (current_potro_id == 0)
+                {
+                    btnPrapokerTalika.Visible = false;
+                }
+                else
+                {
+                    btnPrapokerTalika.Visible = true;
+                }
+                _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NothijatoDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(nothijatoList.data.records[i].basic);
+                _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NothijatoDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(nothijatoList.data.records[i].mulpotro);
+                _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NothijatoDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(nothijatoList.data.records[i].note_owner);
+                _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<NothijatoDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(nothijatoList.data.records[i].note_onucched);
+
+                _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NothijatoDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(nothijatoList.data.records[i].basic);
+                _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NothijatoDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothijatoList.data.records[i].mulpotro);
+                _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<NothijatoDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(nothijatoList.data.records[i].note_onucched);
+                _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NothijatoDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(nothijatoList.data.records[i].note_owner);
+
+                KhosraAttachmentButton(nothijatoList.data.records[i].basic.potro_pages);
+                khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<NothijatoDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothijatoList.data.records[i].mulpotro);
+
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -6936,6 +7530,84 @@ namespace dNothi.Desktop.UI
                 lbNoteId.Text = "নোটঃ " + string.Concat(nothijatoList.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 lbSubjectSmall.Text = "পত্র: " + nothijatoList.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(nothijatoList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                allMulpotroButtonsVisibilityOff();
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
+                foreach (string btnName in nothijatoList.data.records[i].mulpotro.buttons)
+                {
+                    if (btnName == "draft_history")
+                    {
+                        draft_history = 1;
+                    }
+                    if (btnName == "clone")
+                    {
+                        clone = 1;
+                    }
+                    if (btnName == "edit")
+                    {
+                        edit = 1;
+                    }
+                    if (btnName == "delete")
+                    {
+                        delete = 1;
+                    }
+                    if (btnName == "approve")
+                    {
+                        approve = 1;
+                    }
+                    if (btnName == "unapprove")
+                    {
+                        unapprove = 1;
+                    }
+                    if (btnName == "potrojari")
+                    {
+                        potrojari = 1;
+                    }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
+                }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+
+                current_potro_id = nothijatoList.data.records[i].basic.id;
+                if (current_potro_id == 0)
+                {
+                    btnPrapokerTalika.Visible = false;
+                }
+                else
+                {
+                    btnPrapokerTalika.Visible = true;
+                }
+                _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NothijatoDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(nothijatoList.data.records[i].basic);
+                _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NothijatoDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(nothijatoList.data.records[i].mulpotro);
+                _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NothijatoDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(nothijatoList.data.records[i].note_owner);
+                _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<NothijatoDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(nothijatoList.data.records[i].note_onucched);
+
+                _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NothijatoDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(nothijatoList.data.records[i].basic);
+                _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NothijatoDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothijatoList.data.records[i].mulpotro);
+                _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<NothijatoDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(nothijatoList.data.records[i].note_onucched);
+                _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NothijatoDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(nothijatoList.data.records[i].note_owner);
+
+                KhosraAttachmentButton(nothijatoList.data.records[i].basic.potro_pages);
+                khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<NothijatoDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothijatoList.data.records[i].mulpotro);
+
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -6981,6 +7653,84 @@ namespace dNothi.Desktop.UI
                 lbNoteId.Text = "নোটঃ " + string.Concat(nothijatoList.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 lbSubjectSmall.Text = "পত্র: " + nothijatoList.data.records[i].basic.potro_subject;
                 lbTotal.Text = "সর্বমোট: " + string.Concat(nothijatoList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                allMulpotroButtonsVisibilityOff();
+                int draft_history = 0, clone = 0, edit = 0, delete = 0, approve = 0, unapprove = 0, potrojari = 0,
+                    endrosement = 0, khoshra = 0, fulleditable = 0, custom = 0;
+                foreach (string btnName in nothijatoList.data.records[i].mulpotro.buttons)
+                {
+                    if (btnName == "draft_history")
+                    {
+                        draft_history = 1;
+                    }
+                    if (btnName == "clone")
+                    {
+                        clone = 1;
+                    }
+                    if (btnName == "edit")
+                    {
+                        edit = 1;
+                    }
+                    if (btnName == "delete")
+                    {
+                        delete = 1;
+                    }
+                    if (btnName == "approve")
+                    {
+                        approve = 1;
+                    }
+                    if (btnName == "unapprove")
+                    {
+                        unapprove = 1;
+                    }
+                    if (btnName == "potrojari")
+                    {
+                        potrojari = 1;
+                    }
+                    if (btnName == "endorsement")
+                    {
+                        endrosement = 1;
+                    }
+                    if (btnName == "khoshra")
+                    {
+                        khoshra = 1;
+                    }
+                    if (btnName == "full_editable")
+                    {
+                        fulleditable = 1;
+                    }
+                    if (btnName == "custom")
+                    {
+                        custom = 1;
+                    }
+                }
+                allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
+                    unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+
+                current_potro_id = nothijatoList.data.records[i].basic.id;
+                if (current_potro_id == 0)
+                {
+                    btnPrapokerTalika.Visible = false;
+                }
+                else
+                {
+                    btnPrapokerTalika.Visible = true;
+                }
+                _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NothijatoDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(nothijatoList.data.records[i].basic);
+                _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NothijatoDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(nothijatoList.data.records[i].mulpotro);
+                _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NothijatoDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(nothijatoList.data.records[i].note_owner);
+                _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<NothijatoDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(nothijatoList.data.records[i].note_onucched);
+
+                _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NothijatoDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(nothijatoList.data.records[i].basic);
+                _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NothijatoDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothijatoList.data.records[i].mulpotro);
+                _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<NothijatoDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(nothijatoList.data.records[i].note_onucched);
+                _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NothijatoDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(nothijatoList.data.records[i].note_owner);
+
+                KhosraAttachmentButton(nothijatoList.data.records[i].basic.potro_pages);
+                khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<NothijatoDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(nothijatoList.data.records[i].mulpotro);
+
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -7114,15 +7864,23 @@ namespace dNothi.Desktop.UI
                         khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
 
                         _khoshraPotroWaitinDataRecordDTO = null;
-                        _khoshraPotroDataRecordDTO = noteKhoshraList.data.records[0];
-                        KhosraAttachmentButton(noteKhoshraList.data.records[0].basic.potro_pages);
+                        _khoshraPotroDataRecordDTO = noteKhoshraList.data.records[i];
+                        KhosraAttachmentButton(noteKhoshraList.data.records[i].basic.potro_pages);
                         khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
-                        khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = noteKhoshraList.data.records[0].mulpotro.buttonsDTOList;
-                        khoshraPotroWaitinDataRecordMulpotroDTO.buttons = noteKhoshraList.data.records[0].mulpotro.buttons;
-                        khoshraPotroWaitinDataRecordMulpotroDTO.id = noteKhoshraList.data.records[0].mulpotro.id;
-                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = noteKhoshraList.data.records[0].mulpotro.potro_cover;
-                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = noteKhoshraList.data.records[0].mulpotro.potro_description;
-
+                        khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = noteKhoshraList.data.records[i].mulpotro.buttonsDTOList;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.buttons = noteKhoshraList.data.records[i].mulpotro.buttons;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.id = noteKhoshraList.data.records[i].mulpotro.id;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = noteKhoshraList.data.records[i].mulpotro.potro_cover;
+                        khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = noteKhoshraList.data.records[i].mulpotro.potro_description;
+                        current_potro_id = noteKhoshraList.data.records[i].basic.id;
+                        if (current_potro_id == 0)
+                        {
+                            btnPrapokerTalika.Visible = false;
+                        }
+                        else
+                        {
+                            btnPrapokerTalika.Visible = true;
+                        }
 
                     }
                 }
@@ -7240,6 +7998,25 @@ namespace dNothi.Desktop.UI
                     allPreviousButtonVisibilityOff();
                     string DecodedString = noteKhoshraList.data.records[i].mulpotro.potro_description;
                     khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
+
+                    _khoshraPotroWaitinDataRecordDTO = null;
+                    _khoshraPotroDataRecordDTO = noteKhoshraList.data.records[i];
+                    KhosraAttachmentButton(noteKhoshraList.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = noteKhoshraList.data.records[i].mulpotro.buttonsDTOList;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.buttons = noteKhoshraList.data.records[i].mulpotro.buttons;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.id = noteKhoshraList.data.records[i].mulpotro.id;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = noteKhoshraList.data.records[i].mulpotro.potro_cover;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = noteKhoshraList.data.records[i].mulpotro.potro_description;
+                    current_potro_id = noteKhoshraList.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
                 }
             }
             if (noteKhoshraList.data.total_records != i && i > 0)
@@ -7325,6 +8102,25 @@ namespace dNothi.Desktop.UI
 
                     string DecodedString = noteKhoshraList.data.records[i].mulpotro.potro_description;
                     khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
+
+                    _khoshraPotroWaitinDataRecordDTO = null;
+                    _khoshraPotroDataRecordDTO = noteKhoshraList.data.records[i];
+                    KhosraAttachmentButton(noteKhoshraList.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = noteKhoshraList.data.records[i].mulpotro.buttonsDTOList;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.buttons = noteKhoshraList.data.records[i].mulpotro.buttons;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.id = noteKhoshraList.data.records[i].mulpotro.id;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = noteKhoshraList.data.records[i].mulpotro.potro_cover;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = noteKhoshraList.data.records[i].mulpotro.potro_description;
+                    current_potro_id = noteKhoshraList.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
                 }
             }
             if (noteKhoshraList.data.total_records < 0 || i < 0)
@@ -7418,6 +8214,25 @@ namespace dNothi.Desktop.UI
                     btnNoteKhoshraPrevious.Visible = true;
                     string DecodedString = noteKhoshraList.data.records[i].mulpotro.potro_description;
                     khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
+
+                    _khoshraPotroWaitinDataRecordDTO = null;
+                    _khoshraPotroDataRecordDTO = noteKhoshraList.data.records[i];
+                    KhosraAttachmentButton(noteKhoshraList.data.records[i].basic.potro_pages);
+                    khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                    khoshraPotroWaitinDataRecordMulpotroDTO.buttonsDTOList = noteKhoshraList.data.records[i].mulpotro.buttonsDTOList;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.buttons = noteKhoshraList.data.records[i].mulpotro.buttons;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.id = noteKhoshraList.data.records[i].mulpotro.id;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.potro_cover = noteKhoshraList.data.records[i].mulpotro.potro_cover;
+                    khoshraPotroWaitinDataRecordMulpotroDTO.potro_description = noteKhoshraList.data.records[i].mulpotro.potro_description;
+                    current_potro_id = noteKhoshraList.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
                 }
             }
             if (noteKhoshraList.data.total_records == i || noteKhoshraList.data.total_records - 1 == i)
@@ -7524,13 +8339,24 @@ namespace dNothi.Desktop.UI
                         NoteKhoshraWaitingNext.Visible = true;
 
                         allPreviousButtonVisibilityOff();
-
+                        _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                        _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<KhoshraPotroWaitinDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(noteKhshraWaitingList.data.records[i].basic);
+                        _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<KhoshraPotroWaitinDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(noteKhshraWaitingList.data.records[i].mulpotro);
+                        _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(noteKhshraWaitingList.data.records[i].note_owner);
+                        _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(noteKhshraWaitingList.data.records[i].note_onucched);
                         // current_potro_id = noteKhshraWaitingList.data.records[0].basic.id;
-                        _khoshraPotroWaitinDataRecordDTO = noteKhshraWaitingList.data.records[0];
-                        khoshraPotroWaitinDataRecordMulpotroDTO = noteKhshraWaitingList.data.records[0].mulpotro;
-                        KhosraAttachmentButton(noteKhshraWaitingList.data.records[0].basic.potro_pages);
-
-
+                        _khoshraPotroWaitinDataRecordDTO = noteKhshraWaitingList.data.records[i];
+                        khoshraPotroWaitinDataRecordMulpotroDTO = noteKhshraWaitingList.data.records[i].mulpotro;
+                        KhosraAttachmentButton(noteKhshraWaitingList.data.records[i].basic.potro_pages);
+                        current_potro_id = noteKhshraWaitingList.data.records[i].basic.id;
+                        if (current_potro_id == 0)
+                        {
+                            btnPrapokerTalika.Visible = false;
+                        }
+                        else
+                        {
+                            btnPrapokerTalika.Visible = true;
+                        }
 
                         if (noteKhshraWaitingList.data.records[i].mulpotro.potro_description != null)
                         {
@@ -7637,6 +8463,23 @@ namespace dNothi.Desktop.UI
                     NoteKhoshraWaitingNext.Visible = true;
 
                     allPreviousButtonVisibilityOff();
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<KhoshraPotroWaitinDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(noteKhshraWaitingList.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<KhoshraPotroWaitinDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(noteKhshraWaitingList.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(noteKhshraWaitingList.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(noteKhshraWaitingList.data.records[i].note_onucched);
+                    current_potro_id = noteKhshraWaitingList.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
+                    _khoshraPotroWaitinDataRecordDTO = noteKhshraWaitingList.data.records[i];
+                    khoshraPotroWaitinDataRecordMulpotroDTO = noteKhshraWaitingList.data.records[i].mulpotro;
+                    KhosraAttachmentButton(noteKhshraWaitingList.data.records[i].basic.potro_pages);
                     if (noteKhshraWaitingList.data.records[i].mulpotro.potro_description != null)
                     {
                         string DecodedString = noteKhshraWaitingList.data.records[i].mulpotro.potro_description;
@@ -7724,7 +8567,23 @@ namespace dNothi.Desktop.UI
 
                     allPreviousButtonVisibilityOff();
                     NoteKhoshraWaitingPrevious.Visible = true;
-
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<KhoshraPotroWaitinDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(noteKhshraWaitingList.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<KhoshraPotroWaitinDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(noteKhshraWaitingList.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(noteKhshraWaitingList.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(noteKhshraWaitingList.data.records[i].note_onucched);
+                    current_potro_id = noteKhshraWaitingList.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
+                    _khoshraPotroWaitinDataRecordDTO = noteKhshraWaitingList.data.records[i];
+                    khoshraPotroWaitinDataRecordMulpotroDTO = noteKhshraWaitingList.data.records[i].mulpotro;
+                    KhosraAttachmentButton(noteKhshraWaitingList.data.records[i].basic.potro_pages);
                     if (noteKhshraWaitingList.data.records[i].mulpotro.potro_description != null)
                     {
                         string DecodedString = noteKhshraWaitingList.data.records[i].mulpotro.potro_description;
@@ -7821,10 +8680,27 @@ namespace dNothi.Desktop.UI
 
                     allPreviousButtonVisibilityOff();
                     NoteKhoshraWaitingPrevious.Visible = true;
-
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<KhoshraPotroWaitinDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(noteKhshraWaitingList.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<KhoshraPotroWaitinDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(noteKhshraWaitingList.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(noteKhshraWaitingList.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(noteKhshraWaitingList.data.records[i].note_onucched);
+                    // current_potro_id = noteKhshraWaitingList.data.records[0].basic.id;
+                    _khoshraPotroWaitinDataRecordDTO = noteKhshraWaitingList.data.records[i];
+                    khoshraPotroWaitinDataRecordMulpotroDTO = noteKhshraWaitingList.data.records[i].mulpotro;
+                    KhosraAttachmentButton(noteKhshraWaitingList.data.records[i].basic.potro_pages);
+                    current_potro_id = noteKhshraWaitingList.data.records[i].basic.id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
                     if (noteKhshraWaitingList.data.records[i].mulpotro.potro_description != null)
                     {
-                        current_potro_id = noteKhshraWaitingList.data.records[i].basic.nothi_potro_id;
+                        
                         string DecodedString = noteKhshraWaitingList.data.records[i].mulpotro.potro_description;
                         khosraViewWebBrowser.DocumentText = Base64Decode1(DecodedString);
                     }
@@ -7849,13 +8725,26 @@ namespace dNothi.Desktop.UI
 
                 allNextButtonVisibilityOff();
                 NotePotrojariNext.Visible = true;
-
+                _khoshraPotroWaitinDataRecordDTO = null;
+                _khoshraPotroDataRecordDTO = null;
                 notePotrojariList = _notePotrojariList.GetPotrojariListInfo(_dakuserparam, nothiListRecords.id, notelist.nothi_note_id);
                 if (notePotrojariList.status == "success")
                 {
                     i = 0;
+                    int index = 0;
                     pnlPotrangshoDetails.Visible = true;
-                    lbPotroSubject.Text = notePotrojariList.data.records[i].basic.potro_subject;
+                    if (notePotrojariList.data.records[i].basic.page_numbers.Contains(","))
+                    {
+                        index = notePotrojariList.data.records[i].basic.page_numbers.IndexOf(",");
+                        lbPotroSubject.Text = notePotrojariList.data.records[i].basic.subject + "(পাতা:" + string.Concat(notePotrojariList.data.records[i].basic.page_numbers.Substring(0, index).ToString().Select(c => (char)('\u09E6' + c - '0'))) + "-" + string.Concat(notePotrojariList.data.records[i].basic.page_numbers.Substring(index + 1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
+
+                    }
+                    else
+                    {
+                        lbPotroSubject.Text = notePotrojariList.data.records[i].basic.subject + "(পাতা:-" + string.Concat(notePotrojariList.data.records[i].basic.page_numbers.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
+
+                    }
+                    //lbPotroSubject.Text = notePotrojariList.data.records[i].basic.potro_subject;
                     lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + notePotrojariList.data.records[i].basic.created;
                     lbNoteId.Text = "নোটঃ " + string.Concat(notePotrojariList.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     lbSubjectSmall.Text = "পত্র: " + notePotrojariList.data.records[i].basic.potro_subject;
@@ -7915,7 +8804,27 @@ namespace dNothi.Desktop.UI
                         unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
 
                     mulpotroOshongjuktiVisibilityOff();
+                    _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                    _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NotePotrojariDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(notePotrojariList.data.records[i].basic);
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NotePotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(notePotrojariList.data.records[i].mulpotro);
+                    _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<NotePotrojariDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(notePotrojariList.data.records[i].note_owner);
+                    _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NotePotrojariDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(notePotrojariList.data.records[i].note_onucched);
 
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NotePotrojariDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(notePotrojariList.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NotePotrojariDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(notePotrojariList.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NotePotrojariDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(notePotrojariList.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<NotePotrojariDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(notePotrojariList.data.records[i].note_onucched);
+                    KhosraAttachmentButton(notePotrojariList.data.records[i].basic.potro_pages);
+                    current_potro_id = notePotrojariList.data.records[i].basic.potrojari_id;
+                    if (current_potro_id == 0)
+                    {
+                        btnPrapokerTalika.Visible = false;
+                    }
+                    else
+                    {
+                        btnPrapokerTalika.Visible = true;
+                    }
                     totalRange = (i + 1).ToString();
 
                     picBoxFile.Visible = false;
@@ -7934,6 +8843,8 @@ namespace dNothi.Desktop.UI
 
                         if (notePotrojariList.data.records[i].mulpotro.url != "")
                         {
+                            khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                            khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<NotePotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(notePotrojariList.data.records[0].mulpotro);
                             picBoxFile.Visible = false;
                             khosraViewWebBrowser.Url = new Uri(notePotrojariList.data.records[i].mulpotro.url);
                         }
@@ -8030,7 +8941,27 @@ namespace dNothi.Desktop.UI
                     unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
 
                 mulpotroOshongjuktiVisibilityOff();
+                _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NotePotrojariDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(notePotrojariList.data.records[i].basic);
+                _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NotePotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(notePotrojariList.data.records[i].mulpotro);
+                _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<NotePotrojariDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(notePotrojariList.data.records[i].note_owner);
+                _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NotePotrojariDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(notePotrojariList.data.records[i].note_onucched);
 
+                _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NotePotrojariDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(notePotrojariList.data.records[i].basic);
+                _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NotePotrojariDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(notePotrojariList.data.records[i].mulpotro);
+                _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NotePotrojariDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(notePotrojariList.data.records[i].note_owner);
+                _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<NotePotrojariDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(notePotrojariList.data.records[i].note_onucched);
+                KhosraAttachmentButton(notePotrojariList.data.records[i].basic.potro_pages);
+                current_potro_id = notePotrojariList.data.records[i].basic.potrojari_id;
+                if (current_potro_id == 0)
+                {
+                    btnPrapokerTalika.Visible = false;
+                }
+                else
+                {
+                    btnPrapokerTalika.Visible = true;
+                }
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -8049,10 +8980,8 @@ namespace dNothi.Desktop.UI
 
                     if (notePotrojariList.data.records[i].mulpotro.url != "")
                     {
-                        current_potro_id = noteKhshraWaitingList.data.records[0].basic.id;
-                        _khoshraPotroWaitinDataRecordDTO = noteKhshraWaitingList.data.records[0];
-                        khoshraPotroWaitinDataRecordMulpotroDTO = noteKhshraWaitingList.data.records[0].mulpotro;
-
+                        khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                        khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<NotePotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(notePotrojariList.data.records[0].mulpotro);
                         picBoxFile.Visible = false;
                         khosraViewWebBrowser.Url = new Uri(notePotrojariList.data.records[i].mulpotro.url);
                     }
@@ -8126,7 +9055,27 @@ namespace dNothi.Desktop.UI
                     unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
 
                 mulpotroOshongjuktiVisibilityOff();
+                _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NotePotrojariDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(notePotrojariList.data.records[i].basic);
+                _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NotePotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(notePotrojariList.data.records[i].mulpotro);
+                _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<NotePotrojariDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(notePotrojariList.data.records[i].note_owner);
+                _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NotePotrojariDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(notePotrojariList.data.records[i].note_onucched);
 
+                _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NotePotrojariDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(notePotrojariList.data.records[i].basic);
+                _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NotePotrojariDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(notePotrojariList.data.records[i].mulpotro);
+                _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NotePotrojariDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(notePotrojariList.data.records[i].note_owner);
+                _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<NotePotrojariDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(notePotrojariList.data.records[i].note_onucched);
+                KhosraAttachmentButton(notePotrojariList.data.records[i].basic.potro_pages);
+                current_potro_id = notePotrojariList.data.records[i].basic.potrojari_id;
+                if (current_potro_id == 0)
+                {
+                    btnPrapokerTalika.Visible = false;
+                }
+                else
+                {
+                    btnPrapokerTalika.Visible = true;
+                }
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -8136,7 +9085,7 @@ namespace dNothi.Desktop.UI
                     khosraViewWebBrowser.Document.Write(string.Empty);
                 }
 
-                if (noteKhshraWaitingList.data.total_records > 0)
+                if (notePotrojariList.data.total_records > 0)
                 {
                     allNextButtonVisibilityOff();
                     NotePotrojariNext.Visible = true;
@@ -8146,6 +9095,8 @@ namespace dNothi.Desktop.UI
 
                     if (notePotrojariList.data.records[i].mulpotro.url != "")
                     {
+                        khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                        khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<NotePotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(notePotrojariList.data.records[0].mulpotro);
                         picBoxFile.Visible = false;
                         khosraViewWebBrowser.Url = new Uri(notePotrojariList.data.records[i].mulpotro.url);
                     }
@@ -8173,7 +9124,18 @@ namespace dNothi.Desktop.UI
 
 
                 pnlPotrangshoDetails.Visible = true;
-                lbPotroSubject.Text = notePotrojariList.data.records[i].basic.potro_subject;
+                int index = 0;
+                if (notePotrojariList.data.records[i].basic.page_numbers.Contains(","))
+                {
+                    index = notePotrojariList.data.records[i].basic.page_numbers.IndexOf(",");
+                    lbPotroSubject.Text = notePotrojariList.data.records[i].basic.subject + "(পাতা:" + string.Concat(notePotrojariList.data.records[i].basic.page_numbers.Substring(0, index).ToString().Select(c => (char)('\u09E6' + c - '0'))) + "-" + string.Concat(notePotrojariList.data.records[i].basic.page_numbers.Substring(index + 1).ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
+
+                }
+                else
+                {
+                    lbPotroSubject.Text = notePotrojariList.data.records[i].basic.subject + "(পাতা:-" + string.Concat(notePotrojariList.data.records[i].basic.page_numbers.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
+
+                }
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + notePotrojariList.data.records[i].basic.created;
                 lbNoteId.Text = "নোটঃ " + string.Concat(notePotrojariList.data.records[i].note_owner.note_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
                 lbSubjectSmall.Text = "পত্র: " + notePotrojariList.data.records[i].basic.potro_subject;
@@ -8233,7 +9195,27 @@ namespace dNothi.Desktop.UI
                     unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
 
                 mulpotroOshongjuktiVisibilityOff();
+                _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NotePotrojariDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(notePotrojariList.data.records[i].basic);
+                _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NotePotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(notePotrojariList.data.records[i].mulpotro);
+                _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<NotePotrojariDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(notePotrojariList.data.records[i].note_owner);
+                _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NotePotrojariDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(notePotrojariList.data.records[i].note_onucched);
 
+                _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NotePotrojariDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(notePotrojariList.data.records[i].basic);
+                _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NotePotrojariDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(notePotrojariList.data.records[i].mulpotro);
+                _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NotePotrojariDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(notePotrojariList.data.records[i].note_owner);
+                _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<NotePotrojariDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(notePotrojariList.data.records[i].note_onucched);
+                KhosraAttachmentButton(notePotrojariList.data.records[i].basic.potro_pages);
+                current_potro_id = notePotrojariList.data.records[i].basic.potrojari_id;
+                if (current_potro_id == 0)
+                {
+                    btnPrapokerTalika.Visible = false;
+                }
+                else
+                {
+                    btnPrapokerTalika.Visible = true;
+                }
                 totalRange = (i + 1).ToString();
 
                 picBoxFile.Visible = false;
@@ -8243,7 +9225,7 @@ namespace dNothi.Desktop.UI
                     khosraViewWebBrowser.Document.Write(string.Empty);
                 }
 
-                if (noteKhshraWaitingList.data.total_records > 0)
+                if (notePotrojariList.data.total_records > 0)
                 {
                     allNextButtonVisibilityOff();
                     NotePotrojariNext.Visible = true;
@@ -8253,11 +9235,8 @@ namespace dNothi.Desktop.UI
 
                     if (notePotrojariList.data.records[i].mulpotro.url != "")
                     {
-
-                        current_potro_id = noteKhshraWaitingList.data.records[0].basic.id;
-                        _khoshraPotroWaitinDataRecordDTO = noteKhshraWaitingList.data.records[0];
-                        khoshraPotroWaitinDataRecordMulpotroDTO = noteKhshraWaitingList.data.records[0].mulpotro;
-
+                        khoshraPotroWaitinDataRecordMulpotroDTO = new KhoshraPotroWaitinDataRecordMulpotroDTO();
+                        khoshraPotroWaitinDataRecordMulpotroDTO = MappingModels.MapModel<NotePotrojariDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(notePotrojariList.data.records[0].mulpotro);
                         picBoxFile.Visible = false;
                         khosraViewWebBrowser.Url = new Uri(notePotrojariList.data.records[i].mulpotro.url);
                     }
@@ -8285,7 +9264,8 @@ namespace dNothi.Desktop.UI
 
                 allNextButtonVisibilityOff();
                 btnNoteNothivuktoPotroNext.Visible = true;
-
+                _khoshraPotroWaitinDataRecordDTO = null;
+                _khoshraPotroDataRecordDTO = null;
                 noteNothivuktoPotroResponse = _nothivuktoPotro.GetNoteNothivuktoPotroInfo(_dakuserparam, nothiListRecords.id, notelist.nothi_note_id);
                 if (noteNothivuktoPotroResponse.status == "success")
                 {
@@ -8362,19 +9342,39 @@ namespace dNothi.Desktop.UI
                         }
                         allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                             unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+                        _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                        _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(noteNothivuktoPotroResponse.data.records[i].basic);
+                        _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(noteNothivuktoPotroResponse.data.records[i].mulpotro);
+                        _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(noteNothivuktoPotroResponse.data.records[i].note_onucched);
+                        _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(noteNothivuktoPotroResponse.data.records[i].note_owner);
 
-                        if (noteNothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
+                        _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                        _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(noteNothivuktoPotroResponse.data.records[i].basic);
+                        _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(noteNothivuktoPotroResponse.data.records[i].mulpotro);
+                        _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(noteNothivuktoPotroResponse.data.records[i].note_owner);
+                        _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(noteNothivuktoPotroResponse.data.records[i].note_onucched);
+                        KhosraAttachmentButton(noteNothivuktoPotroResponse.data.records[i].basic.potro_pages);
+                        current_potro_id = noteNothivuktoPotroResponse.data.records[i].basic.id;
+                        if (current_potro_id == 0)
                         {
-                            pnlMulPotroOShonjukti.Visible = true;
-                            lbMulPotroOShonjukti.Visible = true;
-                            btnMulPotroOShonjukti.Visible = true;
-
-                            btnMulPotroOShonjukti.Text = string.Concat(noteNothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                            btnPrapokerTalika.Visible = false;
                         }
                         else
                         {
-                            mulpotroOshongjuktiVisibilityOff();
+                            btnPrapokerTalika.Visible = true;
                         }
+                        //if (noteNothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
+                        //{
+                        //    pnlMulPotroOShonjukti.Visible = true;
+                        //    lbMulPotroOShonjukti.Visible = true;
+                        //    btnMulPotroOShonjukti.Visible = true;
+
+                        //    btnMulPotroOShonjukti.Text = string.Concat(noteNothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        //}
+                        //else
+                        //{
+                        //    mulpotroOshongjuktiVisibilityOff();
+                        //}
 
                         totalRange = (i + 1).ToString();
                         if (noteNothivuktoPotroResponse.data.records[i].mulpotro.url != "")
@@ -8480,19 +9480,39 @@ namespace dNothi.Desktop.UI
                     }
                     allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                         unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+                    _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                    _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(noteNothivuktoPotroResponse.data.records[i].basic);
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(noteNothivuktoPotroResponse.data.records[i].mulpotro);
+                    _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(noteNothivuktoPotroResponse.data.records[i].note_owner);
+                    _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(noteNothivuktoPotroResponse.data.records[i].note_onucched);
 
-                    if (noteNothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(noteNothivuktoPotroResponse.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(noteNothivuktoPotroResponse.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(noteNothivuktoPotroResponse.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(noteNothivuktoPotroResponse.data.records[i].note_onucched);
+                    KhosraAttachmentButton(noteNothivuktoPotroResponse.data.records[i].basic.potro_pages);
+                    current_potro_id = noteNothivuktoPotroResponse.data.records[i].basic.id;
+                    if (current_potro_id == 0)
                     {
-                        pnlMulPotroOShonjukti.Visible = true;
-                        lbMulPotroOShonjukti.Visible = true;
-                        btnMulPotroOShonjukti.Visible = true;
-
-                        btnMulPotroOShonjukti.Text = string.Concat(noteNothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        btnPrapokerTalika.Visible = false;
                     }
                     else
                     {
-                        mulpotroOshongjuktiVisibilityOff();
+                        btnPrapokerTalika.Visible = true;
                     }
+                    //if (noteNothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
+                    //{
+                    //    pnlMulPotroOShonjukti.Visible = true;
+                    //    lbMulPotroOShonjukti.Visible = true;
+                    //    btnMulPotroOShonjukti.Visible = true;
+
+                    //    btnMulPotroOShonjukti.Text = string.Concat(noteNothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //}
+                    //else
+                    //{
+                    //    mulpotroOshongjuktiVisibilityOff();
+                    //}
 
                     totalRange = (i + 1).ToString();
                     if (noteNothivuktoPotroResponse.data.records[i].mulpotro.url != "")
@@ -8590,19 +9610,39 @@ namespace dNothi.Desktop.UI
                     }
                     allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                         unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+                    _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                    _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(noteNothivuktoPotroResponse.data.records[i].basic);
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(noteNothivuktoPotroResponse.data.records[i].mulpotro);
+                    _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(noteNothivuktoPotroResponse.data.records[i].note_owner);
+                    _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(noteNothivuktoPotroResponse.data.records[i].note_onucched);
 
-                    if (noteNothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(noteNothivuktoPotroResponse.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(noteNothivuktoPotroResponse.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(noteNothivuktoPotroResponse.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(noteNothivuktoPotroResponse.data.records[i].note_onucched);
+                    KhosraAttachmentButton(noteNothivuktoPotroResponse.data.records[i].basic.potro_pages);
+                    current_potro_id = noteNothivuktoPotroResponse.data.records[i].basic.id;
+                    if (current_potro_id == 0)
                     {
-                        pnlMulPotroOShonjukti.Visible = true;
-                        lbMulPotroOShonjukti.Visible = true;
-                        btnMulPotroOShonjukti.Visible = true;
-
-                        btnMulPotroOShonjukti.Text = string.Concat(noteNothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        btnPrapokerTalika.Visible = false;
                     }
                     else
                     {
-                        mulpotroOshongjuktiVisibilityOff();
+                        btnPrapokerTalika.Visible = true;
                     }
+                    //if (noteNothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
+                    //{
+                    //    pnlMulPotroOShonjukti.Visible = true;
+                    //    lbMulPotroOShonjukti.Visible = true;
+                    //    btnMulPotroOShonjukti.Visible = true;
+
+                    //    btnMulPotroOShonjukti.Text = string.Concat(noteNothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //}
+                    //else
+                    //{
+                    //    mulpotroOshongjuktiVisibilityOff();
+                    //}
 
                     totalRange = (i + 1).ToString();
                     if (noteNothivuktoPotroResponse.data.records[i].mulpotro.url != "")
@@ -8691,19 +9731,39 @@ namespace dNothi.Desktop.UI
                     }
                     allMulpotroButtonsVisibilityOn(draft_history, clone, edit, delete, approve,
                         unapprove, potrojari, endrosement, khoshra, fulleditable, custom);
+                    _khoshraPotroWaitinDataRecordDTO = new KhoshraPotroWaitinDataRecordDTO();
+                    _khoshraPotroWaitinDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, KhoshraPotroWaitinDataRecordBasicDTO>(noteNothivuktoPotroResponse.data.records[i].basic);
+                    _khoshraPotroWaitinDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, KhoshraPotroWaitinDataRecordMulpotroDTO>(noteNothivuktoPotroResponse.data.records[i].mulpotro);
+                    _khoshraPotroWaitinDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, KhoshraPotroWaitinDataRecordNoteOwnerDTO>(noteNothivuktoPotroResponse.data.records[i].note_owner);
+                    _khoshraPotroWaitinDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, KhoshraPotroWaitinDataRecordNoteOnucchedDTO>(noteNothivuktoPotroResponse.data.records[i].note_onucched);
 
-                    if (noteNothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
+                    _khoshraPotroDataRecordDTO = new NoteKhoshraListDataRecordDTO();
+                    _khoshraPotroDataRecordDTO.basic = MappingModels.MapModel<NothivuktoPotroDataRecordBasicDTO, NoteKhoshraListDataRecordBasicDTO>(noteNothivuktoPotroResponse.data.records[i].basic);
+                    _khoshraPotroDataRecordDTO.mulpotro = MappingModels.MapModel<NothivuktoPotroDataRecordMulpotroDTO, NoteKhoshraListDataRecordMulpotroDTO>(noteNothivuktoPotroResponse.data.records[i].mulpotro);
+                    _khoshraPotroDataRecordDTO.note_owner = MappingModels.MapModel<NothivuktoPotroDataRecordNoteOwnerDTO, NoteKhoshraListDataRecordNoteOwnerDTO>(noteNothivuktoPotroResponse.data.records[i].note_owner);
+                    _khoshraPotroDataRecordDTO.note_onucched = MappingModels.MapModel<KhoshraPotroWaitinDataRecordNoteOnucchedDTO, NoteKhoshraListDataRecordNoteOnucchedDTO>(noteNothivuktoPotroResponse.data.records[i].note_onucched);
+                    KhosraAttachmentButton(noteNothivuktoPotroResponse.data.records[i].basic.potro_pages);
+                    current_potro_id = noteNothivuktoPotroResponse.data.records[i].basic.id;
+                    if (current_potro_id == 0)
                     {
-                        pnlMulPotroOShonjukti.Visible = true;
-                        lbMulPotroOShonjukti.Visible = true;
-                        btnMulPotroOShonjukti.Visible = true;
-
-                        btnMulPotroOShonjukti.Text = string.Concat(noteNothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        btnPrapokerTalika.Visible = false;
                     }
                     else
                     {
-                        mulpotroOshongjuktiVisibilityOff();
+                        btnPrapokerTalika.Visible = true;
                     }
+                    //if (noteNothivuktoPotroResponse.data.records[i].mulpotro.is_main == 1)
+                    //{
+                    //    pnlMulPotroOShonjukti.Visible = true;
+                    //    lbMulPotroOShonjukti.Visible = true;
+                    //    btnMulPotroOShonjukti.Visible = true;
+
+                    //    btnMulPotroOShonjukti.Text = string.Concat(noteNothivuktoPotroResponse.data.records[i].basic.potro_pages.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    //}
+                    //else
+                    //{
+                    //    mulpotroOshongjuktiVisibilityOff();
+                    //}
 
                     totalRange = (i + 1).ToString();
                     if (noteNothivuktoPotroResponse.data.records[i].mulpotro.url != "")
@@ -9260,26 +10320,27 @@ namespace dNothi.Desktop.UI
 
         private void btnPrapokerTalika_Click(object sender, EventArgs e)
         {
-            if (_khoshraPotroWaitinDataRecordDTO != null)
-            {
-                current_potro_id = _khoshraPotroWaitinDataRecordDTO.basic.id;
-            }
-            else if (_khoshraPotroDataRecordDTO != null)
-            {
-                current_potro_id = _khoshraPotroDataRecordDTO.basic.id;
-            }
+            //if (_khoshraPotroWaitinDataRecordDTO != null)
+            //{
+            //    current_potro_id = _khoshraPotroWaitinDataRecordDTO.basic.id;
+            //}
+            //else if (_khoshraPotroDataRecordDTO != null)
+            //{
+            //    current_potro_id = _khoshraPotroDataRecordDTO.basic.id;
+            //}
 
-            if (current_potro_id != 0)
-            {
-                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-                var prapakerTalika = _potrojariServices.GetPrapakerTalika(dakListUserParam, current_potro_id);
-                if (prapakerTalika.status == "success")
-                {
+            //if (current_potro_id != 0)
+            //{
 
-                    KhosraPrapokListViewForm khosraPrapokListViewForm = new KhosraPrapokListViewForm();
-                    khosraPrapokListViewForm.prapakerTalika = prapakerTalika;
-                    UIDesignCommonMethod.CalPopUpWindow(khosraPrapokListViewForm, this);
-                }
+            //}
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            PrapakerTalika prapakerTalika = _potrojariServices.GetPrapakerTalika(dakListUserParam, current_potro_id);
+            if (prapakerTalika.status == "success")
+            {
+
+                KhosraPrapokListViewForm khosraPrapokListViewForm = new KhosraPrapokListViewForm();
+                khosraPrapokListViewForm.prapakerTalika = prapakerTalika;
+                UIDesignCommonMethod.CalPopUpWindow(khosraPrapokListViewForm, this);
             }
 
         }
@@ -9791,7 +10852,6 @@ namespace dNothi.Desktop.UI
 
                 khoshraPotro = GetKhosra(_khoshraPotroWaitinDataRecordDTO);
                 khosraAttachmentViewForm.dakAttachmentResponse = GetAllMulPattraAndSanjukti(khoshraPotro);
-
                 UIDesignCommonMethod.CalPopUpWindow(khosraAttachmentViewForm, this);
             }
             catch

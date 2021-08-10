@@ -581,8 +581,9 @@ namespace dNothi.Desktop.UI
             Form hideform = new Form();
 
             hideform.BackColor = Color.Black;
-            hideform.Size = parentForm.Size;
-            hideform.Opacity = .6;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            hideform.Opacity = .4;
+            hideform.ShowInTaskbar = false;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;

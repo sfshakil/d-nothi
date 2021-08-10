@@ -31,8 +31,8 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.HeadingPanel = new System.Windows.Forms.Panel();
             this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
@@ -56,7 +56,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.HeadingPanel.Margin = new System.Windows.Forms.Padding(0);
             this.HeadingPanel.Name = "HeadingPanel";
             this.HeadingPanel.Padding = new System.Windows.Forms.Padding(0, 25, 0, 0);
-            this.HeadingPanel.Size = new System.Drawing.Size(510, 69);
+            this.HeadingPanel.Size = new System.Drawing.Size(560, 69);
             this.HeadingPanel.TabIndex = 38;
             // 
             // sliderCrossButton
@@ -72,7 +72,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.sliderCrossButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.sliderCrossButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.sliderCrossButton.IconSize = 18;
-            this.sliderCrossButton.Location = new System.Drawing.Point(486, 25);
+            this.sliderCrossButton.Location = new System.Drawing.Point(536, 25);
             this.sliderCrossButton.Margin = new System.Windows.Forms.Padding(0);
             this.sliderCrossButton.MaximumSize = new System.Drawing.Size(0, 32);
             this.sliderCrossButton.Name = "sliderCrossButton";
@@ -89,7 +89,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.singleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
             this.singleDakHeaderLabel.Location = new System.Drawing.Point(0, 25);
             this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
-            this.singleDakHeaderLabel.Size = new System.Drawing.Size(113, 21);
+            this.singleDakHeaderLabel.Size = new System.Drawing.Size(163, 30);
             this.singleDakHeaderLabel.TabIndex = 28;
             this.singleDakHeaderLabel.Text = "মূলপত্র ও সংযুক্তি";
             // 
@@ -110,7 +110,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(550, 726);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(600, 892);
             this.tableLayoutPanel1.TabIndex = 39;
             // 
             // attachmentTableLayoutPanel
@@ -123,7 +123,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.attachmentTableLayoutPanel.Name = "attachmentTableLayoutPanel";
             this.attachmentTableLayoutPanel.RowCount = 1;
             this.attachmentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.attachmentTableLayoutPanel.Size = new System.Drawing.Size(504, 600);
+            this.attachmentTableLayoutPanel.Size = new System.Drawing.Size(554, 766);
             this.attachmentTableLayoutPanel.TabIndex = 40;
             // 
             // label1
@@ -132,15 +132,15 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(23, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(504, 1);
+            this.label1.Size = new System.Drawing.Size(554, 1);
             this.label1.TabIndex = 39;
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewImageColumn1.HeaderText = "+";
             this.dataGridViewImageColumn1.Image = global::dNothi.Desktop.Properties.Resources.delete;
             this.dataGridViewImageColumn1.MinimumWidth = 2;
@@ -150,12 +150,13 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             // 
             // dataGridViewImageColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewImageColumn2.HeaderText = "+";
             this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.Width = 23;
@@ -165,11 +166,9 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(550, 726);
+            this.ClientSize = new System.Drawing.Size(600, 892);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(550, 726);
-            this.MinimumSize = new System.Drawing.Size(550, 726);
             this.Name = "KhosraAttachmentViewForm";
             this.Load += new System.EventHandler(this.KhosraAttachmentViewForm_Load);
             this.HeadingPanel.ResumeLayout(false);
