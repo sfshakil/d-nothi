@@ -1905,8 +1905,11 @@ namespace dNothi.Desktop.UI
                 {
                     khosraSaveParamPotro.potrojari.operation_type = "draft";
                 }
-
-                khosraSaveParamPotro.potrojari.note_onucched_id = _note_onucched_id;
+                if (_note_onucched_id != -1 )
+                {
+                    khosraSaveParamPotro.potrojari.note_onucched_id = _note_onucched_id; //-1 means not need to add onuchhed id, because this khoshra dnot come from onuchhed.
+                }
+                
                 //khosraSaveParamPotro.potrojari.potro_subject=_khasraPotroTemplateData
                 //khosraSaveParamPotro.potrojari.potro_type= _khasraPotroTemplateData.
                 //khosraSaveParamPotro.potrojari.sarok_no=

@@ -11272,5 +11272,10 @@ namespace dNothi.Desktop.UI
                 ErrorMessage(noteFinishedResponse.message);
             }
         }
+
+        private void btnKhoshra_Click(object sender, EventArgs e)
+        {
+            loadKhoshra("-1");
+        }
     }
 }
