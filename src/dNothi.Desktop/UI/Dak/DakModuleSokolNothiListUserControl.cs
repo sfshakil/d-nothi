@@ -223,16 +223,6 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-        private void nothiShompadonIcon_MouseHover(object sender, EventArgs e)
-        {
-            nothiShompadonIcon.IconColor = Color.Salmon;
-        }
-
-        private void nothiShompadonIcon_MouseLeave(object sender, EventArgs e)
-        {
-            nothiShompadonIcon.IconColor = Color.FromArgb(54, 153, 255);
-        }
-
         private void addButton_Click(object sender, EventArgs e)
         {
             if (addButton.IconChar == FontAwesome.Sharp.IconChar.Plus)
@@ -408,7 +398,7 @@ namespace dNothi.Desktop.UI.Dak
 
                 dakNothiteUposthaponNoteList.nothiDTO = noteNothiDTO;
                 dakNothiteUposthaponNoteList.NothiteUposthapitoButtonClick += delegate (object sender, EventArgs e) { NothiteUposthapito_ButtonClick(sender, e, dakNothiteUposthaponNoteList._nothiDTO, dakNothiteUposthaponNoteList._noteDto); };
-
+                dakNothiteUposthaponNoteList.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender, e, dakNothiteUposthaponNoteList._nothiDTO, dakNothiteUposthaponNoteList._noteDto); };
                 dakNothiteUposthaponNoteList._khoshra = _khoshra;
                 dakNothiteUposthaponNoteLists.Add(dakNothiteUposthaponNoteList);
             }
@@ -420,7 +410,15 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
+        public event EventHandler NoteDetailsButton;
 
+        private void NoteDetails_ButtonClick(object sender, EventArgs e, NoteNothiDTO nothiDTO, NothiListInboxNoteRecordsDTO _noteDto)
+        {
+            _nothiDTO = nothiDTO;
+            _nothiListInboxRecordDTO = _noteDto;
+            if (this.NoteDetailsButton != null)
+                this.NoteDetailsButton(sender, e);
+        }
 
         public event EventHandler NothiteUposthaponButton;
         public bool _khoshra;
