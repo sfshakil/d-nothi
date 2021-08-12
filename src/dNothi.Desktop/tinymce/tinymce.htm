@@ -85,16 +85,18 @@
 
 
 
-            // menubar: "edit insert view format table tools",
+            //menubar: "edit insert view format table tools",
             //language: 'cs_CZ',
-            //setup: function (ed) {
-            //    ed.on('init', function (e) {
-                    //  ed.execCommand('mceFullScreen');
-            //    });
-           // }
+            setup: function (ed) {
+                ed.on('init', function (e) {
+                      ed.execCommand('mceFullScreen');
+                });
+            },
 
        setup: function(editor) {
-        
+        //editor.on('init', function (e) {
+        //    editor.execCommand('mceFullScreen');
+        //        });
         editor.on('change', function(e) {
             
               try
@@ -132,7 +134,7 @@
         });
         
 
-    },
+    }
 
         });
     </script>
