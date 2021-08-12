@@ -9844,18 +9844,35 @@ namespace dNothi.Desktop.UI
             form.noteSubject = noteSubject;
             form.nothiLastDate = _nothiLastDate;
             form.noteAllListDataRecordDTO = _NoteAllListDataRecordDTO;
-
             form.office = _office;
 
 
             form.loadNothiInboxRecords(nothiListRecords);
-            form.loadNoteView(newNoteView);
-            form.noteTotal = noteTotal;
+            form.loadNoteView(RefreshNoteView(_NoteAllListDataRecordDTO));
+            form.noteTotal = _NoteAllListDataRecordDTO.note.note_no.ToString();
             form.loadInboxCBXNothiType();
             form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
             BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+        }
+        private NoteView RefreshNoteView(NothiListInboxNoteRecordsDTO _NoteAllListDataRecordDTO)
+        {
+            NoteView noteView = new NoteView();
+            noteView.totalNothi = _NoteAllListDataRecordDTO.note.note_no.ToString();
+            noteView.noteSubject = _NoteAllListDataRecordDTO.note.note_subject;
+            noteView.nothiLastDate = newNoteView.nothiLastDate;
+            noteView.officerInfo = _dakuserparam.officer + "," + _NoteAllListDataRecordDTO.nothi.office_designation_name + "," + _NoteAllListDataRecordDTO.nothi.office_unit_name + "," + _dakuserparam.office_label;
+            noteView.checkBox = "1";
+            noteView.nothiNoteID = _NoteAllListDataRecordDTO.note.nothi_note_id;
+            noteView.onucchedCount = _NoteAllListDataRecordDTO.note.onucched_count.ToString();
+            noteView.khosraPotro = _NoteAllListDataRecordDTO.note.khoshra_potro.ToString();
+            noteView.khoshraWaiting = _NoteAllListDataRecordDTO.note.khoshra_waiting_for_approval.ToString();
+            noteView.approved = _NoteAllListDataRecordDTO.note.approved_potro.ToString();
+            noteView.potrojari = _NoteAllListDataRecordDTO.note.potrojari.ToString();
+            noteView.nothivukto = _NoteAllListDataRecordDTO.note.nothivukto_potro.ToString();
+
+            return noteView;
         }
         private void loadNotewithALLNote()
         {
@@ -10473,17 +10490,17 @@ namespace dNothi.Desktop.UI
                 if (potrojariResponse != null && potrojariResponse.status == "success")
                 {
                     UIDesignCommonMethod.SuccessMessage(potrojariResponse.data);
-                    
-                    lbNoteKhoshra.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbNoteKhoshra.Text))-1).ToString());
-                    lbKhoshra.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbKhoshra.Text))-1).ToString());
-                   
-                    lbKhoshraWaiting.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbKhoshraWaiting.Text))-1).ToString());
-                    lbNoteKhoshraWaiting.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbNoteKhoshraWaiting.Text))-1).ToString());
+
+                    //lbNoteKhoshra.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbNoteKhoshra.Text))-1).ToString());
+                    //lbKhoshra.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbKhoshra.Text))-1).ToString());
+
+                    //lbKhoshraWaiting.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbKhoshraWaiting.Text))-1).ToString());
+                    //lbNoteKhoshraWaiting.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbNoteKhoshraWaiting.Text))-1).ToString());
 
 
-                    lbNotePotrojari.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbNotePotrojari.Text))+1).ToString());
-                    lbPotrojari.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbPotrojari.Text))+1).ToString());
-
+                    //lbNotePotrojari.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbNotePotrojari.Text))+1).ToString());
+                    //lbPotrojari.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbPotrojari.Text))+1).ToString());
+                    loadNote();
                     lbNotePotrojari_Click(null, EventArgs.Empty);
 
 
@@ -10800,7 +10817,7 @@ namespace dNothi.Desktop.UI
             form._nothiListRecordsDTO = _nothiListRecordsDTO;
             form._nothiListInboxNoteRecordsDTO = _nothiListInboxNoteRecordsDTO;
             form._note_onucched_id = Convert.ToInt32(onucchedId);
-
+            form._noteDTO = _NoteAllListDataRecordDTO;
             //GetSarokNoResponse sarok_no = _khosraSaveService.GetSharokNoResponse(dakUserParam, Convert.ToInt32(noteNothiDTO.nothi_id), potrojari_id);
             //form.SetSarokNo(sarok_no.sarok_no);
             UIDesignCommonMethod.returnForm = this;
