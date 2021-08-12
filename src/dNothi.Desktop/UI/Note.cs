@@ -10746,10 +10746,17 @@ namespace dNothi.Desktop.UI
 
         private void btnSaveAndKhoshra_Click(object sender, EventArgs e)
         {
-            btnOnuchhedSave_Click(sender, e);
-            if (string.IsNullOrEmpty(_saved_Onucched_Id))
+            if (InternetConnection.Check())
             {
-                loadKhoshra(_saved_Onucched_Id);
+                btnOnuchhedSave_Click(sender, e);
+                if (!string.IsNullOrEmpty(_saved_Onucched_Id))
+                {
+                    loadKhoshra(_saved_Onucched_Id);
+                }
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
