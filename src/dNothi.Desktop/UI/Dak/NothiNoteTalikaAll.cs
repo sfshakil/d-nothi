@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Utility;
+using dNothi.Desktop.UI.CustomMessageBox;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -188,8 +190,57 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-        
-       
-       
+        public event EventHandler NoteDetailsButton;
+        private void detailsButton_Click(object sender, EventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
+                noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(_nothiDTO.note_id);
+                noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_nothiDTO.note_no);
+                noteListDataRecordNoteDTO.new_tab = 0; // new_tab ==0 means not new tab;
+                if (this.NoteDetailsButton != null)
+                    this.NoteDetailsButton(noteListDataRecordNoteDTO, e);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
+        }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
+        private void detailsButtonNewTab_Click(object sender, EventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                NoteListDataRecordNoteDTO noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO();
+                noteListDataRecordNoteDTO.nothi_note_id = Convert.ToInt32(_nothiDTO.note_id);
+                noteListDataRecordNoteDTO.note_no = Convert.ToInt32(_nothiDTO.note_no);
+                noteListDataRecordNoteDTO.new_tab = 1; // new_tab ==0 means not new tab;
+                if (this.NoteDetailsButton != null)
+                    this.NoteDetailsButton(noteListDataRecordNoteDTO, e);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+        }
     }
 }

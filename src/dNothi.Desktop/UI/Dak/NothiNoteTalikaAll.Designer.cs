@@ -39,7 +39,7 @@
             this.eyeButton = new FontAwesome.Sharp.IconButton();
             this.dateLabel = new System.Windows.Forms.Label();
             this.optionButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
+            this.detailsButton = new FontAwesome.Sharp.IconButton();
             this.lbToOfficer = new System.Windows.Forms.Label();
             this.lbDeskOfficer = new System.Windows.Forms.Label();
             this.senderAndReceiverPanel = new System.Windows.Forms.Panel();
@@ -57,7 +57,7 @@
             this.potrojariLabel = new System.Windows.Forms.Label();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.usersButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.detailsButtonNewTab = new FontAwesome.Sharp.IconButton();
             this.branchNoteSubLabel = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -246,23 +246,23 @@
             this.optionButton.Visible = false;
             this.optionButton.Click += new System.EventHandler(this.optionButton_Click);
             // 
-            // iconButton5
+            // detailsButton
             // 
-            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.iconButton5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
-            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 18;
-            this.iconButton5.Location = new System.Drawing.Point(0, 0);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(30, 30);
-            this.iconButton5.TabIndex = 92;
-            this.MyToolTip.SetToolTip(this.iconButton5, "নোটের বিস্তারিত");
-            this.iconButton5.UseVisualStyleBackColor = false;
-            this.iconButton5.Visible = false;
+            this.detailsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.detailsButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.detailsButton.FlatAppearance.BorderSize = 0;
+            this.detailsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.detailsButton.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
+            this.detailsButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.detailsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.detailsButton.IconSize = 18;
+            this.detailsButton.Location = new System.Drawing.Point(0, 0);
+            this.detailsButton.Name = "detailsButton";
+            this.detailsButton.Size = new System.Drawing.Size(30, 30);
+            this.detailsButton.TabIndex = 92;
+            this.MyToolTip.SetToolTip(this.detailsButton, "নোটের বিস্তারিত");
+            this.detailsButton.UseVisualStyleBackColor = false;
+            this.detailsButton.Click += new System.EventHandler(this.detailsButton_Click);
             // 
             // lbToOfficer
             // 
@@ -488,23 +488,23 @@
             this.usersButton.UseVisualStyleBackColor = false;
             this.usersButton.Visible = false;
             // 
-            // iconButton4
+            // detailsButtonNewTab
             // 
-            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkAlt;
-            this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 18;
-            this.iconButton4.Location = new System.Drawing.Point(30, 0);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(30, 30);
-            this.iconButton4.TabIndex = 93;
-            this.MyToolTip.SetToolTip(this.iconButton4, "নোটের বিস্তারিত (নতুন ট্যাব)");
-            this.iconButton4.UseVisualStyleBackColor = false;
-            this.iconButton4.Visible = false;
+            this.detailsButtonNewTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.detailsButtonNewTab.Dock = System.Windows.Forms.DockStyle.Left;
+            this.detailsButtonNewTab.FlatAppearance.BorderSize = 0;
+            this.detailsButtonNewTab.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.detailsButtonNewTab.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkAlt;
+            this.detailsButtonNewTab.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.detailsButtonNewTab.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.detailsButtonNewTab.IconSize = 18;
+            this.detailsButtonNewTab.Location = new System.Drawing.Point(30, 0);
+            this.detailsButtonNewTab.Name = "detailsButtonNewTab";
+            this.detailsButtonNewTab.Size = new System.Drawing.Size(30, 30);
+            this.detailsButtonNewTab.TabIndex = 93;
+            this.MyToolTip.SetToolTip(this.detailsButtonNewTab, "নোটের বিস্তারিত (নতুন ট্যাব)");
+            this.detailsButtonNewTab.UseVisualStyleBackColor = false;
+            this.detailsButtonNewTab.Click += new System.EventHandler(this.detailsButtonNewTab_Click);
             // 
             // branchNoteSubLabel
             // 
@@ -743,8 +743,8 @@
             this.panel14.AutoSize = true;
             this.panel14.Controls.Add(this.usersButton);
             this.panel14.Controls.Add(this.optionButton);
-            this.panel14.Controls.Add(this.iconButton4);
-            this.panel14.Controls.Add(this.iconButton5);
+            this.panel14.Controls.Add(this.detailsButtonNewTab);
+            this.panel14.Controls.Add(this.detailsButton);
             this.panel14.Location = new System.Drawing.Point(0, 6);
             this.panel14.MaximumSize = new System.Drawing.Size(90, 30);
             this.panel14.MinimumSize = new System.Drawing.Size(90, 30);
@@ -803,7 +803,7 @@
 
         private System.Windows.Forms.Label onumodonLabel;
         private FontAwesome.Sharp.IconButton optionButton;
-        private FontAwesome.Sharp.IconButton iconButton5;
+        private FontAwesome.Sharp.IconButton detailsButton;
         private System.Windows.Forms.Label onucchedLabel;
         private System.Windows.Forms.Label nothivuktoLabel;
         private FontAwesome.Sharp.IconButton eyeButton;
@@ -849,6 +849,6 @@
         private FontAwesome.Sharp.IconButton usersButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton detailsButtonNewTab;
     }
 }

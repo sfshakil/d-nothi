@@ -2667,7 +2667,24 @@ namespace dNothi.Desktop.UI
                 foreach (NothiNoteListRecordDTO noteDTO in noteList.data.records)
                 {
                     NothiNoteTalikaAll dakNothiteUposthaponNoteList = new NothiNoteTalikaAll();
+                    dakNothiteUposthaponNoteList.NoteDetailsButton += delegate (object sender, EventArgs e) 
+                    {
+                        NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
+                        nothiListRecordsDTO.id = noteDTO.nothi.id;
+                        nothiListRecordsDTO.last_note_date = noteDTO.deskConverted.issue_date;
+                        nothiListRecordsDTO.nothi_no = noteDTO.nothi.nothi_no;
+                        nothiListRecordsDTO.office_unit_name = noteDTO.nothi.office_unit_name;
+                        nothiListRecordsDTO.subject = noteDTO.nothi.subject;
+                        nothiListRecordsDTO.office_name = noteDTO.nothi.office_name;
+                        nothiListRecordsDTO.office_designation_name = noteDTO.nothi.office_designation_name;
+                        NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO();
 
+                        nothiListInboxNoteRecordsDTO.nothi = MappingModels.MapModel<NoteNothiDTO, NothiNothiListInboxNoteRecordsDTO>(noteDTO.nothi);
+                        nothiListInboxNoteRecordsDTO.note = MappingModels.MapModel<NoteDTO, NoteNothiListInboxNoteRecordsDTO>(noteDTO.note);
+                        nothiListInboxNoteRecordsDTO.to = MappingModels.MapModel<NoteTo, ToNothiListInboxNoteRecordsDTO>(noteDTO.to);
+                        nothiListInboxNoteRecordsDTO.desk = MappingModels.MapModel<object, DeskNothiListInboxNoteRecordsDTO>(noteDTO.desk);
+
+                        NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO, 1); ; };// 1 means inbox
                     if (noteDTO.deskConverted != null)
                     {
                         dakNothiteUposthaponNoteList.date = noteDTO.deskConverted.issue_date;
