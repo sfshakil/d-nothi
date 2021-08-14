@@ -72,14 +72,17 @@
             // lbNothiNumber
             // 
             this.lbNothiNumber.AutoSize = true;
+            this.lbNothiNumber.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbNothiNumber.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNothiNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.lbNothiNumber.Location = new System.Drawing.Point(473, 10);
             this.lbNothiNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNothiNumber.Name = "lbNothiNumber";
-            this.lbNothiNumber.Size = new System.Drawing.Size(58, 26);
+            this.lbNothiNumber.Size = new System.Drawing.Size(34, 26);
             this.lbNothiNumber.TabIndex = 52;
-            this.lbNothiNumber.Text = "Nothi";
+            this.lbNothiNumber.Text = "01";
             this.lbNothiNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbNothiNumber.Click += new System.EventHandler(this.lbNothiNumber_Click);
             // 
             // lblSerialNo
             // 

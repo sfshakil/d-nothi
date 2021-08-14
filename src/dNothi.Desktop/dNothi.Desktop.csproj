@@ -627,6 +627,12 @@
     <Compile Include="UI\Dak\NothiGaurdFileListRow.Designer.cs">
       <DependentUpon>NothiGaurdFileListRow.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NothiTalikaNewWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiTalikaNewWindow.Designer.cs">
+      <DependentUpon>NothiTalikaNewWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\OnuchhedShonjukti.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1571,6 +1577,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiOutboxNoteShomuho.resx">
       <DependentUpon>NothiOutboxNoteShomuho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiTalikaNewWindow.resx">
+      <DependentUpon>NothiTalikaNewWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\OnuchhedShonjukti.resx">
       <DependentUpon>OnuchhedShonjukti.cs</DependentUpon>
