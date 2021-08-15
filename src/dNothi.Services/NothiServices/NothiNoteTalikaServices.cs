@@ -371,6 +371,10 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.GetNoteListSentpoint;
         }
+        protected string GetNoteSearchListEndpoint()
+        {
+            return DefaultAPIConfiguration.GetNoteSearchListEndpoint;
+        }
         protected string GetNothiNoteTalikaEndPoint()
         {
             return DefaultAPIConfiguration.NothiNoteTalikaEndPoint;
@@ -416,6 +420,35 @@ namespace dNothi.Services.NothiServices
                 SaveOrUpdateNothiNumberGenerate(dakListUserParam, responseJson, nothi_type_id);
                 nothiNumberResponse = JsonConvert.DeserializeObject<NothiNumberResponse>(responseJson);
                 return nothiNumberResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NoteAllListResponse GetNoteListAll(DakUserParam dakUserParam, long nothi_id, string note_category, string note_subject, string officer_designation_id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNoteSearchListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+
+
+                request.AddParameter("cdesk", dakUserParam.json_String);
+                request.AddParameter("length", "25");
+                request.AddParameter("page", "1");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi_id + "\",\"note_category\":\""+ note_category + "\"}");
+                request.AddParameter("search_params", "note_subject="+ note_subject + "&officer_designation_id="+ officer_designation_id);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NoteAllListResponse noteListResponse = _noteListParser.ParseMessage(responseJson);
+                return noteListResponse;
             }
             catch (Exception ex)
             {

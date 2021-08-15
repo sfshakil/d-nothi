@@ -456,8 +456,8 @@ namespace dNothi.Desktop.UI
                 nothiInbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiListRecordsDTO.last_note_date;
                 nothiInbox.nothiId = Convert.ToString(nothiListRecordsDTO.id);
                 nothiInbox.NewNoteButtonClick += delegate (object sender, EventArgs e) { nothiListRecordsDTO.nothi_type = "Inbox"; NewNote_ButtonClick(sender, e, nothiListRecordsDTO); };
-                nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO, 1); };// 1 means inbox
-                nothiInbox.NoteAllButton += delegate (object sender, EventArgs e) { NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 1); };// 1 means inbox
+                nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { nothiListRecordsDTO.nothi_type = "Inbox"; NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO, 1); };// 1 means inbox
+                nothiInbox.NoteAllButton += delegate (object sender, EventArgs e) { nothiListRecordsDTO.nothi_type = "Inbox"; NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 1); };// 1 means inbox
                 nothiInbox.NothiOnumodonButtonClick += delegate (object sender, EventArgs e) { NothiOnumodon_ButtonClick(sender, e, nothiListRecordsDTO); };
 
                 nothiInbox.LocalNoteDetailsButton += delegate (object sender, EventArgs e) {
@@ -656,6 +656,18 @@ namespace dNothi.Desktop.UI
             if (inboxORoutboxORall == 2)
             {
                 form.visibilityoffNewNoteButton();
+            }
+            if (inboxORoutboxORall == 1)
+            {
+                nothiListRecordsDTO.nothi_type = "Inbox";
+            }
+            else if (inboxORoutboxORall == 2)
+            {
+                nothiListRecordsDTO.nothi_type = "sent";
+            }
+            else
+            {
+                nothiListRecordsDTO.nothi_type = "all";
             }
             _dakuserparam = _userService.GetLocalDakUserParam();
             form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
@@ -1221,6 +1233,7 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.subject = nothiOutboxListDTO.nothi.subject;
                     nothiListRecordsDTO.nothi_class = nothiOutboxListDTO.nothi.nothi_class;
                     nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date;
+                    nothiListRecordsDTO.nothi_type = "sent";
                     NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiOutbox._nothiListInboxNoteRecordsDTO, 2);// 2 means outbox
                 };
                 nothiOutbox.OutboxNoteRevertButton += delegate (object sender, EventArgs e) { LoadNothiOutboxButton(sender, e); };
@@ -1238,6 +1251,7 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.subject = nothiOutboxListDTO.nothi.subject;
                     nothiListRecordsDTO.nothi_class = nothiOutboxListDTO.nothi.nothi_class;
                     nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date;
+                    nothiListRecordsDTO.nothi_type = "sent";
                     NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 2);// 2 means outbox
                 };
 
@@ -1621,6 +1635,7 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.subject = nothiAllListDTO.nothi.subject;
                     nothiListRecordsDTO.nothi_class = nothiAllListDTO.nothi.nothi_class;
                     nothiListRecordsDTO.last_note_date = nothiAllListDTO.nothi.last_note_date;
+                    nothiListRecordsDTO.nothi_type = "all";
                     NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 3); // 3 means allnothi
                 };
 

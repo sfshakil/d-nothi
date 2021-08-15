@@ -75,6 +75,8 @@ namespace dNothi.Desktop.UI
         INoteSaveService _noteSave { get; set; }
         INothiInboxNoteServices _nothiInboxNote { get; set; }
         INothiAllNoteServices _nothiAllNote { get; set; }
+        IDesignationSealService _designationSealService { get; set; }
+
         IRepository<NoteSaveItemAction> _noteSaveItemAction;
         IRepository<OnuchhedSaveItemAction> _onuchhedSaveItemAction;
         IRepository<FileUploadAction> _fileUploadAction;
@@ -92,6 +94,7 @@ namespace dNothi.Desktop.UI
             INotePotrojariServices notePotrojariList, INoteKhshraWaitingListServices noteKhshraWaitingList, INoteKhoshraListServices noteKhoshraList,
             IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched, INoteOnucchedRevertServices noteOnucchedRevert, INoteSaveService noteSave, INothiAllNoteServices nothiAllNote,
             IOnucchedFileUploadService onucchedFileUploadService, IKhosraSaveService khosraSaveService, INothiInboxNoteServices nothiInboxNote,
+            IDesignationSealService designationSealService,
         IRepository<NoteSaveItemAction> noteSaveItemAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction, IRepository<FileUploadAction> fileUploadAction)
         {
             _kasaraPatraDashBoardService = new KararaPotroDashBoardServices();
@@ -123,9 +126,11 @@ namespace dNothi.Desktop.UI
             _onuchhedSaveItemAction = onuchhedSaveItemAction;
             _fileUploadAction = fileUploadAction;
             _nothiInboxNote = nothiInboxNote;
+            _designationSealService = designationSealService;
 
             WaitForm = new WaitFormFunc();
             InitializeComponent();
+            noteSearchPanel.Visible = false;
             WaitForm.Show(this);
             SetDefaultFont(this.Controls);
             tinyMceEditor.CreateEditor();
@@ -137,7 +142,30 @@ namespace dNothi.Desktop.UI
             loadPotrangshoNotePanel();
             loadPotrangshoNothiPanel();
             loadCollapseExpandSize();
+            LoadOfficerListDropDown();
             WaitForm.Close();
+        }
+        AllDesignationSealListResponse designationSealListResponse = new AllDesignationSealListResponse();
+        public void LoadOfficerListDropDown()
+        {
+
+            _dakuserparam = _userService.GetLocalDakUserParam();
+            designationSealListResponse = _designationSealService.GetAllDesignationSeal(_dakuserparam, _dakuserparam.office_id);
+            if (designationSealListResponse != null && designationSealListResponse.status == "success")
+            {
+
+                if (designationSealListResponse.data.Count > 0)
+                {
+                    foreach (PrapokDTO prapokDTO in designationSealListResponse.data)
+                    {
+                        cbxSearchOfficer.Items.Add(prapokDTO.NameWithOrganogram);
+                        cbxSearchOfficer.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                        cbxSearchOfficer.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+                    }
+
+                }
+            }
         }
         public void loadCollapseExpandSize()
         {
@@ -11300,6 +11328,118 @@ namespace dNothi.Desktop.UI
         private void btnKhoshra_Click(object sender, EventArgs e)
         {
             loadKhoshra("-1");
+        }
+
+        private void btnNoteSearch_Click(object sender, EventArgs e)
+        {
+            if (noteSearchPanel.Visible == true)
+            {
+                noteSearchPanel.Visible = false;
+                //allReset();
+            }
+            else
+            {
+                noteSearchPanel.Visible = true;
+            }
+        }
+
+        private void panel67_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+
+        }
+
+        private void btnNoteSearchCross_Click(object sender, EventArgs e)
+        {
+            noteSearchPanel.Visible = false;
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            var serachText = txtSearchNoteSubject.Text;
+            var officer_designation_id = 0;
+            var nothi_type = "";
+            if (nothiListRecords.nothi_type == null)
+            {
+                nothi_type = nothiListRecords.local_nothi_type;  
+            }
+            else
+            {
+                nothi_type = nothiListRecords.nothi_type;
+            }
+            if (cbxSearchOfficer.Text != "নাম/পদবি দিয়ে খুঁজুন" && cbxSearchOfficer.Text != "")
+            {
+                int i = cbxSearchOfficer.SelectedIndex;
+                officer_designation_id = designationSealListResponse.data[i].designation_id;
+            }
+            else
+            {
+                officer_designation_id = 0;
+            }
+            noteViewFLP.Controls.Clear();
+            NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, _NoteAllListDataRecordDTO.nothi.id, nothi_type, serachText, officer_designation_id.ToString());
+            lbNothiType.Text = "বাছাইকৃত নোট (" + string.Concat(allNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
+
+            visibilityOFF();
+            panel22.Visible = false;
+            tinyMceEditor.Visible = false;
+            panel24.Visible = false;
+            panel28.Visible = false;
+            if (allNoteList.data.records.Count > 0)
+            {
+                foreach (NoteAllListDataRecordDTO allList in allNoteList.data.records)
+                {
+
+                    if (allList.deskDtoList.Count > 0)
+                    {
+
+                        NoteView noteView = new NoteView();
+                        noteView.totalNothi = allList.note.note_no.ToString();
+                        if (allList.note.note_subject_sub_text == "")
+                        {
+                            noteView.noteSubject = allList.note.note_subject;
+                        }
+                        else
+                        {
+                            noteView.noteSubject = allList.note.note_subject_sub_text;
+                        }
+                        noteView.nothiNoteID = allList.note.nothi_note_id;
+                        noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
+
+                        //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView, noteView._checkBoxValue); };
+                        noteView.nothiLastDate = allList.deskDtoList[0].issue_date;
+                        noteView.nothivukto = allList.note.nothivukto_potro.ToString();
+                        noteView.onucchedCount = allList.note.onucched_count.ToString();
+                        noteView.potrojari = allList.note.potrojari.ToString();
+                        noteView.approved = allList.note.approved_potro.ToString();
+                        noteView.khoshraWaiting = allList.note.khoshra_waiting_for_approval.ToString();
+                        noteView.khosraPotro = allList.note.khoshra_potro.ToString();
+                        noteView.loadEyeIcon(allList.note.can_revert);
+                        noteView.officerInfo = allList.deskDtoList[0].officer + "," + allList.deskDtoList[0].designation + "," + allList.deskDtoList[0].office_unit + "," + allList.deskDtoList[0].office;//nothiListRecords.office_name + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
+                        
+                        UIDesignCommonMethod.AddRowinTable(noteViewFLP, noteView);
+                    }
+                    else
+                    {
+                        NoteViewNotInCurrentDesk noteViewNotInCurrentDesk = new NoteViewNotInCurrentDesk();
+                        noteViewNotInCurrentDesk.totalNothi = allList.note.note_no.ToString();
+                        noteViewNotInCurrentDesk.noteSubject = allList.note.note_subject_sub_text;
+                        UIDesignCommonMethod.AddRowinTable(noteViewFLP, noteViewNotInCurrentDesk);
+                    }
+
+                }
+            }
+            else
+            {
+                noteViewFLP.Controls.Clear();
+            }
+        }
+
+        private void btnResetNoteSearch_Click(object sender, EventArgs e)
+        {
+            cbxSearchOfficer.Text = "নাম/পদবি দিয়ে খুঁজুন";
+            txtSearchNoteSubject.PlaceholderText = "নোটের বিষয়/নোটের নম্বর:";
+            txtSearchNoteSubject.Text = "";
         }
     }
 }
