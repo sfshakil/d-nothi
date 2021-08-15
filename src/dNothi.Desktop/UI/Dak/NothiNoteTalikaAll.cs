@@ -72,7 +72,17 @@ namespace dNothi.Desktop.UI.Dak
 
         public NoteNothiDTO _nothiDTO;
 
-
+        public void btnOptionVisible(bool trueORfalse)
+        {
+            if (trueORfalse)
+            {
+                optionButton.Visible = true;
+            }
+            else
+            {
+                optionButton.Visible = false;
+            }
+        }
 
 
         public NoteNothiDTO nothiDTO

@@ -243,7 +243,6 @@
             this.optionButton.Size = new System.Drawing.Size(30, 30);
             this.optionButton.TabIndex = 94;
             this.optionButton.UseVisualStyleBackColor = false;
-            this.optionButton.Visible = false;
             this.optionButton.Click += new System.EventHandler(this.optionButton_Click);
             // 
             // detailsButton
