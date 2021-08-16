@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.JsonParser.Entity.Nothi;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -149,7 +150,7 @@ namespace dNothi.Desktop.UI.Dak
         }
 
        
-        public void AddNewOfficer( string officerName, int designationId, string designation, int routeIndexs)
+        public void AddNewOfficer( string officerName, int designationId, string designation, int routeIndexs, int isSignatory)
         {
             Size s = new Size(officerTableLayoutPanel.Width, 50);
             DragAndDropOfficerPanel dragAndDropOfficerPanel;
@@ -168,9 +169,11 @@ namespace dNothi.Desktop.UI.Dak
             dragAndDropOfficerPanel.designation = designation;
             dragAndDropOfficerPanel.designationid = designationId;
             dragAndDropOfficerPanel.routeIndex = routeIndexs;
+            dragAndDropOfficerPanel.isSignatory = isSignatory;
             dragAndDropOfficerPanel.DeleteButton += delegate (object sender, EventArgs e) { deleteButton_Click(sender, e, dragAndDropOfficerPanel._designationid); };
             dragAndDropOfficerPanel.UpButton += delegate (object sender, EventArgs e) { UpButton_Click(sender, e, dragAndDropOfficerPanel._routeIndex); };
             dragAndDropOfficerPanel.DownButton += delegate (object sender, EventArgs e) { DownButton_Click(sender, e, dragAndDropOfficerPanel._routeIndex); };
+            dragAndDropOfficerPanel.CheckedSignatoryButton += delegate (object sender, EventArgs e) { SignatoryCheckbox_Changed(sender as onumodonDataRecordDTO, e); };
             
 
 
@@ -200,7 +203,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-        public void AddNewOfficerFromNothiNextStep(string officerName, int designationId, string designation, int routeIndexs, int flag)
+        public void AddNewOfficerFromNothiNextStep(string officerName, int designationId, string designation, int routeIndexs, int flag, int isSignatory)
         {
             Size s = new Size(officerTableLayoutPanel.Width, 50);
             DragAndDropOfficerPanel dragAndDropOfficerPanel;
@@ -219,6 +222,7 @@ namespace dNothi.Desktop.UI.Dak
             dragAndDropOfficerPanel.designation = designation;
             dragAndDropOfficerPanel.designationid = designationId;
             dragAndDropOfficerPanel.routeIndex = routeIndexs;
+            dragAndDropOfficerPanel.isSignatory = isSignatory;
             if (flag == 1)
             {
                 dragAndDropOfficerPanel.Check_Box_Hide();
@@ -307,6 +311,7 @@ namespace dNothi.Desktop.UI.Dak
         [Category("Action")]
         [Description("Invoked when user clicks button")]
         public event EventHandler DeleteButtonClick;
+        public event EventHandler SignatoryCheckboxChanged;
         private void deleteButton_Click(object sender, EventArgs e, int id)
         {
             var nothiOfficer = officerTableLayoutPanel.Controls.OfType<DragAndDropOfficerPanel>().Where(a=>a.Visible==true).ToList();
@@ -320,6 +325,11 @@ namespace dNothi.Desktop.UI.Dak
                     this.DeleteLevelButtonClick(sender, e);
                 this.Hide();
             }
+        }
+        private void SignatoryCheckbox_Changed(onumodonDataRecordDTO onumodonDataRecordDTO, EventArgs e)
+        {
+            if (this.SignatoryCheckboxChanged != null)
+                this.SignatoryCheckboxChanged(onumodonDataRecordDTO, e);
         }
        
         [Browsable(true)]

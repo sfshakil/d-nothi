@@ -52,7 +52,6 @@
             this.searchOfficePanel = new System.Windows.Forms.Panel();
             this.searchOfficeListBox = new System.Windows.Forms.ListBox();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.searchOfficeTextBox = new dNothi.Desktop.XTextBox();
             this.designationStateOtherLabel = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.otherOfficeTreeView = new System.Windows.Forms.TreeView();
@@ -66,6 +65,7 @@
             this.allCheckBox = new System.Windows.Forms.CheckBox();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.searchOfficeTextBox = new dNothi.Desktop.XTextBox();
             this.panel1.SuspendLayout();
             this.tabControlLeft.SuspendLayout();
             this.ownOfficeTabPageLeft.SuspendLayout();
@@ -90,7 +90,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1100, 66);
+            this.panel1.Size = new System.Drawing.Size(1286, 66);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -99,7 +99,7 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(1098, 1);
+            this.panel3.Location = new System.Drawing.Point(1284, 1);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(2, 64);
             this.panel3.TabIndex = 44;
@@ -119,7 +119,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Top;
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(1100, 1);
+            this.label5.Size = new System.Drawing.Size(1286, 1);
             this.label5.TabIndex = 42;
             // 
             // label4
@@ -128,7 +128,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label4.Location = new System.Drawing.Point(0, 65);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1100, 1);
+            this.label4.Size = new System.Drawing.Size(1286, 1);
             this.label4.TabIndex = 41;
             // 
             // label8
@@ -150,7 +150,7 @@
             this.AddDesignationCloseButton.IconColor = System.Drawing.Color.DimGray;
             this.AddDesignationCloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.AddDesignationCloseButton.IconSize = 20;
-            this.AddDesignationCloseButton.Location = new System.Drawing.Point(1062, 9);
+            this.AddDesignationCloseButton.Location = new System.Drawing.Point(1242, 12);
             this.AddDesignationCloseButton.Name = "AddDesignationCloseButton";
             this.AddDesignationCloseButton.Size = new System.Drawing.Size(28, 31);
             this.AddDesignationCloseButton.TabIndex = 38;
@@ -345,19 +345,6 @@
             this.panel12.TabIndex = 34;
             this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderBlueColor);
             // 
-            // searchOfficeTextBox
-            // 
-            this.searchOfficeTextBox.BackColor = System.Drawing.Color.White;
-            this.searchOfficeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.searchOfficeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchOfficeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.searchOfficeTextBox.Location = new System.Drawing.Point(3, 9);
-            this.searchOfficeTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.searchOfficeTextBox.Name = "searchOfficeTextBox";
-            this.searchOfficeTextBox.Size = new System.Drawing.Size(336, 23);
-            this.searchOfficeTextBox.TabIndex = 33;
-            this.searchOfficeTextBox.TextChanged += new System.EventHandler(this.searchOfficeTextBox_TextChanged);
-            // 
             // designationStateOtherLabel
             // 
             this.designationStateOtherLabel.AutoSize = true;
@@ -422,7 +409,7 @@
             this.label11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.label11.Location = new System.Drawing.Point(-7, 673);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(1108, 1);
+            this.label11.Size = new System.Drawing.Size(1290, 1);
             this.label11.TabIndex = 35;
             // 
             // metroPanel1
@@ -440,7 +427,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(0, 0);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(1100, 733);
+            this.metroPanel1.Size = new System.Drawing.Size(1286, 733);
             this.metroPanel1.TabIndex = 40;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -458,7 +445,7 @@
             this.saveDesignationSealButton.IconColor = System.Drawing.Color.White;
             this.saveDesignationSealButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.saveDesignationSealButton.IconSize = 32;
-            this.saveDesignationSealButton.Location = new System.Drawing.Point(810, 680);
+            this.saveDesignationSealButton.Location = new System.Drawing.Point(987, 678);
             this.saveDesignationSealButton.Name = "saveDesignationSealButton";
             this.saveDesignationSealButton.Size = new System.Drawing.Size(154, 48);
             this.saveDesignationSealButton.TabIndex = 36;
@@ -473,7 +460,7 @@
             this.panel5.Controls.Add(this.allCheckBox);
             this.panel5.Location = new System.Drawing.Point(564, 133);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(524, 533);
+            this.panel5.Size = new System.Drawing.Size(706, 533);
             this.panel5.TabIndex = 116;
             // 
             // nothiOnumodonFLP
@@ -487,7 +474,7 @@
             this.nothiOnumodonFLP.Margin = new System.Windows.Forms.Padding(0);
             this.nothiOnumodonFLP.Name = "nothiOnumodonFLP";
             this.nothiOnumodonFLP.Padding = new System.Windows.Forms.Padding(10);
-            this.nothiOnumodonFLP.Size = new System.Drawing.Size(524, 463);
+            this.nothiOnumodonFLP.Size = new System.Drawing.Size(706, 463);
             this.nothiOnumodonFLP.TabIndex = 1;
             this.nothiOnumodonFLP.WrapContents = false;
             this.nothiOnumodonFLP.DragDrop += new System.Windows.Forms.DragEventHandler(this.nothiOnumodonFLP_DragDrop);
@@ -502,7 +489,7 @@
             this.allCheckBox.Location = new System.Drawing.Point(0, 0);
             this.allCheckBox.Name = "allCheckBox";
             this.allCheckBox.Padding = new System.Windows.Forms.Padding(20);
-            this.allCheckBox.Size = new System.Drawing.Size(524, 70);
+            this.allCheckBox.Size = new System.Drawing.Size(706, 70);
             this.allCheckBox.TabIndex = 0;
             this.allCheckBox.Text = "সকল নিয়ন্ত্রিত";
             this.allCheckBox.UseVisualStyleBackColor = true;
@@ -519,7 +506,7 @@
             this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.iconButton7.IconSize = 32;
-            this.iconButton7.Location = new System.Drawing.Point(977, 688);
+            this.iconButton7.Location = new System.Drawing.Point(1154, 686);
             this.iconButton7.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Size = new System.Drawing.Size(28, 30);
@@ -538,7 +525,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(970, 679);
+            this.iconButton1.Location = new System.Drawing.Point(1147, 677);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(123, 48);
             this.iconButton1.TabIndex = 37;
@@ -547,13 +534,26 @@
             this.iconButton1.UseVisualStyleBackColor = false;
             this.iconButton1.Click += new System.EventHandler(this.AddDesignationCloseButton_Click);
             // 
+            // searchOfficeTextBox
+            // 
+            this.searchOfficeTextBox.BackColor = System.Drawing.Color.White;
+            this.searchOfficeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.searchOfficeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.searchOfficeTextBox.Location = new System.Drawing.Point(3, 9);
+            this.searchOfficeTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficeTextBox.Name = "searchOfficeTextBox";
+            this.searchOfficeTextBox.Size = new System.Drawing.Size(336, 23);
+            this.searchOfficeTextBox.TabIndex = 33;
+            this.searchOfficeTextBox.TextChanged += new System.EventHandler(this.searchOfficeTextBox_TextChanged);
+            // 
             // NothiOnumodonDesignationSeal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1100, 733);
+            this.ClientSize = new System.Drawing.Size(1286, 733);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

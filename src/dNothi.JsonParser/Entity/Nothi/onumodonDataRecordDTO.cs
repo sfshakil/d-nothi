@@ -35,5 +35,6 @@ namespace dNothi.JsonParser.Entity.Nothi
         public string level_name { get; set; }
         public int designation_sequence { get; set; }
         public int extra { get; set; }
+        public int is_signatory { get; set; }
     }
 }

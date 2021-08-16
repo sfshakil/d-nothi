@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dNothi.JsonParser.Entity.Nothi;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -19,6 +20,7 @@ namespace dNothi.Desktop.UI.Dak
         public string _designation;
         public int _routeIndex;
         public bool _isChecked;
+        public int _isSignatory;
 
         public NothiOnumodonOfficer()
         {
@@ -68,6 +70,25 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
+        public int isSignatory
+        {
+            get { return _isSignatory; }
+            set
+            {
+                _isSignatory = value;
+                if (_isSignatory == 1)
+                {
+                    cbxSignatory.Checked = true;
+
+                }
+                else
+                {
+                    cbxSignatory.Checked = false;
+                }
+
+            }
+        }
+
 
         public bool isNewlyAdded
         {
@@ -126,7 +147,7 @@ namespace dNothi.Desktop.UI.Dak
             upDownPanel.Visible = false;
             deleteButton.Visible = false;
 
-
+            cbxSignatory.Enabled = false;
         }
         public void Check_Box_Hide()
         {
@@ -134,11 +155,12 @@ namespace dNothi.Desktop.UI.Dak
             upDownPanel.Visible = false;
             deleteButton.Visible = false;
 
-
+            cbxSignatory.Enabled = true;
         }
 
 
         public event EventHandler CheckedButton;
+        public event EventHandler CheckedSignatoryButton;
         private void cbxControl_CheckedChanged(object sender, EventArgs e)
         {
             _isChecked = cbxControl.Checked;
@@ -146,6 +168,28 @@ namespace dNothi.Desktop.UI.Dak
 
             if (this.CheckedButton != null)
                 this.CheckedButton(sender, e);
+        }
+
+        private void cbxSignatory_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxSignatory.Checked == true)
+            {
+                onumodonDataRecordDTO onumodonDataRecordDTO1 = new onumodonDataRecordDTO();
+                onumodonDataRecordDTO1.is_signatory = 1;
+                onumodonDataRecordDTO1.designation_id = designationid;
+                cbxSignatory.Checked = true;
+                if (this.CheckedSignatoryButton != null)
+                    this.CheckedSignatoryButton(onumodonDataRecordDTO1, e);
+            }
+            else
+            {
+                onumodonDataRecordDTO onumodonDataRecordDTO1 = new onumodonDataRecordDTO();
+                onumodonDataRecordDTO1.is_signatory = 2;
+                onumodonDataRecordDTO1.designation_id = designationid;
+                cbxSignatory.Checked = false;
+                if (this.CheckedSignatoryButton != null)
+                    this.CheckedSignatoryButton(onumodonDataRecordDTO1, e);
+            }
         }
     }
 }

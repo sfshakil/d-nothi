@@ -198,7 +198,9 @@ namespace dNothi.Desktop.UI.Dak
                         foreach (var officer in group)
                         {
                             
-                            nothiOnumodonRow.AddNewOfficer(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name, officer.route_index);
+                            nothiOnumodonRow.AddNewOfficer(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name, officer.route_index, officer.is_signatory);
+                            nothiOnumodonRow.SignatoryCheckboxChanged += delegate (object sender, EventArgs e) { SignatoryCheckbox_Changed(sender as onumodonDataRecordDTO, e, officer.designation_id); };
+
                             nothiOnumodonRow.level = officer.layer_index.ToString();
                             nothiOnumodonRow.karjodibosh = officer.max_transaction_day.ToString();
                         }
@@ -297,6 +299,7 @@ namespace dNothi.Desktop.UI.Dak
                     onumodonDataRecordDTO.route_index = singleOnumodon.route_index;
                     onumodonDataRecordDTO.nothi_master_id = singleOnumodon.nothi_master_id;
                     onumodonDataRecordDTO.is_active = singleOnumodon.is_active;
+                    onumodonDataRecordDTO.is_signatory = singleOnumodon.is_signatory;
                     onumodonDataRecordDTO.level_name = singleOnumodon.level_name;
                     onumodonDataRecordDTO.max_transaction_day = Convert.ToInt32(max_transaction_day.ToString());
 
@@ -308,6 +311,46 @@ namespace dNothi.Desktop.UI.Dak
 
             }
             LoadOnumodonLevelinRightSide(_currentOnumodonRow.OrderByDescending(a => a.layer_index).ToList());
+        }
+        private void SignatoryCheckbox_Changed(onumodonDataRecordDTO onumodonDataRecordDTO1, EventArgs e, int id)
+        {
+            if (onumodonDataRecordDTO1.designation_id == id)
+            {
+                var onumodonRowforThisLevel = _currentOnumodonRow.Where(a => a.designation_id == id).ToList();
+
+                if (onumodonRowforThisLevel != null && onumodonRowforThisLevel.Count > 0)
+                {
+                    _currentOnumodonRow = _currentOnumodonRow.Where(a => a.designation_id != id).ToList();
+
+                    foreach (var singleOnumodon in onumodonRowforThisLevel)
+                    {
+                        onumodonDataRecordDTO onumodonDataRecordDTO = new onumodonDataRecordDTO();
+                        onumodonDataRecordDTO.officer_id = singleOnumodon.officer_id;
+                        onumodonDataRecordDTO.layer_index = singleOnumodon.layer_index;
+                        onumodonDataRecordDTO.office_id = singleOnumodon.office_id;
+                        onumodonDataRecordDTO.office_unit = singleOnumodon.office_unit;
+                        onumodonDataRecordDTO.office_unit_id = singleOnumodon.office_unit_id;
+                        onumodonDataRecordDTO.officer = singleOnumodon.officer;
+                        onumodonDataRecordDTO.office = singleOnumodon.office;
+                        onumodonDataRecordDTO.designation_level = singleOnumodon.designation_level;
+                        onumodonDataRecordDTO.designation_id = singleOnumodon.designation_id;
+                        onumodonDataRecordDTO.designation = singleOnumodon.designation;
+                        onumodonDataRecordDTO.route_index = singleOnumodon.route_index;
+                        onumodonDataRecordDTO.nothi_master_id = singleOnumodon.nothi_master_id;
+                        onumodonDataRecordDTO.is_active = singleOnumodon.is_active;
+                        onumodonDataRecordDTO.is_signatory = onumodonDataRecordDTO1.is_signatory;
+                        onumodonDataRecordDTO.level_name = singleOnumodon.level_name;
+                        onumodonDataRecordDTO.max_transaction_day = singleOnumodon.max_transaction_day;
+
+                        _currentOnumodonRow.Add(onumodonDataRecordDTO);
+
+                    }
+
+
+
+                }
+                //LoadOnumodonLevelinRightSide(_currentOnumodonRow.OrderByDescending(a => a.layer_index).ToList());
+            }
         }
         private TreeNode FindTreeNode(TreeNodeCollection nodes, int id)
         {
@@ -876,8 +919,6 @@ namespace dNothi.Desktop.UI.Dak
 
         private void AddNewOfficerTotheLevel(PrapokDTO officer, int selectedLevel)
         {
-
-
             int ab = nothiOnumodonFLP.Controls.Count;
             var officerSearch = _currentOnumodonRow.FirstOrDefault(a => a.layer_index == selectedLevel);
 
@@ -905,13 +946,14 @@ namespace dNothi.Desktop.UI.Dak
                     onumodonDataRecordDTO.designation_level = officer.designation_level;
                     onumodonDataRecordDTO.designation_id = officer.designation_id;
                     onumodonDataRecordDTO.designation = officer.designation;
+                    onumodonDataRecordDTO.is_signatory = officer.is_signatory;
                     onumodonDataRecordDTO.route_index = countOnumodonDataRecordDTO.Count + 1;
                     onumodonDataRecordDTO.nothi_master_id = Convert.ToInt32(_nothiListRecordsDTO.id);
                     onumodonDataRecordDTO.is_active = 1;
                     onumodonDataRecordDTO.level_name = "লেভেল " + string.Concat((ab + 1).ToString().Select(c => (char)('\u09E6' + c - '0')));
 
                     _currentOnumodonRow.Add(onumodonDataRecordDTO);
-                    nothiOnumodonSearch.AddNewOfficer(officer.employee_name_bng, officer.designation_id, officer.designation_bng + "," + officer.office_unit_bng + "," + officer.office_name_bng, onumodonDataRecordDTO.route_index);
+                    nothiOnumodonSearch.AddNewOfficer(officer.employee_name_bng, officer.designation_id, officer.designation_bng + "," + officer.office_unit_bng + "," + officer.office_name_bng, onumodonDataRecordDTO.route_index, officer.is_signatory);
 
                 }
             }
@@ -954,6 +996,7 @@ namespace dNothi.Desktop.UI.Dak
             onumodonDataRecordDTO.designation_level = officer.designation_level;
             onumodonDataRecordDTO.designation_id = officer.designation_id;
             onumodonDataRecordDTO.designation = officer.designation;
+            onumodonDataRecordDTO.is_signatory = officer.is_signatory;
             onumodonDataRecordDTO.route_index = countOnumodonDataRecordDTO.Count + 1 ;
             onumodonDataRecordDTO.nothi_master_id =Convert.ToInt32(_nothiListRecordsDTO.id);
             onumodonDataRecordDTO.is_active =1;
@@ -993,7 +1036,9 @@ namespace dNothi.Desktop.UI.Dak
                 foreach (var officer in group)
                 {
 
-                    nothiOnumodonRow.AddNewOfficer(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name,officer.route_index);
+                    nothiOnumodonRow.AddNewOfficer(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name,officer.route_index, officer.is_signatory);
+                    nothiOnumodonRow.SignatoryCheckboxChanged += delegate (object sender, EventArgs e) { SignatoryCheckbox_Changed(sender as onumodonDataRecordDTO, e, officer.designation_id); };
+
                     nothiOnumodonRow.level = officer.layer_index.ToString();
                     nothiOnumodonRow.karjodibosh = officer.max_transaction_day.ToString();
                 }
