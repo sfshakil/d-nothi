@@ -255,6 +255,22 @@ namespace dNothi.Desktop.UI.Dak
         private void btnSend_Click(object sender, EventArgs e)
         {
             var x = _NoteAllListDataRecordDTO;
+            if (cbxPriorityType.SelectedItem == "জরুরি")
+            {
+                nothiListRecord.priority = "1";
+            }
+            else if(cbxPriorityType.SelectedItem == "অবিলম্বে")
+            {
+                nothiListRecord.priority = "2";
+            }
+            else if (cbxPriorityType.SelectedItem == "সর্বোচ্চ অগ্রাধিকার")
+            {
+                nothiListRecord.priority = "3";
+            }
+            else
+            {
+                nothiListRecord.priority = "0";
+            }
             List<onumodonDataRecordDTO> newrecords = new List<onumodonDataRecordDTO>();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 

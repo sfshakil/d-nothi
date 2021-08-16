@@ -76,12 +76,8 @@ namespace dNothi.Services.NothiServices
                 var serializedObject = JsonConvert.SerializeObject(dakUserParam);
                 request.AddParameter("cdesk", serializedObject);
 
-                request.AddParameter("onucched", "{\"note_no\":\""+newnotedata.note_no+"\",\"note_subject\":\""+newnotedata.note_subject+"\",\"nothi_unit\":\""+nothiListRecord.office_unit_name+"\",\"nothi_no\":\""+nothiListRecord.nothi_no+"\",\"nothi_id\":\""+nothiListRecord.id+"\",\"nothi_office\":\""+nothiListRecord.office_id+"\",\"nothi_office_name\":\""+nothiListRecord.office_name+"\",\"note_id\":\""+newnotedata.note_id+"\",\"priority\":\"0\"}");
-                //foreach (onumodonDataRecordDTO newrecord in newrecords)
-                //{
+                request.AddParameter("onucched", "{\"note_no\":\""+newnotedata.note_no+"\",\"note_subject\":\""+newnotedata.note_subject+"\",\"nothi_unit\":\""+nothiListRecord.office_unit_name+"\",\"nothi_no\":\""+nothiListRecord.nothi_no+"\",\"nothi_id\":\""+nothiListRecord.id+"\",\"nothi_office\":\""+nothiListRecord.office_id+"\",\"nothi_office_name\":\""+nothiListRecord.office_name+"\",\"note_id\":\""+newnotedata.note_id+"\",\"priority\":\""+ nothiListRecord.priority + "\"}");
 
-                //}
-                //var serializedRecordsObject = JsonConvert.SerializeObject(newrecords);
                 request.AddParameter("recipient", "{\"office_id\":\"" + newrecords[0].nothi_office + "\",\"office\":\"" + newrecords[0].office + "\",\"office_unit_id\":\"" + newrecords[0].office_unit_id + "\",\"office_unit\":\"" + newrecords[0].office_unit + "\",\"designation_id\":\"" + newrecords[0].designation_id + "\",\"designation\":\"" + newrecords[0].designation + "\",\"officer_id\":\"" + newrecords[0].officer_id + "\",\"officer\":\"" + newrecords[0].officer + "\",\"designation_level\":\"" + newrecords[0].designation_level + "\"}");
 
                 IRestResponse response = client.Execute(request);
