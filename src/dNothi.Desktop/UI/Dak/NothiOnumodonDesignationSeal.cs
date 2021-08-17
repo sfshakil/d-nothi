@@ -134,22 +134,7 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-        private void LoadOwnOfficeLeftTree()
-        {
-            searchOfficeListBox.DataSource = null;
-
-            OfficeListResponse officeListResponse = _dakuploadservice.GetAllOffice(_dakUserParam);
-            if(officeListResponse.status=="success")
-            {
-                if(officeListResponse.data != null)
-                {
-                    searchOfficeListBox.DisplayMember = "office_name_bng";
-                        _officeInfo = officeListResponse.data[_dakUserParam.office_id.ToString()];
-                    searchOfficeListBox.DataSource = _officeInfo;
-                }
-            }
-
-        }
+        
 
         public NothiListRecordsDTO nothiListRecord = new NothiListRecordsDTO();
         private int noteOrNothi = 0;//0 means nothi, 1 means note
@@ -473,10 +458,11 @@ namespace dNothi.Desktop.UI.Dak
                                   branchNodeOwnOffice.Nodes.Add(childNode);
 
 
-                                if (_onumodonResponse.data.records.Any(a => a.designation_id == officer.designation_id))
+                                if(_onumodonResponse.data.records.Any(a => a.designation_id == officer.designation_id))
                                 {
                                     CheckUncheckTreeNode(branchNodeOwnOffice.Nodes, true, officer.designation_id);
                                 }
+
 
 
 

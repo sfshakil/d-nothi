@@ -569,12 +569,6 @@
     <Compile Include="UI\Dak\FileUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Dak\Emnei.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Dak\Emnei.Designer.cs">
-      <DependentUpon>Emnei.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Dak\FileUserControl.Designer.cs">
       <DependentUpon>FileUserControl.cs</DependentUpon>
     </Compile>
@@ -583,12 +577,6 @@
     </Compile>
     <Compile Include="UI\Dak\FileViewWebBrowser.Designer.cs">
       <DependentUpon>FileViewWebBrowser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Dak\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dak\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
     <Compile Include="UI\Dak\NothiBibechhoPotroList.cs">
@@ -1533,17 +1521,11 @@
     <EmbeddedResource Include="UI\Dak\DragAndDropOfficerPanel.resx">
       <DependentUpon>DragAndDropOfficerPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\Emnei.resx">
-      <DependentUpon>Emnei.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\FileUserControl.resx">
       <DependentUpon>FileUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\FileViewWebBrowser.resx">
       <DependentUpon>FileViewWebBrowser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NoteMovement.resx">
       <DependentUpon>NoteMovement.cs</DependentUpon>
