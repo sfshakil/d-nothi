@@ -86,6 +86,13 @@ namespace dNothi.Desktop.UI.Dak
         public List<User> users;
         public List<User> selectedUsers=new List<User>();
         int clickedId = 0;
+        int page = 1;
+        int pageLimit = 10;
+        int menuNo = 2;
+        int totalPage = 1;
+        int start = 1;
+        int end = 10;
+        int totalrecord = 0;
 
         public PotrojariGroupContent(IUserService userService, IPotroJariGroupService potroJariGroupService)
         {
@@ -97,13 +104,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
        
-        int page = 1;
-        int pageLimit = 10;
-        int menuNo = 2;
-        int totalPage = 1;
-        int start = 1;
-        int end = 10;
-        int totalrecord = 0;
+       
 
         public event EventHandler PotrojariEditButtonClick;
         public event EventHandler PotrojariDetailsButtonClick;
@@ -197,8 +198,9 @@ namespace dNothi.Desktop.UI.Dak
                         pgc.UserName = item.officer;
                         pgc.UserDesignation = item.designation + ", " + item.office + ", " + item.office_unit;
                         pgc.UserOfficeName = item.officer_email + ", " + item.officer_mobile;
-                        
-                        
+
+                        pgc.isPatrajariGroupFromKasra = isPatrajariGroupFromKasra;
+                        pgc.isAllChecked = isAllChecked;
                         UIDesignCommonMethod.AddRowinTable(tableLayoutPanel2, pgc);
 
                     }
@@ -305,22 +307,24 @@ namespace dNothi.Desktop.UI.Dak
 
         private void DetailsIconButton_Click(object sender, EventArgs e)
         {
-            if(id>=1 && id<=5)
+            //if(id>=1 && id<=5)
+            if (id < 1 )
             {
-                menuNo = id + 1;
+                //menuNo = id + 1;
+                menuNo = id;
             }
             else
             {
                 menuNo = 7;
             }
-           
-            if (isActive == false && id!=clickedId)
+
+            if (isActive == false && id != clickedId)
             {
                 isAllChecked = true;
                 Formload();
                 isActive = true;
                 clickedId = id;
-                
+
             }
             else
             {
@@ -410,6 +414,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void allCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            
             //if (isActive == false && id != clickedId)
             //{
             //    if (allCheckBox.Checked)
@@ -422,11 +427,65 @@ namespace dNothi.Desktop.UI.Dak
             //    }
             //   Formload();
             //}
+            //if (isActive == false && id != clickedId)
+            //{
+            //    isAllChecked = true;
+            //    Formload();
+            //    isActive = true;
+            //    clickedId = id;
+
+            //}
+            //else
+            //{
+            //    isAllChecked = false;
+            //    clickedId = 0;
+            //    isActive = false;
+            //    tableLayoutPanel1.Visible = false;
+            //    tableLayoutPanel2.Controls.Clear();
+            //}
 
         }
 
         private void allCheckBox_CheckStateChanged(object sender, EventArgs e)
         {
+
+        }
+        private bool changed = false;
+        private void nameCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            
+                if (!changed)
+                {
+                changed = false;
+                
+                }
+                else
+                {
+                if (nameCheckBox.Checked)
+                {
+                    changed = true;
+                    nCheckBox.Checked = false;
+                }
+            }
+            
+
+
+        }
+        private void nCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!changed)
+            {
+                changed = false;
+                
+            }
+            else
+            {
+                if (nCheckBox.Checked)
+                {
+                    changed = true;
+                    nameCheckBox.Checked = false;
+                }
+            }
 
         }
     }

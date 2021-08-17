@@ -117,15 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="searchOfficerRightButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAHJJREFUSEvt
-        kUEKgDAQA9eX+Zwe/YrefK01QQIibWFpi5cdCEiJk4oWBMG/LMj6PDZhh10XfOFALmTjQYWEsHMirhGW
-        dyQjtRHJ2XEPkNZIt1yURobJBQX8HxqRnGfdcvH+kmE3/6KRKXJB8TR5EJQwuwEPnx/eAeomPwAAAABJ
-        RU5ErkJggg==
-</value>
-  </data>
   <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -134,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAC6
-        EQAAAk1TRnQBSQFMAgEBBgEAAeABAAHgAQABGAEAARgBAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        EQAAAk1TRnQBSQFMAgEBBgEAARABAQEQAQEBGAEAARgBAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABYAMAATADAAEBAQABCAYAARIYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -210,6 +201,15 @@
         AeEDAAH+AX8B8wH4AT4BHwH+AX8B4QMAAf4BfwHzAfABfwEPAf4BHwHhAwAB/gF/AfMB4AH/AYcB/gEf
         AeEDAAH/AT8B5wHBAf8BwwH+AQ8BAQMAAf8BHwHHAYMB/wHhAf8BAAEHAwAB/wGHAQ8BhwH/AfEB/wHA
         AQ8DAAH/AcABHwGPAf8B+QH/AcABDwMAAf8B8AF/Bv8DAAn/AgABAQb/Cw==
+</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="searchOfficerRightButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAHJJREFUSEvt
+        kUEKgDAQA9eX+Zwe/YrefK01QQIibWFpi5cdCEiJk4oWBMG/LMj6PDZhh10XfOFALmTjQYWEsHMirhGW
+        dyQjtRHJ2XEPkNZIt1yURobJBQX8HxqRnGfdcvH+kmE3/6KRKXJB8TR5EJQwuwEPnx/eAeomPwAAAABJ
+        RU5ErkJggg==
 </value>
   </data>
 </root>

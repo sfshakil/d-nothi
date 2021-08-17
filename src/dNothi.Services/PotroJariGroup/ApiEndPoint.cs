@@ -19,25 +19,25 @@ namespace dNothi.Services.PotroJariGroup
             {
                 endPoint = DefaultAPIConfiguration.potraJariTalikaEndpoint;
             }
-            if (actionLink == 2)
+            if (actionLink == -1)
             {
                 endPoint = DefaultAPIConfiguration.potraJariTalikaDistrictCommissionerEndpoint;
             }
-            if (actionLink == 3)
+            if (actionLink == -2)
             {
                 endPoint = DefaultAPIConfiguration.potraJariTalikaDeputyCommissionerEndpoint;
             }
-            if (actionLink == 4)
+            if (actionLink == -3)
             {
                  
                 endPoint = DefaultAPIConfiguration.potraJariTalikaUNOEndpoint;
             }
-            if (actionLink == 5)
+            if (actionLink == -4)
             {
 
                 endPoint = DefaultAPIConfiguration.potraJariTalikaOfficeHeadEndpoint;
             }
-            if (actionLink == 6)
+            if (actionLink == -5)
             {
 
                 endPoint = DefaultAPIConfiguration.potraJariTalikaOfficeAdminEndpoint;

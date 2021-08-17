@@ -165,6 +165,7 @@ namespace dNothi.Desktop.UI.Dak
             this.nCheckBox.TabIndex = 16;
             this.nCheckBox.UseVisualStyleBackColor = true;
             this.nCheckBox.Visible = false;
+            this.nCheckBox.CheckedChanged += new System.EventHandler(this.nCheckBox_CheckedChanged);
             // 
             // nameCheckBox
             // 
@@ -176,6 +177,7 @@ namespace dNothi.Desktop.UI.Dak
             this.nameCheckBox.TabIndex = 15;
             this.nameCheckBox.UseVisualStyleBackColor = true;
             this.nameCheckBox.Visible = false;
+            this.nameCheckBox.CheckedChanged += new System.EventHandler(this.nameCheckBox_CheckedChanged);
             // 
             // label4
             // 

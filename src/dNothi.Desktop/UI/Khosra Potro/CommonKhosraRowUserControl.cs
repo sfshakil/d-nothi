@@ -64,6 +64,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             MouseHoverAction();
         }
 
+        
         public string _sharokNo { get; set; }
      
         public string sharokNo{ 
