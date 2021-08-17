@@ -1626,7 +1626,7 @@ namespace dNothi.Desktop.UI
                         _currentHtmlString = _khasraPotroTemplateData.html_content = kasaradashboardHtmlContent;
 
                         //protibedonOnumodonButton(_khasraPotroTemplateData);
-                        
+
                     }
                     else
                     {
