@@ -310,6 +310,8 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.noteBackGroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.NoteBodyPanel = new System.Windows.Forms.Panel();
+            this.noteBodyFLP = new System.Windows.Forms.TableLayoutPanel();
             this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.panel2.SuspendLayout();
@@ -411,6 +413,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.PnlSave.SuspendLayout();
+            this.NoteBodyPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -2062,6 +2065,7 @@
             // noteTabpanel
             // 
             this.noteTabpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.noteTabpanel.Controls.Add(this.NoteBodyPanel);
             this.noteTabpanel.Controls.Add(this.tabButtonPanel);
             this.noteTabpanel.Controls.Add(this.panel38);
             this.noteTabpanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2081,6 +2085,7 @@
             this.tabButtonPanel.Name = "tabButtonPanel";
             this.tabButtonPanel.Size = new System.Drawing.Size(181, 49);
             this.tabButtonPanel.TabIndex = 72;
+            this.tabButtonPanel.Visible = false;
             // 
             // panel55
             // 
@@ -4849,6 +4854,35 @@
             this.noteBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.noteBackGroundWorker_DoWork);
             this.noteBackGroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.noteBackGroundWorker_RunWorkerCompleted);
             // 
+            // NoteBodyPanel
+            // 
+            this.NoteBodyPanel.AutoScroll = true;
+            this.NoteBodyPanel.Controls.Add(this.noteBodyFLP);
+            this.NoteBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NoteBodyPanel.Location = new System.Drawing.Point(181, 0);
+            this.NoteBodyPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.NoteBodyPanel.Name = "NoteBodyPanel";
+            this.NoteBodyPanel.Size = new System.Drawing.Size(1062, 49);
+            this.NoteBodyPanel.TabIndex = 73;
+            // 
+            // noteBodyFLP
+            // 
+            this.noteBodyFLP.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.noteBodyFLP.AutoSize = true;
+            this.noteBodyFLP.ColumnCount = 1;
+            this.noteBodyFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.noteBodyFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.noteBodyFLP.Dock = System.Windows.Forms.DockStyle.Left;
+            this.noteBodyFLP.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
+            this.noteBodyFLP.Location = new System.Drawing.Point(0, 0);
+            this.noteBodyFLP.Margin = new System.Windows.Forms.Padding(0);
+            this.noteBodyFLP.Name = "noteBodyFLP";
+            this.noteBodyFLP.RowCount = 1;
+            this.noteBodyFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.noteBodyFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+            this.noteBodyFLP.Size = new System.Drawing.Size(0, 49);
+            this.noteBodyFLP.TabIndex = 55;
+            // 
             // tinyMceEditor
             // 
             this.tinyMceEditor.AutoScroll = true;
@@ -5036,6 +5070,8 @@
             this.panel7.ResumeLayout(false);
             this.PnlSave.ResumeLayout(false);
             this.PnlSave.PerformLayout();
+            this.NoteBodyPanel.ResumeLayout(false);
+            this.NoteBodyPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5325,5 +5361,7 @@
         private System.Windows.Forms.Panel panel65;
         private System.Windows.Forms.Panel panel67;
         private System.Windows.Forms.Panel panel66;
+        private System.Windows.Forms.Panel NoteBodyPanel;
+        private System.Windows.Forms.TableLayoutPanel noteBodyFLP;
     }
 }

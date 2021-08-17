@@ -987,14 +987,73 @@ namespace dNothi.Desktop.UI
             UIDesignCommonMethod.AddRowinTable(noteViewFLP, noteView);
             loadNoteViewToNoPo(noteView);
 
+            NoteListDataRecordNoteDTO List1 = new NoteListDataRecordNoteDTO();
+            List1.khoshra_potro = Convert.ToInt32(noteView.khosraPotro);
+            List1.khoshra_waiting_for_approval = Convert.ToInt32(noteView.khoshraWaiting);
+            List1.potrojari = Convert.ToInt32(noteView.potrojari);
+            List1.nothivukto_potro = Convert.ToInt32(noteView.nothivukto);
+            //List1.note_status = sender.ToString();
+            List1.nothi_note_id = Convert.ToInt32(noteView.nothiNoteID);
+            List1.note_status = noteView.totalNothi;
+            List1.note_subject_sub_text = noteView.noteSubject;
+            List1.date = noteView.nothiLastDate;
+
+            
+            var noteHeaderUserControl = UserControlFactory.Create<NoteHeaderUserControl>();
+            noteHeaderUserControl.noteNumber = string.Concat(noteView.totalNothi.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            noteHeaderUserControl.NoteNumberButton += delegate (object sender, EventArgs e) { NoteNumberButton_Click(sender as NoteListDataRecordNoteDTO, e); };
+            noteHeaderUserControl.NoteList = List1;
+            noteHeaderUserControl.noteView = noteView;
+            UIDesignCommonMethod.AddColumninTable(noteBodyFLP, noteHeaderUserControl);
+            
             noteView.CheckBoxClick += delegate (object sender, EventArgs e) { checkBox_Click(sender as NoteListDataRecordNoteDTO, e, newNoteView); };
 
             //return i;
         }
+        private void NoteNumberButton_Click(NoteListDataRecordNoteDTO noteView, EventArgs e)
+        {
+            checkboxLoadNotangsho(noteView, null);
+        }
+
         private string checkSub;
         private int checkNoteId;
         NoteListDataRecordNoteDTO notelist = new NoteListDataRecordNoteDTO();
         private void checkBox_Click(NoteListDataRecordNoteDTO list, EventArgs e, NoteView noteView)
+        {
+            int flag = 0;
+            foreach (NoteHeaderUserControl noteFileUpload in noteBodyFLP.Controls)
+            {
+                
+                if (noteFileUpload.noteNumber == list.note_status && noteFileUpload.Enabled == true)
+                {
+                    flag = 1;
+                }
+                
+            }
+            if (flag == 0)
+            {
+                try
+                {
+                    //////LoadNoteHeaderPanel//////
+                    var noteHeaderUserControl = UserControlFactory.Create<NoteHeaderUserControl>();
+                    noteHeaderUserControl.noteNumber = list.note_status;
+                    noteHeaderUserControl.NoteList = list;
+                    noteHeaderUserControl.NoteNumberButton += delegate (object sender, EventArgs e1) { NoteNumberButton_Click(sender as NoteListDataRecordNoteDTO, e1); };
+                    noteHeaderUserControl.noteView = noteView;
+                    UIDesignCommonMethod.AddColumninTable(noteBodyFLP, noteHeaderUserControl);
+                    //////LoadNoteHeaderPanel//////
+                    checkboxLoadNotangsho(list, noteView);
+                }
+                catch (Exception ex)
+                {
+                    ErrorMessage(ex.Message);
+                }
+            }
+
+
+        }
+        
+        private void checkboxLoadNotangsho(NoteListDataRecordNoteDTO list, NoteView noteView)
         {
             try
             {
@@ -1515,8 +1574,9 @@ namespace dNothi.Desktop.UI
             {
                 ErrorMessage(ex.Message);
             }
-
         }
+        
+        
         //private void checkBox_Click(NoteListDataRecordNoteDTO list, EventArgs e, NoteView noteView)
         //{
         //    try
@@ -2678,7 +2738,7 @@ namespace dNothi.Desktop.UI
                                     noteView.noteSubject = allList.note.note_subject_sub_text;
                                 }
                                 noteView.nothiNoteID = allList.note.nothi_note_id;
-                                noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView); };
+                                noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, noteView); };
 
                                 //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1 as NoteListDataRecordNoteDTO, e1, newNoteView, noteView._checkBoxValue); };
                                 noteView.nothiLastDate = allList.deskDtoList[0].issue_date;

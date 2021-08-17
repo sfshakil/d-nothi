@@ -439,6 +439,22 @@ namespace dNothi.Desktop.UI
             tableLayoutPanel.Controls.Add(userControl, 0, row);
 
         }
+        public static void AddColumninTable(TableLayoutPanel tableLayoutPanel, UserControl userControl)
+        {
+
+            userControl.Dock = DockStyle.Fill;
+
+            int column = tableLayoutPanel.ColumnCount++;
+
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize, 0f));
+            if (column == 1)
+            {
+                column = tableLayoutPanel.ColumnCount++;
+                tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize, 0f));
+            }
+            tableLayoutPanel.Controls.Add(userControl, column, 0);
+
+        }
         public static void AddRowinTableNoDock(TableLayoutPanel tableLayoutPanel, UserControl userControl)
         {
 

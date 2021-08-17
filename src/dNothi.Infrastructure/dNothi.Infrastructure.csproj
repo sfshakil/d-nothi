@@ -117,6 +117,7 @@
     <Compile Include="Mappings\Nothi\FileUploadActionMap.cs" />
     <Compile Include="Mappings\Nothi\AllOfficeItemMap.cs" />
     <Compile Include="Mappings\Nothi\NoteSendItemActionMap.cs" />
+    <Compile Include="Mappings\Nothi\NoteListMap.cs" />
     <Compile Include="Mappings\Nothi\NothiNoteOnumodonItemMap.cs" />
     <Compile Include="Mappings\Nothi\OnuchhedSaveItemActionMap.cs" />
     <Compile Include="Mappings\Nothi\NothiCreateItemActionMap.cs" />
