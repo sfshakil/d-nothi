@@ -450,7 +450,10 @@ namespace dNothi.Desktop.UI.Dak
                                 childNode.Tag = officer.designation_bng + "," + officer.office_unit_bng + "," + officer.office_name_bng;
                                 childNode.Text = officer.NameWithDesignation;
                                 childNode.Name = officer.designation_id.ToString();
-                              
+                                if (officer.employee_name_bng == "শুন্যপদ")
+                                {
+                                    childNode.ForeColor = Color.Gray;
+                                }
 
                               
                                 

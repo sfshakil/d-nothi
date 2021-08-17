@@ -690,8 +690,6 @@ namespace dNothi.Desktop.UI
 
             searchtoTreeView.Nodes.Clear();
 
-
-
             if (!string.IsNullOrEmpty(searchText))
             {
                 foreach (TreeNode _parentNode in searchFromTreeView.Nodes)
@@ -700,14 +698,11 @@ namespace dNothi.Desktop.UI
                     parentNode.Nodes.Clear();
                     foreach (TreeNode _childNode in _parentNode.Nodes)
                     {
-
                         if (_childNode.Text.StartsWith(searchText))
                         {
-
                             parentNode.Nodes.Add((TreeNode)_childNode.Clone());
                             parentNode.LastNode.BackColor = Color.Yellow;
                         }
-
                     }
 
                     if (parentNode.Nodes.Count > 0)
@@ -715,7 +710,6 @@ namespace dNothi.Desktop.UI
                         parentNode.ExpandAll();
                         searchtoTreeView.Nodes.Add(parentNode);
                     }
-
                 }
             }
             else
