@@ -975,15 +975,10 @@ namespace dNothi.Desktop.UI
 
         public void loadNoteView(NoteView noteView)
         {
-            //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
-            //var i = allNoteList.data.total_records;
-            //noteView.totalNothi = i.ToString();
-
             lbNothiType.Text = "বাছাইকৃত নোট (১)";
             noteViewFLP.Controls.Clear();
             newNoteView = noteView;
 
-            //noteViewFLP.Controls.Add(noteView);
             UIDesignCommonMethod.AddRowinTable(noteViewFLP, noteView);
             loadNoteViewToNoPo(noteView);
 
@@ -992,7 +987,6 @@ namespace dNothi.Desktop.UI
             List1.khoshra_waiting_for_approval = Convert.ToInt32(noteView.khoshraWaiting);
             List1.potrojari = Convert.ToInt32(noteView.potrojari);
             List1.nothivukto_potro = Convert.ToInt32(noteView.nothivukto);
-            //List1.note_status = sender.ToString();
             List1.nothi_note_id = Convert.ToInt32(noteView.nothiNoteID);
             List1.note_status = noteView.totalNothi;
             List1.note_subject_sub_text = noteView.noteSubject;
@@ -1004,6 +998,7 @@ namespace dNothi.Desktop.UI
             noteHeaderUserControl.NoteNumberButton += delegate (object sender, EventArgs e) { NoteNumberButton_Click(sender as NoteListDataRecordNoteDTO, e); };
             noteHeaderUserControl.NoteList = List1;
             noteHeaderUserControl.noteView = noteView;
+            noteHeaderUserControl.setNoteNUmberForeCOlor(54, 153, 255);
             UIDesignCommonMethod.AddColumninTable(noteBodyFLP, noteHeaderUserControl);
             
             noteView.CheckBoxClick += delegate (object sender, EventArgs e) { checkBox_Click(sender as NoteListDataRecordNoteDTO, e, newNoteView); };
@@ -1012,6 +1007,19 @@ namespace dNothi.Desktop.UI
         }
         private void NoteNumberButton_Click(NoteListDataRecordNoteDTO noteView, EventArgs e)
         {
+            if (Regex.IsMatch(noteView.note_status, "^[a-zA-Z0-9]*$"))
+            {
+                noteView.note_status = string.Concat(noteView.note_status.ToString().Select(c => (char)('\u09E6' + c - '0')));
+            }
+            foreach (NoteHeaderUserControl noteFileUpload in noteBodyFLP.Controls)
+            {
+
+                if (noteFileUpload.noteNumber != noteView.note_status)
+                {
+                    noteFileUpload.setNoteNUmberForeCOlor(184, 184, 204);
+                }
+
+            }
             checkboxLoadNotangsho(noteView, null);
         }
 
@@ -1028,6 +1036,10 @@ namespace dNothi.Desktop.UI
                 {
                     flag = 1;
                 }
+                else
+                {
+                    noteFileUpload.setNoteNUmberForeCOlor(184, 184, 204);
+                }
                 
             }
             if (flag == 0)
@@ -1040,6 +1052,7 @@ namespace dNothi.Desktop.UI
                     noteHeaderUserControl.NoteList = list;
                     noteHeaderUserControl.NoteNumberButton += delegate (object sender, EventArgs e1) { NoteNumberButton_Click(sender as NoteListDataRecordNoteDTO, e1); };
                     noteHeaderUserControl.noteView = noteView;
+                    noteHeaderUserControl.setNoteNUmberForeCOlor(54, 153, 255);
                     UIDesignCommonMethod.AddColumninTable(noteBodyFLP, noteHeaderUserControl);
                     //////LoadNoteHeaderPanel//////
                     checkboxLoadNotangsho(list, noteView);

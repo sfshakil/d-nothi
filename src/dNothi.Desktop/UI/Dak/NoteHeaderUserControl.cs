@@ -3,6 +3,7 @@ using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -21,10 +22,12 @@ namespace dNothi.Desktop.UI.Dak
     {
         IRepository<NoteList> _noteList;
         IUserService _userService { get; set; }
+        public WaitFormFunc WaitForm;
         public NoteHeaderUserControl(IUserService userService, IRepository<NoteList> noteList)
         {
             _userService = userService;
             _noteList = noteList;
+            WaitForm = new WaitFormFunc();
             InitializeComponent();
         }
         private string _noteNumber;
@@ -79,9 +82,15 @@ namespace dNothi.Desktop.UI.Dak
             this.Hide();
             this.Enabled = false;
         }
+        public void setNoteNUmberForeCOlor(int r, int g, int b)
+        {
+            lbNoteNumber.ForeColor = Color.FromArgb(r,g,b);
+        }
         public event EventHandler NoteNumberButton;
         private void lbNoteNumber_Click(object sender, EventArgs e)
         {
+            WaitForm.Show();
+            lbNoteNumber.ForeColor = Color.FromArgb(54, 153, 255);
             DakUserParam _dakuserparam = _userService.GetLocalDakUserParam();
             List<NoteList> noteSaveItemActions = _noteList.Table.Where(a => a.note_number == _noteNumber && a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
 
@@ -94,7 +103,13 @@ namespace dNothi.Desktop.UI.Dak
                         this.NoteNumberButton(nothiListInboxNoteResponse, e);
                 }
             }
-            
+            WaitForm.Close();
+
+        }
+
+        private void panel55_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
 
         }
     }

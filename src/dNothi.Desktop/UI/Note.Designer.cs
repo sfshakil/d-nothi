@@ -49,6 +49,7 @@
             this.LeftSign = new FontAwesome.Sharp.IconButton();
             this.RightSign = new FontAwesome.Sharp.IconButton();
             this.btnNothiIcon = new System.Windows.Forms.Button();
+            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.profilePanel = new System.Windows.Forms.Panel();
             this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
             this.onlineStatus = new FontAwesome.Sharp.IconButton();
@@ -95,6 +96,7 @@
             this.panel26 = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
             this.onucchedActionPanel = new System.Windows.Forms.Panel();
             this.btnOnuchhed = new FontAwesome.Sharp.IconButton();
             this.btnPotaka = new FontAwesome.Sharp.IconButton();
@@ -126,6 +128,8 @@
             this.btnCollapseExpand = new FontAwesome.Sharp.IconButton();
             this.panel37 = new System.Windows.Forms.Panel();
             this.noteTabpanel = new System.Windows.Forms.Panel();
+            this.NoteBodyPanel = new System.Windows.Forms.Panel();
+            this.noteBodyFLP = new System.Windows.Forms.TableLayoutPanel();
             this.tabButtonPanel = new System.Windows.Forms.Panel();
             this.panel55 = new System.Windows.Forms.Panel();
             this.iconButton9 = new FontAwesome.Sharp.IconButton();
@@ -310,10 +314,6 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.noteBackGroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.NoteBodyPanel = new System.Windows.Forms.Panel();
-            this.noteBodyFLP = new System.Windows.Forms.TableLayoutPanel();
-            this.tinyMceEditor = new dNothi.Desktop.UI.Dak.TinyMCE();
-            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.panel2.SuspendLayout();
             this.panel29.SuspendLayout();
             this.nothiModulePanel.SuspendLayout();
@@ -346,6 +346,7 @@
             this.panel59.SuspendLayout();
             this.noteSubjectPanel.SuspendLayout();
             this.noteTabpanel.SuspendLayout();
+            this.NoteBodyPanel.SuspendLayout();
             this.tabButtonPanel.SuspendLayout();
             this.panel55.SuspendLayout();
             this.panel15.SuspendLayout();
@@ -413,7 +414,6 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.panel7.SuspendLayout();
             this.PnlSave.SuspendLayout();
-            this.NoteBodyPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -717,6 +717,19 @@
             this.btnNothiIcon.TabIndex = 30;
             this.btnNothiIcon.UseVisualStyleBackColor = false;
             this.btnNothiIcon.Click += new System.EventHandler(this.dakModuleNameLabel_Click);
+            // 
+            // onlineToggleButton2
+            // 
+            this.onlineToggleButton2.AutoSize = true;
+            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
+            this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.onlineToggleButton2.Location = new System.Drawing.Point(1414, 0);
+            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(53, 0);
+            this.onlineToggleButton2.Name = "onlineToggleButton2";
+            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.onlineToggleButton2.Size = new System.Drawing.Size(53, 62);
+            this.onlineToggleButton2.TabIndex = 85;
             // 
             // profilePanel
             // 
@@ -1424,6 +1437,17 @@
             this.panel22.Size = new System.Drawing.Size(1222, 449);
             this.panel22.TabIndex = 62;
             // 
+            // tinyMceEditor
+            // 
+            this.tinyMceEditor.AutoScroll = true;
+            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tinyMceEditor.HtmlContent = "";
+            this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
+            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(5);
+            this.tinyMceEditor.Name = "tinyMceEditor";
+            this.tinyMceEditor.Size = new System.Drawing.Size(1201, 500);
+            this.tinyMceEditor.TabIndex = 61;
+            // 
             // onucchedActionPanel
             // 
             this.onucchedActionPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -2074,6 +2098,35 @@
             this.noteTabpanel.Name = "noteTabpanel";
             this.noteTabpanel.Size = new System.Drawing.Size(1243, 50);
             this.noteTabpanel.TabIndex = 62;
+            // 
+            // NoteBodyPanel
+            // 
+            this.NoteBodyPanel.AutoScroll = true;
+            this.NoteBodyPanel.Controls.Add(this.noteBodyFLP);
+            this.NoteBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NoteBodyPanel.Location = new System.Drawing.Point(181, 0);
+            this.NoteBodyPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.NoteBodyPanel.Name = "NoteBodyPanel";
+            this.NoteBodyPanel.Size = new System.Drawing.Size(1062, 49);
+            this.NoteBodyPanel.TabIndex = 73;
+            // 
+            // noteBodyFLP
+            // 
+            this.noteBodyFLP.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.noteBodyFLP.AutoSize = true;
+            this.noteBodyFLP.ColumnCount = 1;
+            this.noteBodyFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.noteBodyFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.noteBodyFLP.Dock = System.Windows.Forms.DockStyle.Left;
+            this.noteBodyFLP.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
+            this.noteBodyFLP.Location = new System.Drawing.Point(0, 0);
+            this.noteBodyFLP.Margin = new System.Windows.Forms.Padding(0);
+            this.noteBodyFLP.Name = "noteBodyFLP";
+            this.noteBodyFLP.RowCount = 1;
+            this.noteBodyFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.noteBodyFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.noteBodyFLP.Size = new System.Drawing.Size(0, 49);
+            this.noteBodyFLP.TabIndex = 55;
             // 
             // tabButtonPanel
             // 
@@ -4854,59 +4907,6 @@
             this.noteBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.noteBackGroundWorker_DoWork);
             this.noteBackGroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.noteBackGroundWorker_RunWorkerCompleted);
             // 
-            // NoteBodyPanel
-            // 
-            this.NoteBodyPanel.AutoScroll = true;
-            this.NoteBodyPanel.Controls.Add(this.noteBodyFLP);
-            this.NoteBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NoteBodyPanel.Location = new System.Drawing.Point(181, 0);
-            this.NoteBodyPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.NoteBodyPanel.Name = "NoteBodyPanel";
-            this.NoteBodyPanel.Size = new System.Drawing.Size(1062, 49);
-            this.NoteBodyPanel.TabIndex = 73;
-            // 
-            // noteBodyFLP
-            // 
-            this.noteBodyFLP.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.noteBodyFLP.AutoSize = true;
-            this.noteBodyFLP.ColumnCount = 1;
-            this.noteBodyFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.noteBodyFLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.noteBodyFLP.Dock = System.Windows.Forms.DockStyle.Left;
-            this.noteBodyFLP.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns;
-            this.noteBodyFLP.Location = new System.Drawing.Point(0, 0);
-            this.noteBodyFLP.Margin = new System.Windows.Forms.Padding(0);
-            this.noteBodyFLP.Name = "noteBodyFLP";
-            this.noteBodyFLP.RowCount = 1;
-            this.noteBodyFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.noteBodyFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
-            this.noteBodyFLP.Size = new System.Drawing.Size(0, 49);
-            this.noteBodyFLP.TabIndex = 55;
-            // 
-            // tinyMceEditor
-            // 
-            this.tinyMceEditor.AutoScroll = true;
-            this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tinyMceEditor.HtmlContent = "";
-            this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
-            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(5);
-            this.tinyMceEditor.Name = "tinyMceEditor";
-            this.tinyMceEditor.Size = new System.Drawing.Size(1201, 500);
-            this.tinyMceEditor.TabIndex = 61;
-            // 
-            // onlineToggleButton2
-            // 
-            this.onlineToggleButton2.AutoSize = true;
-            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
-            this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.onlineToggleButton2.Location = new System.Drawing.Point(1414, 0);
-            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(53, 0);
-            this.onlineToggleButton2.Name = "onlineToggleButton2";
-            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.onlineToggleButton2.Size = new System.Drawing.Size(53, 62);
-            this.onlineToggleButton2.TabIndex = 85;
-            // 
             // Note
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -4973,6 +4973,8 @@
             this.noteSubjectPanel.ResumeLayout(false);
             this.noteSubjectPanel.PerformLayout();
             this.noteTabpanel.ResumeLayout(false);
+            this.NoteBodyPanel.ResumeLayout(false);
+            this.NoteBodyPanel.PerformLayout();
             this.tabButtonPanel.ResumeLayout(false);
             this.panel55.ResumeLayout(false);
             this.panel55.PerformLayout();
@@ -5070,8 +5072,6 @@
             this.panel7.ResumeLayout(false);
             this.PnlSave.ResumeLayout(false);
             this.PnlSave.PerformLayout();
-            this.NoteBodyPanel.ResumeLayout(false);
-            this.NoteBodyPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

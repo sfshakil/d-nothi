@@ -46,6 +46,8 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.eyeSlashIcon = new FontAwesome.Sharp.IconButton();
+            this.eyeIcon = new FontAwesome.Sharp.IconButton();
             this.lbOfficerInfo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -55,8 +57,6 @@
             this.lbNoteSubject = new System.Windows.Forms.Label();
             this.lbTotalNothi = new System.Windows.Forms.Label();
             this.cbNote = new System.Windows.Forms.CheckBox();
-            this.eyeSlashIcon = new FontAwesome.Sharp.IconButton();
-            this.eyeIcon = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -289,7 +289,7 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(20, 124);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(965, 4);
             this.panel5.TabIndex = 63;
@@ -299,7 +299,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(20, 59);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(965, 1);
             this.panel4.TabIndex = 62;
@@ -312,10 +312,54 @@
             this.panel3.Controls.Add(this.label2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(20, 31);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(965, 28);
             this.panel3.TabIndex = 61;
+            // 
+            // eyeSlashIcon
+            // 
+            this.eyeSlashIcon.AutoSize = true;
+            this.eyeSlashIcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.eyeSlashIcon.Dock = System.Windows.Forms.DockStyle.Right;
+            this.eyeSlashIcon.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.eyeSlashIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.eyeSlashIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.eyeSlashIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.eyeSlashIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eyeSlashIcon.ForeColor = System.Drawing.Color.White;
+            this.eyeSlashIcon.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            this.eyeSlashIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.eyeSlashIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.eyeSlashIcon.IconSize = 24;
+            this.eyeSlashIcon.Location = new System.Drawing.Point(879, 0);
+            this.eyeSlashIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.eyeSlashIcon.Name = "eyeSlashIcon";
+            this.eyeSlashIcon.Size = new System.Drawing.Size(43, 28);
+            this.eyeSlashIcon.TabIndex = 71;
+            this.eyeSlashIcon.UseVisualStyleBackColor = false;
+            // 
+            // eyeIcon
+            // 
+            this.eyeIcon.AutoSize = true;
+            this.eyeIcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.eyeIcon.Dock = System.Windows.Forms.DockStyle.Right;
+            this.eyeIcon.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.eyeIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.eyeIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.eyeIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.eyeIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eyeIcon.ForeColor = System.Drawing.Color.White;
+            this.eyeIcon.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.eyeIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.eyeIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.eyeIcon.IconSize = 24;
+            this.eyeIcon.Location = new System.Drawing.Point(922, 0);
+            this.eyeIcon.Margin = new System.Windows.Forms.Padding(0);
+            this.eyeIcon.Name = "eyeIcon";
+            this.eyeIcon.Size = new System.Drawing.Size(43, 28);
+            this.eyeIcon.TabIndex = 70;
+            this.eyeIcon.UseVisualStyleBackColor = false;
             // 
             // lbOfficerInfo
             // 
@@ -351,7 +395,7 @@
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel12.Location = new System.Drawing.Point(20, 30);
-            this.panel12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(965, 1);
             this.panel12.TabIndex = 60;
@@ -439,50 +483,6 @@
             this.cbNote.TabIndex = 0;
             this.cbNote.UseVisualStyleBackColor = true;
             this.cbNote.Click += new System.EventHandler(this.cbNote_Click_1);
-            // 
-            // eyeSlashIcon
-            // 
-            this.eyeSlashIcon.AutoSize = true;
-            this.eyeSlashIcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.eyeSlashIcon.Dock = System.Windows.Forms.DockStyle.Right;
-            this.eyeSlashIcon.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.eyeSlashIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.eyeSlashIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.eyeSlashIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eyeSlashIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eyeSlashIcon.ForeColor = System.Drawing.Color.White;
-            this.eyeSlashIcon.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            this.eyeSlashIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.eyeSlashIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.eyeSlashIcon.IconSize = 24;
-            this.eyeSlashIcon.Location = new System.Drawing.Point(879, 0);
-            this.eyeSlashIcon.Margin = new System.Windows.Forms.Padding(0);
-            this.eyeSlashIcon.Name = "eyeSlashIcon";
-            this.eyeSlashIcon.Size = new System.Drawing.Size(43, 28);
-            this.eyeSlashIcon.TabIndex = 71;
-            this.eyeSlashIcon.UseVisualStyleBackColor = false;
-            // 
-            // eyeIcon
-            // 
-            this.eyeIcon.AutoSize = true;
-            this.eyeIcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.eyeIcon.Dock = System.Windows.Forms.DockStyle.Right;
-            this.eyeIcon.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.eyeIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.eyeIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.eyeIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.eyeIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eyeIcon.ForeColor = System.Drawing.Color.White;
-            this.eyeIcon.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.eyeIcon.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.eyeIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.eyeIcon.IconSize = 24;
-            this.eyeIcon.Location = new System.Drawing.Point(922, 0);
-            this.eyeIcon.Margin = new System.Windows.Forms.Padding(0);
-            this.eyeIcon.Name = "eyeIcon";
-            this.eyeIcon.Size = new System.Drawing.Size(43, 28);
-            this.eyeIcon.TabIndex = 70;
-            this.eyeIcon.UseVisualStyleBackColor = false;
             // 
             // NoteView
             // 
