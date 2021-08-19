@@ -357,6 +357,8 @@ namespace dNothi.Desktop
             builder.RegisterType<GuardFileRowUserControl>().AsSelf();
             
             builder.RegisterType<GuardFileListRowUserControl>().AsSelf();
+            builder.RegisterType<GaurdFilePortalListRow>().AsSelf();
+            
             builder.RegisterType<PotrojariGroupContent>().AsSelf();
             builder.RegisterType<PatraJariGroupCreateUserControl>().AsSelf();
             builder.RegisterType<KhosraDakNoteDetailForm>().AsSelf();

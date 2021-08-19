@@ -15,5 +15,9 @@ namespace dNothi.Services.GuardFile
         ResponseEdit Insert(DakUserParam userParam, int actionLink, string model, InputParam data);
         DeleteResponse Delete(DakUserParam obj, int actionLink,int id,string model);
         GuardFileAttachment UploadedFile(DakUserParam dakListUserParam, DakFileUploadParam dakFileUploadParam, int actionLink);
+
+        GuardFilePortal GuardFilePortalList(DakUserParam userParam,string name,string type);
+        GuardFileOffice GuardFilePortalOfficeList(DakUserParam userParam, int layer_id, string type);
+       
     }
 }

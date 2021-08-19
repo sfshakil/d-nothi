@@ -687,6 +687,12 @@
     <Compile Include="UI\Dak\SetKarjodibosh.Designer.cs">
       <DependentUpon>SetKarjodibosh.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.Designer.cs">
+      <DependentUpon>GaurdFilePortalListRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Khosra Potro\KhosraDakNoteDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1607,6 +1613,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\SingleDakUserControl.resx">
       <DependentUpon>SingleDakUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.resx">
+      <DependentUpon>GaurdFilePortalListRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraDakNoteDetailForm.resx">
       <DependentUpon>KhosraDakNoteDetailForm.cs</DependentUpon>

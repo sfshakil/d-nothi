@@ -571,42 +571,87 @@ namespace dNothi.Desktop.UI
                 {
                     
                     var groupid = item.users.Select(x => x.group_id).FirstOrDefault();
-                    //if (item.id > 6)
-                    //{
-
-                        var controls = item.Controls.Cast<Control>();
-                        var con = controls.Where(c => c.GetType() == typeof(TableLayoutPanel) && c.Name == "contentTableLayoutPanel").FirstOrDefault();
-                        var data = con.Controls.Cast<Control>().Where(c => c.GetType() == typeof(TableLayoutPanel)).FirstOrDefault();
-                        var data1 = data.Controls.Cast<Control>().Where(c => c.GetType() == typeof(TableLayoutPanel)).FirstOrDefault();
+                   
+                    var controls = item.Controls.Cast<Control>();
+                       
+                    var contentTableLayoutPanel = controls.Where(c => c.GetType() == typeof(TableLayoutPanel) && c.Name == "contentTableLayoutPanel").FirstOrDefault();
+                    var tableLayoutPanel1 = contentTableLayoutPanel.Controls.Cast<Control>().Where(c => c.GetType() == typeof(TableLayoutPanel)).FirstOrDefault();
+                    var namckeckbox = tableLayoutPanel1.Controls.Cast<Control>().OfType<CheckBox>().Where(x=>x.Name== "nameCheckBox").Select(x=>x.Checked).FirstOrDefault();
+                    var nametext = tableLayoutPanel1.Controls.Cast<Control>().Where(x => x.Name == "nameTextBox").Select(x => x.Text).FirstOrDefault();
+                    var tableLayoutPanel2 = tableLayoutPanel1.Controls.Cast<Control>().Where(c => c.GetType() == typeof(TableLayoutPanel)).FirstOrDefault();
                         
 
-                        var potrajariUsers = data1.Controls.OfType<PotrojariUsersListRowUserControl>().ToList();
+                    var potrajariUsers = tableLayoutPanel2.Controls.OfType<PotrojariUsersListRowUserControl>().ToList();
+                    
 
-                        if (potrajariUsers != null)
-                        {
-                            foreach (var item2 in potrajariUsers)
+                    if (potrajariUsers != null && potrajariUsers.Count>0)
+                    {
+                        
+
+                        foreach (var item2 in potrajariUsers)
                             {
-                                
+
                                 var control1 = item2.Controls.Cast<Control>();
                                 var con1 = control1.Where(c => c.GetType() == typeof(TableLayoutPanel)).FirstOrDefault();
-                                
+
                                 //var data3 = con1.Controls.Cast<Control>().Where(x => x.GetType() == typeof(CheckBox)).FirstOrDefault();
                                 var d = con1.Controls.Cast<Control>();
-                                CheckBox selecteddata= d.OfType<CheckBox>().FirstOrDefault();
+                                CheckBox selecteddata = d.OfType<CheckBox>().FirstOrDefault();
+                            
 
                                 if (selecteddata.Checked)
                                 {
-                                    //PrapokDTO prapokDTO = new PrapokDTO();
-                                    //prapokDTO.officer_id = item2.id;
-                                    //prapokDTO.officer = item2.UserName;
-                                    //prapokDTO.designation_bng = item2.UserDesignation;
-                                    //prapokDTO.office_address = item2.UserOfficeName;
+                                //PrapokDTO prapokDTO = new PrapokDTO();
+                                //prapokDTO.officer_id = item2.id;
+                                //prapokDTO.officer = item2.UserName;
+                                //prapokDTO.designation_bng = item2.UserDesignation;
+                                //prapokDTO.office_address = item2.UserOfficeName;
+
+                                if (namckeckbox)
+                                {
+                                    _designationId = item2.groupId;
+
+                                    if (!_selectedOfficerDesignations.Contains(_designationId) && _designationId != 0)
+                                    {
+                                        OfficerRowUserControl officerRowUserControl = new OfficerRowUserControl();
+
+                                        officerRowUserControl.officerName = item2.groupName;
+
+                                        officerRowUserControl.designationId = _designationId;
+
+                                        officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) { RemoveOfficerFromList(_designationId); };
+                                        officerRowUserControl.Width = officerListFlowLayoutPanel.Width - 50;
+
+                                        _selectedOfficerDesignations.Add(_designationId);
+                                        UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officerRowUserControl);
+                                    }
+
+
+
+                                    var officerLists = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Hide != true).ToList();
+
+                                    ReloadOfficerList();
+
+                                    _designationId = 0;
+
+                                    if (_isOneOfficerAllowed)
+                                    {
+                                        finalSave(sender, e);
+                                    }
+
+                                    VisibleSaveSingleOfficer();
+                                    break;
+                                }
+
+                                else
+                                {
+
                                     _designationId = item2.designationId;
 
                                     if (!_selectedOfficerDesignations.Contains(_designationId) && _designationId != 0)
                                     {
                                         OfficerRowUserControl officerRowUserControl = new OfficerRowUserControl();
-                                         var result=viewDesignationSealLists.FirstOrDefault(a => a.designation_id == item2.designationId);
+                                        var result = viewDesignationSealLists.FirstOrDefault(a => a.designation_id == item2.designationId);
                                         if (result != null)
                                         {
                                             officerRowUserControl.officerName = result.designationwithname;
@@ -614,7 +659,7 @@ namespace dNothi.Desktop.UI
                                         }
                                         else
                                         {
-                                            officerRowUserControl.officerName = item2.UserName  + item2.UserDesignation+ item2.UserOfficeName;
+                                            officerRowUserControl.officerName = item2.UserName + item2.UserDesignation + item2.UserOfficeName;
                                         }
                                         officerRowUserControl.designationId = item2.designationId;
 
@@ -639,15 +684,17 @@ namespace dNothi.Desktop.UI
                                     }
 
                                     VisibleSaveSingleOfficer();
-                                    //prapokDTOs.Add(prapokDTO);
                                 }
-                            }
-                            
-                        }
+                                    
+                                }
 
-                    //}
+                            }
+                        
+                    }
+
+                   
                 }
-               // potrajaricontentList.
+             
             }
         }
 

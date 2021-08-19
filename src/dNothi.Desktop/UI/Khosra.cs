@@ -596,11 +596,6 @@ namespace dNothi.Desktop.UI
 
         }
 
-
-
-
-
-
         private void onumodonkariOfficerSelectButton_Click(object sender, EventArgs e)
         {
             SelectOfficer(onumodonkariOfficerSelectButton, onumodonkariListPanel, onumodonkariEmptyPanel, onumodonkariListFlowLayoutPanel);

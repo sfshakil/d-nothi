@@ -140,6 +140,10 @@ namespace dNothi.Constants
         public const string GuardFileCreateEdit = "/api/add";
         public const string GuardFileDelete = "/api/delete";
 
+        public const string guardFileOfficelist= "/api/nothi/guardfile/portal/office/list";
+        public const string guardFilePortallist = "/api/nothi/guardfile/portal/list";
+        public const string guardFilePortalInsert = "/api/nothi/guardfile/portal/add";
+
         //DakSharing
 
         public const string SharingList = "/api/dak/sorting/designation";

@@ -37,6 +37,20 @@ namespace dNothi.Desktop.UI.Dak
         }
 
         public bool isPatrajariGroupFromKasra = false;
+       
+
+        private string _groupName { get; set; }
+        public string groupName { get => _groupName; set { _groupName = value; lbDetails.Text = value; nameTextBox.Text = value; } }
+        private int _totalPerson { get; set; }
+        public int totalPerson { get => _totalPerson; set { _totalPerson = value; totalUserlabel.Text = "মোট সদস্য: "+ ConversionMethod.EnglishNumberToBangla(value.ToString()); } }
+
+        private string _privacyType { get; set; }
+        public string privacyType { get => _privacyType; set { _privacyType = value; lbNoteNumber.Text = value; } }
+        private bool _isEditable { get; set; }
+        public bool isEditable { get => _isEditable; set { _isEditable = value; btnEdit.Visible = value; } }
+        private bool _isDelete { get; set; }
+        public bool isDelete { get => _isDelete; set { _isDelete = value; btnDelete.Visible = value; } }
+
         public void ActiveForKasraPatro()
         {
             if (isPatrajariGroupFromKasra)
@@ -53,6 +67,7 @@ namespace dNothi.Desktop.UI.Dak
                 allCheckBox.Checked = true;
                 nCheckBox.Visible = true;
                 nCheckBox.Checked = false;
+                panel2.Visible = false;
 
             }
             else
@@ -65,21 +80,10 @@ namespace dNothi.Desktop.UI.Dak
                 nameCheckBox.Visible = false;
                 allCheckBox.Visible = false;
                 nCheckBox.Visible = false;
+                panel2.Visible = true;
 
             }
         }
-
-        private string _groupName { get; set; }
-        public string groupName { get => _groupName; set { _groupName = value; lbDetails.Text = value; nameTextBox.Text = value; } }
-        private int _totalPerson { get; set; }
-        public int totalPerson { get => _totalPerson; set { _totalPerson = value; totalUserlabel.Text = "মোট সদস্য: "+ ConversionMethod.EnglishNumberToBangla(value.ToString()); } }
-
-        private string _privacyType { get; set; }
-        public string privacyType { get => _privacyType; set { _privacyType = value; lbNoteNumber.Text = value; } }
-        private bool _isEditable { get; set; }
-        public bool isEditable { get => _isEditable; set { _isEditable = value; btnEdit.Visible = value; } }
-        private bool _isDelete { get; set; }
-        public bool isDelete { get => _isDelete; set { _isDelete = value; btnDelete.Visible = value; } }
 
         public int id=0;
         private bool isActive = false;
@@ -160,6 +164,7 @@ namespace dNothi.Desktop.UI.Dak
                         PotrojariUsersListRowUserControl pgc = new PotrojariUsersListRowUserControl();
                         pgc.id = item.id;
                         pgc.groupId = item.group_id;
+                    pgc.groupName = item.group_name;
                         pgc.UserName = item.officer;
                         pgc.designationId = item.designation_id;
                         pgc.UserDesignation = item.designation + ", " + item.office + ", " + item.office_unit;
@@ -194,7 +199,9 @@ namespace dNothi.Desktop.UI.Dak
                     {
 
                         PotrojariUsersListRowUserControl pgc = new PotrojariUsersListRowUserControl();
-
+                        pgc.id = item.id;
+                        pgc.groupId = item.group.id;
+                        pgc.groupName = item.group.group_name;
                         pgc.UserName = item.officer;
                         pgc.UserDesignation = item.designation + ", " + item.office + ", " + item.office_unit;
                         pgc.UserOfficeName = item.officer_email + ", " + item.officer_mobile;
@@ -305,6 +312,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
+        bool isDetailsIconButtonClicked = false;
         private void DetailsIconButton_Click(object sender, EventArgs e)
         {
             //if(id>=1 && id<=5)
@@ -320,6 +328,7 @@ namespace dNothi.Desktop.UI.Dak
 
             if (isActive == false && id != clickedId)
             {
+                isDetailsIconButtonClicked = true;
                 isAllChecked = true;
                 Formload();
                 isActive = true;
@@ -328,6 +337,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
+                isDetailsIconButtonClicked = false;
                 isAllChecked = false;
                 clickedId = 0;
                 isActive = false;
@@ -336,6 +346,27 @@ namespace dNothi.Desktop.UI.Dak
             }
             if (this.PotrojariDetailsButtonClick != null)
                 this.PotrojariDetailsButtonClick(sender, e);
+        }
+        private void allCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+
+
+            if (isDetailsIconButtonClicked == true && id == clickedId)
+            {
+                isAllChecked = allCheckBox.Checked;
+                Formload();
+                isActive = true;
+                clickedId = id;
+            }
+            //else
+            //{
+            //    isAllChecked = false;
+            //    Formload();
+            //    clickedId = 0;
+            //    //tableLayoutPanel1.Visible = false;
+            //    //tableLayoutPanel2.Controls.Clear();
+            //}
+
         }
         private void btnTotalPerson_Click(object sender, EventArgs e)
         {
@@ -412,39 +443,7 @@ namespace dNothi.Desktop.UI.Dak
 
       //  public event EventHandler allCheckBoxChecdChanged;
 
-        private void allCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            
-            //if (isActive == false && id != clickedId)
-            //{
-            //    if (allCheckBox.Checked)
-            //    {
-            //        isAllChecked = true;
-            //    }
-            //    else
-            //    {
-            //        isAllChecked = false;
-            //    }
-            //   Formload();
-            //}
-            //if (isActive == false && id != clickedId)
-            //{
-            //    isAllChecked = true;
-            //    Formload();
-            //    isActive = true;
-            //    clickedId = id;
-
-            //}
-            //else
-            //{
-            //    isAllChecked = false;
-            //    clickedId = 0;
-            //    isActive = false;
-            //    tableLayoutPanel1.Visible = false;
-            //    tableLayoutPanel2.Controls.Clear();
-            //}
-
-        }
+       
 
         private void allCheckBox_CheckStateChanged(object sender, EventArgs e)
         {
@@ -454,39 +453,26 @@ namespace dNothi.Desktop.UI.Dak
         private void nameCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             
-                if (!changed)
-                {
-                changed = false;
-                
-                }
-                else
-                {
-                if (nameCheckBox.Checked)
-                {
-                    changed = true;
-                    nCheckBox.Checked = false;
-                }
+            if (nameCheckBox.Checked)
+            {
+                nCheckBox.Checked = false;
             }
-            
-
+            else
+            {
+                nCheckBox.Checked = true;
+            }
 
         }
         private void nCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (!changed)
+            if (nCheckBox.Checked)
             {
-                changed = false;
-                
+                nameCheckBox.Checked = false;
             }
             else
             {
-                if (nCheckBox.Checked)
-                {
-                    changed = true;
-                    nameCheckBox.Checked = false;
-                }
+                nameCheckBox.Checked = true;
             }
-
         }
     }
 }
