@@ -530,6 +530,7 @@ namespace dNothi.Desktop.UI
             noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
             noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
             noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
+            noteView.loadEyeIcon(nothiListInboxNoteRecordsDTO.note.can_revert);
             //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
             //form.loadNoteData(notedata);
             NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
@@ -701,6 +702,7 @@ namespace dNothi.Desktop.UI
             noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
             noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
             noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
+            noteView.loadEyeIcon(nothiListInboxNoteRecordsDTO.note.can_revert);
             //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
             //form.loadNoteData(notedata);
             form.loadNothiInboxRecords(nothiListRecordsDTO);
@@ -932,7 +934,7 @@ namespace dNothi.Desktop.UI
                     noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
                     noteView.checkBox = "1";
                     noteView.nothiNoteID = notedata.note_id;
-
+                    noteView.loadEyeIcon(form.noteAllListDataRecordDTO.note.can_revert);
                     //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
                     form.loadNoteData(notedata);
                     form.loadNothiInboxRecords(nothiListRecordsDTO);
