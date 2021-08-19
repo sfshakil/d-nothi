@@ -4758,6 +4758,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                allFlag = 4;
                 current_potro_id = 0;
                 _khoshraPotroWaitinDataRecordDTO = null;
                 khoshraPotroWaitinDataRecordMulpotroDTO = null;
@@ -4916,6 +4917,7 @@ namespace dNothi.Desktop.UI
             i--;
             if (i == 0)
             {
+                allFlag = 4;
                 int index = 0;
                 pnlPotrangshoDetails.Visible = true;
                 if (allPotro.data.total_records > 0)
@@ -5180,6 +5182,7 @@ namespace dNothi.Desktop.UI
             i++;
             if (allPotro.data.total_records != i && i > 0)
             {
+                allFlag = 4;
                 int index = 0;
                 pnlPotrangshoDetails.Visible = true;
                 if (allPotro.data.total_records > 0)
@@ -5314,12 +5317,60 @@ namespace dNothi.Desktop.UI
             }
 
         }
-
+        private int allFlag = 0; // khashra = 1, waiting = 2, approved = 3, allpotro = 4, bibechho = 5, potrojari = 6, nothijat = 7, NoteKhoshra = 8, noteWaiting = 9, NoteBibechho = 10 , notePotrojari = 11 .
+        private void ReFresh(int allflag)
+        {
+            if(allflag == 1)
+            {
+                lbKhoshra_Click(null,null);
+            }
+            else if (allflag == 2)
+            {
+                KhosraWaitingLoad();
+            }
+            else if (allflag == 3)
+            {
+                lbApprovedPotro_Click(null,null);
+            }
+            else if (allflag == 4)
+            {
+                lbAllPotro_Click(null, null);
+            }
+            else if (allflag == 5)
+            {
+                lbNothivuktoPotro_Click(null, null);
+            }
+            else if (allflag == 6)
+            {
+                lbPotrojari_Click(null, null);
+            }
+            else if (allflag == 7)
+            {
+                lbNothijato_Click(null, null);
+            }
+            else if (allflag == 8)
+            {
+                lbNoteKhoshra_Click(null, null);
+            }
+            else if (allflag == 9)
+            {
+                lbNoteKhoshraWaiting_Click(null, null);
+            }
+            else if (allflag == 10)
+            {
+                lbNoteNothivuktoPotro_Click(null, null);
+            }
+            else if (allflag == 11)
+            {
+                lbNotePotrojari_Click(null, null);
+            }
+        }
         KhoshraPotroResponse khoshraPotro = new KhoshraPotroResponse();
         private void lbKhoshra_Click(object sender, EventArgs e)
         {
             try
             {
+                allFlag = 1;
                 _khoshraPotroWaitinDataRecordDTO = null;
                 current_potro_id = 0;
                 allMulpotroButtonsVisibilityOff();
@@ -5473,7 +5524,7 @@ namespace dNothi.Desktop.UI
             i--;
             if (i == 0)
             {
-                
+                allFlag = 1;
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = khoshraPotro.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + khoshraPotro.data.records[i].basic.created;
@@ -5695,6 +5746,7 @@ namespace dNothi.Desktop.UI
             i++;
             if (khoshraPotro.data.total_records != i && i > 0)
             {
+                allFlag = 1;
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = khoshraPotro.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + khoshraPotro.data.records[i].basic.created;
@@ -5810,6 +5862,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                allFlag = 5;
                 current_potro_id = 0;
                 _khoshraPotroWaitinDataRecordDTO = null;
                 khoshraPotroWaitinDataRecordMulpotroDTO = null;
@@ -5966,6 +6019,7 @@ namespace dNothi.Desktop.UI
             i++;
             if (nothivuktoPotroResponse.data.total_records != i && i > 0)
             {
+                allFlag = 5;
                 int index = 0;
                 pnlPotrangshoDetails.Visible = true;
                 if (nothivuktoPotroResponse.data.total_records > 0)
@@ -6102,6 +6156,7 @@ namespace dNothi.Desktop.UI
             i--;
             if (i == 0)
             {
+                allFlag = 5;
                 int index = 0;
                 pnlPotrangshoDetails.Visible = true;
                 if (nothivuktoPotroResponse.data.total_records > 0)
@@ -6369,6 +6424,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                allFlag = 2;
                 current_potro_id = 0;
                 _khoshraPotroWaitinDataRecordDTO = null;
                 khoshraPotroWaitinDataRecordMulpotroDTO = null;
@@ -6500,7 +6556,7 @@ namespace dNothi.Desktop.UI
             i--;
             if (i == 0)
             {
-
+                allFlag = 2;
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = khoshraPotroWaiting.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + khoshraPotroWaiting.data.records[i].basic.created;
@@ -6707,6 +6763,7 @@ namespace dNothi.Desktop.UI
             i++;
             if (khoshraPotroWaiting.data.total_records != i && i > 0)
             {
+                allFlag = 2;
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = khoshraPotroWaiting.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + khoshraPotroWaiting.data.records[i].basic.created;
@@ -6816,6 +6873,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                allFlag = 6;
                 current_potro_id = 0;
                 _khoshraPotroWaitinDataRecordDTO = null;
                 khoshraPotroWaitinDataRecordMulpotroDTO = null;
@@ -6972,6 +7030,7 @@ namespace dNothi.Desktop.UI
             i--;
             if (i == 0)
             {
+                allFlag = 6;
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = potrojariList.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + potrojariList.data.records[i].basic.created;
@@ -7232,6 +7291,7 @@ namespace dNothi.Desktop.UI
             i++;
             if (potrojariList.data.total_records != i && i > 0)
             {
+                allFlag = 6;
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = potrojariList.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + potrojariList.data.records[i].basic.created;
@@ -7368,6 +7428,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                allFlag = 7;
                 current_potro_id = 0;
                 _khoshraPotroWaitinDataRecordDTO = null;
                 khoshraPotroWaitinDataRecordMulpotroDTO = null;
@@ -7512,6 +7573,7 @@ namespace dNothi.Desktop.UI
             i--;
             if (i == 0)
             {
+                allFlag = 7;
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = nothijatoList.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + nothijatoList.data.records[i].basic.created;
@@ -7748,6 +7810,7 @@ namespace dNothi.Desktop.UI
             i++;
             if (nothijatoList.data.total_records != i && i > 0)
             {
+                allFlag = 7;
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = nothijatoList.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + nothijatoList.data.records[i].basic.created;
@@ -7872,6 +7935,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                allFlag = 8;
                 _khoshraPotroWaitinDataRecordDTO = null;
                 allLbelButtonPreviousColor();
                 lbNoteKhoshra.BackColor = Color.FromArgb(14, 102, 98);
@@ -8020,6 +8084,7 @@ namespace dNothi.Desktop.UI
             i--;
             if (i == 0)
             {
+                allFlag = 8;
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = noteKhoshraList.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + noteKhoshraList.data.records[i].basic.created;
@@ -8235,6 +8300,7 @@ namespace dNothi.Desktop.UI
             i++;
             if (noteKhoshraList.data.total_records != i && i > 0)
             {
+                allFlag = 8;
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = noteKhoshraList.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + noteKhoshraList.data.records[i].basic.created;
@@ -8348,6 +8414,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                allFlag = 9;
                 current_potro_id = 0;
                 _khoshraPotroDataRecordDTO = null;
                 _khoshraPotroWaitinDataRecordDTO = null;
@@ -8487,6 +8554,7 @@ namespace dNothi.Desktop.UI
             i--;
             if (i == 0)
             {
+                allFlag = 9;
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = noteKhshraWaitingList.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + noteKhshraWaitingList.data.records[i].basic.created;
@@ -8703,6 +8771,7 @@ namespace dNothi.Desktop.UI
             i++;
             if (noteKhshraWaitingList.data.total_records != i && i > 0)
             {
+                allFlag = 9;
                 pnlPotrangshoDetails.Visible = true;
                 lbPotroSubject.Text = noteKhshraWaitingList.data.records[i].basic.potro_subject;
                 lbLastIssueDate.Text = "সর্বশেষ মুদ্রণের তারিখ :" + noteKhshraWaitingList.data.records[i].basic.created;
@@ -8819,6 +8888,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                allFlag = 11;
                 current_potro_id = 0;
                 allLbelButtonPreviousColor();
                 lbNotePotrojari.BackColor = Color.FromArgb(14, 102, 98);
@@ -8975,7 +9045,7 @@ namespace dNothi.Desktop.UI
             i--;
             if (i == 0)
             {
-
+                allFlag = 11;
                 current_potro_id = 0;
                 _khoshraPotroWaitinDataRecordDTO = null;
                 khoshraPotroWaitinDataRecordMulpotroDTO = null;
@@ -9218,6 +9288,7 @@ namespace dNothi.Desktop.UI
             i++;
             if (notePotrojariList.data.total_records != i && i > 0)
             {
+                allFlag = 11;
                 current_potro_id = 0;
                 _khoshraPotroWaitinDataRecordDTO = null;
                 khoshraPotroWaitinDataRecordMulpotroDTO = null;
@@ -9359,6 +9430,7 @@ namespace dNothi.Desktop.UI
         {
             try
             {
+                allFlag = 10;
                 allLbelButtonPreviousColor();
                 lbNoteNothivuktoPotro.BackColor = Color.FromArgb(14, 102, 98);
                 lbNoteNothivuktoPotro.ForeColor = Color.FromArgb(191, 239, 237);
@@ -9508,6 +9580,7 @@ namespace dNothi.Desktop.UI
             i++;
             if (noteNothivuktoPotroResponse.data.total_records != i && i > 0)
             {
+                allFlag = 10;
                 int index = 0;
                 pnlPotrangshoDetails.Visible = true;
                 if (noteNothivuktoPotroResponse.data.total_records > 0)
@@ -9639,6 +9712,7 @@ namespace dNothi.Desktop.UI
             i--;
             if (i == 0)
             {
+                allFlag = 10;
                 int index = 0;
                 pnlPotrangshoDetails.Visible = true;
                 if (noteNothivuktoPotroResponse.data.total_records > 0)
@@ -10639,7 +10713,7 @@ namespace dNothi.Desktop.UI
 
         private void lbApprovedPotro_Click(object sender, EventArgs e)
         {
-
+            allFlag = 3;
         }
 
         private void noteBackGroundWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -10744,7 +10818,7 @@ namespace dNothi.Desktop.UI
                     {
 
                         UIDesignCommonMethod.SuccessMessage(khoshraUnapprovedResponse.data);
-
+                        ReFresh(allFlag);
                         btnApprove.Visible = true;
                         btnUnapprove.Visible = false;
                         btnPotrojari.Visible = false;
@@ -10796,9 +10870,10 @@ namespace dNothi.Desktop.UI
                     {
 
                         UIDesignCommonMethod.SuccessMessage(khoshraUnapprovedResponse.data);
-                       
+                        ReFresh(allFlag);  
+                            
 
-                        
+
 
 
 
