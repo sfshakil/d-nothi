@@ -84,9 +84,11 @@ namespace dNothi.Desktop.UI
             try
             {
                 var resmessage = await _userService.GetUserMessageAsync(userParam);
+               
 
                 if (resmessage.status == "success")
                 {
+
                     _accountService.SaveOrUpdateUser(userName, password, isRemember);
 
                     // Sign Assign
@@ -103,7 +105,9 @@ namespace dNothi.Desktop.UI
 
                     HideAndSHow();
 
+                    _userService.GetDoptorToken(userParam);
                     this.Hide();
+
                     var form = FormFactory.Create<Dashboard>();
 
                     form.ShowDialog();
@@ -120,7 +124,9 @@ namespace dNothi.Desktop.UI
                 var appUser = _accountService.LoginUser(userName, password);
                 if (appUser != null)
                 {
+                    HideAndSHow();
                     this.Hide();
+
                     var form = FormFactory.Create<Dashboard>();
 
                     form.ShowDialog();

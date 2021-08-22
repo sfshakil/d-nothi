@@ -81,7 +81,49 @@ namespace dNothi.Services.UserServices
 
             
         }
-       
+
+        public void GetDoptorToken(UserParam userParam)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+
+
+                    var loginApi = new RestClient(DefaultAPIConfiguration.DoptorDomainAddress + DefaultAPIConfiguration.DoptorLoginEndPoint);
+                    loginApi.Timeout = -1;
+                    var loginRequest = new RestRequest(Method.POST);
+                    loginRequest.AddHeader("api-version", GetAPIVersion());
+                    loginRequest.AddHeader("device-id", GetDeviceId());
+                    loginRequest.AddHeader("device-type", GetDeviceType());
+                    loginRequest.AlwaysMultipartFormData = true;
+                    loginRequest.AddParameter("username", userParam.username);
+                    loginRequest.AddParameter("password", userParam.password);
+                    loginRequest.AddParameter("client_id", "mgeksheba");
+
+
+
+                    IRestResponse loginResponse = loginApi.Execute(loginRequest);
+
+
+                    var loginResponseJson = loginResponse.Content;
+                    DoptorTokenResponse userResponse = JsonConvert.DeserializeObject<DoptorTokenResponse>(loginResponseJson);
+
+                    SaveOrUpdateUser(userParam.username, userResponse.data.token);
+
+
+                 
+
+                }
+            }
+            catch (Exception ex)
+            {
+               
+            }
+
+
+        }
+
         public EmployeeInfoDTO GetEmployeeInfo()
         {
             var empInfo = _employeeRepository.Table.FirstOrDefault();
@@ -198,7 +240,24 @@ namespace dNothi.Services.UserServices
             }
         }
 
-      
+        public void SaveOrUpdateUser(string username,string token)
+        {
+            var dbuser = _userrepository.Table.FirstOrDefault(a=>a.username==username);
+
+
+
+            if (dbuser == null)
+            {
+                _userrepository.Insert(dbuser);
+            }
+            else
+            {
+                dbuser = new User();
+                dbuser.doptor_token = token;
+                dbuser.username = username;
+                _userrepository.Update(dbuser);
+            }
+        }
         public void SaveOrUpdateUserEmployeeInfo(EmployeeInfoDTO employeedto)
         {
             var config = new MapperConfiguration(cfg =>
@@ -357,6 +416,7 @@ namespace dNothi.Services.UserServices
                 dakListUserParam.nationalId = employeeInfoDTO.nid;
                 dakListUserParam.birthCertificate = employeeInfoDTO.bcn;
                 dakListUserParam.loginId = userDTO.username;
+                dakListUserParam.doptor_token = userDTO.doptor_token;
                 if (employeeInfoDTO.joining_date != null)
                 {
                     dakListUserParam.joiningDate = employeeInfoDTO.joining_date.ToString();

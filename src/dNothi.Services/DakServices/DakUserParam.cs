@@ -53,5 +53,6 @@ namespace dNothi.Services.DakServices
         public int CategoryId { get; set; }
         public string NameSearchParam { get; set; }
         public string DateofBirth { get; internal set; }
+        public string doptor_token { get;  set; }
     }
 }

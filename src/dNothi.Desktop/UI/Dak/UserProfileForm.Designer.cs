@@ -108,7 +108,7 @@ namespace dNothi.Desktop.UI.Dak
             this.Subjectlabel.Location = new System.Drawing.Point(3, 6);
             this.Subjectlabel.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.Subjectlabel.Name = "Subjectlabel";
-            this.Subjectlabel.Size = new System.Drawing.Size(126, 24);
+            this.Subjectlabel.Size = new System.Drawing.Size(149, 27);
             this.Subjectlabel.TabIndex = 0;
             this.Subjectlabel.Text = "User লগইন তথ্য";
             this.Subjectlabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -215,7 +215,7 @@ namespace dNothi.Desktop.UI.Dak
             this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.87671F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.12329F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(573, 89);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(573, 88);
             this.tableLayoutPanel6.TabIndex = 5;
             // 
             // panel6
@@ -226,7 +226,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(573, 29);
+            this.panel6.Size = new System.Drawing.Size(573, 28);
             this.panel6.TabIndex = 2;
             // 
             // label13
@@ -237,7 +237,7 @@ namespace dNothi.Desktop.UI.Dak
             this.label13.Location = new System.Drawing.Point(3, 0);
             this.label13.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(162, 21);
+            this.label13.Size = new System.Drawing.Size(188, 25);
             this.label13.TabIndex = 0;
             this.label13.Text = "প্রোফাইল (ব্যক্তিগত তথ্য)";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -246,7 +246,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.label14.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label14.Location = new System.Drawing.Point(0, 28);
+            this.label14.Location = new System.Drawing.Point(0, 27);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(573, 1);
             this.label14.TabIndex = 39;
@@ -257,11 +257,11 @@ namespace dNothi.Desktop.UI.Dak
             this.designationListBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.designationListBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationListBox.FormattingEnabled = true;
-            this.designationListBox.ItemHeight = 18;
-            this.designationListBox.Location = new System.Drawing.Point(10, 32);
+            this.designationListBox.ItemHeight = 21;
+            this.designationListBox.Location = new System.Drawing.Point(10, 31);
             this.designationListBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.designationListBox.Name = "designationListBox";
-            this.designationListBox.Size = new System.Drawing.Size(560, 54);
+            this.designationListBox.Size = new System.Drawing.Size(560, 42);
             this.designationListBox.TabIndex = 3;
             // 
             // tableLayoutPanel4
@@ -299,7 +299,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(573, 24);
+            this.panel5.Size = new System.Drawing.Size(573, 28);
             this.panel5.TabIndex = 2;
             // 
             // label10
@@ -308,10 +308,10 @@ namespace dNothi.Desktop.UI.Dak
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label10.Location = new System.Drawing.Point(3, 2);
+            this.label10.Location = new System.Drawing.Point(3, 4);
             this.label10.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(162, 21);
+            this.label10.Size = new System.Drawing.Size(188, 25);
             this.label10.TabIndex = 0;
             this.label10.Text = "প্রোফাইল (ব্যক্তিগত তথ্য)";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -321,7 +321,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
             this.label11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label11.Location = new System.Drawing.Point(0, 23);
+            this.label11.Location = new System.Drawing.Point(0, 27);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(573, 1);
             this.label11.TabIndex = 39;
@@ -341,7 +341,7 @@ namespace dNothi.Desktop.UI.Dak
             this.tableLayoutPanel5.Controls.Add(this.fatherNameLabel, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.nameLabel, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 24);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 28);
             this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -356,7 +356,7 @@ namespace dNothi.Desktop.UI.Dak
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(573, 223);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(573, 219);
             this.tableLayoutPanel5.TabIndex = 41;
             // 
             // joiningDateLabel
@@ -364,9 +364,9 @@ namespace dNothi.Desktop.UI.Dak
             this.joiningDateLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.joiningDateLabel.AutoSize = true;
             this.joiningDateLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.joiningDateLabel.Location = new System.Drawing.Point(13, 178);
+            this.joiningDateLabel.Location = new System.Drawing.Point(13, 168);
             this.joiningDateLabel.Name = "joiningDateLabel";
-            this.joiningDateLabel.Size = new System.Drawing.Size(149, 18);
+            this.joiningDateLabel.Size = new System.Drawing.Size(175, 21);
             this.joiningDateLabel.TabIndex = 8;
             this.joiningDateLabel.Text = "কর্মক্ষেত্রে যোগদানের তারিখ:";
             // 
@@ -375,9 +375,9 @@ namespace dNothi.Desktop.UI.Dak
             this.mobileLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.mobileLabel.AutoSize = true;
             this.mobileLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mobileLabel.Location = new System.Drawing.Point(13, 156);
+            this.mobileLabel.Location = new System.Drawing.Point(13, 147);
             this.mobileLabel.Name = "mobileLabel";
-            this.mobileLabel.Size = new System.Drawing.Size(54, 18);
+            this.mobileLabel.Size = new System.Drawing.Size(64, 21);
             this.mobileLabel.TabIndex = 7;
             this.mobileLabel.Text = "মোবাইল:";
             // 
@@ -386,9 +386,9 @@ namespace dNothi.Desktop.UI.Dak
             this.emailLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.emailLabel.AutoSize = true;
             this.emailLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailLabel.Location = new System.Drawing.Point(13, 134);
+            this.emailLabel.Location = new System.Drawing.Point(13, 126);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(54, 18);
+            this.emailLabel.Size = new System.Drawing.Size(61, 21);
             this.emailLabel.TabIndex = 6;
             this.emailLabel.Text = "ইমেইল: ";
             // 
@@ -397,9 +397,9 @@ namespace dNothi.Desktop.UI.Dak
             this.birthCertificate.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.birthCertificate.AutoSize = true;
             this.birthCertificate.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.birthCertificate.Location = new System.Drawing.Point(13, 112);
+            this.birthCertificate.Location = new System.Drawing.Point(13, 105);
             this.birthCertificate.Name = "birthCertificate";
-            this.birthCertificate.Size = new System.Drawing.Size(58, 18);
+            this.birthCertificate.Size = new System.Drawing.Size(69, 21);
             this.birthCertificate.TabIndex = 5;
             this.birthCertificate.Text = "জন্ম সনদ:";
             // 
@@ -408,9 +408,9 @@ namespace dNothi.Desktop.UI.Dak
             this.nationalIdLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.nationalIdLabel.AutoSize = true;
             this.nationalIdLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nationalIdLabel.Location = new System.Drawing.Point(13, 90);
+            this.nationalIdLabel.Location = new System.Drawing.Point(13, 84);
             this.nationalIdLabel.Name = "nationalIdLabel";
-            this.nationalIdLabel.Size = new System.Drawing.Size(88, 18);
+            this.nationalIdLabel.Size = new System.Drawing.Size(107, 21);
             this.nationalIdLabel.TabIndex = 4;
             this.nationalIdLabel.Text = "ন্যাশনাল আইডি:";
             // 
@@ -419,9 +419,9 @@ namespace dNothi.Desktop.UI.Dak
             this.dateofBirthLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dateofBirthLabel.AutoSize = true;
             this.dateofBirthLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateofBirthLabel.Location = new System.Drawing.Point(13, 68);
+            this.dateofBirthLabel.Location = new System.Drawing.Point(13, 63);
             this.dateofBirthLabel.Name = "dateofBirthLabel";
-            this.dateofBirthLabel.Size = new System.Drawing.Size(69, 18);
+            this.dateofBirthLabel.Size = new System.Drawing.Size(81, 21);
             this.dateofBirthLabel.TabIndex = 3;
             this.dateofBirthLabel.Text = "জন্ম তারিখ: ";
             // 
@@ -430,9 +430,9 @@ namespace dNothi.Desktop.UI.Dak
             this.motherNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.motherNameLabel.AutoSize = true;
             this.motherNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.motherNameLabel.Location = new System.Drawing.Point(13, 46);
+            this.motherNameLabel.Location = new System.Drawing.Point(13, 42);
             this.motherNameLabel.Name = "motherNameLabel";
-            this.motherNameLabel.Size = new System.Drawing.Size(65, 18);
+            this.motherNameLabel.Size = new System.Drawing.Size(76, 21);
             this.motherNameLabel.TabIndex = 2;
             this.motherNameLabel.Text = "মায়ের নাম:";
             // 
@@ -441,9 +441,9 @@ namespace dNothi.Desktop.UI.Dak
             this.fatherNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.fatherNameLabel.AutoSize = true;
             this.fatherNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fatherNameLabel.Location = new System.Drawing.Point(13, 24);
+            this.fatherNameLabel.Location = new System.Drawing.Point(13, 21);
             this.fatherNameLabel.Name = "fatherNameLabel";
-            this.fatherNameLabel.Size = new System.Drawing.Size(65, 18);
+            this.fatherNameLabel.Size = new System.Drawing.Size(78, 21);
             this.fatherNameLabel.TabIndex = 1;
             this.fatherNameLabel.Text = "বাবার নাম: ";
             // 
@@ -452,9 +452,9 @@ namespace dNothi.Desktop.UI.Dak
             this.nameLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(13, 2);
+            this.nameLabel.Location = new System.Drawing.Point(13, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(30, 18);
+            this.nameLabel.Size = new System.Drawing.Size(36, 21);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "নাম:";
             // 
@@ -505,7 +505,7 @@ namespace dNothi.Desktop.UI.Dak
             this.label5.Location = new System.Drawing.Point(3, 11);
             this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 21);
+            this.label5.Size = new System.Drawing.Size(54, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "স্বাক্ষর";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -605,6 +605,7 @@ namespace dNothi.Desktop.UI.Dak
             this.profileUpdateButton.Text = "প্রোফাইল সংশোধন";
             this.profileUpdateButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.profileUpdateButton.UseVisualStyleBackColor = false;
+            this.profileUpdateButton.Click += new System.EventHandler(this.profileUpdateButton_Click);
             // 
             // label1
             // 
@@ -662,7 +663,7 @@ namespace dNothi.Desktop.UI.Dak
             this.label2.Location = new System.Drawing.Point(3, 7);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 21);
+            this.label2.Size = new System.Drawing.Size(105, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "প্রোফাইল ছবি";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;

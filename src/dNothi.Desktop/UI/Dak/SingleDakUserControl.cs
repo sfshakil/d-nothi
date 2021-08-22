@@ -843,7 +843,8 @@ namespace dNothi.Desktop.UI.Dak
 
         private void DakSendButton_Click(object sender, EventArgs e)
         {
-
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
         }
 
 
@@ -935,6 +936,8 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler DakTagButtonCLick;
         private void dakTagButton_Click(object sender, EventArgs e)
         {
+            if (this.DakTagButtonCLick != null)
+                this.DakTagButtonCLick(sender, e);
 
         }
         public event EventHandler DakTagShowButtonCLick;
