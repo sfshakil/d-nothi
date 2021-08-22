@@ -86,24 +86,21 @@ namespace dNothi.Services.UserServices
         {
             try
             {
-                using (var client = new HttpClient())
-                {
+                
 
 
-                    var loginApi = new RestClient(DefaultAPIConfiguration.DoptorDomainAddress + DefaultAPIConfiguration.DoptorLoginEndPoint);
-                    loginApi.Timeout = -1;
-                    var loginRequest = new RestRequest(Method.POST);
-                    loginRequest.AddHeader("api-version", GetAPIVersion());
-                    loginRequest.AddHeader("device-id", GetDeviceId());
-                    loginRequest.AddHeader("device-type", GetDeviceType());
-                    loginRequest.AlwaysMultipartFormData = true;
-                    loginRequest.AddParameter("username", userParam.username);
-                    loginRequest.AddParameter("password", userParam.password);
-                    loginRequest.AddParameter("client_id", "mgeksheba");
+                    var ndoptorclient = new RestClient(DefaultAPIConfiguration.DoptorDomainAddress+DefaultAPIConfiguration.DoptorLoginEndPoint);
+                    ndoptorclient.Timeout = -1;
+                    var request = new RestRequest(Method.POST);
+                    request.AlwaysMultipartFormData = true;
+                    request.AddParameter("username", userParam.username);
+                    request.AddParameter("password", "123456");
+                    request.AddParameter("client_id", "mgeksheba");
+                    IRestResponse loginResponse = ndoptorclient.Execute(request);
+                   
 
-
-
-                    IRestResponse loginResponse = loginApi.Execute(loginRequest);
+                   
+                  
 
 
                     var loginResponseJson = loginResponse.Content;
@@ -114,7 +111,7 @@ namespace dNothi.Services.UserServices
 
                  
 
-                }
+                
             }
             catch (Exception ex)
             {
