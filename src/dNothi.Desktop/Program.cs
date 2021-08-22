@@ -273,7 +273,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
 
             builder.RegisterType<UI.Nothi>().AsSelf();
-            builder.RegisterType<UI.Dak.Form1>().AsSelf();
+           
             builder.RegisterType<KhosraAttachmentForm>().AsSelf();
             builder.RegisterType<UI.KhosraDashboard>().AsSelf();
             builder.RegisterType<UI.PotrojariGroup>().AsSelf();
