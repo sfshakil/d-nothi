@@ -45,6 +45,7 @@ namespace dNothi.Constants
         public const string GetNoteListAllEndpoint = "/api/nothi/note/permitted";
         public const string GetNoteListInboxEndpoint = "/api/nothi/note/pending";
         public const string GetNoteListSentpoint = "/api/nothi/note/list";
+        public const string GetNoteSearchListEndpoint = "/api/nothi/note/list";
         public const string DakNothivuktoEndpointEndPoint = "/api/nothi/dak/nothivukto";
         public const string OCREndpoint = "http://bokshi-img2txt.tappware.com/apiImageToText/";
         public const string DesignationSealDeleteEndpoint = "/api/dak/seal/delete";
@@ -83,6 +84,7 @@ namespace dNothi.Constants
         public const string NothiInboxNoteEndPoint = "/api/nothi/note/pending";
         public const string NothiInformationEndpoint = "/api/nothi/get_nothi";
         public const string NoteAttachmentsEndPoint = "/api/nothi/note/attachments";
+        public const string NoteMovementsEndPoint = "/api/nothi/note/movement/list";
 
         public const string NothiOutboxNoteEndPoint = "/api/nothi/note/list";
         public const string NothiAllNoteEndPoint = "/api/nothi/note/permitted";
@@ -139,6 +141,10 @@ namespace dNothi.Constants
         public const string GuardFileList = "/api/nothi/guardfile/list";
         public const string GuardFileCreateEdit = "/api/add";
         public const string GuardFileDelete = "/api/delete";
+
+        public const string guardFileOfficelist= "/api/nothi/guardfile/portal/office/list";
+        public const string guardFilePortallist = "/api/nothi/guardfile/portal/list";
+        public const string guardFilePortalInsert = "/api/nothi/guardfile/portal/add";
 
         //DakSharing
 

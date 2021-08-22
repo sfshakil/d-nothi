@@ -1,4 +1,5 @@
-﻿using dNothi.Services.DakServices;
+﻿using dNothi.Constants;
+using dNothi.Services.DakServices;
 using dNothi.Services.GuardFile.Model;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
@@ -170,6 +171,68 @@ namespace dNothi.Services.GuardFile
             }
         }
 
+        
+        public GuardFilePortal GuardFilePortalList(DakUserParam userParam,string name,string type)
+        {
+            try
+            {
+                var Api = new RestClient(CommonSetting.GetAPIDomain() + DefaultAPIConfiguration.guardFilePortallist);
+                Api.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", CommonSetting.GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + userParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("designation_id", userParam.designation_id);
+                request.AddParameter("office_id", userParam.office_id);
+                request.AddParameter("page", userParam.page);
+                request.AddParameter("limit", userParam.limit);
+               // request.AddParameter("layer_id", layerId);
+                request.AddParameter("type", type);
+                request.AddParameter("name", name);
+
+
+
+                IRestResponse Response = Api.Execute(request);
+
+                var responseJson = Response.Content;
+
+                GuardFilePortal guardfileportallist = JsonConvert.DeserializeObject<GuardFilePortal>(responseJson);
+                return guardfileportallist;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+           
+        }
+        public GuardFileOffice GuardFilePortalOfficeList(DakUserParam userParam,int layerId,string type)
+        {
+            try
+            {
+                var Api = new RestClient(CommonSetting.GetAPIDomain() + DefaultAPIConfiguration.guardFileOfficelist);
+                Api.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", CommonSetting.GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + userParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("designation_id", userParam.designation_id);
+                request.AddParameter("office_id", userParam.office_id);
+                request.AddParameter("layer_id", layerId);
+                // request.AddParameter("type", type);
+
+                IRestResponse Response = Api.Execute(request);
+
+                var responseJson = Response.Content;
+
+                GuardFileOffice guardfileofficelist = JsonConvert.DeserializeObject<GuardFileOffice>(responseJson);
+                return guardfileofficelist;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+         
+        }
         public void getparamGuardFilesCategories(RestRequest request, GuardFileCategory.Record data)
         {
            

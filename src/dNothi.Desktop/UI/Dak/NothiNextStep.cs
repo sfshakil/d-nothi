@@ -115,7 +115,7 @@ namespace dNothi.Desktop.UI.Dak
                     foreach (var officer in group)
                         {
 
-                            nothiOnumodonRow.AddNewOfficerFromNothiNextStep(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name, officer.route_index,0);
+                            nothiOnumodonRow.AddNewOfficerFromNothiNextStep(officer.officer, officer.designation_id, officer.designation + "," + officer.office_unit + "," + officer.nothi_office_name, officer.route_index,0, officer.is_signatory);
                         nothiOnumodonRow.level = officer.layer_index.ToString();
                         nothiOnumodonRow.karjodibosh = officer.max_transaction_day.ToString();
 
@@ -255,6 +255,22 @@ namespace dNothi.Desktop.UI.Dak
         private void btnSend_Click(object sender, EventArgs e)
         {
             var x = _NoteAllListDataRecordDTO;
+            if (cbxPriorityType.SelectedItem == "জরুরি")
+            {
+                nothiListRecord.priority = "1";
+            }
+            else if(cbxPriorityType.SelectedItem == "অবিলম্বে")
+            {
+                nothiListRecord.priority = "2";
+            }
+            else if (cbxPriorityType.SelectedItem == "সর্বোচ্চ অগ্রাধিকার")
+            {
+                nothiListRecord.priority = "3";
+            }
+            else
+            {
+                nothiListRecord.priority = "0";
+            }
             List<onumodonDataRecordDTO> newrecords = new List<onumodonDataRecordDTO>();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 

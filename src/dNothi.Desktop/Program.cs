@@ -148,6 +148,7 @@ namespace dNothi.Desktop
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.UserItem>>().As<IRepository<dNothi.Core.Entities.UserItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiItem>>().As<IRepository<dNothi.Core.Entities.NothiItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteList>>().As<IRepository<dNothi.Core.Entities.NoteList>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteItem>>().As<IRepository<dNothi.Core.Entities.NoteItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiNoteTalikaItem>>().As<IRepository<dNothi.Core.Entities.NothiNoteTalikaItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiTypeListItem>>().As<IRepository<dNothi.Core.Entities.NothiTypeListItem>>();
@@ -308,12 +309,14 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Dak.OnucchedSignature>().AsSelf();
             builder.RegisterType<UI.Dak.NothiGuidelines>().AsSelf();
             builder.RegisterType<UI.Dak.NewNothiTypeGuidelines>().AsSelf();
+            builder.RegisterType<UI.Dak.NoteHeaderUserControl>().AsSelf();
             builder.RegisterType<UI.Dashboard>().AsSelf();
             builder.RegisterType<NothiType>().AsSelf();
             builder.RegisterType<NothiNoteShomuho>().AsSelf();
             builder.RegisterType<NothiOutboxNoteShomuho>().AsSelf();
             builder.RegisterType<NothiInbox>().AsSelf();
             builder.RegisterType<NothiOutbox>().AsSelf();
+            builder.RegisterType<NothiTalikaNewWindow>().AsSelf();
            
             
             builder.RegisterType<DakDecisionTableUserControl>().AsSelf();
@@ -356,6 +359,8 @@ namespace dNothi.Desktop
             builder.RegisterType<GuardFileRowUserControl>().AsSelf();
             
             builder.RegisterType<GuardFileListRowUserControl>().AsSelf();
+            builder.RegisterType<GaurdFilePortalListRow>().AsSelf();
+            
             builder.RegisterType<PotrojariGroupContent>().AsSelf();
             builder.RegisterType<PatraJariGroupCreateUserControl>().AsSelf();
             builder.RegisterType<KhosraDakNoteDetailForm>().AsSelf();

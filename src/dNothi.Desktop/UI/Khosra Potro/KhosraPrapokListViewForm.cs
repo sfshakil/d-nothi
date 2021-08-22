@@ -128,6 +128,8 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         {
             Screen scr = Screen.FromPoint(this.Location);
             this.Location = new Point(scr.WorkingArea.Right - this.Width, scr.WorkingArea.Top);
+            this.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            this.Width = this.Width;
             SetDefaultFont(this.Controls);
         }
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)

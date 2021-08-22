@@ -114,6 +114,10 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NoteAttachmentsEndPoint;
         }
+        protected string GetNoteMovementsEndPoint()
+        {
+            return DefaultAPIConfiguration.NoteMovementsEndPoint;
+        }
 
         public NoteAttachmentsListResponse GetNoteAttachments(DakUserParam dakListUserParam, string nothi_id, string note_id)
         {
@@ -136,6 +140,37 @@ namespace dNothi.Services.NothiServices
                 var responseJson = response.Content;
                 //SaveOrUpdateNothiRecords(dakListUserParam, responseJson, Convert.ToInt32(eachNothiId), note_category);
                 noteAttachmentsListResponse = JsonConvert.DeserializeObject<NoteAttachmentsListResponse>(responseJson);
+                return noteAttachmentsListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NoteMovementsListResponse GetNoteMovements(DakUserParam dakListUserParam, string nothi_id, string note_id)
+        {
+            NoteMovementsListResponse noteAttachmentsListResponse = new NoteMovementsListResponse();
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNoteMovementsEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                request.AlwaysMultipartFormData = true;
+
+                request.AddParameter("office_id", dakListUserParam.office_id);
+                request.AddParameter("designation_id", dakListUserParam.designation_id);
+                request.AddParameter("nothi_id", nothi_id);
+                request.AddParameter("note_id", note_id);
+                //request.AddParameter("length", dakListUserParam.limit);
+
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                //SaveOrUpdateNothiRecords(dakListUserParam, responseJson, Convert.ToInt32(eachNothiId), note_category);
+                noteAttachmentsListResponse = JsonConvert.DeserializeObject<NoteMovementsListResponse>(responseJson);
                 return noteAttachmentsListResponse;
             }
             catch (Exception ex)

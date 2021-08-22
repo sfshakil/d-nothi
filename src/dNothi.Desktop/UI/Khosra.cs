@@ -596,11 +596,6 @@ namespace dNothi.Desktop.UI
 
         }
 
-
-
-
-
-
         private void onumodonkariOfficerSelectButton_Click(object sender, EventArgs e)
         {
             SelectOfficer(onumodonkariOfficerSelectButton, onumodonkariListPanel, onumodonkariEmptyPanel, onumodonkariListFlowLayoutPanel);
@@ -1513,7 +1508,7 @@ namespace dNothi.Desktop.UI
         }
         private NoteNothiDTO _noteSelected;
         private NothiListAllRecordsDTO _nothiAllListDTO;
-        private NothiListInboxNoteRecordsDTO _noteDTO;
+        public NothiListInboxNoteRecordsDTO _noteDTO;
         private bool _IsNewNoteSelected;
         public void NothiKhosrajato(NoteNothiDTO noteSelected, string nothiBranch, string nothiName, NothiListAllRecordsDTO nothiAllListDTO, NothiListInboxNoteRecordsDTO _nothiListInboxNoteRecordsDTO)
         {
@@ -1626,7 +1621,7 @@ namespace dNothi.Desktop.UI
                         _currentHtmlString = _khasraPotroTemplateData.html_content = kasaradashboardHtmlContent;
 
                         //protibedonOnumodonButton(_khasraPotroTemplateData);
-                        
+
                     }
                     else
                     {
@@ -1905,8 +1900,11 @@ namespace dNothi.Desktop.UI
                 {
                     khosraSaveParamPotro.potrojari.operation_type = "draft";
                 }
-
-                khosraSaveParamPotro.potrojari.note_onucched_id = _note_onucched_id;
+                if (_note_onucched_id != -1 )
+                {
+                    khosraSaveParamPotro.potrojari.note_onucched_id = _note_onucched_id; //-1 means not need to add onuchhed id, because this khoshra dnot come from onuchhed.
+                }
+                
                 //khosraSaveParamPotro.potrojari.potro_subject=_khasraPotroTemplateData
                 //khosraSaveParamPotro.potrojari.potro_type= _khasraPotroTemplateData.
                 //khosraSaveParamPotro.potrojari.sarok_no=
@@ -2062,6 +2060,16 @@ namespace dNothi.Desktop.UI
         private void LoadNote()
         {
             var form = FormFactory.Create<Note>();
+            form.NoteBackButton += delegate (object sender1, EventArgs e1) {
+                foreach (Form f in Application.OpenForms)
+                { BeginInvoke((Action)(() => f.Hide())); }
+                var nothi = FormFactory.Create<Nothi>();
+                nothi.TopMost = true;
+                nothi.LoadNothiInboxButton(sender1, e1);
+                BeginInvoke((Action)(() => nothi.ShowDialog()));
+                BeginInvoke((Action)(() => nothi.TopMost = false));
+                nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+            };
             DakUserParam _dakuserparam = _userService.GetLocalDakUserParam();
             form.noteIdfromNothiInboxNoteShomuho = _noteSelected.note_id.ToString();
             // form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };

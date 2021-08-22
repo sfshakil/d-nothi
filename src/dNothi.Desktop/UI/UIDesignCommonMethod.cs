@@ -439,6 +439,22 @@ namespace dNothi.Desktop.UI
             tableLayoutPanel.Controls.Add(userControl, 0, row);
 
         }
+        public static void AddColumninTable(TableLayoutPanel tableLayoutPanel, UserControl userControl)
+        {
+
+            userControl.Dock = DockStyle.Fill;
+
+            int column = tableLayoutPanel.ColumnCount++;
+
+            tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize, 0f));
+            if (column == 1)
+            {
+                column = tableLayoutPanel.ColumnCount++;
+                tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize, 0f));
+            }
+            tableLayoutPanel.Controls.Add(userControl, column, 0);
+
+        }
         public static void AddRowinTableNoDock(TableLayoutPanel tableLayoutPanel, UserControl userControl)
         {
 
@@ -581,8 +597,9 @@ namespace dNothi.Desktop.UI
             Form hideform = new Form();
 
             hideform.BackColor = Color.Black;
-            hideform.Size = parentForm.Size;
-            hideform.Opacity = .6;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            hideform.Opacity = .4;
+            hideform.ShowInTaskbar = false;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;
@@ -689,8 +706,6 @@ namespace dNothi.Desktop.UI
 
             searchtoTreeView.Nodes.Clear();
 
-
-
             if (!string.IsNullOrEmpty(searchText))
             {
                 foreach (TreeNode _parentNode in searchFromTreeView.Nodes)
@@ -699,14 +714,11 @@ namespace dNothi.Desktop.UI
                     parentNode.Nodes.Clear();
                     foreach (TreeNode _childNode in _parentNode.Nodes)
                     {
-
                         if (_childNode.Text.StartsWith(searchText))
                         {
-
                             parentNode.Nodes.Add((TreeNode)_childNode.Clone());
                             parentNode.LastNode.BackColor = Color.Yellow;
                         }
-
                     }
 
                     if (parentNode.Nodes.Count > 0)
@@ -714,7 +726,6 @@ namespace dNothi.Desktop.UI
                         parentNode.ExpandAll();
                         searchtoTreeView.Nodes.Add(parentNode);
                     }
-
                 }
             }
             else

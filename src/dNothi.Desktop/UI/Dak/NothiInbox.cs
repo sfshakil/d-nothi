@@ -204,10 +204,6 @@ namespace dNothi.Desktop.UI.Dak
                 { remove = false; }
                 uc.ButtonVisibility(true, remove, true);
                 uc.Location = new Point(((Point)sender).X, ((Point)sender).Y+10+rowCount*6);
-                //uc.Location = new Point(50, this.Location.Y);
-
-                //Point locationOnForm = this.FindForm().PointToClient(this.Parent.Parent.PointToScreen(this.Location));
-                // uc.Location = new Point(50,this.Location.Y);//((Point)sender).X, ((Point)sender).Y);
                 uc.noteEditButtonClick += delegate (object s1, EventArgs e1) { uc_noteEditButtonClick(s1, e1, nothiListInboxNoteRecordsDTO); };
                 uc.noteOnumodanButtonClick += delegate (object s2, EventArgs e2) { uc_noteOnumodanButtonClick(s2, e2, nothiListInboxNoteRecordsDTO); };
                 uc.noteRemoveButtonClick += delegate (object s3, EventArgs e3) { uc_noteRemoveButtonClick(s3, e3, nothiListInboxNoteRecordsDTO); };
@@ -221,13 +217,7 @@ namespace dNothi.Desktop.UI.Dak
                 uc.Visible = false;
                 uc=null;
             }
-
-        //    isActive = true;
-        //}
-        //else
-        //    uc.Visible = false;
-        //    isActive = false;
-    }
+        }
         private void uc_noteOnumodanButtonClick(object sender, EventArgs e, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
             //foreach (Form f in Application.OpenForms)
@@ -303,7 +293,7 @@ namespace dNothi.Desktop.UI.Dak
             CalPopUpWindow(noteCreatePopUpForm);
 
         }
-        private void SaveorUpdate()
+        public void SaveorUpdate()
         {
             loadnewAllNoteFlowLayoutPanel();
         }
@@ -433,7 +423,7 @@ namespace dNothi.Desktop.UI.Dak
                 
                 var nothiDecisionList = UserControlFactory.Create<NothiDecisionList>();
                 nothiDecisionList.labelText = "নোটের সংযুক্তি";
-                nothiDecisionList.loadNoteRowAttachments(nothiInboxNote);
+                nothiDecisionList.loadNoteRowAttachments(nothiInboxNote, 1);
                 //nothiDecisionList.OnuchhedAdd += delegate (object sender1, EventArgs e1) { OnuchhedAdd_Click(sender1 as string, e1); };
                 var form = NothiNextStepControlToForm(nothiDecisionList);
                 

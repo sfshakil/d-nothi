@@ -22,13 +22,16 @@ namespace dNothi.Desktop.UI.Dak
         INoteDeleteService _noteDelete { get; set; }
         INothiTypeListServices _nothiType { get; set; }
         INothiTypeSaveService _nothiTypeSave { get; set; }
+        INothiNoteTalikaServices _nothiNoteTalikaService { get; set; }
         public NothiTypeList(IUserService userService, INoteDeleteService noteDelete, INothiTypeListServices nothiType,
-            INothiTypeSaveService nothiTypeSave)
+            INothiTypeSaveService nothiTypeSave, INothiNoteTalikaServices nothiNoteTalikaService)
         {
             _userService = userService;
             _noteDelete = noteDelete;
             _nothiType = nothiType;
             _nothiTypeSave = nothiTypeSave;
+            _nothiNoteTalikaService = nothiNoteTalikaService;
+
             InitializeComponent();
             SetDefaultFont(this.Controls);
         }
@@ -317,5 +320,74 @@ namespace dNothi.Desktop.UI.Dak
             if (this.NothiAddButton != null)
                 this.NothiAddButton(nothi_type, e);
         }
+        public Form NothiTalikaControlToForm(Control control)
+        {
+            Form form = new Form();
+            form.Name = "ExtraNothiTalikaForm";
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.AutoSize = true;
+            //form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - control.Width, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            //form.Size = control.Size;
+            form.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            form.Width = control.Width;
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            control.Height = form.Height;
+            form.Controls.Add(control);
+            return form;
+        }
+        void hideform_Shown(object sender, EventArgs e, Form form)
+        {
+            form.ShowDialog();
+
+            (sender as Form).Hide();
+
+            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
+
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            hideform.Opacity = .4;
+            hideform.ShowInTaskbar = false;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+        private void lbNothiNumber_Click(object sender, EventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                var nothi_type_id = _noteId;
+                var nothiNoteTalika = _nothiNoteTalikaService.GetNothiNoteTalika(dakListUserParam, Convert.ToString(nothi_type_id));
+                if (nothiNoteTalika.status == "success")
+                {
+                    if (nothiNoteTalika.data.records.Count > 0)
+                    {
+                        var nothiTalikaNewWindow = UserControlFactory.Create<NothiTalikaNewWindow>();
+                        nothiTalikaNewWindow.nothiTalikaHeading = lbNothiSubjectType.Text;
+                        nothiTalikaNewWindow.LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records);
+                        var form = NothiTalikaControlToForm(nothiTalikaNewWindow);
+                        CalPopUpWindow(form);
+                    }
+
+                }
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
+        }
+        
+
     }
 }

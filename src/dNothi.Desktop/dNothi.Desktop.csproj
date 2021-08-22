@@ -569,12 +569,6 @@
     <Compile Include="UI\Dak\FileUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\Dak\Emnei.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\Dak\Emnei.Designer.cs">
-      <DependentUpon>Emnei.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Dak\FileUserControl.Designer.cs">
       <DependentUpon>FileUserControl.cs</DependentUpon>
     </Compile>
@@ -584,13 +578,13 @@
     <Compile Include="UI\Dak\FileViewWebBrowser.Designer.cs">
       <DependentUpon>FileViewWebBrowser.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Dak\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Dak\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
+    <Compile Include="UI\Dak\NoteHeaderUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NoteHeaderUserControl.Designer.cs">
+      <DependentUpon>NoteHeaderUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiBibechhoPotroList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -626,6 +620,12 @@
     </Compile>
     <Compile Include="UI\Dak\NothiGaurdFileListRow.Designer.cs">
       <DependentUpon>NothiGaurdFileListRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiTalikaNewWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiTalikaNewWindow.Designer.cs">
+      <DependentUpon>NothiTalikaNewWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\OnuchhedShonjukti.cs">
       <SubType>UserControl</SubType>
@@ -686,6 +686,12 @@
     </Compile>
     <Compile Include="UI\Dak\SetKarjodibosh.Designer.cs">
       <DependentUpon>SetKarjodibosh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.Designer.cs">
+      <DependentUpon>GaurdFilePortalListRow.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Khosra Potro\KhosraDakNoteDetailForm.cs">
       <SubType>Form</SubType>
@@ -1539,17 +1545,14 @@
     <EmbeddedResource Include="UI\Dak\DragAndDropOfficerPanel.resx">
       <DependentUpon>DragAndDropOfficerPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\Emnei.resx">
-      <DependentUpon>Emnei.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\FileUserControl.resx">
       <DependentUpon>FileUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\FileViewWebBrowser.resx">
       <DependentUpon>FileViewWebBrowser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Dak\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Dak\NoteHeaderUserControl.resx">
+      <DependentUpon>NoteHeaderUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NoteMovement.resx">
       <DependentUpon>NoteMovement.cs</DependentUpon>
@@ -1583,6 +1586,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiOutboxNoteShomuho.resx">
       <DependentUpon>NothiOutboxNoteShomuho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiTalikaNewWindow.resx">
+      <DependentUpon>NothiTalikaNewWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\OnuchhedShonjukti.resx">
       <DependentUpon>OnuchhedShonjukti.cs</DependentUpon>
@@ -1619,6 +1625,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\SingleDakUserControl.resx">
       <DependentUpon>SingleDakUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.resx">
+      <DependentUpon>GaurdFilePortalListRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraDakNoteDetailForm.resx">
       <DependentUpon>KhosraDakNoteDetailForm.cs</DependentUpon>

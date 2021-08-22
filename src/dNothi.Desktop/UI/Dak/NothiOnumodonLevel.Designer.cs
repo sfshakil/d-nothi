@@ -30,13 +30,13 @@
         {
             this.btnChair = new FontAwesome.Sharp.IconButton();
             this.LeftPanel = new System.Windows.Forms.Panel();
-            this.movementStatusSliderPanel1 = new dNothi.Desktop.CustomControl.MovementStatusSliderPanel();
             this.lbLevel = new System.Windows.Forms.Label();
             this.btnKarjodibosh = new FontAwesome.Sharp.IconButton();
             this.cbxNiontron = new System.Windows.Forms.CheckBox();
             this.deleteButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.officerTableLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.movementStatusSliderPanel1 = new dNothi.Desktop.CustomControl.MovementStatusSliderPanel();
             this.LeftPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -67,17 +67,8 @@
             this.LeftPanel.Location = new System.Drawing.Point(0, 0);
             this.LeftPanel.Margin = new System.Windows.Forms.Padding(4);
             this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(77, 89);
+            this.LeftPanel.Size = new System.Drawing.Size(77, 159);
             this.LeftPanel.TabIndex = 6;
-            // 
-            // movementStatusSliderPanel1
-            // 
-            this.movementStatusSliderPanel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.movementStatusSliderPanel1.Location = new System.Drawing.Point(55, 0);
-            this.movementStatusSliderPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.movementStatusSliderPanel1.Name = "movementStatusSliderPanel1";
-            this.movementStatusSliderPanel1.Size = new System.Drawing.Size(99, 106);
-            this.movementStatusSliderPanel1.TabIndex = 0;
             // 
             // lbLevel
             // 
@@ -97,7 +88,7 @@
             // 
             this.btnKarjodibosh.AutoSize = true;
             this.btnKarjodibosh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(244)))), ((int)(((byte)(222)))));
-            this.btnKarjodibosh.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnKarjodibosh.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnKarjodibosh.FlatAppearance.BorderSize = 0;
             this.btnKarjodibosh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKarjodibosh.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -106,7 +97,7 @@
             this.btnKarjodibosh.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
             this.btnKarjodibosh.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnKarjodibosh.IconSize = 32;
-            this.btnKarjodibosh.Location = new System.Drawing.Point(239, 10);
+            this.btnKarjodibosh.Location = new System.Drawing.Point(624, 10);
             this.btnKarjodibosh.Margin = new System.Windows.Forms.Padding(4);
             this.btnKarjodibosh.Name = "btnKarjodibosh";
             this.btnKarjodibosh.Size = new System.Drawing.Size(97, 32);
@@ -118,14 +109,14 @@
             // cbxNiontron
             // 
             this.cbxNiontron.AutoSize = true;
-            this.cbxNiontron.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cbxNiontron.Dock = System.Windows.Forms.DockStyle.Right;
             this.cbxNiontron.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxNiontron.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.cbxNiontron.Location = new System.Drawing.Point(119, 10);
-            this.cbxNiontron.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxNiontron.Location = new System.Drawing.Point(514, 10);
+            this.cbxNiontron.Margin = new System.Windows.Forms.Padding(0);
             this.cbxNiontron.Name = "cbxNiontron";
-            this.cbxNiontron.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
-            this.cbxNiontron.Size = new System.Drawing.Size(120, 32);
+            this.cbxNiontron.Padding = new System.Windows.Forms.Padding(0, 0, 20, 0);
+            this.cbxNiontron.Size = new System.Drawing.Size(110, 32);
             this.cbxNiontron.TabIndex = 56;
             this.cbxNiontron.Text = "নিয়ন্ত্রিত";
             this.cbxNiontron.UseVisualStyleBackColor = true;
@@ -135,7 +126,7 @@
             // 
             this.deleteButton.AutoSize = true;
             this.deleteButton.BackColor = System.Drawing.Color.Transparent;
-            this.deleteButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.deleteButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.deleteButton.FlatAppearance.BorderColor = System.Drawing.SystemColors.InactiveBorder;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteButton.ForeColor = System.Drawing.Color.Transparent;
@@ -143,7 +134,7 @@
             this.deleteButton.IconColor = System.Drawing.Color.Red;
             this.deleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.deleteButton.IconSize = 18;
-            this.deleteButton.Location = new System.Drawing.Point(336, 10);
+            this.deleteButton.Location = new System.Drawing.Point(721, 10);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -154,15 +145,15 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.deleteButton);
-            this.panel1.Controls.Add(this.btnKarjodibosh);
             this.panel1.Controls.Add(this.cbxNiontron);
+            this.panel1.Controls.Add(this.btnKarjodibosh);
+            this.panel1.Controls.Add(this.deleteButton);
             this.panel1.Controls.Add(this.lbLevel);
             this.panel1.Location = new System.Drawing.Point(81, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(572, 52);
+            this.panel1.Size = new System.Drawing.Size(767, 52);
             this.panel1.TabIndex = 7;
             // 
             // officerTableLayoutPanel
@@ -170,12 +161,22 @@
             this.officerTableLayoutPanel.AllowDrop = true;
             this.officerTableLayoutPanel.AutoSize = true;
             this.officerTableLayoutPanel.Location = new System.Drawing.Point(81, 54);
-            this.officerTableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.officerTableLayoutPanel.MaximumSize = new System.Drawing.Size(572, 0);
-            this.officerTableLayoutPanel.MinimumSize = new System.Drawing.Size(572, 0);
+            this.officerTableLayoutPanel.Margin = new System.Windows.Forms.Padding(5);
+            this.officerTableLayoutPanel.MaximumSize = new System.Drawing.Size(767, 0);
+            this.officerTableLayoutPanel.MinimumSize = new System.Drawing.Size(767, 0);
             this.officerTableLayoutPanel.Name = "officerTableLayoutPanel";
-            this.officerTableLayoutPanel.Size = new System.Drawing.Size(572, 0);
+            this.officerTableLayoutPanel.Padding = new System.Windows.Forms.Padding(2, 5, 2, 0);
+            this.officerTableLayoutPanel.Size = new System.Drawing.Size(767, 5);
             this.officerTableLayoutPanel.TabIndex = 8;
+            // 
+            // movementStatusSliderPanel1
+            // 
+            this.movementStatusSliderPanel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.movementStatusSliderPanel1.Location = new System.Drawing.Point(55, 0);
+            this.movementStatusSliderPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.movementStatusSliderPanel1.Name = "movementStatusSliderPanel1";
+            this.movementStatusSliderPanel1.Size = new System.Drawing.Size(99, 106);
+            this.movementStatusSliderPanel1.TabIndex = 0;
             // 
             // NothiOnumodonLevel
             // 
@@ -186,9 +187,9 @@
             this.Controls.Add(this.officerTableLayoutPanel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LeftPanel);
-            this.Margin = new System.Windows.Forms.Padding(0, 12, 0, 12);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "NothiOnumodonLevel";
-            this.Size = new System.Drawing.Size(657, 89);
+            this.Size = new System.Drawing.Size(853, 159);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.NothiOnumodonLevel_Paint);
             this.LeftPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

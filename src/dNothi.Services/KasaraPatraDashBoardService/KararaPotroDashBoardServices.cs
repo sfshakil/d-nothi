@@ -100,12 +100,19 @@ namespace dNothi.Services.KasaraPatraDashBoardService
                     "\"office_unit\":\"" + userParam.office_unit + "\",\"designation\":\"" + userParam.designation + "\"," +
                     "\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "," +
                     "\"officer_email\":" + userParam.officer_email + ",\"officer_mobile\":" + userParam.officer_mobile + "}");
+                if (record.Basic.potro_type != 0)
+                {
+                    request.AddParameter("potro", "{\"nothi_id\":\"" + record.Basic.nothi_master_id + "\",\"nothi_office\":\"" + userParam.office_id + "\"," +
+                    "\"note_id\":\"" + record.Basic.nothi_note_id + "\",\"onucched_id\":\"" + record.NoteOnucched.Id + "\"," +
+                    "\"nothi_potro_id\":\"" + record.Basic.nothi_potro_id + "\",\"potrojari_id\":\"" + record.Basic.id + "\",\"cloned_potrojari_id\":\"" + record.Basic.cloned_potrojari_id + "\"," +
+                    "\"nothi_potro_attachment_id\":\"" + record.Basic.nothi_potro_attachment_id + "\",\"potro_type\":\"" + record.Basic.potro_type + "\",\"sarok_no\":\"" + record.Basic.sarok_no + "\",\"potro_subject\":\"" + record.Basic.potro_subject + "\"}");
 
-                request.AddParameter("potro", "{\"nothi_id\":\"" + record.Basic.NothiMasterId + "\",\"nothi_office\":\"" + userParam.office_id + "\"," +
-                    "\"note_id\":\"" + record.Basic.NothiNoteId + "\",\"onucched_id\":\"" + record.NoteOnucched.Id + "\"," +
-                    "\"nothi_potro_id\":\"" + record.Basic.NothiPotroId + "\",\"potrojari_id\":\"" + record.Basic.Id + "\",\"cloned_potrojari_id\":\"" + record.Basic.ClonedPotrojariId + "\"," +
-                    "\"nothi_potro_attachment_id\":\"" + record.Basic.NothiPotroAttachmentId + "\",\"potro_type\":\"" + record.Basic.PotroType + "\",\"sarok_no\":\"" + record.Basic.SarokNo + "\",\"potro_subject\":\"" + record.Basic.PotroSubject + "\"}");
-               
+                }
+                else
+                {
+                    request.AddParameter("potro", "{\"sarok_no\": \"" + record.Basic.sarok_no + "\",\"potro_subject\": \" " + record.Basic.potro_subject + "\",\"nothi_potro_id\": \"" + record.Basic.Id + "\",\"nothi_id\": \"" + record.Basic.nothi_master_id + "\",\"nothi_office\": \"" + userParam.office_id + "\"}");
+
+                }
                 IRestResponse Response = Api.Execute(request);
 
 

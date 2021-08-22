@@ -26,8 +26,9 @@ namespace dNothi.Services.NothiServices
         public int route_index { get; set; }
         public int max_transaction_day { get; set; }
         public int layer_index { get; set; }
-       
-       
+        public int is_signatory { get; set; }
+
+
 
         public void ConvertDTOtoReques(onumodonDataRecordDTO onumodonDataRecordDTO)
         {
@@ -54,6 +55,7 @@ namespace dNothi.Services.NothiServices
             this.office_id = onumodonDataRecordDTO.office_id;
             this.officer_id = onumodonDataRecordDTO.officer_id;
             this.level_name = onumodonDataRecordDTO.level_name;
+            this.is_signatory = onumodonDataRecordDTO.is_signatory;
         }
        
     }

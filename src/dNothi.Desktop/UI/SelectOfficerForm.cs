@@ -29,8 +29,19 @@ namespace dNothi.Desktop.UI
             InitializeComponent();
             _userService = userService;
             _potroJariGroupService = potroJariGroupService;
+            tabControl1.SelectedIndexChanged += new EventHandler(tabControl1_SelectedIndexChanged);
         }
-
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+        private void tabControl1_Selected(object sender, TabControlEventArgs e)
+        {
+            if (e.TabPage == potraJariTabPage)
+            {
+                Formload();
+            }
+        }
         private void sliderCrossButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -100,7 +111,7 @@ namespace dNothi.Desktop.UI
         }
         private void SelectOfficerForm_Load(object sender, EventArgs e)
         {
-            Formload();
+           // Formload();
             Screen scr = Screen.FromPoint(this.Location);
             this.Location = new Point(scr.WorkingArea.Right - this.Width, scr.WorkingArea.Top);
             SetDefaultFont(this.Controls);
@@ -268,10 +279,6 @@ namespace dNothi.Desktop.UI
 
             var officerList = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Hide != true).ToList();
 
-
-
-
-
             ReloadOfficerList();
 
 
@@ -299,6 +306,27 @@ namespace dNothi.Desktop.UI
             else
             {
                 officerEmptyPanel.Visible = false;
+                
+            }
+
+
+            countOfficer.Text = string.Concat(officerList.Count.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+        }
+        private void RemoveOfficerFromList(int designationId)
+        {
+            var officerList = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Hide != true).ToList();
+
+            _selectedOfficerDesignations.Remove(designationId);
+
+            if (officerList.Count == 0)
+            {
+                officerEmptyPanel.Visible = true;
+            }
+            else
+            {
+                officerEmptyPanel.Visible = false;
+               
             }
 
 
@@ -368,6 +396,7 @@ namespace dNothi.Desktop.UI
         }
 
         #region potraJariGroup
+      
         int page = 1;
         int pageLimit = 10;
         int menuNo = 1;
@@ -540,44 +569,101 @@ namespace dNothi.Desktop.UI
             {
                 foreach (var item in potrajaricontentList)
                 {
-                    //Where(x => x.Name == "tableLayoutPanel2")
-                    //TableLayoutPanel s = 
+                    
                     var groupid = item.users.Select(x => x.group_id).FirstOrDefault();
-                    if (item.id > 6)
+                   
+                    var controls = item.Controls.Cast<Control>();
+                       
+                    var contentTableLayoutPanel = controls.Where(c => c.GetType() == typeof(TableLayoutPanel) && c.Name == "contentTableLayoutPanel").FirstOrDefault();
+                    var tableLayoutPanel1 = contentTableLayoutPanel.Controls.Cast<Control>().Where(c => c.GetType() == typeof(TableLayoutPanel)).FirstOrDefault();
+                    var namckeckbox = tableLayoutPanel1.Controls.Cast<Control>().OfType<CheckBox>().Where(x=>x.Name== "nameCheckBox").Select(x=>x.Checked).FirstOrDefault();
+                    var nametext = tableLayoutPanel1.Controls.Cast<Control>().Where(x => x.Name == "nameTextBox").Select(x => x.Text).FirstOrDefault();
+                    var tableLayoutPanel2 = tableLayoutPanel1.Controls.Cast<Control>().Where(c => c.GetType() == typeof(TableLayoutPanel)).FirstOrDefault();
+                        
+
+                    var potrajariUsers = tableLayoutPanel2.Controls.OfType<PotrojariUsersListRowUserControl>().ToList();
+                    
+
+                    if (potrajariUsers != null && potrajariUsers.Count>0)
                     {
+                        
 
-                        var controls = item.Controls.Cast<Control>();
-                        var con = controls.Where(c => c.GetType() == typeof(TableLayoutPanel) && c.Name == "contentTableLayoutPanel").FirstOrDefault();
-                        var data = con.Controls.Cast<Control>().Where(c => c.GetType() == typeof(TableLayoutPanel)).FirstOrDefault();
-                        var data1 = data.Controls.Cast<Control>().Where(c => c.GetType() == typeof(TableLayoutPanel)).FirstOrDefault();
-
-                        var potrajariUsers = data1.Controls.OfType<PotrojariUsersListRowUserControl>().ToList();
-
-                        if (potrajariUsers != null)
-                        {
-                            foreach (var item2 in potrajariUsers)
+                        foreach (var item2 in potrajariUsers)
                             {
-                                
+
                                 var control1 = item2.Controls.Cast<Control>();
                                 var con1 = control1.Where(c => c.GetType() == typeof(TableLayoutPanel)).FirstOrDefault();
-                                
-                                var data3 = con1.Controls.Cast<Control>().Where(x => x.GetType() == typeof(CheckBox)).FirstOrDefault();
-                               
-                                if (data3.CanSelect)
-                                {
-                                    //PrapokDTO prapokDTO = new PrapokDTO();
-                                    //prapokDTO.officer_id = item2.id;
-                                    //prapokDTO.officer = item2.UserName;
-                                    //prapokDTO.designation_bng = item2.UserDesignation;
-                                    //prapokDTO.office_address = item2.UserOfficeName;
 
-                                    if (!_selectedOfficerDesignations.Contains(item2.designationId) && item2.designationId != 0)
+                                //var data3 = con1.Controls.Cast<Control>().Where(x => x.GetType() == typeof(CheckBox)).FirstOrDefault();
+                                var d = con1.Controls.Cast<Control>();
+                                CheckBox selecteddata = d.OfType<CheckBox>().FirstOrDefault();
+                            
+
+                                if (selecteddata.Checked)
+                                {
+                                //PrapokDTO prapokDTO = new PrapokDTO();
+                                //prapokDTO.officer_id = item2.id;
+                                //prapokDTO.officer = item2.UserName;
+                                //prapokDTO.designation_bng = item2.UserDesignation;
+                                //prapokDTO.office_address = item2.UserOfficeName;
+
+                                if (namckeckbox)
+                                {
+                                    _designationId = item2.groupId;
+
+                                    if (!_selectedOfficerDesignations.Contains(_designationId) && _designationId != 0)
                                     {
                                         OfficerRowUserControl officerRowUserControl = new OfficerRowUserControl();
-                                        officerRowUserControl.officerName = viewDesignationSealLists.FirstOrDefault(a => a.designation_id == item2.designationId).designationwithname;
+
+                                        officerRowUserControl.officerName = item2.groupName;
+
+                                        officerRowUserControl.designationId = _designationId;
+
+                                        officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) { RemoveOfficerFromList(_designationId); };
+                                        officerRowUserControl.Width = officerListFlowLayoutPanel.Width - 50;
+
+                                        _selectedOfficerDesignations.Add(_designationId);
+                                        UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officerRowUserControl);
+                                    }
+
+
+
+                                    var officerLists = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Hide != true).ToList();
+
+                                    ReloadOfficerList();
+
+                                    _designationId = 0;
+
+                                    if (_isOneOfficerAllowed)
+                                    {
+                                        finalSave(sender, e);
+                                    }
+
+                                    VisibleSaveSingleOfficer();
+                                    break;
+                                }
+
+                                else
+                                {
+
+                                    _designationId = item2.designationId;
+
+                                    if (!_selectedOfficerDesignations.Contains(_designationId) && _designationId != 0)
+                                    {
+                                        OfficerRowUserControl officerRowUserControl = new OfficerRowUserControl();
+                                        var result = viewDesignationSealLists.FirstOrDefault(a => a.designation_id == item2.designationId);
+                                        if (result != null)
+                                        {
+                                            officerRowUserControl.officerName = result.designationwithname;
+
+                                        }
+                                        else
+                                        {
+                                            officerRowUserControl.officerName = item2.UserName + item2.UserDesignation + item2.UserOfficeName;
+                                        }
                                         officerRowUserControl.designationId = item2.designationId;
 
-                                        officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) { ReloadOfficerList(); };
+                                        officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) { RemoveOfficerFromList(item2.designationId); };
                                         officerRowUserControl.Width = officerListFlowLayoutPanel.Width - 50;
 
                                         _selectedOfficerDesignations.Add(item2.designationId);
@@ -588,6 +674,7 @@ namespace dNothi.Desktop.UI
 
                                     var officerList = officerListFlowLayoutPanel.Controls.OfType<OfficerRowUserControl>().Where(a => a.Hide != true).ToList();
 
+                                    ReloadOfficerList();
 
                                     _designationId = 0;
 
@@ -597,16 +684,20 @@ namespace dNothi.Desktop.UI
                                     }
 
                                     VisibleSaveSingleOfficer();
-                                    //prapokDTOs.Add(prapokDTO);
                                 }
-                            }
-                            
-                        }
+                                    
+                                }
 
+                            }
+                        
                     }
+
+                   
                 }
-               // potrajaricontentList.
+             
             }
         }
+
+       
     }
 }

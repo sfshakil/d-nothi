@@ -151,8 +151,9 @@
             // 
             // userCheckBox
             // 
+            this.userCheckBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.userCheckBox.AutoSize = true;
-            this.userCheckBox.Location = new System.Drawing.Point(3, 3);
+            this.userCheckBox.Location = new System.Drawing.Point(3, 17);
             this.userCheckBox.Name = "userCheckBox";
             this.tableLayoutPanel1.SetRowSpan(this.userCheckBox, 2);
             this.userCheckBox.Size = new System.Drawing.Size(15, 14);

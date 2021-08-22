@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Utility;
 
 namespace dNothi.Desktop.UI.Dak
 {
     public partial class NoteView : UserControl
     {
+        public WaitFormFunc WaitForm;
         public NoteView()
         {
+            WaitForm = new WaitFormFunc();
             InitializeComponent();
             SetDefaultFont(this.Controls);
         }
@@ -42,7 +45,7 @@ namespace dNothi.Desktop.UI.Dak
         public string _potrojari;
         private string _nothivukto;
         public int _nothiNoteID;
-
+        private int _canRevert;
         public void loadEyeIcon(int i)
         {
             if (i == 0)
@@ -144,7 +147,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             cbNote.Checked = false;
         }
-
+        
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when user clicks button")]
@@ -152,61 +155,26 @@ namespace dNothi.Desktop.UI.Dak
 
         private void cbNote_Click_1(object sender, EventArgs e)
         {
-            NoteListDataRecordNoteDTO List1 = new NoteListDataRecordNoteDTO();
-            List1.khoshra_potro = Convert.ToInt32(_khosraPotro);
-            List1.khoshra_waiting_for_approval = Convert.ToInt32(khoshraWaiting);
-            List1.potrojari = Convert.ToInt32(potrojari);
-            List1.nothivukto_potro = Convert.ToInt32(nothivukto);
-            //List1.note_status = sender.ToString();
-            List1.nothi_note_id = Convert.ToInt32(lbNothiNoteID.Text);
-            List1.note_status = lbTotalNothi.Text;
-            List1.note_subject_sub_text = lbNoteSubject.Text;
-            List1.date = lbNothiLastDate.Text;
-            if (eyeSlashIcon.Visible == true)
+            
+            if (cbNote.Checked == true)
             {
-                List1.can_revert = 1;
+                WaitForm.Show();
+                NoteListDataRecordNoteDTO List1 = new NoteListDataRecordNoteDTO();
+                List1.khoshra_potro = Convert.ToInt32(_khosraPotro);
+                List1.khoshra_waiting_for_approval = Convert.ToInt32(khoshraWaiting);
+                List1.potrojari = Convert.ToInt32(potrojari);
+                List1.nothivukto_potro = Convert.ToInt32(nothivukto);
+                List1.nothi_note_id = Convert.ToInt32(lbNothiNoteID.Text);
+                List1.note_status = lbTotalNothi.Text;
+                List1.note_subject_sub_text = lbNoteSubject.Text;
+                List1.date = lbNothiLastDate.Text;
+                
+                if (this.CheckBoxClick != null)
+                    this.CheckBoxClick(List1, e);
+                WaitForm.Close();
             }
-            if (this.CheckBoxClick != null)
-                this.CheckBoxClick(List1, e);
+            
 
         }
-
-        private void cbNote_CheckedChanged(object sender, EventArgs e)
-        {
-            NoteListDataRecordNoteDTO List1 = new NoteListDataRecordNoteDTO();
-            List1.khoshra_potro = Convert.ToInt32(_khosraPotro);
-            List1.khoshra_waiting_for_approval = Convert.ToInt32(khoshraWaiting);
-            List1.potrojari = Convert.ToInt32(potrojari);
-            //List1.note_status = sender.ToString();
-            List1.nothi_note_id = Convert.ToInt32(lbNothiNoteID.Text);
-            List1.note_status = lbTotalNothi.Text;
-            List1.note_subject_sub_text = lbNoteSubject.Text;
-            List1.date = lbNothiLastDate.Text;
-            if (eyeSlashIcon.Visible == true)
-            {
-                List1.can_revert = 1;
-            }
-            if (this.CheckBoxClick != null)
-                this.CheckBoxClick(List1, e);
-
-        }
-
-        //private void cbNote_Click(object sender, EventArgs e)
-        //{
-        //    if (cbNote.Checked == false)
-        //    {
-        //        //Emnei emnei = new Emnei();
-        //        //emnei.nothiLastDate = ;
-        //        //emnei.noteSubject = ;
-        //        //pnlALLNoteView.Controls.Add(emnei);
-        //    }
-        //    else
-        //    {
-        //        if (this.CheckBoxClick != null)
-        //            this.CheckBoxClick(sender, e);
-        //    }
-
-
-        //}
     }
 }

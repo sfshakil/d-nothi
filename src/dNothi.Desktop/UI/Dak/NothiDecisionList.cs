@@ -97,9 +97,9 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
         private int isNothi;
-        public void loadNoteRowAttachments(NoteAttachmentsListResponse onuchhedSaveWithAttachments)
+        public void loadNoteRowAttachments(NoteAttachmentsListResponse onuchhedSaveWithAttachments, int flag)
         {
-            isNothi = 1;
+            isNothi = flag;//1 means nothi, 0 means note
             if (onuchhedSaveWithAttachments.data.total_records > 0)
             {
                 lbLengthStart.Visible = false;

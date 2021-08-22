@@ -10,11 +10,12 @@ namespace dNothi.Desktop
     {
             public string _Name;
             public int _Id;
-
+           
             public ComboBoxItem(string name, int id)
             {
                 _Name = name;
                 _Id = id;
+              
             }
 
             public string Name
@@ -28,6 +29,7 @@ namespace dNothi.Desktop
                 get { return _Id; }
                 set { _Id = value; }
             }
-        
+            
+
     }
 }

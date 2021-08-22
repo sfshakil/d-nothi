@@ -44,11 +44,14 @@ namespace dNothi.Desktop.UI
         IOnucchedFileUploadService _onucchedFileUploadService { get; set; }
         IDesignationSealService _designationSealService { get; set; }
         INothiAllNoteServices _nothiAllNote { get; set; }
+        INoteDeleteService _noteDelete { get; set; }
 
         public WaitFormFunc WaitForm;
+        ModalMenuUserControl uc = null;
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices,
             INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave,
             INothiCreateService nothiCreateServices, IRepository<NothiCreateItemAction> nothiCreateItemAction,
+            INoteDeleteService noteDelete,
             IOnuchhedForwardService onuchhedForwardService, IOnucchedSave onucchedSave, IOnucchedFileUploadService onucchedFileUploadService, 
             INothiTypeListServices nothiType, IDesignationSealService designationSealService, INothiAllNoteServices nothiAllNote)
         {
@@ -67,7 +70,7 @@ namespace dNothi.Desktop.UI
             _onucchedFileUploadService = onucchedFileUploadService;
             _designationSealService = designationSealService;
             _nothiAllNote = nothiAllNote;
-
+            _noteDelete = noteDelete;
             InitializeComponent();
             LoadNothiTypeListDropDown();
             LoadOfficerListDropDown();
@@ -453,8 +456,8 @@ namespace dNothi.Desktop.UI
                 nothiInbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiListRecordsDTO.last_note_date;
                 nothiInbox.nothiId = Convert.ToString(nothiListRecordsDTO.id);
                 nothiInbox.NewNoteButtonClick += delegate (object sender, EventArgs e) { nothiListRecordsDTO.nothi_type = "Inbox"; NewNote_ButtonClick(sender, e, nothiListRecordsDTO); };
-                nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO, 1); };// 1 means inbox
-                nothiInbox.NoteAllButton += delegate (object sender, EventArgs e) { NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 1); };// 1 means inbox
+                nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { nothiListRecordsDTO.nothi_type = "Inbox"; NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiInbox._nothiListInboxNoteRecordsDTO, 1); };// 1 means inbox
+                nothiInbox.NoteAllButton += delegate (object sender, EventArgs e) { nothiListRecordsDTO.nothi_type = "Inbox"; NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 1); };// 1 means inbox
                 nothiInbox.NothiOnumodonButtonClick += delegate (object sender, EventArgs e) { NothiOnumodon_ButtonClick(sender, e, nothiListRecordsDTO); };
 
                 nothiInbox.LocalNoteDetailsButton += delegate (object sender, EventArgs e) {
@@ -527,6 +530,7 @@ namespace dNothi.Desktop.UI
             noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
             noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
             noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
+            noteView.loadEyeIcon(nothiListInboxNoteRecordsDTO.note.can_revert);
             //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
             //form.loadNoteData(notedata);
             NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
@@ -654,6 +658,18 @@ namespace dNothi.Desktop.UI
             {
                 form.visibilityoffNewNoteButton();
             }
+            if (inboxORoutboxORall == 1)
+            {
+                nothiListRecordsDTO.nothi_type = "Inbox";
+            }
+            else if (inboxORoutboxORall == 2)
+            {
+                nothiListRecordsDTO.nothi_type = "sent";
+            }
+            else
+            {
+                nothiListRecordsDTO.nothi_type = "all";
+            }
             _dakuserparam = _userService.GetLocalDakUserParam();
             form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
             form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO, inboxORoutboxORall); };
@@ -686,6 +702,7 @@ namespace dNothi.Desktop.UI
             noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
             noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
             noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
+            noteView.loadEyeIcon(nothiListInboxNoteRecordsDTO.note.can_revert);
             //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
             //form.loadNoteData(notedata);
             form.loadNothiInboxRecords(nothiListRecordsDTO);
@@ -917,7 +934,7 @@ namespace dNothi.Desktop.UI
                     noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
                     noteView.checkBox = "1";
                     noteView.nothiNoteID = notedata.note_id;
-
+                    noteView.loadEyeIcon(form.noteAllListDataRecordDTO.note.can_revert);
                     //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
                     form.loadNoteData(notedata);
                     form.loadNothiInboxRecords(nothiListRecordsDTO);
@@ -1218,6 +1235,7 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.subject = nothiOutboxListDTO.nothi.subject;
                     nothiListRecordsDTO.nothi_class = nothiOutboxListDTO.nothi.nothi_class;
                     nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date;
+                    nothiListRecordsDTO.nothi_type = "sent";
                     NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiOutbox._nothiListInboxNoteRecordsDTO, 2);// 2 means outbox
                 };
                 nothiOutbox.OutboxNoteRevertButton += delegate (object sender, EventArgs e) { LoadNothiOutboxButton(sender, e); };
@@ -1235,6 +1253,7 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.subject = nothiOutboxListDTO.nothi.subject;
                     nothiListRecordsDTO.nothi_class = nothiOutboxListDTO.nothi.nothi_class;
                     nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date;
+                    nothiListRecordsDTO.nothi_type = "sent";
                     NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 2);// 2 means outbox
                 };
 
@@ -1618,6 +1637,7 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.subject = nothiAllListDTO.nothi.subject;
                     nothiListRecordsDTO.nothi_class = nothiAllListDTO.nothi.nothi_class;
                     nothiListRecordsDTO.last_note_date = nothiAllListDTO.nothi.last_note_date;
+                    nothiListRecordsDTO.nothi_type = "all";
                     NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 3); // 3 means allnothi
                 };
 
@@ -2656,7 +2676,107 @@ namespace dNothi.Desktop.UI
             
             WaitForm.Close();
         }
+        private void btnOption_ButtonClick(object sender, EventArgs e, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO, int rowCount)
+        {
 
+            if (uc == null)
+            {
+                uc = new ModalMenuUserControl();
+                bool remove = true;
+                if (nothiListInboxNoteRecordsDTO.note.onucched_count > 0)
+                { remove = false; }
+                uc.ButtonVisibility(true, remove, true);
+                uc.Location = new Point(((Point)sender).X, ((Point)sender).Y + 10 + rowCount * 6);
+                uc.noteEditButtonClick += delegate (object s1, EventArgs e1) { uc_noteEditButtonClick(s1, e1, nothiListInboxNoteRecordsDTO); };
+                uc.noteOnumodanButtonClick += delegate (object s2, EventArgs e2) { uc_noteOnumodanButtonClick(s2, e2, nothiListInboxNoteRecordsDTO); };
+                uc.noteRemoveButtonClick += delegate (object s3, EventArgs e3) { uc_noteRemoveButtonClick(s3, e3, nothiListInboxNoteRecordsDTO); };
+
+                this.Controls.Add(uc);
+                uc.BringToFront();
+                uc.Visible = true;
+            }
+            else
+            {
+                uc.Visible = false;
+                uc = null;
+            }
+
+        }
+        private void uc_noteOnumodanButtonClick(object sender, EventArgs e, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        {
+            //uc.Visible = false;
+            NoteView newNoteView = new NoteView();
+
+            var nothiListRecord = MappingModels.MapModel<NothiNothiListInboxNoteRecordsDTO, NothiListRecordsDTO>(nothiListInboxNoteRecordsDTO.nothi);
+            var form = FormFactory.Create<NothiOnumodonDesignationSeal>();
+            form.nothiListRecordsDTO = nothiListRecord;
+
+            form.nothiNo = nothiListInboxNoteRecordsDTO.nothi.nothi_no;
+            form.nothiShakha = nothiListInboxNoteRecordsDTO.nothi.office;
+            form.nothiSubject = nothiListInboxNoteRecordsDTO.nothi.subject;
+            form.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
+            form.nothiLastDate = nothiListInboxNoteRecordsDTO.nothi.nothi_created_date;
+            form.noteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO;
+
+            form.office = nothiListInboxNoteRecordsDTO.nothi.office;
+
+
+            form.loadNothiInboxRecords(nothiListRecord);
+            form.loadNoteView(newNoteView);
+            form.noteTotal = ConversionMethod.EnglishNumberToBangla(nothiListInboxNoteRecordsDTO.note.finished_count.ToString());
+
+            form.GetNothiInboxRecords(nothiListRecord, "Note", nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString());
+            var notelist = MappingModels.MapModel<NoteNothiListInboxNoteRecordsDTO, NoteListDataRecordNoteDTO>(nothiListInboxNoteRecordsDTO.note);
+            //form.loadNewNoteDataFromNote(nothiType);
+            form.loadNoteList(notelist);
+            CalPopUpWindow(form);
+        }
+        private void uc_noteRemoveButtonClick(object sender, EventArgs e, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        {
+
+            string message = "নোটটি মুছে ফেলুন";
+            ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
+            conditonBoxForm.message = message;
+            conditonBoxForm.ShowDialog(this);
+            if (conditonBoxForm.Yes && nothiListInboxNoteRecordsDTO.note.onucched_count == 0)
+            {
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                string model = "NothiNotes";
+                string noteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString();
+                var noteDelete = _noteDelete.GetNoteDelteResponse(dakListUserParam, model, noteID);
+                if (noteDelete.status == "success")
+                {
+                    SuccessMessage(noteDelete.status);
+                    uc.Visible = false;
+                    noteListButton_Click(sender, e);
+                }
+
+            }
+            else
+            {
+
+            }
+        }
+        private void uc_noteEditButtonClick(object sender, EventArgs e, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
+        {
+            var noteCreatePopUpForm = FormFactory.Create<NoteCreatePopUpForm>();
+
+            noteCreatePopUpForm.noteSubject = nothiListInboxNoteRecordsDTO.note.note_subject;
+            noteCreatePopUpForm.noteId = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+            noteCreatePopUpForm.nothiListInboxNoteRecordsDTO = nothiListInboxNoteRecordsDTO;
+            noteCreatePopUpForm.SaveButtonClick += delegate (object senderSaveButton, EventArgs eventSaveButton) {
+                noteListButton_Click( null,  null);uc.Visible = false;
+            };
+
+
+            CalPopUpWindow(noteCreatePopUpForm);
+
+        }
+        private void SaveorUpdate()
+        {
+            var nothiInbox = UserControlFactory.Create<NothiInbox>();
+            nothiInbox.SaveorUpdate();
+        }
         private void LoadNote(NothiNoteListResponse noteList)
         {
 
@@ -2667,7 +2787,39 @@ namespace dNothi.Desktop.UI
                 foreach (NothiNoteListRecordDTO noteDTO in noteList.data.records)
                 {
                     NothiNoteTalikaAll dakNothiteUposthaponNoteList = new NothiNoteTalikaAll();
+                    if (_nothiCurrentCategory._isOutbox)
+                    {
+                        dakNothiteUposthaponNoteList.btnOptionVisible(!_nothiCurrentCategory._isOutbox);
+                    }
+                    int rowCount = nothiListFlowLayoutPanel.Controls.Count;
+                    dakNothiteUposthaponNoteList.btnOptionClick += delegate (object sender1, EventArgs e1)
+                    {
+                        NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO();
 
+                        nothiListInboxNoteRecordsDTO.nothi = MappingModels.MapModel<NoteNothiDTO, NothiNothiListInboxNoteRecordsDTO>(noteDTO.nothi);
+                        nothiListInboxNoteRecordsDTO.note = MappingModels.MapModel<NoteDTO, NoteNothiListInboxNoteRecordsDTO>(noteDTO.note);
+                        nothiListInboxNoteRecordsDTO.to = MappingModels.MapModel<NoteTo, ToNothiListInboxNoteRecordsDTO>(noteDTO.to);
+                        nothiListInboxNoteRecordsDTO.desk = MappingModels.MapModel<NothiNoteDeskDTO, DeskNothiListInboxNoteRecordsDTO>(noteDTO.deskConverted);
+                        btnOption_ButtonClick(sender1 as object, e1, nothiListInboxNoteRecordsDTO, rowCount);
+                    };
+                    dakNothiteUposthaponNoteList.NoteDetailsButton += delegate (object sender, EventArgs e) 
+                    {
+                        NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
+                        nothiListRecordsDTO.id = noteDTO.nothi.id;
+                        nothiListRecordsDTO.last_note_date = noteDTO.deskConverted.issue_date;
+                        nothiListRecordsDTO.nothi_no = noteDTO.nothi.nothi_no;
+                        nothiListRecordsDTO.office_unit_name = noteDTO.nothi.office_unit_name;
+                        nothiListRecordsDTO.subject = noteDTO.nothi.subject;
+                        nothiListRecordsDTO.office_name = noteDTO.nothi.office_name;
+                        nothiListRecordsDTO.office_designation_name = noteDTO.nothi.office_designation_name;
+                        NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO();
+
+                        nothiListInboxNoteRecordsDTO.nothi = MappingModels.MapModel<NoteNothiDTO, NothiNothiListInboxNoteRecordsDTO>(noteDTO.nothi);
+                        nothiListInboxNoteRecordsDTO.note = MappingModels.MapModel<NoteDTO, NoteNothiListInboxNoteRecordsDTO>(noteDTO.note);
+                        nothiListInboxNoteRecordsDTO.to = MappingModels.MapModel<NoteTo, ToNothiListInboxNoteRecordsDTO>(noteDTO.to);
+                        nothiListInboxNoteRecordsDTO.desk = MappingModels.MapModel<object, DeskNothiListInboxNoteRecordsDTO>(noteDTO.desk);
+
+                        NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO, 1); ; };// 1 means inbox
                     if (noteDTO.deskConverted != null)
                     {
                         dakNothiteUposthaponNoteList.date = noteDTO.deskConverted.issue_date;

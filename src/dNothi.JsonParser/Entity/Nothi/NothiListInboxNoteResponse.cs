@@ -49,5 +49,62 @@ namespace dNothi.JsonParser.Entity.Nothi
             public NoteAttachmentsData data { get; set; }
             public List<object> options { get; set; }
         }
+        public class From
+        {
+            public int office_id { get; set; }
+            public int office_unit_id { get; set; }
+            public int designation_id { get; set; }
+            public int officer_id { get; set; }
+            public string office { get; set; }
+            public string office_unit { get; set; }
+            public string designation { get; set; }
+            public string officer { get; set; }
+            public string thumb { get; set; }
+        }
+
+        public class To
+        {
+            public int office_id { get; set; }
+            public int office_unit_id { get; set; }
+            public int designation_id { get; set; }
+            public int officer_id { get; set; }
+            public string office { get; set; }
+            public string office_unit { get; set; }
+            public string designation { get; set; }
+            public string officer { get; set; }
+            public int priority { get; set; }
+            public string thumb { get; set; }
+        }
+
+        public class Other
+        {
+            public int id { get; set; }
+            public int nothi_master_id { get; set; }
+            public int nothi_note_id { get; set; }
+            public int nothi_office { get; set; }
+            public int view_status { get; set; }
+            public string note_decision { get; set; }
+            public int movement_type { get; set; }
+            public string created { get; set; }
+            public string modified { get; set; }
+        }
+
+        public class NoteMovementsRecord
+        {
+            public From from { get; set; }
+            public List<To> to { get; set; }
+            public Other other { get; set; }
+        }
+        public class NoteMovementsData
+        {
+            public List<NoteMovementsRecord> records { get; set; }
+            public int total_records { get; set; }
+        }
+        public class NoteMovementsListResponse
+        {
+            public string status { get; set; }
+            public NoteMovementsData data { get; set; }
+            public List<object> options { get; set; }
+        }
     }
 }

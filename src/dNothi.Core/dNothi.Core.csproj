@@ -82,6 +82,7 @@
     <Compile Include="Entities\DakBacaiKaranList.cs" />
     <Compile Include="Entities\DakBoxSharedToOfficer.cs" />
     <Compile Include="Entities\DakBoxSharingInsert.cs" />
+    <Compile Include="Entities\NoteList.cs" />
     <Compile Include="Entities\NothiRegisterBook.cs" />
     <Compile Include="Entities\DakRegisterBook.cs" />
     <Compile Include="Entities\FileUploadAction.cs" />

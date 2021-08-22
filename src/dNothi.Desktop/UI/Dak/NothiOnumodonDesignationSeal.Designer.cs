@@ -90,7 +90,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1100, 66);
+            this.panel1.Size = new System.Drawing.Size(1286, 66);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -99,7 +99,7 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(1098, 1);
+            this.panel3.Location = new System.Drawing.Point(1284, 1);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(2, 64);
             this.panel3.TabIndex = 44;
@@ -119,7 +119,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Top;
             this.label5.Location = new System.Drawing.Point(0, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(1100, 1);
+            this.label5.Size = new System.Drawing.Size(1286, 1);
             this.label5.TabIndex = 42;
             // 
             // label4
@@ -128,7 +128,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label4.Location = new System.Drawing.Point(0, 65);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1100, 1);
+            this.label4.Size = new System.Drawing.Size(1286, 1);
             this.label4.TabIndex = 41;
             // 
             // label8
@@ -150,7 +150,7 @@
             this.AddDesignationCloseButton.IconColor = System.Drawing.Color.DimGray;
             this.AddDesignationCloseButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.AddDesignationCloseButton.IconSize = 20;
-            this.AddDesignationCloseButton.Location = new System.Drawing.Point(1062, 9);
+            this.AddDesignationCloseButton.Location = new System.Drawing.Point(1242, 12);
             this.AddDesignationCloseButton.Name = "AddDesignationCloseButton";
             this.AddDesignationCloseButton.Size = new System.Drawing.Size(28, 31);
             this.AddDesignationCloseButton.TabIndex = 38;
@@ -174,7 +174,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label2.Location = new System.Drawing.Point(20, 82);
+            this.label2.Location = new System.Drawing.Point(20, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(182, 30);
             this.label2.TabIndex = 2;
@@ -185,7 +185,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label3.Location = new System.Drawing.Point(559, 82);
+            this.label3.Location = new System.Drawing.Point(559, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(316, 30);
             this.label3.TabIndex = 3;
@@ -197,11 +197,11 @@
             this.tabControlLeft.Controls.Add(this.otherOfficeTabPageLeft);
             this.tabControlLeft.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlLeft.ImageList = this.imageList1;
-            this.tabControlLeft.Location = new System.Drawing.Point(18, 133);
+            this.tabControlLeft.Location = new System.Drawing.Point(18, 104);
             this.tabControlLeft.Name = "tabControlLeft";
             this.tabControlLeft.Padding = new System.Drawing.Point(8, 8);
             this.tabControlLeft.SelectedIndex = 0;
-            this.tabControlLeft.Size = new System.Drawing.Size(530, 537);
+            this.tabControlLeft.Size = new System.Drawing.Size(530, 566);
             this.tabControlLeft.TabIndex = 4;
             this.tabControlLeft.SelectedIndexChanged += new System.EventHandler(this.tabControlLeft_SelectedIndexChanged);
             // 
@@ -214,7 +214,7 @@
             this.ownOfficeTabPageLeft.Location = new System.Drawing.Point(4, 45);
             this.ownOfficeTabPageLeft.Name = "ownOfficeTabPageLeft";
             this.ownOfficeTabPageLeft.Padding = new System.Windows.Forms.Padding(3);
-            this.ownOfficeTabPageLeft.Size = new System.Drawing.Size(522, 488);
+            this.ownOfficeTabPageLeft.Size = new System.Drawing.Size(522, 517);
             this.ownOfficeTabPageLeft.TabIndex = 0;
             this.ownOfficeTabPageLeft.Text = "নিজ অফিসের পদসমূহ";
             this.ownOfficeTabPageLeft.UseVisualStyleBackColor = true;
@@ -223,7 +223,7 @@
             // 
             this.designationStateOwnLabel.AutoSize = true;
             this.designationStateOwnLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.designationStateOwnLabel.Location = new System.Drawing.Point(18, 93);
+            this.designationStateOwnLabel.Location = new System.Drawing.Point(18, 59);
             this.designationStateOwnLabel.Name = "designationStateOwnLabel";
             this.designationStateOwnLabel.Size = new System.Drawing.Size(362, 26);
             this.designationStateOwnLabel.TabIndex = 77;
@@ -233,7 +233,7 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
             this.panel4.Controls.Add(this.prapokSearchOwnOfficeTextBox);
-            this.panel4.Location = new System.Drawing.Point(18, 30);
+            this.panel4.Location = new System.Drawing.Point(18, 9);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(310, 44);
             this.panel4.TabIndex = 76;
@@ -255,9 +255,9 @@
             // 
             this.prapokownOfficeTreeView.CheckBoxes = true;
             this.prapokownOfficeTreeView.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawAll;
-            this.prapokownOfficeTreeView.Location = new System.Drawing.Point(17, 123);
+            this.prapokownOfficeTreeView.Location = new System.Drawing.Point(17, 88);
             this.prapokownOfficeTreeView.Name = "prapokownOfficeTreeView";
-            this.prapokownOfficeTreeView.Size = new System.Drawing.Size(490, 301);
+            this.prapokownOfficeTreeView.Size = new System.Drawing.Size(490, 423);
             this.prapokownOfficeTreeView.TabIndex = 0;
             this.prapokownOfficeTreeView.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.prapokownOfficeTreeView_BeforeCheck);
             this.prapokownOfficeTreeView.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.prapokownOfficeTreeView_AfterCheck);
@@ -277,7 +277,7 @@
             this.otherOfficeTabPageLeft.Location = new System.Drawing.Point(4, 45);
             this.otherOfficeTabPageLeft.Name = "otherOfficeTabPageLeft";
             this.otherOfficeTabPageLeft.Padding = new System.Windows.Forms.Padding(3);
-            this.otherOfficeTabPageLeft.Size = new System.Drawing.Size(522, 488);
+            this.otherOfficeTabPageLeft.Size = new System.Drawing.Size(522, 517);
             this.otherOfficeTabPageLeft.TabIndex = 1;
             this.otherOfficeTabPageLeft.Text = "অন্য অফিসের পদসমূহ ";
             this.otherOfficeTabPageLeft.UseVisualStyleBackColor = true;
@@ -422,7 +422,7 @@
             this.label11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.label11.Location = new System.Drawing.Point(-7, 673);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(1108, 1);
+            this.label11.Size = new System.Drawing.Size(1290, 1);
             this.label11.TabIndex = 35;
             // 
             // metroPanel1
@@ -440,7 +440,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(0, 0);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(1100, 733);
+            this.metroPanel1.Size = new System.Drawing.Size(1286, 733);
             this.metroPanel1.TabIndex = 40;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -458,7 +458,7 @@
             this.saveDesignationSealButton.IconColor = System.Drawing.Color.White;
             this.saveDesignationSealButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.saveDesignationSealButton.IconSize = 32;
-            this.saveDesignationSealButton.Location = new System.Drawing.Point(810, 680);
+            this.saveDesignationSealButton.Location = new System.Drawing.Point(987, 678);
             this.saveDesignationSealButton.Name = "saveDesignationSealButton";
             this.saveDesignationSealButton.Size = new System.Drawing.Size(154, 48);
             this.saveDesignationSealButton.TabIndex = 36;
@@ -471,9 +471,9 @@
             // 
             this.panel5.Controls.Add(this.nothiOnumodonFLP);
             this.panel5.Controls.Add(this.allCheckBox);
-            this.panel5.Location = new System.Drawing.Point(564, 133);
+            this.panel5.Location = new System.Drawing.Point(564, 104);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(524, 533);
+            this.panel5.Size = new System.Drawing.Size(706, 562);
             this.panel5.TabIndex = 116;
             // 
             // nothiOnumodonFLP
@@ -483,11 +483,11 @@
             this.nothiOnumodonFLP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nothiOnumodonFLP.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.nothiOnumodonFLP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nothiOnumodonFLP.Location = new System.Drawing.Point(0, 70);
+            this.nothiOnumodonFLP.Location = new System.Drawing.Point(0, 43);
             this.nothiOnumodonFLP.Margin = new System.Windows.Forms.Padding(0);
             this.nothiOnumodonFLP.Name = "nothiOnumodonFLP";
             this.nothiOnumodonFLP.Padding = new System.Windows.Forms.Padding(10);
-            this.nothiOnumodonFLP.Size = new System.Drawing.Size(524, 463);
+            this.nothiOnumodonFLP.Size = new System.Drawing.Size(706, 519);
             this.nothiOnumodonFLP.TabIndex = 1;
             this.nothiOnumodonFLP.WrapContents = false;
             this.nothiOnumodonFLP.DragDrop += new System.Windows.Forms.DragEventHandler(this.nothiOnumodonFLP_DragDrop);
@@ -501,8 +501,8 @@
             this.allCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.allCheckBox.Location = new System.Drawing.Point(0, 0);
             this.allCheckBox.Name = "allCheckBox";
-            this.allCheckBox.Padding = new System.Windows.Forms.Padding(20);
-            this.allCheckBox.Size = new System.Drawing.Size(524, 70);
+            this.allCheckBox.Padding = new System.Windows.Forms.Padding(5, 5, 20, 8);
+            this.allCheckBox.Size = new System.Drawing.Size(706, 43);
             this.allCheckBox.TabIndex = 0;
             this.allCheckBox.Text = "সকল নিয়ন্ত্রিত";
             this.allCheckBox.UseVisualStyleBackColor = true;
@@ -519,7 +519,7 @@
             this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.iconButton7.IconSize = 32;
-            this.iconButton7.Location = new System.Drawing.Point(977, 688);
+            this.iconButton7.Location = new System.Drawing.Point(1154, 686);
             this.iconButton7.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Size = new System.Drawing.Size(28, 30);
@@ -538,7 +538,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 32;
-            this.iconButton1.Location = new System.Drawing.Point(970, 679);
+            this.iconButton1.Location = new System.Drawing.Point(1147, 677);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(123, 48);
             this.iconButton1.TabIndex = 37;
@@ -553,7 +553,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1100, 733);
+            this.ClientSize = new System.Drawing.Size(1286, 733);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
