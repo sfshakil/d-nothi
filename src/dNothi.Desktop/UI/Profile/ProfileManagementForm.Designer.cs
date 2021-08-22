@@ -75,7 +75,7 @@ namespace dNothi.Desktop.UI.Profile
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.label14 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.passwordSaveIconButton = new FontAwesome.Sharp.IconButton();
             this.panel33 = new System.Windows.Forms.Panel();
             this.currentPasswordTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -788,7 +788,7 @@ namespace dNothi.Desktop.UI.Profile
             this.passwordTableLayoutPanel.Controls.Add(this.panel34, 0, 0);
             this.passwordTableLayoutPanel.Controls.Add(this.label14, 0, 2);
             this.passwordTableLayoutPanel.Controls.Add(this.label25, 0, 3);
-            this.passwordTableLayoutPanel.Controls.Add(this.iconButton2, 1, 5);
+            this.passwordTableLayoutPanel.Controls.Add(this.passwordSaveIconButton, 1, 5);
             this.passwordTableLayoutPanel.Controls.Add(this.panel33, 0, 1);
             this.passwordTableLayoutPanel.Controls.Add(this.tableLayoutPanel3, 1, 1);
             this.passwordTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -922,27 +922,28 @@ namespace dNothi.Desktop.UI.Profile
             this.label25.Text = "পুনরায় পাসওয়ার্ড";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // iconButton2
+            // passwordSaveIconButton
             // 
-            this.iconButton2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(84)))), ((int)(((byte)(230)))));
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Save;
-            this.iconButton2.IconColor = System.Drawing.Color.White;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 24;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(308, 247);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.iconButton2.Size = new System.Drawing.Size(142, 39);
-            this.iconButton2.TabIndex = 37;
-            this.iconButton2.Text = " সংরক্ষণ";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.passwordSaveIconButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.passwordSaveIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(84)))), ((int)(((byte)(230)))));
+            this.passwordSaveIconButton.FlatAppearance.BorderSize = 0;
+            this.passwordSaveIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.passwordSaveIconButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordSaveIconButton.ForeColor = System.Drawing.Color.White;
+            this.passwordSaveIconButton.IconChar = FontAwesome.Sharp.IconChar.Save;
+            this.passwordSaveIconButton.IconColor = System.Drawing.Color.White;
+            this.passwordSaveIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.passwordSaveIconButton.IconSize = 24;
+            this.passwordSaveIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.passwordSaveIconButton.Location = new System.Drawing.Point(308, 247);
+            this.passwordSaveIconButton.Name = "passwordSaveIconButton";
+            this.passwordSaveIconButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.passwordSaveIconButton.Size = new System.Drawing.Size(142, 39);
+            this.passwordSaveIconButton.TabIndex = 37;
+            this.passwordSaveIconButton.Text = " সংরক্ষণ";
+            this.passwordSaveIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.passwordSaveIconButton.UseVisualStyleBackColor = false;
+            this.passwordSaveIconButton.Click += new System.EventHandler(this.passwordSaveIconButton_Click);
             // 
             // panel33
             // 
@@ -2027,7 +2028,7 @@ namespace dNothi.Desktop.UI.Profile
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label25;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton passwordSaveIconButton;
         private System.Windows.Forms.Panel panel33;
         private PlaceholderTextBox.PlaceholderTextBox currentPasswordTextBox;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;

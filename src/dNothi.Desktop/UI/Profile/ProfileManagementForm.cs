@@ -1,4 +1,6 @@
-﻿using dNothi.Services.DakServices;
+﻿using dNothi.JsonParser.Entity;
+using dNothi.Services.DakServices;
+using dNothi.Services.ProfileChangeService;
 using dNothi.Services.UserServices;
 using FontAwesome.Sharp;
 using System;
@@ -16,10 +18,12 @@ namespace dNothi.Desktop.UI.Profile
     public partial class ProfileManagementForm : Form
     {
         IUserService _userService { get; set; }
+        IProfileManagementServices _profileManagementServices { get; set; }
 
-        public ProfileManagementForm(IUserService userService)
+        public ProfileManagementForm(IUserService userService, IProfileManagementServices profileManagementServices)
         {
             _userService = userService;
+            _profileManagementServices = profileManagementServices;
 
             InitializeComponent();
         }
@@ -251,6 +255,25 @@ namespace dNothi.Desktop.UI.Profile
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
 
-        
+        private void passwordSaveIconButton_Click(object sender, EventArgs e)
+        {
+            if(confirmNewPasswordTextBox.Text==newPasswordTextBox.Text)
+            {
+                PasswordChangeParam passwordChangeParam = new PasswordChangeParam();
+                PasswordChangeResponse passwordChangeResponse = _profileManagementServices.GetPasswordChangeResponse(_dakUserParam, passwordChangeParam);
+                if(passwordChangeResponse.status=="success")
+                {
+                    UIDesignCommonMethod.SuccessMessage(passwordChangeResponse.data);
+                }
+                else
+                {
+                    UIDesignCommonMethod.SuccessMessage(passwordChangeResponse.message);
+                }
+            }
+            else
+            {
+                UIDesignCommonMethod.ErrorMessage("নতুন পাসওয়ার্ড এবং পুনরায় পাসওয়ার্ড অবশ্যই একই হতে হবে।");
+            }
+        }
     }
 }

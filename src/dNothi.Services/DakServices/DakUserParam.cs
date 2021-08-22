@@ -11,6 +11,7 @@ namespace dNothi.Services.DakServices
     public class DakUserParam
     {
         public string loginId { get; set; }
+        public string userName { get; set; }
 
         public string fatherName { get; set; }
         public string motherName { get; set; }
