@@ -827,6 +827,7 @@ namespace dNothi.Desktop.UI.Profile
             this.confirmNewPasswordTextBox.PlaceholderText = "পুনরায় পাসওয়ার্ড";
             this.confirmNewPasswordTextBox.Size = new System.Drawing.Size(309, 19);
             this.confirmNewPasswordTextBox.TabIndex = 6;
+            this.confirmNewPasswordTextBox.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // panel30
             // 
@@ -849,6 +850,7 @@ namespace dNothi.Desktop.UI.Profile
             this.newPasswordTextBox.PlaceholderText = " নতুন পাসওয়ার্ড";
             this.newPasswordTextBox.Size = new System.Drawing.Size(309, 19);
             this.newPasswordTextBox.TabIndex = 5;
+            this.newPasswordTextBox.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // label9
             // 
@@ -966,6 +968,7 @@ namespace dNothi.Desktop.UI.Profile
             this.currentPasswordTextBox.PlaceholderText = " বর্তমান পাসওয়ার্ড";
             this.currentPasswordTextBox.Size = new System.Drawing.Size(309, 19);
             this.currentPasswordTextBox.TabIndex = 4;
+            this.currentPasswordTextBox.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // tableLayoutPanel3
             // 

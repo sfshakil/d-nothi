@@ -243,16 +243,17 @@ namespace dNothi.Services.UserServices
 
 
 
-            if (dbuser == null)
+            if (dbuser != null)
             {
-                _userrepository.Insert(dbuser);
+                dbuser.doptor_token = token;
+                _userrepository.Update(dbuser);
             }
             else
             {
                 dbuser = new User();
                 dbuser.doptor_token = token;
                 dbuser.username = username;
-                _userrepository.Update(dbuser);
+                _userrepository.Insert(dbuser);
             }
         }
         public void SaveOrUpdateUserEmployeeInfo(EmployeeInfoDTO employeedto)

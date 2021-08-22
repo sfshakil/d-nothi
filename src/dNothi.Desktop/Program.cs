@@ -34,6 +34,7 @@ using dNothi.Services;
 using dNothi.Desktop.UI.Khosra_Potro;
 using dNothi.Services.NothiReportService;
 using dNothi.Services.BasicService;
+using dNothi.Services.ProfileChangeService;
 
 namespace dNothi.Desktop
 {
@@ -264,6 +265,7 @@ namespace dNothi.Desktop
             builder.RegisterType<KhosraSaveService>().As<IKhosraSaveService>();
             builder.RegisterType<PotroJariGroupService>().As<IPotroJariGroupService>();
             builder.RegisterType<PotroServices>().As<IPotroServices>();
+            builder.RegisterType<ProfileManagementServices>().As<IProfileManagementServices>();
            
             builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();
             builder.RegisterGeneric(typeof(DakSharingService<>)).As(typeof(IDakSharingService<>)).AsSelf();

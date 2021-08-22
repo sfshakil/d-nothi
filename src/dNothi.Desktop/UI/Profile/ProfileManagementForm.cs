@@ -260,6 +260,8 @@ namespace dNothi.Desktop.UI.Profile
             if(confirmNewPasswordTextBox.Text==newPasswordTextBox.Text)
             {
                 PasswordChangeParam passwordChangeParam = new PasswordChangeParam();
+                passwordChangeParam.newPassword = newPasswordTextBox.Text;
+                passwordChangeParam.oldPassword = currentPasswordTextBox.Text;
                 PasswordChangeResponse passwordChangeResponse = _profileManagementServices.GetPasswordChangeResponse(_dakUserParam, passwordChangeParam);
                 if(passwordChangeResponse.status=="success")
                 {
@@ -273,6 +275,21 @@ namespace dNothi.Desktop.UI.Profile
             else
             {
                 UIDesignCommonMethod.ErrorMessage("নতুন পাসওয়ার্ড এবং পুনরায় পাসওয়ার্ড অবশ্যই একই হতে হবে।");
+            }
+        }
+
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+
+            if ((sender as TextBox).Text == "")
+            {
+                (sender as TextBox).PasswordChar = '\0';
+            }
+            else
+            {
+                (sender as TextBox).PasswordChar = '●';
             }
         }
     }
