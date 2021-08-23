@@ -22,11 +22,16 @@ namespace dNothi.JsonParser.Entity.Nothi
 
     public class DataDTO
     {
-        [JsonProperty("records")]
-        public Dictionary<string, string> Records { get; set; }
-
-        [JsonProperty("total_records")]
-        public long TotalRecords { get; set; }
+        public List<RecordsDTO> records { get; set; }
+        public int total_records { get; set; }
+    }
+    public class RecordsDTO
+    {
+        public int id { get; set; }
+        public string decisions { get; set; }
+        public int officer_id { get; set; }
+        public int status { get; set; }
+        public int decisions_employee { get; set; }
     }
     // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
     public class GaurdFileAttachment

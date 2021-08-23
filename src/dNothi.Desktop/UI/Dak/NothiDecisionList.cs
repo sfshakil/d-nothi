@@ -51,24 +51,24 @@ namespace dNothi.Desktop.UI.Dak
             var nothiDecisionList = _nothiDecisionListService.GetNothiDecisionList(dakListUserParam);
             if (nothiDecisionList != null && nothiDecisionList.Status == "success" )
             {
-                if (nothiDecisionList.Data.Records.Count > 0) 
+                if (nothiDecisionList.Data.records.Count > 0) 
                 {
                     lbLengthStart.Text = "১";
-                    lbLengthEnd.Text = string.Concat(nothiDecisionList.Data.TotalRecords.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                    lbTotalNothi.Text = " সর্বমোট: " + string.Concat(nothiDecisionList.Data.TotalRecords.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                    LoadNothiInboxinPanel(nothiDecisionList.Data.Records);
+                    lbLengthEnd.Text = string.Concat(nothiDecisionList.Data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbTotalNothi.Text = " সর্বমোট: " + string.Concat(nothiDecisionList.Data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    LoadNothiInboxinPanel(nothiDecisionList.Data.records);
                 }
                 
             } else {
                 ErrorMessage(nothiDecisionList.Status);
             }
         }
-        private void LoadNothiInboxinPanel(Dictionary<string, string> nothiDecisionLists)
+        private void LoadNothiInboxinPanel(List<RecordsDTO> nothiDecisionLists)
         {
-            foreach (KeyValuePair<string, string> nothiDecisionList in nothiDecisionLists)
+            foreach (RecordsDTO nothiDecisionList in nothiDecisionLists)
             {
                 var nothiDecisionListRow = UserControlFactory.Create<NothiDecisionListRow>();
-                nothiDecisionListRow.decisionText = nothiDecisionList.Value.ToString();
+                nothiDecisionListRow.decisionText = nothiDecisionList.decisions;
                 nothiDecisionListRow.DecisionAddButton += delegate (object sender1, EventArgs e1) { DecisionAdd_ButtonClick(sender1 as string, e1); };
                 UIDesignCommonMethod.AddRowinTable(decisionViewFLP, nothiDecisionListRow);
             }

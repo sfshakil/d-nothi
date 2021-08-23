@@ -489,7 +489,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             if(pageNumber * 10 < totalNothi)
             {
-                lbLengthStart.Text = string.Concat((pageNumber * 10).ToString().Select(c => (char)('\u09E6' + c - '0')));
+                lbLengthStart.Text = string.Concat((pageNumber * 10 + 1).ToString().Select(c => (char)('\u09E6' + c - '0')));
                 //lbLengthEnd.Text = string.Concat((pageNumber * 10).ToString().Select(c => (char)('\u09E6' + c - '0')));
 
                 pageNumber++;
@@ -525,7 +525,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 else
                 {
-                    lbLengthStart.Text = string.Concat((pageNumber * 10 - 10).ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbLengthStart.Text = string.Concat((pageNumber * 10 - 10 + 1).ToString().Select(c => (char)('\u09E6' + c - '0')));
                 } 
                 lbLengthEnd.Text = string.Concat((pageNumber * 10).ToString().Select(c => (char)('\u09E6' + c - '0')));
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();

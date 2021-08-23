@@ -2731,6 +2731,44 @@ namespace dNothi.Desktop.UI
             form.loadNoteList(notelist);
             CalPopUpWindow(form);
         }
+        public Form NothiNextStepControlToForm(Control control)
+        {
+            Form form = new Form();
+            form.TopMost = true;
+            form.TopMost = false;
+            form.Name = "ExtraPopUPWindow";
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - control.Width, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            //form.Size = control.Size;
+            form.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            form.Width = control.Width;
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            control.Height = form.Height;
+            form.Controls.Add(control);
+            return form;
+        }
+        private void btnNothiALLDecisionList_Click(object sender, EventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                //WaitForm.Show(this);
+                var nothiDecisionList = UserControlFactory.Create<NothiALLDecisionList>();
+                
+                nothiDecisionList.loadRow();
+                var form = NothiNextStepControlToForm(nothiDecisionList);
+                //WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+        }
+
         private void uc_noteRemoveButtonClick(object sender, EventArgs e, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
 
