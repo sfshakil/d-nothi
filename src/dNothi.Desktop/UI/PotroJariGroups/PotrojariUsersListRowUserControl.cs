@@ -46,6 +46,8 @@ namespace dNothi.Desktop.UI.Khosra_Potro
 
         public int _groupId { get; set; }
         public int groupId { get { return _groupId; } set { _groupId = value; } }
+        public string _groupName { get; set; }
+        public string groupName { get { return _groupName; } set { _groupName = value; } }
         public string _UserName { get; set; }
         public string UserName { get {return _UserName ; } set { _UserName = value ; userNameLabel.Text = value; } }
 

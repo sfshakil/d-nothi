@@ -687,6 +687,24 @@
     <Compile Include="UI\Dak\SetKarjodibosh.Designer.cs">
       <DependentUpon>SetKarjodibosh.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.Designer.cs">
+      <DependentUpon>GaurdFilePortalListRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileReferenceNothi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileReferenceNothi.Designer.cs">
+      <DependentUpon>UCGuardFileReferenceNothi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFilePortalCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFilePortalCreate.Designer.cs">
+      <DependentUpon>UCGuardFilePortalCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Khosra Potro\KhosraDakNoteDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1372,6 +1390,18 @@
     <Compile Include="UI\Profile\HelpDeskForm.Designer.cs">
       <DependentUpon>HelpDeskForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Profile\ProfileManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Profile\ProfileManagementForm.Designer.cs">
+      <DependentUpon>ProfileManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Profile\UploadPictureUserControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Profile\UploadPictureUserControl.Designer.cs">
+      <DependentUpon>UploadPictureUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ResponsiveForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1607,6 +1637,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\SingleDakUserControl.resx">
       <DependentUpon>SingleDakUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.resx">
+      <DependentUpon>GaurdFilePortalListRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileReferenceNothi.resx">
+      <DependentUpon>UCGuardFileReferenceNothi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFilePortalCreate.resx">
+      <DependentUpon>UCGuardFilePortalCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraDakNoteDetailForm.resx">
       <DependentUpon>KhosraDakNoteDetailForm.cs</DependentUpon>
@@ -1925,6 +1964,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Profile\HelpDeskForm.resx">
       <DependentUpon>HelpDeskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Profile\ProfileManagementForm.resx">
+      <DependentUpon>ProfileManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Profile\UploadPictureUserControl.resx">
+      <DependentUpon>UploadPictureUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ResponsiveForm.resx">
       <DependentUpon>ResponsiveForm.cs</DependentUpon>

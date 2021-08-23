@@ -34,6 +34,7 @@ using dNothi.Services;
 using dNothi.Desktop.UI.Khosra_Potro;
 using dNothi.Services.NothiReportService;
 using dNothi.Services.BasicService;
+using dNothi.Services.ProfileChangeService;
 
 namespace dNothi.Desktop
 {
@@ -64,6 +65,7 @@ namespace dNothi.Desktop
             DialogResult result;
 
             var form = FormFactory.Create<Login>();
+            //var form = new Form1();
             form.ShowDialog();
             //using (var form = FormFactory.Create<Login>())
             //{
@@ -264,6 +266,7 @@ namespace dNothi.Desktop
             builder.RegisterType<KhosraSaveService>().As<IKhosraSaveService>();
             builder.RegisterType<PotroJariGroupService>().As<IPotroJariGroupService>();
             builder.RegisterType<PotroServices>().As<IPotroServices>();
+            builder.RegisterType<ProfileManagementServices>().As<IProfileManagementServices>();
            
             builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();
             builder.RegisterGeneric(typeof(DakSharingService<>)).As(typeof(IDakSharingService<>)).AsSelf();
@@ -273,6 +276,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
 
             builder.RegisterType<UI.Nothi>().AsSelf();
+           
             builder.RegisterType<KhosraAttachmentForm>().AsSelf();
             builder.RegisterType<UI.KhosraDashboard>().AsSelf();
             builder.RegisterType<UI.PotrojariGroup>().AsSelf();
@@ -289,6 +293,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiAll>().AsSelf();
             builder.RegisterType<UI.NothiCreateNextStep>().AsSelf();
             builder.RegisterType<UI.NothiUI.RegisterReportUserControl>().AsSelf();
+            builder.RegisterType<UI.Profile.ProfileManagementForm>().AsSelf();
 
             
             builder.RegisterType<ProtibedonUserControl>().AsSelf();
@@ -357,6 +362,14 @@ namespace dNothi.Desktop
             builder.RegisterType<GuardFileRowUserControl>().AsSelf();
             
             builder.RegisterType<GuardFileListRowUserControl>().AsSelf();
+            builder.RegisterType<GaurdFilePortalListRow>().AsSelf();
+            builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFilePortalCreate>().AsSelf();
+            builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileReferenceNothi>().AsSelf();
+            
+
+
+
+
             builder.RegisterType<PotrojariGroupContent>().AsSelf();
             builder.RegisterType<PatraJariGroupCreateUserControl>().AsSelf();
             builder.RegisterType<KhosraDakNoteDetailForm>().AsSelf();

@@ -596,11 +596,6 @@ namespace dNothi.Desktop.UI
 
         }
 
-
-
-
-
-
         private void onumodonkariOfficerSelectButton_Click(object sender, EventArgs e)
         {
             SelectOfficer(onumodonkariOfficerSelectButton, onumodonkariListPanel, onumodonkariEmptyPanel, onumodonkariListFlowLayoutPanel);
@@ -1779,13 +1774,13 @@ namespace dNothi.Desktop.UI
             }
             try
             {
-                var engDate = doc.DocumentNode.Descendants("span").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains("approver_bn_date_text"));
-                engDate.InnerHtml = enDate;
-                engDate.Attributes.FirstOrDefault(a => a.Name == "style").Value = "position: absolute; top: 0;left: 0; right: 0; text-align: center;opacity:0";
+                //var engDate = doc.DocumentNode.Descendants("span").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains("approver_bn_date_text"));
+                //engDate.InnerHtml = enDate;
+                //engDate.Attributes.FirstOrDefault(a => a.Name == "style").Value = "position: absolute; top: 0;left: 0; right: 0; text-align: center;opacity:0";
 
-                var banglaDate = doc.DocumentNode.Descendants("span").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains("approver_en_date_text"));
-                banglaDate.InnerHtml = bnDate;
-                banglaDate.Attributes.FirstOrDefault(a => a.Name == "style").Value = "position: absolute; top: 0;left: 0; right: 0; text-align: center;opacity:0";
+                //var banglaDate = doc.DocumentNode.Descendants("span").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains("approver_en_date_text"));
+                //banglaDate.InnerHtml = bnDate;
+                //banglaDate.Attributes.FirstOrDefault(a => a.Name == "style").Value = "position: absolute; top: 0;left: 0; right: 0; text-align: center;opacity:0";
 
             }
             catch (Exception ex)

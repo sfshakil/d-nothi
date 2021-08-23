@@ -11,6 +11,7 @@ namespace dNothi.Constants
 
         public const string DefaultAPIDomainAddress = "https://dev.nothibs.tappware.com";// dev server
         //public const string DefaultAPIDomainAddress = "https://api-bes.nothi.gov.bd";// Test Server
+      
         public const string DakNothiCountEndPoint = "/api/module/pending";
         public const string PermittedPotroEndPoint = "/api/potro/permitted";
         public const string NothijatoProtibedonEndPoint = "/api/reports/dak/nothijato";
@@ -140,6 +141,10 @@ namespace dNothi.Constants
         public const string GuardFileCreateEdit = "/api/add";
         public const string GuardFileDelete = "/api/delete";
 
+        public const string guardFileOfficelist= "/api/nothi/guardfile/portal/office/list";
+        public const string guardFilePortallist = "/api/nothi/guardfile/portal/list";
+        public const string guardFilePortalInsert = "/api/nothi/guardfile/portal/add";
+
         //DakSharing
 
         public const string SharingList = "/api/dak/sorting/designation";
@@ -178,6 +183,12 @@ namespace dNothi.Constants
         //BasicApi
         public const string OfficeUintEndpoint = "/api/dak/seal/office/show";
 
+
+        // Doptor
+
+        public const string DoptorDomainAddress = "https://n-doptor-api-stage.nothi.gov.bd";
+        public const string DoptorLoginEndPoint = "/api/client/login";
+        public const string DoptorPasswordChangeEndPoint = "/api/user/password/update";
 
 
 

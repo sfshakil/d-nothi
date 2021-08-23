@@ -175,6 +175,8 @@
     <Compile Include="GuardFile\Model\GuardFileAttachment.cs" />
     <Compile Include="GuardFile\Model\GuardFileCategory.cs" />
     <Compile Include="GuardFile\Model\GuardFileModel.cs" />
+    <Compile Include="GuardFile\Model\GuardFileOffice.cs" />
+    <Compile Include="GuardFile\Model\GuardFilePortal.cs" />
     <Compile Include="GuardFile\Model\ResponseEdit.cs" />
     <Compile Include="KasaraPatraDashBoardService\IKasaraPatraDashBoardService.cs" />
     <Compile Include="KasaraPatraDashBoardService\KararaPotroDashBoardServices.cs" />
@@ -262,6 +264,8 @@
     <Compile Include="PotroJariGroup\Models\PotroJariGroupModels.cs" />
     <Compile Include="PotroJariGroup\PotroJariGroupService.cs" />
     <Compile Include="PotroServices.cs" />
+    <Compile Include="ProfileChangeService\PasswordChangeParam.cs" />
+    <Compile Include="ProfileChangeService\ProfileManagementServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyncServices\LocalChangeData.cs" />
     <Compile Include="SyncServices\SyncerService.cs" />

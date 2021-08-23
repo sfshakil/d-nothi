@@ -30,9 +30,9 @@ namespace dNothi.Desktop.UI.Dak
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.fileWebBrowser = new System.Windows.Forms.WebBrowser();
-            this.btnCross = new FontAwesome.Sharp.IconButton();
             this.lbFileName = new System.Windows.Forms.Label();
+            this.btnCross = new FontAwesome.Sharp.IconButton();
+            this.fileWebBrowser = new System.Windows.Forms.WebBrowser();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,23 +45,27 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(3, 2, 5, 2);
-            this.panel1.Size = new System.Drawing.Size(1100, 42);
+            this.panel1.Padding = new System.Windows.Forms.Padding(2, 2, 4, 2);
+            this.panel1.Size = new System.Drawing.Size(825, 34);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
-            // fileWebBrowser
+            // lbFileName
             // 
-            this.fileWebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileWebBrowser.Location = new System.Drawing.Point(0, 42);
-            this.fileWebBrowser.Margin = new System.Windows.Forms.Padding(0);
-            this.fileWebBrowser.MinimumSize = new System.Drawing.Size(27, 25);
-            this.fileWebBrowser.Name = "fileWebBrowser";
-            this.fileWebBrowser.Size = new System.Drawing.Size(1100, 691);
-            this.fileWebBrowser.TabIndex = 5;
-            this.fileWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
+            this.lbFileName.AutoSize = true;
+            this.lbFileName.BackColor = System.Drawing.Color.Transparent;
+            this.lbFileName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbFileName.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.lbFileName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbFileName.Location = new System.Drawing.Point(2, 2);
+            this.lbFileName.Margin = new System.Windows.Forms.Padding(0);
+            this.lbFileName.Name = "lbFileName";
+            this.lbFileName.Padding = new System.Windows.Forms.Padding(2, 2, 0, 0);
+            this.lbFileName.Size = new System.Drawing.Size(60, 20);
+            this.lbFileName.TabIndex = 74;
+            this.lbFileName.Text = "fileName";
             // 
             // btnCross
             // 
@@ -75,37 +79,35 @@ namespace dNothi.Desktop.UI.Dak
             this.btnCross.IconColor = System.Drawing.Color.DimGray;
             this.btnCross.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCross.IconSize = 20;
-            this.btnCross.Location = new System.Drawing.Point(1067, 2);
+            this.btnCross.Location = new System.Drawing.Point(795, 2);
+            this.btnCross.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCross.Name = "btnCross";
-            this.btnCross.Size = new System.Drawing.Size(28, 38);
+            this.btnCross.Size = new System.Drawing.Size(26, 30);
             this.btnCross.TabIndex = 38;
             this.btnCross.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCross.UseVisualStyleBackColor = false;
             this.btnCross.Click += new System.EventHandler(this.btnCross_Click);
             // 
-            // lbFileName
+            // fileWebBrowser
             // 
-            this.lbFileName.AutoSize = true;
-            this.lbFileName.BackColor = System.Drawing.Color.Transparent;
-            this.lbFileName.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbFileName.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbFileName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbFileName.Location = new System.Drawing.Point(3, 2);
-            this.lbFileName.Margin = new System.Windows.Forms.Padding(0);
-            this.lbFileName.Name = "lbFileName";
-            this.lbFileName.Padding = new System.Windows.Forms.Padding(3, 3, 0, 0);
-            this.lbFileName.Size = new System.Drawing.Size(93, 29);
-            this.lbFileName.TabIndex = 74;
-            this.lbFileName.Text = "fileName";
+            this.fileWebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileWebBrowser.Location = new System.Drawing.Point(0, 34);
+            this.fileWebBrowser.Margin = new System.Windows.Forms.Padding(0);
+            this.fileWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.fileWebBrowser.Name = "fileWebBrowser";
+            this.fileWebBrowser.Size = new System.Drawing.Size(825, 562);
+            this.fileWebBrowser.TabIndex = 5;
+            this.fileWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // FileViewWebBrowser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1100, 733);
+            this.ClientSize = new System.Drawing.Size(825, 596);
             this.Controls.Add(this.fileWebBrowser);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FileViewWebBrowser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FileViewWebBrowser";

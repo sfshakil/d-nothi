@@ -1,5 +1,4 @@
-﻿using dNothi.Desktop.UI.OtherModule.GuardFileUserControls;
-using dNothi.JsonParser.Entity.Nothi;
+﻿using dNothi.JsonParser.Entity.Nothi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,17 +11,28 @@ using System.Windows.Forms;
 
 namespace dNothi.Desktop.UI.Dak
 {
-    public partial class NothiGaurdFileListRow : UserControl
+    public partial class GaurdFilePortalListRow : UserControl
     {
-        public NothiGaurdFileListRow()
+        public GaurdFilePortalListRow()
         {
             InitializeComponent();
         }
         private string _nameText;
         private string _categoryNameText;
+        
         public string attachmentURL;
 
-        [Category("Custom Props")]
+        private int _id;
+        public int id { get => _id; set => _id = value; }
+        private int _layerId;
+        public int layerId { get => _layerId; set => _layerId = value; }
+        private string _link;
+        public string link { get => _link; set => _link = value; }
+        private string _subdomain;
+        public string subdomain { get => _subdomain; set => _subdomain = value; }
+         
+
+       [Category("Custom Props")]
         public string nameText
         {
             get { return _nameText; }
@@ -40,25 +50,8 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler GaurdFileAddButton;
         private void btnGaurdFileAdd_Click(object sender, EventArgs e)
         {
-            var guardfilereference = FormFactory.Create<UCGuardFileReferenceNothi>();
-            guardfilereference.fileAddInWebBrowser(attachmentURL, _nameText);
-            guardfilereference.GaurdFileAddButtonOnucced += delegate (object sender1, EventArgs e1) { GaurdFileAddButtonOnucced_ButtonClick(sender1, e1); };
-            
-            UIDesignCommonMethod.CalPopUpWindow(guardfilereference, this.ParentForm);
-
-        }
-        private void GaurdFileAddButtonOnucced_ButtonClick(object sender, EventArgs e)
-        {
-            GaurdFileRecord gaurdFileRecord = new GaurdFileRecord();
-            gaurdFileRecord.name_bng = _nameText +"-"+ sender.ToString();
-
-            GaurdFileAttachment gaurdFileAttachment = new GaurdFileAttachment();
-            gaurdFileAttachment.url = attachmentURL;
-
-            gaurdFileRecord.attachment = gaurdFileAttachment;
-
             if (this.GaurdFileAddButton != null)
-                this.GaurdFileAddButton(gaurdFileRecord, e);
+                this.GaurdFileAddButton(sender, e);
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -89,6 +82,13 @@ namespace dNothi.Desktop.UI.Dak
             (sender as Form).Hide();
 
             // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
+
+      
+
+        private void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            UIDesignCommonMethod.Table_Cell_Color_Blue(sender, e);
         }
     }
 }

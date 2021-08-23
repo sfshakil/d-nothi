@@ -7,6 +7,7 @@ namespace dNothi.Services.UserServices
 {
     public interface IUserService
     {
+        void GetDoptorToken(UserParam userParam);
         List<OfficeInfoDTO> GetAllLocalOfficeInfo();
 
         EmployeDakNothiCountResponse GetDakNothiCountResponseUsingEmployeeDesignation(DakUserParam userParam);
