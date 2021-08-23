@@ -278,8 +278,8 @@ namespace dNothi.Desktop.UI.Profile
             this.leftTableLayoutPanel.Controls.Add(this.profilePicIconButton, 0, 7);
             this.leftTableLayoutPanel.Controls.Add(this.signIconButton, 0, 8);
             this.leftTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.leftTableLayoutPanel.Location = new System.Drawing.Point(10, 0);
-            this.leftTableLayoutPanel.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.leftTableLayoutPanel.Location = new System.Drawing.Point(20, 0);
+            this.leftTableLayoutPanel.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.leftTableLayoutPanel.Name = "leftTableLayoutPanel";
             this.leftTableLayoutPanel.RowCount = 10;
             this.leftTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -292,7 +292,7 @@ namespace dNothi.Desktop.UI.Profile
             this.leftTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.leftTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.leftTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.leftTableLayoutPanel.Size = new System.Drawing.Size(300, 683);
+            this.leftTableLayoutPanel.Size = new System.Drawing.Size(290, 683);
             this.leftTableLayoutPanel.TabIndex = 0;
             // 
             // nameAndImageTableLayoutPanel
@@ -309,14 +309,14 @@ namespace dNothi.Desktop.UI.Profile
             this.nameAndImageTableLayoutPanel.Name = "nameAndImageTableLayoutPanel";
             this.nameAndImageTableLayoutPanel.RowCount = 1;
             this.nameAndImageTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.nameAndImageTableLayoutPanel.Size = new System.Drawing.Size(300, 106);
+            this.nameAndImageTableLayoutPanel.Size = new System.Drawing.Size(290, 106);
             this.nameAndImageTableLayoutPanel.TabIndex = 0;
             // 
             // officerPictureBox
             // 
             this.officerPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.officerPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("officerPictureBox.Image")));
-            this.officerPictureBox.Location = new System.Drawing.Point(10, 3);
+            this.officerPictureBox.Location = new System.Drawing.Point(8, 3);
             this.officerPictureBox.Name = "officerPictureBox";
             this.officerPictureBox.Size = new System.Drawing.Size(88, 100);
             this.officerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -331,13 +331,13 @@ namespace dNothi.Desktop.UI.Profile
             this.officerNameTableLayoutPanel.Controls.Add(this.officerDesignationLabel, 0, 1);
             this.officerNameTableLayoutPanel.Controls.Add(this.officerNameLabel, 0, 0);
             this.officerNameTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.officerNameTableLayoutPanel.Location = new System.Drawing.Point(114, 0);
+            this.officerNameTableLayoutPanel.Location = new System.Drawing.Point(110, 0);
             this.officerNameTableLayoutPanel.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.officerNameTableLayoutPanel.Name = "officerNameTableLayoutPanel";
             this.officerNameTableLayoutPanel.RowCount = 2;
             this.officerNameTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.officerNameTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.officerNameTableLayoutPanel.Size = new System.Drawing.Size(186, 93);
+            this.officerNameTableLayoutPanel.Size = new System.Drawing.Size(180, 93);
             this.officerNameTableLayoutPanel.TabIndex = 1;
             // 
             // officerDesignationLabel
@@ -348,7 +348,7 @@ namespace dNothi.Desktop.UI.Profile
             this.officerDesignationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(108)))), ((int)(((byte)(154)))));
             this.officerDesignationLabel.Location = new System.Drawing.Point(3, 30);
             this.officerDesignationLabel.Name = "officerDesignationLabel";
-            this.officerDesignationLabel.Size = new System.Drawing.Size(180, 63);
+            this.officerDesignationLabel.Size = new System.Drawing.Size(174, 63);
             this.officerDesignationLabel.TabIndex = 0;
             this.officerDesignationLabel.Text = "সফটওয়্যার ইঞ্জিনিয়ার এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম \r\n";
             // 
@@ -500,7 +500,7 @@ namespace dNothi.Desktop.UI.Profile
             this.informationIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.informationIconButton.IconSize = 24;
             this.informationIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.informationIconButton.Location = new System.Drawing.Point(25, 239);
+            this.informationIconButton.Location = new System.Drawing.Point(20, 239);
             this.informationIconButton.Name = "informationIconButton";
             this.informationIconButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.informationIconButton.Size = new System.Drawing.Size(249, 39);
@@ -522,7 +522,7 @@ namespace dNothi.Desktop.UI.Profile
             this.passwordIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.passwordIconButton.IconSize = 24;
             this.passwordIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.passwordIconButton.Location = new System.Drawing.Point(25, 284);
+            this.passwordIconButton.Location = new System.Drawing.Point(20, 284);
             this.passwordIconButton.Name = "passwordIconButton";
             this.passwordIconButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.passwordIconButton.Size = new System.Drawing.Size(249, 39);
@@ -544,7 +544,7 @@ namespace dNothi.Desktop.UI.Profile
             this.profilePicIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.profilePicIconButton.IconSize = 24;
             this.profilePicIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.profilePicIconButton.Location = new System.Drawing.Point(25, 329);
+            this.profilePicIconButton.Location = new System.Drawing.Point(20, 329);
             this.profilePicIconButton.Name = "profilePicIconButton";
             this.profilePicIconButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.profilePicIconButton.Size = new System.Drawing.Size(249, 39);
@@ -566,7 +566,7 @@ namespace dNothi.Desktop.UI.Profile
             this.signIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.signIconButton.IconSize = 24;
             this.signIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.signIconButton.Location = new System.Drawing.Point(25, 374);
+            this.signIconButton.Location = new System.Drawing.Point(20, 374);
             this.signIconButton.Name = "signIconButton";
             this.signIconButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.signIconButton.Size = new System.Drawing.Size(249, 39);
@@ -1178,7 +1178,7 @@ namespace dNothi.Desktop.UI.Profile
             this.loginNameTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginNameTextBox.Location = new System.Drawing.Point(6, 6);
             this.loginNameTextBox.Name = "loginNameTextBox";
-            this.loginNameTextBox.Size = new System.Drawing.Size(284, 22);
+            this.loginNameTextBox.Size = new System.Drawing.Size(252, 22);
             this.loginNameTextBox.TabIndex = 0;
             // 
             // panel16
@@ -1210,7 +1210,7 @@ namespace dNothi.Desktop.UI.Profile
             this.bloodGroupComboBox.Location = new System.Drawing.Point(3, 3);
             this.bloodGroupComboBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.bloodGroupComboBox.Name = "bloodGroupComboBox";
-            this.bloodGroupComboBox.Size = new System.Drawing.Size(290, 29);
+            this.bloodGroupComboBox.Size = new System.Drawing.Size(255, 29);
             this.bloodGroupComboBox.TabIndex = 2;
             this.bloodGroupComboBox.Text = "--বাছাই করুন--";
             // 
@@ -1239,7 +1239,7 @@ namespace dNothi.Desktop.UI.Profile
             this.maritialStatusComboBox.Location = new System.Drawing.Point(3, 2);
             this.maritialStatusComboBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.maritialStatusComboBox.Name = "maritialStatusComboBox";
-            this.maritialStatusComboBox.Size = new System.Drawing.Size(289, 29);
+            this.maritialStatusComboBox.Size = new System.Drawing.Size(255, 29);
             this.maritialStatusComboBox.TabIndex = 0;
             this.maritialStatusComboBox.Text = "--বাছাই করুন--";
             // 
@@ -1269,7 +1269,7 @@ namespace dNothi.Desktop.UI.Profile
             this.religionComboBox.Location = new System.Drawing.Point(3, 3);
             this.religionComboBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.religionComboBox.Name = "religionComboBox";
-            this.religionComboBox.Size = new System.Drawing.Size(290, 29);
+            this.religionComboBox.Size = new System.Drawing.Size(255, 29);
             this.religionComboBox.TabIndex = 1;
             this.religionComboBox.Text = "--বাছাই করুন--";
             // 
@@ -1291,7 +1291,7 @@ namespace dNothi.Desktop.UI.Profile
             this.personalMobile2TextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.personalMobile2TextBox.Location = new System.Drawing.Point(6, 6);
             this.personalMobile2TextBox.Name = "personalMobile2TextBox";
-            this.personalMobile2TextBox.Size = new System.Drawing.Size(284, 22);
+            this.personalMobile2TextBox.Size = new System.Drawing.Size(248, 22);
             this.personalMobile2TextBox.TabIndex = 0;
             // 
             // panel12
@@ -1312,7 +1312,7 @@ namespace dNothi.Desktop.UI.Profile
             this.personalMobileTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.personalMobileTextBox.Location = new System.Drawing.Point(6, 6);
             this.personalMobileTextBox.Name = "personalMobileTextBox";
-            this.personalMobileTextBox.Size = new System.Drawing.Size(285, 22);
+            this.personalMobileTextBox.Size = new System.Drawing.Size(252, 22);
             this.personalMobileTextBox.TabIndex = 0;
             // 
             // panel11
@@ -1333,7 +1333,7 @@ namespace dNothi.Desktop.UI.Profile
             this.nationalIdTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nationalIdTextBox.Location = new System.Drawing.Point(6, 6);
             this.nationalIdTextBox.Name = "nationalIdTextBox";
-            this.nationalIdTextBox.Size = new System.Drawing.Size(284, 22);
+            this.nationalIdTextBox.Size = new System.Drawing.Size(248, 22);
             this.nationalIdTextBox.TabIndex = 0;
             // 
             // panel10
@@ -1354,7 +1354,7 @@ namespace dNothi.Desktop.UI.Profile
             this.emailTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailTextBox.Location = new System.Drawing.Point(6, 6);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(285, 22);
+            this.emailTextBox.Size = new System.Drawing.Size(252, 22);
             this.emailTextBox.TabIndex = 0;
             // 
             // panel9
@@ -1381,7 +1381,7 @@ namespace dNothi.Desktop.UI.Profile
             this.genderComboBox.Location = new System.Drawing.Point(3, 3);
             this.genderComboBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.genderComboBox.Name = "genderComboBox";
-            this.genderComboBox.Size = new System.Drawing.Size(289, 29);
+            this.genderComboBox.Size = new System.Drawing.Size(258, 29);
             this.genderComboBox.TabIndex = 1;
             this.genderComboBox.Text = "--বাছাই করুন--";
             // 
@@ -1403,7 +1403,7 @@ namespace dNothi.Desktop.UI.Profile
             this.dobTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dobTextBox.Location = new System.Drawing.Point(6, 6);
             this.dobTextBox.Name = "dobTextBox";
-            this.dobTextBox.Size = new System.Drawing.Size(285, 22);
+            this.dobTextBox.Size = new System.Drawing.Size(252, 22);
             this.dobTextBox.TabIndex = 0;
             // 
             // panel7
@@ -1424,7 +1424,7 @@ namespace dNothi.Desktop.UI.Profile
             this.motherNameEngTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.motherNameEngTextBox.Location = new System.Drawing.Point(6, 6);
             this.motherNameEngTextBox.Name = "motherNameEngTextBox";
-            this.motherNameEngTextBox.Size = new System.Drawing.Size(284, 22);
+            this.motherNameEngTextBox.Size = new System.Drawing.Size(248, 22);
             this.motherNameEngTextBox.TabIndex = 0;
             // 
             // panel6
@@ -1445,7 +1445,7 @@ namespace dNothi.Desktop.UI.Profile
             this.motherNameBanglaTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.motherNameBanglaTextBox.Location = new System.Drawing.Point(6, 6);
             this.motherNameBanglaTextBox.Name = "motherNameBanglaTextBox";
-            this.motherNameBanglaTextBox.Size = new System.Drawing.Size(285, 22);
+            this.motherNameBanglaTextBox.Size = new System.Drawing.Size(252, 22);
             this.motherNameBanglaTextBox.TabIndex = 0;
             // 
             // panel5
@@ -1466,7 +1466,7 @@ namespace dNothi.Desktop.UI.Profile
             this.fatherNameBanglaTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fatherNameBanglaTextBox.Location = new System.Drawing.Point(6, 6);
             this.fatherNameBanglaTextBox.Name = "fatherNameBanglaTextBox";
-            this.fatherNameBanglaTextBox.Size = new System.Drawing.Size(285, 22);
+            this.fatherNameBanglaTextBox.Size = new System.Drawing.Size(252, 22);
             this.fatherNameBanglaTextBox.TabIndex = 0;
             // 
             // panel4
@@ -1487,7 +1487,7 @@ namespace dNothi.Desktop.UI.Profile
             this.fatherNameEngTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fatherNameEngTextBox.Location = new System.Drawing.Point(6, 6);
             this.fatherNameEngTextBox.Name = "fatherNameEngTextBox";
-            this.fatherNameEngTextBox.Size = new System.Drawing.Size(284, 22);
+            this.fatherNameEngTextBox.Size = new System.Drawing.Size(248, 22);
             this.fatherNameEngTextBox.TabIndex = 0;
             // 
             // panel3
@@ -1508,7 +1508,7 @@ namespace dNothi.Desktop.UI.Profile
             this.nameEngTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameEngTextBox.Location = new System.Drawing.Point(6, 6);
             this.nameEngTextBox.Name = "nameEngTextBox";
-            this.nameEngTextBox.Size = new System.Drawing.Size(284, 22);
+            this.nameEngTextBox.Size = new System.Drawing.Size(248, 22);
             this.nameEngTextBox.TabIndex = 0;
             // 
             // panel2
@@ -1529,7 +1529,7 @@ namespace dNothi.Desktop.UI.Profile
             this.nameBanglaTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBanglaTextBox.Location = new System.Drawing.Point(6, 6);
             this.nameBanglaTextBox.Name = "nameBanglaTextBox";
-            this.nameBanglaTextBox.Size = new System.Drawing.Size(285, 22);
+            this.nameBanglaTextBox.Size = new System.Drawing.Size(252, 22);
             this.nameBanglaTextBox.TabIndex = 0;
             // 
             // label3
@@ -1560,6 +1560,7 @@ namespace dNothi.Desktop.UI.Profile
             // 
             // infoChangeIconButton
             // 
+            this.infoChangeIconButton.AutoSize = true;
             this.infoChangeIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(84)))), ((int)(((byte)(230)))));
             this.infoChangeIconButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.infoChangeIconButton.FlatAppearance.BorderSize = 0;
@@ -1571,12 +1572,12 @@ namespace dNothi.Desktop.UI.Profile
             this.infoChangeIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.infoChangeIconButton.IconSize = 24;
             this.infoChangeIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.infoChangeIconButton.Location = new System.Drawing.Point(638, 0);
+            this.infoChangeIconButton.Location = new System.Drawing.Point(558, 0);
             this.infoChangeIconButton.Name = "infoChangeIconButton";
             this.infoChangeIconButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.infoChangeIconButton.Size = new System.Drawing.Size(142, 45);
+            this.infoChangeIconButton.Size = new System.Drawing.Size(222, 45);
             this.infoChangeIconButton.TabIndex = 7;
-            this.infoChangeIconButton.Text = " তথ্যাবলী";
+            this.infoChangeIconButton.Text = " তথ্যাবলী পরিবর্তন";
             this.infoChangeIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.infoChangeIconButton.UseVisualStyleBackColor = false;
             this.infoChangeIconButton.Click += new System.EventHandler(this.infoChangeIconButton_Click);
@@ -1934,6 +1935,7 @@ namespace dNothi.Desktop.UI.Profile
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

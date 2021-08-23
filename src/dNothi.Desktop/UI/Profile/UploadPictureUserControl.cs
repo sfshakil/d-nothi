@@ -22,6 +22,7 @@ namespace dNothi.Desktop.UI.Profile
 
         public Image Image;
         public Image _PictureBoxImage;
+        public string _PictureBoxImagePath;
         public void ChooseImage()
         {
             OpenFileDialog opnfd = new OpenFileDialog();
@@ -156,6 +157,8 @@ namespace dNothi.Desktop.UI.Profile
             Bitmap bm = new Bitmap(width, height);
             picturePanel.DrawToBitmap(bm, new Rectangle(0, 0, width, height));
             _PictureBoxImage = bm;
+
+            _PictureBoxImagePath = officerEditablePictureBox.ImageLocation;
            // Bitmap bmp = new Bitmap(officerEditablePictureBox.Image);
 
             //  int pX =-officerEditablePictureBox.Location.X;

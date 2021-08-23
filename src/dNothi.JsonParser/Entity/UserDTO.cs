@@ -15,6 +15,7 @@ namespace dNothi.JsonParser.Entity
         public int employee_record_id { get; set; }
         public string SignBase64 { get; set; }
         public string doptor_token { get; set; }
+        public string profile_photo { get; set; }
 
     
 

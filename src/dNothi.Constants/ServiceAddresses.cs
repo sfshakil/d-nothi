@@ -189,6 +189,8 @@ namespace dNothi.Constants
         public const string DoptorDomainAddress = "https://n-doptor-api-stage.nothi.gov.bd";
         public const string DoptorLoginEndPoint = "/api/client/login";
         public const string DoptorPasswordChangeEndPoint = "/api/user/password/update";
+        public const string DoptorPhotoChangeEndPoint = "/api/user/image/update";
+        public const string DoptorSignChangeEndPoint = "/api/user/signature/update";
 
 
 

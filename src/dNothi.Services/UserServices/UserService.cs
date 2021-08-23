@@ -220,6 +220,7 @@ namespace dNothi.Services.UserServices
             var user = mapper.Map<User>(userdto);
             user.userid = userdto.userid;
             user.SignBase64 = userdto.SignBase64;
+            user.profile_photo = userdto.profile_photo;
             var dbuser = _userrepository.Table.FirstOrDefault();
 
 
@@ -232,6 +233,7 @@ namespace dNothi.Services.UserServices
             {
                 dbuser.userid = user.userid;
                 dbuser.SignBase64 = userdto.SignBase64;
+                dbuser.profile_photo = userdto.profile_photo;
                 
                 _userrepository.Update(dbuser);
             }
@@ -397,6 +399,8 @@ namespace dNothi.Services.UserServices
                 dakListUserParam.office_label = officeInfo.office_name_bn;
                 dakListUserParam.unit_label = officeInfo.unit_name_bn;
                 dakListUserParam.SignBase64 = userDTO.SignBase64;
+                dakListUserParam.profile_photo = userDTO.profile_photo;
+
               //  dakListUserParam.office_id = officeInfo.office_id;
                 dakListUserParam.employee_record_id = officeInfo.employee_record_id;
 
