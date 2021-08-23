@@ -1,4 +1,5 @@
 ﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Desktop.UI.OtherModule.GuardFileUserControls;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.GuardFile;
@@ -30,6 +31,10 @@ namespace dNothi.Desktop.UI.Dak
             _guardFileService = guardFileService;
             InitializeComponent();
             guardFiletabControl.SelectedIndexChanged += new EventHandler(guardFiletabControl_SelectedIndexChanged);
+            loadRow();
+        }
+        private void portalCreate_SubmitButtonClick(object sender, EventArgs e)
+        {
             loadRow();
         }
         private void guardFiletabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -101,6 +106,8 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler GaurdFileAttachment;
         private void GaurdFileAdd_ButtonClick(GaurdFileRecord gaurdFileRecord, EventArgs e1)
         {
+          
+          
             if (this.GaurdFileAttachment != null)
                 this.GaurdFileAttachment(gaurdFileRecord, e1);
         }
@@ -217,7 +224,10 @@ namespace dNothi.Desktop.UI.Dak
                     gfp.subdomain= item.subdomain;
                     gfp.nameText = item.type;
                     gfp.categoryNameText = item.name;
-                   
+                    
+                    gfp.GaurdFileAddButton += delegate (object sender, EventArgs e) { guardFilePortalTableUserControl_AddButtonClick(sender, e, item.id); };
+
+
                     UIDesignCommonMethod.AddRowinTable(portalListTableLayoutPanel, gfp);
 
                 }
@@ -233,7 +243,14 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
+        private void guardFilePortalTableUserControl_AddButtonClick(object sender, EventArgs e,int id)
+        {
+            var portalCreate = FormFactory.Create<UCGuardFilePortalCreate>();
+            portalCreate.SubmitButtonClick += delegate (object sender1, EventArgs e1) { portalCreate_SubmitButtonClick(sender1, e1); };
 
+            
+            UIDesignCommonMethod.CalPopUpWindow(portalCreate, this.ParentForm);
+        }
         private void officeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
            

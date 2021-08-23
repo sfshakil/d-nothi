@@ -65,6 +65,7 @@ namespace dNothi.Desktop
             DialogResult result;
 
             var form = FormFactory.Create<Login>();
+            //var form = new Form1();
             form.ShowDialog();
             //using (var form = FormFactory.Create<Login>())
             //{
@@ -362,7 +363,13 @@ namespace dNothi.Desktop
             
             builder.RegisterType<GuardFileListRowUserControl>().AsSelf();
             builder.RegisterType<GaurdFilePortalListRow>().AsSelf();
+            builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFilePortalCreate>().AsSelf();
+            builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileReferenceNothi>().AsSelf();
             
+
+
+
+
             builder.RegisterType<PotrojariGroupContent>().AsSelf();
             builder.RegisterType<PatraJariGroupCreateUserControl>().AsSelf();
             builder.RegisterType<KhosraDakNoteDetailForm>().AsSelf();

@@ -693,6 +693,18 @@
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.Designer.cs">
       <DependentUpon>GaurdFilePortalListRow.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileReferenceNothi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileReferenceNothi.Designer.cs">
+      <DependentUpon>UCGuardFileReferenceNothi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFilePortalCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFilePortalCreate.Designer.cs">
+      <DependentUpon>UCGuardFilePortalCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Khosra Potro\KhosraDakNoteDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1628,6 +1640,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.resx">
       <DependentUpon>GaurdFilePortalListRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileReferenceNothi.resx">
+      <DependentUpon>UCGuardFileReferenceNothi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFilePortalCreate.resx">
+      <DependentUpon>UCGuardFilePortalCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraDakNoteDetailForm.resx">
       <DependentUpon>KhosraDakNoteDetailForm.cs</DependentUpon>

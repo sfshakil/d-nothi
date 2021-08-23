@@ -5792,6 +5792,8 @@ namespace dNothi.Desktop.UI
             HideAndShowData.folder = folderShowHideCheckBox.Checked;
             ChangeShowHideCheckBox();
         }
+
+       
     }
 
 

@@ -609,20 +609,20 @@ namespace dNothi.Desktop.UI
 
                                 if (namckeckbox)
                                 {
-                                    _designationId = item2.groupId;
+                                   
 
-                                    if (!_selectedOfficerDesignations.Contains(_designationId) && _designationId != 0)
+                                    if (!_selectedOfficerDesignations.Contains(item2.groupId) && item2.groupId != 0)
                                     {
                                         OfficerRowUserControl officerRowUserControl = new OfficerRowUserControl();
 
                                         officerRowUserControl.officerName = item2.groupName;
 
-                                        officerRowUserControl.designationId = _designationId;
+                                        officerRowUserControl.designationId = item2.groupId;
 
-                                        officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) { RemoveOfficerFromList(_designationId); };
+                                        officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) { RemoveOfficerFromList(item2.groupId); };
                                         officerRowUserControl.Width = officerListFlowLayoutPanel.Width - 50;
 
-                                        _selectedOfficerDesignations.Add(_designationId);
+                                        _selectedOfficerDesignations.Add(item2.groupId);
                                         UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officerRowUserControl);
                                     }
 

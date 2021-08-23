@@ -13,6 +13,7 @@ namespace dNothi.Services.GuardFile
     {
         ResponseData GetList(DakUserParam obj, int actionLink);
         ResponseEdit Insert(DakUserParam userParam, int actionLink, string model, InputParam data);
+        ResponseEdit Inserts(DakUserParam userParam, int actionLink, string model, InputParam data);
         DeleteResponse Delete(DakUserParam obj, int actionLink,int id,string model);
         GuardFileAttachment UploadedFile(DakUserParam dakListUserParam, DakFileUploadParam dakFileUploadParam, int actionLink);
 
