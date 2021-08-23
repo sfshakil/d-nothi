@@ -20,5 +20,9 @@ namespace dNothi.Core.Entities
 
         [MaxLength]
         public string doptor_token { get; set; }
+
+
+        [MaxLength]
+        public string profile_photo { get; set; }
     }
 }

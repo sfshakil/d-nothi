@@ -28,6 +28,7 @@ namespace dNothi.Services.DakServices
 
         public int employee_record_id { get; set; }
         public string SignBase64 { get; set; }
+        public string profile_photo { get; set; }
 
 
         public int designation_id { get; set; }
