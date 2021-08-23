@@ -64,11 +64,13 @@ namespace dNothi.Desktop.UI.Dak
             this.panel21 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.officeComboBox = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.searchBoxPanel = new System.Windows.Forms.Panel();
             this.gfpNameSearchTextBox = new PlaceholderTextBox.PlaceholderTextBox();
@@ -88,8 +90,6 @@ namespace dNothi.Desktop.UI.Dak
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnNothiGaurdFileListCross = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.panel22 = new System.Windows.Forms.Panel();
             this.panel12.SuspendLayout();
             this.guardFiletabControl.SuspendLayout();
             this.guardFileTabPage.SuspendLayout();
@@ -110,15 +110,15 @@ namespace dNothi.Desktop.UI.Dak
             this.panel20.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel16.SuspendLayout();
+            this.panel22.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.panel13.SuspendLayout();
             this.searchBoxPanel.SuspendLayout();
             this.panel14.SuspendLayout();
             this.bodyContentPanel.SuspendLayout();
             this.noDataPanel.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel19.SuspendLayout();
-            this.panel22.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel12
@@ -220,7 +220,7 @@ namespace dNothi.Desktop.UI.Dak
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.76923F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.23077F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 465F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 127F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134F));
             this.tableLayoutPanel1.Controls.Add(this.panel11, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel10, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 0);
@@ -238,7 +238,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.panel11.Controls.Add(this.label4);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(313, 0);
+            this.panel11.Location = new System.Drawing.Point(306, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(465, 46);
@@ -260,10 +260,10 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.panel10.Controls.Add(this.label5);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(778, 0);
+            this.panel10.Location = new System.Drawing.Point(771, 0);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(128, 46);
+            this.panel10.Size = new System.Drawing.Size(135, 46);
             this.panel10.TabIndex = 82;
             // 
             // label5
@@ -285,7 +285,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(96, 46);
+            this.panel9.Size = new System.Drawing.Size(94, 46);
             this.panel9.TabIndex = 81;
             // 
             // label2
@@ -304,10 +304,10 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.panel8.Controls.Add(this.label3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(96, 0);
+            this.panel8.Location = new System.Drawing.Point(94, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(217, 46);
+            this.panel8.Size = new System.Drawing.Size(212, 46);
             this.panel8.TabIndex = 80;
             // 
             // label3
@@ -584,18 +584,15 @@ namespace dNothi.Desktop.UI.Dak
             this.panel16.Size = new System.Drawing.Size(930, 71);
             this.panel16.TabIndex = 95;
             // 
-            // label6
+            // panel22
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label6.Location = new System.Drawing.Point(11, 2);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label6.Size = new System.Drawing.Size(75, 24);
-            this.label6.TabIndex = 93;
-            this.label6.Text = "অফিসের ধরন";
+            this.panel22.Controls.Add(this.categoryComboBox);
+            this.panel22.Location = new System.Drawing.Point(14, 32);
+            this.panel22.Margin = new System.Windows.Forms.Padding(0);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(647, 30);
+            this.panel22.TabIndex = 96;
+            this.panel22.Paint += new System.Windows.Forms.PaintEventHandler(this.panel22_Paint);
             // 
             // categoryComboBox
             // 
@@ -612,6 +609,19 @@ namespace dNothi.Desktop.UI.Dak
             this.categoryComboBox.TabIndex = 92;
             this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label6.Location = new System.Drawing.Point(11, 2);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label6.Size = new System.Drawing.Size(75, 24);
+            this.label6.TabIndex = 93;
+            this.label6.Text = "অফিসের ধরন";
+            // 
             // panel15
             // 
             this.panel15.Controls.Add(this.panel19);
@@ -621,18 +631,15 @@ namespace dNothi.Desktop.UI.Dak
             this.panel15.Size = new System.Drawing.Size(930, 69);
             this.panel15.TabIndex = 94;
             // 
-            // label7
+            // panel19
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label7.Location = new System.Drawing.Point(11, 2);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label7.Size = new System.Drawing.Size(38, 24);
-            this.label7.TabIndex = 94;
-            this.label7.Text = "অফিস";
+            this.panel19.Controls.Add(this.officeComboBox);
+            this.panel19.Location = new System.Drawing.Point(11, 31);
+            this.panel19.Margin = new System.Windows.Forms.Padding(0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(647, 30);
+            this.panel19.TabIndex = 95;
+            this.panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
             // 
             // officeComboBox
             // 
@@ -648,6 +655,19 @@ namespace dNothi.Desktop.UI.Dak
             this.officeComboBox.Size = new System.Drawing.Size(644, 26);
             this.officeComboBox.TabIndex = 93;
             this.officeComboBox.SelectedIndexChanged += new System.EventHandler(this.officeComboBox_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.label7.Location = new System.Drawing.Point(11, 2);
+            this.label7.Margin = new System.Windows.Forms.Padding(0);
+            this.label7.Name = "label7";
+            this.label7.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label7.Size = new System.Drawing.Size(38, 24);
+            this.label7.TabIndex = 94;
+            this.label7.Text = "অফিস";
             // 
             // panel13
             // 
@@ -908,26 +928,6 @@ namespace dNothi.Desktop.UI.Dak
             this.label1.TabIndex = 0;
             this.label1.Text = "গার্ড ফাইল";
             // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.officeComboBox);
-            this.panel19.Location = new System.Drawing.Point(11, 31);
-            this.panel19.Margin = new System.Windows.Forms.Padding(0);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(647, 30);
-            this.panel19.TabIndex = 95;
-            this.panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
-            // 
-            // panel22
-            // 
-            this.panel22.Controls.Add(this.categoryComboBox);
-            this.panel22.Location = new System.Drawing.Point(14, 32);
-            this.panel22.Margin = new System.Windows.Forms.Padding(0);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(647, 30);
-            this.panel22.TabIndex = 96;
-            this.panel22.Paint += new System.Windows.Forms.PaintEventHandler(this.panel22_Paint);
-            // 
             // NothiGaurdFileList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -969,8 +969,10 @@ namespace dNothi.Desktop.UI.Dak
             this.panel21.PerformLayout();
             this.panel16.ResumeLayout(false);
             this.panel16.PerformLayout();
+            this.panel22.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
+            this.panel19.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.searchBoxPanel.ResumeLayout(false);
@@ -982,8 +984,6 @@ namespace dNothi.Desktop.UI.Dak
             this.noDataPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel19.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

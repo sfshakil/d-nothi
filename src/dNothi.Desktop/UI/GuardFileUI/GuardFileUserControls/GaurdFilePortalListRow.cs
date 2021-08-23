@@ -50,16 +50,8 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler GaurdFileAddButton;
         private void btnGaurdFileAdd_Click(object sender, EventArgs e)
         {
-            GaurdFileRecord gaurdFileRecord = new GaurdFileRecord();
-            gaurdFileRecord.name_bng = _nameText;
-
-            GaurdFileAttachment gaurdFileAttachment = new GaurdFileAttachment();
-            gaurdFileAttachment.url = attachmentURL;
-
-            gaurdFileRecord.attachment = gaurdFileAttachment;
-
             if (this.GaurdFileAddButton != null)
-                this.GaurdFileAddButton(gaurdFileRecord, e);
+                this.GaurdFileAddButton(sender, e);
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -92,9 +84,11 @@ namespace dNothi.Desktop.UI.Dak
             // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+      
+
+        private void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
-            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+            UIDesignCommonMethod.Table_Cell_Color_Blue(sender, e);
         }
     }
 }

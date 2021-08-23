@@ -200,9 +200,10 @@ namespace dNothi.Desktop.UI.Dak
 
                         PotrojariUsersListRowUserControl pgc = new PotrojariUsersListRowUserControl();
                         pgc.id = item.id;
-                        pgc.groupId = item.group.id;
-                        pgc.groupName = item.group.group_name;
+                        pgc.groupId = id;
+                        pgc.groupName = _groupName;
                         pgc.UserName = item.officer;
+                        pgc.designationId = item.designation_id;
                         pgc.UserDesignation = item.designation + ", " + item.office + ", " + item.office_unit;
                         pgc.UserOfficeName = item.officer_email + ", " + item.officer_mobile;
 
