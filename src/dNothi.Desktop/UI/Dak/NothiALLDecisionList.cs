@@ -42,6 +42,8 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            txtSubject.Text = "";
+            cbxdecisions_employee.Checked = false;
             NewDecisionListAddPanel.Visible = false;
             btnSave.Visible = false;
             btnCancel.Visible = false;
@@ -82,12 +84,14 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void LoadNothiInboxinPanel(List<RecordsDTO> nothiDecisionLists, int startingSerialnumber)
         {
+            bibechhoPotroViewFLP.Controls.Clear();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             foreach (RecordsDTO nothiDecisionList in nothiDecisionLists)
             {
                 var nothiDecisionListRow = UserControlFactory.Create<NothiALLDecisionListRow>();
                 nothiDecisionListRow.decision = nothiDecisionList.decisions;
                 nothiDecisionListRow.serialNo = startingSerialnumber;
+                nothiDecisionListRow.NothiDecisionDeleteButton += delegate (object sender1, EventArgs e1) { NothiDecisionDelete_ButtonClick(nothiDecisionList, e1); };
                 nothiDecisionListRow.cbxDecisionList(nothiDecisionList.decisions_employee);
                 if (nothiDecisionList.officer_id != dakListUserParam.officer_id)
                 {
@@ -103,6 +107,7 @@ namespace dNothi.Desktop.UI.Dak
                 startingSerialnumber++;
             }
         }
+        
         private void btnNothiDecisionListCross_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -177,6 +182,61 @@ namespace dNothi.Desktop.UI.Dak
                     }
 
                 }
+            }
+        }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+            if (txtSubject.Text != "")
+            {
+                string decisions = txtSubject.Text;
+                int decisions_employee = 0;
+
+                if (cbxdecisions_employee.Checked == true)
+                {
+                    decisions_employee = 1;
+                }
+                else
+                {
+                    decisions_employee = 0;
+                }
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                var saveResponse = _nothiDecisionListService.GetNothiAddDecisionList(dakListUserParam, decisions, decisions_employee);
+                if (saveResponse.status == "success")
+                {
+                    SuccessMessage("নথি সিদ্ধান্ত সংরক্ষণ হয়েছে");
+                    btnCancel_Click(null, null);
+                    loadRow();
+                }
+            }
+            else
+            {
+                ErrorMessage("দুঃখিত! নথি সিদ্ধান্ত সংরক্ষন করা সম্ভব হচ্ছে না।");
+            }
+        }
+        private void NothiDecisionDelete_ButtonClick(RecordsDTO nothiDecisionList, EventArgs e)
+        {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            var saveResponse = _nothiDecisionListService.GetNothiDeleteDecisionList(dakListUserParam, nothiDecisionList.id);
+            if (saveResponse.status == "success")
+            {
+                SuccessMessage("নথি সিদ্ধান্ত মুছে ফেলা হয়েছে।");
+                loadRow();
+            }
+            else
+            {
+                ErrorMessage(saveResponse.status);
             }
         }
     }

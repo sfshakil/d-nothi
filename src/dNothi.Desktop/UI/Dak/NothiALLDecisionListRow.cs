@@ -56,6 +56,16 @@ namespace dNothi.Desktop.UI.Dak
                 cbxdecisions_employee.Checked = false;
             }
         }
-            
+        public event EventHandler NothiDecisionDeleteButton;
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (this.NothiDecisionDeleteButton != null)
+                this.NothiDecisionDeleteButton(sender, e);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

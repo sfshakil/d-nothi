@@ -169,6 +169,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnEdit.Size = new System.Drawing.Size(48, 43);
             this.btnEdit.TabIndex = 65;
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -186,6 +187,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnDelete.Size = new System.Drawing.Size(48, 43);
             this.btnDelete.TabIndex = 67;
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // NothiALLDecisionListRow
             // 

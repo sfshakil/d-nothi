@@ -46,7 +46,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel62 = new System.Windows.Forms.Panel();
             this.cbxdecisions_employee = new System.Windows.Forms.CheckBox();
             this.panel67 = new System.Windows.Forms.Panel();
-            this.txtSearchNoteSubject = new PlaceholderTextBox.PlaceholderTextBox();
+            this.txtSubject = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel61 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -297,7 +297,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // panel67
             // 
-            this.panel67.Controls.Add(this.txtSearchNoteSubject);
+            this.panel67.Controls.Add(this.txtSubject);
             this.panel67.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel67.Location = new System.Drawing.Point(20, 2);
             this.panel67.Margin = new System.Windows.Forms.Padding(0);
@@ -307,18 +307,18 @@ namespace dNothi.Desktop.UI.Dak
             this.panel67.TabIndex = 9;
             this.panel67.Paint += new System.Windows.Forms.PaintEventHandler(this.panel67_Paint);
             // 
-            // txtSearchNoteSubject
+            // txtSubject
             // 
-            this.txtSearchNoteSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.txtSearchNoteSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearchNoteSubject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSearchNoteSubject.Font = new System.Drawing.Font("SolaimanLipi", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchNoteSubject.Location = new System.Drawing.Point(10, 10);
-            this.txtSearchNoteSubject.Margin = new System.Windows.Forms.Padding(0);
-            this.txtSearchNoteSubject.Name = "txtSearchNoteSubject";
-            this.txtSearchNoteSubject.PlaceholderText = "নতুন নথি সিদ্ধান্ত";
-            this.txtSearchNoteSubject.Size = new System.Drawing.Size(1380, 24);
-            this.txtSearchNoteSubject.TabIndex = 74;
+            this.txtSubject.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.txtSubject.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSubject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSubject.Font = new System.Drawing.Font("SolaimanLipi", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubject.Location = new System.Drawing.Point(10, 10);
+            this.txtSubject.Margin = new System.Windows.Forms.Padding(0);
+            this.txtSubject.Name = "txtSubject";
+            this.txtSubject.PlaceholderText = "নতুন নথি সিদ্ধান্ত";
+            this.txtSubject.Size = new System.Drawing.Size(1380, 24);
+            this.txtSubject.TabIndex = 74;
             // 
             // panel61
             // 
@@ -535,6 +535,7 @@ namespace dNothi.Desktop.UI.Dak
             this.btnSave.Text = "সংরক্ষণ করুন";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Visible = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -671,7 +672,7 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel62;
         private System.Windows.Forms.Panel panel67;
-        private PlaceholderTextBox.PlaceholderTextBox txtSearchNoteSubject;
+        private PlaceholderTextBox.PlaceholderTextBox txtSubject;
         private System.Windows.Forms.Panel panel61;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckBox cbxdecisions_employee;

@@ -63,6 +63,15 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiALLDecisionListEndpoint;
         }
+        protected string GetNothiDeleteDecisionListEndpoint()
+        {
+            return DefaultAPIConfiguration.NothiDeleteDecisionListEndpoint;
+        }
+        protected string GetNothiAddDecisionListEndpoint()
+        {
+            return DefaultAPIConfiguration.NothiAddDecisionListEndpoint;
+        }
+
         protected string GetNothiGaurdFileListEndpoint()
         {
             return DefaultAPIConfiguration.NothiGaurdFileListEndpoint;
@@ -202,6 +211,53 @@ namespace dNothi.Services.NothiServices
 
                 var responseJson = response.Content;
                 NothiDecisionListResponse nothiDecisionListResponse = JsonConvert.DeserializeObject<NothiDecisionListResponse>(responseJson);
+                return nothiDecisionListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiDecisionListAddResponse GetNothiAddDecisionList(DakUserParam dakUserParam, string decision, long decisions_employee)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiAddDecisionListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("decisions", decision);
+                request.AddParameter("decisions_employee", decisions_employee);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiDecisionListAddResponse nothiDecisionListResponse = JsonConvert.DeserializeObject<NothiDecisionListAddResponse>(responseJson);
+                return nothiDecisionListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiDecisionListDeleteResponse GetNothiDeleteDecisionList(DakUserParam dakUserParam, long nothi_decision_id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiDeleteDecisionListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("nothi_decision_id", nothi_decision_id);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiDecisionListDeleteResponse nothiDecisionListResponse = JsonConvert.DeserializeObject<NothiDecisionListDeleteResponse>(responseJson);
                 return nothiDecisionListResponse;
             }
             catch (Exception ex)

@@ -19,7 +19,12 @@ namespace dNothi.JsonParser.Entity.Nothi
         [JsonProperty("options")]
         public object[] Options { get; set; }
     }
-
+    public class NothiDecisionListAddResponse
+    {
+        public string status { get; set; }
+        public string data { get; set; }
+        public List<object> options { get; set; }
+    }
     public class DataDTO
     {
         public List<RecordsDTO> records { get; set; }
@@ -276,6 +281,17 @@ namespace dNothi.JsonParser.Entity.Nothi
         public List<object> options { get; set; }
     }
 
+    public class NothiDecisionListDeleteData
+    {
+        public string status { get; set; }
+        public string data { get; set; }
+    }
 
+    public class NothiDecisionListDeleteResponse
+    {
+        public string status { get; set; }
+        public NothiDecisionListDeleteData data { get; set; }
+        public List<object> options { get; set; }
+    }
 
 }
