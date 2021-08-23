@@ -49,8 +49,9 @@ namespace dNothi.Services.ProfileChangeService
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("api-version", "1");
+                request.AddHeader("Content-Type", "multipart/form-data");
                 request.AddHeader("Authorization", "Bearer " + dakUserParam.doptor_token);
-                request.AlwaysMultipartFormData = true;
+               // request.AlwaysMultipartFormData = true;
                 request.AddParameter("username", dakUserParam.loginId);
                 request.AddFile("image",image);
                 IRestResponse response = client.Execute(request);

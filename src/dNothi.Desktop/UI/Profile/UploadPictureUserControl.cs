@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,20 +22,23 @@ namespace dNothi.Desktop.UI.Profile
         }
 
         public Image Image;
+        public string Extension;
         public Image _PictureBoxImage;
         public string _PictureBoxImagePath;
-        public void ChooseImage()
+        public bool ChooseImage()
         {
             OpenFileDialog opnfd = new OpenFileDialog();
-            opnfd.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            opnfd.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.png; *.jpeg; *.bmp";
 
             if (opnfd.ShowDialog() == DialogResult.OK)
             {
 
                 
                 officerEditablePictureBox.Image = Image = new Bitmap(new Bitmap(opnfd.FileName), 235, 235);
-
+                Extension= Path.GetExtension(opnfd.FileName).ToLower();
+                return true;
             }
+            return false;
         }
 
        
@@ -158,8 +162,26 @@ namespace dNothi.Desktop.UI.Profile
             picturePanel.DrawToBitmap(bm, new Rectangle(0, 0, width, height));
             _PictureBoxImage = bm;
 
-            _PictureBoxImagePath = officerEditablePictureBox.ImageLocation;
-           // Bitmap bmp = new Bitmap(officerEditablePictureBox.Image);
+         
+
+
+            
+            if (Extension == ".jpg" || Extension == ".jpeg" || Extension == ".png")
+            {
+             string  UploadFileName = "orig_" + Guid.NewGuid().ToString() + Extension.ToUpper();
+                _PictureBoxImagePath = Directory.GetCurrentDirectory()+"\\"+ UploadFileName;
+                try
+                {
+                    bm.Save(_PictureBoxImagePath);
+                }
+                catch(Exception E)
+                {
+
+                }
+                
+            }
+
+            // Bitmap bmp = new Bitmap(officerEditablePictureBox.Image);
 
             //  int pX =-officerEditablePictureBox.Location.X;
             //  int pY =-officerEditablePictureBox.Location.Y;
