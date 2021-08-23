@@ -1,4 +1,5 @@
-﻿using dNothi.JsonParser.Entity;
+﻿using dNothi.Desktop.UI.Profile;
+using dNothi.JsonParser.Entity;
 using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
 using System;
@@ -121,6 +122,19 @@ namespace dNothi.Desktop.UI.Dak
         private void label10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void profileUpdateButton_Click(object sender, EventArgs e)
+        {
+            var form = FormFactory.Create<ProfileManagementForm>();
+
+            Screen scr = Screen.FromPoint(this.Location);
+
+            form.Height = scr.WorkingArea.Height - 40;
+            form.Width = scr.WorkingArea.Width - 40;
+
+            
+            UIDesignCommonMethod.CalPopUpWindow(form, this);
         }
     }
 }
