@@ -219,7 +219,7 @@ namespace dNothi.Services.NothiServices
             }
         }
 
-        public NothiDecisionListAddResponse GetNothiAddDecisionList(DakUserParam dakUserParam, string decision, long decisions_employee)
+        public NothiDecisionListAddResponse GetNothiAddDecisionList(DakUserParam dakUserParam, string decision, long decisions_employee, long id)
         {
             try
             {
@@ -231,6 +231,10 @@ namespace dNothi.Services.NothiServices
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("decisions", decision);
                 request.AddParameter("decisions_employee", decisions_employee);
+                if (id != 0 )
+                {
+                    request.AddParameter("id", id);
+                }
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;

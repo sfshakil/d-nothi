@@ -12,7 +12,7 @@ namespace dNothi.Services.NothiServices
     {
         NothiDecisionListResponse GetNothiDecisionList(DakUserParam dakUserParam);
         NothiDecisionListResponse GetNothiALLDecisionList(DakUserParam dakUserParam);
-        NothiDecisionListAddResponse GetNothiAddDecisionList(DakUserParam dakUserParam, string decision, long decisions_employee );
+        NothiDecisionListAddResponse GetNothiAddDecisionList(DakUserParam dakUserParam, string decision, long decisions_employee, long id);
         NothiDecisionListDeleteResponse GetNothiDeleteDecisionList(DakUserParam dakUserParam, long nothi_decision_id);
         NothiGaurdFileListResponse GetNothiGaurdFileList(DakUserParam dakUserParam);
         NothiBibechhoPotroResponse GetNothiBibechhoPotroList(DakUserParam dakUserParam, string nothi_id);
