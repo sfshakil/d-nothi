@@ -116,6 +116,9 @@ namespace dNothi.Constants
         public const string NothiNoteOnucchedListEndPoint = "/api/nothi/note/onucched/list";
         public const string NothiNoteOnucchedRevertEndPoint = "/api/nothi/note/onucched/revert";
         public const string NothiDecisionListEndpoint = "/api/nothi/decision/list";
+        public const string NothiALLDecisionListEndpoint = "/api/nothi/decision/list/all";
+        public const string NothiAddDecisionListEndpoint = "/api/nothi/decision/add";
+        public const string NothiDeleteDecisionListEndpoint = "/api/nothi/decision/delete";
         public const string NothiGaurdFileListEndpoint = "/api/nothi/guardfile/list";
         public const string NothiBibechhoPotroListEndpoint = "/api/nothi_all_potro_list";
         public const string NothiOnuchhedListEndpoint = "/api/nothi/onucched/list";
@@ -189,6 +192,8 @@ namespace dNothi.Constants
         public const string DoptorDomainAddress = "https://n-doptor-api-stage.nothi.gov.bd";
         public const string DoptorLoginEndPoint = "/api/client/login";
         public const string DoptorPasswordChangeEndPoint = "/api/user/password/update";
+        public const string DoptorPhotoChangeEndPoint = "/api/user/image/update";
+        public const string DoptorSignChangeEndPoint = "/api/user/signature/update";
 
 
 

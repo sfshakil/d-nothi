@@ -334,6 +334,8 @@ namespace dNothi.Desktop
             builder.RegisterType<CreateNewNothiType>().AsSelf();
             builder.RegisterType<NothiDecisionListRow>().AsSelf();
             builder.RegisterType<NothiDecisionList>().AsSelf();
+            builder.RegisterType<NothiALLDecisionList>().AsSelf();
+            builder.RegisterType<NothiALLDecisionListRow>().AsSelf();
             builder.RegisterType<NothiGaurdFileListRow>().AsSelf();
             builder.RegisterType<NothiGaurdFileList>().AsSelf();
             builder.RegisterType<NothiBibechhoPotroList>().AsSelf();

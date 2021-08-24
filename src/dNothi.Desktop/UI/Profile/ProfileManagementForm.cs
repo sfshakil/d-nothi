@@ -137,21 +137,32 @@ namespace dNothi.Desktop.UI.Profile
         {
             _dakUserParam = _userService.GetLocalDakUserParam();
 
-            //var profileImage = UIDesignCommonMethod.GetImageFromBase64(_dakUserParam.);
-            //if (profileImage != null)
-            //{
-
-            //    signatureIconPictureBox.Image = profileImage;
-
-            //}
+            
 
             officerNameLabel.Text = _dakUserParam.officer_name;
             officerDesignationLabel.Text = _dakUserParam.designation_label + "," + _dakUserParam.unit_label + "," + _dakUserParam.office_label;
            
             officerEmailLabel.Text = _dakUserParam.officer_email;
             officerMobileLabel.Text = _dakUserParam.officer_mobile;
-            officerUserIdLabel.Text = _dakUserParam.user_id.ToString();
+            officerUserIdLabel.Text = _dakUserParam.loginId.ToString();
+
+            var signImage = UIDesignCommonMethod.GetImageFromBase64(_dakUserParam.SignBase64);
+            if (signImage != null)
+            {
+
+                signatureEditablePictureBox.Image = signImage;
+
+            }
+            var profileImage = UIDesignCommonMethod.GetImageFromBase64(_dakUserParam.profile_photo);
+            if (profileImage != null)
+            {
+
+                officerPictureBox.Image = profileImage;
+                officerEditablePictureBox.Image = profileImage;
+
+            }
         }
+
 
         private void closeButton_Click(object sender, EventArgs e)
         {
@@ -172,24 +183,43 @@ namespace dNothi.Desktop.UI.Profile
         private void choosePicButton_Click(object sender, EventArgs e)
         {
             UploadPictureUserControl uploadPictureUserControl = new UploadPictureUserControl();
-            uploadPictureUserControl.ChooseImage();
-            uploadPictureUserControl.SaveImageButton += delegate (object sr, EventArgs ev) { SaveProfileImage(sr, ev, uploadPictureUserControl._PictureBoxImage); };
+            if (uploadPictureUserControl.ChooseImage())
+            {
+                uploadPictureUserControl.SaveImageButton += delegate (object sr, EventArgs ev) { SaveProfileImage(sr, ev, uploadPictureUserControl._PictureBoxImage, uploadPictureUserControl._PictureBoxImagePath); };
 
-            UIDesignCommonMethod.CalPopUpWindow(uploadPictureUserControl, this);
+                UIDesignCommonMethod.CalPopUpWindow(uploadPictureUserControl, this);
+            }
+           
         }
 
-        private void SaveProfileImage(object sr, EventArgs ev, Image pictureBoxImage)
+        private void SaveProfileImage(object sr, EventArgs ev, Image pictureBoxImage, string _PictureBoxImagePath)
         {
-            officerEditablePictureBox.Image = pictureBoxImage;
+
+           
+            PasswordChangeResponse passwordChangeResponse = _profileManagementServices.GetPhotoChangeResponse(_dakUserParam, _PictureBoxImagePath);
+            if (passwordChangeResponse.status == "success")
+            {
+                UIDesignCommonMethod.SuccessMessage(passwordChangeResponse.data);
+                officerEditablePictureBox.Image = pictureBoxImage;
+            }
+            else
+            {
+                UIDesignCommonMethod.ErrorMessage(passwordChangeResponse.message);
+            }
+
+           
         }
 
         private void signChangeButton_Click(object sender, EventArgs e)
         {
             UploadPictureUserControl uploadPictureUserControl = new UploadPictureUserControl();
-            uploadPictureUserControl.ChooseImage();
-            uploadPictureUserControl.SaveImageButton += delegate (object sr, EventArgs ev) { SaveSignatureImage(sr, ev, uploadPictureUserControl._PictureBoxImage); };
+            if(uploadPictureUserControl.ChooseImage())
+            {
+                uploadPictureUserControl.SaveImageButton += delegate (object sr, EventArgs ev) { SaveSignatureImage(sr, ev, uploadPictureUserControl._PictureBoxImage); };
 
-            UIDesignCommonMethod.CalPopUpWindow(uploadPictureUserControl, this);
+                UIDesignCommonMethod.CalPopUpWindow(uploadPictureUserControl, this);
+            }
+            
         }
 
         private void SaveSignatureImage(object sr, EventArgs ev, Image pictureBoxImage)
@@ -269,7 +299,7 @@ namespace dNothi.Desktop.UI.Profile
                 }
                 else
                 {
-                    UIDesignCommonMethod.SuccessMessage(passwordChangeResponse.message);
+                    UIDesignCommonMethod.ErrorMessage(passwordChangeResponse.message);
                 }
             }
             else
