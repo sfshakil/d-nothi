@@ -146,21 +146,14 @@ namespace dNothi.Desktop.UI.Profile
             officerMobileLabel.Text = _dakUserParam.officer_mobile;
             officerUserIdLabel.Text = _dakUserParam.loginId.ToString();
 
-            DoptorImageResponse imageResponse = _profileManagementServices.GetImage(_dakUserParam);
+            ProfilePicLoad();
+            SignatureLoad();
+        }
 
-           
-            if (string.IsNullOrEmpty(imageResponse.status) && imageResponse.data!=null && imageResponse.data.Count>0)
-            {
-                var profileImage = UIDesignCommonMethod.GetImageFromBase64(imageResponse.data[0].image);
-                officerPictureBox.Image = profileImage;
-                officerEditablePictureBox.Image = profileImage;
-
-
-               
-
-            }
-            DoptorImageResponse signResponse = _profileManagementServices.GetImage(_dakUserParam);
-            if (string.IsNullOrEmpty(signResponse.status) && signResponse.data != null && signResponse.data.Count > 0)
+        private void SignatureLoad()
+        {
+            DoptorImageResponse signResponse = _profileManagementServices.GetSignature(_dakUserParam);
+            if (!string.IsNullOrEmpty(signResponse.status) && signResponse.data != null && signResponse.data.Count > 0)
             {
 
                 var signImage = UIDesignCommonMethod.GetImageFromBase64(signResponse.data[0].signature);
@@ -168,6 +161,22 @@ namespace dNothi.Desktop.UI.Profile
             }
         }
 
+        private void ProfilePicLoad()
+        {
+            DoptorImageResponse imageResponse = _profileManagementServices.GetImage(_dakUserParam);
+
+
+            if (!string.IsNullOrEmpty(imageResponse.status) && imageResponse.data != null && imageResponse.data.Count > 0)
+            {
+                var profileImage = UIDesignCommonMethod.GetImageFromBase64(imageResponse.data[0].image);
+                officerPictureBox.Image = profileImage;
+                officerEditablePictureBox.Image = profileImage;
+
+
+
+
+            }
+        }
 
         private void closeButton_Click(object sender, EventArgs e)
         {
@@ -205,12 +214,7 @@ namespace dNothi.Desktop.UI.Profile
             if (passwordChangeResponse.status == "success")
             {
                 UIDesignCommonMethod.SuccessMessage(passwordChangeResponse.data);
-                officerEditablePictureBox.Image = pictureBoxImage;
-                officerPictureBox.Image = pictureBoxImage;
-
-
-                UserDTO userDTO = new UserDTO();
-                userDTO.doptor_token = _dakUserParam.doptor_token;
+                ProfilePicLoad();
 
                 
             }
@@ -230,6 +234,7 @@ namespace dNothi.Desktop.UI.Profile
                 uploadPictureUserControl.SaveImageButton += delegate (object sr, EventArgs ev) { SaveSignatureImage(sr, ev, uploadPictureUserControl._PictureBoxImage,uploadPictureUserControl._imagePath); };
 
                 UIDesignCommonMethod.CalPopUpWindow(uploadPictureUserControl, this);
+                SignatureLoad();
             }
             
         }
@@ -240,11 +245,7 @@ namespace dNothi.Desktop.UI.Profile
             if (passwordChangeResponse.status == "success")
             {
                 UIDesignCommonMethod.SuccessMessage(passwordChangeResponse.data);
-                signatureEditablePictureBox.Image = pictureBoxImage;
-
-
-                UserDTO userDTO = new UserDTO();
-                userDTO.doptor_token = _dakUserParam.doptor_token;
+                SignatureLoad();
 
 
             }

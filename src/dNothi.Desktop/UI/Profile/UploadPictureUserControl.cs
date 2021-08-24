@@ -167,17 +167,17 @@ namespace dNothi.Desktop.UI.Profile
 
             Bitmap bm = new Bitmap(width, height);
             picturePanel.DrawToBitmap(bm, new Rectangle(0, 0, width, height));
-          
-
-         
+           _PictureBoxImage = (Image)bm;
 
 
-            
-            
-             _imagePath = "data:image/"+Extension+";base64," +UIDesignCommonMethod.ImageToBase64(bm, _imageFormat);
 
 
-            _PictureBoxImage = bm;
+
+
+            _imagePath = "data:image/"+Extension+";base64," +UIDesignCommonMethod.ImageToBase64(bm, _imageFormat);
+
+
+           
 
                  this.Hide();
 
