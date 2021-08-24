@@ -114,6 +114,7 @@
     <Compile Include="AccountServices\TokenService.cs" />
     <Compile Include="BasicService\IBasicService.cs" />
     <Compile Include="BasicService\BasicService.cs" />
+    <Compile Include="BasicService\Models\dakTrakingModel.cs" />
     <Compile Include="BasicService\Models\OfficeUnit.cs" />
     <Compile Include="CommonSetting.cs" />
     <Compile Include="DakServices\DakAttachmentListinGrid.cs" />

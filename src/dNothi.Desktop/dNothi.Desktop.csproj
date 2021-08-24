@@ -663,6 +663,12 @@
     <Compile Include="UI\Dak\ProtibedonUserControl.Designer.cs">
       <DependentUpon>ProtibedonUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\AllDakTrakingUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\AllDakTrakingUserControl.Designer.cs">
+      <DependentUpon>AllDakTrakingUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\RegisterReportUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1640,6 +1646,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\ProtibedonUserControl.resx">
       <DependentUpon>ProtibedonUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\AllDakTrakingUserControl.resx">
+      <DependentUpon>AllDakTrakingUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\RegisterReportUserControl.resx">
       <DependentUpon>RegisterReportUserControl.cs</DependentUpon>

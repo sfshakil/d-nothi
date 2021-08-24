@@ -48,6 +48,7 @@ namespace dNothi.Desktop.UI
 
         public WaitFormFunc WaitForm;
         ModalMenuUserControl uc = null;
+        UI.NothiUI.RegisterReportUserControl nothiRegisterBook = null;
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices,
             INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave,
             INothiCreateService nothiCreateServices, IRepository<NothiCreateItemAction> nothiCreateItemAction,
@@ -2579,18 +2580,45 @@ namespace dNothi.Desktop.UI
                 registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
             }
         }
-        UI.NothiUI.RegisterReportUserControl nothiRegisterBook = UserControlFactory.Create<UI.NothiUI.RegisterReportUserControl>();
+        
         private void registerDiaryButton_Click(object sender, EventArgs e)
+        {
+            nothiRegisterBook= UserControlFactory.Create<UI.NothiUI.RegisterReportUserControl>();
+            panel3.Visible = false;
+            detailsNothiSearcPanel.Visible = false;
+            nothiSearchHeadingPanel.Visible = false;
+            nothiRegisterBook.Visible = true;
+            nothiRegisterBook.Dock = DockStyle.Fill;
+            nothiRegisterBook.isNothiRegister = true;
+            pnlNothiBody.Controls.Add(nothiRegisterBook);
+            pnlNothiBody.BringToFront();
+           
+            //nothiRegisterBook.Show();
+        }
+        private void registerGrohonButton_Click(object sender, EventArgs e)
+        {
+            
+            nothiRegisterBook=UserControlFactory.Create<UI.NothiUI.RegisterReportUserControl>();
+            panel3.Visible = false;
+            detailsNothiSearcPanel.Visible = false;
+            nothiSearchHeadingPanel.Visible = false;
+            nothiRegisterBook.Visible = true;
+            nothiRegisterBook.Dock = DockStyle.Fill;
+            nothiRegisterBook.isNothiPerito = true;
+            pnlNothiBody.Controls.Add(nothiRegisterBook);
+            pnlNothiBody.BringToFront();
+        }
+
+        private void registerBiliButton_Click(object sender, EventArgs e)
         {
             panel3.Visible = false;
             detailsNothiSearcPanel.Visible = false;
             nothiSearchHeadingPanel.Visible = false;
             nothiRegisterBook.Visible = true;
             nothiRegisterBook.Dock = DockStyle.Fill;
+            nothiRegisterBook.isNothiGrahon = true;
             pnlNothiBody.Controls.Add(nothiRegisterBook);
             pnlNothiBody.BringToFront();
-           
-            //nothiRegisterBook.Show();
         }
 
         private void registerMenuArrow_Click(object sender, EventArgs e)

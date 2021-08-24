@@ -299,8 +299,8 @@ namespace dNothi.Desktop.UI.Profile
             // 
             this.nameAndImageTableLayoutPanel.AutoSize = true;
             this.nameAndImageTableLayoutPanel.ColumnCount = 2;
-            this.nameAndImageTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.55172F));
-            this.nameAndImageTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.44828F));
+            this.nameAndImageTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.10345F));
+            this.nameAndImageTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 56.89655F));
             this.nameAndImageTableLayoutPanel.Controls.Add(this.officerPictureBox, 0, 0);
             this.nameAndImageTableLayoutPanel.Controls.Add(this.officerNameTableLayoutPanel, 1, 0);
             this.nameAndImageTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -309,16 +309,17 @@ namespace dNothi.Desktop.UI.Profile
             this.nameAndImageTableLayoutPanel.Name = "nameAndImageTableLayoutPanel";
             this.nameAndImageTableLayoutPanel.RowCount = 1;
             this.nameAndImageTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.nameAndImageTableLayoutPanel.Size = new System.Drawing.Size(290, 106);
+            this.nameAndImageTableLayoutPanel.Size = new System.Drawing.Size(290, 134);
             this.nameAndImageTableLayoutPanel.TabIndex = 0;
             // 
             // officerPictureBox
             // 
             this.officerPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.officerPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("officerPictureBox.Image")));
-            this.officerPictureBox.Location = new System.Drawing.Point(8, 3);
+            this.officerPictureBox.Location = new System.Drawing.Point(10, 3);
+            this.officerPictureBox.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
             this.officerPictureBox.Name = "officerPictureBox";
-            this.officerPictureBox.Size = new System.Drawing.Size(88, 100);
+            this.officerPictureBox.Size = new System.Drawing.Size(111, 128);
             this.officerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.officerPictureBox.TabIndex = 0;
             this.officerPictureBox.TabStop = false;
@@ -331,13 +332,13 @@ namespace dNothi.Desktop.UI.Profile
             this.officerNameTableLayoutPanel.Controls.Add(this.officerDesignationLabel, 0, 1);
             this.officerNameTableLayoutPanel.Controls.Add(this.officerNameLabel, 0, 0);
             this.officerNameTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.officerNameTableLayoutPanel.Location = new System.Drawing.Point(110, 0);
-            this.officerNameTableLayoutPanel.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.officerNameTableLayoutPanel.Location = new System.Drawing.Point(124, 0);
+            this.officerNameTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.officerNameTableLayoutPanel.Name = "officerNameTableLayoutPanel";
             this.officerNameTableLayoutPanel.RowCount = 2;
             this.officerNameTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.officerNameTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.officerNameTableLayoutPanel.Size = new System.Drawing.Size(180, 93);
+            this.officerNameTableLayoutPanel.Size = new System.Drawing.Size(166, 93);
             this.officerNameTableLayoutPanel.TabIndex = 1;
             // 
             // officerDesignationLabel
@@ -348,7 +349,7 @@ namespace dNothi.Desktop.UI.Profile
             this.officerDesignationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(108)))), ((int)(((byte)(154)))));
             this.officerDesignationLabel.Location = new System.Drawing.Point(3, 30);
             this.officerDesignationLabel.Name = "officerDesignationLabel";
-            this.officerDesignationLabel.Size = new System.Drawing.Size(174, 63);
+            this.officerDesignationLabel.Size = new System.Drawing.Size(160, 63);
             this.officerDesignationLabel.TabIndex = 0;
             this.officerDesignationLabel.Text = "সফটওয়্যার ইঞ্জিনিয়ার এসপায়ার টু ইনোভেট (এটু্আই) প্রোগ্রাম \r\n";
             // 
@@ -372,12 +373,13 @@ namespace dNothi.Desktop.UI.Profile
             this.officeremailTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.89147F));
             this.officeremailTableLayoutPanel.Controls.Add(this.officerEmailLabel, 0, 0);
             this.officeremailTableLayoutPanel.Controls.Add(this.label2, 0, 0);
-            this.officeremailTableLayoutPanel.Location = new System.Drawing.Point(0, 106);
-            this.officeremailTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.officeremailTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.officeremailTableLayoutPanel.Location = new System.Drawing.Point(10, 134);
+            this.officeremailTableLayoutPanel.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.officeremailTableLayoutPanel.Name = "officeremailTableLayoutPanel";
             this.officeremailTableLayoutPanel.RowCount = 1;
             this.officeremailTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.officeremailTableLayoutPanel.Size = new System.Drawing.Size(258, 30);
+            this.officeremailTableLayoutPanel.Size = new System.Drawing.Size(280, 30);
             this.officeremailTableLayoutPanel.TabIndex = 2;
             // 
             // officerEmailLabel
@@ -386,7 +388,7 @@ namespace dNothi.Desktop.UI.Profile
             this.officerEmailLabel.AutoSize = true;
             this.officerEmailLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.officerEmailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.officerEmailLabel.Location = new System.Drawing.Point(109, 5);
+            this.officerEmailLabel.Location = new System.Drawing.Point(131, 5);
             this.officerEmailLabel.Name = "officerEmailLabel";
             this.officerEmailLabel.Size = new System.Drawing.Size(146, 19);
             this.officerEmailLabel.TabIndex = 3;
@@ -413,12 +415,13 @@ namespace dNothi.Desktop.UI.Profile
             this.officerPhoneTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.75862F));
             this.officerPhoneTableLayoutPanel.Controls.Add(this.officerMobileLabel, 0, 0);
             this.officerPhoneTableLayoutPanel.Controls.Add(this.label4, 0, 0);
-            this.officerPhoneTableLayoutPanel.Location = new System.Drawing.Point(0, 136);
-            this.officerPhoneTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.officerPhoneTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.officerPhoneTableLayoutPanel.Location = new System.Drawing.Point(10, 164);
+            this.officerPhoneTableLayoutPanel.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.officerPhoneTableLayoutPanel.Name = "officerPhoneTableLayoutPanel";
             this.officerPhoneTableLayoutPanel.RowCount = 1;
             this.officerPhoneTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.officerPhoneTableLayoutPanel.Size = new System.Drawing.Size(258, 30);
+            this.officerPhoneTableLayoutPanel.Size = new System.Drawing.Size(280, 30);
             this.officerPhoneTableLayoutPanel.TabIndex = 3;
             // 
             // officerMobileLabel
@@ -427,7 +430,7 @@ namespace dNothi.Desktop.UI.Profile
             this.officerMobileLabel.AutoSize = true;
             this.officerMobileLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.officerMobileLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.officerMobileLabel.Location = new System.Drawing.Point(158, 5);
+            this.officerMobileLabel.Location = new System.Drawing.Point(180, 5);
             this.officerMobileLabel.Name = "officerMobileLabel";
             this.officerMobileLabel.Size = new System.Drawing.Size(97, 19);
             this.officerMobileLabel.TabIndex = 3;
@@ -454,12 +457,13 @@ namespace dNothi.Desktop.UI.Profile
             this.officeUserIdTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.10078F));
             this.officeUserIdTableLayoutPanel.Controls.Add(this.officerUserIdLabel, 0, 0);
             this.officeUserIdTableLayoutPanel.Controls.Add(this.label6, 0, 0);
-            this.officeUserIdTableLayoutPanel.Location = new System.Drawing.Point(0, 166);
-            this.officeUserIdTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.officeUserIdTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.officeUserIdTableLayoutPanel.Location = new System.Drawing.Point(10, 194);
+            this.officeUserIdTableLayoutPanel.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.officeUserIdTableLayoutPanel.Name = "officeUserIdTableLayoutPanel";
             this.officeUserIdTableLayoutPanel.RowCount = 1;
             this.officeUserIdTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.officeUserIdTableLayoutPanel.Size = new System.Drawing.Size(258, 30);
+            this.officeUserIdTableLayoutPanel.Size = new System.Drawing.Size(280, 30);
             this.officeUserIdTableLayoutPanel.TabIndex = 4;
             // 
             // officerUserIdLabel
@@ -468,7 +472,7 @@ namespace dNothi.Desktop.UI.Profile
             this.officerUserIdLabel.AutoSize = true;
             this.officerUserIdLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.officerUserIdLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(108)))), ((int)(((byte)(108)))));
-            this.officerUserIdLabel.Location = new System.Drawing.Point(150, 5);
+            this.officerUserIdLabel.Location = new System.Drawing.Point(172, 5);
             this.officerUserIdLabel.Name = "officerUserIdLabel";
             this.officerUserIdLabel.Size = new System.Drawing.Size(105, 19);
             this.officerUserIdLabel.TabIndex = 3;
@@ -500,7 +504,7 @@ namespace dNothi.Desktop.UI.Profile
             this.informationIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.informationIconButton.IconSize = 24;
             this.informationIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.informationIconButton.Location = new System.Drawing.Point(20, 239);
+            this.informationIconButton.Location = new System.Drawing.Point(20, 267);
             this.informationIconButton.Name = "informationIconButton";
             this.informationIconButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.informationIconButton.Size = new System.Drawing.Size(249, 39);
@@ -522,7 +526,7 @@ namespace dNothi.Desktop.UI.Profile
             this.passwordIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.passwordIconButton.IconSize = 24;
             this.passwordIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.passwordIconButton.Location = new System.Drawing.Point(20, 284);
+            this.passwordIconButton.Location = new System.Drawing.Point(20, 312);
             this.passwordIconButton.Name = "passwordIconButton";
             this.passwordIconButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.passwordIconButton.Size = new System.Drawing.Size(249, 39);
@@ -544,7 +548,7 @@ namespace dNothi.Desktop.UI.Profile
             this.profilePicIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.profilePicIconButton.IconSize = 24;
             this.profilePicIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.profilePicIconButton.Location = new System.Drawing.Point(20, 329);
+            this.profilePicIconButton.Location = new System.Drawing.Point(20, 357);
             this.profilePicIconButton.Name = "profilePicIconButton";
             this.profilePicIconButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.profilePicIconButton.Size = new System.Drawing.Size(249, 39);
@@ -566,7 +570,7 @@ namespace dNothi.Desktop.UI.Profile
             this.signIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.signIconButton.IconSize = 24;
             this.signIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.signIconButton.Location = new System.Drawing.Point(20, 374);
+            this.signIconButton.Location = new System.Drawing.Point(20, 402);
             this.signIconButton.Name = "signIconButton";
             this.signIconButton.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.signIconButton.Size = new System.Drawing.Size(249, 39);

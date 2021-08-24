@@ -310,7 +310,7 @@ namespace dNothi.Services.DakServices
                 var dakForwardResponseJson = dakForwardResponseAPI.Content;
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                 dakForwardResponse = JsonConvert.DeserializeObject<DakForwardResponse>(dakForwardResponseJson);
+                 dakForwardResponse = JsonConvert.DeserializeObject<DakForwardResponse>(ConversionMethod.FilterJsonResponse(dakForwardResponseJson));
                 return dakForwardResponse;
             }
             catch (Exception ex)

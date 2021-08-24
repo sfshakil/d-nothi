@@ -192,6 +192,7 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<DakBacaiKaran>>().As<IRepository<DakBacaiKaran>>();
 
             builder.RegisterType<EfRepository<DakRegisterBook>>().As<IRepository<DakRegisterBook>>();
+
             builder.RegisterType<EfRepository<NothiRegisterBook>>().As<IRepository<NothiRegisterBook>>();
 
             builder.RegisterType<BasicService>().As<IBasicService>();
@@ -298,7 +299,11 @@ namespace dNothi.Desktop
             
             builder.RegisterType<ProtibedonUserControl>().AsSelf();
             builder.RegisterType<UI.Dak.RegisterReportUserControl>().AsSelf();
+            builder.RegisterType<UI.Dak.AllDakTrakingUserControl>().AsSelf();
+
             
+
+
 
             builder.RegisterType<UI.Dak.DakNothiteUposthapitoForm>().AsSelf();
             builder.RegisterType<NothiLevelAddForm>().AsSelf();

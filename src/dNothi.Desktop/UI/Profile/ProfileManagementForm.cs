@@ -144,7 +144,7 @@ namespace dNothi.Desktop.UI.Profile
            
             officerEmailLabel.Text = _dakUserParam.officer_email;
             officerMobileLabel.Text = _dakUserParam.officer_mobile;
-            officerUserIdLabel.Text = _dakUserParam.user_id.ToString();
+            officerUserIdLabel.Text = _dakUserParam.loginId.ToString();
 
             var signImage = UIDesignCommonMethod.GetImageFromBase64(_dakUserParam.SignBase64);
             if (signImage != null)
@@ -183,10 +183,13 @@ namespace dNothi.Desktop.UI.Profile
         private void choosePicButton_Click(object sender, EventArgs e)
         {
             UploadPictureUserControl uploadPictureUserControl = new UploadPictureUserControl();
-            uploadPictureUserControl.ChooseImage();
-            uploadPictureUserControl.SaveImageButton += delegate (object sr, EventArgs ev) { SaveProfileImage(sr, ev, uploadPictureUserControl._PictureBoxImage, uploadPictureUserControl._PictureBoxImagePath); };
+            if (uploadPictureUserControl.ChooseImage())
+            {
+                uploadPictureUserControl.SaveImageButton += delegate (object sr, EventArgs ev) { SaveProfileImage(sr, ev, uploadPictureUserControl._PictureBoxImage, uploadPictureUserControl._PictureBoxImagePath); };
 
-            UIDesignCommonMethod.CalPopUpWindow(uploadPictureUserControl, this);
+                UIDesignCommonMethod.CalPopUpWindow(uploadPictureUserControl, this);
+            }
+           
         }
 
         private void SaveProfileImage(object sr, EventArgs ev, Image pictureBoxImage, string _PictureBoxImagePath)
@@ -210,10 +213,13 @@ namespace dNothi.Desktop.UI.Profile
         private void signChangeButton_Click(object sender, EventArgs e)
         {
             UploadPictureUserControl uploadPictureUserControl = new UploadPictureUserControl();
-            uploadPictureUserControl.ChooseImage();
-            uploadPictureUserControl.SaveImageButton += delegate (object sr, EventArgs ev) { SaveSignatureImage(sr, ev, uploadPictureUserControl._PictureBoxImage); };
+            if(uploadPictureUserControl.ChooseImage())
+            {
+                uploadPictureUserControl.SaveImageButton += delegate (object sr, EventArgs ev) { SaveSignatureImage(sr, ev, uploadPictureUserControl._PictureBoxImage); };
 
-            UIDesignCommonMethod.CalPopUpWindow(uploadPictureUserControl, this);
+                UIDesignCommonMethod.CalPopUpWindow(uploadPictureUserControl, this);
+            }
+            
         }
 
         private void SaveSignatureImage(object sr, EventArgs ev, Image pictureBoxImage)

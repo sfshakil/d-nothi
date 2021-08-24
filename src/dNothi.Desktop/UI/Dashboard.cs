@@ -5793,7 +5793,23 @@ namespace dNothi.Desktop.UI
             ChangeShowHideCheckBox();
         }
 
-       
+        private void DakTrakingIconButton_Click(object sender, EventArgs e)
+        {
+            ResetAllMenuButtonSelection();
+            SelectButton(sender as Button);
+
+            dakBodyFlowLayoutPanel.Controls.Clear();
+            dakBodyFlowLayoutPanel.RowCount = 0;
+            //_dakuserparam.page = 1;
+            //_dakuserparam.limit = 10;
+          //  RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(_dakuserparam, fromdate, todate, null);
+            AllDakTrakingUserControl allDakTrakingUserControl = UserControlFactory.Create<AllDakTrakingUserControl>();
+            //registerReportUserControl.isDakGrohon = true;
+            //registerReportUserControl.totalRecord = registerReportResponse.data.total_records;
+            //registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
+
+            UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, allDakTrakingUserControl);
+        }
     }
 
 
