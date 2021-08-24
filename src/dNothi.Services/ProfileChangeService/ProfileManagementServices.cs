@@ -49,11 +49,11 @@ namespace dNothi.Services.ProfileChangeService
                 client.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("api-version", "1");
-                request.AddHeader("Content-Type", "multipart/form-data");
+              //  request.AddHeader("Content-Type", "multipart/form-data");
                 request.AddHeader("Authorization", "Bearer " + dakUserParam.doptor_token);
-               // request.AlwaysMultipartFormData = true;
+                request.AlwaysMultipartFormData = true;
                 request.AddParameter("username", dakUserParam.loginId);
-                request.AddFile("image",image);
+                request.AddParameter("image",image);
                 IRestResponse response = client.Execute(request);
 
                 PasswordChangeResponse apiResponse = JsonConvert.DeserializeObject<PasswordChangeResponse>(response.Content);
@@ -67,7 +67,7 @@ namespace dNothi.Services.ProfileChangeService
                 return passwordChangeResponse;
             }
         }
-        public PasswordChangeResponse GetSignatureChangeResponse(DakUserParam dakUserParam, String filePath)
+        public PasswordChangeResponse GetSignatureChangeResponse(DakUserParam dakUserParam, String image)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace dNothi.Services.ProfileChangeService
                 request.AddHeader("Authorization", "Bearer " + dakUserParam.doptor_token);
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("username", dakUserParam.loginId);
-                request.AddFile("image", filePath);
+                request.AddParameter("image", image);
                 IRestResponse response = client.Execute(request);
 
                 PasswordChangeResponse apiResponse = JsonConvert.DeserializeObject<PasswordChangeResponse>(response.Content);
@@ -93,11 +93,65 @@ namespace dNothi.Services.ProfileChangeService
             }
         }
 
+        public DoptorImageResponse GetSignature(DakUserParam dakUserParam)
+        {
+            try
+            {
+                var client = new RestClient(DefaultAPIConfiguration.DoptorDomainAddress + DefaultAPIConfiguration.DoptorSignEndPoint);
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", "1");
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.doptor_token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("usernames", dakUserParam.loginId);
+                request.AddParameter("encode", 1);
+                IRestResponse response = client.Execute(request);
+
+                DoptorImageResponse apiResponse = JsonConvert.DeserializeObject<DoptorImageResponse>(response.Content);
+
+                return apiResponse;
+            }
+            catch
+            {
+                DoptorImageResponse imageResponse = new DoptorImageResponse();
+
+                return imageResponse;
+            }
+        }
+
+        public DoptorImageResponse GetImage(DakUserParam dakUserParam)
+        {
+            try
+            {
+                var client = new RestClient(DefaultAPIConfiguration.DoptorDomainAddress + DefaultAPIConfiguration.DoptorProfilePicEndPoint);
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", "1");
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.doptor_token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("employee_record_ids", dakUserParam.employee_record_id);
+                request.AddParameter("encode", 1);
+                IRestResponse response = client.Execute(request);
+
+                DoptorImageResponse apiResponse = JsonConvert.DeserializeObject<DoptorImageResponse>(response.Content);
+
+                return apiResponse;
+            }
+            catch
+            {
+                DoptorImageResponse imageResponse = new DoptorImageResponse();
+
+                return imageResponse;
+            }
+        }
+
     }
     public interface IProfileManagementServices
     {
         PasswordChangeResponse GetPasswordChangeResponse(DakUserParam dakUserParam, PasswordChangeParam passwordChangeParam);
         PasswordChangeResponse GetPhotoChangeResponse(DakUserParam dakUserParam, String filePath);
         PasswordChangeResponse GetSignatureChangeResponse(DakUserParam dakUserParam, String filePath);
+        DoptorImageResponse GetSignature(DakUserParam dakUserParam);
+        DoptorImageResponse GetImage(DakUserParam dakUserParam);
     }
 }

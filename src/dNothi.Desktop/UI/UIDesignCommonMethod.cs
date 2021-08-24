@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -164,6 +165,24 @@ namespace dNothi.Desktop.UI
 
           
         }
+
+
+        public static string ImageToBase64(Image image, ImageFormat imageFormat)
+        {
+            using (Image image1 = image)
+            {
+                using (MemoryStream m = new MemoryStream())
+                {
+                    image1.Save(m, imageFormat);
+                    byte[] imageBytes = m.ToArray();
+
+                    // Convert byte[] to Base64 String
+                    string base64String = Convert.ToBase64String(imageBytes);
+                    return base64String;
+                }
+            }
+        }
+
 
         public static readonly List<string> ImageExtensions = new List<string> { ".JPEG", ".JPG", "JPG", "JPE", "BMP", "GIF", "PNG", ".JPE", ".BMP", ".GIF", ".PNG", "IMAGE", "IMG" };
         public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF" };
