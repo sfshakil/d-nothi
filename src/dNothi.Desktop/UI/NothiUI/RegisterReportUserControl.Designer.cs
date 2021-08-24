@@ -34,8 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterReportUserControl));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -58,22 +58,23 @@
             this.headlineLabel = new System.Windows.Forms.Label();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.registerReportDataGridView = new System.Windows.Forms.DataGridView();
-            this.slDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.previousPrapok = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mainPrapok = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.applicant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.receivedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priority = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acceptNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docketingNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sharokNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.applyDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registerReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.noRowMessageLabel = new System.Windows.Forms.Label();
             this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.nothiPrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.slDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nothiNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.officeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nothisubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.previousSender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.preronDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grahanDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nextReciver = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acceptNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.previousNothiNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type_sironam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nothivuktirdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateRangeTextBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -425,16 +426,17 @@
             this.registerReportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.registerReportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.slDataGridViewTextBoxColumn,
-            this.previousPrapok,
-            this.mainPrapok,
-            this.sub,
-            this.applicant,
-            this.receivedDate,
-            this.priority,
+            this.nothiNo,
+            this.officeName,
+            this.nothisubject,
+            this.previousSender,
+            this.preronDate,
+            this.grahanDate,
+            this.nextReciver,
             this.acceptNumDataGridViewTextBoxColumn,
-            this.docketingNoDataGridViewTextBoxColumn,
-            this.sharokNoDataGridViewTextBoxColumn,
-            this.applyDateDataGridViewTextBoxColumn});
+            this.previousNothiNo,
+            this.type_sironam,
+            this.nothivuktirdate});
             this.registerReportDataGridView.DataSource = this.registerReportBindingSource;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
@@ -473,102 +475,6 @@
             this.registerReportDataGridView.Size = new System.Drawing.Size(1232, 465);
             this.registerReportDataGridView.TabIndex = 96;
             this.registerReportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prapokDataGridView_CellContentClick);
-            // 
-            // slDataGridViewTextBoxColumn
-            // 
-            this.slDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.slDataGridViewTextBoxColumn.DataPropertyName = "sl";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.slDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.slDataGridViewTextBoxColumn.FillWeight = 120F;
-            this.slDataGridViewTextBoxColumn.HeaderText = "ক্রমিক নং";
-            this.slDataGridViewTextBoxColumn.Name = "slDataGridViewTextBoxColumn";
-            this.slDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // previousPrapok
-            // 
-            this.previousPrapok.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.previousPrapok.DataPropertyName = "previousPrapok";
-            this.previousPrapok.HeaderText = "প্রেরিত নথির নং";
-            this.previousPrapok.Name = "previousPrapok";
-            this.previousPrapok.ReadOnly = true;
-            // 
-            // mainPrapok
-            // 
-            this.mainPrapok.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.mainPrapok.DataPropertyName = "mainPrapok";
-            this.mainPrapok.HeaderText = "অফিস/শাখার নাম";
-            this.mainPrapok.Name = "mainPrapok";
-            this.mainPrapok.ReadOnly = true;
-            // 
-            // sub
-            // 
-            this.sub.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.sub.DataPropertyName = "sub";
-            this.sub.HeaderText = "নথির বিষয়";
-            this.sub.Name = "sub";
-            this.sub.ReadOnly = true;
-            // 
-            // applicant
-            // 
-            this.applicant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.applicant.DataPropertyName = "applicant";
-            this.applicant.HeaderText = "পূর্ববর্তী প্রেরক";
-            this.applicant.Name = "applicant";
-            this.applicant.ReadOnly = true;
-            // 
-            // receivedDate
-            // 
-            this.receivedDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.receivedDate.DataPropertyName = "receivedDate";
-            this.receivedDate.HeaderText = "প্রেরণের তারিখ";
-            this.receivedDate.Name = "receivedDate";
-            this.receivedDate.ReadOnly = true;
-            // 
-            // priority
-            // 
-            this.priority.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.priority.DataPropertyName = "priority";
-            this.priority.HeaderText = "পরবর্তী প্রাপক";
-            this.priority.Name = "priority";
-            this.priority.ReadOnly = true;
-            // 
-            // acceptNumDataGridViewTextBoxColumn
-            // 
-            this.acceptNumDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.acceptNumDataGridViewTextBoxColumn.DataPropertyName = "acceptNum";
-            this.acceptNumDataGridViewTextBoxColumn.FillWeight = 150F;
-            this.acceptNumDataGridViewTextBoxColumn.HeaderText = "নথির নং";
-            this.acceptNumDataGridViewTextBoxColumn.Name = "acceptNumDataGridViewTextBoxColumn";
-            this.acceptNumDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // docketingNoDataGridViewTextBoxColumn
-            // 
-            this.docketingNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.docketingNoDataGridViewTextBoxColumn.DataPropertyName = "docketingNo";
-            this.docketingNoDataGridViewTextBoxColumn.FillWeight = 180F;
-            this.docketingNoDataGridViewTextBoxColumn.HeaderText = "পূর্ববর্তী নথির নম্বরসমূহ";
-            this.docketingNoDataGridViewTextBoxColumn.Name = "docketingNoDataGridViewTextBoxColumn";
-            this.docketingNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sharokNoDataGridViewTextBoxColumn
-            // 
-            this.sharokNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.sharokNoDataGridViewTextBoxColumn.DataPropertyName = "sharokNo";
-            this.sharokNoDataGridViewTextBoxColumn.FillWeight = 180F;
-            this.sharokNoDataGridViewTextBoxColumn.HeaderText = "ধরন/শিরোনাম";
-            this.sharokNoDataGridViewTextBoxColumn.Name = "sharokNoDataGridViewTextBoxColumn";
-            this.sharokNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // applyDateDataGridViewTextBoxColumn
-            // 
-            this.applyDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.applyDateDataGridViewTextBoxColumn.DataPropertyName = "applyDate";
-            this.applyDateDataGridViewTextBoxColumn.FillWeight = 300F;
-            this.applyDateDataGridViewTextBoxColumn.HeaderText = "শ্রেণিবিন্যাসসহ নথিভুক্ত করবার তারিখ";
-            this.applyDateDataGridViewTextBoxColumn.Name = "applyDateDataGridViewTextBoxColumn";
-            this.applyDateDataGridViewTextBoxColumn.ReadOnly = true;
-            this.applyDateDataGridViewTextBoxColumn.ToolTipText = "শ্রেণিবিন্যাসসহ নথিভুক্ত করবার তারিখ";
             // 
             // registerReportBindingSource
             // 
@@ -619,6 +525,110 @@
             this.nothiPrintPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("nothiPrintPreviewDialog.Icon")));
             this.nothiPrintPreviewDialog.Name = "dakUploadPrintPreviewDialog";
             this.nothiPrintPreviewDialog.Visible = false;
+            // 
+            // slDataGridViewTextBoxColumn
+            // 
+            this.slDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.slDataGridViewTextBoxColumn.DataPropertyName = "sl";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.slDataGridViewTextBoxColumn.FillWeight = 120F;
+            this.slDataGridViewTextBoxColumn.HeaderText = "ক্রমিক নং";
+            this.slDataGridViewTextBoxColumn.Name = "slDataGridViewTextBoxColumn";
+            this.slDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nothiNo
+            // 
+            this.nothiNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nothiNo.DataPropertyName = "nothiNo";
+            this.nothiNo.HeaderText = "প্রেরিত নথির নং";
+            this.nothiNo.Name = "nothiNo";
+            this.nothiNo.ReadOnly = true;
+            // 
+            // officeName
+            // 
+            this.officeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.officeName.DataPropertyName = "officeName";
+            this.officeName.HeaderText = "অফিস/শাখার নাম";
+            this.officeName.Name = "officeName";
+            this.officeName.ReadOnly = true;
+            // 
+            // nothisubject
+            // 
+            this.nothisubject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nothisubject.DataPropertyName = "nothisubject";
+            this.nothisubject.HeaderText = "নথির বিষয়";
+            this.nothisubject.Name = "nothisubject";
+            this.nothisubject.ReadOnly = true;
+            // 
+            // previousSender
+            // 
+            this.previousSender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.previousSender.DataPropertyName = "previousSender";
+            this.previousSender.HeaderText = "পূর্ববর্তী প্রেরক";
+            this.previousSender.Name = "previousSender";
+            this.previousSender.ReadOnly = true;
+            // 
+            // preronDate
+            // 
+            this.preronDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.preronDate.DataPropertyName = "preronDate";
+            this.preronDate.HeaderText = "প্রেরণের তারিখ";
+            this.preronDate.Name = "preronDate";
+            this.preronDate.ReadOnly = true;
+            // 
+            // grahanDate
+            // 
+            this.grahanDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.grahanDate.DataPropertyName = "grahanDate";
+            this.grahanDate.HeaderText = "গ্রহণের তারিখ";
+            this.grahanDate.Name = "grahanDate";
+            this.grahanDate.ReadOnly = true;
+            // 
+            // nextReciver
+            // 
+            this.nextReciver.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nextReciver.DataPropertyName = "nextReciver";
+            this.nextReciver.HeaderText = "পরবর্তী প্রাপক";
+            this.nextReciver.Name = "nextReciver";
+            this.nextReciver.ReadOnly = true;
+            // 
+            // acceptNumDataGridViewTextBoxColumn
+            // 
+            this.acceptNumDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.acceptNumDataGridViewTextBoxColumn.DataPropertyName = "acceptNum";
+            this.acceptNumDataGridViewTextBoxColumn.FillWeight = 150F;
+            this.acceptNumDataGridViewTextBoxColumn.HeaderText = "নথির নং";
+            this.acceptNumDataGridViewTextBoxColumn.Name = "acceptNumDataGridViewTextBoxColumn";
+            this.acceptNumDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // previousNothiNo
+            // 
+            this.previousNothiNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.previousNothiNo.DataPropertyName = "previousNothiNo";
+            this.previousNothiNo.FillWeight = 180F;
+            this.previousNothiNo.HeaderText = "পূর্ববর্তী নথির নম্বরসমূহ";
+            this.previousNothiNo.Name = "previousNothiNo";
+            this.previousNothiNo.ReadOnly = true;
+            // 
+            // type_sironam
+            // 
+            this.type_sironam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.type_sironam.DataPropertyName = "type_sironam";
+            this.type_sironam.FillWeight = 180F;
+            this.type_sironam.HeaderText = "ধরন/শিরোনাম";
+            this.type_sironam.Name = "type_sironam";
+            this.type_sironam.ReadOnly = true;
+            // 
+            // nothivuktirdate
+            // 
+            this.nothivuktirdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nothivuktirdate.DataPropertyName = "nothivuktirdate";
+            this.nothivuktirdate.FillWeight = 300F;
+            this.nothivuktirdate.HeaderText = "শ্রেণিবিন্যাসসহ নথিভুক্ত করবার তারিখ";
+            this.nothivuktirdate.Name = "nothivuktirdate";
+            this.nothivuktirdate.ReadOnly = true;
+            this.nothivuktirdate.ToolTipText = "শ্রেণিবিন্যাসসহ নথিভুক্ত করবার তারিখ";
             // 
             // RegisterReportUserControl
             // 
@@ -680,15 +690,16 @@
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog nothiPrintPreviewDialog;
         private System.Windows.Forms.DataGridViewTextBoxColumn slDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn previousPrapok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mainPrapok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sub;
-        private System.Windows.Forms.DataGridViewTextBoxColumn applicant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn receivedDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priority;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nothiNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn officeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nothisubject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn previousSender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn preronDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grahanDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nextReciver;
         private System.Windows.Forms.DataGridViewTextBoxColumn acceptNumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn docketingNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sharokNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn applyDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn previousNothiNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn type_sironam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nothivuktirdate;
     }
 }
