@@ -92,6 +92,7 @@ namespace dNothi.Desktop.UI.Dak
                 nothiDecisionListRow.decision = nothiDecisionList.decisions;
                 nothiDecisionListRow.serialNo = startingSerialnumber;
                 nothiDecisionListRow.NothiDecisionDeleteButton += delegate (object sender1, EventArgs e1) { NothiDecisionDelete_ButtonClick(nothiDecisionList, e1); };
+                nothiDecisionListRow.NothiDecisionEditButton += delegate (object sender1, EventArgs e1) { NothiDecisionEdit_ButtonClick(sender1 as RecordsDTO, nothiDecisionList, e1); };
                 nothiDecisionListRow.cbxDecisionList(nothiDecisionList.decisions_employee);
                 if (nothiDecisionList.officer_id != dakListUserParam.officer_id)
                 {
@@ -212,7 +213,7 @@ namespace dNothi.Desktop.UI.Dak
                     decisions_employee = 0;
                 }
                 DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-                var saveResponse = _nothiDecisionListService.GetNothiAddDecisionList(dakListUserParam, decisions, decisions_employee);
+                var saveResponse = _nothiDecisionListService.GetNothiAddDecisionList(dakListUserParam, decisions, decisions_employee, 0);
                 if (saveResponse.status == "success")
                 {
                     SuccessMessage("নথি সিদ্ধান্ত সংরক্ষণ হয়েছে");
@@ -237,6 +238,17 @@ namespace dNothi.Desktop.UI.Dak
             else
             {
                 ErrorMessage(saveResponse.status);
+            }
+        }
+        private void NothiDecisionEdit_ButtonClick(RecordsDTO EditedRecord, RecordsDTO nothiDecisionList, EventArgs e)
+        {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            var saveResponse = _nothiDecisionListService.GetNothiAddDecisionList(dakListUserParam, EditedRecord.decisions, EditedRecord.decisions_employee, nothiDecisionList.id);
+            if (saveResponse.status == "success")
+            {
+                SuccessMessage("নথি সিদ্ধান্ত হালনাগাদ করা হয়েছে।");
+                btnCancel_Click(null, null);
+                loadRow();
             }
         }
     }
