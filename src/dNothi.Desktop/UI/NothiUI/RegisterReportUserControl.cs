@@ -211,10 +211,21 @@ namespace dNothi.Desktop.UI.NothiUI
                                {
                                     
                                    sl = ConversionMethod.EnglishNumberToBangla((lastCountValue++).ToString()),
-                                   acceptNum = t.nothi.nothi_no,
-                                   docketingNo = "",
-                                   sharokNo = t.nothi.subject,
-                                   applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.nothi.modified
+                                   //acceptNum = t.nothi.nothi_no,
+                                   //docketingNo = "",
+                                   //sharokNo = t.nothi.subject,
+                                   //applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.nothi.modified
+
+                                   nothiNo= t.nothi.nothi_no,
+                                   officeName=t.nothi.office_unit_name,
+                                   nothisubject=t.nothi.subject,
+                                   //grahanDate,
+                                   //preronDate,
+                                   //previousSender,
+                                   //nextReciver,
+                                   //previousNothiNo,
+                                   //type_sironam,
+                                   //nothivuktirdate
 
                                }).ToList();
                 if (columns.Count <= 0)
@@ -254,7 +265,7 @@ namespace dNothi.Desktop.UI.NothiUI
                 }
                 registerReportDataGridView.AutoResizeColumns();
 
-                registerReportDataGridView.AutoSizeColumnsMode =DataGridViewAutoSizeColumnsMode.AllCells;
+                registerReportDataGridView.AutoSizeColumnsMode =DataGridViewAutoSizeColumnsMode.Fill;
 
                 MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
                 registerReportDataGridView.ColumnHeadersDefaultCellStyle.Font = MemoryFonts.GetFont(0, 12, registerReportDataGridView.Font.Style);
