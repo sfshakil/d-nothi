@@ -137,6 +137,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.leftMenuBarTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.menuTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.DakTrakingIconButton = new FontAwesome.Sharp.IconButton();
             this.dakBacaikarnMenuPanel = new System.Windows.Forms.Panel();
             this.dakBacaiDownArrow = new FontAwesome.Sharp.IconButton();
             this.dakSortedUserButton = new FontAwesome.Sharp.IconButton();
@@ -1859,6 +1860,7 @@
             this.menuTableLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.menuTableLayoutPanel.ColumnCount = 1;
             this.menuTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.menuTableLayoutPanel.Controls.Add(this.DakTrakingIconButton, 0, 19);
             this.menuTableLayoutPanel.Controls.Add(this.dakBacaikarnMenuPanel, 0, 12);
             this.menuTableLayoutPanel.Controls.Add(this.panel7, 0, 7);
             this.menuTableLayoutPanel.Controls.Add(this.panel6, 0, 15);
@@ -1902,10 +1904,39 @@
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.menuTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.menuTableLayoutPanel.Size = new System.Drawing.Size(234, 552);
             this.menuTableLayoutPanel.TabIndex = 47;
             this.menuTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.menuTableLayoutPanel_Paint);
+            // 
+            // DakTrakingIconButton
+            // 
+            this.DakTrakingIconButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DakTrakingIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.DakTrakingIconButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.DakTrakingIconButton.FlatAppearance.BorderSize = 0;
+            this.DakTrakingIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.DakTrakingIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.DakTrakingIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DakTrakingIconButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DakTrakingIconButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.DakTrakingIconButton.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.DakTrakingIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.DakTrakingIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.DakTrakingIconButton.IconSize = 24;
+            this.DakTrakingIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DakTrakingIconButton.Location = new System.Drawing.Point(0, 946);
+            this.DakTrakingIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.DakTrakingIconButton.Name = "DakTrakingIconButton";
+            this.DakTrakingIconButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.DakTrakingIconButton.Size = new System.Drawing.Size(234, 46);
+            this.DakTrakingIconButton.TabIndex = 65;
+            this.DakTrakingIconButton.Text = "   সকল ডাক ট্র্যাকিং";
+            this.DakTrakingIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.DakTrakingIconButton.UseVisualStyleBackColor = false;
+            this.DakTrakingIconButton.Click += new System.EventHandler(this.DakTrakingIconButton_Click);
             // 
             // dakBacaikarnMenuPanel
             // 
@@ -2406,7 +2437,7 @@
             // 
             this.label12.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label12.Location = new System.Drawing.Point(2, 580);
+            this.label12.Location = new System.Drawing.Point(2, 576);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(230, 2);
@@ -2425,7 +2456,7 @@
             // 
             this.dakSortingUserFlowLayoutPanel.AutoSize = true;
             this.dakSortingUserFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakSortingUserFlowLayoutPanel.Location = new System.Drawing.Point(2, 578);
+            this.dakSortingUserFlowLayoutPanel.Location = new System.Drawing.Point(2, 580);
             this.dakSortingUserFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2);
             this.dakSortingUserFlowLayoutPanel.MaximumSize = new System.Drawing.Size(234, 0);
             this.dakSortingUserFlowLayoutPanel.MinimumSize = new System.Drawing.Size(234, 0);
@@ -3976,6 +4007,7 @@
         private System.Windows.Forms.CheckBox subShowHideCheckBox;
         private System.Windows.Forms.CheckBox mainReceiverShowHideCheckBox;
         private System.Windows.Forms.CheckBox senderShowHideCheckBox;
+        private FontAwesome.Sharp.IconButton DakTrakingIconButton;
     }
 }
 

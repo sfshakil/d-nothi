@@ -22,8 +22,23 @@ namespace dNothi.Services.NothiReportService
         {
             _localNothiRegisterBookRepository = localNothiRegisterBookRepository;
         }
-        public NothiRegisterReport NothiRegisterBook(DakUserParam userParam, string fromDate, string toDate, string branchName)
+        public NothiRegisterReport NothiRegisterBook(DakUserParam userParam, string fromDate, string toDate, string branchName,  bool isNothiPreron, bool isNothiGrahon, bool isNothiReigister)
         {
+            string endPoint = string.Empty;
+            if (isNothiPreron)
+            {
+                endPoint = DefaultAPIConfiguration.NothiOutboxListEndPoint;
+            }
+            if (isNothiGrahon)
+            {
+
+            }
+            if (isNothiReigister)
+            {
+                endPoint = DefaultAPIConfiguration.NothiAllListEndPoint;
+            }
+            
+            
             int unitid = 0;
             bool nrb = true; //nothi register book
             bool dnc = false;
@@ -35,14 +50,16 @@ namespace dNothi.Services.NothiReportService
             NothiRegisterReport nothiRegisterReport = new NothiRegisterReport();
             if (!InternetConnection.Check())
             {
-
-                nothiRegisterReport = JsonConvert.DeserializeObject<NothiRegisterReport>(GetLocalNothiRegisterBook(userParam, fromDate, toDate, unitid, nrb, dnc, dnd));
+                if (isNothiReigister)
+                {
+                    nothiRegisterReport = JsonConvert.DeserializeObject<NothiRegisterReport>(GetLocalNothiRegisterBook(userParam, fromDate, toDate, unitid, nrb, dnc, dnd));
+                    return nothiRegisterReport;
+                }
                 return nothiRegisterReport;
-
             }
             try
             {  
-                var Api = new RestClient(CommonSetting.GetAPIDomain() + DefaultAPIConfiguration.NothiAllListEndPoint);
+                var Api = new RestClient(CommonSetting.GetAPIDomain() + endPoint);
                 Api.Timeout = -1;
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("api-version", CommonSetting.GetAPIVersions());
@@ -65,7 +82,10 @@ namespace dNothi.Services.NothiReportService
                 IRestResponse Response = Api.Execute(request);
 
                 var responseJson = Response.Content;
-                SaveLocalNothiRegisterBook(responseJson,userParam, fromDate, toDate, unitid, nrb, dnc, dnd);
+                if (isNothiReigister)
+                {
+                    SaveLocalNothiRegisterBook(responseJson, userParam, fromDate, toDate, unitid, nrb, dnc, dnd);
+                }
                  nothiRegisterReport = JsonConvert.DeserializeObject<NothiRegisterReport>(responseJson);
                 return nothiRegisterReport;
             }
@@ -75,6 +95,7 @@ namespace dNothi.Services.NothiReportService
             }
         }
 
+       
         private string GetLocalNothiRegisterBook(DakUserParam dakListUserParam, string fromDate, string toDate, int unitid, bool nrb, bool dnc, bool dnd)
         {
             var dakBox = _localNothiRegisterBookRepository.Table.Where(q => q.designation_id == dakListUserParam.designation_id && q.office_id == dakListUserParam.office_id && q.limit == dakListUserParam.limit && q.page == dakListUserParam.page && q.fromDate == fromDate && q.toDate == toDate && q.unitId == unitid && q.dnd == dnd && q.dnc == q.dnc && q.nrb == q.nrb).FirstOrDefault();

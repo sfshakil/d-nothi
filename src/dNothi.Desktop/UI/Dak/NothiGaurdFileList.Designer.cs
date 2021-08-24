@@ -220,7 +220,7 @@ namespace dNothi.Desktop.UI.Dak
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.76923F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.23077F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 465F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
             this.tableLayoutPanel1.Controls.Add(this.panel11, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel10, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 0);
@@ -238,7 +238,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.panel11.Controls.Add(this.label4);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(306, 0);
+            this.panel11.Location = new System.Drawing.Point(305, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(465, 46);
@@ -260,10 +260,10 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.panel10.Controls.Add(this.label5);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(771, 0);
+            this.panel10.Location = new System.Drawing.Point(770, 0);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(135, 46);
+            this.panel10.Size = new System.Drawing.Size(136, 46);
             this.panel10.TabIndex = 82;
             // 
             // label5
@@ -307,7 +307,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel8.Location = new System.Drawing.Point(94, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(212, 46);
+            this.panel8.Size = new System.Drawing.Size(211, 46);
             this.panel8.TabIndex = 80;
             // 
             // label3

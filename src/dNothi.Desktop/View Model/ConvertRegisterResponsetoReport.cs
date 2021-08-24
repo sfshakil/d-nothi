@@ -1,4 +1,5 @@
 ﻿using dNothi.JsonParser.Entity;
+using dNothi.Services.BasicService.Models;
 using dNothi.Utility;
 using System;
 using System.Collections.Generic;
@@ -144,5 +145,45 @@ namespace dNothi.Desktop.View_Model
 
         }
 
+
+        public static List<RegisterReport> GetDakTrakingReports(dakTrakingModel registerReportResponse)
+        {
+           
+
+            List<RegisterReport> registerReportLis = new List<RegisterReport>();
+
+            try
+            {
+                int count = 0;
+                foreach (dakTrakingModel.Record registerReportRecordDTO in registerReportResponse.data.records)
+                {
+
+                    RegisterReport registerReport = new RegisterReport();
+                   
+                    count++;
+                    registerReport.sl = ConversionMethod.EnglishNumberToBangla(count.ToString());
+                   
+                    registerReport.acceptNum = (registerReportRecordDTO.nothi!=null? registerReportRecordDTO.nothi.nothi_no:string.Empty);
+
+                    DateTime dateTime2 = Convert.ToDateTime(registerReportRecordDTO.last_movement_date);
+                    registerReport.applyDate = ConversionMethod.EngDigittoBanDigit(dateTime2.ToString("dd-MM-yyyy HH:mm:ss"));
+                   
+                    registerReport.sub = registerReportRecordDTO.dak_subject;
+                    registerReport.applicant = registerReportRecordDTO.office;
+                    registerReport.finalState = registerReportRecordDTO.dak_decision;
+
+
+
+                    registerReportLis.Add(registerReport);
+                }
+            }
+            catch
+            {
+
+            }
+
+            return registerReportLis;
+
+        }
     }
 }
