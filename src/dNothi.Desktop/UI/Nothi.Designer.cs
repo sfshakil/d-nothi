@@ -178,7 +178,7 @@ namespace dNothi.Desktop.UI
             this.btnNothiAll = new FontAwesome.Sharp.IconButton();
             this.btnNothiOutbox = new FontAwesome.Sharp.IconButton();
             this.btnNothiInbox = new FontAwesome.Sharp.IconButton();
-            this.btnNothiIcon = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.nothiCustomDatePickerUserControl = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.nothiBackGroundWorker = new System.ComponentModel.BackgroundWorker();
