@@ -1,6 +1,6 @@
 ﻿namespace dNothi.Desktop.UI.NothiUI
 {
-    partial class NothiRegisterReportUserControl
+    partial class NothiPotrajariRegisterReportUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,92 +34,55 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NothiPotrajariRegisterReportUserControl));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NothiRegisterReportUserControl));
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.dateRangeTextBox = new System.Windows.Forms.Panel();
-            this.pageNextButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.totalRowlabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dateTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dakPriorityComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.headerPanel = new System.Windows.Forms.Panel();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.headlineLabel = new System.Windows.Forms.Label();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.registerReportDataGridView = new System.Windows.Forms.DataGridView();
+            this.noRowMessageLabel = new System.Windows.Forms.Label();
+            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.nothiPrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.pageNextButton = new FontAwesome.Sharp.IconButton();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
+            this.registerReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.slDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acceptNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docketingNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sharokNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.applyDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registerReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.noRowMessageLabel = new System.Windows.Forms.Label();
-            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.nothiPrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
+            this.previousPrapok = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.docketingNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateRangeTextBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.panel7.SuspendLayout();
             this.headerPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.bodyTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.registerReportDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerReportBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(194)))), ((int)(((byte)(187)))));
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton1.IconSize = 24;
-            this.iconButton1.Location = new System.Drawing.Point(868, 0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(45, 41);
-            this.iconButton1.TabIndex = 68;
-            this.MyToolTip.SetToolTip(this.iconButton1, "পিডিএফ");
-            this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(823, 0);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(45, 41);
-            this.iconButton2.TabIndex = 69;
-            this.MyToolTip.SetToolTip(this.iconButton2, "এক্সেল");
-            this.iconButton2.UseVisualStyleBackColor = false;
-            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
             // 
             // dateRangeTextBox
             // 
@@ -135,44 +98,6 @@
             this.dateRangeTextBox.Name = "dateRangeTextBox";
             this.dateRangeTextBox.Size = new System.Drawing.Size(913, 55);
             this.dateRangeTextBox.TabIndex = 95;
-            // 
-            // pageNextButton
-            // 
-            this.pageNextButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pageNextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.pageNextButton.FlatAppearance.BorderSize = 0;
-            this.pageNextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.pageNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pageNextButton.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.pageNextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.pageNextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pageNextButton.IconSize = 24;
-            this.pageNextButton.Location = new System.Drawing.Point(875, 9);
-            this.pageNextButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.pageNextButton.Name = "pageNextButton";
-            this.pageNextButton.Size = new System.Drawing.Size(34, 34);
-            this.pageNextButton.TabIndex = 99;
-            this.pageNextButton.UseVisualStyleBackColor = false;
-            this.pageNextButton.Click += new System.EventHandler(this.pageNextButton_Click);
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 24;
-            this.iconButton3.Location = new System.Drawing.Point(841, 9);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(34, 34);
-            this.iconButton3.TabIndex = 98;
-            this.iconButton3.UseVisualStyleBackColor = false;
-            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
             // 
             // totalRowlabel
             // 
@@ -259,24 +184,6 @@
             this.panel4.Size = new System.Drawing.Size(93, 33);
             this.panel4.TabIndex = 94;
             // 
-            // iconPictureBox2
-            // 
-            this.iconPictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.iconPictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconPictureBox2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.CalendarAlt;
-            this.iconPictureBox2.IconColor = System.Drawing.SystemColors.Highlight;
-            this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox2.IconSize = 24;
-            this.iconPictureBox2.Location = new System.Drawing.Point(67, 0);
-            this.iconPictureBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.iconPictureBox2.Name = "iconPictureBox2";
-            this.iconPictureBox2.Size = new System.Drawing.Size(24, 33);
-            this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iconPictureBox2.TabIndex = 93;
-            this.iconPictureBox2.TabStop = false;
-            this.iconPictureBox2.Click += new System.EventHandler(this.dateRangePickerShow);
-            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
@@ -345,22 +252,6 @@
             this.headerPanel.Size = new System.Drawing.Size(913, 41);
             this.headerPanel.TabIndex = 1;
             // 
-            // iconPictureBox1
-            // 
-            this.iconPictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(243)))), ((int)(((byte)(253)))));
-            this.iconPictureBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(194)))));
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.List;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(194)))));
-            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 30;
-            this.iconPictureBox1.Location = new System.Drawing.Point(8, 5);
-            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(35, 30);
-            this.iconPictureBox1.TabIndex = 67;
-            this.iconPictureBox1.TabStop = false;
-            // 
             // headlineLabel
             // 
             this.headlineLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -371,9 +262,9 @@
             this.headlineLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.headlineLabel.Location = new System.Drawing.Point(44, 9);
             this.headlineLabel.Name = "headlineLabel";
-            this.headlineLabel.Size = new System.Drawing.Size(99, 21);
+            this.headlineLabel.Size = new System.Drawing.Size(124, 21);
             this.headlineLabel.TabIndex = 66;
-            this.headlineLabel.Text = "নথি নিবন্ধন বহি";
+            this.headlineLabel.Text = "পত্রজারি নিবন্ধন বহি";
             this.headlineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bodyTableLayoutPanel
@@ -422,7 +313,10 @@
             this.acceptNumDataGridViewTextBoxColumn,
             this.docketingNoDataGridViewTextBoxColumn,
             this.sharokNoDataGridViewTextBoxColumn,
-            this.applyDateDataGridViewTextBoxColumn});
+            this.applyDateDataGridViewTextBoxColumn,
+            this.previousPrapok,
+            this.docketingNo,
+            this.type});
             this.registerReportDataGridView.DataSource = this.registerReportBindingSource;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
@@ -439,6 +333,7 @@
             this.registerReportDataGridView.Location = new System.Drawing.Point(3, 100);
             this.registerReportDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.registerReportDataGridView.Name = "registerReportDataGridView";
+            this.registerReportDataGridView.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -460,54 +355,6 @@
             this.registerReportDataGridView.Size = new System.Drawing.Size(907, 465);
             this.registerReportDataGridView.TabIndex = 96;
             this.registerReportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prapokDataGridView_CellContentClick);
-            // 
-            // slDataGridViewTextBoxColumn
-            // 
-            this.slDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.slDataGridViewTextBoxColumn.DataPropertyName = "sl";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.slDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.slDataGridViewTextBoxColumn.FillWeight = 120F;
-            this.slDataGridViewTextBoxColumn.HeaderText = "ক্রমিক নং";
-            this.slDataGridViewTextBoxColumn.Name = "slDataGridViewTextBoxColumn";
-            this.slDataGridViewTextBoxColumn.Width = 97;
-            // 
-            // acceptNumDataGridViewTextBoxColumn
-            // 
-            this.acceptNumDataGridViewTextBoxColumn.DataPropertyName = "acceptNum";
-            this.acceptNumDataGridViewTextBoxColumn.FillWeight = 150F;
-            this.acceptNumDataGridViewTextBoxColumn.HeaderText = "নথির নং";
-            this.acceptNumDataGridViewTextBoxColumn.Name = "acceptNumDataGridViewTextBoxColumn";
-            this.acceptNumDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // docketingNoDataGridViewTextBoxColumn
-            // 
-            this.docketingNoDataGridViewTextBoxColumn.DataPropertyName = "docketingNo";
-            this.docketingNoDataGridViewTextBoxColumn.FillWeight = 180F;
-            this.docketingNoDataGridViewTextBoxColumn.HeaderText = "পূর্ববর্তী নথির নম্বরসমূহ";
-            this.docketingNoDataGridViewTextBoxColumn.Name = "docketingNoDataGridViewTextBoxColumn";
-            this.docketingNoDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // sharokNoDataGridViewTextBoxColumn
-            // 
-            this.sharokNoDataGridViewTextBoxColumn.DataPropertyName = "sharokNo";
-            this.sharokNoDataGridViewTextBoxColumn.FillWeight = 180F;
-            this.sharokNoDataGridViewTextBoxColumn.HeaderText = "ধরন/শিরোনাম";
-            this.sharokNoDataGridViewTextBoxColumn.Name = "sharokNoDataGridViewTextBoxColumn";
-            this.sharokNoDataGridViewTextBoxColumn.Width = 180;
-            // 
-            // applyDateDataGridViewTextBoxColumn
-            // 
-            this.applyDateDataGridViewTextBoxColumn.DataPropertyName = "applyDate";
-            this.applyDateDataGridViewTextBoxColumn.FillWeight = 300F;
-            this.applyDateDataGridViewTextBoxColumn.HeaderText = "শ্রেণিবিন্যাসসহ নথিভুক্ত করবার তারিখ";
-            this.applyDateDataGridViewTextBoxColumn.Name = "applyDateDataGridViewTextBoxColumn";
-            this.applyDateDataGridViewTextBoxColumn.ToolTipText = "শ্রেণিবিন্যাসসহ নথিভুক্ত করবার তারিখ";
-            this.applyDateDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // registerReportBindingSource
-            // 
-            this.registerReportBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.RegisterReport);
             // 
             // noRowMessageLabel
             // 
@@ -555,7 +402,194 @@
             this.nothiPrintPreviewDialog.Name = "dakUploadPrintPreviewDialog";
             this.nothiPrintPreviewDialog.Visible = false;
             // 
-            // NothiRegisterReportUserControl
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton2.IconSize = 24;
+            this.iconButton2.Location = new System.Drawing.Point(823, 0);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(45, 41);
+            this.iconButton2.TabIndex = 69;
+            this.MyToolTip.SetToolTip(this.iconButton2, "এক্সেল");
+            this.iconButton2.UseVisualStyleBackColor = false;
+            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(194)))), ((int)(((byte)(187)))));
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton1.IconSize = 24;
+            this.iconButton1.Location = new System.Drawing.Point(868, 0);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(45, 41);
+            this.iconButton1.TabIndex = 68;
+            this.MyToolTip.SetToolTip(this.iconButton1, "পিডিএফ");
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(243)))), ((int)(((byte)(253)))));
+            this.iconPictureBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(194)))));
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.List;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(179)))), ((int)(((byte)(194)))));
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox1.IconSize = 30;
+            this.iconPictureBox1.Location = new System.Drawing.Point(8, 5);
+            this.iconPictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(35, 30);
+            this.iconPictureBox1.TabIndex = 67;
+            this.iconPictureBox1.TabStop = false;
+            // 
+            // pageNextButton
+            // 
+            this.pageNextButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pageNextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.pageNextButton.FlatAppearance.BorderSize = 0;
+            this.pageNextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.pageNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pageNextButton.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.pageNextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.pageNextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.pageNextButton.IconSize = 24;
+            this.pageNextButton.Location = new System.Drawing.Point(875, 9);
+            this.pageNextButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.pageNextButton.Name = "pageNextButton";
+            this.pageNextButton.Size = new System.Drawing.Size(34, 34);
+            this.pageNextButton.TabIndex = 99;
+            this.pageNextButton.UseVisualStyleBackColor = false;
+            this.pageNextButton.Click += new System.EventHandler(this.pageNextButton_Click);
+            // 
+            // iconButton3
+            // 
+            this.iconButton3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.iconButton3.FlatAppearance.BorderSize = 0;
+            this.iconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.IconSize = 24;
+            this.iconButton3.Location = new System.Drawing.Point(841, 9);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(34, 34);
+            this.iconButton3.TabIndex = 98;
+            this.iconButton3.UseVisualStyleBackColor = false;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            // 
+            // iconPictureBox2
+            // 
+            this.iconPictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.iconPictureBox2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.iconPictureBox2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.CalendarAlt;
+            this.iconPictureBox2.IconColor = System.Drawing.SystemColors.Highlight;
+            this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox2.IconSize = 24;
+            this.iconPictureBox2.Location = new System.Drawing.Point(67, 0);
+            this.iconPictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.iconPictureBox2.Name = "iconPictureBox2";
+            this.iconPictureBox2.Size = new System.Drawing.Size(24, 33);
+            this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.iconPictureBox2.TabIndex = 93;
+            this.iconPictureBox2.TabStop = false;
+            this.iconPictureBox2.Click += new System.EventHandler(this.dateRangePickerShow);
+            // 
+            // registerReportBindingSource
+            // 
+            this.registerReportBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.RegisterReport);
+            // 
+            // slDataGridViewTextBoxColumn
+            // 
+            this.slDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.slDataGridViewTextBoxColumn.DataPropertyName = "sl";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.slDataGridViewTextBoxColumn.FillWeight = 120F;
+            this.slDataGridViewTextBoxColumn.HeaderText = "ক্রমিক নং";
+            this.slDataGridViewTextBoxColumn.Name = "slDataGridViewTextBoxColumn";
+            this.slDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // acceptNumDataGridViewTextBoxColumn
+            // 
+            this.acceptNumDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.acceptNumDataGridViewTextBoxColumn.DataPropertyName = "sub";
+            this.acceptNumDataGridViewTextBoxColumn.FillWeight = 150F;
+            this.acceptNumDataGridViewTextBoxColumn.HeaderText = "বিষয়";
+            this.acceptNumDataGridViewTextBoxColumn.Name = "acceptNumDataGridViewTextBoxColumn";
+            this.acceptNumDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // docketingNoDataGridViewTextBoxColumn
+            // 
+            this.docketingNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.docketingNoDataGridViewTextBoxColumn.DataPropertyName = "mainPrapok";
+            this.docketingNoDataGridViewTextBoxColumn.FillWeight = 180F;
+            this.docketingNoDataGridViewTextBoxColumn.HeaderText = "প্রেরক";
+            this.docketingNoDataGridViewTextBoxColumn.Name = "docketingNoDataGridViewTextBoxColumn";
+            this.docketingNoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sharokNoDataGridViewTextBoxColumn
+            // 
+            this.sharokNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.sharokNoDataGridViewTextBoxColumn.DataPropertyName = "sharokNo";
+            this.sharokNoDataGridViewTextBoxColumn.FillWeight = 180F;
+            this.sharokNoDataGridViewTextBoxColumn.HeaderText = "স্মারক নম্বর";
+            this.sharokNoDataGridViewTextBoxColumn.Name = "sharokNoDataGridViewTextBoxColumn";
+            this.sharokNoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // applyDateDataGridViewTextBoxColumn
+            // 
+            this.applyDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.applyDateDataGridViewTextBoxColumn.DataPropertyName = "applyDate";
+            this.applyDateDataGridViewTextBoxColumn.FillWeight = 300F;
+            this.applyDateDataGridViewTextBoxColumn.HeaderText = "প্রেরণের তারিখ";
+            this.applyDateDataGridViewTextBoxColumn.Name = "applyDateDataGridViewTextBoxColumn";
+            this.applyDateDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // previousPrapok
+            // 
+            this.previousPrapok.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.previousPrapok.DataPropertyName = "previousPrapok";
+            this.previousPrapok.HeaderText = "প্রাপকসমূহ";
+            this.previousPrapok.Name = "previousPrapok";
+            this.previousPrapok.ReadOnly = true;
+            // 
+            // docketingNo
+            // 
+            this.docketingNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.docketingNo.DataPropertyName = "docketingNo";
+            this.docketingNo.HeaderText = "অনুলিপিসমূহ";
+            this.docketingNo.Name = "docketingNo";
+            this.docketingNo.ReadOnly = true;
+            // 
+            // type
+            // 
+            this.type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.type.DataPropertyName = "type";
+            this.type.HeaderText = "পত্র ধরন";
+            this.type.Name = "type";
+            this.type.ReadOnly = true;
+            // 
+            // NothiPotrajariRegisterReportUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -564,7 +598,7 @@
             this.Controls.Add(this.customDatePicker);
             this.Controls.Add(this.noRowMessageLabel);
             this.Controls.Add(this.bodyTableLayoutPanel);
-            this.Name = "NothiRegisterReportUserControl";
+            this.Name = "NothiPotrajariRegisterReportUserControl";
             this.Size = new System.Drawing.Size(913, 569);
             this.Load += new System.EventHandler(this.RegisterReportUserControl_Load);
             this.dateRangeTextBox.ResumeLayout(false);
@@ -573,13 +607,13 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             this.panel7.ResumeLayout(false);
             this.headerPanel.ResumeLayout(false);
             this.headerPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.bodyTableLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.registerReportDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerReportBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -612,12 +646,15 @@
         private System.Windows.Forms.DataGridView registerReportDataGridView;
         private System.Windows.Forms.BindingSource registerReportBindingSource;
         private System.Windows.Forms.Label noRowMessageLabel;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog nothiPrintPreviewDialog;
         private System.Windows.Forms.DataGridViewTextBoxColumn slDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn acceptNumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn docketingNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sharokNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn applyDateDataGridViewTextBoxColumn;
-        private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.PrintPreviewDialog nothiPrintPreviewDialog;
+        private System.Windows.Forms.DataGridViewTextBoxColumn previousPrapok;
+        private System.Windows.Forms.DataGridViewTextBoxColumn docketingNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn type;
     }
 }

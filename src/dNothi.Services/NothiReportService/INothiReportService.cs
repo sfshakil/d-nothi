@@ -10,7 +10,7 @@ namespace dNothi.Services.NothiReportService
 {
    public interface INothiReportService
     {
-        NothiRegisterReport NothiRegisterBook(DakUserParam dakListUserParam,string fromDate, string toDate, string branchName, bool isNothiPreron, bool isNothiGrahon, bool isNothiReigister);
+        NothiRegisterReport NothiRegisterBook(DakUserParam dakListUserParam,string fromDate, string toDate, string branchName, bool isNothiPreron, bool isNothiGrahon, bool isNothiReigister,bool isPotrajariBohi);
        
         
 

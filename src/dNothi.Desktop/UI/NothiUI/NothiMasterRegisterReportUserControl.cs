@@ -15,10 +15,11 @@ using iTextSharp.text.pdf;
 using dNothi.Services.NothiReportService;
 using dNothi.Services.UserServices;
 using dNothi.Services.BasicService;
+using dNothi.Services.NothiReportService.Model;
 
 namespace dNothi.Desktop.UI.NothiUI
 {
-    public partial class NothiPreronRegisterReportUserControl : UserControl
+    public partial class NothiMasterRegisterReportUserControl : UserControl
     {
         string fromdate, todate;
         public int pageLimit = 10;
@@ -39,7 +40,7 @@ namespace dNothi.Desktop.UI.NothiUI
             
         }
 
-        public NothiPreronRegisterReportUserControl(IUserService userService, INothiReportService nothiReportService, IBasicService basicService)
+        public NothiMasterRegisterReportUserControl(IUserService userService, INothiReportService nothiReportService, IBasicService basicService)
         {
             _userService = userService;
             _nothiReportService = nothiReportService;
@@ -74,14 +75,11 @@ namespace dNothi.Desktop.UI.NothiUI
         public bool _isNothiRegister { get; set; }
         public bool _isNothiGrahon { get; set; }
 
-        public bool isNothiPerito { get {return _isNothiPerito; } set {
-                _isNothiPerito = value; if (value) { headlineLabel.Text = "নথি প্রেরণ নিবন্ধন বহি"; } } }
-        public bool isNothiRegister { get {return _isNothiRegister; } set { 
-                _isNothiRegister = value; if (value) { headlineLabel.Text = "নথি নিবন্ধন বহি"; } } }
-        public bool isNothiGrahon { get {return _isNothiGrahon; } set {
-                _isNothiGrahon = value; if (value) { headlineLabel.Text = "নথি গ্রহণ নিবন্ধন বহি"; } } }
+        public bool isNothiPerito { get { return _isNothiPerito; } set { _isNothiPerito = value; if (value) { headlineLabel.Text = "নথি প্রেরণ নিবন্ধন বহি"; } } }
+        public bool isNothiRegister { get { return _isNothiRegister; } set { _isNothiRegister = value; if (value) { headlineLabel.Text = "নথি নিবন্ধন বহি"; } } }
+        public bool isNothiGrahon { get { return _isNothiGrahon; } set { _isNothiGrahon = value; if (value) { headlineLabel.Text = "নথি গ্রহণ নিবন্ধন বহি"; } } }
 
-      
+
         private void Border_Color_Blue(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
@@ -154,7 +152,8 @@ namespace dNothi.Desktop.UI.NothiUI
 
             userParam.page = page;
             userParam.limit = pageLimit;
-            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam,fromdate,todate, unitid,_isNothiPerito,_isNothiGrahon,_isNothiRegister,false);
+            bool potraJariBohi = true;
+            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam, fromdate, todate, unitid, _isNothiPerito, _isNothiGrahon, _isNothiRegister, potraJariBohi);
             if (nothiRegisterBook.status == "success")
             {
                 totalRowlabel.Text = "সর্বমোট "+ ConversionMethod.EnglishNumberToBangla( nothiRegisterBook.data.total_records.ToString())+" টি";
@@ -162,65 +161,45 @@ namespace dNothi.Desktop.UI.NothiUI
                 lastrecord = nothiRegisterBook.data.records.Count();
                 //lastCountValue = 1;
                 //int serial = 1;
-                var columns = (from t in nothiRegisterBook.data.records
-                               select new
-                               {
-                                    
-                                   sl = ConversionMethod.EnglishNumberToBangla((lastCountValue++).ToString()),
-                                  
-                                   //applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.nothi.modified
-
-                                   nothiNo= t.nothi.nothi_no,
-                                   officeName=t.nothi.office_unit_name,
-                                   nothisubject=t.nothi.subject,
-                                  // grahanDate = t.desk.issue_date,
-                                   preronDate = t.desk.issue_date,
-                                   previousSender = string.Empty,
-                                   nextReciver = t.to.officer+","+t.to.office_unit
+             foreach(var item in nothiRegisterBook.data.records)
+                {
+                    fileWebBrowser.Url = new Uri(item.mulpotro.url);
+                }
+                //var columns = (from t in nothiRegisterBook.data.records
+                //               select new
+                //               {
+                //                   sl = ConversionMethod.EnglishNumberToBangla((lastCountValue++).ToString()),
+                //                   sub=t.potrojari.potro_subject,
+                //                   mainPrapok=getPrerok(t.potrojari.recipient.sender),
+                //                   sharokNo= t.potrojari.sarok_no,
+                //                   applyDate=t.basic.issue_date,
+                //                   previousPrapok= getPrapok(t.potrojari.recipient.receiver),
+                //                   docketingNo=getOnulipi(t.potrojari.recipient.onulipi),
                                    
+                //                   type=t.potrojari.potro_type==1?"অফিস স্বারক": (t.potrojari.potro_type == 2? "সরকারি পত্র" : "আধা সরকারি পত্র"),
 
-                               }).ToList();
-                if (columns.Count <= 0)
-                {
-                    noRowMessageLabel.Visible = true;
-                }
-                else
-                {
-                    noRowMessageLabel.Visible = false;
-                    //lastCountValue = columns.Max(x => x.lastCountValue);
-                }
+                //               }).ToList();
+                //if (columns.Count <= 0)
+                //{
+                //    noRowMessageLabel.Visible = true;
+                //}
+                //else
+                //{
+                //    noRowMessageLabel.Visible = false;
+                //    //lastCountValue = columns.Max(x => x.lastCountValue);
+                //}
 
                 float pagesize = (float)(nothiRegisterBook.data.total_records) / (float)pageLimit;
                 totalPage = (int)Math.Ceiling(pagesize);
-                registerReportDataGridView.DataSource = null;
-                registerReportDataGridView.DataSource = columns.ToList();
-                //if (isNothiRegister)
-                //{
-                //    registerReportDataGridView.Columns[1].Visible = false;
-                //    registerReportDataGridView.Columns[2].Visible = false;
-                //    registerReportDataGridView.Columns[3].Visible = false;
-                //    registerReportDataGridView.Columns[4].Visible = false;
-                //    registerReportDataGridView.Columns[5].Visible = false;
-                //    registerReportDataGridView.Columns[6].Visible = false;
-                //}
-                //if (isNothiPerito)
-                //{
-                //    registerReportDataGridView.Columns[7].Visible = false;
-                //    registerReportDataGridView.Columns[8].Visible = false;
-                //    registerReportDataGridView.Columns[9].Visible = false;
-                //    registerReportDataGridView.Columns[10].Visible = false;
-                    
-                //}
-                //if (isNothiGrahon)
-                //{
+               // registerReportDataGridView.DataSource = null;
+               //registerReportDataGridView.DataSource = columns.ToList();
+               
+               // registerReportDataGridView.AutoResizeColumns();
 
-                //}
-                registerReportDataGridView.AutoResizeColumns();
+               // registerReportDataGridView.AutoSizeColumnsMode =DataGridViewAutoSizeColumnsMode.Fill;
 
-                registerReportDataGridView.AutoSizeColumnsMode =DataGridViewAutoSizeColumnsMode.Fill;
-
-                MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
-                registerReportDataGridView.ColumnHeadersDefaultCellStyle.Font = MemoryFonts.GetFont(0, 12, registerReportDataGridView.Font.Style);
+               // MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
+               // registerReportDataGridView.ColumnHeadersDefaultCellStyle.Font = MemoryFonts.GetFont(0, 12, registerReportDataGridView.Font.Style);
             }
             else
             {
@@ -229,6 +208,37 @@ namespace dNothi.Desktop.UI.NothiUI
 
         }
         Bitmap bitmap;
+
+        private string getOnulipi(List<NothiRegisterReport.Onulipi> onulipi)
+        {
+            string onulipidata=string.Empty;
+            foreach(var item in onulipi)
+            {
+                onulipidata = item.office_unit + "," + item.office;
+            }
+
+            return onulipidata;
+        }
+        private string getPrapok(List<NothiRegisterReport.Receiver> receiver)
+        {
+            string receiverdata = string.Empty;
+            foreach (var item in receiver)
+            {
+                receiverdata = item.office_unit + "," + item.office;
+            }
+
+            return receiverdata;
+        }
+        private string getPrerok(List<NothiRegisterReport.Sender> sender)
+        {
+            string senderdata = string.Empty;
+            foreach (var item in sender)
+            {
+                senderdata = item.office_unit + "," + item.office;
+            }
+
+            return senderdata;
+        }
         private void printPdf()
         {
             //Add a Panel control.

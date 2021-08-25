@@ -31,25 +31,25 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.fileWebBrowser = new System.Windows.Forms.WebBrowser();
             this.HeadingPanel = new System.Windows.Forms.Panel();
             this.AddDesignationCloseButton = new FontAwesome.Sharp.IconButton();
             this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.singleDakHeaderLabel = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.guardFileAddButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.userIdPanel = new System.Windows.Forms.Panel();
             this.subjectTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.fileWebBrowser = new System.Windows.Forms.WebBrowser();
-            this.guardFileAddButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.HeadingPanel.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
             this.userIdPanel.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -70,7 +70,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(834, 625);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(834, 471);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -82,8 +82,18 @@
             this.flowLayoutPanel1.Controls.Add(this.fileWebBrowser);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 142);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(825, 430);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(825, 286);
             this.flowLayoutPanel1.TabIndex = 90;
+            // 
+            // fileWebBrowser
+            // 
+            this.fileWebBrowser.Location = new System.Drawing.Point(0, 0);
+            this.fileWebBrowser.Margin = new System.Windows.Forms.Padding(0);
+            this.fileWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.fileWebBrowser.Name = "fileWebBrowser";
+            this.fileWebBrowser.Size = new System.Drawing.Size(825, 430);
+            this.fileWebBrowser.TabIndex = 6;
+            this.fileWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // HeadingPanel
             // 
@@ -154,6 +164,69 @@
             this.singleDakHeaderLabel.TabIndex = 28;
             this.singleDakHeaderLabel.Text = "গার্ড ফাইল রেফারেন্স";
             // 
+            // panel7
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.panel7, 2);
+            this.panel7.Controls.Add(this.iconButton1);
+            this.panel7.Controls.Add(this.guardFileAddButton);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(3, 434);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(828, 34);
+            this.panel7.TabIndex = 71;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.AutoSize = true;
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.Black;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Save;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 18;
+            this.iconButton1.Location = new System.Drawing.Point(728, 0);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(5);
+            this.iconButton1.MinimumSize = new System.Drawing.Size(34, 36);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(52, 36);
+            this.iconButton1.TabIndex = 89;
+            this.iconButton1.Text = "হ্যাঁ";
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            // 
+            // guardFileAddButton
+            // 
+            this.guardFileAddButton.AutoSize = true;
+            this.guardFileAddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.guardFileAddButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.guardFileAddButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.guardFileAddButton.FlatAppearance.BorderSize = 0;
+            this.guardFileAddButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guardFileAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.guardFileAddButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardFileAddButton.ForeColor = System.Drawing.Color.Black;
+            this.guardFileAddButton.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.guardFileAddButton.IconColor = System.Drawing.Color.Black;
+            this.guardFileAddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.guardFileAddButton.IconSize = 18;
+            this.guardFileAddButton.Location = new System.Drawing.Point(780, 0);
+            this.guardFileAddButton.Margin = new System.Windows.Forms.Padding(0);
+            this.guardFileAddButton.MinimumSize = new System.Drawing.Size(34, 36);
+            this.guardFileAddButton.Name = "guardFileAddButton";
+            this.guardFileAddButton.Size = new System.Drawing.Size(48, 36);
+            this.guardFileAddButton.TabIndex = 88;
+            this.guardFileAddButton.Text = "না";
+            this.guardFileAddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.guardFileAddButton.UseVisualStyleBackColor = false;
+            this.guardFileAddButton.Click += new System.EventHandler(this.guardFileAddButton_Click);
+            // 
             // panel1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel1, 2);
@@ -206,83 +279,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "বাছাইকৃত ফাইলটির কোন পেজটি রেফারেন্স করতে চান?";
             // 
-            // fileWebBrowser
-            // 
-            this.fileWebBrowser.Location = new System.Drawing.Point(0, 0);
-            this.fileWebBrowser.Margin = new System.Windows.Forms.Padding(0);
-            this.fileWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.fileWebBrowser.Name = "fileWebBrowser";
-            this.fileWebBrowser.Size = new System.Drawing.Size(825, 430);
-            this.fileWebBrowser.TabIndex = 6;
-            this.fileWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
-            // 
-            // guardFileAddButton
-            // 
-            this.guardFileAddButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.guardFileAddButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.guardFileAddButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.guardFileAddButton.FlatAppearance.BorderSize = 0;
-            this.guardFileAddButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.guardFileAddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.guardFileAddButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guardFileAddButton.ForeColor = System.Drawing.Color.Black;
-            this.guardFileAddButton.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.guardFileAddButton.IconColor = System.Drawing.Color.Black;
-            this.guardFileAddButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.guardFileAddButton.IconSize = 18;
-            this.guardFileAddButton.Location = new System.Drawing.Point(780, 0);
-            this.guardFileAddButton.Margin = new System.Windows.Forms.Padding(0);
-            this.guardFileAddButton.MinimumSize = new System.Drawing.Size(34, 36);
-            this.guardFileAddButton.Name = "guardFileAddButton";
-            this.guardFileAddButton.Size = new System.Drawing.Size(48, 36);
-            this.guardFileAddButton.TabIndex = 88;
-            this.guardFileAddButton.Text = "না";
-            this.guardFileAddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.guardFileAddButton.UseVisualStyleBackColor = false;
-            this.guardFileAddButton.Click += new System.EventHandler(this.guardFileAddButton_Click);
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.Black;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Save;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 18;
-            this.iconButton1.Location = new System.Drawing.Point(728, 0);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(5);
-            this.iconButton1.MinimumSize = new System.Drawing.Size(34, 36);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(52, 36);
-            this.iconButton1.TabIndex = 89;
-            this.iconButton1.Text = "হ্যাঁ";
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
-            // 
-            // panel7
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.panel7, 2);
-            this.panel7.Controls.Add(this.iconButton1);
-            this.panel7.Controls.Add(this.guardFileAddButton);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(3, 588);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(828, 34);
-            this.panel7.TabIndex = 71;
-            // 
             // UCGuardFileReferenceNothi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(850, 641);
+            this.ClientSize = new System.Drawing.Size(850, 487);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Location = new System.Drawing.Point(10, 20);
@@ -294,11 +296,12 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.HeadingPanel.ResumeLayout(false);
             this.HeadingPanel.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.userIdPanel.ResumeLayout(false);
             this.userIdPanel.PerformLayout();
-            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

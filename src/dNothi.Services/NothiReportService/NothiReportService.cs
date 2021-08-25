@@ -22,7 +22,7 @@ namespace dNothi.Services.NothiReportService
         {
             _localNothiRegisterBookRepository = localNothiRegisterBookRepository;
         }
-        public NothiRegisterReport NothiRegisterBook(DakUserParam userParam, string fromDate, string toDate, string branchName,  bool isNothiPreron, bool isNothiGrahon, bool isNothiReigister)
+        public NothiRegisterReport NothiRegisterBook(DakUserParam userParam, string fromDate, string toDate, string branchName,  bool isNothiPreron, bool isNothiGrahon, bool isNothiReigister, bool isPotrajaribohi)
         {
             string endPoint = string.Empty;
             if (isNothiPreron)
@@ -37,8 +37,12 @@ namespace dNothi.Services.NothiReportService
             {
                 endPoint = DefaultAPIConfiguration.NothiAllListEndPoint;
             }
-            
-            
+            if(isPotrajaribohi)
+            {
+                endPoint = DefaultAPIConfiguration.NothiPotrangshoNotePotrojariEndPoint;
+            }
+
+
             int unitid = 0;
             bool nrb = true; //nothi register book
             bool dnc = false;
@@ -68,16 +72,19 @@ namespace dNothi.Services.NothiReportService
                 request.AddParameter("cdesk", "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"" + userParam.office_unit + "\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\"}");
                 request.AddParameter("page", userParam.page);
                 request.AddParameter("length", userParam.limit);
-                //request.AddParameter("start_date", fromDate);
-                //request.AddParameter("end_date", toDate);
-                // request.AddParameter("unit_id", unitid);
-                string search_params = "office_unit_id=" + unitid + "&last_modified_date=" + fromDate + ":" + toDate + "";
+                string search_params = string.Empty;
+                
+                if (isPotrajaribohi)
+                {
+                    request.AddParameter("unit_id", unitid);
+                    search_params = "last_issue_date=" + fromDate + ":" + toDate + "&potro_subject=";
+                }
+                else
+                {
+                    search_params = "office_unit_id=" + unitid + "&last_modified_date=" + fromDate + ":" + toDate + "";
+                }
               
                 request.AddParameter("search_params", search_params);
-
-                //request.AddParameter("search_params", "office_unit_id = 0 & last_modified_date = 2021/07/06:2021/08/04");
-
-                //[search_params] => office_unit_id = 0 & last_modified_date = 2021 / 07 / 06:2021 / 08 / 04
 
                 IRestResponse Response = Api.Execute(request);
 
