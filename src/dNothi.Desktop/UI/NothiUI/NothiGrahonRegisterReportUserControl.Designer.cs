@@ -1,6 +1,6 @@
 ﻿namespace dNothi.Desktop.UI.NothiUI
 {
-    partial class RegisterReportUserControl
+    partial class NothiGrahonRegisterReportUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,11 +34,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterReportUserControl));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NothiGrahonRegisterReportUserControl));
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.dateRangeTextBox = new System.Windows.Forms.Panel();
             this.pageNextButton = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
@@ -58,23 +58,17 @@
             this.headlineLabel = new System.Windows.Forms.Label();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.registerReportDataGridView = new System.Windows.Forms.DataGridView();
+            this.slDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nothiNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grahanDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.officeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nothisubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.previousSender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registerReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.noRowMessageLabel = new System.Windows.Forms.Label();
             this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.nothiPrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
-            this.slDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nothiNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.officeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nothisubject = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.previousSender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.preronDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grahanDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nextReciver = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acceptNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.previousNothiNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type_sironam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nothivuktirdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateRangeTextBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -87,26 +81,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.registerReportDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerReportBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(194)))), ((int)(((byte)(187)))));
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton1.IconSize = 24;
-            this.iconButton1.Location = new System.Drawing.Point(1193, 0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(45, 41);
-            this.iconButton1.TabIndex = 68;
-            this.MyToolTip.SetToolTip(this.iconButton1, "পিডিএফ");
-            this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // iconButton2
             // 
@@ -127,6 +101,26 @@
             this.MyToolTip.SetToolTip(this.iconButton2, "এক্সেল");
             this.iconButton2.UseVisualStyleBackColor = false;
             this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(194)))), ((int)(((byte)(187)))));
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton1.IconSize = 24;
+            this.iconButton1.Location = new System.Drawing.Point(1193, 0);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(45, 41);
+            this.iconButton1.TabIndex = 68;
+            this.MyToolTip.SetToolTip(this.iconButton1, "পিডিএফ");
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
             // 
             // dateRangeTextBox
             // 
@@ -378,9 +372,9 @@
             this.headlineLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.headlineLabel.Location = new System.Drawing.Point(44, 9);
             this.headlineLabel.Name = "headlineLabel";
-            this.headlineLabel.Size = new System.Drawing.Size(99, 21);
+            this.headlineLabel.Size = new System.Drawing.Size(130, 21);
             this.headlineLabel.TabIndex = 66;
-            this.headlineLabel.Text = "নথি নিবন্ধন বহি";
+            this.headlineLabel.Text = "নথি গ্রহণ নিবন্ধন বহি";
             this.headlineLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // bodyTableLayoutPanel
@@ -427,16 +421,10 @@
             this.registerReportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.slDataGridViewTextBoxColumn,
             this.nothiNo,
+            this.grahanDate,
             this.officeName,
             this.nothisubject,
-            this.previousSender,
-            this.preronDate,
-            this.grahanDate,
-            this.nextReciver,
-            this.acceptNumDataGridViewTextBoxColumn,
-            this.previousNothiNo,
-            this.type_sironam,
-            this.nothivuktirdate});
+            this.previousSender});
             this.registerReportDataGridView.DataSource = this.registerReportBindingSource;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
@@ -475,6 +463,57 @@
             this.registerReportDataGridView.Size = new System.Drawing.Size(1232, 465);
             this.registerReportDataGridView.TabIndex = 96;
             this.registerReportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prapokDataGridView_CellContentClick);
+            // 
+            // slDataGridViewTextBoxColumn
+            // 
+            this.slDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.slDataGridViewTextBoxColumn.DataPropertyName = "sl";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.slDataGridViewTextBoxColumn.FillWeight = 120F;
+            this.slDataGridViewTextBoxColumn.HeaderText = "ক্রমিক নং";
+            this.slDataGridViewTextBoxColumn.Name = "slDataGridViewTextBoxColumn";
+            this.slDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nothiNo
+            // 
+            this.nothiNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nothiNo.DataPropertyName = "nothiNo";
+            this.nothiNo.HeaderText = "গৃহীত নথির নং";
+            this.nothiNo.Name = "nothiNo";
+            this.nothiNo.ReadOnly = true;
+            // 
+            // grahanDate
+            // 
+            this.grahanDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.grahanDate.DataPropertyName = "grahanDate";
+            this.grahanDate.HeaderText = "গ্রহণের তারিখ";
+            this.grahanDate.Name = "grahanDate";
+            this.grahanDate.ReadOnly = true;
+            // 
+            // officeName
+            // 
+            this.officeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.officeName.DataPropertyName = "officeName";
+            this.officeName.HeaderText = "অফিস/শাখার নাম";
+            this.officeName.Name = "officeName";
+            this.officeName.ReadOnly = true;
+            // 
+            // nothisubject
+            // 
+            this.nothisubject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nothisubject.DataPropertyName = "nothisubject";
+            this.nothisubject.HeaderText = "নথির বিষয়";
+            this.nothisubject.Name = "nothisubject";
+            this.nothisubject.ReadOnly = true;
+            // 
+            // previousSender
+            // 
+            this.previousSender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.previousSender.DataPropertyName = "previousSender";
+            this.previousSender.HeaderText = "পূর্ববর্তী প্রেরক";
+            this.previousSender.Name = "previousSender";
+            this.previousSender.ReadOnly = true;
             // 
             // registerReportBindingSource
             // 
@@ -526,111 +565,7 @@
             this.nothiPrintPreviewDialog.Name = "dakUploadPrintPreviewDialog";
             this.nothiPrintPreviewDialog.Visible = false;
             // 
-            // slDataGridViewTextBoxColumn
-            // 
-            this.slDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.slDataGridViewTextBoxColumn.DataPropertyName = "sl";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.slDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.slDataGridViewTextBoxColumn.FillWeight = 120F;
-            this.slDataGridViewTextBoxColumn.HeaderText = "ক্রমিক নং";
-            this.slDataGridViewTextBoxColumn.Name = "slDataGridViewTextBoxColumn";
-            this.slDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nothiNo
-            // 
-            this.nothiNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nothiNo.DataPropertyName = "nothiNo";
-            this.nothiNo.HeaderText = "প্রেরিত নথির নং";
-            this.nothiNo.Name = "nothiNo";
-            this.nothiNo.ReadOnly = true;
-            // 
-            // officeName
-            // 
-            this.officeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.officeName.DataPropertyName = "officeName";
-            this.officeName.HeaderText = "অফিস/শাখার নাম";
-            this.officeName.Name = "officeName";
-            this.officeName.ReadOnly = true;
-            // 
-            // nothisubject
-            // 
-            this.nothisubject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nothisubject.DataPropertyName = "nothisubject";
-            this.nothisubject.HeaderText = "নথির বিষয়";
-            this.nothisubject.Name = "nothisubject";
-            this.nothisubject.ReadOnly = true;
-            // 
-            // previousSender
-            // 
-            this.previousSender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.previousSender.DataPropertyName = "previousSender";
-            this.previousSender.HeaderText = "পূর্ববর্তী প্রেরক";
-            this.previousSender.Name = "previousSender";
-            this.previousSender.ReadOnly = true;
-            // 
-            // preronDate
-            // 
-            this.preronDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.preronDate.DataPropertyName = "preronDate";
-            this.preronDate.HeaderText = "প্রেরণের তারিখ";
-            this.preronDate.Name = "preronDate";
-            this.preronDate.ReadOnly = true;
-            // 
-            // grahanDate
-            // 
-            this.grahanDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.grahanDate.DataPropertyName = "grahanDate";
-            this.grahanDate.HeaderText = "গ্রহণের তারিখ";
-            this.grahanDate.Name = "grahanDate";
-            this.grahanDate.ReadOnly = true;
-            // 
-            // nextReciver
-            // 
-            this.nextReciver.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nextReciver.DataPropertyName = "nextReciver";
-            this.nextReciver.HeaderText = "পরবর্তী প্রাপক";
-            this.nextReciver.Name = "nextReciver";
-            this.nextReciver.ReadOnly = true;
-            // 
-            // acceptNumDataGridViewTextBoxColumn
-            // 
-            this.acceptNumDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.acceptNumDataGridViewTextBoxColumn.DataPropertyName = "acceptNum";
-            this.acceptNumDataGridViewTextBoxColumn.FillWeight = 150F;
-            this.acceptNumDataGridViewTextBoxColumn.HeaderText = "নথির নং";
-            this.acceptNumDataGridViewTextBoxColumn.Name = "acceptNumDataGridViewTextBoxColumn";
-            this.acceptNumDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // previousNothiNo
-            // 
-            this.previousNothiNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.previousNothiNo.DataPropertyName = "previousNothiNo";
-            this.previousNothiNo.FillWeight = 180F;
-            this.previousNothiNo.HeaderText = "পূর্ববর্তী নথির নম্বরসমূহ";
-            this.previousNothiNo.Name = "previousNothiNo";
-            this.previousNothiNo.ReadOnly = true;
-            // 
-            // type_sironam
-            // 
-            this.type_sironam.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.type_sironam.DataPropertyName = "type_sironam";
-            this.type_sironam.FillWeight = 180F;
-            this.type_sironam.HeaderText = "ধরন/শিরোনাম";
-            this.type_sironam.Name = "type_sironam";
-            this.type_sironam.ReadOnly = true;
-            // 
-            // nothivuktirdate
-            // 
-            this.nothivuktirdate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nothivuktirdate.DataPropertyName = "nothivuktirdate";
-            this.nothivuktirdate.FillWeight = 300F;
-            this.nothivuktirdate.HeaderText = "শ্রেণিবিন্যাসসহ নথিভুক্ত করবার তারিখ";
-            this.nothivuktirdate.Name = "nothivuktirdate";
-            this.nothivuktirdate.ReadOnly = true;
-            this.nothivuktirdate.ToolTipText = "শ্রেণিবিন্যাসসহ নথিভুক্ত করবার তারিখ";
-            // 
-            // RegisterReportUserControl
+            // NothiGrahonRegisterReportUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -639,7 +574,7 @@
             this.Controls.Add(this.customDatePicker);
             this.Controls.Add(this.noRowMessageLabel);
             this.Controls.Add(this.bodyTableLayoutPanel);
-            this.Name = "RegisterReportUserControl";
+            this.Name = "NothiGrahonRegisterReportUserControl";
             this.Size = new System.Drawing.Size(1238, 569);
             this.Load += new System.EventHandler(this.RegisterReportUserControl_Load);
             this.dateRangeTextBox.ResumeLayout(false);
@@ -689,17 +624,14 @@
         private System.Windows.Forms.Label noRowMessageLabel;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog nothiPrintPreviewDialog;
-        private System.Windows.Forms.DataGridViewTextBoxColumn slDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nothiNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn officeName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nothisubject;
-        private System.Windows.Forms.DataGridViewTextBoxColumn previousSender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn preronDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grahanDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nextReciver;
-        private System.Windows.Forms.DataGridViewTextBoxColumn acceptNumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn previousNothiNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn type_sironam;
         private System.Windows.Forms.DataGridViewTextBoxColumn nothivuktirdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn slDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nothiNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grahanDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn officeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nothisubject;
+        private System.Windows.Forms.DataGridViewTextBoxColumn previousSender;
     }
 }

@@ -43,11 +43,44 @@ namespace dNothi.Services.NothiReportService.Model
             public int permitted { get; set; }
         }
 
+        public class To
+        {
+            public int office_id { get; set; }
+            public string office { get; set; }
+            public int office_unit_id { get; set; }
+            public string office_unit { get; set; }
+            public int designation_id { get; set; }
+            public string designation { get; set; }
+            public int officer_id { get; set; }
+            public string officer { get; set; }
+            public int view_status { get; set; }
+            public string issue_date { get; set; }
+            public int priority { get; set; }
+        }
+
         public class Record
         {
             public Nothi nothi { get; set; }
+            public To to { get; set; }
             public Desk desk { get; set; }
             public Status status { get; set; }
+
+            public int id { get; set; }
+            public int office_id { get; set; }
+            public string office_name { get; set; }
+            public int office_unit_id { get; set; }
+            public string office_unit_name { get; set; }
+            public int office_unit_organogram_id { get; set; }
+            public string office_designation_name { get; set; }
+            public string nothi_no { get; set; }
+            public string subject { get; set; }
+            public int nothi_class { get; set; }
+            public string created { get; set; }
+            public string note_current_status { get; set; }
+            public string priority { get; set; }
+            public int note_count { get; set; }
+            public string issue_date { get; set; }
+            public string last_note_date { get; set; }
         }
 
         public class Data

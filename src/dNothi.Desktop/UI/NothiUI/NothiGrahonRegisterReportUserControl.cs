@@ -18,7 +18,7 @@ using dNothi.Services.BasicService;
 
 namespace dNothi.Desktop.UI.NothiUI
 {
-    public partial class RegisterReportUserControl : UserControl
+    public partial class NothiGrahonRegisterReportUserControl : UserControl
     {
         string fromdate, todate;
         public int pageLimit = 10;
@@ -39,7 +39,7 @@ namespace dNothi.Desktop.UI.NothiUI
             
         }
 
-        public RegisterReportUserControl(IUserService userService, INothiReportService nothiReportService, IBasicService basicService)
+        public NothiGrahonRegisterReportUserControl(IUserService userService, INothiReportService nothiReportService, IBasicService basicService)
         {
             _userService = userService;
             _nothiReportService = nothiReportService;
@@ -74,58 +74,14 @@ namespace dNothi.Desktop.UI.NothiUI
         public bool _isNothiRegister { get; set; }
         public bool _isNothiGrahon { get; set; }
 
-        public bool isNothiPerito { get {return _isNothiPerito; } set { _isNothiPerito = value; if (value) { headlineLabel.Text = "নথি প্রেরণ নিবন্ধন বহি"; } } }
-        public bool isNothiRegister { get {return _isNothiRegister; } set { _isNothiRegister = value; if (value) { headlineLabel.Text = "নথি নিবন্ধন বহি"; } } }
-        public bool isNothiGrahon { get {return _isNothiGrahon; } set { _isNothiGrahon = value; if (value) { headlineLabel.Text = "নথি গ্রহণ নিবন্ধন বহি"; } } }
+        public bool isNothiPerito { get {return _isNothiPerito; } set { 
+                _isNothiPerito = value; if (value) { headlineLabel.Text = "নথি প্রেরণ নিবন্ধন বহি"; } } }
+        public bool isNothiRegister { get {return _isNothiRegister; } set { 
+                _isNothiRegister = value; if (value) { headlineLabel.Text = "নথি নিবন্ধন বহি"; } } }
+        public bool isNothiGrahon { get {return _isNothiGrahon; } set { 
+                _isNothiGrahon = value; if (value) { headlineLabel.Text = "নথি গ্রহণ নিবন্ধন বহি"; } } }
 
-        //public List<RegisterReport> _registerReports { get; set; }
-        //public List<RegisterReport> registerReports {
-        //    get { return _registerReports; }
-        //    set
-        //    {
-        //        _registerReports = value;
-
-        //        if(value.Count<=0)
-        //        {
-        //            noRowMessageLabel.Visible = true;
-        //        }
-        //        else
-        //        {
-        //            noRowMessageLabel.Visible = false;
-        //        }
-
-        //        registerReportDataGridView.DataSource = null;
-        //        registerReportDataGridView.DataSource = value;
-
-        //        if(isNothiRegister)
-        //        {
-        //            registerReportDataGridView.Columns[0].Visible = false;
-        //            registerReportDataGridView.Columns[2].Visible = false;
-        //            registerReportDataGridView.Columns[3].Visible = false; 
-        //        }
-        //        if (isNothiPerito)
-        //        {
-
-        //        }
-        //        if (isNothiPerito)
-        //        {
-
-        //        }
-        //        // Resize the master DataGridView columns to fit the newly loaded data.
-        //        registerReportDataGridView.AutoResizeColumns();
-
-        //        // Configure the details DataGridView so that its columns automatically
-        //        // adjust their widths when the data changes.
-        //        registerReportDataGridView.AutoSizeColumnsMode =
-        //            DataGridViewAutoSizeColumnsMode.AllCells;
-
-        //        MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
-        //        registerReportDataGridView.ColumnHeadersDefaultCellStyle.Font = MemoryFonts.GetFont(0,12, registerReportDataGridView.Font.Style);
-        //    }
-        
-        
-        //}
-
+      
         private void Border_Color_Blue(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
@@ -198,7 +154,8 @@ namespace dNothi.Desktop.UI.NothiUI
 
             userParam.page = page;
             userParam.limit = pageLimit;
-            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam,fromdate,todate, unitid,_isNothiPerito,_isNothiGrahon,_isNothiRegister);
+            bool isNothiGrahons = true;
+            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam,fromdate,todate, unitid,_isNothiPerito, isNothiGrahons, _isNothiRegister);
             if (nothiRegisterBook.status == "success")
             {
                 totalRowlabel.Text = "সর্বমোট "+ ConversionMethod.EnglishNumberToBangla( nothiRegisterBook.data.total_records.ToString())+" টি";
@@ -216,10 +173,12 @@ namespace dNothi.Desktop.UI.NothiUI
                                    //sharokNo = t.nothi.subject,
                                    //applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.nothi.modified
 
-                                   nothiNo= t.nothi.nothi_no,
-                                   officeName=t.nothi.office_unit_name,
-                                   nothisubject=t.nothi.subject,
-                                   //grahanDate,
+                                   nothiNo= t.nothi_no,
+                                   officeName=t.office_unit_name,
+                                   nothisubject=t.subject,
+
+                                   grahanDate= t.issue_date,
+                                   previousSender=string.Empty
                                    //preronDate,
                                    //previousSender,
                                    //nextReciver,
@@ -242,27 +201,27 @@ namespace dNothi.Desktop.UI.NothiUI
                 totalPage = (int)Math.Ceiling(pagesize);
                 registerReportDataGridView.DataSource = null;
                 registerReportDataGridView.DataSource = columns.ToList();
-                if (isNothiRegister)
-                {
-                    registerReportDataGridView.Columns[1].Visible = false;
-                    registerReportDataGridView.Columns[2].Visible = false;
-                    registerReportDataGridView.Columns[3].Visible = false;
-                    registerReportDataGridView.Columns[4].Visible = false;
-                    registerReportDataGridView.Columns[5].Visible = false;
-                    registerReportDataGridView.Columns[6].Visible = false;
-                }
-                if (isNothiPerito)
-                {
-                    registerReportDataGridView.Columns[7].Visible = false;
-                    registerReportDataGridView.Columns[8].Visible = false;
-                    registerReportDataGridView.Columns[9].Visible = false;
-                    registerReportDataGridView.Columns[10].Visible = false;
+                //if (isNothiRegister)
+                //{
+                //    registerReportDataGridView.Columns[1].Visible = false;
+                //    registerReportDataGridView.Columns[2].Visible = false;
+                //    registerReportDataGridView.Columns[3].Visible = false;
+                //    registerReportDataGridView.Columns[4].Visible = false;
+                //    registerReportDataGridView.Columns[5].Visible = false;
+                //    registerReportDataGridView.Columns[6].Visible = false;
+                //}
+                //if (isNothiPerito)
+                //{
+                //    registerReportDataGridView.Columns[7].Visible = false;
+                //    registerReportDataGridView.Columns[8].Visible = false;
+                //    registerReportDataGridView.Columns[9].Visible = false;
+                //    registerReportDataGridView.Columns[10].Visible = false;
                     
-                }
-                if (isNothiGrahon)
-                {
+                //}
+                //if (isNothiGrahon)
+                //{
 
-                }
+                //}
                 registerReportDataGridView.AutoResizeColumns();
 
                 registerReportDataGridView.AutoSizeColumnsMode =DataGridViewAutoSizeColumnsMode.Fill;

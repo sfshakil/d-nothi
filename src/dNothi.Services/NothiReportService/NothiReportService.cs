@@ -31,7 +31,7 @@ namespace dNothi.Services.NothiReportService
             }
             if (isNothiGrahon)
             {
-
+                endPoint = DefaultAPIConfiguration.NothiListInboxEndPoint;
             }
             if (isNothiReigister)
             {

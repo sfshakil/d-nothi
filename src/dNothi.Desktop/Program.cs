@@ -293,7 +293,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Dak.FileUserControl>().AsSelf();
             builder.RegisterType<NothiAll>().AsSelf();
             builder.RegisterType<UI.NothiCreateNextStep>().AsSelf();
-            builder.RegisterType<UI.NothiUI.RegisterReportUserControl>().AsSelf();
+            builder.RegisterType<UI.NothiUI.NothiRegisterReportUserControl>().AsSelf();
             builder.RegisterType<UI.Profile.ProfileManagementForm>().AsSelf();
 
             
@@ -372,10 +372,13 @@ namespace dNothi.Desktop
             builder.RegisterType<GaurdFilePortalListRow>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFilePortalCreate>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileReferenceNothi>().AsSelf();
+
+
+
             
-
-
-
+            builder.RegisterType<NothiGrahonRegisterReportUserControl>().AsSelf();
+            builder.RegisterType<NothiPreronRegisterReportUserControl>().AsSelf();
+            
 
             builder.RegisterType<PotrojariGroupContent>().AsSelf();
             builder.RegisterType<PatraJariGroupCreateUserControl>().AsSelf();

@@ -1366,11 +1366,23 @@
     <Compile Include="UI\NothiUI\NothiLevelAddForm.Designer.cs">
       <DependentUpon>NothiLevelAddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\NothiUI\RegisterReportUserControl.cs">
+    <Compile Include="UI\NothiUI\NothiGrahonRegisterReportUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\NothiUI\RegisterReportUserControl.Designer.cs">
-      <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
+    <Compile Include="UI\NothiUI\NothiGrahonRegisterReportUserControl.Designer.cs">
+      <DependentUpon>NothiGrahonRegisterReportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiPreronRegisterReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiPreronRegisterReportUserControl.Designer.cs">
+      <DependentUpon>NothiPreronRegisterReportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiRegisterReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiRegisterReportUserControl.Designer.cs">
+      <DependentUpon>NothiRegisterReportUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\OfficerRowUserControl.cs">
       <SubType>UserControl</SubType>
@@ -1971,8 +1983,14 @@
     <EmbeddedResource Include="UI\NothiUI\NothiLevelAddForm.resx">
       <DependentUpon>NothiLevelAddForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\NothiUI\RegisterReportUserControl.resx">
-      <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\NothiUI\NothiGrahonRegisterReportUserControl.resx">
+      <DependentUpon>NothiGrahonRegisterReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\NothiPreronRegisterReportUserControl.resx">
+      <DependentUpon>NothiPreronRegisterReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\NothiRegisterReportUserControl.resx">
+      <DependentUpon>NothiRegisterReportUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\OfficerRowUserControl.resx">
       <DependentUpon>OfficerRowUserControl.cs</DependentUpon>
