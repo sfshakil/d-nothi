@@ -1889,7 +1889,14 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamPotro.potrojari.potro_security_level = dakSecrurityComboBox.SelectedIndex;
 
                 khosraSaveParamPotro.potrojari.potro_subject = GetPotroSubjectFromHtmlString(_currentHtmlString);
+               
+
                 khosraSaveParamPotro.potrojari.draft_officer_id = dakUserParam.officer_id;
+                
+                if (String.IsNullOrEmpty(khosraSaveParamPotro.potrojari.potro_subject))
+                {
+                    khosraSaveParamPotro.potrojari.potro_subject = _khasraPotroTemplateData.template_name + "-" + dateTimePicker.Value.ToString("dd-MM-yyyy");
+                }
 
                 if (_cloned_potrojari_id != 0)
                 {

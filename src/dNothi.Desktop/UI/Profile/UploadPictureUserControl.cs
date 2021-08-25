@@ -1,9 +1,11 @@
-﻿using System;
+﻿using dNothi.Utility;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,9 +24,10 @@ namespace dNothi.Desktop.UI.Profile
         }
 
         public Image Image;
-        public string Extension;
         public Image _PictureBoxImage;
-        public string _PictureBoxImagePath;
+        public string Extension;
+        public ImageFormat _imageFormat;
+        public string _imagePath;
         public bool ChooseImage()
         {
             OpenFileDialog opnfd = new OpenFileDialog();
@@ -35,7 +38,11 @@ namespace dNothi.Desktop.UI.Profile
 
                 
                 officerEditablePictureBox.Image = Image = new Bitmap(new Bitmap(opnfd.FileName), 235, 235);
-                Extension= Path.GetExtension(opnfd.FileName).ToLower();
+
+                Image imageForFormat = Image.FromFile(opnfd.FileName);
+                _imageFormat = imageForFormat.RawFormat;
+
+                Extension = Path.GetExtension(opnfd.FileName).ToLower().Replace(".", "");
                 return true;
             }
             return false;
@@ -160,36 +167,19 @@ namespace dNothi.Desktop.UI.Profile
 
             Bitmap bm = new Bitmap(width, height);
             picturePanel.DrawToBitmap(bm, new Rectangle(0, 0, width, height));
-            _PictureBoxImage = bm;
-
-         
+           _PictureBoxImage = (Image)bm;
 
 
-            
-            if (Extension == ".jpg" || Extension == ".jpeg" || Extension == ".png")
-            {
-             string  UploadFileName = "orig_" + Guid.NewGuid().ToString() + Extension.ToUpper();
-                _PictureBoxImagePath = Directory.GetCurrentDirectory()+"\\"+ UploadFileName;
-                try
-                {
-                    bm.Save(_PictureBoxImagePath);
-                }
-                catch(Exception E)
-                {
 
-                }
-                
-            }
 
-            // Bitmap bmp = new Bitmap(officerEditablePictureBox.Image);
 
-            //  int pX =-officerEditablePictureBox.Location.X;
-            //  int pY =-officerEditablePictureBox.Location.Y;
 
-            //  _PictureBoxImage = bmp.Clone(
-            // new Rectangle { X = pX, Y = pY, Width = picturePanel.Width, Height = picturePanel.Height },
-            // bmp.PixelFormat);
-            this.Hide();
+            _imagePath = "data:image/"+Extension+";base64," +UIDesignCommonMethod.ImageToBase64(bm, _imageFormat);
+
+
+           
+
+                 this.Hide();
 
             if (this.SaveImageButton != null)
                 this.SaveImageButton(sender, e);

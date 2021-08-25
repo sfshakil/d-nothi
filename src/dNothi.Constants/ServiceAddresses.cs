@@ -194,6 +194,8 @@ namespace dNothi.Constants
         public const string DoptorPasswordChangeEndPoint = "/api/user/password/update";
         public const string DoptorPhotoChangeEndPoint = "/api/user/image/update";
         public const string DoptorSignChangeEndPoint = "/api/user/signature/update";
+        public const string DoptorSignEndPoint = "/api/user/signatures/";
+        public const string DoptorProfilePicEndPoint = "/api/user/images/";
 
 
 

@@ -10676,6 +10676,8 @@ namespace dNothi.Desktop.UI
                     //lbNotePotrojari.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbNotePotrojari.Text))+1).ToString());
                     //lbPotrojari.Text = ConversionMethod.EngDigittoBanDigit((Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(lbPotrojari.Text))+1).ToString());
                     loadNote();
+                    ReFresh(allFlag);
+
                     lbNotePotrojari_Click(null, EventArgs.Empty);
 
 
@@ -10818,7 +10820,7 @@ namespace dNothi.Desktop.UI
                     {
 
                         UIDesignCommonMethod.SuccessMessage(khoshraUnapprovedResponse.data);
-                        ReFresh(allFlag);
+                        //ReFresh(allFlag);
                         btnApprove.Visible = true;
                         btnUnapprove.Visible = false;
                         btnPotrojari.Visible = false;
@@ -10835,6 +10837,7 @@ namespace dNothi.Desktop.UI
             ConditonBoxForm conditonBoxForm = new ConditonBoxForm();
             conditonBoxForm.message = "আপনি কি পত্রটি অনুমোদন করতে চান??";
             conditonBoxForm.ShowDialog();
+            bool isOnumodonLoad = false;
             if (conditonBoxForm.Yes)
             {
                 if (khoshraPotroWaitinDataRecordMulpotroDTO != null)
@@ -10856,10 +10859,11 @@ namespace dNothi.Desktop.UI
                         _khoshraPotroDataRecordDTO.mulpotro.potro_description = ConversionMethod.Base64Encode(khosraViewWebBrowser.Document.Body.OuterHtml.ToString());
 
                         khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam, khoshraPotroWaitinDataRecordMulpotroDTO.id, _khoshraPotroDataRecordDTO.basic.potro_status, _khoshraPotroDataRecordDTO.mulpotro.potro_description);
-
+                        isOnumodonLoad = true;
                     }
                     else if (_khoshraPotroWaitinDataRecordDTO != null)
                     {
+                       
                         _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description = ConversionMethod.Base64Encode(khosraViewWebBrowser.Document.Body.OuterHtml.ToString());
 
                         khoshraUnapprovedResponse = _potrojariServices.GetPotroOnumodonResponse(dakListUserParam, khoshraPotroWaitinDataRecordMulpotroDTO.id, _khoshraPotroWaitinDataRecordDTO.basic.potro_status, _khoshraPotroWaitinDataRecordDTO.mulpotro.potro_description);
@@ -10870,7 +10874,9 @@ namespace dNothi.Desktop.UI
                     {
 
                         UIDesignCommonMethod.SuccessMessage(khoshraUnapprovedResponse.data);
-                        ReFresh(allFlag);  
+                       
+                        
+                        //ReFresh(allFlag);  
                             
 
 
