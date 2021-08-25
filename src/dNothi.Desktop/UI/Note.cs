@@ -11595,5 +11595,16 @@ namespace dNothi.Desktop.UI
             txtSearchNoteSubject.PlaceholderText = "নোটের বিষয়/নোটের নম্বর:";
             txtSearchNoteSubject.Text = "";
         }
+
+        private void btnSharokNumberSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSharokNumberReset_Click(object sender, EventArgs e)
+        {
+            sharokNumberTextBox.Text = "";
+            sharokNumberTextBox.PlaceholderText = "স্মারক নম্বর/বিষয় দিয়ে খুঁজুন";
+        }
     }
 }
