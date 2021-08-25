@@ -21,7 +21,7 @@ namespace dNothi.Services.NothiServices
         {
             _nothiItem = nothiItem;
         }
-        public NothijatoResponse GetNothijatoListInfo(DakUserParam dakUserParam, long id)
+        public NothijatoResponse GetNothijatoListInfo(DakUserParam dakUserParam, long id, string potro_subject)
         {
             NothijatoResponse nothijatoResponse = new NothijatoResponse();
             if (!dNothi.Utility.InternetConnection.Check())
@@ -47,6 +47,10 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
                 request.AddParameter("nothi", "{\"nothi_id\":\"" + id + "\", \"nothi_office\":\"" + dakUserParam.office_id + "\"}");
                 request.AddParameter("length", "1000000000000");
+                if (potro_subject != "")
+                {
+                    request.AddParameter("search_params", "potro_subject=" + potro_subject);
+                }
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;

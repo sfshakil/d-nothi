@@ -24,7 +24,7 @@ namespace dNothi.Services.NothiServices
             _nothiItem = nothiItem;
             _nothivuktoPotroParser = nothivuktoPotroParser;
         }
-        public NothivuktoPotroResponse GetNothivuktoPotroInfo(DakUserParam dakUserParam, long id)
+        public NothivuktoPotroResponse GetNothivuktoPotroInfo(DakUserParam dakUserParam, long id, string potro_subject)
         {
             NothivuktoPotroResponse khoshraPotroResponse = new NothivuktoPotroResponse();
 
@@ -39,6 +39,10 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
                 request.AddParameter("nothi", "{\"nothi_id\":\"" + id + "\", \"nothi_office\":\"" + dakUserParam.office_id + "\"}");
                 request.AddParameter("length", "1000000000000");
+                if (potro_subject != "")
+                {
+                    request.AddParameter("search_params", "potro_subject=" + potro_subject);
+                }
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
@@ -50,7 +54,7 @@ namespace dNothi.Services.NothiServices
                 throw;
             }
         }
-        public NothivuktoPotroResponse GetNoteNothivuktoPotroInfo(DakUserParam dakUserParam, long nothi_id, int nothi_note_id)
+        public NothivuktoPotroResponse GetNoteNothivuktoPotroInfo(DakUserParam dakUserParam, long nothi_id, int nothi_note_id, string potro_subject)
         {
             NothivuktoPotroResponse khoshraPotroResponse = new NothivuktoPotroResponse();
 
@@ -65,6 +69,10 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
                 request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi_id + "\", \"nothi_office\":\"" + dakUserParam.office_id + "\", \"nothi_note_id\":\"" + nothi_note_id + "\"}");
                 request.AddParameter("length", "1000000000000");
+                if (potro_subject != "")
+                {
+                    request.AddParameter("search_params", "potro_subject=" + potro_subject);
+                }
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;

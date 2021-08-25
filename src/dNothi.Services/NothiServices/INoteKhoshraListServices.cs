@@ -10,6 +10,6 @@ namespace dNothi.Services.NothiServices
 {
     public interface INoteKhoshraListServices
     {
-        NoteKhoshraListResponse GetnoteKhoshraListInfo(DakUserParam _dakuserparam, long id, int note_id);
+        NoteKhoshraListResponse GetnoteKhoshraListInfo(DakUserParam _dakuserparam, long id, int note_id, string potro_subject);
     }
 }
