@@ -16,6 +16,8 @@ using dNothi.Services.NothiReportService;
 using dNothi.Services.UserServices;
 using dNothi.Services.BasicService;
 using dNothi.Services.NothiReportService.Model;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace dNothi.Desktop.UI.NothiUI
 {
@@ -206,32 +208,48 @@ namespace dNothi.Desktop.UI.NothiUI
         }
         Bitmap bitmap;
 
-        private string getOnulipi(List<NothiRegisterReport.Onulipi> onulipi)
+        private string getOnulipi(object onulipiObject)
         {
+            
             string onulipidata=string.Empty;
-            foreach(var item in onulipi)
+            if (onulipiObject != null)
             {
-                onulipidata += item.office_unit + "," + item.office;
-            }
+                List<NothiRegisterReport.Onulipi> onulipi = JsonConvert.DeserializeObject<List<NothiRegisterReport.Onulipi>>(onulipiObject.ToString());
 
+                foreach (var item in onulipi)
+                {
+                    onulipidata += item.office_unit + "," + item.office;
+                }
+            }
             return onulipidata;
         }
-        private string getPrapok(List<NothiRegisterReport.Receiver> receiver)
+        private string getPrapok(object receiverObject)
         {
+           
             string receiverdata = string.Empty;
-            foreach (var item in receiver)
+            if (receiverObject != null)
             {
-                receiverdata += item.office_unit + "," + item.office;
+                List<NothiRegisterReport.Receiver> receiver = JsonConvert.DeserializeObject<List<NothiRegisterReport.Receiver>>(receiverObject.ToString());
+
+                foreach (var item in receiver)
+                {
+                    receiverdata += item.office_unit + "," + item.office;
+                }
             }
 
             return receiverdata;
         }
-        private string getPrerok(List<NothiRegisterReport.Sender> sender)
+        private string getPrerok(object senderObject)
         {
             string senderdata = string.Empty;
-            foreach (var item in sender)
+            if (senderObject != null)
             {
-                senderdata += item.office_unit + "," + item.office;
+                List<NothiRegisterReport.Sender> sender = JsonConvert.DeserializeObject<List<NothiRegisterReport.Sender>>(senderObject.ToString());
+
+                foreach (var item in sender)
+                {
+                    senderdata += item.office_unit + "," + item.office;
+                }
             }
 
             return senderdata;

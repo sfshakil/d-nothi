@@ -313,12 +313,12 @@ namespace dNothi.Services.NothiReportService.Model
 
         public class Recipient
         {
-            public List<object> drafter { get; set; }
-            public List<Receiver> receiver { get; set; }
-            public List<Onulipi> onulipi { get; set; }
-            public List<Approver> approver { get; set; }
-            public List<Attention> attention { get; set; }
-            public List<Sender> sender { get; set; }
+            public object drafter { get; set; }
+            public object receiver { get; set; }
+            public object onulipi { get; set; }
+            public object approver { get; set; }
+            public object attention { get; set; }
+            public object sender { get; set; }
             public int sent_status { get; set; }
         }
 

@@ -380,11 +380,11 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiPreronRegisterReportUserControl>().AsSelf();
             builder.RegisterType<NothiPotrajariRegisterReportUserControl>().AsSelf();
             builder.RegisterType<NothiMasterRegisterReportUserControl>().AsSelf();
+
+
+
             
-
-
-
-
+             builder.RegisterType<PotroPublishingForm>().AsSelf();
 
             builder.RegisterType<PotrojariGroupContent>().AsSelf();
             builder.RegisterType<PatraJariGroupCreateUserControl>().AsSelf();

@@ -123,21 +123,21 @@ namespace dNothi.Desktop.UI.NothiUI
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-            DataExportToExcel();
+            //DataExportToExcel();
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-             DataExportToPDF(); 
-            //printPdf();
+            // DataExportToPDF(); 
+           
         }
         private void LoadData()
         {
             var userParam = _userService.GetLocalDakUserParam();
             string pagessize = comboBox1.Text;
             string dateRange = dateTextBox.Text;
-            string unitid = dakPriorityComboBox.SelectedValue.ToString();
-            if (dateRange == string.Empty)
+            string unitid = dakPriorityComboBox.SelectedValue!=null? dakPriorityComboBox.SelectedValue.ToString():string.Empty;
+            if (dateRange != string.Empty)
             {
                 fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
                 todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
@@ -151,7 +151,7 @@ namespace dNothi.Desktop.UI.NothiUI
             pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(pagessize));
 
             userParam.page = page;
-            userParam.limit = pageLimit;
+            userParam.limit = 1;
             bool potraJariBohi = true;
             var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam, fromdate, todate, unitid, _isNothiPerito, _isNothiGrahon, _isNothiRegister, potraJariBohi);
             if (nothiRegisterBook.status == "success")
@@ -209,205 +209,13 @@ namespace dNothi.Desktop.UI.NothiUI
         }
         Bitmap bitmap;
 
-        private string getOnulipi(List<NothiRegisterReport.Onulipi> onulipi)
-        {
-            string onulipidata=string.Empty;
-            foreach(var item in onulipi)
-            {
-                onulipidata = item.office_unit + "," + item.office;
-            }
-
-            return onulipidata;
-        }
-        private string getPrapok(List<NothiRegisterReport.Receiver> receiver)
-        {
-            string receiverdata = string.Empty;
-            foreach (var item in receiver)
-            {
-                receiverdata = item.office_unit + "," + item.office;
-            }
-
-            return receiverdata;
-        }
-        private string getPrerok(List<NothiRegisterReport.Sender> sender)
-        {
-            string senderdata = string.Empty;
-            foreach (var item in sender)
-            {
-                senderdata = item.office_unit + "," + item.office;
-            }
-
-            return senderdata;
-        }
-        private void printPdf()
-        {
-            //Add a Panel control.
-            Panel panel = new Panel();
-            this.Controls.Add(panel);
-
-            //Create a Bitmap of size same as that of the Form.
-            Graphics grp = panel.CreateGraphics();
-            Size formSize = bodyTableLayoutPanel.ClientSize;
-             bitmap = new Bitmap(registerReportDataGridView.Width + bodyTableLayoutPanel.Width, registerReportDataGridView.Height + bodyTableLayoutPanel.Height, grp);
-            grp = Graphics.FromImage(bitmap);
-
-            formSize.Width = registerReportDataGridView.Width + bodyTableLayoutPanel.Width;
-            formSize.Height = registerReportDataGridView.Height + bodyTableLayoutPanel.Height;
-
-            //Copy screen area that that the Panel covers.
-            Point panelLocation = PointToScreen(registerReportDataGridView.Location);
-            grp.CopyFromScreen(panelLocation.X, panelLocation.Y, 0, 0, formSize);
-
-            //Show the Print Preview Dialog.
-            nothiPrintPreviewDialog.Document = printDocument1;
-            nothiPrintPreviewDialog.PrintPreviewControl.Zoom = 1;
-            printDocument1.DefaultPageSettings.Landscape = true;
-            nothiPrintPreviewDialog.ShowDialog();
-        }
-        private void DataExportToExcel()
-        {
-            try
-            {
-                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-                app.Visible = true;
-                worksheet = workbook.Sheets["Sheet1"];
-                worksheet = workbook.ActiveSheet;
-                worksheet.Name = "Records";
-
-                try
-                {
-                    for (int i = 0; i < registerReportDataGridView.Columns.Count; i++)
-                    {
-                        worksheet.Cells[1, i + 1] = registerReportDataGridView.Columns[i].HeaderText;
-                    }
-                    for (int i = 0; i < registerReportDataGridView.Rows.Count; i++)
-                    {
-                        for (int j = 0; j < registerReportDataGridView.Columns.Count; j++)
-                        {
-                            if (registerReportDataGridView.Rows[i].Cells[j].Value != null)
-                            {
-                                worksheet.Cells[i + 2, j + 1] = registerReportDataGridView.Rows[i].Cells[j].Value.ToString();
-                            }
-                            else
-                            {
-                                worksheet.Cells[i + 2, j + 1] = "";
-                            }
-                        }
-                    }
-
-                    //Getting the location and file name of the excel to save from user. 
-                    SaveFileDialog saveDialog = new SaveFileDialog();
-                    saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-                    saveDialog.FilterIndex = 2;
-
-                    if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    {
-                        workbook.SaveAs(saveDialog.FileName);
-                        MessageBox.Show("Export Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (System.Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
-                finally
-                {
-                    app.Quit();
-                    workbook = null;
-                    worksheet = null;
-                }
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
-        }
-        private void DataExportToPDF()
-        {
-           
-            if (registerReportDataGridView.Rows.Count > 0)
-            {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Filter = "PDF (*.pdf)|*.pdf";
-                sfd.FileName = "Output.pdf";
-                bool fileError = false;
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    if (File.Exists(sfd.FileName))
-                    {
-                        try
-                        {
-                            File.Delete(sfd.FileName);
-                        }
-                        catch (IOException ex)
-                        {
-                            fileError = true;
-                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
-                        }
-                    }
-                    if (!fileError)
-                    {
-                        try
-                        {
-                            BaseFont bf = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\Fonts\ARIALUNI.TTF", BaseFont.IDENTITY_H,true);
-                            //BaseFont bf = BaseFont.CreateFont(MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi), BaseFont.IDENTITY_H, true);
-                             PdfPTable pdfTable = new PdfPTable(registerReportDataGridView.Columns.Count);
-                            pdfTable.DefaultCell.Padding = 3;
-                            pdfTable.WidthPercentage = 100;
-                            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
-
-                            foreach (DataGridViewColumn column in registerReportDataGridView.Columns)
-                            {
-                                iTextSharp.text.Font font = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL);
-                               
-                               PdfPCell cell = new PdfPCell(new Phrase(12, column.HeaderText, font));
-                               // PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
-                                pdfTable.AddCell(cell);
-                            }
-
-                            foreach (DataGridViewRow row in registerReportDataGridView.Rows)
-                            {
-                                foreach (DataGridViewCell cell in row.Cells)
-                                {
-                                    iTextSharp.text.Font font = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL);
-
-                                    PdfPCell cells = new PdfPCell(new Phrase(12, cell.Value.ToString(), font));
-                                    // pdfTable.AddCell(cell.Value.ToString());
-                                    pdfTable.AddCell(cells);
-                                }
-                            }
-
-                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
-                            {
-                                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
-                                PdfWriter.GetInstance(pdfDoc, stream);
-
-                                pdfDoc.Open();
-                                pdfDoc.Add(pdfTable);
-                                pdfDoc.Close();
-                                stream.Close();
-                            }
-
-                            MessageBox.Show("Data Exported Successfully !!!", "Info");
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error :" + ex.Message);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("No Record To Export !!!", "Info");
-            }
-        }
+     
        
         private void RegisterReportUserControl_Load(object sender, EventArgs e)
         {
             page = 1;
             lastCountValue = 1;
-            LoadData();
+           // LoadData();
             NextPreviousButtonShow();
         }
 

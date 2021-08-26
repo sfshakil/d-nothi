@@ -48,11 +48,12 @@ namespace dNothi.Desktop.UI
 
         public WaitFormFunc WaitForm;
         ModalMenuUserControl uc = null;
+        NothiMasterRegisterReportUserControl nothiMasterRegisterBook = UserControlFactory.Create<NothiMasterRegisterReportUserControl>();
         NothiRegisterReportUserControl nothiRegisterBook = UserControlFactory.Create<NothiRegisterReportUserControl>();
         NothiGrahonRegisterReportUserControl nothigrahonRegisterBook = UserControlFactory.Create<NothiGrahonRegisterReportUserControl>();
         NothiPreronRegisterReportUserControl nothipreronRegisterBook = UserControlFactory.Create<NothiPreronRegisterReportUserControl>();
         NothiPotrajariRegisterReportUserControl nothiPotrajariRegisterBook = UserControlFactory.Create<NothiPotrajariRegisterReportUserControl>();
-        NothiMasterRegisterReportUserControl nothiMasterRegisterBook = UserControlFactory.Create<NothiMasterRegisterReportUserControl>();
+       
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices,
             INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave,
             INothiCreateService nothiCreateServices, IRepository<NothiCreateItemAction> nothiCreateItemAction,
@@ -1986,11 +1987,12 @@ namespace dNothi.Desktop.UI
         {
             WaitForm.Show(this);
             detailsNothiSearcPanel.Visible = false;
+            nothiMasterRegisterBook.Visible = false;
             nothiRegisterBook.Visible = false;
             nothigrahonRegisterBook.Visible = false;
             nothipreronRegisterBook.Visible = false;
             nothiPotrajariRegisterBook.Visible = false;
-            nothiMasterRegisterBook.Visible = false;
+            
             allReset();
             panel3.Visible = true;
             agotoNothiSelected = 1;

@@ -49,7 +49,7 @@ namespace dNothi.Services.NothiReportService
             bool dnd = false;
             if(branchName!=null)
             {
-                unitid = Convert.ToInt32(branchName);
+                unitid = Convert.ToInt32(branchName==string.Empty?"0": branchName);
             }
             NothiRegisterReport nothiRegisterReport = new NothiRegisterReport();
             if (!InternetConnection.Check())

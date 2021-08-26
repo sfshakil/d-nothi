@@ -725,6 +725,12 @@
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFilePortalCreate.Designer.cs">
       <DependentUpon>UCGuardFilePortalCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Khosra Potro\PotroPublishingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\PotroPublishingForm.Designer.cs">
+      <DependentUpon>PotroPublishingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Khosra Potro\KhosraDakNoteDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1699,6 +1705,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFilePortalCreate.resx">
       <DependentUpon>UCGuardFilePortalCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Khosra Potro\PotroPublishingForm.resx">
+      <DependentUpon>PotroPublishingForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraDakNoteDetailForm.resx">
       <DependentUpon>KhosraDakNoteDetailForm.cs</DependentUpon>
