@@ -5820,7 +5820,7 @@ namespace dNothi.Desktop.UI
         private void dashboardButton_Click(object sender, EventArgs e)
         {
             
-            System.Diagnostics.Process.Start(DefaultAPIConfiguration.DoptorDomainAddressLocal+"/"+_dakuserparam.doptor_token);
+            System.Diagnostics.Process.Start(DefaultAPIConfiguration.DoptorDomainAddressLocal+"/application/"+_dakuserparam.doptor_token);
         }
     }
 
