@@ -165,7 +165,8 @@ namespace dNothi.Desktop.View_Model
                    
                     registerReport.acceptNum = (registerReportRecordDTO.nothi!=null? registerReportRecordDTO.nothi.nothi_no:string.Empty);
 
-                    DateTime dateTime2 = Convert.ToDateTime(registerReportRecordDTO.last_movement_date);
+                    string applyDate = ConversionMethod.BanglaDigittoEngDigit(registerReportRecordDTO.last_movement_date);
+                    DateTime dateTime2 = Convert.ToDateTime(applyDate);
                     registerReport.applyDate = ConversionMethod.EngDigittoBanDigit(dateTime2.ToString("dd-MM-yyyy HH:mm:ss"));
                    
                     registerReport.sub = registerReportRecordDTO.dak_subject;

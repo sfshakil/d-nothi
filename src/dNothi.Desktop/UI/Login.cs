@@ -441,6 +441,10 @@ namespace dNothi.Desktop.UI
             OpenBrowser(LinkNames.lg);
          
         }
+        private void label30_Click(object sender, EventArgs e)
+        {
+            OpenBrowser(LinkNames.lg);
+        }
 
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -451,57 +455,57 @@ namespace dNothi.Desktop.UI
         private void label20_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.vt);
-           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/video/tutorial");
+          
             
         }
 
         private void tabControl1_DrawItem(object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
             OpenBrowser(LinkNames.vt);
-           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/video/tutorial");
+         
         }
 
         private void label10_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.mg);
-           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/mobile-app");
+           
             
         }
 
         private void label11_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.bc);
-            //Process.Start("chrome.exe", "https://nothi-next.tappware.com/#");
+            
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.faq);
-            //Process.Start("chrome.exe", "https://nothi-next.tappware.com/faq");
+            
         }
 
         private void label8_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.up);
-            //Process.Start("chrome.exe", "https://nothi-next.tappware.com/release-note");
+           
         }
 
         private void label19_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.nt);
-           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/notice");
+        
         }
 
         private void label21_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.um);
-           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/user-manual");
+        
         }
 
         private void label31_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.bc);
-            //Process.Start("chrome.exe", "https://nothi-next.tappware.com/#");
+        
         }
 
         private void label28_Click(object sender, EventArgs e)
@@ -509,5 +513,6 @@ namespace dNothi.Desktop.UI
            //Process.Start("chrome.exe", "mailto: support @nothi.org.bd");
            
         }
+
     }
 }

@@ -19,6 +19,7 @@ using dNothi.Desktop.UI.GuardFileUI;
 using System.IO;
 using dNothi.JsonParser.Entity.Dak;
 using AutoMapper;
+using Newtonsoft.Json;
 
 namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 {
@@ -97,14 +98,36 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                    
                     List<DakAttachmentDTO> dta = new List<DakAttachmentDTO>();
 
+                    //var attachment = datalist.data.records.Select(x => x.attachment).ToList();
+                    //foreach(var item in attachment)
+                    //{
+                    //    DakAttachmentDTO dTO = new DakAttachmentDTO();
+                    //    if (item != null)
+                    //    {
+                    //        var attachement= JsonConvert.DeserializeObject<GuardFileModel.Attachment>(item.ToString());
+
+                    //             dTO.attachment_type = attachement.attachment_type;
+                    //              dTO.dak_description = attachement.content_body;
+                    //              dTO.id = attachement.id;
+                    //              dTO.url = attachement.url;
+                    //    }
+                    //    else
+                    //    {
+                    //        dTO.attachment_type = null;
+                    //        dTO.dak_description = null;
+                    //        dTO.id = 0;
+                    //        dTO.url = null;
+                    //    }
+                    //    dta.Add(dTO);
+                    //}
                     dta = (from s in datalist.data.records
-                               select new DakAttachmentDTO
-                               {
-                                   attachment_type = s.attachment.attachment_type,
-                                   dak_description = s.attachment.content_body,
-                                   id = s.attachment.id,
-                                   url = s.attachment.url
-                               }).ToList();
+                           select new DakAttachmentDTO
+                           {
+                               attachment_type = s.attachment.attachment_type,
+                               dak_description = s.attachment.content_body,
+                               id = s.attachment.id,
+                               url = s.attachment.url
+                           }).ToList();
 
                     int row = 2;
                     foreach (var item in datalist.data.records)

@@ -1802,13 +1802,15 @@ namespace dNothi.Desktop.UI
 
         private void dakUploadButton_Click_1(object sender, EventArgs e)
         {
+            
             ShowSubMenu(dakUploadDropDownPanel);
         }
 
         private void dakInboxButton_Click_1(object sender, EventArgs e)
         {
             RefreshPagination();
-
+            searchHeaderTableLayoutPanel.Visible = true;
+            dakSortMetroPanel.Visible = true;
             selectDakBoxHolderPanel.Visible = true;
 
 
@@ -1880,6 +1882,8 @@ namespace dNothi.Desktop.UI
 
         private void notvuktoDakButton_Click(object sender, EventArgs e)
         {
+            searchHeaderTableLayoutPanel.Visible = true;
+            dakSortMetroPanel.Visible = true;
             RefreshPagination();
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
@@ -2187,7 +2191,8 @@ namespace dNothi.Desktop.UI
 
         private void dakArchiveButton_Click(object sender, EventArgs e)
         {
-            
+            searchHeaderTableLayoutPanel.Visible = true;
+            dakSortMetroPanel.Visible = true;
             RefreshPagination();
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
@@ -2483,7 +2488,8 @@ namespace dNothi.Desktop.UI
         private void dakOutboxButton_Click(object sender, EventArgs e)
         {
             RefreshPagination();
-
+            searchHeaderTableLayoutPanel.Visible = true;
+            dakSortMetroPanel.Visible = true;
 
 
             DakListLoad();
@@ -2712,6 +2718,8 @@ namespace dNothi.Desktop.UI
 
         private void nothijatoButton_Click(object sender, EventArgs e)
         {
+            searchHeaderTableLayoutPanel.Visible = true;
+            dakSortMetroPanel.Visible = true;
             RefreshPagination();
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
@@ -2725,6 +2733,7 @@ namespace dNothi.Desktop.UI
             RefreshPagination();
             _currentDakCatagory.MakeAllFalse();
             NormalizeDashBoard();
+          
             dakBodyFlowLayoutPanel.Controls.Clear();
 
             noDakTableLayoutPanel.Visible = true;
@@ -2737,6 +2746,8 @@ namespace dNothi.Desktop.UI
         private void dakSortButton_Click(object sender, EventArgs e)
         {
             RefreshPagination();
+            searchHeaderTableLayoutPanel.Visible = true;
+            dakSortMetroPanel.Visible = true;
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             DakListLoad();
@@ -3005,6 +3016,8 @@ namespace dNothi.Desktop.UI
 
         private void daptorikDakUploadButton_Click(object sender, EventArgs e)
         {
+            searchHeaderTableLayoutPanel.Visible = true;
+            dakSortMetroPanel.Visible = true;
             NormalizeDashBoard();
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
@@ -3148,6 +3161,7 @@ namespace dNothi.Desktop.UI
 
         private void nagorikDakUploadMenuButton_Click(object sender, EventArgs e)
         {
+           
             NormalizeDashBoard();
             dakSortMetroPanel.Visible = false;
             searchHeaderTableLayoutPanel.Visible = false;
@@ -3161,6 +3175,8 @@ namespace dNothi.Desktop.UI
 
         private void KhasraDakButton_Click(object sender, EventArgs e)
         {
+            searchHeaderTableLayoutPanel.Visible = true;
+            dakSortMetroPanel.Visible = true;
             RefreshPagination();
           
             SelectButton(sender as Button);
@@ -5172,6 +5188,8 @@ namespace dNothi.Desktop.UI
 
         private void registerButton_Click(object sender, EventArgs e)
         {
+            searchHeaderTableLayoutPanel.Visible = true;
+            dakSortMetroPanel.Visible = true;
             if (registerPanel.Visible)
             {
                 registerPanel.Visible = false;
@@ -5187,7 +5205,8 @@ namespace dNothi.Desktop.UI
         string todate = DateTime.Now.ToString("yyyy/MM/dd");
         private void registerGrohonButton_Click(object sender, EventArgs e)
         {
-           
+            searchHeaderTableLayoutPanel.Visible = true;
+            dakSortMetroPanel.Visible = true;
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
@@ -5320,6 +5339,8 @@ namespace dNothi.Desktop.UI
 
         private void protibedonButton_Click(object sender, EventArgs e)
         {
+            searchHeaderTableLayoutPanel.Visible = true;
+            dakSortMetroPanel.Visible = true;
             if (protibedonPanel.Visible)
             {
                 protibedonPanel.Visible = false;
@@ -5798,6 +5819,8 @@ namespace dNothi.Desktop.UI
         {
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
+            searchHeaderTableLayoutPanel.Visible = false;
+            dakSortMetroPanel.Visible = false;
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
