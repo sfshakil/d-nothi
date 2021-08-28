@@ -155,7 +155,7 @@ namespace dNothi.Desktop.UI.NothiUI
             userParam.page = page;
             userParam.limit = pageLimit;
             bool isNothiGrahons = true;
-            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam,fromdate,todate, unitid,_isNothiPerito, isNothiGrahons, _isNothiRegister);
+            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam,fromdate,todate, unitid,_isNothiPerito, isNothiGrahons, _isNothiRegister,false);
             if (nothiRegisterBook.status == "success")
             {
                 totalRowlabel.Text = "সর্বমোট "+ ConversionMethod.EnglishNumberToBangla( nothiRegisterBook.data.total_records.ToString())+" টি";

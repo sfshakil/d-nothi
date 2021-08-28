@@ -725,6 +725,12 @@
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFilePortalCreate.Designer.cs">
       <DependentUpon>UCGuardFilePortalCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Khosra Potro\PotroPublishingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\PotroPublishingForm.Designer.cs">
+      <DependentUpon>PotroPublishingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Khosra Potro\KhosraDakNoteDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1374,11 +1380,23 @@
     <Compile Include="UI\NothiUI\NothiGrahonRegisterReportUserControl.Designer.cs">
       <DependentUpon>NothiGrahonRegisterReportUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\NothiUI\NothiMasterRegisterReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiMasterRegisterReportUserControl.Designer.cs">
+      <DependentUpon>NothiMasterRegisterReportUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\NothiUI\NothiPreronRegisterReportUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\NothiUI\NothiPreronRegisterReportUserControl.Designer.cs">
       <DependentUpon>NothiPreronRegisterReportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiPotrajariRegisterReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiPotrajariRegisterReportUserControl.Designer.cs">
+      <DependentUpon>NothiPotrajariRegisterReportUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\NothiUI\NothiRegisterReportUserControl.cs">
       <SubType>UserControl</SubType>
@@ -1688,6 +1706,9 @@
     <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFilePortalCreate.resx">
       <DependentUpon>UCGuardFilePortalCreate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Khosra Potro\PotroPublishingForm.resx">
+      <DependentUpon>PotroPublishingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraDakNoteDetailForm.resx">
       <DependentUpon>KhosraDakNoteDetailForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1988,8 +2009,14 @@
     <EmbeddedResource Include="UI\NothiUI\NothiGrahonRegisterReportUserControl.resx">
       <DependentUpon>NothiGrahonRegisterReportUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\NothiMasterRegisterReportUserControl.resx">
+      <DependentUpon>NothiMasterRegisterReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\NothiUI\NothiPreronRegisterReportUserControl.resx">
       <DependentUpon>NothiPreronRegisterReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\NothiPotrajariRegisterReportUserControl.resx">
+      <DependentUpon>NothiPotrajariRegisterReportUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\NothiUI\NothiRegisterReportUserControl.resx">
       <DependentUpon>NothiRegisterReportUserControl.cs</DependentUpon>

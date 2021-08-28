@@ -10,6 +10,6 @@ namespace dNothi.Services.NothiServices
 {
     public interface INoteKhshraWaitingListServices
     {
-        NoteKhshraWaitingListResponse GetNoteKhshraWaitingListInfo(DakUserParam _dakuserparam, long id, int note_id);
+        NoteKhshraWaitingListResponse GetNoteKhshraWaitingListInfo(DakUserParam _dakuserparam, long id, int note_id, string potro_subject);
     }
 }

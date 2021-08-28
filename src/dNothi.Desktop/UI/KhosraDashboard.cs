@@ -1,4 +1,5 @@
 ﻿using dNothi.Desktop.UI.Dak;
+using dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls;
 using dNothi.Desktop.UI.Khosra_Potro;
 using dNothi.Desktop.UI.PotroJariGroups;
 using dNothi.JsonParser.Entity;
@@ -101,6 +102,7 @@ namespace dNothi.Desktop.UI
 
         private void draftPotroPanel_Click(object sender, EventArgs e)
         {
+            isPotrojari = false;
             menuNo = 1;
             MakeThisPanelClicked(sender);
             Formload();
@@ -111,6 +113,7 @@ namespace dNothi.Desktop.UI
 
         private void noteAttachmentKhosraButton_Click(object sender, EventArgs e)
         {
+            isPotrojari = false;
             menuNo = 2;
             MakeThisPanelClicked(sender);
             Formload();
@@ -120,6 +123,7 @@ namespace dNothi.Desktop.UI
 
         private void pendingApprovalPanel_Click(object sender, EventArgs e)
         {
+            isPotrojari = false;
             menuNo = 3;
             MakeThisPanelClicked(sender);
             Formload();
@@ -129,15 +133,17 @@ namespace dNothi.Desktop.UI
 
         private void pendingForwardPanel_Click(object sender, EventArgs e)
         {
+            isPotrojari = false;
             menuNo = 4;
             MakeThisPanelClicked(sender);
             Formload();
             listTypeLabel.Text = pendingForwardButton.Text;
          
         }
-
+        bool isPotrojari;
         private void jarikritoButton_Click(object sender, EventArgs e)
         {
+            isPotrojari = true;
             menuNo = 5;
             MakeThisPanelClicked(sender);
             Formload();
@@ -307,7 +313,7 @@ namespace dNothi.Desktop.UI
                     CommonKhosraRowUserControl commonKhosraRowUserControl = new CommonKhosraRowUserControl();
                     
                     var subcontrol = KasaraUserControlButtonVisibilityAndNoteNo(item, dakListUserParam.designation_id);
-                  
+                    commonKhosraRowUserControl.potroPage = item.Basic.PotroPages;
                     commonKhosraRowUserControl.sharokNo = item.Basic.SarokNo +" "+ (item.NoteOwner!=null?item.NoteOwner.NothiSubject:"");
                     commonKhosraRowUserControl.sub = item.Basic.PotroSubject;
                     commonKhosraRowUserControl.date = item.Basic.Modified;
@@ -318,17 +324,16 @@ namespace dNothi.Desktop.UI
 
                     }
                     commonKhosraRowUserControl.daran = item.Basic.NoteOnucchedId>0?"অনুচ্ছেদ":"খসড়া";
-                    commonKhosraRowUserControl.ButtonVisibility(subcontrol.Item1, subcontrol.Item2, subcontrol.Item3);
+                    commonKhosraRowUserControl.ButtonVisibility(subcontrol.Item1, subcontrol.Item2, subcontrol.Item3, isPotrojari);
                     commonKhosraRowUserControl.kasaraPotterNam = item.Basic.PotroTypeName;
                     commonKhosraRowUserControl.noteVisible = subcontrol.Item4;
                     commonKhosraRowUserControl.noteNo = subcontrol.Item5;
                     var mapmodel = MappingModel(item);
-                   // commonKhosraRowUserControl.isDraft = v;
-                    //commonKhosraRowUserControl.Record = item;
+                
                     commonKhosraRowUserControl.attachmentButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_attachmentButtonClick(sender, e,item); };
                     commonKhosraRowUserControl.sampadanButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_sampadanButtonClick(sender, e, item, mapmodel); };
                     commonKhosraRowUserControl.PrapakListButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_PrapakListButtonClick(sender, e,item.Basic.Id); };
-                    // commonKhosraRowUserControl.viewButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_viewButtonClick(sender, e); };
+                    commonKhosraRowUserControl.portalIconButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_portalIconButtonClick(sender, e,item); };
                    
                     commonKhosraRowUserControl.viewButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_NoteDetails_ButtonClick(mapmodel.Item1, e, mapmodel.Item2, mapmodel.Item3); };
 
@@ -523,6 +528,18 @@ namespace dNothi.Desktop.UI
         }
         private void commonKhosraRowUserControl_viewButtonClick(object sender, EventArgs e)
         {
+
+        }
+        private void commonKhosraRowUserControl_portalIconButtonClick(object sender, EventArgs e, KasaraPotro.Record kasaraPotro)
+        {
+
+            PotroPublishingForm potroPublishingForm = FormFactory.Create<PotroPublishingForm>();
+            potroPublishingForm.subject = kasaraPotro.Basic.PotroSubject;
+            //potroPublishingForm.domainname= kasaraPotro.Basic
+
+           // potroPublishingForm.dakAttachmentResponse = GetAllMulPattraAndSanjukti(kasaraPotro);
+
+            UIDesignCommonMethod.CalPopUpWindow(potroPublishingForm, this);
 
         }
         private void commonKhosraRowUserControl_NoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)

@@ -42,6 +42,7 @@
             this.sampadanIconButton = new FontAwesome.Sharp.IconButton();
             this.viewIconButton = new FontAwesome.Sharp.IconButton();
             this.prapaklistIconButton = new FontAwesome.Sharp.IconButton();
+            this.portalIconButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.sharokNoTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.senderReciverFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -219,8 +220,8 @@
             this.sampadanIconButton.IconChar = FontAwesome.Sharp.IconChar.Edit;
             this.sampadanIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.sampadanIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.sampadanIconButton.IconSize = 32;
-            this.sampadanIconButton.Location = new System.Drawing.Point(68, 0);
+            this.sampadanIconButton.IconSize = 25;
+            this.sampadanIconButton.Location = new System.Drawing.Point(102, 0);
             this.sampadanIconButton.Name = "sampadanIconButton";
             this.sampadanIconButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.sampadanIconButton.Size = new System.Drawing.Size(34, 33);
@@ -237,8 +238,8 @@
             this.viewIconButton.IconChar = FontAwesome.Sharp.IconChar.Eye;
             this.viewIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.viewIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.viewIconButton.IconSize = 32;
-            this.viewIconButton.Location = new System.Drawing.Point(34, 0);
+            this.viewIconButton.IconSize = 25;
+            this.viewIconButton.Location = new System.Drawing.Point(68, 0);
             this.viewIconButton.Name = "viewIconButton";
             this.viewIconButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.viewIconButton.Size = new System.Drawing.Size(34, 33);
@@ -255,7 +256,7 @@
             this.prapaklistIconButton.IconChar = FontAwesome.Sharp.IconChar.Users;
             this.prapaklistIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.prapaklistIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.prapaklistIconButton.IconSize = 32;
+            this.prapaklistIconButton.IconSize = 25;
             this.prapaklistIconButton.Location = new System.Drawing.Point(0, 0);
             this.prapaklistIconButton.Name = "prapaklistIconButton";
             this.prapaklistIconButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
@@ -264,6 +265,24 @@
             this.toolTip1.SetToolTip(this.prapaklistIconButton, "প্রাপকের তালিকা");
             this.prapaklistIconButton.UseVisualStyleBackColor = true;
             this.prapaklistIconButton.Click += new System.EventHandler(this.prapaklistIconButton_Click);
+            // 
+            // portalIconButton
+            // 
+            this.portalIconButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.portalIconButton.FlatAppearance.BorderSize = 0;
+            this.portalIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.portalIconButton.IconChar = FontAwesome.Sharp.IconChar.ShareAlt;
+            this.portalIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.portalIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.portalIconButton.IconSize = 20;
+            this.portalIconButton.Location = new System.Drawing.Point(34, 0);
+            this.portalIconButton.Name = "portalIconButton";
+            this.portalIconButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.portalIconButton.Size = new System.Drawing.Size(34, 33);
+            this.portalIconButton.TabIndex = 111;
+            this.toolTip1.SetToolTip(this.portalIconButton, "পোর্টালে প্রকাশ করুন");
+            this.portalIconButton.UseVisualStyleBackColor = true;
+            this.portalIconButton.Click += new System.EventHandler(this.portalIconButton_Click);
             // 
             // panel1
             // 
@@ -434,12 +453,13 @@
             this.iconButtonPanel.AutoSize = true;
             this.iconButtonPanel.Controls.Add(this.sampadanIconButton);
             this.iconButtonPanel.Controls.Add(this.viewIconButton);
+            this.iconButtonPanel.Controls.Add(this.portalIconButton);
             this.iconButtonPanel.Controls.Add(this.prapaklistIconButton);
             this.iconButtonPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButtonPanel.Location = new System.Drawing.Point(659, 0);
+            this.iconButtonPanel.Location = new System.Drawing.Point(625, 0);
             this.iconButtonPanel.Margin = new System.Windows.Forms.Padding(0);
             this.iconButtonPanel.Name = "iconButtonPanel";
-            this.iconButtonPanel.Size = new System.Drawing.Size(102, 33);
+            this.iconButtonPanel.Size = new System.Drawing.Size(136, 33);
             this.iconButtonPanel.TabIndex = 2;
             // 
             // kasaraflowLayoutPanel
@@ -453,7 +473,7 @@
             this.kasaraflowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.kasaraflowLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.kasaraflowLayoutPanel.Name = "kasaraflowLayoutPanel";
-            this.kasaraflowLayoutPanel.Size = new System.Drawing.Size(659, 33);
+            this.kasaraflowLayoutPanel.Size = new System.Drawing.Size(625, 33);
             this.kasaraflowLayoutPanel.TabIndex = 1;
             // 
             // label8
@@ -581,5 +601,6 @@
         private System.Windows.Forms.Label daranLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label kasaraPotterNamLabel;
+        private FontAwesome.Sharp.IconButton portalIconButton;
     }
 }
