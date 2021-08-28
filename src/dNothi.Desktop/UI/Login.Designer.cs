@@ -929,6 +929,7 @@
             this.label30.TabIndex = 69;
             this.label30.Text = "ফেসবুক গ্রূপ";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label30.Click += new System.EventHandler(this.label30_Click);
             // 
             // iconPictureBox15
             // 
