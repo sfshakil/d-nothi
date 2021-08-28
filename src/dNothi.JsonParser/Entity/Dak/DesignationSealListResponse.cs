@@ -163,13 +163,13 @@ public class DesignationSealListResponse
 
 
 
-        public int office_ministry_id { get; set; }
+        public int? office_ministry_id { get; set; }
         public string ministry_eng { get; set; }
         public string ministry_bng { get; set; }
         public int office_layer_id { get; set; }
         public string layer_name_eng { get; set; }
         public string layer_name_bng { get; set; }
-        public int office_origin_id { get; set; }
+        public int? office_origin_id { get; set; }
         public string office_origin_eng { get; set; }
         public string office_origin_bng { get; set; }
     
