@@ -190,6 +190,7 @@ namespace dNothi.Constants
         // Doptor
 
         public const string DoptorDomainAddress = "https://n-doptor-api-stage.nothi.gov.bd";
+        public const string DoptorDomainAddressLocal = "http://127.0.0.1:8000";
         public const string DoptorLoginEndPoint = "/api/client/login";
         public const string DoptorPasswordChangeEndPoint = "/api/user/password/update";
         public const string DoptorPhotoChangeEndPoint = "/api/user/image/update";

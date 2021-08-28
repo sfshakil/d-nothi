@@ -29,6 +29,7 @@ using Newtonsoft.Json;
 using AutoMapper;
 using Newtonsoft.Json.Linq;
 using dNothi.Desktop.UI.PotroJariGroups;
+using dNothi.Constants;
 
 namespace dNothi.Desktop.UI
 {
@@ -5809,6 +5810,17 @@ namespace dNothi.Desktop.UI
             //registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
 
             UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, allDakTrakingUserControl);
+        }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            PageReset();
+        }
+
+        private void dashboardButton_Click(object sender, EventArgs e)
+        {
+            
+            System.Diagnostics.Process.Start(DefaultAPIConfiguration.DoptorDomainAddressLocal+"/"+_dakuserparam.doptor_token);
         }
     }
 
