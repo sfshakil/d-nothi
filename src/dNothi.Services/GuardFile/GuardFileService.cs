@@ -43,7 +43,7 @@ namespace dNothi.Services.GuardFile
 
                 var responseJson = Response.Content;
 
-                ResponseData guardfilelist = JsonConvert.DeserializeObject<ResponseData>(responseJson);
+                ResponseData guardfilelist = JsonConvert.DeserializeObject<ResponseData>(responseJson.Replace("\"attachment\":[]", "\"attachment\":\"\""));
                 return guardfilelist;
             }
             catch (Exception ex)
