@@ -2673,7 +2673,7 @@ namespace dNothi.Desktop.UI
             nothipreronRegisterBook.Visible = false;
             nothiMasterRegisterBook.Visible = false;
             nothiPotrajariRegisterBook.Visible = true;
-
+            nothiPotrajariRegisterBook.isPotraJariBohi = true;
             nothiPotrajariRegisterBook.Dock = DockStyle.Fill;
             pnlNothiBody.Controls.Add(nothiPotrajariRegisterBook);
             pnlNothiBody.BringToFront();
@@ -2689,8 +2689,8 @@ namespace dNothi.Desktop.UI
             nothipreronRegisterBook.Visible = false;
             nothiPotrajariRegisterBook.Visible = false;
             nothiMasterRegisterBook.Visible = true;
-           
 
+            nothiMasterRegisterBook.isNothiMasterFile = true;
             nothiMasterRegisterBook.Dock = DockStyle.Fill;
             pnlNothiBody.Controls.Add(nothiMasterRegisterBook);
             pnlNothiBody.BringToFront();

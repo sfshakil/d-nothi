@@ -587,10 +587,10 @@ namespace dNothi.Desktop.UI.Dak
             // panel22
             // 
             this.panel22.Controls.Add(this.categoryComboBox);
-            this.panel22.Location = new System.Drawing.Point(14, 32);
+            this.panel22.Location = new System.Drawing.Point(14, 29);
             this.panel22.Margin = new System.Windows.Forms.Padding(0);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(647, 30);
+            this.panel22.Size = new System.Drawing.Size(647, 39);
             this.panel22.TabIndex = 96;
             this.panel22.Paint += new System.Windows.Forms.PaintEventHandler(this.panel22_Paint);
             // 
@@ -602,7 +602,7 @@ namespace dNothi.Desktop.UI.Dak
             this.categoryComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.IntegralHeight = false;
-            this.categoryComboBox.Location = new System.Drawing.Point(0, 0);
+            this.categoryComboBox.Location = new System.Drawing.Point(2, 5);
             this.categoryComboBox.Margin = new System.Windows.Forms.Padding(0);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(644, 26);
@@ -634,10 +634,10 @@ namespace dNothi.Desktop.UI.Dak
             // panel19
             // 
             this.panel19.Controls.Add(this.officeComboBox);
-            this.panel19.Location = new System.Drawing.Point(11, 31);
+            this.panel19.Location = new System.Drawing.Point(14, 29);
             this.panel19.Margin = new System.Windows.Forms.Padding(0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(647, 30);
+            this.panel19.Size = new System.Drawing.Size(647, 33);
             this.panel19.TabIndex = 95;
             this.panel19.Paint += new System.Windows.Forms.PaintEventHandler(this.panel19_Paint);
             // 
@@ -649,7 +649,7 @@ namespace dNothi.Desktop.UI.Dak
             this.officeComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.officeComboBox.FormattingEnabled = true;
             this.officeComboBox.IntegralHeight = false;
-            this.officeComboBox.Location = new System.Drawing.Point(3, 1);
+            this.officeComboBox.Location = new System.Drawing.Point(3, 2);
             this.officeComboBox.Margin = new System.Windows.Forms.Padding(0);
             this.officeComboBox.Name = "officeComboBox";
             this.officeComboBox.Size = new System.Drawing.Size(644, 26);
@@ -701,8 +701,9 @@ namespace dNothi.Desktop.UI.Dak
             this.gfpNameSearchTextBox.Location = new System.Drawing.Point(11, 14);
             this.gfpNameSearchTextBox.Name = "gfpNameSearchTextBox";
             this.gfpNameSearchTextBox.PlaceholderText = "নাম দিয়ে খুঁজুন";
-            this.gfpNameSearchTextBox.Size = new System.Drawing.Size(577, 19);
+            this.gfpNameSearchTextBox.Size = new System.Drawing.Size(622, 19);
             this.gfpNameSearchTextBox.TabIndex = 3;
+            this.gfpNameSearchTextBox.TextChanged += new System.EventHandler(this.gfpNameSearchTextBox_TextChanged);
             // 
             // label8
             // 
