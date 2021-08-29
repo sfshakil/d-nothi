@@ -95,7 +95,7 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _dakAttachmentDTO = value;
-               
+                
                 try
                 {
                     if (dakAttachmentDTO.attachment_type.ToLower().Contains("image") || dakAttachmentDTO.attachment_type.ToLower().Contains("img"))
@@ -185,6 +185,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 catch
                 {
+                    
                     fileMissingLabel.Visible = true;
                     pdfViewerControl.Visible = false;
                     imagePanel.Visible = false;

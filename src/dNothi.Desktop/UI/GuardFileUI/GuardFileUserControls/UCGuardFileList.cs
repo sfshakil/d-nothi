@@ -121,31 +121,50 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                     //    }
                     //    dta.Add(dTO);
                     //}
-                    dta = (from s in datalist.data.records
-                           select new DakAttachmentDTO
-                           {
-                               attachment_type = s.attachment.attachment_type,
-                               dak_description = s.attachment.content_body,
-                               id = s.attachment.id,
-                               url = s.attachment.url
-                           }).ToList();
+                    
+                 
+                     foreach(var s in datalist.data.records)
+                    {
+                        if(s.attachment!=null)
+                        {
+                            dta.Add(new DakAttachmentDTO
+                            {
+                                attachment_type = s.attachment.attachment_type,
+                                dak_description = s.attachment.content_body,
+                                id = s.attachment.id,
+                                url = s.attachment.url
+                            });
+                        }
+                    }
+                           
 
                     int row = 2;
                     foreach (var item in datalist.data.records)
                     {
+                    
 
-                        DakAttachmentDTO data = new DakAttachmentDTO
-                        {
-                            attachment_type = item.attachment.attachment_type,
-                            url = item.attachment.url,
-                            dak_description = item.attachment.content_body,
-                            id = item.attachment.id
-                        };
-
-
+                    
+                        
                         GuardFileListRowUserControl guardFileTable = UserControlFactory.Create<GuardFileListRowUserControl>();
-                     
-                      
+
+                        if (item.attachment != null)
+                        {
+                            DakAttachmentDTO data = new DakAttachmentDTO
+                            {
+                                attachment_type = item.attachment.attachment_type,
+                                url = item.attachment.url,
+                                dak_description = item.attachment.content_body,
+                                id = item.attachment.id
+                            };
+                            guardFileTable.dakAttachmentDTO = data;
+                        }
+                        else
+                        {
+                            
+                            guardFileTable.dakAttachmentDTO = null;
+                        }
+
+
                         guardFileTable.id = item.id;
                         guardFileTable.type = item.name_bng;
                         guardFileTable.name = item.guard_file_category_name_bng;
@@ -153,7 +172,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                         guardFileTable.designation_id = dakListUserParam.designation_id;
                         guardFileTable.office_unit_organogram_id = item.office_unit_organogram_id;
 
-                        //guardFileTable.dakAttachmentDTO = dTO;
+
                         guardFileTable.dakAttachmentDTO = data;
                         guardFileTable.dakAttachmentDTOs = dta;
 

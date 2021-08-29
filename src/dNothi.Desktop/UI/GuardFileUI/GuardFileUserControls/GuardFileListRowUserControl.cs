@@ -25,7 +25,7 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
         {
             InitializeComponent();
             MyToolTip.SetToolTip(decisionDeleteButton, "মুছে ফেলুন");
-            MyToolTip.SetToolTip(decisionEditRightButton, "দেখুন");
+            MyToolTip.SetToolTip(attachmentShowButton, "দেখুন");
             
         }
 
@@ -38,6 +38,10 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
             get { return _dakAttachmentDTO; }
             set
             {
+                if(value==null)
+                {
+                    attachmentShowButton.Visible = false;
+                }
                 _dakAttachmentDTO = value;
             }
         }
