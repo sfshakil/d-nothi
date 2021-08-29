@@ -610,6 +610,12 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
+
+        public void daksource(string value)
+        {
+            rightInfoPanel.daksource = value;
+        }
+
         [Category("Custom Props")]
         public string dakSecurityIconValue
         {

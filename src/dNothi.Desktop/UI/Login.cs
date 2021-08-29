@@ -264,9 +264,12 @@ namespace dNothi.Desktop.UI
 
         private void Login_Load(object sender, EventArgs e)
         {
-            var form = FormFactory.Create<Dashboard>();
-            form.Hide();
-
+            tabControl1.TabPages.Remove(tabPage2);
+            tabControl1.TabPages.Remove(tabPage3);
+            tabControl1.ItemSize = new Size(tabControl1.Width-6, 37);
+            //var form = FormFactory.Create<Dashboard>();
+            //form.Hide();
+             
             SetDefaultFont(this.Controls);
             //Screen scr = Screen.FromPoint(this.Location);
             //this.Location = new Point(scr.WorkingArea.Right - this.Width, scr.WorkingArea.Top);
