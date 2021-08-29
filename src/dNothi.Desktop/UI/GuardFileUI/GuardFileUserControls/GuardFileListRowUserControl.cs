@@ -152,6 +152,8 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
             AttachmentViewPopUpForm attachmentViewPopUpForm = new AttachmentViewPopUpForm();
             attachmentViewPopUpForm.dakAttachmentDTO = _dakAttachmentDTO;
             attachmentViewPopUpForm.dakAttachmentDTOs = _dakAttachmentDTOs;
+           
+            attachmentViewPopUpForm.IsGuardFile = true;
             attachmentViewPopUpForm.PreviousButton += delegate (object os, EventArgs ev) { Previous(_dakAttachmentDTO, _dakAttachmentDTOs); };
             attachmentViewPopUpForm.NextButton += delegate (object os, EventArgs ev) { Next(_dakAttachmentDTO, _dakAttachmentDTOs); };
 

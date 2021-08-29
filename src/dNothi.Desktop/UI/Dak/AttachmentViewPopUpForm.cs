@@ -73,6 +73,8 @@ namespace dNothi.Desktop.UI.Dak
             this.Hide();
         }
 
+        private bool _IsGuardFile { get; set; }
+        public bool IsGuardFile { get=> _IsGuardFile; set { _IsGuardFile=value;downloadIconButton.Visible = value; } }
         public List<DakAttachmentDTO> _dakAttachmentDTOs { get; set; }
       
         public List<DakAttachmentDTO> dakAttachmentDTOs { get { return _dakAttachmentDTOs; } set { 
@@ -366,6 +368,38 @@ namespace dNothi.Desktop.UI.Dak
             });
 
         }
-       
+
+        private void downloadIconButton_Click(object sender, EventArgs e)
+        {
+            string filename = string.Empty;
+            if (_dakAttachmentDTOs != null)
+            {
+                for (int i = 0; i <= _dakAttachmentDTOs.Count - 1; i++)
+                {
+                    if (_dakAttachmentDTOs[i].attachment_id == _dakAttachmentDTO.attachment_id)
+                    {
+                        if (i == _dakAttachmentDTOs.Count - 1)
+                        {
+                            dakAttachmentDTO = _dakAttachmentDTOs[0];
+                        }
+                        else
+                        {
+
+                            dakAttachmentDTO = _dakAttachmentDTOs[i + 1];
+                        }
+                        filename = dakAttachmentDTO.url;
+                        break;
+                    }
+                }
+                string FileName = @"C:\Temp\Test.pdf";
+                string PDFUrl = filename;
+
+                WebClient client = new WebClient();
+
+                client.DownloadFile(PDFUrl, FileName);
+
+                FileInfo PDFFile = new FileInfo(FileName);
+            }
+        }
     }
 }

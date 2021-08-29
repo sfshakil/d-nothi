@@ -99,17 +99,18 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                     List<DakAttachmentDTO> dta = new List<DakAttachmentDTO>();
 
                     //var attachment = datalist.data.records.Select(x => x.attachment).ToList();
-                    //foreach(var item in attachment)
+                    //foreach (var item in attachment)
                     //{
                     //    DakAttachmentDTO dTO = new DakAttachmentDTO();
-                    //    if (item != null)
-                    //    {
-                    //        var attachement= JsonConvert.DeserializeObject<GuardFileModel.Attachment>(item.ToString());
 
-                    //             dTO.attachment_type = attachement.attachment_type;
-                    //              dTO.dak_description = attachement.content_body;
-                    //              dTO.id = attachement.id;
-                    //              dTO.url = attachement.url;
+                    //    if (item.ToString()!="{[]}")
+                    //    {
+
+                    //        var attachement = JsonConvert.DeserializeObject<GuardFileModel.Attachment>(item.ToString());
+                    //        dTO.attachment_type = attachement.attachment_type;
+                    //        dTO.dak_description = attachement.content_body;
+                    //        dTO.id = attachement.id;
+                    //        dTO.url = attachement.url;
                     //    }
                     //    else
                     //    {
@@ -132,14 +133,16 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                     int row = 2;
                     foreach (var item in datalist.data.records)
                     {
-                            
-                     DakAttachmentDTO data = new DakAttachmentDTO
-                        { attachment_type = item.attachment.attachment_type,
+
+                        DakAttachmentDTO data = new DakAttachmentDTO
+                        {
+                            attachment_type = item.attachment.attachment_type,
                             url = item.attachment.url,
                             dak_description = item.attachment.content_body,
                             id = item.attachment.id
                         };
-                        
+
+
                         GuardFileListRowUserControl guardFileTable = UserControlFactory.Create<GuardFileListRowUserControl>();
                      
                       
@@ -150,7 +153,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                         guardFileTable.designation_id = dakListUserParam.designation_id;
                         guardFileTable.office_unit_organogram_id = item.office_unit_organogram_id;
 
-
+                        //guardFileTable.dakAttachmentDTO = dTO;
                         guardFileTable.dakAttachmentDTO = data;
                         guardFileTable.dakAttachmentDTOs = dta;
 

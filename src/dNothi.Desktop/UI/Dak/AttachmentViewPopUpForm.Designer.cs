@@ -38,6 +38,7 @@
             this.closeButton = new FontAwesome.Sharp.IconButton();
             this.waitPictureBox = new System.Windows.Forms.PictureBox();
             this.mainAttachmentViewWebBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
+            this.downloadIconButton = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pdfViewerControl)).BeginInit();
             this.imagePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageViewPictureBox)).BeginInit();
@@ -177,6 +178,25 @@
             this.mainAttachmentViewWebBrowser.TabIndex = 9;
             this.mainAttachmentViewWebBrowser.FrameLoadEnd += new System.EventHandler<CefSharp.FrameLoadEndEventArgs>(this.mainAttachmentViewWebBrowser_FrameLoadEnd);
             // 
+            // downloadIconButton
+            // 
+            this.downloadIconButton.AutoEllipsis = true;
+            this.downloadIconButton.BackColor = System.Drawing.Color.Transparent;
+            this.downloadIconButton.FlatAppearance.BorderSize = 0;
+            this.downloadIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.downloadIconButton.ForeColor = System.Drawing.Color.Black;
+            this.downloadIconButton.IconChar = FontAwesome.Sharp.IconChar.Download;
+            this.downloadIconButton.IconColor = System.Drawing.Color.Black;
+            this.downloadIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.downloadIconButton.IconSize = 15;
+            this.downloadIconButton.Location = new System.Drawing.Point(692, 2);
+            this.downloadIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.downloadIconButton.Name = "downloadIconButton";
+            this.downloadIconButton.Size = new System.Drawing.Size(28, 27);
+            this.downloadIconButton.TabIndex = 10;
+            this.downloadIconButton.UseVisualStyleBackColor = true;
+            this.downloadIconButton.Click += new System.EventHandler(this.downloadIconButton_Click);
+            // 
             // AttachmentViewPopUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,6 +204,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(767, 520);
+            this.Controls.Add(this.downloadIconButton);
             this.Controls.Add(this.rightArrowButton);
             this.Controls.Add(this.leftArrowButton);
             this.Controls.Add(this.closeButton);
@@ -218,5 +239,6 @@
         private FontAwesome.Sharp.IconButton rightArrowButton;
         private System.Windows.Forms.PictureBox waitPictureBox;
         private CefSharp.WinForms.ChromiumWebBrowser mainAttachmentViewWebBrowser;
+        private FontAwesome.Sharp.IconButton downloadIconButton;
     }
 }

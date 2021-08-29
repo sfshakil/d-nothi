@@ -22,7 +22,7 @@ namespace dNothi.Desktop.UI.NothiUI
     public partial class NothiMasterRegisterReportUserControl : UserControl
     {
         string fromdate, todate;
-        public int pageLimit = 10;
+        public int pageLimit = 1;
         public int pageNo = 1;
         int page = 1;
         int totalPage = 1;
@@ -74,11 +74,16 @@ namespace dNothi.Desktop.UI.NothiUI
         public bool _isNothiPerito { get; set; }
         public bool _isNothiRegister { get; set; }
         public bool _isNothiGrahon { get; set; }
+        public bool _isPotraJariBohi { get; set; }
+        private bool _isNothiMasterFile { get; set; }
 
         public bool isNothiPerito { get { return _isNothiPerito; } set { _isNothiPerito = value; if (value) { headlineLabel.Text = "নথি প্রেরণ নিবন্ধন বহি"; } } }
         public bool isNothiRegister { get { return _isNothiRegister; } set { _isNothiRegister = value; if (value) { headlineLabel.Text = "নথি নিবন্ধন বহি"; } } }
         public bool isNothiGrahon { get { return _isNothiGrahon; } set { _isNothiGrahon = value; if (value) { headlineLabel.Text = "নথি গ্রহণ নিবন্ধন বহি"; } } }
 
+        public bool isPotraJariBohi { get { return _isPotraJariBohi; } set { _isPotraJariBohi = value; if (value) { headlineLabel.Text = "পত্রজারি নিবন্ধন বহি"; } } }
+
+        public bool isNothiMasterFile { get { return _isNothiMasterFile; } set { _isNothiMasterFile = value; if (value) { headlineLabel.Text = "মাস্টার ফাইল"; } } }
 
         private void Border_Color_Blue(object sender, PaintEventArgs e)
         {
@@ -151,9 +156,9 @@ namespace dNothi.Desktop.UI.NothiUI
             pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(pagessize));
 
             userParam.page = page;
-            userParam.limit = 1;
-            bool potraJariBohi = true;
-            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam, fromdate, todate, unitid, _isNothiPerito, _isNothiGrahon, _isNothiRegister, potraJariBohi);
+            userParam.limit = pageLimit;
+          
+            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam, fromdate, todate, unitid, _isNothiPerito, _isNothiGrahon, _isNothiRegister, _isPotraJariBohi, _isNothiMasterFile);
             if (nothiRegisterBook.status == "success")
             {
                 totalRowlabel.Text = "সর্বমোট "+ ConversionMethod.EnglishNumberToBangla( nothiRegisterBook.data.total_records.ToString())+" টি";

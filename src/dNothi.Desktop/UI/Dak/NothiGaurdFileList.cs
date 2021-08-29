@@ -276,6 +276,10 @@ namespace dNothi.Desktop.UI.Dak
             officeComboBox.ValueMember = "Id";
 
         }
+        private void gfpNameSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            GuardFilePortalFormLoad();
+        }
         #region pagination
         private void nextIconButton_Click(object sender, EventArgs e)
         {
@@ -359,6 +363,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
+
 
 
 
