@@ -17,9 +17,9 @@ namespace dNothi.Core.Entities
         public int unitId { get; set; }
         public string fromDate { get; set; }
         public string toDate { get; set; }
-        //public bool nrb { get; set; }
-        //public bool dnc { get; set; }
-        //public bool dnd { get; set; }
+        public bool nrb { get; set; }
+        public bool dnc { get; set; }
+        public bool dnd { get; set; }
         public bool isNothiPreron { get; set; }
         public bool isNothiGrahon { get; set; }
         public bool isNothiReigister { get; set; }
