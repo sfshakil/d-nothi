@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AttachmentViewPopUpForm));
             this.pdfViewerControl = new AxAcroPDFLib.AxAcroPDF();
             this.imagePanel = new System.Windows.Forms.Panel();
@@ -39,6 +40,7 @@
             this.waitPictureBox = new System.Windows.Forms.PictureBox();
             this.mainAttachmentViewWebBrowser = new CefSharp.WinForms.ChromiumWebBrowser();
             this.downloadIconButton = new FontAwesome.Sharp.IconButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pdfViewerControl)).BeginInit();
             this.imagePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageViewPictureBox)).BeginInit();
@@ -240,5 +242,6 @@
         private System.Windows.Forms.PictureBox waitPictureBox;
         private CefSharp.WinForms.ChromiumWebBrowser mainAttachmentViewWebBrowser;
         private FontAwesome.Sharp.IconButton downloadIconButton;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -98,7 +98,7 @@ namespace dNothi.Desktop.UI.Dak
                 var nothiGaurdFileListRow = UserControlFactory.Create<NothiGaurdFileListRow>();
                 nothiGaurdFileListRow.nameText = record.name_bng.ToString();
                 nothiGaurdFileListRow.categoryNameText = record.guard_file_category_name_bng.ToString();
-                nothiGaurdFileListRow.attachmentURL = record.attachment.url;
+                nothiGaurdFileListRow._attachmentURL = record.attachment != null? record.attachment.url: string.Empty;
                 nothiGaurdFileListRow.GaurdFileAddButton += delegate (object sender1, EventArgs e1) { GaurdFileAdd_ButtonClick(sender1 as GaurdFileRecord, e1); };
                 UIDesignCommonMethod.AddRowinTable(gaurdFileViewFLP, nothiGaurdFileListRow);
             }
@@ -210,7 +210,7 @@ namespace dNothi.Desktop.UI.Dak
 
             string type = officeComboBox.Text.ToString();
             string name = gfpNameSearchTextBox.Text;
-            var guardFilePortallist = _guardFileService.GuardFilePortalList(dakListUserParam, string.Empty, type);
+            var guardFilePortallist = _guardFileService.GuardFilePortalList(dakListUserParam, name, type);
             if (guardFilePortallist.status == "success")
             {
                 noDataPanel.Visible = false;
@@ -225,7 +225,7 @@ namespace dNothi.Desktop.UI.Dak
                     gfp.nameText = item.type;
                     gfp.categoryNameText = item.name;
                     
-                    gfp.GaurdFileAddButton += delegate (object sender, EventArgs e) { guardFilePortalTableUserControl_AddButtonClick(sender, e, item.id); };
+                    gfp.GaurdFileAddButton += delegate (object sender, EventArgs e) { guardFilePortalTableUserControl_AddButtonClick(sender, e, item); };
 
 
                     UIDesignCommonMethod.AddRowinTable(portalListTableLayoutPanel, gfp);
@@ -243,9 +243,10 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-        private void guardFilePortalTableUserControl_AddButtonClick(object sender, EventArgs e,int id)
+        private void guardFilePortalTableUserControl_AddButtonClick(object sender, EventArgs e,GuardFilePortal.Record guardFilePortal)
         {
             var portalCreate = FormFactory.Create<UCGuardFilePortalCreate>();
+            portalCreate.guardFilePortal = guardFilePortal;
             portalCreate.SubmitButtonClick += delegate (object sender1, EventArgs e1) { portalCreate_SubmitButtonClick(sender1, e1); };
 
             

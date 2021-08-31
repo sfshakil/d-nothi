@@ -17,6 +17,8 @@ using sun.invoke.empty;
 using dNothi.Services.GuardFile;
 using dNothi.Services.GuardFile.Model;
 using dNothi.Services.UserServices;
+using System.Net.Http;
+using System.Net;
 
 namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 {
@@ -26,12 +28,15 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
       
         IUserService _userService { get; set; }
         IGuardFileService<GuardFileModel,GuardFileModel.Record> _guardFileService { get; set; }
+        IGuardFileService<GuardFileCategory, GuardFileCategory.Record> _guardFilecategoryService;
+       
         public const string guardFiles = "GuardFiles";
-        public UCGuardFilePortalCreate(IUserService userService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService)
+        public UCGuardFilePortalCreate(IUserService userService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFilecategoryService)
         {
             InitializeComponent();
             _userService = userService;
             _guardFileService = guardFileService;
+            _guardFilecategoryService = guardFilecategoryService;
 
 
            var data = from s in LoadGuardFileTypeList()
@@ -50,11 +55,12 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             MyToolTip.SetToolTip(AddDesignationCloseButton, "বন্ধ করুন");
 
         }
+       private GuardFilePortal.Record _guardFilePortal { get; set; }
+       public GuardFilePortal.Record guardFilePortal { get => _guardFilePortal; set => _guardFilePortal = value; }
         public List<GuardFileCategory.Record> LoadGuardFileTypeList()
         {
             var dakListUserParam = _userService.GetLocalDakUserParam();
-            IGuardFileService<GuardFileCategory, GuardFileCategory.Record> _guardFilecategoryService;
-            _guardFilecategoryService = new GuardFileService<GuardFileCategory, GuardFileCategory.Record>();
+          
             dakListUserParam.limit = 10;
             dakListUserParam.page = 1;
             var datalist = _guardFilecategoryService.GetList(dakListUserParam, 1);
@@ -109,7 +115,8 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
-            
+            DakFileUploadParam _dakFileUploadParam = new DakFileUploadParam();
+
             string subjectText = subjectTextBox.Text.Trim();
             int typeId = typesearchComboBox.selectedId;
            
@@ -119,7 +126,27 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 record.name_bng = subjectTextBox.Text.Trim();
                 record.name_eng = subjectTextBox.Text.Trim();
                 record.guard_file_category_id = typesearchComboBox.selectedId;
-               
+                //using (var client = new WebClient())
+                //{
+                //    byte[] dataBytes = client.DownloadData(new Uri(_guardFilePortal.link));
+                //    string encodedFileAsBase64 = Convert.ToBase64String(dataBytes);
+                //}
+
+                //_dakFileUploadParam.user_file_name = dataBytes[0].Name;
+
+                //Byte[] bytes = File.ReadAllBytes(opnfd.FileName);
+                //_dakFileUploadParam.content = Convert.ToBase64String(bytes);
+
+                //var size = new System.IO.FileInfo(opnfd.FileName).Length;
+
+                //_dakFileUploadParam.file_size_in_kb = size.ToString() + " KB";
+                GuardFileModel.Attachment attachment = new GuardFileModel.Attachment();
+                attachment.url= _guardFilePortal.link;
+                attachment.id = _guardFilePortal.id;
+                record.attachment = attachment;
+
+
+
                  var response=   _guardFileService.Inserts(_userService.GetLocalDakUserParam(),3, guardFiles, record);
                 if (response.status == "success")
                 {

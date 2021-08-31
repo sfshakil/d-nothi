@@ -173,7 +173,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                         guardFileTable.office_unit_organogram_id = item.office_unit_organogram_id;
 
 
-                        guardFileTable.dakAttachmentDTO = data;
+                       // guardFileTable.dakAttachmentDTO = data;
                         guardFileTable.dakAttachmentDTOs = dta;
 
                      

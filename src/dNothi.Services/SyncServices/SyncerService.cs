@@ -7,6 +7,8 @@ using dNothi.Services.AccountServices;
 using dNothi.Services.DakServices;
 using dNothi.Services.DakServices.DakSharingService;
 using dNothi.Services.DakServices.DakSharingService.Model;
+using dNothi.Services.GuardFile;
+using dNothi.Services.GuardFile.Model;
 using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
@@ -54,6 +56,7 @@ namespace dNothi.Services.SyncServices
         IOnucchedFileUploadService _onucchedFileUploadService { get; set; }
         IDakSharingService<ResponseModel> _dakSharingService { get; set; }
         IRepository<SyncStatus> _sycnRepository;
+        IGuardFileService<GuardFileModel, GuardFileModel.Record> _guardFileService;
         public SyncerService(
               INoteSaveService noteSave,
 
@@ -83,7 +86,8 @@ namespace dNothi.Services.SyncServices
             IAccountService accountService,
 
             IRepository<SyncStatus> sycnRepository,
-            IDakSharingService<ResponseModel> dakSharingService)
+            IDakSharingService<ResponseModel> dakSharingService,
+            IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService)
         {
             _nothiCreateServices = nothiCreateServices;
             _nothiTypeSave = nothiTypeSave;
@@ -113,6 +117,7 @@ namespace dNothi.Services.SyncServices
             _dakListService = dakListService;
             _sycnRepository = sycnRepository;
             _dakSharingService = dakSharingService;
+            _guardFileService = guardFileService;
         }
         /****************=========================================================================***************************
          ****************=========================================================================***************************
@@ -196,7 +201,9 @@ namespace dNothi.Services.SyncServices
                 _onuchhedForwardService.SendNoteListFromLocal();
                 _dakSharingService.SendLocalDataToServer(_userService.GetLocalDakUserParam());
                 _dakSharingService.SendDakSortingLocalDataToServer(_userService.GetLocalDakUserParam());
-              
+                _guardFileService.SendGuradFileLocalDataTOServer(_userService.GetLocalDakUserParam());
+
+
             }
 
 

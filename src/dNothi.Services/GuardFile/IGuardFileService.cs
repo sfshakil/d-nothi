@@ -19,6 +19,8 @@ namespace dNothi.Services.GuardFile
 
         GuardFilePortal GuardFilePortalList(DakUserParam userParam,string name,string type);
         GuardFileOffice GuardFilePortalOfficeList(DakUserParam userParam, int layer_id, string type);
-       
+        bool SendGuradFileLocalDataTOServer(DakUserParam userParam);
+
+
     }
 }

@@ -67,10 +67,10 @@
             this.typeNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.typeNameLabel.AutoSize = true;
             this.typeNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typeNameLabel.Location = new System.Drawing.Point(9, 13);
+            this.typeNameLabel.Location = new System.Drawing.Point(9, 14);
             this.typeNameLabel.Name = "typeNameLabel";
             this.typeNameLabel.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.typeNameLabel.Size = new System.Drawing.Size(73, 21);
+            this.typeNameLabel.Size = new System.Drawing.Size(61, 18);
             this.typeNameLabel.TabIndex = 88;
             this.typeNameLabel.Text = "বাংলাদেশ";
             // 

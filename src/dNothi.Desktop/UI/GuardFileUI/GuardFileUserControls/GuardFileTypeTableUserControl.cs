@@ -24,10 +24,11 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         public  const string GuardFileCategory = "GuardFileCategories";
         IUserService _userService { get; set; }
         AllAlartMessage alartMessage = new AllAlartMessage();
-        public GuardFileTypeTableUserControl(IUserService userService)
+        public GuardFileTypeTableUserControl(IUserService userService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileService)
         {
          
             _userService = userService;
+            _guardFileService = guardFileService;
             InitializeComponent();
             SetToolTips();
 
@@ -151,7 +152,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         {
             if (TypeId > 0)
             {
-                _guardFileService = new GuardFileService<GuardFileCategory,GuardFileCategory.Record>();
+               
                 var dakListUserParam = _userService.GetLocalDakUserParam();
 
                 GuardFileCategory.Record model = new GuardFileCategory.Record();

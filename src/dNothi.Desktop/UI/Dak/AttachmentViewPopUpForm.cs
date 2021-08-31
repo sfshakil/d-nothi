@@ -66,7 +66,8 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-
+        public string downloadFileName;
+        public string downloadFileType;
 
         private void closeButton_Click(object sender, EventArgs e)
         {
@@ -108,9 +109,9 @@ namespace dNothi.Desktop.UI.Dak
                        
                         fileMissingLabel.Visible = false;
                         imagePanel.Visible = true;
-                       
 
-
+                        downloadFileType = "jpg";
+                        downloadFileName = dakAttachmentDTO.url;
                         imageViewPictureBox.Load(dakAttachmentDTO.url);
 
                     }
@@ -139,7 +140,9 @@ namespace dNothi.Desktop.UI.Dak
                         //    imagePanel.Visible = false;
                         //    mainAttachmentViewWebBrowser.Visible = false;
                         //}
-                            mainAttachmentViewWebBrowser.Visible = false;
+                        downloadFileName = dakAttachmentDTO.url;
+                        downloadFileType = "pdf";
+                        mainAttachmentViewWebBrowser.Visible = false;
                             imagePanel.Visible = false;
                             fileMissingLabel.Visible = false;
                             pdfViewerControl.Visible = true;
@@ -155,13 +158,14 @@ namespace dNothi.Desktop.UI.Dak
                     else if(dakAttachmentDTO.attachment_type.ToLower().Contains("txt") || dakAttachmentDTO.attachment_type.ToLower().Contains("text"))
                     {
 
-                       
+                        downloadFileName = dakAttachmentDTO.url;
                         pdfViewerControl.Visible = false;
                         imagePanel.Visible = false;
                         fileMissingLabel.Visible = false;
                         mainAttachmentViewWebBrowser.Visible = true;
-                      //  rightArrowButton.Visible = false;
-                       // leftArrowButton.Visible = false;
+                        downloadFileType = "txt";
+                        //  rightArrowButton.Visible = false;
+                        // leftArrowButton.Visible = false;
                         //if (mainAttachmentViewWebBrowser.Document != null)
                         //{
                         //    mainAttachmentViewWebBrowser.Document.Write(string.Empty);
@@ -345,7 +349,12 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 int widthLoc = Convert.ToInt32((scr.WorkingArea.Right - this.Width) / 2);
                 this.Location = new Point(widthLoc, heightLoc);
-           
+                toolTip1.SetToolTip(downloadIconButton, "ডাউনলোড করুন");
+                toolTip1.SetToolTip(closeButton, "বন্ধ করুন");
+            toolTip1.SetToolTip(rightArrowButton, "পরবর্তী");
+            toolTip1.SetToolTip(leftArrowButton, "পূর্ববর্তী");
+
+
         }
 
         private void closesIconButton_Click(object sender, EventArgs e)
@@ -373,34 +382,52 @@ namespace dNothi.Desktop.UI.Dak
         private void downloadIconButton_Click(object sender, EventArgs e)
         {
             string filename = string.Empty;
-            if (_dakAttachmentDTOs != null)
-            {
-                for (int i = 0; i <= _dakAttachmentDTOs.Count - 1; i++)
+           
+               
+                SaveFileDialog sfd = new SaveFileDialog();
+            //sfd.Filter = "PDF (*.pdf)|*.pdf";
+            sfd.FileName = sfd.FileName + "." + downloadFileType;
+            bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    if (_dakAttachmentDTOs[i].attachment_id == _dakAttachmentDTO.attachment_id)
+                
+                if (File.Exists(sfd.FileName))
                     {
-                        if (i == _dakAttachmentDTOs.Count - 1)
+                        try
                         {
-                            dakAttachmentDTO = _dakAttachmentDTOs[0];
+                          
+                            File.Delete(sfd.FileName);
                         }
-                        else
+                        catch (IOException ex)
                         {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                if (!fileError)
+                    {
+                        try
+                        {
+                            
+                                WebClient client = new WebClient();
 
-                            dakAttachmentDTO = _dakAttachmentDTOs[i + 1];
+                                client.DownloadFile(downloadFileName, sfd.FileName);
+
+                                FileInfo PDFFile = new FileInfo(sfd.FileName);
+                                
+                            MessageBox.Show("File Saved Successfully !!!", "Info");
                         }
-                        filename = dakAttachmentDTO.url;
-                        break;
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error :" + ex.Message);
+                        }
                     }
                 }
-                string FileName = @"C:\Temp\Test.pdf";
-                string PDFUrl = filename;
+                //string FileName = @"C:\Temp\Test.pdf";
+                //string PDFUrl = filename;
 
-                WebClient client = new WebClient();
-
-                client.DownloadFile(PDFUrl, FileName);
-
-                FileInfo PDFFile = new FileInfo(FileName);
-            }
+                
+            
         }
     }
 }

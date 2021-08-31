@@ -158,7 +158,7 @@ namespace dNothi.Services.NothiReportService
 
         }
 
-
+        /*
         private string GetLocalNothiRegisterBook(DakUserParam dakListUserParam, string fromDate, string toDate, int unitid, bool nrb, bool dnc, bool dnd)
         {
             var dakBox = _localNothiRegisterBookRepository.Table.Where(q => q.designation_id == dakListUserParam.designation_id && q.office_id == dakListUserParam.office_id && q.limit == dakListUserParam.limit && q.page == dakListUserParam.page && q.fromDate == fromDate && q.toDate == toDate && q.unitId == unitid && q.dnd == dnd && q.dnc == q.dnc && q.nrb == q.nrb).FirstOrDefault();
@@ -203,6 +203,6 @@ namespace dNothi.Services.NothiReportService
             }
            
         }
-
+*/
     }
 }

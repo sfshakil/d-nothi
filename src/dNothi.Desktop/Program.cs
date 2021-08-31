@@ -194,6 +194,8 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<DakRegisterBook>>().As<IRepository<DakRegisterBook>>();
 
             builder.RegisterType<EfRepository<NothiRegisterBook>>().As<IRepository<NothiRegisterBook>>();
+      
+            
 
             builder.RegisterType<BasicService>().As<IBasicService>();
 
@@ -201,6 +203,9 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<OfficeInfo>>().As<IRepository<OfficeInfo>>();
             builder.RegisterType<EfRepository<UserToken>>().As<IRepository<UserToken>>();
             builder.RegisterType<EfRepository<NothiListRecords>>().As<IRepository<NothiListRecords>>();
+            builder.RegisterType<EfRepository<GuardFileList>>().As<IRepository<GuardFileList>>();
+            builder.RegisterType<EfRepository<GuardFileInsert>>().As<IRepository<GuardFileInsert>>();
+
             builder.RegisterType<AccountService>().As<IAccountService>();
             builder.RegisterType<DakOutboxService>().As<IDakOutboxService>();
             builder.RegisterType<SyncerService>().As<ISyncerService>();
@@ -268,7 +273,8 @@ namespace dNothi.Desktop
             builder.RegisterType<PotroJariGroupService>().As<IPotroJariGroupService>();
             builder.RegisterType<PotroServices>().As<IPotroServices>();
             builder.RegisterType<ProfileManagementServices>().As<IProfileManagementServices>();
-           
+         
+
             builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();
             builder.RegisterGeneric(typeof(DakSharingService<>)).As(typeof(IDakSharingService<>)).AsSelf();
 

@@ -20,7 +20,10 @@ namespace dNothi.Desktop.UI.Dak
         }
         private string _nameText;
         private string _categoryNameText;
-        public string attachmentURL;
+        private string attachmentURL { get; set; }
+        public string _attachmentURL { get=> attachmentURL; set { attachmentURL = value; 
+                if (value != string.Empty) { btnShow.Visible = true; } else { btnShow.Visible = false; } } }
+       
 
         [Category("Custom Props")]
         public string nameText
