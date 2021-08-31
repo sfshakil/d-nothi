@@ -361,6 +361,8 @@ namespace dNothi.Desktop.UI.Dak
                 if (!uploadIconButton.Visible)
                 {
                     dakActionPanel.Visible = true;
+                    dakActionPanel.BringToFront();
+                    
                 }
                 //dakActionPanel.Visible = true;
             }
