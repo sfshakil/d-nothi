@@ -264,6 +264,7 @@ namespace dNothi.Desktop.UI.Dak
 
                 nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
                 nothiNoteShomuho.canRevert = nothiListInboxNoteRecordsDTO.note.can_revert;
+                nothiNoteShomuho.notePriority(nothiListInboxNoteRecordsDTO.desk.priority); 
                 nothiNoteShomuho.noteAttachment = nothiListInboxNoteRecordsDTO.note.attachment_count.ToString();
                 nothiNoteShomuho.btnnoteAttachment  += delegate (object sender1, EventArgs e1) { NoteAttachment_ButtonClick(nothiListInboxNoteRecordsDTO, e1); };
                 nothiNoteShomuho.btnnoteCanRevert += delegate (object sender1, EventArgs e1) { NoteCanRevert_ButtonClick(nothiListInboxNoteRecordsDTO, e1); };
