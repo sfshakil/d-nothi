@@ -131,7 +131,7 @@ namespace dNothi.Desktop.UI.Dak
         public void notePriority(int priority)
         {
             if (priority == 1)
-                lbNoteSubText.ForeColor = Color.FromArgb(246, 78, 96);
+                lbNoteSubject.ForeColor = Color.FromArgb(246, 78, 96);
         }
         [Category("Custom Props")]
         public string note_subject
