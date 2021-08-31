@@ -361,6 +361,8 @@ namespace dNothi.Desktop.UI.Dak
                 if (!uploadIconButton.Visible)
                 {
                     dakActionPanel.Visible = true;
+                    dakActionPanel.BringToFront();
+                    
                 }
                 //dakActionPanel.Visible = true;
             }
@@ -608,6 +610,12 @@ namespace dNothi.Desktop.UI.Dak
 
 
             }
+        }
+
+
+        public void daksource(string value)
+        {
+            rightInfoPanel.daksource = value;
         }
 
         [Category("Custom Props")]

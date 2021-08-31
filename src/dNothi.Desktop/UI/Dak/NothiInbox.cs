@@ -351,6 +351,7 @@ namespace dNothi.Desktop.UI.Dak
                 nothiNoteShomuho.noteAttachment = nothiListInboxNoteRecordsDTO.note.attachment_count.ToString();
                 nothiNoteShomuho.btnAttachment  += delegate (object sender1, EventArgs e1) { NoteAttachment_ButtonClick(nothiListInboxNoteRecordsDTO, e1); };
                 nothiNoteShomuho.loadEyeIcon(nothiListInboxNoteRecordsDTO.desk.note_current_status);
+                nothiNoteShomuho.notePriority(nothiListInboxNoteRecordsDTO.desk.priority);
                 nothiNoteShomuho.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
 
                 

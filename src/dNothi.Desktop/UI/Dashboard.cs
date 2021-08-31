@@ -1360,6 +1360,7 @@ namespace dNothi.Desktop.UI
             dakInboxUserControl.dakSecurityIconValue = dakListInboxRecordsDTO.dak_user.dak_security;
             dakInboxUserControl.dakPrioriy = dakListInboxRecordsDTO.dak_user.dak_priority;
             dakInboxUserControl.dakType = dakListInboxRecordsDTO.dak_user.dak_type;
+            dakInboxUserControl.daksource(dakListInboxRecordsDTO.dak_user.dak_origin);
             dakInboxUserControl.potrojari = dakListInboxRecordsDTO.dak_user.from_potrojari;
             dakInboxUserControl.dakAttachmentCount = dakListInboxRecordsDTO.attachment_count;
             dakInboxUserControl.dakid = dakListInboxRecordsDTO.dak_user.dak_id;

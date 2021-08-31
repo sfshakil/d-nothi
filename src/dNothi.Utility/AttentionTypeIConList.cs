@@ -14,7 +14,7 @@ namespace dNothi.Utility
         {
             attentionTypes.Add(new AttentionType("0", "অনুলিপি", "অনুলিপি-PNG1"));
             attentionTypes.Add(new AttentionType("1", "মূল-প্রাপক", "মূল-প্রাপক-PNG1"));
-
+            attentionTypes.Add(new AttentionType("2", "দৃষ্টি আকর্ষণ", "মূল-প্রাপক-PNG1"));
            
         }
 
@@ -40,7 +40,7 @@ namespace dNothi.Utility
             }
             else
             {
-                return "";
+                return "মূল-প্রাপক";
             }
            
         }
