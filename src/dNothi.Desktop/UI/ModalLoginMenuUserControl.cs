@@ -19,20 +19,9 @@ namespace dNothi.Desktop.UI
             InitializeComponent();
         }
         
-        private void DoSomethingAsync(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
-
-   
         public event EventHandler courseStartButtonClick;
         public event EventHandler courseRegisterButtonClick;
        
-        private void closeButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
-
         private void courseStartButton_Click(object sender, EventArgs e)
         {
             if (this.courseStartButtonClick != null)

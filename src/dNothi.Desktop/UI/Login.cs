@@ -520,7 +520,7 @@ namespace dNothi.Desktop.UI
                 modal.courseStartButtonClick += delegate (object sender1, EventArgs e1) { modal_courseStartButtonClick(sender1, e1); };
                 modal.courseRegisterButtonClick += delegate (object sender1, EventArgs e1) { modal_courseRegisterButtonClick(sender1, e1); };
 
-                modal.Location = new Point(350, 310);
+                modal.Location = new Point(350, 300);
                
                 this.Controls.Add(modal);
                 modal.BringToFront();
