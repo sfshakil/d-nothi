@@ -24,8 +24,8 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 {
     public partial class UCGuardFilePortalCreate : Form
     {
-       
-      
+
+        GuardFileAttachment _uploadFileResponse = new GuardFileAttachment();
         IUserService _userService { get; set; }
         IGuardFileService<GuardFileModel,GuardFileModel.Record> _guardFileService { get; set; }
         IGuardFileService<GuardFileCategory, GuardFileCategory.Record> _guardFilecategoryService;
@@ -119,52 +119,53 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
             string subjectText = subjectTextBox.Text.Trim();
             int typeId = typesearchComboBox.selectedId;
-           
-            if(subjectText!=string.Empty && typeId!=0)
+
+            if (subjectText != string.Empty && typeId != 0)
             {
                 GuardFileModel.Record record = new GuardFileModel.Record();
                 record.name_bng = subjectTextBox.Text.Trim();
                 record.name_eng = subjectTextBox.Text.Trim();
                 record.guard_file_category_id = typesearchComboBox.selectedId;
-                //using (var client = new WebClient())
-                //{
-                //    byte[] dataBytes = client.DownloadData(new Uri(_guardFilePortal.link));
-                //    string encodedFileAsBase64 = Convert.ToBase64String(dataBytes);
-                //}
+                var client = new WebClient();
+               
+                 byte[] dataBytes = client.DownloadData(new Uri(_guardFilePortal.link));
+                 string encodedFileAsBase64 = Convert.ToBase64String(dataBytes);
+                 _dakFileUploadParam.content = encodedFileAsBase64;
+               
 
-                //_dakFileUploadParam.user_file_name = dataBytes[0].Name;
+                _dakFileUploadParam.user_file_name = _guardFilePortal.name;
+                //float d = (float)((float)3 / (float)4);
 
-                //Byte[] bytes = File.ReadAllBytes(opnfd.FileName);
-                //_dakFileUploadParam.content = Convert.ToBase64String(bytes);
+                //var size = (encodedFileAsBase64.Length *d ) - 2;
 
-                //var size = new System.IO.FileInfo(opnfd.FileName).Length;
+                _dakFileUploadParam.file_size_in_kb = calcBase64SizeInKBytes(encodedFileAsBase64) + " KB";
 
-                //_dakFileUploadParam.file_size_in_kb = size.ToString() + " KB";
-                GuardFileModel.Attachment attachment = new GuardFileModel.Attachment();
-                attachment.url= _guardFilePortal.link;
-                attachment.id = _guardFilePortal.id;
-                record.attachment = attachment;
-
+                _uploadFileResponse = UploadFile(_dakFileUploadParam);
+               
+               if (_uploadFileResponse != null)
+                { 
+                record.attachment = _uploadFileResponse.data[0];
 
 
-                 var response=   _guardFileService.Inserts(_userService.GetLocalDakUserParam(),3, guardFiles, record);
+
+                var response = _guardFileService.Inserts(_userService.GetLocalDakUserParam(), 3, guardFiles, record);
                 if (response.status == "success")
                 {
 
                     SuccessMessage("সংরক্ষণ করা সফল হয়েছে।");
-                   
+
                     subjectTextBox.Text = string.Empty;
                     typesearchComboBox.searchButtonText = "ধরণ বাছাই করুন";
-                   
-                   if(this.SubmitButtonClick!=null)
+
+                    if (this.SubmitButtonClick != null)
                     {
                         this.Hide();
                         this.SubmitButtonClick(sender, e);
                     }
 
                 }
-            }
-            else
+                 }
+                else
             {
                 if (subjectTextBox.Text == string.Empty)
                 {
@@ -174,11 +175,38 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 {
                     ShowAlertMessage("দুংখিত! ধরণ ফাঁকা রাখা যাবে না।");
                 }
-               
+
             }
 
-           
+                }
 
+        }
+        private Double calcBase64SizeInKBytes(String base64String)
+        {
+            Double result = -1.0;
+            if (string.IsNullOrEmpty(base64String))
+            {
+                int padding = 0;
+                if (base64String.EndsWith("=="))
+                {
+                    padding = 2;
+                }
+                else
+                {
+                    if (base64String.EndsWith("=")) padding = 1;
+                }
+               
+                result = (base64String.Length / 4 * 3) - padding;
+            }
+            return result / 1024;
+        }
+        public GuardFileAttachment UploadFile(DakFileUploadParam dakFileUploadParam)
+        {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+
+            GuardFileAttachment uploadedFileResponse = _guardFileService.UploadedFile(dakListUserParam, dakFileUploadParam, 5);
+
+            return uploadedFileResponse;
         }
         public void SuccessMessage(string Message)
         {

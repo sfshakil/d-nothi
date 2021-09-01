@@ -33,7 +33,7 @@ namespace dNothi.Desktop.UI
         IAccountService _accountService { get; set; }
         IUserService _userService { get; set; }
         ISyncerService _syncerservice { get; set; }
-        
+        ModalLoginMenuUserControl modal = null;
         public Login(IUserService userService, IAccountService accountService, ISyncerService syncerservice)
         {
             InitializeComponent();
@@ -425,16 +425,21 @@ namespace dNothi.Desktop.UI
                     }
                 }
         }
+        
         struct LinkNames
         {
+            //public const string maindomain = "https://nothi-next.tappware.com";
+            public const string maindomain = "http://my-a2i.tappware.com";
             public const string lg = "https://fb.com/groups/nothi/";
-            public const string mg = "https://nothi-next.tappware.com/mobile-app";
-            public const string bc = "https://nothi-next.tappware.com/#";
-            public const string faq = "https://nothi-next.tappware.com/faq";
-            public const string up = "https://nothi-next.tappware.com/release-note";
-            public const string nt = "https://nothi-next.tappware.com/notice";
-            public const string um = "https://nothi-next.tappware.com/user-manual";
-            public const string vt = "https://nothi-next.tappware.com/video/tutorial";
+            public const string mg = maindomain+"/mobile-app";
+            //public const string bc = maindomain+"/#";
+            public const string cr = "http://www.muktopaath.gov.bd/#/elPortal/showSignUpPage?role=student&isStudent=true";
+            public const string cs = "http://www.muktopaath.gov.bd/login/goToHomePage#/elM2Portal/showCourseDetails?courseId=276";
+            public const string faq = maindomain+"/faq";
+            public const string up = maindomain+"/release-note";
+            public const string nt = maindomain+"/notice";
+            public const string um = maindomain+"/user-manual";
+            public const string vt = maindomain+"/video/tutorial";
            // public const string vtn = "https://nothi-next.tappware.com/#";
         }
 
@@ -477,7 +482,7 @@ namespace dNothi.Desktop.UI
 
         private void label11_Click(object sender, EventArgs e)
         {
-            OpenBrowser(LinkNames.bc);
+            OpenBrowser(LinkNames.maindomain);
             
         }
 
@@ -507,8 +512,34 @@ namespace dNothi.Desktop.UI
 
         private void label31_Click(object sender, EventArgs e)
         {
-            OpenBrowser(LinkNames.bc);
-        
+           
+          
+            if (modal == null)
+            {
+                modal = new ModalLoginMenuUserControl();
+                modal.courseStartButtonClick += delegate (object sender1, EventArgs e1) { modal_courseStartButtonClick(sender1, e1); };
+                modal.courseRegisterButtonClick += delegate (object sender1, EventArgs e1) { modal_courseRegisterButtonClick(sender1, e1); };
+
+                modal.Location = new Point(350, 310);
+               
+                this.Controls.Add(modal);
+                modal.BringToFront();
+                modal.Visible = true;
+            }
+            else
+            {
+                modal.Visible = false;
+                modal = null;
+            }
+           
+        }
+        private void modal_courseStartButtonClick(object sender, EventArgs e)
+        {
+             OpenBrowser(LinkNames.cs);
+        }
+        private void modal_courseRegisterButtonClick(object sender, EventArgs e)
+        {
+            OpenBrowser(LinkNames.cr);
         }
 
         private void label28_Click(object sender, EventArgs e)
@@ -517,5 +548,14 @@ namespace dNothi.Desktop.UI
            
         }
 
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label36_Click(object sender, EventArgs e)
+        {
+            OpenBrowser(LinkNames.um);
+        }
     }
 }

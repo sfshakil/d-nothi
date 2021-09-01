@@ -87,7 +87,7 @@ namespace dNothi.Services.GuardFile
             if (!InternetConnection.Check())
             {
 
-                return SaveDeleteLocalGuardFile(userParam, inputData, actionLink, model,null,true);
+                return SaveDeleteLocalGuardFile(userParam, inputData, actionLink, model,0,true);
 
             }
           return  InsertGuardFile(userParam, actionLink, model, inputData);
@@ -182,7 +182,7 @@ namespace dNothi.Services.GuardFile
             if (!InternetConnection.Check())
             {
 
-                ResponseEdit response= SaveDeleteLocalGuardFile(userParam, string.Empty, actionLink, model, id.ToString(), false);
+                ResponseEdit response= SaveDeleteLocalGuardFile(userParam, string.Empty, actionLink, model, id, false);
                 return new DeleteResponse { status = response.status };
             }
             return deleteGuardFile(userParam, actionLink, id, model);
@@ -366,7 +366,7 @@ namespace dNothi.Services.GuardFile
         }
         public void getparamGuardFile(RestRequest request, DakUserParam userParam, GuardFileModel.Record model)
         {
-            request.AddParameter("data", "{\"name_bng\":\"" + model.name_bng + "\",\"name_eng\":\"" + model.name_eng + "\",\"file_number\":" + 2 + ",\"guard_file_category_id\":\"" + model.guard_file_category_id + "\",\"office_id\":" + userParam.office_id + ",\"office_name\":\"" + userParam.office + "\",\"office_unit_id\":" + userParam.office_unit_id + ",\"office_unit_name\":\"" + userParam.office_unit + "\",\"office_unit_organogram_id\":" + userParam.designation_id + ",\"office_unit_organogram_name\":\"" + userParam.office_unit + "\",\"attachment\":{\"id\":\"" + model.attachment.id + "\",\"user_file_name\":\"" + "doc 80.pdf" + "\",\"file_name\":\"" + "Guard_2021_65_08_2216296376934701821263.pdf" + "\",\"attachment_type\":\"" + "pdf" + "\",\"file_size_in_kb\":\"" + "1,295.86 KB" + "\",\"url\":\"" + model.attachment.url + "\",\"thumb_url\":\"\",\"delete_token\":\"" + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2Mjk2NTU2OTMsImlhdCI6MTYyOTYzNzA5MywianRpIjoiTVRZeU9UWXpOekE1TXc9PSIsImlzcyI6Imh0dHA6XC9cL25vdGhpYnMudGFwcHdhcmUuY29tXC8iLCJuYmYiOjE2Mjk2MzcwOTMsImRhdGEiOnsiZmlsZSI6Ikd1YXJkXC8yMDIxXC82NVwvMDhcLzIyXC9HdWFyZF8yMDIxXzY1XzA4XzIyMTYyOTYzNzY5MzQ3MDE4MjEyNjMucGRmIiwiaWQiOjIyOX19.nM2BYN-0N_7uyMAL0_39EuZOYnbJXMo9VOd7CPMrREbqvQQ4k0Y15KSgs-zZCXefaBpSi2Z3U_iLlS4u0__SHg" + "\",\"delete_url\":\"" + "/nothi-next/guard/attachment/remove" + "\"}}");
+            request.AddParameter("data", "{\"name_bng\":\"" + model.name_bng + "\",\"name_eng\":\"" + model.name_eng + "\",\"file_number\":" + 2 + ",\"guard_file_category_id\":\"" + model.guard_file_category_id + "\",\"office_id\":" + userParam.office_id + ",\"office_name\":\"" + userParam.office + "\",\"office_unit_id\":" + userParam.office_unit_id + ",\"office_unit_name\":\"" + userParam.office_unit + "\",\"office_unit_organogram_id\":" + userParam.designation_id + ",\"office_unit_organogram_name\":\"" + userParam.office_unit + "\",\"attachment\":{\"id\":\"" + model.attachment.id + "\",\"user_file_name\":\"" + model.attachment.user_file_name + "\",\"file_name\":\"" + model.attachment.file_name + "\",\"attachment_type\":\"" + model.attachment.attachment_type + "\",\"file_size_in_kb\":\"" + model.attachment.file_size_in_kb + "\",\"url\":\"" + model.attachment.url + "\",\"thumb_url\":\"" + model.attachment.thumb_url + "\",\"delete_token\":\"" + model.attachment.delete_token + "\",\"delete_url\":\"" + model.attachment.file_url + "\"}}");
 
 
            // request.AddParameter("data", "{\"name_bng\":\"" + model.name_bng + "\",\"name_eng\":\"" + model.name_eng + "\",\"file_number\":" + 2 + ",\"guard_file_category_id\":\"" + model.guard_file_category_id + "\",\"office_id\":" + userParam.office_id + ",\"office_name\":\"" + userParam.office + "\",\"office_unit_id\":" + userParam.office_unit_id + ",\"office_unit_name\":\"" + userParam.office_unit + "\",\"office_unit_organogram_id\":" + userParam.designation_id + ",\"office_unit_organogram_name\":\"" + userParam.office_unit + "\",\"attachment\":{\"id\":\"" + 229 + "\",\"user_file_name\":\"" + "doc 80.pdf" + "\",\"file_name\":\"" + "Guard_2021_65_08_2216296376934701821263.pdf" + "\",\"attachment_type\":\"" + "pdf" + "\",\"file_size_in_kb\":\"" + "1,295.86 KB" + "\",\"url\":\"" + "https://dev.nothibs.tappware.com/api/content/render/doc%2080.pdf?token=NjEyMjRjM2RlNWUyMCZvZmZpY2VJZF82NV8yMjk%3D" + "\",\"thumb_url\":\"\",\"delete_token\":\"" + "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2Mjk2NTU2OTMsImlhdCI6MTYyOTYzNzA5MywianRpIjoiTVRZeU9UWXpOekE1TXc9PSIsImlzcyI6Imh0dHA6XC9cL25vdGhpYnMudGFwcHdhcmUuY29tXC8iLCJuYmYiOjE2Mjk2MzcwOTMsImRhdGEiOnsiZmlsZSI6Ikd1YXJkXC8yMDIxXC82NVwvMDhcLzIyXC9HdWFyZF8yMDIxXzY1XzA4XzIyMTYyOTYzNzY5MzQ3MDE4MjEyNjMucGRmIiwiaWQiOjIyOX19.nM2BYN-0N_7uyMAL0_39EuZOYnbJXMo9VOd7CPMrREbqvQQ4k0Y15KSgs-zZCXefaBpSi2Z3U_iLlS4u0__SHg" + "\",\"delete_url\":\"" + "/nothi-next/guard/attachment/remove" + "\"}}");
@@ -425,13 +425,14 @@ namespace dNothi.Services.GuardFile
 
         }
 
-        private ResponseEdit SaveDeleteLocalGuardFile(DakUserParam userParam, string data, int actionLink, string model,string id,bool isInsert)
+        private ResponseEdit SaveDeleteLocalGuardFile(DakUserParam userParam, string data, int actionLink, string model,int id,bool isInsert)
         {
             // var localGuardFile = _localGuardFileInsertRepository.Table.Where(q => q.designation_id == userParam.designation_id && q.office_id == userParam.office_id && q.assignee_designation_id == assignee.designation_id).FirstOrDefault();
             
             GuardFileInsert localGuardFileInsert = new GuardFileInsert { 
                     data=data, designation_id=userParam.designation_id, isCreated= isInsert, model= model,
-                     office_id=userParam.office_id, id=id
+                     office_id=userParam.office_id,
+                     GuardFileId = id
             };
                 _localGuardFileInsertRepository.Insert(localGuardFileInsert);
            
@@ -454,7 +455,7 @@ namespace dNothi.Services.GuardFile
                 }
                 else
                 {
-                    DeleteResponse response= deleteGuardFile(userParam, 4,Convert.ToInt32(item.id), item.model);
+                    DeleteResponse response= deleteGuardFile(userParam, 4,item.GuardFileId, item.model);
                     status= response.status;
                 }
                 if (status == "success")

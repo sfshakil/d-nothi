@@ -15,7 +15,7 @@ namespace dNothi.Core.Entities
         public string model { get; set; }
         public bool isCreated { get; set; }
         public bool isGuardFile { get; set; }
-        public string id { get; set; }
+        public int  GuardFileId { get; set; }
 
         [MaxLength]
         public string data { get; set; }
