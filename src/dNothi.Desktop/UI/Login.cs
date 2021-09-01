@@ -33,7 +33,7 @@ namespace dNothi.Desktop.UI
         IAccountService _accountService { get; set; }
         IUserService _userService { get; set; }
         ISyncerService _syncerservice { get; set; }
-        
+        ModalLoginMenuUserControl modal = null;
         public Login(IUserService userService, IAccountService accountService, ISyncerService syncerservice)
         {
             InitializeComponent();
@@ -84,13 +84,16 @@ namespace dNothi.Desktop.UI
             try
             {
                 var resmessage = await _userService.GetUserMessageAsync(userParam);
+               
 
                 if (resmessage.status == "success")
                 {
+
                     _accountService.SaveOrUpdateUser(userName, password, isRemember);
 
                     // Sign Assign
                     resmessage.data.user.SignBase64 = resmessage.data.signature.encode_sign;
+                    resmessage.data.user.profile_photo =UIDesignCommonMethod.ConvertImageURLToBase64(resmessage.data.profile_photo);
 
                     SaveOrUpdateUser(resmessage?.data?.user);
                     SaveOrUpdateEmployee(resmessage?.data?.employee_info);
@@ -103,7 +106,9 @@ namespace dNothi.Desktop.UI
 
                     HideAndSHow();
 
+                    _userService.GetDoptorToken(userParam);
                     this.Hide();
+
                     var form = FormFactory.Create<Dashboard>();
 
                     form.ShowDialog();
@@ -120,7 +125,9 @@ namespace dNothi.Desktop.UI
                 var appUser = _accountService.LoginUser(userName, password);
                 if (appUser != null)
                 {
+                    HideAndSHow();
                     this.Hide();
+
                     var form = FormFactory.Create<Dashboard>();
 
                     form.ShowDialog();
@@ -257,9 +264,12 @@ namespace dNothi.Desktop.UI
 
         private void Login_Load(object sender, EventArgs e)
         {
-            var form = FormFactory.Create<Dashboard>();
-            form.Hide();
-
+            tabControl1.TabPages.Remove(tabPage2);
+            tabControl1.TabPages.Remove(tabPage3);
+            tabControl1.ItemSize = new Size(tabControl1.Width-6, 37);
+            //var form = FormFactory.Create<Dashboard>();
+            //form.Hide();
+             
             SetDefaultFont(this.Controls);
             //Screen scr = Screen.FromPoint(this.Location);
             //this.Location = new Point(scr.WorkingArea.Right - this.Width, scr.WorkingArea.Top);
@@ -415,16 +425,21 @@ namespace dNothi.Desktop.UI
                     }
                 }
         }
+        
         struct LinkNames
         {
+            //public const string maindomain = "https://nothi-next.tappware.com";
+            public const string maindomain = "http://my-a2i.tappware.com";
             public const string lg = "https://fb.com/groups/nothi/";
-            public const string mg = "https://nothi-next.tappware.com/mobile-app";
-            public const string bc = "https://nothi-next.tappware.com/#";
-            public const string faq = "https://nothi-next.tappware.com/faq";
-            public const string up = "https://nothi-next.tappware.com/release-note";
-            public const string nt = "https://nothi-next.tappware.com/notice";
-            public const string um = "https://nothi-next.tappware.com/user-manual";
-            public const string vt = "https://nothi-next.tappware.com/video/tutorial";
+            public const string mg = maindomain+"/mobile-app";
+            //public const string bc = maindomain+"/#";
+            public const string cr = "http://www.muktopaath.gov.bd/#/elPortal/showSignUpPage?role=student&isStudent=true";
+            public const string cs = "http://www.muktopaath.gov.bd/login/goToHomePage#/elM2Portal/showCourseDetails?courseId=276";
+            public const string faq = maindomain+"/faq";
+            public const string up = maindomain+"/release-note";
+            public const string nt = maindomain+"/notice";
+            public const string um = maindomain+"/user-manual";
+            public const string vt = maindomain+"/video/tutorial";
            // public const string vtn = "https://nothi-next.tappware.com/#";
         }
 
@@ -433,6 +448,10 @@ namespace dNothi.Desktop.UI
             
             OpenBrowser(LinkNames.lg);
          
+        }
+        private void label30_Click(object sender, EventArgs e)
+        {
+            OpenBrowser(LinkNames.lg);
         }
 
 
@@ -444,63 +463,99 @@ namespace dNothi.Desktop.UI
         private void label20_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.vt);
-           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/video/tutorial");
+          
             
         }
 
         private void tabControl1_DrawItem(object sender, System.Windows.Forms.DrawItemEventArgs e)
         {
             OpenBrowser(LinkNames.vt);
-           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/video/tutorial");
+         
         }
 
         private void label10_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.mg);
-           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/mobile-app");
+           
             
         }
 
         private void label11_Click(object sender, EventArgs e)
         {
-            OpenBrowser(LinkNames.bc);
-            //Process.Start("chrome.exe", "https://nothi-next.tappware.com/#");
+            OpenBrowser(LinkNames.maindomain);
+            
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.faq);
-            //Process.Start("chrome.exe", "https://nothi-next.tappware.com/faq");
+            
         }
 
         private void label8_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.up);
-            //Process.Start("chrome.exe", "https://nothi-next.tappware.com/release-note");
+           
         }
 
         private void label19_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.nt);
-           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/notice");
+        
         }
 
         private void label21_Click(object sender, EventArgs e)
         {
             OpenBrowser(LinkNames.um);
-           // Process.Start("chrome.exe", "https://nothi-next.tappware.com/user-manual");
+        
         }
 
         private void label31_Click(object sender, EventArgs e)
         {
-            OpenBrowser(LinkNames.bc);
-            //Process.Start("chrome.exe", "https://nothi-next.tappware.com/#");
+           
+          
+            if (modal == null)
+            {
+                modal = new ModalLoginMenuUserControl();
+                modal.courseStartButtonClick += delegate (object sender1, EventArgs e1) { modal_courseStartButtonClick(sender1, e1); };
+                modal.courseRegisterButtonClick += delegate (object sender1, EventArgs e1) { modal_courseRegisterButtonClick(sender1, e1); };
+
+                modal.Location = new Point(350, 300);
+               
+                this.Controls.Add(modal);
+                modal.BringToFront();
+                modal.Visible = true;
+            }
+            else
+            {
+                modal.Visible = false;
+                modal = null;
+            }
+           
+        }
+        private void modal_courseStartButtonClick(object sender, EventArgs e)
+        {
+             OpenBrowser(LinkNames.cs);
+        }
+        private void modal_courseRegisterButtonClick(object sender, EventArgs e)
+        {
+            OpenBrowser(LinkNames.cr);
         }
 
         private void label28_Click(object sender, EventArgs e)
         {
            //Process.Start("chrome.exe", "mailto: support @nothi.org.bd");
            
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label36_Click(object sender, EventArgs e)
+        {
+            OpenBrowser(LinkNames.um);
         }
     }
 }

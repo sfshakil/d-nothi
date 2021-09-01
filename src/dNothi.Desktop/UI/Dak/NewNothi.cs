@@ -39,16 +39,20 @@ namespace dNothi.Desktop.UI.Dak
             nothiTalikaPnl.Visible = false;
 
         }
+        int totalNothi = 0;
+        int pageNumber = 0;
+        int nothitypeid = 0;
         private void cbxNothiType_SelectedIndexChanged(object sender, EventArgs e)
         {
             lbNothilast4digitText.Visible = false;
             lbNothiNoText.Visible = false;
             nothiTalikaPnl.Visible = true;
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            dakListUserParam.page = pageNumber = 1;
             nothiTalikaPnl.Visible = true;
             int i = cbxNothiType.SelectedIndex;
             var nothi_type_code = nothi_type_codes[i];
-            var nothi_type_id = ids[i];
+            var nothi_type_id = nothitypeid = ids[i];
             var token = _userService.GetToken();
             var nothiNoteTalika = _nothiNoteTalikaService.GetNothiNoteTalika(dakListUserParam, Convert.ToString(nothi_type_id));
             var nothinumber = _nothiNoteTalikaService.GetNothiNumber(dakListUserParam, Convert.ToString(nothi_type_id));
@@ -57,11 +61,16 @@ namespace dNothi.Desktop.UI.Dak
             {
                 if (nothiNoteTalika.data.records.Count > 0)
                 {
+                    totalNothi = nothiNoteTalika.data.total_records;
                     pnlNoData.Visible = false;
                     nothiTalikaFlowLayoutPnl.Visible = true;
                     string code = nothinumber.data.ToString().Substring(0, 18);//"৫৬.৪২.০০০০.০১০." + string.Concat(nothi_type_code.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ".";
                     string nothi4Digit = nothinumber.data.ToString().Substring(18, 4);
+                    
+                    lbLengthStart.Text = string.Concat(pageNumber.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    lbLengthEnd.Text = string.Concat(10.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     lbTotalNote.Text = "সর্বমোট: " + string.Concat(nothiNoteTalika.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    
                     LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records, code, nothi4Digit);
 
 
@@ -474,6 +483,62 @@ namespace dNothi.Desktop.UI.Dak
         private void lbNothilast4digit_MouseLeave(object sender, EventArgs e)
         {
             lbNothilast4digitText.Visible = true;
+        }
+
+        private void nothiNextButton_Click(object sender, EventArgs e)
+        {
+            if(pageNumber * 10 < totalNothi)
+            {
+                lbLengthStart.Text = string.Concat((pageNumber * 10 + 1).ToString().Select(c => (char)('\u09E6' + c - '0')));
+                //lbLengthEnd.Text = string.Concat((pageNumber * 10).ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                pageNumber++;
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                dakListUserParam.page = pageNumber ;
+                var nothiNoteTalika = _nothiNoteTalikaService.GetNothiNoteTalika(dakListUserParam, Convert.ToString(nothitypeid));
+                if (nothiNoteTalika.status == "success" )
+                {
+                    if (nothiNoteTalika.data.records.Count > 0)
+                    {
+                        int flag = pageNumber - 1;
+                        int flag1 = flag * 10;
+                        int flag2 = nothiNoteTalika.data.records.Count;
+                        lbLengthEnd.Text = string.Concat((flag1 + flag2).ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records, lbNothiNo.Text, lbNothilast4digit.Text);
+                    }
+                }
+
+            }
+        }
+
+        private void nothiPreviousButton_Click(object sender, EventArgs e)
+        {
+            if(pageNumber > 1)
+            {
+                
+
+                pageNumber--;
+
+                if (pageNumber == 1 ) 
+                {
+                    lbLengthStart.Text = string.Concat((pageNumber * 10 - 10 +1).ToString().Select(c => (char)('\u09E6' + c - '0')));
+                }
+                else
+                {
+                    lbLengthStart.Text = string.Concat((pageNumber * 10 - 10 + 1).ToString().Select(c => (char)('\u09E6' + c - '0')));
+                } 
+                lbLengthEnd.Text = string.Concat((pageNumber * 10).ToString().Select(c => (char)('\u09E6' + c - '0')));
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+                dakListUserParam.page = pageNumber;
+                var nothiNoteTalika = _nothiNoteTalikaService.GetNothiNoteTalika(dakListUserParam, Convert.ToString(nothitypeid));
+                if (nothiNoteTalika.status == "success")
+                {
+                    if (nothiNoteTalika.data.records.Count > 0)
+                    {
+                        LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records, lbNothiNo.Text, lbNothilast4digit.Text);
+                    }
+                }
+            }
         }
     }
 }

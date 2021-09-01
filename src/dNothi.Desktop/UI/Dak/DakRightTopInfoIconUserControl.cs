@@ -107,6 +107,20 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
+        public string _daksource { get; set; }
+        public string daksource { 
+            get
+            {
+                return _daksource;
+            }
+            set
+            {
+                _daksource = value;
+                sourceLabel.Text = value.ToUpper();
+            }
+                
+        }
+
         [Category("Custom Props")]
         public string dakType
         {

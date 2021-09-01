@@ -11,6 +11,7 @@ namespace dNothi.Services.DakServices
     public class DakUserParam
     {
         public string loginId { get; set; }
+        public string userName { get; set; }
 
         public string fatherName { get; set; }
         public string motherName { get; set; }
@@ -27,6 +28,7 @@ namespace dNothi.Services.DakServices
 
         public int employee_record_id { get; set; }
         public string SignBase64 { get; set; }
+        public string profile_photo { get; set; }
 
 
         public int designation_id { get; set; }
@@ -53,5 +55,6 @@ namespace dNothi.Services.DakServices
         public int CategoryId { get; set; }
         public string NameSearchParam { get; set; }
         public string DateofBirth { get; internal set; }
+        public string doptor_token { get;  set; }
     }
 }

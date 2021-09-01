@@ -1,4 +1,5 @@
-﻿using dNothi.JsonParser.Entity.Nothi;
+﻿using dNothi.Desktop.UI.OtherModule.GuardFileUserControls;
+using dNothi.JsonParser.Entity.Nothi;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,10 @@ namespace dNothi.Desktop.UI.Dak
         }
         private string _nameText;
         private string _categoryNameText;
-        public string attachmentURL;
+        private string attachmentURL { get; set; }
+        public string _attachmentURL { get=> attachmentURL; set { attachmentURL = value; 
+                if (value != string.Empty) { btnShow.Visible = true; } else { btnShow.Visible = false; } } }
+       
 
         [Category("Custom Props")]
         public string nameText
@@ -39,8 +43,17 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler GaurdFileAddButton;
         private void btnGaurdFileAdd_Click(object sender, EventArgs e)
         {
+            var guardfilereference = FormFactory.Create<UCGuardFileReferenceNothi>();
+            guardfilereference.fileAddInWebBrowser(attachmentURL, _nameText);
+            guardfilereference.GaurdFileAddButtonOnucced += delegate (object sender1, EventArgs e1) { GaurdFileAddButtonOnucced_ButtonClick(sender1, e1); };
+            
+            UIDesignCommonMethod.CalPopUpWindow(guardfilereference, this.ParentForm);
+
+        }
+        private void GaurdFileAddButtonOnucced_ButtonClick(object sender, EventArgs e)
+        {
             GaurdFileRecord gaurdFileRecord = new GaurdFileRecord();
-            gaurdFileRecord.name_bng = _nameText;
+            gaurdFileRecord.name_bng = _nameText +"-"+ sender.ToString();
 
             GaurdFileAttachment gaurdFileAttachment = new GaurdFileAttachment();
             gaurdFileAttachment.url = attachmentURL;

@@ -97,7 +97,7 @@ namespace dNothi.Desktop.UI.OtherModule
         private void guardFileUploadButton_Click(object sender, EventArgs e)
         {
             lablePageName.Text = "আপলোড গার্ড ফাইল";
-            guardFileUploaduc = new UCGuardFileUpload(_userService,_guardFileService);
+            guardFileUploaduc = new UCGuardFileUpload(_userService,_guardFileService, _guardFileCategoryService);
             bodyPanel.Controls.Clear();
             bodyPanel.Controls.Add(guardFileUploaduc);
             guardFileUploaduc.Dock = DockStyle.None;

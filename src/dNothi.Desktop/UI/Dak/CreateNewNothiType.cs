@@ -217,12 +217,6 @@ namespace dNothi.Desktop.UI.Dak
                                 SuccessMessage("নথি ধরন সংরক্ষন হয়েছে।");
                                 if (this.NothiTypeAddButton != null)
                                     this.NothiTypeAddButton(sender, e);
-                                //foreach (Form f in Application.OpenForms)
-                                //{ BeginInvoke((Action)(() => f.Hide())); }
-                                //var form = FormFactory.Create<Nothi>();
-                                //form.ForceLoadNewNothi();
-                                //BeginInvoke((Action)(() => form.ShowDialog()));
-                                //form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
 
                             }
                         }
@@ -235,6 +229,7 @@ namespace dNothi.Desktop.UI.Dak
                         var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, cbxNothiType.Text, english_text, "0");
                         if (nothiTypeSave.status == "success")
                         {
+                            this.Hide();
                             SuccessMessage("নথি ধরন সংরক্ষন হয়েছে।");
                             if (this.NothiTypeAddButton != null)
                                 this.NothiTypeAddButton(sender, e);

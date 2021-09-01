@@ -113,7 +113,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         {
             if (TypeId > 0)
             {
-                _guardFileCategoryService = new GuardFileService<GuardFileCategory, GuardFileCategory.Record>();
+              
                 var dakListUserParam = _userService.GetLocalDakUserParam();
                 var response = _guardFileService.Delete(dakListUserParam, 4, TypeId, GuardFileCategory);
                 if (response.status == "success")

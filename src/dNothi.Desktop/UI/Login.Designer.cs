@@ -395,6 +395,7 @@
             this.label15.Size = new System.Drawing.Size(350, 126);
             this.label15.TabIndex = 6;
             this.label15.Text = resources.GetString("label15.Text");
+            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label13
             // 
@@ -798,6 +799,7 @@
             this.label36.TabIndex = 75;
             this.label36.Text = "ভার্সনঃ ২";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label36.Click += new System.EventHandler(this.label36_Click);
             // 
             // label20
             // 
@@ -929,6 +931,7 @@
             this.label30.TabIndex = 69;
             this.label30.Text = "ফেসবুক গ্রূপ";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label30.Click += new System.EventHandler(this.label30_Click);
             // 
             // iconPictureBox15
             // 

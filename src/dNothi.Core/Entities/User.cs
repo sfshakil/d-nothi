@@ -17,5 +17,12 @@ namespace dNothi.Core.Entities
 
         [MaxLength]
         public string SignBase64 { get; set; }
+
+        [MaxLength]
+        public string doptor_token { get; set; }
+
+
+        [MaxLength]
+        public string profile_photo { get; set; }
     }
 }

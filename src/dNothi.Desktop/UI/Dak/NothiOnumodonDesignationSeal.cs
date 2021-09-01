@@ -1355,5 +1355,60 @@ namespace dNothi.Desktop.UI.Dak
 
             UIDesignCommonMethod.SearchFromTree(prapokownOfficeTreeView,_prapokownOfficeTreeView, searchText);
         }
+
+        private void allSignedCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (allSignedCheckBox.Checked == true)
+            {
+                onumodonDataRecordDTO onumodonDataRecordDTO1 = new onumodonDataRecordDTO();
+                onumodonDataRecordDTO1.is_signatory = 1;
+                allSignedCheckBox.Checked = true;
+                AllSignatoryCheckbox_Changed(onumodonDataRecordDTO1, e);
+            }
+            else
+            {
+                onumodonDataRecordDTO onumodonDataRecordDTO1 = new onumodonDataRecordDTO();
+                onumodonDataRecordDTO1.is_signatory = 2;
+                allSignedCheckBox.Checked = false;
+                AllSignatoryCheckbox_Changed(onumodonDataRecordDTO1, e);
+            }
+        }
+        private void AllSignatoryCheckbox_Changed(onumodonDataRecordDTO onumodonDataRecordDTO1, EventArgs e)
+        {
+            var onumodonRowforThisLevel = _currentOnumodonRow;
+            _currentOnumodonRow = new List<onumodonDataRecordDTO>();
+
+                if (onumodonRowforThisLevel != null && onumodonRowforThisLevel.Count > 0)
+                {
+                    foreach (var singleOnumodon in onumodonRowforThisLevel)
+                    {
+                        onumodonDataRecordDTO onumodonDataRecordDTO = new onumodonDataRecordDTO();
+                        onumodonDataRecordDTO.officer_id = singleOnumodon.officer_id;
+                        onumodonDataRecordDTO.layer_index = singleOnumodon.layer_index;
+                        onumodonDataRecordDTO.office_id = singleOnumodon.office_id;
+                        onumodonDataRecordDTO.office_unit = singleOnumodon.office_unit;
+                        onumodonDataRecordDTO.office_unit_id = singleOnumodon.office_unit_id;
+                        onumodonDataRecordDTO.officer = singleOnumodon.officer;
+                        onumodonDataRecordDTO.office = singleOnumodon.office;
+                        onumodonDataRecordDTO.designation_level = singleOnumodon.designation_level;
+                        onumodonDataRecordDTO.designation_id = singleOnumodon.designation_id;
+                        onumodonDataRecordDTO.designation = singleOnumodon.designation;
+                        onumodonDataRecordDTO.route_index = singleOnumodon.route_index;
+                        onumodonDataRecordDTO.nothi_master_id = singleOnumodon.nothi_master_id;
+                        onumodonDataRecordDTO.is_active = singleOnumodon.is_active;
+                        onumodonDataRecordDTO.is_signatory = onumodonDataRecordDTO1.is_signatory;
+                        onumodonDataRecordDTO.level_name = singleOnumodon.level_name;
+                        onumodonDataRecordDTO.max_transaction_day = singleOnumodon.max_transaction_day;
+
+                        _currentOnumodonRow.Add(onumodonDataRecordDTO);
+
+                    }
+
+
+
+                }
+                LoadOnumodonLevelinRightSide(_currentOnumodonRow.OrderByDescending(a => a.layer_index).ToList());
+        
+        }
     }
 }

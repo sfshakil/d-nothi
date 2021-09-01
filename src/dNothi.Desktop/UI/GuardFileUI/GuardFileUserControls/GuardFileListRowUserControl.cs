@@ -25,7 +25,7 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
         {
             InitializeComponent();
             MyToolTip.SetToolTip(decisionDeleteButton, "মুছে ফেলুন");
-            MyToolTip.SetToolTip(decisionEditRightButton, "দেখুন");
+            MyToolTip.SetToolTip(attachmentShowButton, "দেখুন");
             
         }
 
@@ -38,6 +38,10 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
             get { return _dakAttachmentDTO; }
             set
             {
+                if(value==null)
+                {
+                    attachmentShowButton.Visible = false;
+                }
                 _dakAttachmentDTO = value;
             }
         }
@@ -152,6 +156,8 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
             AttachmentViewPopUpForm attachmentViewPopUpForm = new AttachmentViewPopUpForm();
             attachmentViewPopUpForm.dakAttachmentDTO = _dakAttachmentDTO;
             attachmentViewPopUpForm.dakAttachmentDTOs = _dakAttachmentDTOs;
+           
+           // attachmentViewPopUpForm.IsGuardFile = true;
             attachmentViewPopUpForm.PreviousButton += delegate (object os, EventArgs ev) { Previous(_dakAttachmentDTO, _dakAttachmentDTOs); };
             attachmentViewPopUpForm.NextButton += delegate (object os, EventArgs ev) { Next(_dakAttachmentDTO, _dakAttachmentDTOs); };
 

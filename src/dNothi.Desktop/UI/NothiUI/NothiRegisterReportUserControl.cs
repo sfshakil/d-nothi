@@ -18,7 +18,7 @@ using dNothi.Services.BasicService;
 
 namespace dNothi.Desktop.UI.NothiUI
 {
-    public partial class RegisterReportUserControl : UserControl
+    public partial class NothiRegisterReportUserControl : UserControl
     {
         string fromdate, todate;
         public int pageLimit = 10;
@@ -39,7 +39,7 @@ namespace dNothi.Desktop.UI.NothiUI
             
         }
 
-        public RegisterReportUserControl(IUserService userService, INothiReportService nothiReportService, IBasicService basicService)
+        public NothiRegisterReportUserControl(IUserService userService, INothiReportService nothiReportService, IBasicService basicService)
         {
             _userService = userService;
             _nothiReportService = nothiReportService;
@@ -70,48 +70,20 @@ namespace dNothi.Desktop.UI.NothiUI
             }
             return comboBoxItems;
         }
-        public bool _isDakGrohon { get; set; }
-        public bool _isDakDiary { get; set; }
-        public bool _isDakBili { get; set; }
+        public bool _isNothiPerito { get; set; }
+        public bool _isNothiRegister { get; set; }
+        public bool _isNothiGrahon { get; set; }
+        public bool _isPotraJariBohi { get; set; }
+        private bool _isNothiMasterFile { get; set; }
 
-        public bool isDakGrohon { get {return _isDakGrohon ; } set {_isDakGrohon=value; if (value) { headlineLabel.Text = "ডাক গ্রহণ নিবন্ধন বহি"; } } }
-        public bool isDakDiary { get {return _isDakDiary; } set { _isDakDiary = value; if (value) { headlineLabel.Text = "শাখা ডায়েরি নিবন্ধন বহি"; } } }
-        public bool isDakBili { get {return _isDakBili; } set { _isDakBili = value; if (value) { headlineLabel.Text = "ডাক বিলি নিবন্ধন বহি"; } } }
+        public bool isNothiPerito { get { return _isNothiPerito; } set { _isNothiPerito = value; if (value) { headlineLabel.Text = "নথি প্রেরণ নিবন্ধন বহি"; } } }
+        public bool isNothiRegister { get { return _isNothiRegister; } set { _isNothiRegister = value; if (value) { headlineLabel.Text = "নথি নিবন্ধন বহি"; } } }
+        public bool isNothiGrahon { get { return _isNothiGrahon; } set { _isNothiGrahon = value; if (value) { headlineLabel.Text = "নথি গ্রহণ নিবন্ধন বহি"; } } }
 
-        public List<RegisterReport> _registerReports { get; set; }
-        public List<RegisterReport> registerReports {
-            get { return _registerReports; }
-            set
-            {
-                _registerReports = value;
+        public bool isPotraJariBohi { get { return _isPotraJariBohi; } set { _isPotraJariBohi = value; if (value) { headlineLabel.Text = "পত্রজারি নিবন্ধন বহি"; } } }
 
-                if(value.Count<=0)
-                {
-                    noRowMessageLabel.Visible = true;
-                }
-                else
-                {
-                    noRowMessageLabel.Visible = false;
-                }
+        public bool isNothiMasterFile { get { return _isNothiMasterFile; } set { _isNothiMasterFile = value; if (value) { headlineLabel.Text = "মাস্টার ফাইল"; } } }
 
-                registerReportDataGridView.DataSource = null;
-                registerReportDataGridView.DataSource = value;
-
-
-                // Resize the master DataGridView columns to fit the newly loaded data.
-                registerReportDataGridView.AutoResizeColumns();
-
-                // Configure the details DataGridView so that its columns automatically
-                // adjust their widths when the data changes.
-                registerReportDataGridView.AutoSizeColumnsMode =
-                    DataGridViewAutoSizeColumnsMode.AllCells;
-
-                MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
-                registerReportDataGridView.ColumnHeadersDefaultCellStyle.Font = MemoryFonts.GetFont(0,12, registerReportDataGridView.Font.Style);
-            }
-        
-        
-        }
 
         private void Border_Color_Blue(object sender, PaintEventArgs e)
         {
@@ -185,7 +157,7 @@ namespace dNothi.Desktop.UI.NothiUI
 
             userParam.page = page;
             userParam.limit = pageLimit;
-            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam,fromdate,todate, unitid);
+            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam, fromdate, todate, unitid, _isNothiPerito, _isNothiGrahon, _isNothiRegister,_isPotraJariBohi,_isNothiMasterFile);
             if (nothiRegisterBook.status == "success")
             {
                 totalRowlabel.Text = "সর্বমোট "+ ConversionMethod.EnglishNumberToBangla( nothiRegisterBook.data.total_records.ToString())+" টি";
@@ -216,13 +188,12 @@ namespace dNothi.Desktop.UI.NothiUI
 
                 float pagesize = (float)(nothiRegisterBook.data.total_records) / (float)pageLimit;
                 totalPage = (int)Math.Ceiling(pagesize);
-                registerReportDataGridView.DataSource = columns.ToList();
-                // Resize the master DataGridView columns to fit the newly loaded data.
+                registerReportDataGridView.DataSource = null;
+               registerReportDataGridView.DataSource = columns.ToList();
+               
                 registerReportDataGridView.AutoResizeColumns();
 
-                // Configure the details DataGridView so that its columns automatically
-                // adjust their widths when the data changes.
-                registerReportDataGridView.AutoSizeColumnsMode =DataGridViewAutoSizeColumnsMode.AllCells;
+                registerReportDataGridView.AutoSizeColumnsMode =DataGridViewAutoSizeColumnsMode.Fill;
 
                 MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
                 registerReportDataGridView.ColumnHeadersDefaultCellStyle.Font = MemoryFonts.GetFont(0, 12, registerReportDataGridView.Font.Style);

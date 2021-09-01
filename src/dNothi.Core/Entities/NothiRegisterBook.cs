@@ -20,6 +20,11 @@ namespace dNothi.Core.Entities
         public bool nrb { get; set; }
         public bool dnc { get; set; }
         public bool dnd { get; set; }
+        public bool isNothiPreron { get; set; }
+        public bool isNothiGrahon { get; set; }
+        public bool isNothiReigister { get; set; }
+        public bool isPotrajaribohi { get; set; }
+        public bool isNothiMasterFile { get; set; }
 
         [MaxLength]
         public string daklist_json { get; set; }

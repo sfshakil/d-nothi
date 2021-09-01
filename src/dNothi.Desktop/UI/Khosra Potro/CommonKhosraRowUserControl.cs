@@ -64,6 +64,22 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             MouseHoverAction();
         }
 
+        private int _potroPage { get; set; }
+        public int potroPage
+        {
+            get { return _potroPage; }
+            set
+            {
+                _potroPage = value;
+                if (value > 0)
+                {
+                    attachmentButton.Visible = true;
+                    attachmentButton.Text =ConversionMethod.EnglishNumberToBangla(value.ToString());
+                }
+                else { attachmentButton.Visible = false; }
+               
+            }
+        }
         
         public string _sharokNo { get; set; }
      
@@ -112,13 +128,15 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         private string _onucchedNo { get; set; }
         public string onucchedNo { get => _onucchedNo; set=>_onucchedNo = value;  }
 
-        public void ButtonVisibility(bool sampadan, bool view, bool prapaklist)
+        public void ButtonVisibility(bool sampadan, bool view, bool prapaklist,bool ispotrojari)
         {
             sampadanIconButton.Visible = sampadan;
            
             viewIconButton.Visible = view;
             prapaklistIconButton.Visible = prapaklist;
-            
+            portalIconButton.Visible = ispotrojari;
+
+
         }
 
         public bool _isDraft{get;set;}
@@ -218,6 +236,13 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         {
             if (this.sampadanButtonClick != null)
                 this.sampadanButtonClick(sender, e);
+        }
+        public event EventHandler portalIconButtonClick;
+        private void portalIconButton_Click(object sender, EventArgs e)
+        {
+            if(this.portalIconButtonClick!=null)
+                 this.portalIconButtonClick(sender,e);
+            
         }
     }
 }

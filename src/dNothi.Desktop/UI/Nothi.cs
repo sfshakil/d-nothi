@@ -48,6 +48,12 @@ namespace dNothi.Desktop.UI
 
         public WaitFormFunc WaitForm;
         ModalMenuUserControl uc = null;
+        NothiMasterRegisterReportUserControl nothiMasterRegisterBook = UserControlFactory.Create<NothiMasterRegisterReportUserControl>();
+        NothiRegisterReportUserControl nothiRegisterBook = UserControlFactory.Create<NothiRegisterReportUserControl>();
+        NothiGrahonRegisterReportUserControl nothigrahonRegisterBook = UserControlFactory.Create<NothiGrahonRegisterReportUserControl>();
+        NothiPreronRegisterReportUserControl nothipreronRegisterBook = UserControlFactory.Create<NothiPreronRegisterReportUserControl>();
+        NothiPotrajariRegisterReportUserControl nothiPotrajariRegisterBook = UserControlFactory.Create<NothiPotrajariRegisterReportUserControl>();
+       
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices,
             INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave,
             INothiCreateService nothiCreateServices, IRepository<NothiCreateItemAction> nothiCreateItemAction,
@@ -530,7 +536,6 @@ namespace dNothi.Desktop.UI
             noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
             noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
             noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
-            noteView.loadEyeIcon(nothiListInboxNoteRecordsDTO.note.can_revert);
             //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
             //form.loadNoteData(notedata);
             NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
@@ -702,7 +707,6 @@ namespace dNothi.Desktop.UI
             noteView.approved = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
             noteView.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
             noteView.nothivukto = nothiListInboxNoteRecordsDTO.note.nothivukto_potro.ToString();
-            noteView.loadEyeIcon(nothiListInboxNoteRecordsDTO.note.can_revert);
             //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
             //form.loadNoteData(notedata);
             form.loadNothiInboxRecords(nothiListRecordsDTO);
@@ -934,7 +938,7 @@ namespace dNothi.Desktop.UI
                     noteView.officerInfo = _dakuserparam.officer + "," + nothiListRecords.office_designation_name + "," + nothiListRecords.office_unit_name + "," + _dakuserparam.office_label;
                     noteView.checkBox = "1";
                     noteView.nothiNoteID = notedata.note_id;
-                    noteView.loadEyeIcon(form.noteAllListDataRecordDTO.note.can_revert);
+
                     //noteView.CheckBoxClick += delegate (object sender1, EventArgs e1) { checkBox_Click(sender1, e1,nothiListRecords); };
                     form.loadNoteData(notedata);
                     form.loadNothiInboxRecords(nothiListRecordsDTO);
@@ -1983,7 +1987,12 @@ namespace dNothi.Desktop.UI
         {
             WaitForm.Show(this);
             detailsNothiSearcPanel.Visible = false;
+            nothiMasterRegisterBook.Visible = false;
             nothiRegisterBook.Visible = false;
+            nothigrahonRegisterBook.Visible = false;
+            nothipreronRegisterBook.Visible = false;
+            nothiPotrajariRegisterBook.Visible = false;
+            
             allReset();
             panel3.Visible = true;
             agotoNothiSelected = 1;
@@ -2012,7 +2021,11 @@ namespace dNothi.Desktop.UI
         {
             WaitForm.Show(this);
             nothiRegisterBook.Visible = false;
+            nothigrahonRegisterBook.Visible = false;
+            nothipreronRegisterBook.Visible = false;
             detailsNothiSearcPanel.Visible = false;
+            nothiPotrajariRegisterBook.Visible = false;
+            nothiMasterRegisterBook.Visible = false;
             allReset();
             panel3.Visible = true;
             agotoNothiSelected = 0;
@@ -2060,8 +2073,13 @@ namespace dNothi.Desktop.UI
         private void btnNothiAll_Click(object sender, EventArgs e)
         {
             WaitForm.Show(this);
+           
             nothiRegisterBook.Visible = false;
+            nothigrahonRegisterBook.Visible = false;
+            nothipreronRegisterBook.Visible = false;
             detailsNothiSearcPanel.Visible = false;
+            nothiPotrajariRegisterBook.Visible = false;
+            nothiMasterRegisterBook.Visible = false;
             allReset();
             panel3.Visible = true;
             agotoNothiSelected = 0;
@@ -2128,7 +2146,11 @@ namespace dNothi.Desktop.UI
         {
             nothiListFlowLayoutPanel.Controls.Clear();
             nothiRegisterBook.Visible = false;
+            nothigrahonRegisterBook.Visible = false;
+            nothipreronRegisterBook.Visible = false;
             detailsNothiSearcPanel.Visible = false;
+            nothiPotrajariRegisterBook.Visible = false;
+            nothiMasterRegisterBook.Visible = false;
             allReset();
             panel3.Visible = true;
             newNothi.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2579,18 +2601,99 @@ namespace dNothi.Desktop.UI
                 registerMenuArrow.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
             }
         }
-        UI.NothiUI.RegisterReportUserControl nothiRegisterBook = UserControlFactory.Create<UI.NothiUI.RegisterReportUserControl>();
+       //NothiRegisterReportUserControl nothiRegisterBook = UserControlFactory.Create<NothiRegisterReportUserControl>();
+       // NothiGrahonRegisterReportUserControl nothigrahonRegisterBook = UserControlFactory.Create<NothiGrahonRegisterReportUserControl>();
+       // NothiPreronRegisterReportUserControl nothipreronRegisterBook = UserControlFactory.Create<NothiPreronRegisterReportUserControl>();
         private void registerDiaryButton_Click(object sender, EventArgs e)
         {
+            
             panel3.Visible = false;
             detailsNothiSearcPanel.Visible = false;
             nothiSearchHeadingPanel.Visible = false;
             nothiRegisterBook.Visible = true;
+            nothigrahonRegisterBook.Visible = false;
+            nothipreronRegisterBook.Visible = false;
+            nothiPotrajariRegisterBook.Visible = false;
+            nothiMasterRegisterBook.Visible = false;
+
+            nothiRegisterBook.isNothiRegister = true;
             nothiRegisterBook.Dock = DockStyle.Fill;
             pnlNothiBody.Controls.Add(nothiRegisterBook);
             pnlNothiBody.BringToFront();
            
             //nothiRegisterBook.Show();
+        }
+      
+        private void registerBiliButton_Click(object sender, EventArgs e)
+        {
+           
+            panel3.Visible = false;
+            detailsNothiSearcPanel.Visible = false;
+            nothiSearchHeadingPanel.Visible = false;
+            nothiRegisterBook.Visible = false;
+            nothiPotrajariRegisterBook.Visible = false;
+            nothiMasterRegisterBook.Visible = false;
+            nothigrahonRegisterBook.Visible = true;
+            nothipreronRegisterBook.Visible = false;
+            //pnlNothiBody.Controls.Clear();
+            nothigrahonRegisterBook.isNothiGrahon = true;
+            nothigrahonRegisterBook.Dock = DockStyle.Fill;
+            pnlNothiBody.Controls.Add(nothigrahonRegisterBook);
+            pnlNothiBody.BringToFront();
+        }
+       
+
+        private void registerGrohonButton_Click(object sender, EventArgs e)
+        {
+           
+            panel3.Visible = false;
+            detailsNothiSearcPanel.Visible = false;
+            nothiSearchHeadingPanel.Visible = false;
+            nothiRegisterBook.Visible = false;
+            nothigrahonRegisterBook.Visible = false;
+            nothiMasterRegisterBook.Visible = false;
+            nothiPotrajariRegisterBook.Visible = false;
+            nothipreronRegisterBook.Visible = true;
+            
+            nothipreronRegisterBook.isNothiPerito = true;
+            //pnlNothiBody.Controls.Clear();
+            nothipreronRegisterBook.Dock = DockStyle.Fill;
+            pnlNothiBody.Controls.Add(nothipreronRegisterBook);
+            pnlNothiBody.BringToFront();
+
+        }
+
+        private void btnPotrajariBohi_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
+            detailsNothiSearcPanel.Visible = false;
+            nothiSearchHeadingPanel.Visible = false;
+            nothiRegisterBook.Visible = false;
+            nothigrahonRegisterBook.Visible = false;
+            nothipreronRegisterBook.Visible = false;
+            nothiMasterRegisterBook.Visible = false;
+            nothiPotrajariRegisterBook.Visible = true;
+            nothiPotrajariRegisterBook.isPotraJariBohi = true;
+            nothiPotrajariRegisterBook.Dock = DockStyle.Fill;
+            pnlNothiBody.Controls.Add(nothiPotrajariRegisterBook);
+            pnlNothiBody.BringToFront();
+        }
+
+        private void btnMasterFile_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
+            detailsNothiSearcPanel.Visible = false;
+            nothiSearchHeadingPanel.Visible = false;
+            nothiRegisterBook.Visible = false;
+            nothigrahonRegisterBook.Visible = false;
+            nothipreronRegisterBook.Visible = false;
+            nothiPotrajariRegisterBook.Visible = false;
+            nothiMasterRegisterBook.Visible = true;
+
+            nothiMasterRegisterBook.isNothiMasterFile = true;
+            nothiMasterRegisterBook.Dock = DockStyle.Fill;
+            pnlNothiBody.Controls.Add(nothiMasterRegisterBook);
+            pnlNothiBody.BringToFront();
         }
 
         private void registerMenuArrow_Click(object sender, EventArgs e)
@@ -2731,6 +2834,9 @@ namespace dNothi.Desktop.UI
             form.loadNoteList(notelist);
             CalPopUpWindow(form);
         }
+
+      
+
         private void uc_noteRemoveButtonClick(object sender, EventArgs e, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
 
@@ -2772,6 +2878,9 @@ namespace dNothi.Desktop.UI
             CalPopUpWindow(noteCreatePopUpForm);
 
         }
+
+       
+
         private void SaveorUpdate()
         {
             var nothiInbox = UserControlFactory.Create<NothiInbox>();
@@ -3085,6 +3194,45 @@ namespace dNothi.Desktop.UI
                 modulePanel.Visible = false;
                 modulePanel.Width = 334;
             }
+        }
+
+        private void btnNothiALLDecisionList_Click(object sender, EventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                //WaitForm.Show(this);
+                var nothiDecisionList = UserControlFactory.Create<NothiALLDecisionList>();
+
+                nothiDecisionList.loadRow();
+                var form = NothiNextStepControlToForm(nothiDecisionList);
+                //WaitForm.Close();
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+        }
+
+        public Form NothiNextStepControlToForm(Control control)
+        {
+            Form form = new Form();
+            form.TopMost = true;
+            form.TopMost = false;
+            form.Name = "ExtraPopUPWindow";
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - control.Width, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            //form.Size = control.Size;
+            form.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            form.Width = control.Width;
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            control.Height = form.Height;
+            form.Controls.Add(control);
+            return form;
         }
     }
 }

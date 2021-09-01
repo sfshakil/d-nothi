@@ -25,7 +25,7 @@ namespace dNothi.Services.NothiServices
                 request.AddHeader("api-version", GetAPIVersion());
                 request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
                 request.AlwaysMultipartFormData = true;
-                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\",\"officer_id\":\"" + dakUserParam.officer_id + "\",\"user_id\":\"" + dakUserParam.user_id + "\",\"office\":\"" + dakUserParam.office + "\",\"office_unit\":\"" + dakUserParam.office_unit + "\",\"designation\":\"" + dakUserParam.designation + "\",\"officer\":\"" + dakUserParam.officer + "\",\"designation_level\":\"" + dakUserParam.designation_level + "\"}");
                 request.AddParameter("limit", dakUserParam.limit);
                 request.AddParameter("page", dakUserParam.page);
                 IRestResponse response = client.Execute(request);
@@ -59,6 +59,19 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiDecisionListEndpoint;
         }
+        protected string GetNothiALLDecisionListEndpoint()
+        {
+            return DefaultAPIConfiguration.NothiALLDecisionListEndpoint;
+        }
+        protected string GetNothiDeleteDecisionListEndpoint()
+        {
+            return DefaultAPIConfiguration.NothiDeleteDecisionListEndpoint;
+        }
+        protected string GetNothiAddDecisionListEndpoint()
+        {
+            return DefaultAPIConfiguration.NothiAddDecisionListEndpoint;
+        }
+
         protected string GetNothiGaurdFileListEndpoint()
         {
             return DefaultAPIConfiguration.NothiGaurdFileListEndpoint;
@@ -93,7 +106,7 @@ namespace dNothi.Services.NothiServices
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
-                NothiGaurdFileListResponse nothiDecisionListResponse = JsonConvert.DeserializeObject<NothiGaurdFileListResponse>(responseJson);
+                NothiGaurdFileListResponse nothiDecisionListResponse = JsonConvert.DeserializeObject<NothiGaurdFileListResponse>(responseJson.Replace("\"attachment\":[]", "\"attachment\":\"\""));
                 return nothiDecisionListResponse;
             }
             catch (Exception ex)
@@ -113,7 +126,7 @@ namespace dNothi.Services.NothiServices
                 request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
                 request.AlwaysMultipartFormData = true;
 
-                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\",\"officer_id\":\"" + dakUserParam.officer_id + "\",\"user_id\":\"" + dakUserParam.user_id + "\",\"office\":\"" + dakUserParam.office + "\",\"office_unit\":\"" + dakUserParam.office_unit + "\",\"designation\":\"" + dakUserParam.designation + "\",\"officer\":\"" + dakUserParam.officer + "\",\"designation_level\":\"" + dakUserParam.designation_level + "\"}");
                 request.AddParameter("length", dakUserParam.limit);
                 request.AddParameter("page", dakUserParam.page);
                 request.AddParameter("nothi", "{\"nothi_id\":\""+ nothi_id +"\", \"nothi_office\":\""+ dakUserParam.office_id + "\"}");
@@ -165,7 +178,7 @@ namespace dNothi.Services.NothiServices
                 request.AddHeader("api-version", GetAPIVersion());
                 request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
                 request.AlwaysMultipartFormData = true;
-                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\",\"officer_id\":\"" + dakUserParam.officer_id + "\",\"user_id\":\"" + dakUserParam.user_id + "\",\"office\":\"" + dakUserParam.office + "\",\"office_unit\":\"" + dakUserParam.office_unit + "\",\"designation\":\"" + dakUserParam.designation + "\",\"officer\":\"" + dakUserParam.officer + "\",\"designation_level\":\"" + dakUserParam.designation_level + "\"}");
                 request.AddParameter("note", "{\"nothi_note_id\":\""+ note_id + "\",\"nothi_office_id\":"+ dakUserParam.office_id + ",\"nothi_master_id\":\""+ nothi_id + "\"}");
                 IRestResponse response = client.Execute(request);
 
@@ -177,6 +190,83 @@ namespace dNothi.Services.NothiServices
             catch (Exception ex)
             {
                 return nothiBibechhoPotroResponse;
+            }
+        }
+
+        public NothiDecisionListResponse GetNothiALLDecisionList(DakUserParam dakUserParam)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiALLDecisionListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\",\"officer_id\":\"" + dakUserParam.officer_id + "\",\"user_id\":\"" + dakUserParam.user_id + "\",\"office\":\"" + dakUserParam.office + "\",\"office_unit\":\"" + dakUserParam.office_unit + "\",\"designation\":\"" + dakUserParam.designation + "\",\"officer\":\"" + dakUserParam.officer + "\",\"designation_level\":\"" + dakUserParam.designation_level + "\"}");
+                request.AddParameter("limit", dakUserParam.limit);
+                request.AddParameter("page", dakUserParam.page);
+                IRestResponse response = client.Execute(request);
+                Console.WriteLine(response.Content);
+
+                var responseJson = response.Content;
+                NothiDecisionListResponse nothiDecisionListResponse = JsonConvert.DeserializeObject<NothiDecisionListResponse>(responseJson);
+                return nothiDecisionListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiDecisionListAddResponse GetNothiAddDecisionList(DakUserParam dakUserParam, string decision, long decisions_employee, long id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiAddDecisionListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("decisions", decision);
+                request.AddParameter("decisions_employee", decisions_employee);
+                if (id != 0 )
+                {
+                    request.AddParameter("id", id);
+                }
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiDecisionListAddResponse nothiDecisionListResponse = JsonConvert.DeserializeObject<NothiDecisionListAddResponse>(responseJson);
+                return nothiDecisionListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiDecisionListDeleteResponse GetNothiDeleteDecisionList(DakUserParam dakUserParam, long nothi_decision_id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiDeleteDecisionListEndpoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("nothi_decision_id", nothi_decision_id);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiDecisionListDeleteResponse nothiDecisionListResponse = JsonConvert.DeserializeObject<NothiDecisionListDeleteResponse>(responseJson);
+                return nothiDecisionListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Desktop.UI.OtherModule.GuardFileUserControls;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.GuardFile;
@@ -30,6 +31,10 @@ namespace dNothi.Desktop.UI.Dak
             _guardFileService = guardFileService;
             InitializeComponent();
             guardFiletabControl.SelectedIndexChanged += new EventHandler(guardFiletabControl_SelectedIndexChanged);
+            loadRow();
+        }
+        private void portalCreate_SubmitButtonClick(object sender, EventArgs e)
+        {
             loadRow();
         }
         private void guardFiletabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -93,7 +98,7 @@ namespace dNothi.Desktop.UI.Dak
                 var nothiGaurdFileListRow = UserControlFactory.Create<NothiGaurdFileListRow>();
                 nothiGaurdFileListRow.nameText = record.name_bng.ToString();
                 nothiGaurdFileListRow.categoryNameText = record.guard_file_category_name_bng.ToString();
-                nothiGaurdFileListRow.attachmentURL = record.attachment.url;
+                nothiGaurdFileListRow._attachmentURL = record.attachment != null? record.attachment.url: string.Empty;
                 nothiGaurdFileListRow.GaurdFileAddButton += delegate (object sender1, EventArgs e1) { GaurdFileAdd_ButtonClick(sender1 as GaurdFileRecord, e1); };
                 UIDesignCommonMethod.AddRowinTable(gaurdFileViewFLP, nothiGaurdFileListRow);
             }
@@ -101,6 +106,8 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler GaurdFileAttachment;
         private void GaurdFileAdd_ButtonClick(GaurdFileRecord gaurdFileRecord, EventArgs e1)
         {
+          
+          
             if (this.GaurdFileAttachment != null)
                 this.GaurdFileAttachment(gaurdFileRecord, e1);
         }
@@ -203,7 +210,7 @@ namespace dNothi.Desktop.UI.Dak
 
             string type = officeComboBox.Text.ToString();
             string name = gfpNameSearchTextBox.Text;
-            var guardFilePortallist = _guardFileService.GuardFilePortalList(dakListUserParam, string.Empty, type);
+            var guardFilePortallist = _guardFileService.GuardFilePortalList(dakListUserParam, name, type);
             if (guardFilePortallist.status == "success")
             {
                 noDataPanel.Visible = false;
@@ -217,7 +224,10 @@ namespace dNothi.Desktop.UI.Dak
                     gfp.subdomain= item.subdomain;
                     gfp.nameText = item.type;
                     gfp.categoryNameText = item.name;
-                   
+                    
+                    gfp.GaurdFileAddButton += delegate (object sender, EventArgs e) { guardFilePortalTableUserControl_AddButtonClick(sender, e, item); };
+
+
                     UIDesignCommonMethod.AddRowinTable(portalListTableLayoutPanel, gfp);
 
                 }
@@ -233,7 +243,15 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
+        private void guardFilePortalTableUserControl_AddButtonClick(object sender, EventArgs e,GuardFilePortal.Record guardFilePortal)
+        {
+            var portalCreate = FormFactory.Create<UCGuardFilePortalCreate>();
+            portalCreate.guardFilePortal = guardFilePortal;
+            portalCreate.SubmitButtonClick += delegate (object sender1, EventArgs e1) { portalCreate_SubmitButtonClick(sender1, e1); };
 
+            
+            UIDesignCommonMethod.CalPopUpWindow(portalCreate, this.ParentForm);
+        }
         private void officeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
            
@@ -258,6 +276,10 @@ namespace dNothi.Desktop.UI.Dak
             officeComboBox.DisplayMember = "Name";
             officeComboBox.ValueMember = "Id";
 
+        }
+        private void gfpNameSearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            GuardFilePortalFormLoad();
         }
         #region pagination
         private void nextIconButton_Click(object sender, EventArgs e)
@@ -342,6 +364,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
+
 
 
 

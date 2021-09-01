@@ -29,12 +29,15 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
       
         IUserService _userService { get; set; }
         IGuardFileService<GuardFileModel,GuardFileModel.Record> _guardFileService { get; set; }
+        IGuardFileService<GuardFileCategory, GuardFileCategory.Record> _guardFilecategoryService;
+       
         public const string guardFiles = "GuardFiles";
-        public UCGuardFileUpload(IUserService userService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService)
+        public UCGuardFileUpload(IUserService userService, IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService, IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFilecategoryService)
         {
             InitializeComponent();
             _userService = userService;
             _guardFileService = guardFileService;
+            _guardFilecategoryService = guardFilecategoryService;
 
 
            var data = from s in LoadGuardFileTypeList()
@@ -55,8 +58,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         public List<GuardFileCategory.Record> LoadGuardFileTypeList()
         {
             var dakListUserParam = _userService.GetLocalDakUserParam();
-            IGuardFileService<GuardFileCategory, GuardFileCategory.Record> _guardFilecategoryService;
-            _guardFilecategoryService = new GuardFileService<GuardFileCategory, GuardFileCategory.Record>();
+          
             dakListUserParam.limit = 10;
             dakListUserParam.page = 1;
             var datalist = _guardFilecategoryService.GetList(dakListUserParam, 1);

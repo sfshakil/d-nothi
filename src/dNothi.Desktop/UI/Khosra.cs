@@ -1774,13 +1774,13 @@ namespace dNothi.Desktop.UI
             }
             try
             {
-                var engDate = doc.DocumentNode.Descendants("span").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains("approver_bn_date_text"));
-                engDate.InnerHtml = enDate;
-                engDate.Attributes.FirstOrDefault(a => a.Name == "style").Value = "position: absolute; top: 0;left: 0; right: 0; text-align: center;opacity:0";
+                //var engDate = doc.DocumentNode.Descendants("span").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains("approver_bn_date_text"));
+                //engDate.InnerHtml = enDate;
+                //engDate.Attributes.FirstOrDefault(a => a.Name == "style").Value = "position: absolute; top: 0;left: 0; right: 0; text-align: center;opacity:0";
 
-                var banglaDate = doc.DocumentNode.Descendants("span").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains("approver_en_date_text"));
-                banglaDate.InnerHtml = bnDate;
-                banglaDate.Attributes.FirstOrDefault(a => a.Name == "style").Value = "position: absolute; top: 0;left: 0; right: 0; text-align: center;opacity:0";
+                //var banglaDate = doc.DocumentNode.Descendants("span").FirstOrDefault(d => d.GetAttributeValue("id", "").Contains("approver_en_date_text"));
+                //banglaDate.InnerHtml = bnDate;
+                //banglaDate.Attributes.FirstOrDefault(a => a.Name == "style").Value = "position: absolute; top: 0;left: 0; right: 0; text-align: center;opacity:0";
 
             }
             catch (Exception ex)
@@ -1889,7 +1889,14 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamPotro.potrojari.potro_security_level = dakSecrurityComboBox.SelectedIndex;
 
                 khosraSaveParamPotro.potrojari.potro_subject = GetPotroSubjectFromHtmlString(_currentHtmlString);
+               
+
                 khosraSaveParamPotro.potrojari.draft_officer_id = dakUserParam.officer_id;
+                
+                if (String.IsNullOrEmpty(khosraSaveParamPotro.potrojari.potro_subject))
+                {
+                    khosraSaveParamPotro.potrojari.potro_subject = _khasraPotroTemplateData.template_name + "-" + dateTimePicker.Value.ToString("dd-MM-yyyy");
+                }
 
                 if (_cloned_potrojari_id != 0)
                 {

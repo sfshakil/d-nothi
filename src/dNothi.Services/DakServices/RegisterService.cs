@@ -3,6 +3,7 @@ using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Services.BasicService.Models;
 using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
@@ -250,6 +251,60 @@ namespace dNothi.Services.DakServices
 
 
         }
+
+        public dakTrakingModel GetDakTrakingResponse(DakUserParam dakUserParam, string fromDate, string toDate, string mobile,string subject,string getapplication)
+        {
+
+            dakTrakingModel registerReportResponse = new dakTrakingModel();
+            //if (!InternetConnection.Check())
+            //{
+
+
+            //    registerReportResponse = JsonConvert.DeserializeObject<RegisterReportResponse>(GetLocalDakRegisterBook(dakUserParam, fromDate, toDate, unitid, dnb, dnc, dnd));
+            //    return registerReportResponse;
+
+            //}
+
+            try
+            {
+                var dakGrohonAPI = new RestClient(GetAPIDomain() + DefaultAPIConfiguration.DakSearchEndPoint);
+                dakGrohonAPI.Timeout = -1;
+                var dakGrohonRequest = new RestRequest(Method.POST);
+                dakGrohonRequest.AddHeader("api-version", GetOldAPIVersion());
+                dakGrohonRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                dakGrohonRequest.AlwaysMultipartFormData = true;
+                dakGrohonRequest.AddParameter("designation_id", dakUserParam.designation_id);
+                dakGrohonRequest.AddParameter("office_id", dakUserParam.office_id);
+                dakGrohonRequest.AddParameter("user_id", dakUserParam.user_id);
+
+                string searchParam = "dak_subject=" + subject + "&dak_received_no=" + getapplication + "&phone=" + mobile + "&last_modified_date =" + fromDate + ":" + toDate + "";
+
+                dakGrohonRequest.AddParameter("search_params", searchParam);
+                dakGrohonRequest.AddParameter("dak_list_type", "dak_tracking");
+                dakGrohonRequest.AddParameter("length", dakUserParam.limit);
+                dakGrohonRequest.AddParameter("page", dakUserParam.page);
+
+
+
+                IRestResponse dakGrohonResponseIRest = dakGrohonAPI.Execute(dakGrohonRequest);
+
+
+
+
+                var dakGrohonResponseJson = dakGrohonResponseIRest.Content;
+                //var data = SaveLocalDakRegisterBook(dakGrohonResponseJson, dakUserParam, fromDate, toDate, unitid, dnb, dnc, dnd);
+                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
+                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+                registerReportResponse = JsonConvert.DeserializeObject<dakTrakingModel>(dakGrohonResponseJson);
+                return registerReportResponse;
+            }
+            catch (Exception ex)
+            {
+                return registerReportResponse;
+            }
+
+
+        }
         protected string GetAPIVersion()
         {
             return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;
@@ -287,6 +342,9 @@ namespace dNothi.Services.DakServices
         RegisterReportResponse GetDakGrohonResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName);
         RegisterReportResponse GetDakBiliResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName);
         RegisterReportResponse GetDakDiaryResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName);
-    }
+        dakTrakingModel GetDakTrakingResponse(DakUserParam dakUserParam, string fromDate, string toDate, string mobile, string subject, string application_no);
+        
+
+        }
 
 }

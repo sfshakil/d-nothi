@@ -10,6 +10,6 @@ namespace dNothi.Services.NothiServices
 {
     public interface IAllPotroServices
     {
-        AllPotroResponse GetAllPotroInfo(DakUserParam dakuserparam, long id);
+        AllPotroResponse GetAllPotroInfo(DakUserParam dakuserparam, long id, string potro_subject);
     }
 }

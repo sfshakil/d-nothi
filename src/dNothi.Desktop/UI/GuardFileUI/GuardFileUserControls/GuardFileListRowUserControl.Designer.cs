@@ -33,7 +33,7 @@
             this.typeNameLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.decisionDeleteButton = new FontAwesome.Sharp.IconButton();
-            this.decisionEditRightButton = new FontAwesome.Sharp.IconButton();
+            this.attachmentShowButton = new FontAwesome.Sharp.IconButton();
             this.typeLabel = new System.Windows.Forms.Label();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
@@ -78,7 +78,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.decisionDeleteButton);
-            this.panel2.Controls.Add(this.decisionEditRightButton);
+            this.panel2.Controls.Add(this.attachmentShowButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(713, 3);
             this.panel2.Name = "panel2";
@@ -106,26 +106,26 @@
             this.decisionDeleteButton.UseVisualStyleBackColor = false;
             this.decisionDeleteButton.Click += new System.EventHandler(this.guardFileTableUserControl_deleteButtonClick);
             // 
-            // decisionEditRightButton
+            // attachmentShowButton
             // 
-            this.decisionEditRightButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.decisionEditRightButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.decisionEditRightButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.decisionEditRightButton.FlatAppearance.BorderSize = 0;
-            this.decisionEditRightButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.decisionEditRightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.decisionEditRightButton.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.decisionEditRightButton.IconColor = System.Drawing.Color.White;
-            this.decisionEditRightButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.decisionEditRightButton.IconSize = 24;
-            this.decisionEditRightButton.Location = new System.Drawing.Point(0, 0);
-            this.decisionEditRightButton.MaximumSize = new System.Drawing.Size(34, 36);
-            this.decisionEditRightButton.MinimumSize = new System.Drawing.Size(34, 36);
-            this.decisionEditRightButton.Name = "decisionEditRightButton";
-            this.decisionEditRightButton.Size = new System.Drawing.Size(34, 36);
-            this.decisionEditRightButton.TabIndex = 87;
-            this.decisionEditRightButton.UseVisualStyleBackColor = false;
-            this.decisionEditRightButton.Click += new System.EventHandler(this.guardFileTableUserControl_viewButtonClick);
+            this.attachmentShowButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.attachmentShowButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.attachmentShowButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.attachmentShowButton.FlatAppearance.BorderSize = 0;
+            this.attachmentShowButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.attachmentShowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.attachmentShowButton.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.attachmentShowButton.IconColor = System.Drawing.Color.White;
+            this.attachmentShowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.attachmentShowButton.IconSize = 24;
+            this.attachmentShowButton.Location = new System.Drawing.Point(0, 0);
+            this.attachmentShowButton.MaximumSize = new System.Drawing.Size(34, 36);
+            this.attachmentShowButton.MinimumSize = new System.Drawing.Size(34, 36);
+            this.attachmentShowButton.Name = "attachmentShowButton";
+            this.attachmentShowButton.Size = new System.Drawing.Size(34, 36);
+            this.attachmentShowButton.TabIndex = 87;
+            this.attachmentShowButton.UseVisualStyleBackColor = false;
+            this.attachmentShowButton.Click += new System.EventHandler(this.guardFileTableUserControl_viewButtonClick);
             // 
             // typeLabel
             // 
@@ -163,7 +163,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
         private FontAwesome.Sharp.IconButton decisionDeleteButton;
-        private FontAwesome.Sharp.IconButton decisionEditRightButton;
+        private FontAwesome.Sharp.IconButton attachmentShowButton;
         private System.Windows.Forms.Label typeLabel;
         private System.Windows.Forms.Label typeNameLabel;
         private System.Windows.Forms.ToolTip MyToolTip;

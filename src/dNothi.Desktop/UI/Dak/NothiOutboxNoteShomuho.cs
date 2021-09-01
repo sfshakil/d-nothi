@@ -47,7 +47,13 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _notesubject; }
             set { _notesubject = value; lbsubject.Text = value; }
-        }public string prapok
+        }
+        public void notePriority(int priority)
+        {
+            if (priority == 1)
+                lbsubject.ForeColor = Color.FromArgb(246, 78, 96);
+        }
+        public string prapok
         {
             get { return _prapok; }
             set { _prapok = value; lbPrapok.Text = value; }

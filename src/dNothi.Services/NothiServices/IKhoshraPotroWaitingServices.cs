@@ -10,6 +10,6 @@ namespace dNothi.Services.NothiServices
 {
     public interface IKhoshraPotroWaitingServices
     {
-        KhoshraPotroWaitingResponse GetKhoshraPotroWaitingInfo(DakUserParam _dakuserparam, long id);
+        KhoshraPotroWaitingResponse GetKhoshraPotroWaitingInfo(DakUserParam _dakuserparam, long id, string potro_subject);
     }
 }

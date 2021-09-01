@@ -361,6 +361,8 @@ namespace dNothi.Desktop.UI.Dak
                 if (!uploadIconButton.Visible)
                 {
                     dakActionPanel.Visible = true;
+                    dakActionPanel.BringToFront();
+                    
                 }
                 //dakActionPanel.Visible = true;
             }
@@ -610,6 +612,12 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
+
+        public void daksource(string value)
+        {
+            rightInfoPanel.daksource = value;
+        }
+
         [Category("Custom Props")]
         public string dakSecurityIconValue
         {
@@ -843,7 +851,8 @@ namespace dNothi.Desktop.UI.Dak
 
         private void DakSendButton_Click(object sender, EventArgs e)
         {
-
+            if (this.ButtonClick != null)
+                this.ButtonClick(sender, e);
         }
 
 
@@ -935,6 +944,8 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler DakTagButtonCLick;
         private void dakTagButton_Click(object sender, EventArgs e)
         {
+            if (this.DakTagButtonCLick != null)
+                this.DakTagButtonCLick(sender, e);
 
         }
         public event EventHandler DakTagShowButtonCLick;

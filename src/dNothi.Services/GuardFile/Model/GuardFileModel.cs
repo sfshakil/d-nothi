@@ -54,6 +54,7 @@ namespace dNothi.Services.GuardFile.Model
             public int office_unit_organogram_id { get; set; }
             public int guard_file_category_id { get; set; }
             public string guard_file_category_name_bng { get; set; }
+            //public object attachment { get; set; }
             public Attachment attachment { get; set; }
         }
 

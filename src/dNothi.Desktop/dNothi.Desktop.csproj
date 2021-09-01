@@ -46,6 +46,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -64,7 +65,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>256x256bb.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AltoHttp, Version=1.0.7813.41648, Culture=neutral, processorArchitecture=MSIL">
@@ -585,6 +587,18 @@
     <Compile Include="UI\Dak\NoteHeaderUserControl.Designer.cs">
       <DependentUpon>NoteHeaderUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\NothiALLDecisionList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiALLDecisionList.Designer.cs">
+      <DependentUpon>NothiALLDecisionList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Dak\NothiALLDecisionListRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\NothiALLDecisionListRow.Designer.cs">
+      <DependentUpon>NothiALLDecisionListRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NothiBibechhoPotroList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -651,6 +665,12 @@
     <Compile Include="UI\Dak\ProtibedonUserControl.Designer.cs">
       <DependentUpon>ProtibedonUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\AllDakTrakingUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\AllDakTrakingUserControl.Designer.cs">
+      <DependentUpon>AllDakTrakingUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\RegisterReportUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -693,11 +713,35 @@
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.Designer.cs">
       <DependentUpon>GaurdFilePortalListRow.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileReferenceNothi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileReferenceNothi.Designer.cs">
+      <DependentUpon>UCGuardFileReferenceNothi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFilePortalCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFilePortalCreate.Designer.cs">
+      <DependentUpon>UCGuardFilePortalCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\PotroPublishingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Khosra Potro\PotroPublishingForm.Designer.cs">
+      <DependentUpon>PotroPublishingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Khosra Potro\KhosraDakNoteDetailForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Khosra Potro\KhosraDakNoteDetailForm.Designer.cs">
       <DependentUpon>KhosraDakNoteDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ModalLoginMenuUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ModalLoginMenuUserControl.Designer.cs">
+      <DependentUpon>ModalLoginMenuUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ModalMenuUserControl.cs">
       <SubType>UserControl</SubType>
@@ -1336,11 +1380,35 @@
     <Compile Include="UI\NothiUI\NothiLevelAddForm.Designer.cs">
       <DependentUpon>NothiLevelAddForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\NothiUI\RegisterReportUserControl.cs">
+    <Compile Include="UI\NothiUI\NothiGrahonRegisterReportUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\NothiUI\RegisterReportUserControl.Designer.cs">
-      <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
+    <Compile Include="UI\NothiUI\NothiGrahonRegisterReportUserControl.Designer.cs">
+      <DependentUpon>NothiGrahonRegisterReportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiMasterRegisterReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiMasterRegisterReportUserControl.Designer.cs">
+      <DependentUpon>NothiMasterRegisterReportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiPreronRegisterReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiPreronRegisterReportUserControl.Designer.cs">
+      <DependentUpon>NothiPreronRegisterReportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiPotrajariRegisterReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiPotrajariRegisterReportUserControl.Designer.cs">
+      <DependentUpon>NothiPotrajariRegisterReportUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiRegisterReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiRegisterReportUserControl.Designer.cs">
+      <DependentUpon>NothiRegisterReportUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\OfficerRowUserControl.cs">
       <SubType>UserControl</SubType>
@@ -1377,6 +1445,18 @@
     </Compile>
     <Compile Include="UI\Profile\HelpDeskForm.Designer.cs">
       <DependentUpon>HelpDeskForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Profile\ProfileManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Profile\ProfileManagementForm.Designer.cs">
+      <DependentUpon>ProfileManagementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Profile\UploadPictureUserControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Profile\UploadPictureUserControl.Designer.cs">
+      <DependentUpon>UploadPictureUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ResponsiveForm.cs">
       <SubType>Form</SubType>
@@ -1548,6 +1628,12 @@
     <EmbeddedResource Include="UI\Dak\NewNothiTypeGuidelines.resx">
       <DependentUpon>NewNothiTypeGuidelines.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiALLDecisionList.resx">
+      <DependentUpon>NothiALLDecisionList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\NothiALLDecisionListRow.resx">
+      <DependentUpon>NothiALLDecisionListRow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NothiBibechhoPotroList.resx">
       <DependentUpon>NothiBibechhoPotroList.cs</DependentUpon>
     </EmbeddedResource>
@@ -1599,6 +1685,9 @@
     <EmbeddedResource Include="UI\Dak\ProtibedonUserControl.resx">
       <DependentUpon>ProtibedonUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\AllDakTrakingUserControl.resx">
+      <DependentUpon>AllDakTrakingUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\RegisterReportUserControl.resx">
       <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -1617,8 +1706,20 @@
     <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.resx">
       <DependentUpon>GaurdFilePortalListRow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFileReferenceNothi.resx">
+      <DependentUpon>UCGuardFileReferenceNothi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\UCGuardFilePortalCreate.resx">
+      <DependentUpon>UCGuardFilePortalCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Khosra Potro\PotroPublishingForm.resx">
+      <DependentUpon>PotroPublishingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraDakNoteDetailForm.resx">
       <DependentUpon>KhosraDakNoteDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ModalLoginMenuUserControl.resx">
+      <DependentUpon>ModalLoginMenuUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ModalMenuUserControl.resx">
       <DependentUpon>ModalMenuUserControl.cs</DependentUpon>
@@ -1914,8 +2015,20 @@
     <EmbeddedResource Include="UI\NothiUI\NothiLevelAddForm.resx">
       <DependentUpon>NothiLevelAddForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\NothiUI\RegisterReportUserControl.resx">
-      <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\NothiUI\NothiGrahonRegisterReportUserControl.resx">
+      <DependentUpon>NothiGrahonRegisterReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\NothiMasterRegisterReportUserControl.resx">
+      <DependentUpon>NothiMasterRegisterReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\NothiPreronRegisterReportUserControl.resx">
+      <DependentUpon>NothiPreronRegisterReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\NothiPotrajariRegisterReportUserControl.resx">
+      <DependentUpon>NothiPotrajariRegisterReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\NothiRegisterReportUserControl.resx">
+      <DependentUpon>NothiRegisterReportUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\OfficerRowUserControl.resx">
       <DependentUpon>OfficerRowUserControl.cs</DependentUpon>
@@ -1934,6 +2047,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Profile\HelpDeskForm.resx">
       <DependentUpon>HelpDeskForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Profile\ProfileManagementForm.resx">
+      <DependentUpon>ProfileManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Profile\UploadPictureUserControl.resx">
+      <DependentUpon>UploadPictureUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ResponsiveForm.resx">
       <DependentUpon>ResponsiveForm.cs</DependentUpon>

@@ -24,7 +24,7 @@ namespace dNothi.Services.NothiServices
             _allPotroParser = allPotroParser;
             _noteItem = noteItem;
         }
-        public NoteKhoshraListResponse GetnoteKhoshraListInfo(DakUserParam dakUserParam, long id, int note_id)
+        public NoteKhoshraListResponse GetnoteKhoshraListInfo(DakUserParam dakUserParam, long id, int note_id, string potro_subject)
         {
             NoteKhoshraListResponse noteKhoshraListResponse = new NoteKhoshraListResponse();
             if (!dNothi.Utility.InternetConnection.Check())
@@ -50,6 +50,11 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
                 request.AddParameter("nothi", "{\"nothi_id\":\"" + id + "\", \"nothi_office\":\"" + dakUserParam.office_id + "\",\"nothi_note_id\":\"" + note_id + "\"}");
                 request.AddParameter("length", "1000000000000");
+                if (potro_subject !="")
+                {
+                    request.AddParameter("search_params", "potro_subject=" + potro_subject);
+                }
+                
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
