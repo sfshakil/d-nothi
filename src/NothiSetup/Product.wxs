@@ -11,7 +11,7 @@
 
 
 
-  <Product Id="*" Name="D-Nothi" Language="1033" Version="1.09" Manufacturer="Tappware" UpgradeCode="fb3aa46f-5d81-4a82-a6f1-65f44cbca3dd">
+  <Product Id="*" Name="D-Nothi" Language="1033" Version="1.12" Manufacturer="Tappware" UpgradeCode="fb3aa46f-5d81-4a82-a6f1-65f44cbca3dd">
 
 
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
