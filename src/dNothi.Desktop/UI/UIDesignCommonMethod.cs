@@ -462,7 +462,7 @@ namespace dNothi.Desktop.UI
 
        
 
-        public static string copyRightLableText = "© কপিরাইট ২০২১, V:1.12";
+        public static string copyRightLableText = "© কপিরাইট ২০২১, V:1.14";
 
         public static void SuccessMessage(string Message)
         {
