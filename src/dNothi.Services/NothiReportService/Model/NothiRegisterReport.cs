@@ -11,17 +11,22 @@ namespace dNothi.Services.NothiReportService.Model
         public class Nothi
         {
             public int id { get; set; }
+            public string nothi_no { get; set; }
+            public int nothi_type_id { get; set; }
+            public string subject { get; set; }
+            public string nothi_created_date { get; set; }
+            public int nothi_class { get; set; }
+        
             public int office_id { get; set; }
             public string office_name { get; set; }
             public int office_unit_id { get; set; }
             public string office_unit_name { get; set; }
             public int office_unit_organogram_id { get; set; }
             public string office_designation_name { get; set; }
-            public string nothi_no { get; set; }
-            public string subject { get; set; }
-            public int nothi_class { get; set; }
+       
             public string modified { get; set; }
             public string last_note_date { get; set; }
+           
         }
 
         public class Desk
@@ -86,6 +91,32 @@ namespace dNothi.Services.NothiReportService.Model
             public int note_count { get; set; }
             public string issue_date { get; set; }
             public string last_note_date { get; set; }
+           
+            public int nothi_master_id { get; set; }
+            public int nothi_note_id { get; set; }
+            public int nothi_office { get; set; }
+            public int from_office_id { get; set; }
+            public string from_office_name { get; set; }
+            public int from_office_unit_id { get; set; }
+            public string from_office_unit_name { get; set; }
+            public int from_officer_id { get; set; }
+            public string from_officer_name { get; set; }
+            public int from_officer_designation_id { get; set; }
+            public string from_officer_designation_label { get; set; }
+            public int to_office_id { get; set; }
+            public string to_office_name { get; set; }
+            public int to_office_unit_id { get; set; }
+            public string to_office_unit_name { get; set; }
+            public int to_officer_id { get; set; }
+            public string to_officer_name { get; set; }
+            public int to_officer_designation_id { get; set; }
+            public string to_officer_designation_label { get; set; }
+            public int view_status { get; set; }
+            public string note_decision { get; set; }
+            public int movement_type { get; set; }
+           
+            public string modified { get; set; }
+          
         }
 
         public class Data
@@ -334,8 +365,10 @@ namespace dNothi.Services.NothiReportService.Model
             public Recipient recipient { get; set; }
         }
 
-       
 
+     
+
+        
 
 
     }

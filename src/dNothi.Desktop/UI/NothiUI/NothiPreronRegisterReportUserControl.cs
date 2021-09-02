@@ -145,13 +145,14 @@ namespace dNothi.Desktop.UI.NothiUI
             string unitid = dakPriorityComboBox.SelectedValue.ToString();
             if (dateRange == string.Empty)
             {
-                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
-                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
+                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+                todate = DateTime.Now.ToString("yyyy/MM/dd");
+                
             }
             else
             {
-                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
-                todate = DateTime.Now.ToString("yyyy/MM/dd");
+                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
+                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
             }
 
             pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(pagessize));
@@ -175,13 +176,13 @@ namespace dNothi.Desktop.UI.NothiUI
                                    //applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.nothi.modified
 
                                    nothiNo= t.nothi.nothi_no,
-                                   officeName=t.nothi.office_unit_name,
+                                   officeName=t.from_office_unit_name,
                                    nothisubject=t.nothi.subject,
                                   // grahanDate = t.desk.issue_date,
-                                   preronDate = t.desk.issue_date,
-                                   previousSender = string.Empty,
-                                   nextReciver = t.to.officer+","+t.to.office_unit
-                                   
+                                   preronDate = t.created,
+                                   previousSender = t.from_officer_name+","+t.from_officer_designation_label,
+                                   nextReciver = t.to_officer_name + ","+t.to_officer_designation_label
+
 
                                }).ToList();
                 if (columns.Count <= 0)

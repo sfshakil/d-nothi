@@ -25,22 +25,27 @@ namespace dNothi.Services.NothiReportService
         public NothiRegisterReport NothiRegisterBook(DakUserParam userParam, string fromDate, string toDate, string branchName,  bool isNothiPreron, bool isNothiGrahon, bool isNothiReigister, bool isPotrajaribohi,bool isNothiMasterFile)
         {
             string endPoint = string.Empty;
-            if (isNothiPreron)
+            //if (isNothiPreron)
+            //{
+            //    endPoint = DefaultAPIConfiguration.NothiOutboxListEndPoint;
+            //}
+            //if (isNothiGrahon)
+            //{
+            //    endPoint = DefaultAPIConfiguration.NothiListInboxEndPoint;
+            //}
+            //if (isNothiReigister)
+            //{
+            //    endPoint = DefaultAPIConfiguration.NothiAllListEndPoint;
+            //}
+            if(isNothiPreron|| isNothiGrahon|| isNothiReigister)
             {
-                endPoint = DefaultAPIConfiguration.NothiOutboxListEndPoint;
-            }
-            if (isNothiGrahon)
-            {
-                endPoint = DefaultAPIConfiguration.NothiListInboxEndPoint;
-            }
-            if (isNothiReigister)
-            {
-                endPoint = DefaultAPIConfiguration.NothiAllListEndPoint;
+                endPoint = DefaultAPIConfiguration.NothiReportEndPoint;
             }
             if(isPotrajaribohi || isNothiMasterFile)
             {
                 endPoint = DefaultAPIConfiguration.NothiPotrangshoNotePotrojariEndPoint;
             }
+            
 
 
             int unitid = 0;
@@ -74,14 +79,29 @@ namespace dNothi.Services.NothiReportService
                 request.AddParameter("length", userParam.limit);
                 string search_params = string.Empty;
                 
-                if (isPotrajaribohi)
+                if (isPotrajaribohi || isNothiMasterFile)
                 {
                     request.AddParameter("unit_id", unitid);
                     search_params = "last_issue_date=" + fromDate + ":" + toDate + "&potro_subject=";
                 }
                 else
                 {
-                    search_params = "office_unit_id=" + unitid + "&last_modified_date=" + fromDate + ":" + toDate + "";
+                    if(isNothiGrahon)
+                    {
+                        
+                       
+                        search_params = "to_office_unit_id=" + unitid + "&movement_date_range=" + fromDate + ":" + toDate + "&to_office_id=" + userParam.office_id + "";
+                    }
+                    if (isNothiPreron)
+                    {
+                        search_params = "from_office_unit_id=" + unitid + "&movement_date_range=" + fromDate + ":" + toDate + "&from_office_id=" + userParam.office_id + "";
+                       
+                    }
+                    if (isNothiReigister)
+                    {
+                        search_params = "office_unit_id=" + unitid + "&movement_date_range=" + fromDate + ":" + toDate + "&office_id=" + userParam.office_id + "";
+
+                    }
                 }
               
                 request.AddParameter("search_params", search_params);
