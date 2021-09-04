@@ -142,15 +142,16 @@ namespace dNothi.Desktop.UI.NothiUI
             string pagessize = comboBox1.Text;
             string dateRange = dateTextBox.Text;
             string unitid = dakPriorityComboBox.SelectedValue!=null? dakPriorityComboBox.SelectedValue.ToString():string.Empty;
-            if (dateRange != string.Empty)
-            {
-                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
-                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
-            }
-            else
+            if (dateRange == string.Empty)
             {
                 fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
                 todate = DateTime.Now.ToString("yyyy/MM/dd");
+                
+            }
+            else
+            {
+                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
+                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
             }
 
             pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(pagessize));
@@ -180,7 +181,7 @@ namespace dNothi.Desktop.UI.NothiUI
                 //                   applyDate=t.basic.issue_date,
                 //                   previousPrapok= getPrapok(t.potrojari.recipient.receiver),
                 //                   docketingNo=getOnulipi(t.potrojari.recipient.onulipi),
-                                   
+
                 //                   type=t.potrojari.potro_type==1?"অফিস স্বারক": (t.potrojari.potro_type == 2? "সরকারি পত্র" : "আধা সরকারি পত্র"),
 
                 //               }).ToList();
@@ -193,7 +194,7 @@ namespace dNothi.Desktop.UI.NothiUI
                 //    noRowMessageLabel.Visible = false;
                 //    //lastCountValue = columns.Max(x => x.lastCountValue);
                 //}
-
+                pageLimit = 1;
                 float pagesize = (float)(nothiRegisterBook.data.total_records) / (float)pageLimit;
                 totalPage = (int)Math.Ceiling(pagesize);
                // registerReportDataGridView.DataSource = null;

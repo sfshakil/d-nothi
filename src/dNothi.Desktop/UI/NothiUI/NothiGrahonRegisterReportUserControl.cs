@@ -145,13 +145,14 @@ namespace dNothi.Desktop.UI.NothiUI
             string unitid = dakPriorityComboBox.SelectedValue.ToString();
             if (dateRange == string.Empty)
             {
-                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
-                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
+                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+                todate = DateTime.Now.ToString("yyyy/MM/dd");
+                
             }
             else
             {
-                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
-                todate = DateTime.Now.ToString("yyyy/MM/dd");
+                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
+                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
             }
 
             pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(pagessize));
@@ -177,12 +178,12 @@ namespace dNothi.Desktop.UI.NothiUI
                                    //sharokNo = t.nothi.subject,
                                    //applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.nothi.modified
 
-                                   nothiNo= t.nothi_no,
-                                   officeName=t.office_unit_name,
-                                   nothisubject=t.subject,
+                                   nothiNo= t.nothi.nothi_no,
+                                   officeName=t.to_office_name,
+                                   nothisubject=t.nothi.subject,
 
-                                   grahanDate= t.issue_date,
-                                   previousSender=string.Empty
+                                   grahanDate= t.created,
+                                   previousSender=t.to_officer_name+","+t.to_office_name
                                    //preronDate,
                                    //previousSender,
                                    //nextReciver,

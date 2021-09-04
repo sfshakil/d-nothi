@@ -15,6 +15,7 @@ using iTextSharp.text.pdf;
 using dNothi.Services.NothiReportService;
 using dNothi.Services.UserServices;
 using dNothi.Services.BasicService;
+using System.Reflection;
 
 namespace dNothi.Desktop.UI.NothiUI
 {
@@ -136,6 +137,7 @@ namespace dNothi.Desktop.UI.NothiUI
              DataExportToPDF(); 
             //printPdf();
         }
+        public int totalData = 0;
         private void LoadData()
         {
             var userParam = _userService.GetLocalDakUserParam();
@@ -144,13 +146,14 @@ namespace dNothi.Desktop.UI.NothiUI
             string unitid = dakPriorityComboBox.SelectedValue.ToString();
             if (dateRange == string.Empty)
             {
-                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
-                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
+                fromdate = DateTime.Now.AddDays(-6).ToString("yyyy/MM/dd");
+                todate = DateTime.Now.ToString("yyyy/MM/dd");
+                
             }
             else
             {
-                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
-                todate = DateTime.Now.ToString("yyyy/MM/dd");
+                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
+                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
             }
 
             pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(pagessize));
@@ -173,7 +176,7 @@ namespace dNothi.Desktop.UI.NothiUI
                                    acceptNum = t.nothi.nothi_no,
                                    docketingNo = "",
                                    sharokNo = t.nothi.subject,
-                                   applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.nothi.modified
+                                   applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.created
 
                                }).ToList();
                 if (columns.Count <= 0)
@@ -185,7 +188,7 @@ namespace dNothi.Desktop.UI.NothiUI
                     noRowMessageLabel.Visible = false;
                     //lastCountValue = columns.Max(x => x.lastCountValue);
                 }
-
+                totalData= nothiRegisterBook.data.total_records;
                 float pagesize = (float)(nothiRegisterBook.data.total_records) / (float)pageLimit;
                 totalPage = (int)Math.Ceiling(pagesize);
                 registerReportDataGridView.DataSource = null;
@@ -230,6 +233,8 @@ namespace dNothi.Desktop.UI.NothiUI
             printDocument1.DefaultPageSettings.Landscape = true;
             nothiPrintPreviewDialog.ShowDialog();
         }
+
+      
         private void DataExportToExcel()
         {
             try
@@ -240,53 +245,134 @@ namespace dNothi.Desktop.UI.NothiUI
                 app.Visible = true;
                 worksheet = workbook.Sheets["Sheet1"];
                 worksheet = workbook.ActiveSheet;
-                worksheet.Name = "Records";
+                worksheet.Name = "নথি নিবন্ধন বহি";
 
-                try
+                var userParam = _userService.GetLocalDakUserParam();
+                string pagessize = comboBox1.Text;
+                string dateRange = dateTextBox.Text;
+                string unitid = dakPriorityComboBox.SelectedValue.ToString();
+                if (dateRange == string.Empty)
                 {
-                    for (int i = 0; i < registerReportDataGridView.Columns.Count; i++)
+                    fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
+                    todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
+                }
+                else
+                {
+                    fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+                    todate = DateTime.Now.ToString("yyyy/MM/dd");
+                }
+
+
+                userParam.page = 1;
+                userParam.limit = totalData;
+                var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam, fromdate, todate, unitid, _isNothiPerito, _isNothiGrahon, _isNothiRegister, _isPotraJariBohi, _isNothiMasterFile);
+                if (nothiRegisterBook.status == "success")
+                {
+                    int lastCount = 0;
+                    var columns = (from t in nothiRegisterBook.data.records
+                                   select new RegisterReport
+                                   { 
+
+                                       sl = ConversionMethod.EnglishNumberToBangla((lastCount++).ToString()),
+                                       acceptNum = t.nothi.nothi_no,
+                                       docketingNo = "",
+                                       sharokNo = t.nothi.subject,
+                                       applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.nothi.modified
+
+                                   }).ToList();
+                    DataTable dt = new DataTable();
+                    dt.Columns.Add("sl", typeof(string));
+                    dt.Columns.Add("acceptNum", typeof(string));
+                    dt.Columns.Add("docketingNo", typeof(string));
+                    dt.Columns.Add("sharokNo", typeof(string));
+                    dt.Columns.Add("applyDate", typeof(string));
+                    foreach (var item in columns)
                     {
-                        worksheet.Cells[1, i + 1] = registerReportDataGridView.Columns[i].HeaderText;
+                        dt.Rows.Add(new object[] {
+                        item.sl,
+                        item.acceptNum,
+                        item.docketingNo,
+                        item.sharokNo,
+                        item.applyDate,
+                         });
                     }
-                    for (int i = 0; i < registerReportDataGridView.Rows.Count; i++)
+                    //DataTable table =ToDataTable<RegisterReport>(columns);
+
+                  try
                     {
-                        for (int j = 0; j < registerReportDataGridView.Columns.Count; j++)
+                        for (int i = 0; i < registerReportDataGridView.Columns.Count; i++)
                         {
-                            if (registerReportDataGridView.Rows[i].Cells[j].Value != null)
+                            worksheet.Cells[1, i + 1] = registerReportDataGridView.Columns[i].HeaderText;
+                        }
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            for (int j = 0; j < dt.Columns.Count; j++)
                             {
-                                worksheet.Cells[i + 2, j + 1] = registerReportDataGridView.Rows[i].Cells[j].Value.ToString();
-                            }
-                            else
-                            {
-                                worksheet.Cells[i + 2, j + 1] = "";
+                                if (dt.Rows[i][j].ToString() != null)
+                                {
+                                    worksheet.Cells[i + 2, j + 1] = dt.Rows[i][j].ToString();
+                                }
+                                else
+                                {
+                                    worksheet.Cells[i + 2, j + 1] = "";
+                                }
                             }
                         }
+
+                        //Getting the location and file name of the excel to save from user. 
+                        SaveFileDialog saveDialog = new SaveFileDialog();
+                        saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                        saveDialog.FilterIndex = 2;
+
+                        if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                        {
+                            workbook.SaveAs(saveDialog.FileName);
+                            MessageBox.Show("Export Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
-
-                    //Getting the location and file name of the excel to save from user. 
-                    SaveFileDialog saveDialog = new SaveFileDialog();
-                    saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-                    saveDialog.FilterIndex = 2;
-
-                    if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    catch (System.Exception ex)
                     {
-                        workbook.SaveAs(saveDialog.FileName);
-                        MessageBox.Show("Export Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(ex.Message);
                     }
-                }
-                catch (System.Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+
+                    finally
+                    {
+                        app.Quit();
+                        workbook = null;
+                        worksheet = null;
+                    }
+
+
+
                 }
 
-                finally
-                {
-                    app.Quit();
-                    workbook = null;
-                    worksheet = null;
-                }
+
             }
             catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
+        }
+        public static DataTable ToDataTable<T>(List<T> items)
+        {
+            DataTable dataTable = new DataTable(typeof(T).Name);
+
+            //Get all the properties
+            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            foreach (PropertyInfo prop in Props)
+            {
+                //Setting column names as Property names
+                dataTable.Columns.Add(prop.Name);
+            }
+            foreach (T item in items)
+            {
+                var values = new object[Props.Length];
+                for (int i = 0; i < Props.Length; i++)
+                {
+                    //inserting property values to datatable rows
+                    values[i] = Props[i].GetValue(item, null);
+                }
+                dataTable.Rows.Add(values);
+            }
+            //put a breakpoint here and check datatable
+            return dataTable;
         }
         private void DataExportToPDF()
         {

@@ -146,13 +146,14 @@ namespace dNothi.Desktop.UI.NothiUI
             string unitid = dakPriorityComboBox.SelectedValue.ToString();
             if (dateRange == string.Empty)
             {
-                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
-                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
+                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+                todate = DateTime.Now.ToString("yyyy/MM/dd");
+                
             }
             else
             {
-                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
-                todate = DateTime.Now.ToString("yyyy/MM/dd");
+                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
+                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
             }
 
             pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(pagessize));
