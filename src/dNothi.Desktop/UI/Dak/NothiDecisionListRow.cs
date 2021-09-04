@@ -16,9 +16,12 @@ namespace dNothi.Desktop.UI.Dak
         public NothiDecisionListRow()
         {
             InitializeComponent();
+            originalHeight = this.Height;
         }
+        private int originalHeight;
         private string _decisionText;
         private string _shongjuktiURL;
+        private string _shongjuktiDownloadURL;
         private string _potakaURL;
         private string _attachmentKilobyte;
         public string attachmentKilobyte
@@ -56,6 +59,11 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _shongjuktiURL; }
             set { _shongjuktiURL = value; lbDecisionText.ForeColor = Color.FromArgb(54, 153, 255); lbDecisionText.Cursor = Cursors.Hand;  }
+        }
+        public string shongjuktiDownloadURL
+        {
+            get { return _shongjuktiDownloadURL; }
+            set { _shongjuktiDownloadURL = value; }
         }
         [Category("Custom Props")]
         public string decisionText
@@ -148,6 +156,57 @@ namespace dNothi.Desktop.UI.Dak
             (sender as Form).Hide();
 
             // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
+        public event EventHandler VisibleDownloadAndShareButton;
+        private void panel3_MouseHover(object sender, EventArgs e)
+        {
+            if (this.VisibleDownloadAndShareButton != null)
+            {
+                //this.PotakaAddButton(sender, e);
+                btnDownload.Visible = true;
+                btnShare.Visible = true;
+            }
+        }
+
+        private void panel3_MouseLeave(object sender, EventArgs e)
+        {
+            btnDownload.Visible = false;
+            btnShare.Visible = false;
+            this.Height = originalHeight;
+            btnMailShare.Visible = false;
+            btnWhatsappShare.Visible = false;
+        }
+
+        private void btnDownload_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(shongjuktiDownloadURL);
+
+        }
+
+        private void btnShare_Click(object sender, EventArgs e)
+        {
+            if (btnMailShare.Visible == false && btnWhatsappShare.Visible == false)
+            {
+                this.Height = originalHeight + btnMailShare.Height + 10;
+                btnMailShare.Visible = true;
+                btnWhatsappShare.Visible = true;
+            }
+            else
+            {
+                this.Height = originalHeight;
+                btnMailShare.Visible = false;
+                btnWhatsappShare.Visible = false;
+            }
+        }
+
+        private void btnMailShare_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://mail.google.com/mail/?view=cm&su=" + lbDecisionText.Text + "&body= " + shongjuktiURL);
+        }
+
+        private void btnWhatsappShare_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://api.whatsapp.com/send?text=" + "বিষয়: " + lbDecisionText.Text + " Url: " + shongjuktiURL + "&body=Found this useful link for you : ");
         }
     }
 }
