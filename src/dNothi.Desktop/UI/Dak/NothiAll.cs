@@ -194,10 +194,11 @@ namespace dNothi.Desktop.UI.Dak
                 this.Width = originalWidth;
                 pnlNewAllNote.Visible = true;
                 newAllNoteFlowLayoutPanel.Visible = true;
+                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
                 btnNothiAllNoteShomuho.IconChar = FontAwesome.Sharp.IconChar.FolderMinus;
                 btnNothiAllNoteShomuho.IconColor = Color.White;
                 btnNothiAllNoteShomuho.BackColor = Color.FromArgb(27, 197, 189);
-                loadnewAllNoteFlowLayoutPanel();
+                loadnewAllNoteFlowLayoutPanel("asc");
             }
             else
             {
@@ -212,8 +213,9 @@ namespace dNothi.Desktop.UI.Dak
                 btnNothiAllNoteShomuho.BackColor = Color.FromArgb(27, 197, 189);
             }
         }
-        private void loadnewAllNoteFlowLayoutPanel()
+        private void loadnewAllNoteFlowLayoutPanel(string note_order)
         {
+            btnNoteOrder.Location = new Point(newAllNoteFlowLayoutPanel.Width / 2, 0);
             var eachNothiId = lbNothiId.Text;
             var nothiListUserParam = _userService.GetLocalDakUserParam();
             string note_category = "all";
@@ -250,7 +252,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
             }
 
-            var nothiInboxNote = _nothiAllNote.GetNothiAllNote(nothiListUserParam, eachNothiId, note_category);
+            var nothiInboxNote = _nothiAllNote.GetNothiAllNote(nothiListUserParam, eachNothiId, note_category, note_order);
 
             if (nothiInboxNote.status == "success")
             {
@@ -357,7 +359,7 @@ namespace dNothi.Desktop.UI.Dak
             noteCreatePopUpForm.noteId = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
             noteCreatePopUpForm.nothiListInboxNoteRecordsDTO = nothiListInboxNoteRecordsDTO;
             noteCreatePopUpForm.SaveButtonClick += delegate (object senderSaveButton, EventArgs eventSaveButton) {
-                loadnewAllNoteFlowLayoutPanel();
+                loadnewAllNoteFlowLayoutPanel("asc");
             };
 
 
@@ -595,6 +597,28 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.NothiAllEditButtonClick != null)
                 this.NothiAllEditButtonClick(sender, e);
+        }
+
+        private void btnNoteOrder_Click(object sender, EventArgs e)
+        {
+            if (btnNoteOrder.IconChar == FontAwesome.Sharp.IconChar.ChevronDown)
+            {
+                newAllNoteFlowLayoutPanel.Controls.Clear();
+                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+                loadnewAllNoteFlowLayoutPanel("desc");
+            }
+            else
+            {
+                newAllNoteFlowLayoutPanel.Controls.Clear();
+                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+                loadnewAllNoteFlowLayoutPanel("asc");
+            }
+        }
+
+        private void btnRefreshNote_Click(object sender, EventArgs e)
+        {
+            newAllNoteFlowLayoutPanel.Controls.Clear();
+            loadnewAllNoteFlowLayoutPanel("asc");
         }
     }
 }

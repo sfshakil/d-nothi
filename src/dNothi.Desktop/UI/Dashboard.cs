@@ -1578,7 +1578,7 @@ namespace dNothi.Desktop.UI
             form.noteSubject = _noteSelected.note_subject;
             form.nothiLastDate = nothiListRecords.last_note_date;
 
-            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_dakuserparam, _nothiAllListDTO.nothi.id.ToString(), "all");
+            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_dakuserparam, _nothiAllListDTO.nothi.id.ToString(), "all", "asc");
             noteView.totalNothi = "0";
 
            
@@ -2091,7 +2091,7 @@ namespace dNothi.Desktop.UI
             NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO();
 
             NoteView noteView = new NoteView();
-            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_dakuserparam, dakListInboxRecordsDTO.nothi.nothi_id.ToString(), "all");
+            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_dakuserparam, dakListInboxRecordsDTO.nothi.nothi_id.ToString(), "all", "asc");
 
             if (nothiInboxNote.status == "success")
             {

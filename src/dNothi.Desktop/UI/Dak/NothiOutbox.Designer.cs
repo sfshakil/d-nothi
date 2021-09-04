@@ -37,8 +37,8 @@
             this.lbNoteTotal = new System.Windows.Forms.Label();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
-            this.iconButton5 = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.btnNoteOrder = new FontAwesome.Sharp.IconButton();
+            this.btnRefreshNote = new FontAwesome.Sharp.IconButton();
             this.btnAllNote = new FontAwesome.Sharp.IconButton();
             this.dakSearchButton = new FontAwesome.Sharp.IconButton();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
@@ -162,8 +162,8 @@
             this.pnlNewAllNote.Controls.Add(this.lbNoteTotal);
             this.pnlNewAllNote.Controls.Add(this.iconButton7);
             this.pnlNewAllNote.Controls.Add(this.iconButton6);
-            this.pnlNewAllNote.Controls.Add(this.iconButton5);
-            this.pnlNewAllNote.Controls.Add(this.iconButton4);
+            this.pnlNewAllNote.Controls.Add(this.btnNoteOrder);
+            this.pnlNewAllNote.Controls.Add(this.btnRefreshNote);
             this.pnlNewAllNote.Controls.Add(this.btnAllNote);
             this.pnlNewAllNote.Controls.Add(this.dakSearchButton);
             this.pnlNewAllNote.Controls.Add(this.flowLayoutPanel3);
@@ -224,49 +224,50 @@
             this.iconButton6.TabIndex = 65;
             this.iconButton6.UseVisualStyleBackColor = false;
             // 
-            // iconButton5
+            // btnNoteOrder
             // 
-            this.iconButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.iconButton5.FlatAppearance.BorderSize = 0;
-            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
-            this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
-            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton5.IconSize = 22;
-            this.iconButton5.Location = new System.Drawing.Point(720, 9);
-            this.iconButton5.Margin = new System.Windows.Forms.Padding(4);
-            this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Size = new System.Drawing.Size(37, 26);
-            this.iconButton5.TabIndex = 62;
-            this.iconButton5.UseVisualStyleBackColor = false;
-            this.iconButton5.Visible = false;
+            this.btnNoteOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnNoteOrder.FlatAppearance.BorderSize = 0;
+            this.btnNoteOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            this.btnNoteOrder.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.btnNoteOrder.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNoteOrder.IconSize = 22;
+            this.btnNoteOrder.Location = new System.Drawing.Point(720, 9);
+            this.btnNoteOrder.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNoteOrder.Name = "btnNoteOrder";
+            this.btnNoteOrder.Size = new System.Drawing.Size(37, 26);
+            this.btnNoteOrder.TabIndex = 62;
+            this.btnNoteOrder.UseVisualStyleBackColor = false;
+            this.btnNoteOrder.Click += new System.EventHandler(this.btnNoteOrder_Click);
             // 
-            // iconButton4
+            // btnRefreshNote
             // 
-            this.iconButton4.AutoSize = true;
-            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.iconButton4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.iconButton4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.iconButton4.FlatAppearance.BorderSize = 0;
-            this.iconButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.iconButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.Font = new System.Drawing.Font("SolaimanLipi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Sync;
-            this.iconButton4.IconColor = System.Drawing.Color.DimGray;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 22;
-            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(282, 1);
-            this.iconButton4.Margin = new System.Windows.Forms.Padding(4);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.iconButton4.Size = new System.Drawing.Size(141, 40);
-            this.iconButton4.TabIndex = 61;
-            this.iconButton4.Text = "রিফ্রেশ";
-            this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton4.UseVisualStyleBackColor = false;
+            this.btnRefreshNote.AutoSize = true;
+            this.btnRefreshNote.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnRefreshNote.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnRefreshNote.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnRefreshNote.FlatAppearance.BorderSize = 0;
+            this.btnRefreshNote.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.btnRefreshNote.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnRefreshNote.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefreshNote.Font = new System.Drawing.Font("SolaimanLipi", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.btnRefreshNote.IconChar = FontAwesome.Sharp.IconChar.Sync;
+            this.btnRefreshNote.IconColor = System.Drawing.Color.DimGray;
+            this.btnRefreshNote.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRefreshNote.IconSize = 22;
+            this.btnRefreshNote.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefreshNote.Location = new System.Drawing.Point(282, 1);
+            this.btnRefreshNote.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefreshNote.Name = "btnRefreshNote";
+            this.btnRefreshNote.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnRefreshNote.Size = new System.Drawing.Size(141, 40);
+            this.btnRefreshNote.TabIndex = 61;
+            this.btnRefreshNote.Text = "রিফ্রেশ";
+            this.btnRefreshNote.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRefreshNote.UseVisualStyleBackColor = false;
+            this.btnRefreshNote.Click += new System.EventHandler(this.btnRefreshNote_Click);
             // 
             // btnAllNote
             // 
@@ -893,8 +894,8 @@
         private FontAwesome.Sharp.IconButton iconButton6;
         private FontAwesome.Sharp.IconButton iconButton7;
         private System.Windows.Forms.Label lbNoteTotal;
-        private FontAwesome.Sharp.IconButton iconButton5;
-        private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton btnNoteOrder;
+        private FontAwesome.Sharp.IconButton btnRefreshNote;
         private FontAwesome.Sharp.IconButton btnAllNote;
         private FontAwesome.Sharp.IconButton dakSearchButton;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;

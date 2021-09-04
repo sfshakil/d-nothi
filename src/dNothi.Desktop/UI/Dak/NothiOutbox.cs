@@ -113,7 +113,8 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (iconButton3.IconChar == FontAwesome.Sharp.IconChar.FolderPlus)
             {
-                loadnewAllNoteFlowLayoutPanel();
+                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+                loadnewAllNoteFlowLayoutPanel("asc");
             }
             else
             {
@@ -127,8 +128,9 @@ namespace dNothi.Desktop.UI.Dak
                 iconButton3.BackColor = Color.FromArgb(27, 197, 189);
             }
         }
-        private void loadnewAllNoteFlowLayoutPanel()
+        private void loadnewAllNoteFlowLayoutPanel(string note_order)
         {
+            btnNoteOrder.Location = new Point(newAllNoteFlowLayoutPanel.Width / 2, 0);
             var eachNothiId = lbNothiId.Text;
             var nothiListUserParam = _userService.GetLocalDakUserParam();
             string note_category = "sent";
@@ -189,7 +191,7 @@ namespace dNothi.Desktop.UI.Dak
             }
 
 
-            var nothiInboxNote = _nothiOutboxNote.GetNothiOutboxNote(nothiListUserParam, eachNothiId, note_category);
+            var nothiInboxNote = _nothiOutboxNote.GetNothiOutboxNote(nothiListUserParam, eachNothiId, note_category, note_order);
 
             if (nothiInboxNote.status == "success")
             {
@@ -494,6 +496,28 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (this.NoteAllButton != null)
                 this.NoteAllButton(_noteListForNoteAll, e);
+        }
+
+        private void btnRefreshNote_Click(object sender, EventArgs e)
+        {
+            newAllNoteFlowLayoutPanel.Controls.Clear();
+            loadnewAllNoteFlowLayoutPanel("asc");
+        }
+
+        private void btnNoteOrder_Click(object sender, EventArgs e)
+        {
+            if (btnNoteOrder.IconChar == FontAwesome.Sharp.IconChar.ChevronDown)
+            {
+                newAllNoteFlowLayoutPanel.Controls.Clear();
+                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+                loadnewAllNoteFlowLayoutPanel("desc");
+            }
+            else
+            {
+                newAllNoteFlowLayoutPanel.Controls.Clear();
+                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+                loadnewAllNoteFlowLayoutPanel("asc");
+            }
         }
     }
 }

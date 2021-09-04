@@ -175,7 +175,7 @@ namespace dNothi.Desktop.UI.Dak
         private void LoadNote()
         {
             var noteAll = _nothinotetalikaservices.GetNothiNoteListAll(_userService.GetLocalDakUserParam(), Convert.ToInt32(_id));
-            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_userService.GetLocalDakUserParam(), _id, "all");
+            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_userService.GetLocalDakUserParam(), _id, "all","asc");
 
             if (noteAll.status == "success")
             {

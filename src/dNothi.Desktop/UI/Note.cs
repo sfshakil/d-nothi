@@ -1249,7 +1249,7 @@ namespace dNothi.Desktop.UI
                         var eachNothiId = nothiListRecords.id;
                         var nothiListUserParam = _userService.GetLocalDakUserParam();
                         string note_category = "all";
-                        var nothiInboxNote = _nothiAllNote.GetNothiAllNote(nothiListUserParam, eachNothiId.ToString(), note_category);
+                        var nothiInboxNote = _nothiAllNote.GetNothiAllNote(nothiListUserParam, eachNothiId.ToString(), note_category, "asc");
                         if (nothiInboxNote.data.records.Count > 0)
                         {
                             foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiInboxNote.data.records)
@@ -10045,7 +10045,7 @@ namespace dNothi.Desktop.UI
             var eachNothiId = nothiListRecords.id;
             var nothiListUserParam = _userService.GetLocalDakUserParam();
             string note_category = "all";
-            var nothiInboxNote = _nothiAllNote.GetNothiAllNote(nothiListUserParam, eachNothiId.ToString(), note_category);
+            var nothiInboxNote = _nothiAllNote.GetNothiAllNote(nothiListUserParam, eachNothiId.ToString(), note_category, "asc");
             if (nothiInboxNote != null && nothiInboxNote.status == "success")
             {
                 foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiInboxNote.data.records)
@@ -10108,7 +10108,7 @@ namespace dNothi.Desktop.UI
             var eachNothiId = nothiListRecords.id;
             var nothiListUserParam = _userService.GetLocalDakUserParam();
             string note_category = "all";
-            var nothiInboxNote = _nothiAllNote.GetNothiAllNote(nothiListUserParam, eachNothiId.ToString(), note_category);
+            var nothiInboxNote = _nothiAllNote.GetNothiAllNote(nothiListUserParam, eachNothiId.ToString(), note_category, "asc");
             if (nothiInboxNote != null && nothiInboxNote.status == "success")
             {
                 foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiInboxNote.data.records)
