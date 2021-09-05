@@ -164,6 +164,9 @@ namespace dNothi.Desktop.UI
             this.panel32 = new System.Windows.Forms.Panel();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.nothiBackGroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.panel40 = new System.Windows.Forms.Panel();
+            this.caretIconButton = new FontAwesome.Sharp.IconButton();
+            this.protibedanIconButton = new FontAwesome.Sharp.IconButton();
             this.nothiCustomDatePickerUserControl = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.registerButton = new FontAwesome.Sharp.IconButton();
@@ -222,6 +225,7 @@ namespace dNothi.Desktop.UI
             this.panel17.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel33.SuspendLayout();
+            this.panel40.SuspendLayout();
             this.panel34.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -380,6 +384,7 @@ namespace dNothi.Desktop.UI
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.panel40);
             this.panel4.Controls.Add(this.registerPanel);
             this.panel4.Controls.Add(this.panel34);
             this.panel4.Controls.Add(this.btnNothiALLDecisionList);
@@ -2520,6 +2525,73 @@ namespace dNothi.Desktop.UI
             this.btnOtherOfficeNothiOutbox.UseVisualStyleBackColor = false;
             this.btnOtherOfficeNothiOutbox.Click += new System.EventHandler(this.btnOtherOfficeNothiOutbox_Click);
             // 
+            // panel40
+            // 
+            this.panel40.Controls.Add(this.caretIconButton);
+            this.panel40.Controls.Add(this.protibedanIconButton);
+            this.panel40.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel40.Location = new System.Drawing.Point(0, 518);
+            this.panel40.Margin = new System.Windows.Forms.Padding(4);
+            this.panel40.MaximumSize = new System.Drawing.Size(312, 57);
+            this.panel40.MinimumSize = new System.Drawing.Size(312, 57);
+            this.panel40.Name = "panel40";
+            this.panel40.Size = new System.Drawing.Size(312, 57);
+            this.panel40.TabIndex = 65;
+            // 
+            // caretIconButton
+            // 
+            this.caretIconButton.AutoSize = true;
+            this.caretIconButton.BackColor = System.Drawing.Color.Transparent;
+            this.caretIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.caretIconButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.caretIconButton.FlatAppearance.BorderSize = 0;
+            this.caretIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.caretIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.caretIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.caretIconButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.caretIconButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.caretIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            this.caretIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.caretIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.caretIconButton.IconSize = 16;
+            this.caretIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.caretIconButton.Location = new System.Drawing.Point(240, 0);
+            this.caretIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.caretIconButton.Name = "caretIconButton";
+            this.caretIconButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.caretIconButton.Size = new System.Drawing.Size(72, 57);
+            this.caretIconButton.TabIndex = 64;
+            this.caretIconButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.caretIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.caretIconButton.UseVisualStyleBackColor = false;
+            // 
+            // protibedanIconButton
+            // 
+            this.protibedanIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.protibedanIconButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.protibedanIconButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.protibedanIconButton.FlatAppearance.BorderSize = 0;
+            this.protibedanIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.protibedanIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.protibedanIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.protibedanIconButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F);
+            this.protibedanIconButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.protibedanIconButton.IconChar = FontAwesome.Sharp.IconChar.CalendarAlt;
+            this.protibedanIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.protibedanIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.protibedanIconButton.IconSize = 24;
+            this.protibedanIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.protibedanIconButton.Location = new System.Drawing.Point(0, 0);
+            this.protibedanIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.protibedanIconButton.Name = "protibedanIconButton";
+            this.protibedanIconButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.protibedanIconButton.Size = new System.Drawing.Size(312, 57);
+            this.protibedanIconButton.TabIndex = 60;
+            this.protibedanIconButton.Text = "   প্রতিবেদনসমূহ";
+            this.protibedanIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.protibedanIconButton.UseVisualStyleBackColor = false;
+            this.protibedanIconButton.Click += new System.EventHandler(this.protibedanIconButton_Click);
+            // 
             // Nothi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -2613,6 +2685,8 @@ namespace dNothi.Desktop.UI
             this.tableLayoutPanel6.ResumeLayout(false);
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
+            this.panel40.ResumeLayout(false);
+            this.panel40.PerformLayout();
             this.panel34.ResumeLayout(false);
             this.panel34.PerformLayout();
             this.ResumeLayout(false);
@@ -2760,5 +2834,8 @@ namespace dNothi.Desktop.UI
         private FontAwesome.Sharp.IconButton registerButton;
         private FontAwesome.Sharp.IconButton btnOtherOfficeNothiInbox;
         private FontAwesome.Sharp.IconButton btnOtherOfficeNothiOutbox;
+        private Panel panel40;
+        private FontAwesome.Sharp.IconButton caretIconButton;
+        private FontAwesome.Sharp.IconButton protibedanIconButton;
     }
 }
