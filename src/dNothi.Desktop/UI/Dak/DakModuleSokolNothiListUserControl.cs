@@ -306,7 +306,7 @@ namespace dNothi.Desktop.UI.Dak
             }
 
 
-            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_userService.GetLocalDakUserParam(), _id, "All");
+            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_userService.GetLocalDakUserParam(), _id, "All", "asc");
 
           //  NothiNoteListResponse noteAll = new NothiNoteListResponse();
            

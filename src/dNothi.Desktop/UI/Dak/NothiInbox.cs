@@ -48,6 +48,7 @@ namespace dNothi.Desktop.UI.Dak
             newAllNoteFlowLayoutPanel.Visible = false;
             //uc.Visible = false;
             SetDefaultFont(this.Controls);
+            
         }
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
         {
@@ -122,10 +123,11 @@ namespace dNothi.Desktop.UI.Dak
                 this.Width = originalWidth;
                 pnlNewAllNote.Visible = true;
                 newAllNoteFlowLayoutPanel.Visible = true;
+                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
                 iconButton3.IconChar = FontAwesome.Sharp.IconChar.FolderMinus;
                 iconButton3.IconColor = Color.White;
                 iconButton3.BackColor = Color.FromArgb(27, 197, 189);
-                loadnewAllNoteFlowLayoutPanel();
+                loadnewAllNoteFlowLayoutPanel("asc");
             }
             else
             {
@@ -140,9 +142,10 @@ namespace dNothi.Desktop.UI.Dak
                 iconButton3.BackColor = Color.FromArgb(27, 197, 189);
             }
         }
-        private void loadnewAllNoteFlowLayoutPanel()
+        
+        private void loadnewAllNoteFlowLayoutPanel(string note_order)
         {
-            
+            btnNoteOrder.Location = new Point(newAllNoteFlowLayoutPanel.Width / 2, 0);
             var eachNothiId = lbNothiId.Text;
             var nothiListUserParam = _userService.GetLocalDakUserParam();
             string note_category = "Inbox";
@@ -177,7 +180,7 @@ namespace dNothi.Desktop.UI.Dak
                     
                 }
             }
-            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(nothiListUserParam, eachNothiId, note_category);
+            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(nothiListUserParam, eachNothiId, note_category, note_order);
 
             if (nothiInboxNote.status == "success")
             {
@@ -295,7 +298,7 @@ namespace dNothi.Desktop.UI.Dak
         }
         public void SaveorUpdate()
         {
-            loadnewAllNoteFlowLayoutPanel();
+            loadnewAllNoteFlowLayoutPanel("asc");
         }
         private void CalPopUpWindow(Form form)
         {
@@ -533,6 +536,26 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-        
+        private void btnNoteOrder_Click(object sender, EventArgs e)
+        {
+            if (btnNoteOrder.IconChar == FontAwesome.Sharp.IconChar.ChevronDown)
+            {
+                newAllNoteFlowLayoutPanel.Controls.Clear();
+                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+                loadnewAllNoteFlowLayoutPanel("desc");
+            }
+            else
+            {
+                newAllNoteFlowLayoutPanel.Controls.Clear();
+                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+                loadnewAllNoteFlowLayoutPanel("asc");
+            }
+        }
+
+        private void btnRefreshNote_Click(object sender, EventArgs e)
+        {
+            newAllNoteFlowLayoutPanel.Controls.Clear();
+            loadnewAllNoteFlowLayoutPanel("asc");
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace dNothi.Services.NothiServices
             _noteItem = noteItem;
             _noteSaveItemAction = noteSaveItemAction;
         }
-        public NothiListOutboxNoteResponse GetNothiOutboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category)
+        public NothiListOutboxNoteResponse GetNothiOutboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category, string note_order)
         {
             NothiListOutboxNoteResponse nothiListInboxNoteResponse = new NothiListOutboxNoteResponse();
             
@@ -52,6 +52,7 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("nothi", "{\"nothi_id\":\""+ Convert.ToInt32(eachNothiId) +"\",\"note_category\":\""+ note_category + "\"}");
                 request.AddParameter("length", "100");
                 request.AddParameter("page", "1");
+                request.AddParameter("order", note_order);
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;

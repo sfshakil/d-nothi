@@ -18,8 +18,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             InitializeComponent();
             client = new WebClient();
+            originalHeight = this.Height;
             client.DownloadFileCompleted += Client_DownloadFileCompleted;
         }
+        private int originalHeight;
         private string _fileName;
         private string _fileSizeInKb;
         private string _fileViewLink;
@@ -139,6 +141,34 @@ namespace dNothi.Desktop.UI.Dak
             (sender as Form).Hide();
 
             // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
+
+        private void btnShare_Click(object sender, EventArgs e)
+        {
+            if (btnMailShare.Visible == false && btnWhatsappShare.Visible == false)
+            {
+                this.Height = originalHeight + btnMailShare.Height + 10;
+                btnMailShare.Visible = true;
+                btnWhatsappShare.Visible = true;
+            }
+            else
+            {
+                this.Height = originalHeight;
+                btnMailShare.Visible = false;
+                btnWhatsappShare.Visible = false;
+            }
+        }
+
+        private void btnMailShare_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://mail.google.com/mail/?view=cm&su=" + lbFileName.Text + "&body= " + fileViewLink);
+
+        }
+
+        private void btnWhatsappShare_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://api.whatsapp.com/send?text=" + "বিষয়: " + lbFileName.Text + " Url: " + fileViewLink + "&body=Found this useful link for you : ");
+
         }
     }
 }

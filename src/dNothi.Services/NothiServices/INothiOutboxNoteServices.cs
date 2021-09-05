@@ -11,7 +11,7 @@ namespace dNothi.Services.NothiServices
 {
     public interface INothiOutboxNoteServices
     {
-        NothiListOutboxNoteResponse GetNothiOutboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category);
+        NothiListOutboxNoteResponse GetNothiOutboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category, string note_order);
         List<NoteSaveItemAction> GetNotUploadedNoteFromLocal(DakUserParam dakListUserParam, string eachNothiId, string note_category);
     }
 }

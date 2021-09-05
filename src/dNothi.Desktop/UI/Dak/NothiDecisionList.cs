@@ -127,9 +127,10 @@ namespace dNothi.Desktop.UI.Dak
                 var nothiDecisionListRow = UserControlFactory.Create<NothiDecisionListRow>();
                 nothiDecisionListRow.decisionText = record.user_file_name;
                 nothiDecisionListRow.shongjuktiURL = record.url;
+                nothiDecisionListRow.shongjuktiDownloadURL = record.download_url;
                 nothiDecisionListRow.attachmentKilobyte = record.file_size_in_kb.ToString();
                 nothiDecisionListRow.setbtnDecisionIcon();
-                //nothiDecisionListRow.AttachmentAddButton += delegate (object sender1, EventArgs e1) { AttachmentAdd_ButtonClick(sender1 as DakAttachmentDTO, e1); };
+                nothiDecisionListRow.VisibleDownloadAndShareButton += delegate (object sender1, EventArgs e1) {  };
                 UIDesignCommonMethod.AddRowinTable(decisionViewFLP, nothiDecisionListRow);
             }
         }

@@ -266,5 +266,35 @@ namespace dNothi.Desktop.UI.Dak
 
             CalPopUpWindow(attachmentViewPopUpForm);
         }
+
+        private void shareButton_Click(object sender, EventArgs e)
+        {
+            if (btnMailShare.Visible == false && btnWhatsappShare.Visible == false)
+            {
+                //this.Height = originalHeight + btnMailShare.Height + 10;
+                btnMailShare.Visible = true;
+                btnWhatsappShare.Visible = true;
+            }
+            else
+            {
+                //this.Height = originalHeight;
+                btnMailShare.Visible = false;
+                btnWhatsappShare.Visible = false;
+            }
+        }
+
+        private void btnMailShare_Click(object sender, EventArgs e)
+        {
+            btnMailShare.Visible = false;
+            btnWhatsappShare.Visible = false;
+            System.Diagnostics.Process.Start("https://mail.google.com/mail/?view=cm&su=" + attachmentNameLabel.Text + "&body= " + _dakAttachmentDTO.url);
+        }
+
+        private void btnWhatsappShare_Click(object sender, EventArgs e)
+        {
+            btnMailShare.Visible = false;
+            btnWhatsappShare.Visible = false;
+            System.Diagnostics.Process.Start("https://api.whatsapp.com/send?text=" + "বিষয়: " + attachmentNameLabel.Text + " Url: " + _dakAttachmentDTO.url + "&body=Found this useful link for you : ");
+        }
     }
 }
