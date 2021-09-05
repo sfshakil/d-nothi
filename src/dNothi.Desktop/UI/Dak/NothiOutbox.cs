@@ -56,9 +56,14 @@ namespace dNothi.Desktop.UI.Dak
         private string _prapok;
         private string _bortomanDesk;
         private string _lastdate;
+        private string _office;
         private int _nothiId;
         private int _noteTotal;
-
+        public bool _isOtherOffice;
+        public void visibilityOnNothiOutboxOfficePanel()
+        {
+            pnlOffice.Visible = true;
+        }
         [Category("Custom Props")]
         //public string noteTotal
         //{
@@ -66,6 +71,11 @@ namespace dNothi.Desktop.UI.Dak
         //    set { _noteTotal = value;
         //        lbNoteTotal.Text = "সর্বমোট: " + string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         //}
+        public string office
+        {
+            get { return _office; }
+            set { _office = value; lbOffice.Text = value; }
+        }
         public string nothi
         {
             get { return _nothi; }
@@ -114,7 +124,15 @@ namespace dNothi.Desktop.UI.Dak
             if (iconButton3.IconChar == FontAwesome.Sharp.IconChar.FolderPlus)
             {
                 btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
-                loadnewAllNoteFlowLayoutPanel("asc");
+                
+                if (_isOtherOffice == true)
+                {
+
+                }
+                else
+                {
+                    loadnewAllNoteFlowLayoutPanel("asc");
+                }
             }
             else
             {

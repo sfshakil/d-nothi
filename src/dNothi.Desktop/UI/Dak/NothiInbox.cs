@@ -66,14 +66,17 @@ namespace dNothi.Desktop.UI.Dak
         private string _shakha;
         private string _totalnothi;
         private string _lastdate;
-        
-       
+        public bool _isOtherOffice;
+
         public NothiListRecordsDTO _nothiListRecordsDTO;
         
         public NothiListRecordsDTO nothiListRecordsDTO { get { return _nothiListRecordsDTO; } set { _nothiListRecordsDTO = value; } }
 
 
-
+        public void visibilityoffNothiInboxOnumodon()
+        {
+            btnNothiInboxOnumodon.Visible = false;
+        }
 
         [Category("Custom Props")]
         public string nothi
@@ -127,7 +130,14 @@ namespace dNothi.Desktop.UI.Dak
                 iconButton3.IconChar = FontAwesome.Sharp.IconChar.FolderMinus;
                 iconButton3.IconColor = Color.White;
                 iconButton3.BackColor = Color.FromArgb(27, 197, 189);
-                loadnewAllNoteFlowLayoutPanel("asc");
+                if (_isOtherOffice == true)
+                {
+                    //loadotherOfficeNoteFlowLayoutPanel("asc");
+                }
+                else
+                {
+                    loadnewAllNoteFlowLayoutPanel("asc");
+                }
             }
             else
             {
@@ -192,6 +202,25 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
+        private void loadotherOfficeNoteFlowLayoutPanel(string note_order)
+        {
+            btnNoteOrder.Location = new Point(newAllNoteFlowLayoutPanel.Width / 2, 0);
+            var eachNothiId = lbNothiId.Text;
+            var nothiListUserParam = _userService.GetLocalDakUserParam();
+            string note_category = "all";
+
+            
+            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(nothiListUserParam, eachNothiId, note_category, note_order);
+
+            if (nothiInboxNote.status == "success")
+            {
+
+                if (nothiInboxNote.data.records.Count > 0)
+                {
+                    LoadNothiNoteInboxinPanel(nothiInboxNote.data.records);
+                }
+            }
+        }
         public event EventHandler LocalNoteDetailsButton;
         bool isActive = false;
       
