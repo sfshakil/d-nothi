@@ -11,6 +11,8 @@ namespace dNothi.Services.NothiServices
         public bool _isAll { get; set; }
         public bool _isInbox { get; set; }
         public bool _isOutbox { get; set; }
+        public bool _isOtherOfficeInbox { get; set; }
+        public bool _isOtherOfficeOutbox { get; set; }
 
 
         private void MakeAllFalse()
@@ -18,6 +20,8 @@ namespace dNothi.Services.NothiServices
             _isInbox = false;
             _isOutbox = false;
             _isAll = false;
+            _isOtherOfficeInbox = false;
+            _isOtherOfficeOutbox = false;
         }
         public bool isOutbox
         {
@@ -56,6 +60,34 @@ namespace dNothi.Services.NothiServices
                     MakeAllFalse();
                 }
                 _isInbox = value;
+
+            }
+
+        }
+        public bool isOtherOfficeInbox
+        {
+            get { return _isOtherOfficeInbox; }
+            set
+            {
+                if (value)
+                {
+                    MakeAllFalse();
+                }
+                _isOtherOfficeInbox = value;
+
+            }
+
+        }
+        public bool isOtherOfficeOutbox
+        {
+            get { return _isOtherOfficeOutbox; }
+            set
+            {
+                if (value)
+                {
+                    MakeAllFalse();
+                }
+                _isOtherOfficeOutbox = value;
 
             }
 

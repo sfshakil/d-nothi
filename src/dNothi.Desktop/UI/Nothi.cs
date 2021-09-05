@@ -1769,6 +1769,15 @@ namespace dNothi.Desktop.UI
             btnNewNothi.BackColor = Color.White;
             btnNewNothi.ForeColor = Color.Black;
 
+            btnOtherOfficeNothiInbox.BackColor = Color.White;
+            btnOtherOfficeNothiInbox.ForeColor = Color.Black;
+
+            btnOtherOfficeNothiOutbox.BackColor = Color.White;
+            btnOtherOfficeNothiOutbox.ForeColor = Color.Black;
+
+            btnNothiALLDecisionList.BackColor = Color.White;
+            btnNothiALLDecisionList.ForeColor = Color.Black;
+
         }
         private void SelectButton(Button button)
         {
@@ -1983,6 +1992,8 @@ namespace dNothi.Desktop.UI
         private int agotoNothiSelected = 0;
         private int preritoNothiSelected = 0;
         private int shokolNothiSelected = 0;
+        private int onnoOfficeagotoNothiSelected = 0;
+        private int onnoOfficepreritoNothiSelected = 0;
         private void btnNothiInbox_Click_1(object sender, EventArgs e)
         {
             WaitForm.Show(this);
@@ -1998,11 +2009,15 @@ namespace dNothi.Desktop.UI
             agotoNothiSelected = 1;
             preritoNothiSelected = 0;
             shokolNothiSelected = 0;
+            onnoOfficeagotoNothiSelected = 0;
+            onnoOfficepreritoNothiSelected = 0;
             _nothiCurrentCategory.isInbox = true;
             _nothiCurrentCategory.isInbox = true;
             btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnOtherOfficeNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnOtherOfficeNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiInbox.IconColor = Color.FromArgb(78, 165, 254);
             ResetAllMenuButtonSelection();
             SelectButton(btnNothiInbox);
@@ -2031,6 +2046,8 @@ namespace dNothi.Desktop.UI
             agotoNothiSelected = 0;
             preritoNothiSelected = 1;
             shokolNothiSelected = 0;
+            onnoOfficeagotoNothiSelected = 0;
+            onnoOfficepreritoNothiSelected = 0;
             _nothiCurrentCategory.isOutbox = true;
 
             allPreviousButtonVisibilityOff();
@@ -2039,6 +2056,8 @@ namespace dNothi.Desktop.UI
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            btnOtherOfficeNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnOtherOfficeNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(78, 165, 254);
             ResetAllMenuButtonSelection();
             SelectButton(btnNothiOutbox);
@@ -2055,6 +2074,8 @@ namespace dNothi.Desktop.UI
             agotoNothiSelected = 0;
             preritoNothiSelected = 0;
             shokolNothiSelected = 1;
+            onnoOfficeagotoNothiSelected = 0;
+            onnoOfficepreritoNothiSelected = 0;
             _nothiCurrentCategory.isAll = true;
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
@@ -2093,6 +2114,8 @@ namespace dNothi.Desktop.UI
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
+            btnOtherOfficeNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnOtherOfficeNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiAll.IconColor = Color.FromArgb(78, 165, 254);
             ResetAllMenuButtonSelection();
             SelectButton(btnNothiAll);
@@ -2159,6 +2182,8 @@ namespace dNothi.Desktop.UI
             btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            btnOtherOfficeNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnOtherOfficeNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
             btnNewNothi.IconColor = Color.FromArgb(78, 165, 254);
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
@@ -2879,7 +2904,92 @@ namespace dNothi.Desktop.UI
 
         }
 
-       
+        private void btnOtherOfficeNothiInbox_Click(object sender, EventArgs e)
+        {
+            WaitForm.Show(this);
+            
+            nothiRegisterBook.Visible = false;
+            nothigrahonRegisterBook.Visible = false;
+            nothipreronRegisterBook.Visible = false;
+            detailsNothiSearcPanel.Visible = false;
+            nothiPotrajariRegisterBook.Visible = false;
+            nothiMasterRegisterBook.Visible = false;
+            
+            allReset();
+            panel3.Visible = true;
+            
+            agotoNothiSelected = 0;
+            preritoNothiSelected = 0;
+            shokolNothiSelected = 0;
+            onnoOfficeagotoNothiSelected = 1;
+            onnoOfficepreritoNothiSelected = 0;
+            _nothiCurrentCategory.isOtherOfficeInbox = true;
+
+            allPreviousButtonVisibilityOff();
+            allNextButtonVisibilityOff();
+
+            btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnOtherOfficeNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+
+            btnOtherOfficeNothiInbox.IconColor = Color.FromArgb(78, 165, 254);
+
+            ResetAllMenuButtonSelection();
+            SelectButton(btnOtherOfficeNothiInbox);
+
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
+
+            //LoadOtherOfficeNothiInbox();
+            WaitForm.Close();
+        }
+
+        private void btnOtherOfficeNothiOutbox_Click(object sender, EventArgs e)
+        {
+            WaitForm.Show(this);
+
+            nothiRegisterBook.Visible = false;
+            nothigrahonRegisterBook.Visible = false;
+            nothipreronRegisterBook.Visible = false;
+            detailsNothiSearcPanel.Visible = false;
+            nothiPotrajariRegisterBook.Visible = false;
+            nothiMasterRegisterBook.Visible = false;
+
+            allReset();
+            panel3.Visible = true;
+
+            agotoNothiSelected = 0;
+            preritoNothiSelected = 0;
+            shokolNothiSelected = 0;
+            onnoOfficeagotoNothiSelected = 0;
+            onnoOfficepreritoNothiSelected = 1;
+
+            _nothiCurrentCategory.isOtherOfficeOutbox = true;
+
+            allPreviousButtonVisibilityOff();
+            allNextButtonVisibilityOff();
+
+            btnNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnNewNothi.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiAll.IconColor = Color.FromArgb(181, 181, 195);
+            btnNothiOutbox.IconColor = Color.FromArgb(181, 181, 195);
+            btnOtherOfficeNothiInbox.IconColor = Color.FromArgb(181, 181, 195);
+
+            btnOtherOfficeNothiOutbox.IconColor = Color.FromArgb(78, 165, 254);
+
+            ResetAllMenuButtonSelection();
+            SelectButton(btnOtherOfficeNothiOutbox);
+
+            nothiListFlowLayoutPanel.Visible = true;
+            pnlNothiNoteTalika.Visible = true;
+            newNothi.Visible = false;
+
+            //LoadNothiOtherOfficeNothiOutbox();
+            WaitForm.Close();
+        }
 
         private void SaveorUpdate()
         {
