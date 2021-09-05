@@ -29,10 +29,13 @@ namespace dNothi.Desktop.UI.Dak
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.FileTLP = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnWhatsappShare = new FontAwesome.Sharp.IconButton();
+            this.btnMailShare = new FontAwesome.Sharp.IconButton();
             this.btnFileDownload = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnShare = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbFileViewLink = new System.Windows.Forms.Label();
             this.lbFileDownloadLink = new System.Windows.Forms.Label();
@@ -40,6 +43,7 @@ namespace dNothi.Desktop.UI.Dak
             this.lbFileName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPlusSquare = new FontAwesome.Sharp.IconButton();
+            this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.FileTLP.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -50,8 +54,8 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.FileTLP.AutoSize = true;
             this.FileTLP.ColumnCount = 3;
-            this.FileTLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3.875969F));
-            this.FileTLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.30232F));
+            this.FileTLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.031008F));
+            this.FileTLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.14729F));
             this.FileTLP.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.74419F));
             this.FileTLP.Controls.Add(this.panel3, 2, 0);
             this.FileTLP.Controls.Add(this.panel2, 1, 0);
@@ -62,23 +66,76 @@ namespace dNothi.Desktop.UI.Dak
             this.FileTLP.Name = "FileTLP";
             this.FileTLP.RowCount = 1;
             this.FileTLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.FileTLP.Size = new System.Drawing.Size(1290, 68);
+            this.FileTLP.Size = new System.Drawing.Size(1290, 90);
             this.FileTLP.TabIndex = 0;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnWhatsappShare);
+            this.panel3.Controls.Add(this.btnMailShare);
             this.panel3.Controls.Add(this.btnFileDownload);
-            this.panel3.Controls.Add(this.iconButton1);
+            this.panel3.Controls.Add(this.btnShare);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(1073, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(217, 68);
+            this.panel3.Size = new System.Drawing.Size(217, 90);
             this.panel3.TabIndex = 2;
+            // 
+            // btnWhatsappShare
+            // 
+            this.btnWhatsappShare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnWhatsappShare.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnWhatsappShare.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnWhatsappShare.FlatAppearance.BorderSize = 0;
+            this.btnWhatsappShare.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnWhatsappShare.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.btnWhatsappShare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnWhatsappShare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWhatsappShare.ForeColor = System.Drawing.Color.White;
+            this.btnWhatsappShare.IconChar = FontAwesome.Sharp.IconChar.Whatsapp;
+            this.btnWhatsappShare.IconColor = System.Drawing.Color.White;
+            this.btnWhatsappShare.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnWhatsappShare.IconSize = 26;
+            this.btnWhatsappShare.Location = new System.Drawing.Point(156, 48);
+            this.btnWhatsappShare.Margin = new System.Windows.Forms.Padding(0);
+            this.btnWhatsappShare.Name = "btnWhatsappShare";
+            this.btnWhatsappShare.Size = new System.Drawing.Size(36, 37);
+            this.btnWhatsappShare.TabIndex = 79;
+            this.MyToolTip.SetToolTip(this.btnWhatsappShare, "হোয়াটসঅ্যাপে শেয়ার করুন");
+            this.btnWhatsappShare.UseVisualStyleBackColor = false;
+            this.btnWhatsappShare.Visible = false;
+            this.btnWhatsappShare.Click += new System.EventHandler(this.btnWhatsappShare_Click);
+            // 
+            // btnMailShare
+            // 
+            this.btnMailShare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.btnMailShare.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMailShare.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnMailShare.FlatAppearance.BorderSize = 0;
+            this.btnMailShare.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.btnMailShare.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.btnMailShare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMailShare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMailShare.ForeColor = System.Drawing.Color.White;
+            this.btnMailShare.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
+            this.btnMailShare.IconColor = System.Drawing.Color.White;
+            this.btnMailShare.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMailShare.IconSize = 26;
+            this.btnMailShare.Location = new System.Drawing.Point(120, 48);
+            this.btnMailShare.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMailShare.Name = "btnMailShare";
+            this.btnMailShare.Size = new System.Drawing.Size(36, 37);
+            this.btnMailShare.TabIndex = 78;
+            this.MyToolTip.SetToolTip(this.btnMailShare, "মেইলে শেয়ার করুন");
+            this.btnMailShare.UseVisualStyleBackColor = false;
+            this.btnMailShare.Visible = false;
+            this.btnMailShare.Click += new System.EventHandler(this.btnMailShare_Click);
             // 
             // btnFileDownload
             // 
-            this.btnFileDownload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
+            this.btnFileDownload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnFileDownload.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFileDownload.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnFileDownload.FlatAppearance.BorderSize = 0;
             this.btnFileDownload.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
@@ -90,35 +147,38 @@ namespace dNothi.Desktop.UI.Dak
             this.btnFileDownload.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
             this.btnFileDownload.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnFileDownload.IconSize = 32;
-            this.btnFileDownload.Location = new System.Drawing.Point(83, 15);
+            this.btnFileDownload.Location = new System.Drawing.Point(83, 8);
             this.btnFileDownload.Margin = new System.Windows.Forms.Padding(0);
             this.btnFileDownload.Name = "btnFileDownload";
-            this.btnFileDownload.Size = new System.Drawing.Size(50, 38);
+            this.btnFileDownload.Size = new System.Drawing.Size(36, 38);
             this.btnFileDownload.TabIndex = 74;
+            this.MyToolTip.SetToolTip(this.btnFileDownload, "ডাউনলোড ");
             this.btnFileDownload.UseVisualStyleBackColor = false;
             this.btnFileDownload.Click += new System.EventHandler(this.btnFileDownload_Click);
             // 
-            // iconButton1
+            // btnShare
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(255)))));
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.Transparent;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.ShareAlt;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 28;
-            this.iconButton1.Location = new System.Drawing.Point(133, 15);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(50, 38);
-            this.iconButton1.TabIndex = 73;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Visible = false;
+            this.btnShare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnShare.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShare.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnShare.FlatAppearance.BorderSize = 0;
+            this.btnShare.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnShare.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnShare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShare.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShare.ForeColor = System.Drawing.Color.Transparent;
+            this.btnShare.IconChar = FontAwesome.Sharp.IconChar.ShareAlt;
+            this.btnShare.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.btnShare.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnShare.IconSize = 28;
+            this.btnShare.Location = new System.Drawing.Point(120, 8);
+            this.btnShare.Margin = new System.Windows.Forms.Padding(0);
+            this.btnShare.Name = "btnShare";
+            this.btnShare.Size = new System.Drawing.Size(36, 38);
+            this.btnShare.TabIndex = 73;
+            this.MyToolTip.SetToolTip(this.btnShare, "শেয়ার");
+            this.btnShare.UseVisualStyleBackColor = false;
+            this.btnShare.Click += new System.EventHandler(this.btnShare_Click);
             // 
             // panel2
             // 
@@ -127,10 +187,10 @@ namespace dNothi.Desktop.UI.Dak
             this.panel2.Controls.Add(this.lbFileSizeInKb);
             this.panel2.Controls.Add(this.lbFileName);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(50, 0);
+            this.panel2.Location = new System.Drawing.Point(52, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1023, 68);
+            this.panel2.Size = new System.Drawing.Size(1021, 90);
             this.panel2.TabIndex = 1;
             this.panel2.Click += new System.EventHandler(this.lbFileName_Click);
             // 
@@ -205,13 +265,12 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(50, 68);
+            this.panel1.Size = new System.Drawing.Size(52, 90);
             this.panel1.TabIndex = 0;
             // 
             // btnPlusSquare
             // 
             this.btnPlusSquare.BackColor = System.Drawing.Color.Transparent;
-            this.btnPlusSquare.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnPlusSquare.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnPlusSquare.FlatAppearance.BorderSize = 0;
             this.btnPlusSquare.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -223,10 +282,10 @@ namespace dNothi.Desktop.UI.Dak
             this.btnPlusSquare.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
             this.btnPlusSquare.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPlusSquare.IconSize = 38;
-            this.btnPlusSquare.Location = new System.Drawing.Point(0, 0);
+            this.btnPlusSquare.Location = new System.Drawing.Point(8, 11);
             this.btnPlusSquare.Margin = new System.Windows.Forms.Padding(0);
             this.btnPlusSquare.Name = "btnPlusSquare";
-            this.btnPlusSquare.Size = new System.Drawing.Size(50, 68);
+            this.btnPlusSquare.Size = new System.Drawing.Size(36, 43);
             this.btnPlusSquare.TabIndex = 72;
             this.btnPlusSquare.UseVisualStyleBackColor = false;
             // 
@@ -237,7 +296,7 @@ namespace dNothi.Desktop.UI.Dak
             this.Controls.Add(this.FileTLP);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "FileUserControl";
-            this.Size = new System.Drawing.Size(1290, 68);
+            this.Size = new System.Drawing.Size(1290, 90);
             this.FileTLP.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -256,10 +315,13 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton btnPlusSquare;
         private FontAwesome.Sharp.IconButton btnFileDownload;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnShare;
         private System.Windows.Forms.Label lbFileSizeInKb;
         private System.Windows.Forms.Label lbFileName;
         private System.Windows.Forms.Label lbFileViewLink;
         private System.Windows.Forms.Label lbFileDownloadLink;
+        private FontAwesome.Sharp.IconButton btnWhatsappShare;
+        private FontAwesome.Sharp.IconButton btnMailShare;
+        private System.Windows.Forms.ToolTip MyToolTip;
     }
 }
