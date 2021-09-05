@@ -52,6 +52,12 @@
             this.btnNothiOutboxOnumodon = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlOffice = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.lbOffice = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -80,12 +86,6 @@
             this.lbNothi = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.MuToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.lbOffice = new System.Windows.Forms.Label();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pnlOffice = new System.Windows.Forms.Panel();
             this.allNothiOutbox.SuspendLayout();
             this.panel4.SuspendLayout();
             this.bodyPanel.SuspendLayout();
@@ -95,6 +95,10 @@
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.pnlOffice.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel21.SuspendLayout();
             this.panel10.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -112,10 +116,6 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.pnlOffice.SuspendLayout();
             this.SuspendLayout();
             // 
             // allNothiOutbox
@@ -492,6 +492,80 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1342, 132);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
+            // pnlOffice
+            // 
+            this.pnlOffice.AutoSize = true;
+            this.pnlOffice.Controls.Add(this.tableLayoutPanel7);
+            this.pnlOffice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlOffice.Location = new System.Drawing.Point(3, 101);
+            this.pnlOffice.Name = "pnlOffice";
+            this.pnlOffice.Size = new System.Drawing.Size(1056, 28);
+            this.pnlOffice.TabIndex = 5;
+            this.pnlOffice.Visible = false;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.AutoSize = true;
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel7.Controls.Add(this.panel20, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.panel21, 1, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1056, 28);
+            this.tableLayoutPanel7.TabIndex = 2;
+            // 
+            // panel20
+            // 
+            this.panel20.AutoSize = true;
+            this.panel20.Controls.Add(this.label3);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel20.Location = new System.Drawing.Point(3, 3);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(73, 22);
+            this.panel20.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.label3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
+            this.label3.Location = new System.Drawing.Point(4, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 26);
+            this.label3.TabIndex = 74;
+            this.label3.Text = "অফিসঃ";
+            // 
+            // panel21
+            // 
+            this.panel21.AutoSize = true;
+            this.panel21.Controls.Add(this.lbOffice);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel21.Location = new System.Drawing.Point(82, 3);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(971, 22);
+            this.panel21.TabIndex = 0;
+            // 
+            // lbOffice
+            // 
+            this.lbOffice.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lbOffice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbOffice.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOffice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbOffice.Location = new System.Drawing.Point(0, 0);
+            this.lbOffice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbOffice.Name = "lbOffice";
+            this.lbOffice.Size = new System.Drawing.Size(971, 22);
+            this.lbOffice.TabIndex = 65;
+            this.lbOffice.Text = "officeLabel";
+            // 
             // panel10
             // 
             this.panel10.AutoSize = true;
@@ -828,80 +902,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1486, 1);
             this.flowLayoutPanel1.TabIndex = 78;
             // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.AutoSize = true;
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel7.Controls.Add(this.panel20, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.panel21, 1, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1056, 28);
-            this.tableLayoutPanel7.TabIndex = 2;
-            // 
-            // panel21
-            // 
-            this.panel21.AutoSize = true;
-            this.panel21.Controls.Add(this.lbOffice);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel21.Location = new System.Drawing.Point(82, 3);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(971, 22);
-            this.panel21.TabIndex = 0;
-            // 
-            // lbOffice
-            // 
-            this.lbOffice.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lbOffice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbOffice.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbOffice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbOffice.Location = new System.Drawing.Point(0, 0);
-            this.lbOffice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbOffice.Name = "lbOffice";
-            this.lbOffice.Size = new System.Drawing.Size(971, 22);
-            this.lbOffice.TabIndex = 65;
-            this.lbOffice.Text = "officeLabel";
-            // 
-            // panel20
-            // 
-            this.panel20.AutoSize = true;
-            this.panel20.Controls.Add(this.label3);
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel20.Location = new System.Drawing.Point(3, 3);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(73, 22);
-            this.panel20.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
-            this.label3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
-            this.label3.Location = new System.Drawing.Point(4, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 26);
-            this.label3.TabIndex = 74;
-            this.label3.Text = "অফিসঃ";
-            // 
-            // pnlOffice
-            // 
-            this.pnlOffice.AutoSize = true;
-            this.pnlOffice.Controls.Add(this.tableLayoutPanel7);
-            this.pnlOffice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlOffice.Location = new System.Drawing.Point(3, 101);
-            this.pnlOffice.Name = "pnlOffice";
-            this.pnlOffice.Size = new System.Drawing.Size(1056, 28);
-            this.pnlOffice.TabIndex = 5;
-            this.pnlOffice.Visible = false;
-            // 
             // NothiOutbox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -926,6 +926,13 @@
             this.panel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.pnlOffice.ResumeLayout(false);
+            this.pnlOffice.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.panel21.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -958,13 +965,6 @@
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel11.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
-            this.pnlOffice.ResumeLayout(false);
-            this.pnlOffice.PerformLayout();
             this.ResumeLayout(false);
 
         }

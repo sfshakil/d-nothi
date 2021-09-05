@@ -13,6 +13,7 @@ namespace dNothi.Services.NothiServices
     public interface INothiInboxNoteServices
     {
         NothiListInboxNoteResponse GetNothiInboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category, string note_order);
+        OtherOfficeNothiListInboxNoteResponse GetOtherOfficeNothiInboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category, string note_order);
         NoteAttachmentsListResponse GetNoteAttachments(DakUserParam dakListUserParam, string nothi_id, string note_id);
         NoteMovementsListResponse GetNoteMovements(DakUserParam dakListUserParam, string nothi_id, string note_id);
         List<NoteSaveItemAction> GetNotUploadedNoteFromLocal(DakUserParam dakListUserParam, string eachNothiId, string note_category);

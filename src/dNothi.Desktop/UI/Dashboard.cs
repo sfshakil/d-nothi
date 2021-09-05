@@ -110,6 +110,8 @@ namespace dNothi.Desktop.UI
                INothiInboxNoteServices nothiInboxNote,
         IDakNothijatoService dakNothijatoService, IDakSharingService<ResponseModel> dakSharingServeice)
         {
+            WaitForm = new WaitFormFunc();
+            WaitForm.Show(this);
             _nothiInboxNote = nothiInboxNote;
             _dakNothivuktoService = dakNothivuktoService;
             _userService = userService;
@@ -138,8 +140,8 @@ namespace dNothi.Desktop.UI
             pb = new PictureBox();
 
             pb.Dock = DockStyle.Fill;
-            WaitForm = new WaitFormFunc();
-
+            
+            WaitForm.Close();
 
 
         }
@@ -1040,7 +1042,8 @@ namespace dNothi.Desktop.UI
 
         private async void LoadDakInbox()
         {
-           // RefreshDetailsSearchAllInput();
+            WaitForm.Show(this);
+            // RefreshDetailsSearchAllInput();
             RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
@@ -1062,10 +1065,12 @@ namespace dNothi.Desktop.UI
 
 
                     _dakInbox.SaveorUpdateDakInbox(dakInbox);
+                    WaitForm.Close();
                     if (dakInbox.data.records.Count > 0)
                     {
                         Pagination(dakInbox.data.records.Count, dakInbox.data.total_records);
                         LoadDakInboxinPanel(dakInbox.data.records);
+                        
                         return;
 
                     }
@@ -1107,7 +1112,7 @@ namespace dNothi.Desktop.UI
             //    noDakTableLayoutPanel.Visible = true;
 
             //}
-
+            WaitForm.Close();
 
         }
 
@@ -1164,7 +1169,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakInboxinPanel(List<DakListRecordsDTO> dakLists)
         {
-
+            WaitForm.Show(this);
             dakBodyFlowLayoutPanel.Controls.Clear();
             DakCatagoryList dakCatagoryList = new DakCatagoryList();
             dakCatagoryList.isInbox = true;
@@ -1173,7 +1178,7 @@ namespace dNothi.Desktop.UI
                 //LoadSingleDakInboxinPanel(dakListInboxRecordsDTO);
                 LoadSingleDakinPanel(dakListInboxRecordsDTO, dakCatagoryList);
             }
-
+            WaitForm.Close();
         }
 
         private void DakTagShow_ButtonClick(List<DakTagDTO> dak_Tags)

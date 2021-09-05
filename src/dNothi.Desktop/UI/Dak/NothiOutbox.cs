@@ -63,6 +63,7 @@ namespace dNothi.Desktop.UI.Dak
         public void visibilityOnNothiOutboxOfficePanel()
         {
             pnlOffice.Visible = true;
+            dakSearchButton.Visible = false;
         }
         [Category("Custom Props")]
         //public string noteTotal
@@ -127,7 +128,7 @@ namespace dNothi.Desktop.UI.Dak
                 
                 if (_isOtherOffice == true)
                 {
-
+                    loadotherOfficeNoteFlowLayoutPanel("asc");
                 }
                 else
                 {
@@ -144,6 +145,86 @@ namespace dNothi.Desktop.UI.Dak
                 iconButton3.IconChar = FontAwesome.Sharp.IconChar.FolderPlus;
                 iconButton3.IconColor = Color.White;
                 iconButton3.BackColor = Color.FromArgb(27, 197, 189);
+            }
+        }
+        private void loadotherOfficeNoteFlowLayoutPanel(string note_order)
+        {
+            btnNoteOrder.Location = new Point(newAllNoteFlowLayoutPanel.Width / 2, 0);
+            var eachNothiId = lbNothiId.Text;
+            var nothiListUserParam = _userService.GetLocalDakUserParam();
+            string note_category = "other_office_sent";
+            
+            var nothiInboxNote = _nothiOutboxNote.GetOtherOfficeNothiOutboxNote(nothiListUserParam, eachNothiId, note_category, note_order);
+
+            if (nothiInboxNote.status == "success")
+            {
+                if (nothiInboxNote.data.records.Count > 0)
+                {
+                    _noteTotal = nothiInboxNote.data.total_records;
+                    lbNoteTotal.Text = "সর্বমোট: " + string.Concat(nothiInboxNote.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    int totalNote = _noteTotal;
+                    //int totalNote = Convert.ToInt32(totalnothi.Substring(9));
+                    if (nothiInboxNote.data.records.Count == 1)
+                    {
+                        this.Height = totalNote * 190 + originalHeight;
+                    }
+                    else
+                    {
+                        this.Height = totalNote * 170 + originalHeight;
+                    }
+
+                    this.Width = originalWidth;
+                    pnlNewAllNote.Visible = true;
+                    newAllNoteFlowLayoutPanel.Visible = true;
+                    iconButton3.IconChar = FontAwesome.Sharp.IconChar.FolderMinus;
+                    iconButton3.IconColor = Color.White;
+                    iconButton3.BackColor = Color.FromArgb(27, 197, 189);
+                    LoadOtherOfficeNothiNoteAllinPanel(nothiInboxNote.data.records);
+
+                }
+            }
+        }
+        public void LoadOtherOfficeNothiNoteAllinPanel(List<NothiListInboxNoteRecordsDTO> nothiNoteInboxLists)
+        {
+            newAllNoteFlowLayoutPanel.Controls.Clear();
+            foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiNoteInboxLists)
+            {
+                var nothiNoteShomuho = new NothiOutboxNoteShomuho();
+
+                //_noteListForNoteAll = nothiNoteInboxLists[0];
+
+                nothiNoteShomuho.noteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+                nothiNoteShomuho.noteNumber = nothiListInboxNoteRecordsDTO.note.note_no.ToString();
+                nothiNoteShomuho.notesubject = nothiListInboxNoteRecordsDTO.note.note_subject.ToString();
+                nothiNoteShomuho.prapok = nothiListInboxNoteRecordsDTO.to.officer + "," +
+                                          nothiListInboxNoteRecordsDTO.to.designation + "," +
+                                          nothiListInboxNoteRecordsDTO.to.office_unit + "," +
+                                          nothiListInboxNoteRecordsDTO.to.office;
+                nothiNoteShomuho.currentDesk = nothiListInboxNoteRecordsDTO.desk.officer + "," +
+                                               nothiListInboxNoteRecordsDTO.desk.designation + "," +
+                                               nothiListInboxNoteRecordsDTO.desk.office_unit + "," +
+                                               nothiListInboxNoteRecordsDTO.desk.office + "; শাখা: " +
+                                               nothiListInboxNoteRecordsDTO.nothi.office_unit_name + "," +
+                                               nothiListInboxNoteRecordsDTO.nothi.office_name + "; নথি নম্বর: " +
+                                               nothiListInboxNoteRecordsDTO.nothi.nothi_no + "; বিষয়: " +
+                                               nothiListInboxNoteRecordsDTO.nothi.subject;
+
+                nothiNoteShomuho.onucched = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
+                nothiNoteShomuho.khoshra = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
+                nothiNoteShomuho.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
+
+                nothiNoteShomuho.nishponno = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
+
+                nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
+                nothiNoteShomuho.canRevert = 0;//nothiListInboxNoteRecordsDTO.note.can_revert;
+                nothiNoteShomuho.notePriority(nothiListInboxNoteRecordsDTO.desk.priority);
+                nothiNoteShomuho.noteAttachment = nothiListInboxNoteRecordsDTO.note.attachment_count.ToString();
+                nothiNoteShomuho.btnnoteAttachment += delegate (object sender1, EventArgs e1) { NoteAttachment_ButtonClick(nothiListInboxNoteRecordsDTO, e1); };
+                //nothiNoteShomuho.OutboxNoteDetailsButton += delegate (object sender1, EventArgs e1) { OutboxNoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
+
+
+                UIDesignCommonMethod.AddRowinTable(newAllNoteFlowLayoutPanel, nothiNoteShomuho);
+
             }
         }
         private void loadnewAllNoteFlowLayoutPanel(string note_order)

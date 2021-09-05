@@ -110,6 +110,32 @@ namespace dNothi.Services.NothiServices
             return DefaultAPIConfiguration.NothiOutboxNoteEndPoint;
         }
 
-        
+        public NothiListOutboxNoteResponse GetOtherOfficeNothiOutboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category, string note_order)
+        {
+            NothiListOutboxNoteResponse nothiListInboxNoteResponse  = new NothiListOutboxNoteResponse();
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiOutboxNoteEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakListUserParam.office_id + "\",\"office_unit_id\":\"" + dakListUserParam.office_unit_id + "\",\"designation_id\":\"" + dakListUserParam.designation_id + "\"}");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + Convert.ToInt32(eachNothiId) + "\",\"note_category\":\"" + note_category + "\"}");
+                request.AddParameter("length", "100");
+                request.AddParameter("page", "1");
+                request.AddParameter("order", note_order);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                nothiListInboxNoteResponse = JsonConvert.DeserializeObject<NothiListOutboxNoteResponse>(responseJson);
+                return nothiListInboxNoteResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }
