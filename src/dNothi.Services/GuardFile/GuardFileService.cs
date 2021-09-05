@@ -20,12 +20,14 @@ namespace dNothi.Services.GuardFile
         
         IRepository<GuardFileList> _localGuardFileListRepository;
         IRepository<GuardFileInsert> _localGuardFileInsertRepository;
+        IRepository<GuardFileUpload> _localGuardFileUploadRepository;
 
-        public GuardFileService(IRepository<GuardFileList> localGuardFileListRepository, IRepository<GuardFileInsert> localGuardFileInsertRepository)
+        public GuardFileService(IRepository<GuardFileList> localGuardFileListRepository, IRepository<GuardFileInsert> localGuardFileInsertRepository, IRepository<GuardFileUpload> localGuardFileUploadRepository)
         {
 
             _localGuardFileListRepository = localGuardFileListRepository;
             _localGuardFileInsertRepository = localGuardFileInsertRepository;
+            _localGuardFileUploadRepository = localGuardFileUploadRepository;
         }
 
         public ResponseData GetList(DakUserParam userParam, int actionLink)
@@ -76,21 +78,26 @@ namespace dNothi.Services.GuardFile
         public ResponseEdit Insert(DakUserParam userParam, int actionLink, string model, Inputparam data)
         {
             string inputData = string.Empty;
-            if (model == "GuardFiles")
-            {
-                inputData= getparamGuardFiles( userParam, (GuardFileModel.Record)Convert.ChangeType(data, typeof(GuardFileModel.Record)));
-            }
-            else
-            {
-                inputData= getparamGuardFilesCategories( (GuardFileCategory.Record)Convert.ChangeType(data, typeof(GuardFileCategory.Record)));
-            }
+
             if (!InternetConnection.Check())
             {
 
-                return SaveDeleteLocalGuardFile(userParam, inputData, actionLink, model,0,true);
+
+                return SaveDeleteLocalGuardFile(userParam, inputData, actionLink, model, 0, true);
 
             }
-          return  InsertGuardFile(userParam, actionLink, model, inputData);
+            else
+            {
+                if (model == "GuardFiles")
+                {
+                    inputData = getparamGuardFiles(userParam, (GuardFileModel.Record)Convert.ChangeType(data, typeof(GuardFileModel.Record)));
+                }
+                else
+                {
+                    inputData = getparamGuardFilesCategories((GuardFileCategory.Record)Convert.ChangeType(data, typeof(GuardFileCategory.Record)));
+                }
+                return InsertGuardFile(userParam, actionLink, model, inputData);
+            }
             //try
             //{
             //    var Api = new RestClient(CommonSetting.GetAPIDomain() + CommonSetting.GetEndPoint(actionLink));
@@ -253,12 +260,17 @@ namespace dNothi.Services.GuardFile
                 attachment.content_body = dakFileUploadParam.content;
                 guardFileUploadedFileResponse.data.Add(attachment);
 
-
+                SaveLocalGuardFileUpload(dakListUserParam, "GuardFileAttachments", dakFileUploadParam);
                 return guardFileUploadedFileResponse;
 
             }
+          return  guardFileAttachmentUpload( dakListUserParam,  dakFileUploadParam,  actionLink);
 
+        }
 
+        private GuardFileAttachment guardFileAttachmentUpload(DakUserParam dakListUserParam, DakFileUploadParam dakFileUploadParam, int actionLink)
+        {
+            GuardFileAttachment guardFileUploadedFileResponse = new GuardFileAttachment();
             try
             {
 
@@ -427,19 +439,49 @@ namespace dNothi.Services.GuardFile
 
         private ResponseEdit SaveDeleteLocalGuardFile(DakUserParam userParam, string data, int actionLink, string model,int id,bool isInsert)
         {
-            // var localGuardFile = _localGuardFileInsertRepository.Table.Where(q => q.designation_id == userParam.designation_id && q.office_id == userParam.office_id && q.assignee_designation_id == assignee.designation_id).FirstOrDefault();
-            
             GuardFileInsert localGuardFileInsert = new GuardFileInsert { 
                     data=data, designation_id=userParam.designation_id, isCreated= isInsert, model= model,
                      office_id=userParam.office_id,
                      GuardFileId = id
             };
                 _localGuardFileInsertRepository.Insert(localGuardFileInsert);
-           
+            if( localGuardFileInsert.model == "GuardFiles")
+            {
+                long maxId = _localGuardFileInsertRepository.Table.Max(x => x.Id);
+
+                if (maxId>0)
+                {
+                    long Gid= _localGuardFileUploadRepository.Table.Max(x => x.Id);
+                    var localGuardFileUpload = _localGuardFileUploadRepository.Table.Where(x => x.Id == Gid).FirstOrDefault();
+                    if (localGuardFileUpload != null)
+                    {
+                        localGuardFileUpload.GuardFileId = localGuardFileUpload.Id;
+
+                        _localGuardFileUploadRepository.Update(localGuardFileUpload);
+                    }
+                }
+            }
 
             return new ResponseEdit {  status = "success" };
         }
 
+        private ResponseEdit SaveLocalGuardFileUpload(DakUserParam userParam,string model, DakFileUploadParam dakFileUploadParam)
+        {
+            GuardFileUpload localGuardFileUpload = new GuardFileUpload
+            {
+                
+                designation_id = userParam.designation_id,
+                model = model,
+                office_id = userParam.office_id,
+                content= dakFileUploadParam.content,
+                file_size_in_kb=dakFileUploadParam.file_size_in_kb,
+                user_file_name=dakFileUploadParam.user_file_name,
+                    
+            };
+            _localGuardFileUploadRepository.Insert(localGuardFileUpload);
+
+            return new ResponseEdit { status = "success" };
+        }
         public bool SendGuradFileLocalDataTOServer(DakUserParam userParam)
         {
           
@@ -447,10 +489,27 @@ namespace dNothi.Services.GuardFile
             string status = string.Empty;
             foreach (var item in localGuardFileInsertDelete)
             {
-
+                string inputData = string.Empty;
                 if (item.isCreated == true)
                 {
-                    ResponseEdit response = InsertGuardFile(userParam, 3, item.model, item.data);
+                    if (item.model == "GuardFiles")
+                    {
+                        var localGuardFileUpload = _localGuardFileUploadRepository.Table.Where(x => x.GuardFileId == item.Id).FirstOrDefault();
+                        DakFileUploadParam fileUploadParam = new DakFileUploadParam
+                        {
+                            content = localGuardFileUpload.content,
+                            file_size_in_kb = localGuardFileUpload.file_size_in_kb,
+                            user_file_name = localGuardFileUpload.user_file_name
+                        };
+                       var uploadFileResponse= guardFileAttachmentUpload(userParam, fileUploadParam, 5);
+
+                        GuardFileModel.Record record = new GuardFileModel.Record();
+                        record = JsonConvert.DeserializeObject<GuardFileModel.Record>(item.data);
+                        record.attachment = uploadFileResponse.data[0];
+                        inputData = getparamGuardFiles(userParam, record);
+
+                    }
+                    ResponseEdit response = InsertGuardFile(userParam, 3, item.model, inputData);
                     status = response.status;
                 }
                 else

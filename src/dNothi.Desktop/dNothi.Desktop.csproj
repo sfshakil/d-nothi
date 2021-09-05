@@ -1410,6 +1410,12 @@
     <Compile Include="UI\NothiUI\NothiRegisterReportUserControl.Designer.cs">
       <DependentUpon>NothiRegisterReportUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\NothiUI\Protibedan\ShakaVittikNothiReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\Protibedan\ShakaVittikNothiReportUserControl.Designer.cs">
+      <DependentUpon>ShakaVittikNothiReportUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\OfficerRowUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2029,6 +2035,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\NothiUI\NothiRegisterReportUserControl.resx">
       <DependentUpon>NothiRegisterReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\Protibedan\ShakaVittikNothiReportUserControl.resx">
+      <DependentUpon>ShakaVittikNothiReportUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\OfficerRowUserControl.resx">
       <DependentUpon>OfficerRowUserControl.cs</DependentUpon>

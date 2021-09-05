@@ -113,6 +113,7 @@
     <Compile Include="Mappings\Dak\OtherMap.cs" />
     <Compile Include="Mappings\Dak\PotroTemplateListMap.cs" />
     <Compile Include="Mappings\Dak\ToMap.cs" />
+    <Compile Include="Mappings\GuardFile\GuardFileUploadMap.cs" />
     <Compile Include="Mappings\GuardFile\GuardFileMap.cs" />
     <Compile Include="Mappings\GuardFile\GuardFileListMap.cs" />
     <Compile Include="Mappings\NothiEntityTypeConfiguration.cs" />

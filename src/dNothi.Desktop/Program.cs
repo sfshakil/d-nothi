@@ -194,8 +194,10 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<DakRegisterBook>>().As<IRepository<DakRegisterBook>>();
 
             builder.RegisterType<EfRepository<NothiRegisterBook>>().As<IRepository<NothiRegisterBook>>();
-      
-            
+
+            builder.RegisterType<EfRepository<GuardFileUpload>>().As<IRepository<GuardFileUpload>>();
+
+
 
             builder.RegisterType<BasicService>().As<IBasicService>();
 
@@ -380,16 +382,18 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFileReferenceNothi>().AsSelf();
 
 
-
+            //Nothi Report
             
             builder.RegisterType<NothiGrahonRegisterReportUserControl>().AsSelf();
             builder.RegisterType<NothiPreronRegisterReportUserControl>().AsSelf();
             builder.RegisterType<NothiPotrajariRegisterReportUserControl>().AsSelf();
             builder.RegisterType<NothiMasterRegisterReportUserControl>().AsSelf();
-
-
+            builder.RegisterType<ShakaVittikNothiReportUserControl>().AsSelf();
 
             
+
+
+
              builder.RegisterType<PotroPublishingForm>().AsSelf();
 
             builder.RegisterType<PotrojariGroupContent>().AsSelf();

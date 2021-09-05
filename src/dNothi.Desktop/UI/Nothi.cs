@@ -53,7 +53,9 @@ namespace dNothi.Desktop.UI
         NothiGrahonRegisterReportUserControl nothigrahonRegisterBook = UserControlFactory.Create<NothiGrahonRegisterReportUserControl>();
         NothiPreronRegisterReportUserControl nothipreronRegisterBook = UserControlFactory.Create<NothiPreronRegisterReportUserControl>();
         NothiPotrajariRegisterReportUserControl nothiPotrajariRegisterBook = UserControlFactory.Create<NothiPotrajariRegisterReportUserControl>();
-       
+
+        ShakaVittikNothiReportUserControl nothiShakaWiseProtibedan = UserControlFactory.Create<ShakaVittikNothiReportUserControl>();
+        
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices,
             INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave,
             INothiCreateService nothiCreateServices, IRepository<NothiCreateItemAction> nothiCreateItemAction,
@@ -1992,7 +1994,9 @@ namespace dNothi.Desktop.UI
             nothigrahonRegisterBook.Visible = false;
             nothipreronRegisterBook.Visible = false;
             nothiPotrajariRegisterBook.Visible = false;
-            
+            nothiShakaWiseProtibedan.Visible = false;
+
+
             allReset();
             panel3.Visible = true;
             agotoNothiSelected = 1;
@@ -2026,6 +2030,7 @@ namespace dNothi.Desktop.UI
             detailsNothiSearcPanel.Visible = false;
             nothiPotrajariRegisterBook.Visible = false;
             nothiMasterRegisterBook.Visible = false;
+            nothiShakaWiseProtibedan.Visible = false;
             allReset();
             panel3.Visible = true;
             agotoNothiSelected = 0;
@@ -2080,6 +2085,7 @@ namespace dNothi.Desktop.UI
             detailsNothiSearcPanel.Visible = false;
             nothiPotrajariRegisterBook.Visible = false;
             nothiMasterRegisterBook.Visible = false;
+            nothiShakaWiseProtibedan.Visible = false;
             allReset();
             panel3.Visible = true;
             agotoNothiSelected = 0;
@@ -2151,6 +2157,7 @@ namespace dNothi.Desktop.UI
             detailsNothiSearcPanel.Visible = false;
             nothiPotrajariRegisterBook.Visible = false;
             nothiMasterRegisterBook.Visible = false;
+            nothiShakaWiseProtibedan.Visible = false;
             allReset();
             panel3.Visible = true;
             newNothi.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -2615,6 +2622,7 @@ namespace dNothi.Desktop.UI
             nothipreronRegisterBook.Visible = false;
             nothiPotrajariRegisterBook.Visible = false;
             nothiMasterRegisterBook.Visible = false;
+            nothiShakaWiseProtibedan.Visible = false;
 
             nothiRegisterBook.isNothiRegister = true;
             nothiRegisterBook.Dock = DockStyle.Fill;
@@ -2635,6 +2643,7 @@ namespace dNothi.Desktop.UI
             nothiMasterRegisterBook.Visible = false;
             nothigrahonRegisterBook.Visible = true;
             nothipreronRegisterBook.Visible = false;
+            nothiShakaWiseProtibedan.Visible = false;
             //pnlNothiBody.Controls.Clear();
             nothigrahonRegisterBook.isNothiGrahon = true;
             nothigrahonRegisterBook.Dock = DockStyle.Fill;
@@ -2654,7 +2663,8 @@ namespace dNothi.Desktop.UI
             nothiMasterRegisterBook.Visible = false;
             nothiPotrajariRegisterBook.Visible = false;
             nothipreronRegisterBook.Visible = true;
-            
+            nothiShakaWiseProtibedan.Visible = false;
+
             nothipreronRegisterBook.isNothiPerito = true;
             //pnlNothiBody.Controls.Clear();
             nothipreronRegisterBook.Dock = DockStyle.Fill;
@@ -2673,6 +2683,7 @@ namespace dNothi.Desktop.UI
             nothipreronRegisterBook.Visible = false;
             nothiMasterRegisterBook.Visible = false;
             nothiPotrajariRegisterBook.Visible = true;
+            nothiShakaWiseProtibedan.Visible = false;
             nothiPotrajariRegisterBook.isPotraJariBohi = true;
             nothiPotrajariRegisterBook.Dock = DockStyle.Fill;
             pnlNothiBody.Controls.Add(nothiPotrajariRegisterBook);
@@ -2688,6 +2699,7 @@ namespace dNothi.Desktop.UI
             nothigrahonRegisterBook.Visible = false;
             nothipreronRegisterBook.Visible = false;
             nothiPotrajariRegisterBook.Visible = false;
+            nothiShakaWiseProtibedan.Visible = false;
             nothiMasterRegisterBook.Visible = true;
 
             nothiMasterRegisterBook.isNothiMasterFile = true;
@@ -2878,8 +2890,25 @@ namespace dNothi.Desktop.UI
             CalPopUpWindow(noteCreatePopUpForm);
 
         }
+        
+        private void protibedanIconButton_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
+            detailsNothiSearcPanel.Visible = false;
+            nothiSearchHeadingPanel.Visible = false;
+            nothiRegisterBook.Visible = false;
+            nothigrahonRegisterBook.Visible = false;
+            nothiMasterRegisterBook.Visible = false;
+            nothiPotrajariRegisterBook.Visible = false;
+            nothipreronRegisterBook.Visible = false;
+            nothiShakaWiseProtibedan.Visible = true;
 
-       
+
+            nothiShakaWiseProtibedan.Dock = DockStyle.Fill;
+            pnlNothiBody.Controls.Add(nothiShakaWiseProtibedan);
+            pnlNothiBody.BringToFront();
+
+        }
 
         private void SaveorUpdate()
         {

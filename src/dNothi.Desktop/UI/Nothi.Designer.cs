@@ -169,6 +169,9 @@ namespace dNothi.Desktop.UI
             this.nothiCustomDatePickerUserControl = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.nothiBackGroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.panel40 = new System.Windows.Forms.Panel();
+            this.caretIconButton = new FontAwesome.Sharp.IconButton();
+            this.protibedanIconButton = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.dakMenuButton.SuspendLayout();
             this.logoTableLayoutPanel.SuspendLayout();
@@ -221,6 +224,7 @@ namespace dNothi.Desktop.UI
             this.panel17.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel33.SuspendLayout();
+            this.panel40.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -374,6 +378,7 @@ namespace dNothi.Desktop.UI
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.panel40);
             this.panel4.Controls.Add(this.registerPanel);
             this.panel4.Controls.Add(this.panel34);
             this.panel4.Controls.Add(this.btnNothiALLDecisionList);
@@ -1700,7 +1705,7 @@ namespace dNothi.Desktop.UI
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.92982F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.38217F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.41258F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 159F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel8.Controls.Add(this.panel36, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.panel37, 0, 0);
@@ -1719,7 +1724,7 @@ namespace dNothi.Desktop.UI
             // panel36
             // 
             this.panel36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel36.Location = new System.Drawing.Point(310, 0);
+            this.panel36.Location = new System.Drawing.Point(309, 0);
             this.panel36.Margin = new System.Windows.Forms.Padding(0);
             this.panel36.Name = "panel36";
             this.panel36.Size = new System.Drawing.Size(8, 52);
@@ -1729,11 +1734,11 @@ namespace dNothi.Desktop.UI
             // 
             this.panel37.Controls.Add(this.cbxNothiBranch);
             this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel37.Location = new System.Drawing.Point(318, 0);
+            this.panel37.Location = new System.Drawing.Point(317, 0);
             this.panel37.Margin = new System.Windows.Forms.Padding(0);
             this.panel37.Name = "panel37";
             this.panel37.Padding = new System.Windows.Forms.Padding(1, 15, 1, 1);
-            this.panel37.Size = new System.Drawing.Size(312, 52);
+            this.panel37.Size = new System.Drawing.Size(311, 52);
             this.panel37.TabIndex = 9;
             this.panel37.Paint += new System.Windows.Forms.PaintEventHandler(this.nothiModulePanel_Paint);
             // 
@@ -1753,7 +1758,7 @@ namespace dNothi.Desktop.UI
             this.cbxNothiBranch.MaxDropDownItems = 100;
             this.cbxNothiBranch.MaxLength = 100;
             this.cbxNothiBranch.Name = "cbxNothiBranch";
-            this.cbxNothiBranch.Size = new System.Drawing.Size(310, 26);
+            this.cbxNothiBranch.Size = new System.Drawing.Size(309, 26);
             this.cbxNothiBranch.TabIndex = 77;
             this.cbxNothiBranch.Text = "দপ্তর/শাখা";
             // 
@@ -1774,7 +1779,7 @@ namespace dNothi.Desktop.UI
             this.panel39.Margin = new System.Windows.Forms.Padding(0);
             this.panel39.Name = "panel39";
             this.panel39.Padding = new System.Windows.Forms.Padding(1, 15, 1, 1);
-            this.panel39.Size = new System.Drawing.Size(302, 52);
+            this.panel39.Size = new System.Drawing.Size(301, 52);
             this.panel39.TabIndex = 7;
             this.panel39.Paint += new System.Windows.Forms.PaintEventHandler(this.nothiModulePanel_Paint);
             // 
@@ -1794,7 +1799,7 @@ namespace dNothi.Desktop.UI
             this.cbxSearchOfficer.MaxDropDownItems = 100;
             this.cbxSearchOfficer.MaxLength = 100;
             this.cbxSearchOfficer.Name = "cbxSearchOfficer";
-            this.cbxSearchOfficer.Size = new System.Drawing.Size(300, 26);
+            this.cbxSearchOfficer.Size = new System.Drawing.Size(299, 26);
             this.cbxSearchOfficer.TabIndex = 77;
             this.cbxSearchOfficer.Text = "নাম/পদবি দিয়ে খুঁজুন";
             // 
@@ -1805,7 +1810,7 @@ namespace dNothi.Desktop.UI
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.92982F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.38217F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.41258F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 161F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 163F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.Controls.Add(this.panel31, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.panel30, 0, 0);
@@ -1824,7 +1829,7 @@ namespace dNothi.Desktop.UI
             // panel31
             // 
             this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel31.Location = new System.Drawing.Point(309, 0);
+            this.panel31.Location = new System.Drawing.Point(308, 0);
             this.panel31.Margin = new System.Windows.Forms.Padding(0);
             this.panel31.Name = "panel31";
             this.panel31.Size = new System.Drawing.Size(8, 25);
@@ -1834,10 +1839,10 @@ namespace dNothi.Desktop.UI
             // 
             this.panel30.Controls.Add(this.label5);
             this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel30.Location = new System.Drawing.Point(317, 0);
+            this.panel30.Location = new System.Drawing.Point(316, 0);
             this.panel30.Margin = new System.Windows.Forms.Padding(0);
             this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(311, 25);
+            this.panel30.Size = new System.Drawing.Size(310, 25);
             this.panel30.TabIndex = 9;
             // 
             // label5
@@ -1870,7 +1875,7 @@ namespace dNothi.Desktop.UI
             this.panel28.Location = new System.Drawing.Point(8, 0);
             this.panel28.Margin = new System.Windows.Forms.Padding(0);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(301, 25);
+            this.panel28.Size = new System.Drawing.Size(300, 25);
             this.panel28.TabIndex = 7;
             // 
             // label10
@@ -2430,6 +2435,73 @@ namespace dNothi.Desktop.UI
             this.nothiBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.nothiBackGroundWorker_DoWork);
             this.nothiBackGroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.nothiBackGroundWorker_RunWorkerCompleted);
             // 
+            // panel40
+            // 
+            this.panel40.Controls.Add(this.caretIconButton);
+            this.panel40.Controls.Add(this.protibedanIconButton);
+            this.panel40.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel40.Location = new System.Drawing.Point(0, 518);
+            this.panel40.Margin = new System.Windows.Forms.Padding(4);
+            this.panel40.MaximumSize = new System.Drawing.Size(312, 57);
+            this.panel40.MinimumSize = new System.Drawing.Size(312, 57);
+            this.panel40.Name = "panel40";
+            this.panel40.Size = new System.Drawing.Size(312, 57);
+            this.panel40.TabIndex = 65;
+            // 
+            // caretIconButton
+            // 
+            this.caretIconButton.AutoSize = true;
+            this.caretIconButton.BackColor = System.Drawing.Color.Transparent;
+            this.caretIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.caretIconButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.caretIconButton.FlatAppearance.BorderSize = 0;
+            this.caretIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.caretIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.caretIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.caretIconButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.caretIconButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.caretIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            this.caretIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.caretIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.caretIconButton.IconSize = 16;
+            this.caretIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.caretIconButton.Location = new System.Drawing.Point(240, 0);
+            this.caretIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.caretIconButton.Name = "caretIconButton";
+            this.caretIconButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.caretIconButton.Size = new System.Drawing.Size(72, 57);
+            this.caretIconButton.TabIndex = 64;
+            this.caretIconButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.caretIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.caretIconButton.UseVisualStyleBackColor = false;
+            // 
+            // protibedanIconButton
+            // 
+            this.protibedanIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.protibedanIconButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.protibedanIconButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.protibedanIconButton.FlatAppearance.BorderSize = 0;
+            this.protibedanIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.protibedanIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.protibedanIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.protibedanIconButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F);
+            this.protibedanIconButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
+            this.protibedanIconButton.IconChar = FontAwesome.Sharp.IconChar.CalendarAlt;
+            this.protibedanIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.protibedanIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.protibedanIconButton.IconSize = 24;
+            this.protibedanIconButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.protibedanIconButton.Location = new System.Drawing.Point(0, 0);
+            this.protibedanIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.protibedanIconButton.Name = "protibedanIconButton";
+            this.protibedanIconButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.protibedanIconButton.Size = new System.Drawing.Size(312, 57);
+            this.protibedanIconButton.TabIndex = 60;
+            this.protibedanIconButton.Text = "   প্রতিবেদনসমূহ";
+            this.protibedanIconButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.protibedanIconButton.UseVisualStyleBackColor = false;
+            this.protibedanIconButton.Click += new System.EventHandler(this.protibedanIconButton_Click);
+            // 
             // Nothi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2524,6 +2596,8 @@ namespace dNothi.Desktop.UI
             this.tableLayoutPanel6.ResumeLayout(false);
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
+            this.panel40.ResumeLayout(false);
+            this.panel40.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2667,5 +2741,8 @@ namespace dNothi.Desktop.UI
         private Button button2;
         private Button btnPotrajariBohi;
         private Button btnMasterFile;
+        private Panel panel40;
+        private FontAwesome.Sharp.IconButton caretIconButton;
+        private FontAwesome.Sharp.IconButton protibedanIconButton;
     }
 }

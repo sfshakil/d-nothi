@@ -116,7 +116,23 @@ namespace dNothi.Services.NothiReportService.Model
             public int movement_type { get; set; }
            
             public string modified { get; set; }
-          
+       
+            public int nothi_type_id { get; set; }
+           
+            public string nothi_created_date { get; set; }
+            public string description { get; set; }
+         
+            public int is_active { get; set; }
+            public int is_deleted { get; set; }
+            public int is_archived { get; set; }
+            public string archived_date { get; set; }
+            public string archived_organogram_id { get; set; }
+            public string archived_designation_name { get; set; }
+         
+            public string office { get; set; }
+            public string office_unit { get; set; }
+            public string nothi_type_name { get; set; }
+
         }
 
         public class Data

@@ -125,6 +125,7 @@ namespace dNothi.Constants
         public const string NothiPotakaListEndpoint = "/api/nothi/potaka/list";
         public const string NoteFinishedEndPoint = "/api/nothi/note/finish";
         public const string NothiReportEndPoint = "/api/nothi/nibondhon_bohi";
+        public const string NothiProtibedanUnitWiseEndPoint = "/api/nothi/list/unit_wise";
 
 
         //KasaraPattraDashBoardApi
