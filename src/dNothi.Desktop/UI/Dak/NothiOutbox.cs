@@ -191,37 +191,46 @@ namespace dNothi.Desktop.UI.Dak
             {
                 var nothiNoteShomuho = new NothiOutboxNoteShomuho();
 
-                //_noteListForNoteAll = nothiNoteInboxLists[0];
+                if (nothiListInboxNoteRecordsDTO.note.note_status != "not_permitted")
+                {
+                    _noteListForNoteAll = nothiNoteInboxLists[0];
 
-                nothiNoteShomuho.noteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
-                nothiNoteShomuho.noteNumber = nothiListInboxNoteRecordsDTO.note.note_no.ToString();
-                nothiNoteShomuho.notesubject = nothiListInboxNoteRecordsDTO.note.note_subject.ToString();
-                nothiNoteShomuho.prapok = nothiListInboxNoteRecordsDTO.to.officer + "," +
-                                          nothiListInboxNoteRecordsDTO.to.designation + "," +
-                                          nothiListInboxNoteRecordsDTO.to.office_unit + "," +
-                                          nothiListInboxNoteRecordsDTO.to.office;
-                nothiNoteShomuho.currentDesk = nothiListInboxNoteRecordsDTO.desk.officer + "," +
-                                               nothiListInboxNoteRecordsDTO.desk.designation + "," +
-                                               nothiListInboxNoteRecordsDTO.desk.office_unit + "," +
-                                               nothiListInboxNoteRecordsDTO.desk.office + "; শাখা: " +
-                                               nothiListInboxNoteRecordsDTO.nothi.office_unit_name + "," +
-                                               nothiListInboxNoteRecordsDTO.nothi.office_name + "; নথি নম্বর: " +
-                                               nothiListInboxNoteRecordsDTO.nothi.nothi_no + "; বিষয়: " +
-                                               nothiListInboxNoteRecordsDTO.nothi.subject;
+                    nothiNoteShomuho.noteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+                    nothiNoteShomuho.noteNumber = nothiListInboxNoteRecordsDTO.note.note_no.ToString();
+                    nothiNoteShomuho.notesubject = nothiListInboxNoteRecordsDTO.note.note_subject.ToString();
+                    nothiNoteShomuho.prapok = nothiListInboxNoteRecordsDTO.to.officer + "," +
+                                              nothiListInboxNoteRecordsDTO.to.designation + "," +
+                                              nothiListInboxNoteRecordsDTO.to.office_unit + "," +
+                                              nothiListInboxNoteRecordsDTO.to.office;
+                    nothiNoteShomuho.currentDesk = nothiListInboxNoteRecordsDTO.desk.officer + "," +
+                                                   nothiListInboxNoteRecordsDTO.desk.designation + "," +
+                                                   nothiListInboxNoteRecordsDTO.desk.office_unit + "," +
+                                                   nothiListInboxNoteRecordsDTO.desk.office + "; শাখা: " +
+                                                   nothiListInboxNoteRecordsDTO.nothi.office_unit_name + "," +
+                                                   nothiListInboxNoteRecordsDTO.nothi.office_name + "; নথি নম্বর: " +
+                                                   nothiListInboxNoteRecordsDTO.nothi.nothi_no + "; বিষয়: " +
+                                                   nothiListInboxNoteRecordsDTO.nothi.subject;
 
-                nothiNoteShomuho.onucched = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
-                nothiNoteShomuho.khoshra = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
-                nothiNoteShomuho.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
+                    nothiNoteShomuho.onucched = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
+                    nothiNoteShomuho.khoshra = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
+                    nothiNoteShomuho.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
 
-                nothiNoteShomuho.nishponno = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
+                    nothiNoteShomuho.nishponno = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
 
-                nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
-                nothiNoteShomuho.canRevert = 0;//nothiListInboxNoteRecordsDTO.note.can_revert;
-                nothiNoteShomuho.notePriority(nothiListInboxNoteRecordsDTO.desk.priority);
-                nothiNoteShomuho.noteAttachment = nothiListInboxNoteRecordsDTO.note.attachment_count.ToString();
-                nothiNoteShomuho.btnnoteAttachment += delegate (object sender1, EventArgs e1) { NoteAttachment_ButtonClick(nothiListInboxNoteRecordsDTO, e1); };
-                //nothiNoteShomuho.OutboxNoteDetailsButton += delegate (object sender1, EventArgs e1) { OutboxNoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
-
+                    nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
+                    nothiNoteShomuho.canRevert = 0;//nothiListInboxNoteRecordsDTO.note.can_revert;
+                    nothiNoteShomuho.notePriority(nothiListInboxNoteRecordsDTO.desk.priority);
+                    nothiNoteShomuho.noteAttachment = nothiListInboxNoteRecordsDTO.note.attachment_count.ToString();
+                    nothiNoteShomuho.btnnoteAttachment += delegate (object sender1, EventArgs e1) { NoteAttachment_ButtonClick(nothiListInboxNoteRecordsDTO, e1); };
+                    nothiNoteShomuho.OutboxNoteDetailsButton += delegate (object sender1, EventArgs e1) { OutboxNoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
+                }
+                else
+                {
+                    nothiNoteShomuho.noteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+                    nothiNoteShomuho.noteNumber = nothiListInboxNoteRecordsDTO.note.note_no.ToString();
+                    nothiNoteShomuho.notesubject = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
+                    nothiNoteShomuho.not_permittedVisibilityOff();
+                }
 
                 UIDesignCommonMethod.AddRowinTable(newAllNoteFlowLayoutPanel, nothiNoteShomuho);
 
@@ -316,6 +325,30 @@ namespace dNothi.Desktop.UI.Dak
                     iconButton3.IconColor = Color.White;
                     iconButton3.BackColor = Color.FromArgb(27, 197, 189);
                     LoadNothiNoteAllinPanel(nothiInboxNote.data.records);
+
+                }
+                else
+                {
+                    _noteTotal = nothiInboxNote.data.total_records;
+                    lbNoteTotal.Text = "সর্বমোট: " + string.Concat(nothiInboxNote.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    int totalNote = _noteTotal;
+                    this.Height =  170 + originalHeight;
+                    this.Width = originalWidth;
+                    pnlNewAllNote.Visible = true;
+                    newAllNoteFlowLayoutPanel.Visible = true;
+                    iconButton3.IconChar = FontAwesome.Sharp.IconChar.FolderMinus;
+                    iconButton3.IconColor = Color.White;
+                    iconButton3.BackColor = Color.FromArgb(27, 197, 189);
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    //_noteListForNoteAll = nothiNoteInboxLists[0];
+                    var nothiNoteShomuho = new NothiOutboxNoteShomuho();
+
+                    nothiNoteShomuho.No_Note();
+
+
+                    UIDesignCommonMethod.AddRowinTable(newAllNoteFlowLayoutPanel, nothiNoteShomuho);
+
+                    
 
                 }
             }
@@ -593,7 +626,7 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler NoteAllButton;
         private void btnAllNote_Click(object sender, EventArgs e)
         {
-            if (this.NoteAllButton != null)
+            if (this.NoteAllButton != null && _noteListForNoteAll.desk != null && _noteListForNoteAll.note != null && _noteListForNoteAll.nothi != null && _noteListForNoteAll.to != null)
                 this.NoteAllButton(_noteListForNoteAll, e);
         }
 

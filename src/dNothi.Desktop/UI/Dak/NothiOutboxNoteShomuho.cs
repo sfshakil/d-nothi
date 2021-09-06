@@ -32,6 +32,23 @@ namespace dNothi.Desktop.UI.Dak
         private long _noteID;
         public long _nothi_id;
 
+        public void not_permittedVisibilityOff()
+        {
+            pnlLeft.Visible = false;
+            pnlRight.Visible = false;
+            panel10.Visible = false;
+            panel13.Visible = false;
+            panel7.Padding = new Padding(pnlLeft.Width - panel15.Width, 0, pnlRight.Width, 0);
+        }
+        public void No_Note()
+        {
+            not_permittedVisibilityOff();
+            lbsubject.Text = "কোন নোট পাওয়া যায়নি";
+            lbsubject.Font = new Font("SolaimanLipi", 16f);
+            lbsubject.ForeColor = Color.FromArgb(54, 153, 255);
+            panel8.BackColor = Color.FromArgb(225, 240, 255);
+            panel9.Visible = false;
+        }
         [Category("Custom Props")]
         public long noteID
         {

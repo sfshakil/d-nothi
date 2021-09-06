@@ -382,7 +382,7 @@ namespace dNothi.Desktop.UI
                 notelist = list;
                 NoteIdfromNothiInboxNoteShomuho.Text = list.nothi_note_id.ToString();
                 //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
-                OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
+                OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords, list.nothi_note_id);
                 if (onucchedList.data == null || onucchedList.data.records.Count == 0)
                 {
                     if (!InternetConnection.Check())
@@ -599,7 +599,7 @@ namespace dNothi.Desktop.UI
                                 SingleOnucchedResponse singleOnucched = new SingleOnucchedResponse();
                                 try
                                 {
-                                    singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, z.onuchhed_id);
+                                    singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords, list.nothi_note_id, z.onuchhed_id);
 
                                 }
                                 catch
@@ -1073,7 +1073,7 @@ namespace dNothi.Desktop.UI
                 notelist = list;
                 NoteIdfromNothiInboxNoteShomuho.Text = list.nothi_note_id.ToString();
                 //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
-                OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
+                OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords, list.nothi_note_id);
                 if (onucchedList.data == null || onucchedList.data.records.Count == 0)
                 {
                     if (!InternetConnection.Check())
@@ -1289,7 +1289,7 @@ namespace dNothi.Desktop.UI
                                 SingleOnucchedResponse singleOnucched = new SingleOnucchedResponse();
                                 try
                                 {
-                                    singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, z.onuchhed_id);
+                                    singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords, list.nothi_note_id, z.onuchhed_id);
 
                                 }
                                 catch
@@ -1928,7 +1928,7 @@ namespace dNothi.Desktop.UI
                 noteSubjectPanel.Visible = true;
                 tabButtonPanel.Visible = true;
 
-                OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, nothiListInboxNoteRecordsDTO.note.nothi_note_id);
+                OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords, nothiListInboxNoteRecordsDTO.note.nothi_note_id);
                 if (onucchedList.data.total_records > 0)
                 {
                     int flag = 0;
@@ -1939,7 +1939,7 @@ namespace dNothi.Desktop.UI
                     foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                     {
                         flag++;
-                        SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, nothiListInboxNoteRecordsDTO.note.nothi_note_id, onucchedsingleListRec.id);
+                        SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords, nothiListInboxNoteRecordsDTO.note.nothi_note_id, onucchedsingleListRec.id);
                         if (singleOnucched.data.total_records > 0)
                         {
                             var rec = singleOnucched.data.records;
@@ -2104,7 +2104,7 @@ namespace dNothi.Desktop.UI
                 tabButtonPanel.Visible = true;
 
 
-                OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
+                OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords, list.nothi_note_id);
                 if (onucchedList.data.total_records > 0)
                 {
                     int flag = 0;
@@ -2115,7 +2115,7 @@ namespace dNothi.Desktop.UI
                     foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                     {
                         flag++;
-                        SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, onucchedsingleListRec.id);
+                        SingleOnucchedResponse singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords, list.nothi_note_id, onucchedsingleListRec.id);
                         if (singleOnucched.data.total_records > 0)
                         {
                             var rec = singleOnucched.data.records;
@@ -3125,7 +3125,7 @@ namespace dNothi.Desktop.UI
                 var list = notelist;
                 NoteIdfromNothiInboxNoteShomuho.Text = list.nothi_note_id.ToString();
                 //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
-                OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, list.nothi_note_id);
+                OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords, list.nothi_note_id);
                 if (onucchedList == null)
                 {
                     if (!InternetConnection.Check())
@@ -3245,7 +3245,7 @@ namespace dNothi.Desktop.UI
                                 SingleOnucchedResponse singleOnucched = new SingleOnucchedResponse();
                                 try
                                 {
-                                    singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, list.nothi_note_id, z.onuchhed_id);
+                                    singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords, list.nothi_note_id, z.onuchhed_id);
 
                                 }
                                 catch
@@ -3680,7 +3680,7 @@ namespace dNothi.Desktop.UI
                         }
                     }
                     var onucchedSave = _onucchedSave.GetNothiOnuchhedSave(onuchhedId, dakListUserParam, onuchhedSaveWithAttachments, nothiListRecords, newnotedata, encodedEditorText);
-                    OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords.id, newnotedata.note_id);
+                    OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecords, newnotedata.note_id);
                     if (onucchedSave.status == "success" && onucchedSave.message == "Local" && onucchedList.data == null || onucchedList.data.records.Count == 0)
                     {
                         onuchhedSaveWithAttachments.Clear();
@@ -3874,7 +3874,7 @@ namespace dNothi.Desktop.UI
                                         SingleOnucchedResponse singleOnucched = new SingleOnucchedResponse();
                                         try
                                         {
-                                            singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords.id, newnotedata.note_id, z.onuchhed_id);
+                                            singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecords, newnotedata.note_id, z.onuchhed_id);
 
                                         }
                                         catch
@@ -4770,7 +4770,7 @@ namespace dNothi.Desktop.UI
                 allNextButtonVisibilityOff();
                 btnAllPotroNext.Visible = true;
                 string potro_subject = "";
-                allPotro = _allPotro.GetAllPotroInfo(_dakuserparam, nothiListRecords.id, potro_subject);
+                allPotro = _allPotro.GetAllPotroInfo(_dakuserparam, nothiListRecords, potro_subject);
                 if (allPotro.status == "success")
                 {
                     i = 0;
@@ -7468,7 +7468,7 @@ namespace dNothi.Desktop.UI
                 allNextButtonVisibilityOff();
                 btnNothijatoNext.Visible = true;
                 string potro_subject = "";
-                nothijatoList = _nothijatoList.GetNothijatoListInfo(_dakuserparam, nothiListRecords.id, potro_subject);
+                nothijatoList = _nothijatoList.GetNothijatoListInfo(_dakuserparam, nothiListRecords, potro_subject);
                 if (nothijatoList.status == "success")
                 {
                     i = 0;
@@ -11943,7 +11943,7 @@ namespace dNothi.Desktop.UI
                         allNextButtonVisibilityOff();
                         btnAllPotroNext.Visible = true;
 
-                        allPotro = _allPotro.GetAllPotroInfo(_dakuserparam, nothiListRecords.id, potro_subject);
+                        allPotro = _allPotro.GetAllPotroInfo(_dakuserparam, nothiListRecords, potro_subject);
                         if (allPotro.status == "success")
                         {
                             i = 0;
@@ -12407,7 +12407,7 @@ namespace dNothi.Desktop.UI
                         allNextButtonVisibilityOff();
                         btnNothijatoNext.Visible = true;
 
-                        nothijatoList = _nothijatoList.GetNothijatoListInfo(_dakuserparam, nothiListRecords.id, potro_subject);
+                        nothijatoList = _nothijatoList.GetNothijatoListInfo(_dakuserparam, nothiListRecords, potro_subject);
                         if (nothijatoList.status == "success")
                         {
                             i = 0;

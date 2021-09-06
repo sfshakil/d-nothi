@@ -247,7 +247,15 @@ namespace dNothi.Desktop.UI.Dak
                 nothiNoteShomuho.loadEyeIcon(nothiListInboxNoteRecordsDTO.desk.note_current_status);
                 nothiNoteShomuho.notePriority(nothiListInboxNoteRecordsDTO.desk.priority);
                 nothiNoteShomuho.visibilityOffOption();
-                //nothiNoteShomuho.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
+                nothiNoteShomuho.NoteDetailsButton += delegate (object sender1, EventArgs e1) {
+                    
+                    NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO1 = new NothiListInboxNoteRecordsDTO();
+                    nothiListInboxNoteRecordsDTO1.nothi = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordNothi, NothiNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.nothi);
+                    nothiListInboxNoteRecordsDTO1.note = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordNote, NoteNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.note);
+                    nothiListInboxNoteRecordsDTO1.desk = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordDesk, DeskNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.desk);
+                    nothiListInboxNoteRecordsDTO1.to = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordTo, ToNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.to);
+                    
+                    NoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO1); };
 
 
                 if (nothiListInboxNoteRecordsDTO.note.onucched_count > 0)

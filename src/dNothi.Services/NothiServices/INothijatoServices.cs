@@ -10,6 +10,6 @@ namespace dNothi.Services.NothiServices
 {
     public interface INothijatoServices
     {
-        NothijatoResponse GetNothijatoListInfo(DakUserParam _dakuserparam, long id, string potro_subject);
+        NothijatoResponse GetNothijatoListInfo(DakUserParam _dakuserparam, NothiListRecordsDTO nothiListRecordsDTO, string potro_subject);
     }
 }
