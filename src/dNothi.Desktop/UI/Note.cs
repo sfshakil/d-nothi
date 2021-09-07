@@ -641,7 +641,17 @@ namespace dNothi.Desktop.UI
                                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
                                     separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
+                                    try
+                                    {
+                                        if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox")
+                                        {
+                                            separateOnucched.khoshrabuttonoff();
+                                        }
+                                    }
+                                    catch
+                                    {
 
+                                    }
                                     if (rec[0].attachment.Count > 0)
                                     {
                                         separateOnucched.totalFileNo = rec[0].attachment.Count.ToString();
@@ -1343,6 +1353,17 @@ namespace dNothi.Desktop.UI
                                     panel28.Visible = false;
                                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                    try
+                                    {
+                                        if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox")
+                                        {
+                                            separateOnucched.khoshrabuttonoff();
+                                        }
+                                    }
+                                    catch
+                                    {
+
+                                    }
                                     if (rec[0].attachment.Count > 0)
                                     {
                                         separateOnucched.totalFileNo = rec[0].attachment.Count.ToString();
@@ -3313,6 +3334,17 @@ namespace dNothi.Desktop.UI
                                     panel28.Visible = false;
                                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                    try
+                                    {
+                                        if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox")
+                                        {
+                                            separateOnucched.khoshrabuttonoff();
+                                        }
+                                    }
+                                    catch
+                                    {
+
+                                    }
                                     if (rec[0].attachment.Count > 0)
                                     {
                                         separateOnucched.totalFileNo = rec[0].attachment.Count.ToString();
@@ -3951,6 +3983,17 @@ namespace dNothi.Desktop.UI
                                             panel28.Visible = false;
                                             //DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                             var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                            try
+                                            {
+                                                if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox")
+                                                {
+                                                    separateOnucched.khoshrabuttonoff();
+                                                }
+                                            }
+                                            catch
+                                            {
+
+                                            }
                                             if (rec[0].attachment.Count > 0)
                                             {
                                                 separateOnucched.totalFileNo = rec[0].attachment.Count.ToString();
@@ -4489,7 +4532,7 @@ namespace dNothi.Desktop.UI
 
             nothiType.loadNewNoteData(newnotedata);
             nothiType.loadlistInboxRecord(nothiListRecords);
-
+            nothiType._nothiListRecordsDTO = _nothiListRecordsDTO;
             nothiType.GetNothiInboxRecords(records);
             nothiType.loadNoteList(notelist);
             nothiType._noteIdfromNothiInboxNoteShomuho = noteIdfromNothiInboxNoteShomuho;
@@ -10139,6 +10182,7 @@ namespace dNothi.Desktop.UI
             form.nothiSubject = _nothiSubject;
             form.noteSubject = noteSubject;
             form.nothiLastDate = _nothiLastDate;
+            form._nothiListRecordsDTO = _nothiListRecordsDTO;
             form.noteAllListDataRecordDTO = _NoteAllListDataRecordDTO;
             form.office = _office;
 

@@ -224,7 +224,7 @@ namespace dNothi.Desktop.UI.Dak
                     nothiNoteShomuho.nishponno = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
 
                     nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
-                    nothiNoteShomuho.canRevert = 0;//nothiListInboxNoteRecordsDTO.note.can_revert;
+                    nothiNoteShomuho.canRevert = nothiListInboxNoteRecordsDTO.note.can_revert;
                     nothiNoteShomuho.notePriority(nothiListInboxNoteRecordsDTO.desk.priority);
                     nothiNoteShomuho.noteAttachment = nothiListInboxNoteRecordsDTO.note.attachment_count.ToString();
                     nothiNoteShomuho.btnnoteAttachment += delegate (object sender1, EventArgs e1) { NoteAttachment_ButtonClick(nothiListInboxNoteRecordsDTO, e1); };
@@ -638,24 +638,52 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnRefreshNote_Click(object sender, EventArgs e)
         {
-            newAllNoteFlowLayoutPanel.Controls.Clear();
-            loadnewAllNoteFlowLayoutPanel("asc");
-        }
-
-        private void btnNoteOrder_Click(object sender, EventArgs e)
-        {
-            if (btnNoteOrder.IconChar == FontAwesome.Sharp.IconChar.ChevronDown)
+            if (_isOtherOffice == true)
             {
                 newAllNoteFlowLayoutPanel.Controls.Clear();
-                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
-                loadnewAllNoteFlowLayoutPanel("desc");
+                loadotherOfficeNoteFlowLayoutPanel("asc");
             }
             else
             {
                 newAllNoteFlowLayoutPanel.Controls.Clear();
-                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
                 loadnewAllNoteFlowLayoutPanel("asc");
             }
+            
+        }
+
+        private void btnNoteOrder_Click(object sender, EventArgs e)
+        {
+            if (_isOtherOffice == true)
+            {
+                if (btnNoteOrder.IconChar == FontAwesome.Sharp.IconChar.ChevronDown)
+                {
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+                    loadotherOfficeNoteFlowLayoutPanel("desc");
+                }
+                else
+                {
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+                    loadotherOfficeNoteFlowLayoutPanel("asc");
+                }
+            }
+            else
+            {
+                if (btnNoteOrder.IconChar == FontAwesome.Sharp.IconChar.ChevronDown)
+                {
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+                    loadnewAllNoteFlowLayoutPanel("desc");
+                }
+                else
+                {
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+                    loadnewAllNoteFlowLayoutPanel("asc");
+                }
+            }
+            
         }
     }
 }

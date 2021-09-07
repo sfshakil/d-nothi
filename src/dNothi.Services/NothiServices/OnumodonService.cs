@@ -134,7 +134,7 @@ namespace dNothi.Services.NothiServices
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
                 
-                request.AddParameter("note", "{\"note_id\":\"" + noteId + "\",\"nothi_id\":\"" + nothiListRecords.id + "\",\"nothi_office\":\"" + dakUserParam.office_id + "\"}");
+                request.AddParameter("note", "{\"note_id\":\"" + noteId + "\",\"nothi_id\":\"" + nothiListRecords.id + "\",\"nothi_office\":\"" + nothiListRecords.office_id + "\"}");
                 IRestResponse response = client.Execute(request);
 
 
