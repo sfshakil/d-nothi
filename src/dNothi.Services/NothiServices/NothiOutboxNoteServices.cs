@@ -23,7 +23,7 @@ namespace dNothi.Services.NothiServices
             _noteItem = noteItem;
             _noteSaveItemAction = noteSaveItemAction;
         }
-        public NothiListOutboxNoteResponse GetNothiOutboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category, string note_order)
+        public NothiListOutboxNoteResponse GetNothiOutboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category, string note_order, string nothi_office)
         {
             NothiListOutboxNoteResponse nothiListInboxNoteResponse = new NothiListOutboxNoteResponse();
             
@@ -49,7 +49,7 @@ namespace dNothi.Services.NothiServices
                 request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("cdesk", "{\"office_id\":\""+ dakListUserParam.office_id + "\",\"office_unit_id\":\""+ dakListUserParam.office_unit_id + "\",\"designation_id\":\""+ dakListUserParam.designation_id + "\"}");
-                request.AddParameter("nothi", "{\"nothi_id\":\""+ Convert.ToInt32(eachNothiId) +"\",\"note_category\":\""+ note_category + "\"}");
+                request.AddParameter("nothi", "{\"nothi_id\":\""+ Convert.ToInt32(eachNothiId) +"\",\"note_category\":\""+ note_category + "\",\"nothi_office\":\"" + nothi_office + "\"}");
                 request.AddParameter("length", "100");
                 request.AddParameter("page", "1");
                 request.AddParameter("order", note_order);
@@ -110,7 +110,7 @@ namespace dNothi.Services.NothiServices
             return DefaultAPIConfiguration.NothiOutboxNoteEndPoint;
         }
 
-        public NothiListOutboxNoteResponse GetOtherOfficeNothiOutboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category, string note_order)
+        public NothiListOutboxNoteResponse GetOtherOfficeNothiOutboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category, string note_order, string nothi_office)
         {
             NothiListOutboxNoteResponse nothiListInboxNoteResponse  = new NothiListOutboxNoteResponse();
             try
@@ -122,7 +122,7 @@ namespace dNothi.Services.NothiServices
                 request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("cdesk", "{\"office_id\":\"" + dakListUserParam.office_id + "\",\"office_unit_id\":\"" + dakListUserParam.office_unit_id + "\",\"designation_id\":\"" + dakListUserParam.designation_id + "\"}");
-                request.AddParameter("nothi", "{\"nothi_id\":\"" + Convert.ToInt32(eachNothiId) + "\",\"note_category\":\"" + note_category + "\"}");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + Convert.ToInt32(eachNothiId) + "\",\"note_category\":\"" + note_category + "\",\"nothi_office\":\"" + nothi_office + "\"}");
                 request.AddParameter("length", "100");
                 request.AddParameter("page", "1");
                 request.AddParameter("order", note_order);

@@ -229,9 +229,11 @@ namespace dNothi.Desktop.UI.Dak
             foreach (OtherOfficeNothiListInboxNoteDataRecord nothiListInboxNoteRecordsDTO in nothiNoteInboxLists)
             {
                 var nothiNoteShomuho = UserControlFactory.Create<NothiNoteShomuho>();
-
-                //_noteListForNoteAll = nothiNoteInboxLists[0];
-
+                _noteListForNoteAll.nothi = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordNothi, NothiNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.nothi);
+                _noteListForNoteAll.note = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordNote, NoteNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.note);
+                _noteListForNoteAll.desk = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordDesk, DeskNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.desk);
+                _noteListForNoteAll.to = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordTo, ToNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.to);
+                
                 nothiNoteShomuho.note_ID = nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString();
                 nothiNoteShomuho.note_subject = nothiListInboxNoteRecordsDTO.note.note_subject;
                 nothiNoteShomuho.note_no = Convert.ToString(nothiListInboxNoteRecordsDTO.note.note_no);
@@ -549,7 +551,7 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler NoteAllButton;
         private void btnAllNote_Click(object sender, EventArgs e)
         {
-            if (this.NoteAllButton != null)
+            if (this.NoteAllButton != null && _noteListForNoteAll.desk != null && _noteListForNoteAll.note != null && _noteListForNoteAll.nothi != null && _noteListForNoteAll.to != null)
                 this.NoteAllButton(_noteListForNoteAll, e);
         }
 

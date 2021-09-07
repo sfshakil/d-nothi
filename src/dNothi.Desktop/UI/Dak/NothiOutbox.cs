@@ -57,6 +57,7 @@ namespace dNothi.Desktop.UI.Dak
         private string _bortomanDesk;
         private string _lastdate;
         private string _office;
+        private string _nothi_office;
         private int _nothiId;
         private int _noteTotal;
         public bool _isOtherOffice;
@@ -76,6 +77,11 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _office; }
             set { _office = value; lbOffice.Text = value; }
+        }
+        public string nothi_office
+        {
+            get { return _nothi_office; }
+            set { _nothi_office = value;  }
         }
         public string nothi
         {
@@ -154,7 +160,7 @@ namespace dNothi.Desktop.UI.Dak
             var nothiListUserParam = _userService.GetLocalDakUserParam();
             string note_category = "other_office_sent";
             
-            var nothiInboxNote = _nothiOutboxNote.GetOtherOfficeNothiOutboxNote(nothiListUserParam, eachNothiId, note_category, note_order);
+            var nothiInboxNote = _nothiOutboxNote.GetOtherOfficeNothiOutboxNote(nothiListUserParam, eachNothiId, note_category, note_order, nothi_office);
 
             if (nothiInboxNote.status == "success")
             {
@@ -299,7 +305,7 @@ namespace dNothi.Desktop.UI.Dak
             }
 
 
-            var nothiInboxNote = _nothiOutboxNote.GetNothiOutboxNote(nothiListUserParam, eachNothiId, note_category, note_order);
+            var nothiInboxNote = _nothiOutboxNote.GetNothiOutboxNote(nothiListUserParam, eachNothiId, note_category, note_order, nothi_office);
 
             if (nothiInboxNote.status == "success")
             {

@@ -182,49 +182,62 @@ namespace dNothi.Desktop.UI
             {
                 _NoteAllListDataRecordDTO = value;
 
-                if (_NoteAllListDataRecordDTO.note.can_revert == 1)
+                if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox")
                 {
-                    btnCanRevert.Visible = true;
-                    checkSub = _NoteAllListDataRecordDTO.note.note_subject;
-                    checkNoteId = _NoteAllListDataRecordDTO.note.nothi_note_id;
-                }
-                else
-                {
-                    btnCanRevert.Visible = false;
-                }
-                if (_NoteAllListDataRecordDTO.note.is_editable == 1 || _NoteAllListDataRecordDTO.desk.note_current_status == "Finished")
-                {
-                    if (_NoteAllListDataRecordDTO.note.can_revert == 1)
-                    {
-                        btnWriteOnuchhed.Visible = false;
-                        btnSend.Visible = false;
-                    }
-                    else
+                    if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox")
                     {
                         btnWriteOnuchhed.Visible = true;
                         btnSend.Visible = true;
                     }
+                    btnSaveAndKhoshra.Visible = false;
+                    btnCanRevert.Visible = false;
                 }
                 else
                 {
-                    btnWriteOnuchhed.Visible = false;
-                    btnSend.Visible = false;
-                }
-                if (_NoteAllListDataRecordDTO.note.onucched_count > 0)
-                {
-                    iconButton18.Visible = false;
-                }
-                else
-                {
-                    iconButton18.Visible = true;
-                }
-                if (_NoteAllListDataRecordDTO.note.can_finish == 1)
-                {
-                    btnNoteFinished.Visible = true;
-                }
-                else
-                {
-                    btnNoteFinished.Visible = false;
+                    if (_NoteAllListDataRecordDTO.note.can_revert == 1)
+                    {
+                        btnCanRevert.Visible = true;
+                        checkSub = _NoteAllListDataRecordDTO.note.note_subject;
+                        checkNoteId = _NoteAllListDataRecordDTO.note.nothi_note_id;
+                    }
+                    else
+                    {
+                        btnCanRevert.Visible = false;
+                    }
+                    if (_NoteAllListDataRecordDTO.note.is_editable == 1 || _NoteAllListDataRecordDTO.desk.note_current_status == "Finished")
+                    {
+                        if (_NoteAllListDataRecordDTO.note.can_revert == 1)
+                        {
+                            btnWriteOnuchhed.Visible = false;
+                            btnSend.Visible = false;
+                        }
+                        else
+                        {
+                            btnWriteOnuchhed.Visible = true;
+                            btnSend.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        btnWriteOnuchhed.Visible = false;
+                        btnSend.Visible = false;
+                    }
+                    if (_NoteAllListDataRecordDTO.note.onucched_count > 0)
+                    {
+                        iconButton18.Visible = false;
+                    }
+                    else
+                    {
+                        iconButton18.Visible = true;
+                    }
+                    if (_NoteAllListDataRecordDTO.note.can_finish == 1)
+                    {
+                        btnNoteFinished.Visible = true;
+                    }
+                    else
+                    {
+                        btnNoteFinished.Visible = false;
+                    }
                 }
             }
         }
@@ -1258,24 +1271,37 @@ namespace dNothi.Desktop.UI
                                 { _NoteAllListDataRecordDTO = nothiListInboxNoteRecordsDTO; }
                             }
                         }
-                        if (_NoteAllListDataRecordDTO.note.can_revert == 1)
+                        if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox")
                         {
-                            btnCanRevert.Visible = true;
-                            checkSub = _NoteAllListDataRecordDTO.note.note_subject;
-                            checkNoteId = _NoteAllListDataRecordDTO.note.nothi_note_id;
+                            if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox")
+                            {
+                                btnWriteOnuchhed.Visible = true;
+                                btnSend.Visible = true;
+                            }
+                            btnSaveAndKhoshra.Visible = false;
+                            btnCanRevert.Visible = false;
                         }
-                        else { btnCanRevert.Visible = false; }
-                        if (_NoteAllListDataRecordDTO.note.is_editable == 1 || _NoteAllListDataRecordDTO.desk.note_current_status == "Finished")
+                        else
                         {
                             if (_NoteAllListDataRecordDTO.note.can_revert == 1)
-                            { btnWriteOnuchhed.Visible = false; btnSend.Visible = false; }
-                            else { btnWriteOnuchhed.Visible = true; btnSend.Visible = true; }
+                            {
+                                btnCanRevert.Visible = true;
+                                checkSub = _NoteAllListDataRecordDTO.note.note_subject;
+                                checkNoteId = _NoteAllListDataRecordDTO.note.nothi_note_id;
+                            }
+                            else { btnCanRevert.Visible = false; }
+                            if (_NoteAllListDataRecordDTO.note.is_editable == 1 || _NoteAllListDataRecordDTO.desk.note_current_status == "Finished")
+                            {
+                                if (_NoteAllListDataRecordDTO.note.can_revert == 1)
+                                { btnWriteOnuchhed.Visible = false; btnSend.Visible = false; }
+                                else { btnWriteOnuchhed.Visible = true; btnSend.Visible = true; }
+                            }
+                            else { btnWriteOnuchhed.Visible = false; btnSend.Visible = false; }
+                            if (_NoteAllListDataRecordDTO.note.can_finish == 1)
+                            { btnNoteFinished.Visible = true; }
+                            else
+                            { btnNoteFinished.Visible = false; }
                         }
-                        else { btnWriteOnuchhed.Visible = false; btnSend.Visible = false; }
-                        if (_NoteAllListDataRecordDTO.note.can_finish == 1)
-                        { btnNoteFinished.Visible = true; }
-                        else
-                        { btnNoteFinished.Visible = false; }
                         OnucchedListDataRecordDTO last = onucchedList.data.records.Last();
                         foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                         {
@@ -2730,7 +2756,7 @@ namespace dNothi.Desktop.UI
                         }
                     }
 
-                    NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
+                    NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords);
 
                     if (allNoteList.data.records.Count > 0)
                     {
@@ -2791,7 +2817,7 @@ namespace dNothi.Desktop.UI
         public void noteAllButtonClick(NothiListRecordsDTO nothiListRecords)
         {
             noteViewFLP.Controls.Clear();
-            NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
+            NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords);
             lbNothiType.Text = "সকল নোট (" + string.Concat(allNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
 
             visibilityOFF();
@@ -3218,20 +3244,34 @@ namespace dNothi.Desktop.UI
                         noteHeaderPanel.Height = 426;
                         var onuchhedNo = "0";
                         int totalOnuchhed = 0;
-                        if (_NoteAllListDataRecordDTO.note.can_revert == 1)
+                        if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox")
                         {
-                            btnCanRevert.Visible = true;
-                            checkSub = _NoteAllListDataRecordDTO.note.note_subject;
-                            checkNoteId = _NoteAllListDataRecordDTO.note.nothi_note_id;
+                            if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox")
+                            {
+                                btnWriteOnuchhed.Visible = true;
+                                btnSend.Visible = true;
+                            }
+                            btnSaveAndKhoshra.Visible = false;
+                            btnCanRevert.Visible = false;
                         }
-                        else { btnCanRevert.Visible = false; }
-                        if (_NoteAllListDataRecordDTO.note.is_editable == 1 || _NoteAllListDataRecordDTO.desk.note_current_status == "Finished")
-                        { btnWriteOnuchhed.Visible = true; btnSend.Visible = true; }
-                        else { btnWriteOnuchhed.Visible = false; btnSend.Visible = false; }
-                        if (_NoteAllListDataRecordDTO.note.can_finish == 1)
-                        { btnNoteFinished.Visible = true; }
                         else
-                        { btnNoteFinished.Visible = false; }
+                        {
+                            if (_NoteAllListDataRecordDTO.note.can_revert == 1)
+                            {
+                                btnCanRevert.Visible = true;
+                                checkSub = _NoteAllListDataRecordDTO.note.note_subject;
+                                checkNoteId = _NoteAllListDataRecordDTO.note.nothi_note_id;
+                            }
+                            else { btnCanRevert.Visible = false; }
+                            if (_NoteAllListDataRecordDTO.note.is_editable == 1 || _NoteAllListDataRecordDTO.desk.note_current_status == "Finished")
+                            { btnWriteOnuchhed.Visible = true; btnSend.Visible = true; }
+                            else { btnWriteOnuchhed.Visible = false; btnSend.Visible = false; }
+                            if (_NoteAllListDataRecordDTO.note.can_finish == 1)
+                            { btnNoteFinished.Visible = true; }
+                            else
+                            { btnNoteFinished.Visible = false; }
+                        }
+                        
                         OnucchedListDataRecordDTO last = onucchedList.data.records.Last();
                         foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                         {
@@ -3847,20 +3887,33 @@ namespace dNothi.Desktop.UI
                                 noteHeaderPanel.Height = 426;
                                 var onuchhedNo = "0";
                                 int totalOnuchhed = 0;
-                                if (_NoteAllListDataRecordDTO.note.can_revert == 1)
+                                if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox")
                                 {
-                                    btnCanRevert.Visible = true;
-                                    checkSub = _NoteAllListDataRecordDTO.note.note_subject;
-                                    checkNoteId = _NoteAllListDataRecordDTO.note.nothi_note_id;
+                                    if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox")
+                                    {
+                                        btnWriteOnuchhed.Visible = true;
+                                        btnSend.Visible = true;
+                                    }
+                                    btnSaveAndKhoshra.Visible = false;
+                                    btnCanRevert.Visible = false;
                                 }
-                                else { btnCanRevert.Visible = false; }
-                                if (_NoteAllListDataRecordDTO.note.is_editable == 1 || _NoteAllListDataRecordDTO.desk.note_current_status == "Finished")
-                                { btnWriteOnuchhed.Visible = true; btnSend.Visible = true; }
-                                else { btnWriteOnuchhed.Visible = false; btnSend.Visible = false; }
-                                if (_NoteAllListDataRecordDTO.note.can_finish == 1)
-                                { btnNoteFinished.Visible = true; }
                                 else
-                                { btnNoteFinished.Visible = false; }
+                                {
+                                    if (_NoteAllListDataRecordDTO.note.can_revert == 1)
+                                    {
+                                        btnCanRevert.Visible = true;
+                                        checkSub = _NoteAllListDataRecordDTO.note.note_subject;
+                                        checkNoteId = _NoteAllListDataRecordDTO.note.nothi_note_id;
+                                    }
+                                    else { btnCanRevert.Visible = false; }
+                                    if (_NoteAllListDataRecordDTO.note.is_editable == 1 || _NoteAllListDataRecordDTO.desk.note_current_status == "Finished")
+                                    { btnWriteOnuchhed.Visible = true; btnSend.Visible = true; }
+                                    else { btnWriteOnuchhed.Visible = false; btnSend.Visible = false; }
+                                    if (_NoteAllListDataRecordDTO.note.can_finish == 1)
+                                    { btnNoteFinished.Visible = true; }
+                                    else
+                                    { btnNoteFinished.Visible = false; }
+                                }
                                 OnucchedListDataRecordDTO last = onucchedList.data.records.Last();
                                 foreach (OnucchedListDataRecordDTO onucchedsingleListRec in onucchedList.data.records)
                                 {
@@ -4191,20 +4244,34 @@ namespace dNothi.Desktop.UI
             visibilityOFF();
             updateOnuchhedId = 0;
             onuchhedSaveWithAttachments.Clear();
-            if (_NoteAllListDataRecordDTO.note.can_revert == 1)
+            if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox")
             {
-                btnCanRevert.Visible = true;
-                checkSub = _NoteAllListDataRecordDTO.note.note_subject;
-                checkNoteId = _NoteAllListDataRecordDTO.note.nothi_note_id;
+                if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox")
+                {
+                    btnWriteOnuchhed.Visible = true;
+                    btnSend.Visible = true;
+                }
+                btnSaveAndKhoshra.Visible = false;
+                btnCanRevert.Visible = false;
             }
-            else { btnCanRevert.Visible = false; }
-            if (_NoteAllListDataRecordDTO.note.is_editable == 1 || _NoteAllListDataRecordDTO.desk.note_current_status == "Finished")
-            { btnWriteOnuchhed.Visible = true; btnSend.Visible = true; }
-            else { btnWriteOnuchhed.Visible = false; btnSend.Visible = false; }
-            if (_NoteAllListDataRecordDTO.note.can_finish == 1)
-            { btnNoteFinished.Visible = true; }
-            else
-            { btnNoteFinished.Visible = false; }
+            else 
+            {
+                if (_NoteAllListDataRecordDTO.note.can_revert == 1)
+                {
+                    btnCanRevert.Visible = true;
+                    checkSub = _NoteAllListDataRecordDTO.note.note_subject;
+                    checkNoteId = _NoteAllListDataRecordDTO.note.nothi_note_id;
+                }
+                else { btnCanRevert.Visible = false; }
+                if (_NoteAllListDataRecordDTO.note.is_editable == 1 || _NoteAllListDataRecordDTO.desk.note_current_status == "Finished")
+                { btnWriteOnuchhed.Visible = true; btnSend.Visible = true; }
+                else { btnWriteOnuchhed.Visible = false; btnSend.Visible = false; }
+                if (_NoteAllListDataRecordDTO.note.can_finish == 1)
+                { btnNoteFinished.Visible = true; }
+                else
+                { btnNoteFinished.Visible = false; }
+            }
+            
             fileAddFLP.Controls.Clear();
             noteFileUploads.Clear();
         }

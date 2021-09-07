@@ -607,7 +607,7 @@ namespace dNothi.Desktop.UI
                 form.visibilityoffNewNoteButton();
             }
             _dakuserparam = _userService.GetLocalDakUserParam();
-            form.noteIdfromNothiInboxNoteShomuho = noteListDataRecordNoteDTO.nothi_note_id.ToString();
+            form.noteIdfromNothiInboxNoteShomuho = nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString();
             //form.NoteDetailsButton += delegate (object sender1, EventArgs e1) { NoteDetails_ButtonClick(noteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiListInboxNoteRecordsDTO); };
 
             NothiListRecordsDTO nothiListRecords = nothiListRecordsDTO;
@@ -661,7 +661,7 @@ namespace dNothi.Desktop.UI
                 BeginInvoke((Action)(() => nothi.TopMost = false));
                 nothi.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
             };
-            if (inboxORoutboxORall == 2)
+            if (inboxORoutboxORall == 2 || inboxORoutboxORall == 4 || inboxORoutboxORall == 5)
             {
                 form.visibilityoffNewNoteButton();
             }
@@ -672,6 +672,14 @@ namespace dNothi.Desktop.UI
             else if (inboxORoutboxORall == 2)
             {
                 nothiListRecordsDTO.nothi_type = "sent";
+            }
+            else if (inboxORoutboxORall == 4)
+            {
+                nothiListRecordsDTO.nothi_type = "other_office_Inbox";
+            }
+            else if (inboxORoutboxORall == 5)
+            {
+                nothiListRecordsDTO.nothi_type = "other_office_Outbox";
             }
             else
             {
@@ -1209,6 +1217,7 @@ namespace dNothi.Desktop.UI
                     nothiOutbox.bortomanDesk = nothiOutboxListDTO.desk.officer + " " + nothiOutboxListDTO.desk.designation + "," + nothiOutboxListDTO.desk.office_unit + "," + nothiOutboxListDTO.desk.office;
                 nothiOutbox.lastdate = "নোটের সর্বশেষ তারিখঃ " + nothiOutboxListDTO.nothi.last_note_date;
                 nothiOutbox.nothiId = nothiOutboxListDTO.nothi.id;
+                nothiOutbox.nothi_office = nothiOutboxListDTO.nothi.office_id.ToString();
 
                 nothiOutbox.NothiOutboxOnumodonButtonClick += delegate (object sender, EventArgs e) { NothiOutboxOnumodon_ButtonClick(sender, e, nothiOutboxListDTO); };
                 nothiOutbox.NewNoteButtonClick += delegate (object sender, EventArgs e) {
@@ -3009,6 +3018,13 @@ namespace dNothi.Desktop.UI
                     nothiListFlowLayoutPanel.Controls.Clear();
                 }
             }
+            else
+            {
+                allNextButtonVisibilityOff();
+
+                pnlNoData.Visible = true;
+                nothiListFlowLayoutPanel.Controls.Clear();
+            }
 
         }
         private void LoadOtherOfficeNothiInboxinPanel(List<OthersOfficeNothiListInboxDataRecord> nothiLists)
@@ -3027,13 +3043,20 @@ namespace dNothi.Desktop.UI
                 nothiInbox.visibilityoffNothiInboxOnumodon();
                 nothiInbox._isOtherOffice = true;
                 
-                nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) { //nothiListRecordsDTO.nothi_type = "Inbox";
+                nothiInbox.NoteDetailsButton += delegate (object sender, EventArgs e) {
                     
                     NothiListRecordsDTO nothiListRecordsDTO1 = new NothiListRecordsDTO();
                     nothiListRecordsDTO1 = MappingModels.MapModel<OthersOfficeNothiListInboxDataRecord, NothiListRecordsDTO>(nothiListRecordsDTO);
-
+                    nothiListRecordsDTO1.nothi_type = "";
                     NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO1, nothiInbox._nothiListInboxNoteRecordsDTO, 4); };// 4 means otherofficeinbox
-                //nothiInbox.NoteAllButton += delegate (object sender, EventArgs e) { nothiListRecordsDTO.nothi_type = "Inbox"; NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 1); };// 1 means inbox
+                
+                nothiInbox.NoteAllButton += delegate (object sender, EventArgs e) {
+
+                    NothiListRecordsDTO nothiListRecordsDTO1 = new NothiListRecordsDTO();
+                    nothiListRecordsDTO1 = MappingModels.MapModel<OthersOfficeNothiListInboxDataRecord, NothiListRecordsDTO>(nothiListRecordsDTO);
+                    nothiListRecordsDTO1.nothi_type = "";
+                    
+                    NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO1, 4); };// 4 means other office inbox
                 
                 UIDesignCommonMethod.AddRowinTable(nothiListFlowLayoutPanel, nothiInbox);
             }
@@ -3131,6 +3154,13 @@ namespace dNothi.Desktop.UI
                 }
 
             }
+            else
+            {
+                allNextButtonVisibilityOff();
+
+                pnlNoData.Visible = true;
+                nothiListFlowLayoutPanel.Controls.Clear();
+            }
         }
         private void LoadOtherOfficeNothiOutboxinPanel(List<OtherOfficeNothiListOutboxDataRecord> nothiOutboxLists)
         {
@@ -3151,7 +3181,7 @@ namespace dNothi.Desktop.UI
                 nothiOutbox.visibilityOnNothiOutboxOfficePanel();
                 nothiOutbox.office = nothiOutboxListDTO.desk.office;
                 nothiOutbox._isOtherOffice = true;
-
+                nothiOutbox.nothi_office = nothiOutboxListDTO.nothi.office_id.ToString();
 
 
 
@@ -3169,27 +3199,28 @@ namespace dNothi.Desktop.UI
                     nothiListRecordsDTO.subject = nothiOutboxListDTO.nothi.subject;
                     nothiListRecordsDTO.nothi_class = nothiOutboxListDTO.nothi.nothi_class;
                     nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date;
-                    nothiListRecordsDTO.nothi_type = "sent";
-                    NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiOutbox._nothiListInboxNoteRecordsDTO, 5);// 2 means outbox
+                    nothiListRecordsDTO.nothi_type = "";
+                    NoteDetails_ButtonClick(sender as NoteListDataRecordNoteDTO, e, nothiListRecordsDTO, nothiOutbox._nothiListInboxNoteRecordsDTO, 5);// 5 means others office outbox
                 };
 
 
-                //nothiOutbox.NoteAllButton += delegate (object sender, EventArgs e) {
-                //    NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
-                //    nothiListRecordsDTO.id = nothiOutboxListDTO.nothi.id;
-                //    nothiListRecordsDTO.office_id = nothiOutboxListDTO.nothi.office_id;
-                //    nothiListRecordsDTO.office_name = nothiOutboxListDTO.nothi.office_name;
-                //    nothiListRecordsDTO.office_unit_id = nothiOutboxListDTO.nothi.office_unit_id;
-                //    nothiListRecordsDTO.office_unit_name = nothiOutboxListDTO.nothi.office_unit_name;
-                //    nothiListRecordsDTO.office_unit_organogram_id = nothiOutboxListDTO.nothi.office_unit_organogram_id;
-                //    nothiListRecordsDTO.office_designation_name = nothiOutboxListDTO.nothi.office_designation_name;
-                //    nothiListRecordsDTO.nothi_no = nothiOutboxListDTO.nothi.nothi_no;
-                //    nothiListRecordsDTO.subject = nothiOutboxListDTO.nothi.subject;
-                //    nothiListRecordsDTO.nothi_class = nothiOutboxListDTO.nothi.nothi_class;
-                //    nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date;
-                //    nothiListRecordsDTO.nothi_type = "sent";
-                //    NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 2);// 2 means outbox
-                //};
+                nothiOutbox.NoteAllButton += delegate (object sender, EventArgs e)
+                {
+                    NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
+                    nothiListRecordsDTO.id = nothiOutboxListDTO.nothi.id;
+                    nothiListRecordsDTO.office_id = nothiOutboxListDTO.nothi.office_id;
+                    nothiListRecordsDTO.office_name = nothiOutboxListDTO.nothi.office_name;
+                    nothiListRecordsDTO.office_unit_id = nothiOutboxListDTO.nothi.office_unit_id;
+                    nothiListRecordsDTO.office_unit_name = nothiOutboxListDTO.nothi.office_unit_name;
+                    nothiListRecordsDTO.office_unit_organogram_id = nothiOutboxListDTO.nothi.office_unit_organogram_id;
+                    nothiListRecordsDTO.office_designation_name = nothiOutboxListDTO.nothi.office_designation_name;
+                    nothiListRecordsDTO.nothi_no = nothiOutboxListDTO.nothi.nothi_no;
+                    nothiListRecordsDTO.subject = nothiOutboxListDTO.nothi.subject;
+                    nothiListRecordsDTO.nothi_class = nothiOutboxListDTO.nothi.nothi_class;
+                    nothiListRecordsDTO.last_note_date = nothiOutboxListDTO.nothi.last_note_date;
+                    nothiListRecordsDTO.nothi_type = "";
+                    NoteAll_ButtonClick(sender as NothiListInboxNoteRecordsDTO, e, nothiListRecordsDTO, 5);// 5 means others office outbox
+                };
 
 
                 //nothiOutbox.nothiOutboxListRecordsDTO = nothiOutboxListDTO;

@@ -280,13 +280,13 @@ namespace dNothi.Services.NothiServices
             }
         }
 
-        public NoteAllListResponse GetNoteListAll(DakUserParam dakUserParam, long nothi_id)
+        public NoteAllListResponse GetNoteListAll(DakUserParam dakUserParam, NothiListRecordsDTO nothiListRecordsDTO)
         {
             NoteAllListResponse noteListResponse = new NoteAllListResponse();
 
             if (!dNothi.Utility.InternetConnection.Check())
             {
-                var noteInboxSentAllItem = _noteInboxSentAllItem.Table.FirstOrDefault(a => a.nothi_id == nothi_id && a.note_category == "All" && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+                var noteInboxSentAllItem = _noteInboxSentAllItem.Table.FirstOrDefault(a => a.nothi_id == nothiListRecordsDTO.id && a.note_category == "All" && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
 
                 if (noteInboxSentAllItem != null)
                 {
@@ -310,11 +310,11 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("cdesk", dakUserParam.json_String);
                 request.AddParameter("length", "1000");
                 request.AddParameter("page", "1");
-                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi_id + "\",\"note_category\":\"All\"}");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothiListRecordsDTO.id + "\",\"note_category\":\"All\",\"nothi_office\":\"" + nothiListRecordsDTO.office_id + "\"}");
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
-                SaveOrUpdateNoteInboxSentAll(dakUserParam, responseJson, nothi_id, "All");
+                SaveOrUpdateNoteInboxSentAll(dakUserParam, responseJson, nothiListRecordsDTO.id, "All");
                 noteListResponse = _noteListParser.ParseMessage(responseJson);
                 return noteListResponse;
             }
