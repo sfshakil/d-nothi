@@ -1488,6 +1488,12 @@
     <Compile Include="UI\SelectOfficerForm.Designer.cs">
       <DependentUpon>SelectOfficerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\SettingsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SettingsUserControl.Designer.cs">
+      <DependentUpon>SettingsUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\UIDesignCommonMethod.cs" />
     <Compile Include="UI\VIew\DakListView.cs" />
     <Compile Include="UI\WaitFormFunc.cs" />
@@ -2074,6 +2080,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SelectOfficerForm.resx">
       <DependentUpon>SelectOfficerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SettingsUserControl.resx">
+      <DependentUpon>SettingsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\WaitNothiForm.resx">
       <DependentUpon>WaitNothiForm.cs</DependentUpon>

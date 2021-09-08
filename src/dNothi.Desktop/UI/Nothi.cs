@@ -96,6 +96,15 @@ namespace dNothi.Desktop.UI
         public void loadNothiExtra()
         {
             WaitForm.Show(this);
+
+
+            limitNothiInboxNo = 10;
+            limitNothiOutboxNo = 10;
+            limitNothiAllNo = 10;
+            limitOtherOfficeNothiInboxNo = 10;
+            limitotherOfficeNothiOutboxNo = 10;
+
+
             LoadNothiInbox();
             ResetAllMenuButtonSelection();
             SetDefaultFont(this.Controls);
@@ -109,6 +118,7 @@ namespace dNothi.Desktop.UI
             preritoNothiSelected = 0;
             shokolNothiSelected = 0;
             modulePanel.Visible = false;
+            settingsUserControl.Visible = false;
             noteListButton.BackColor = Color.FromArgb(130, 80, 230); ;
             btnNothiTalika.BackColor = Color.FromArgb(102, 16, 242); //115, 55, 238
             loadNothiInboxTotal();
@@ -267,7 +277,7 @@ namespace dNothi.Desktop.UI
         {
             allPreviousButtonVisibilityOff();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            limitNothiInboxNo = 10;
+            
             pageNoNothiInboxNo = 1;
             dakListUserParam.limit = limitNothiInboxNo;
             dakListUserParam.page = pageNoNothiInboxNo;
@@ -1076,7 +1086,7 @@ namespace dNothi.Desktop.UI
         {
             allPreviousButtonVisibilityOff();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            limitNothiOutboxNo = 10;
+            
             pageNoNothiOutboxNo = 1;
             dakListUserParam.limit = limitNothiOutboxNo;
             dakListUserParam.page = pageNoNothiOutboxNo;
@@ -1483,7 +1493,7 @@ namespace dNothi.Desktop.UI
             loadNothiAllFromLocal();
             allPreviousButtonVisibilityOff();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            limitNothiAllNo = 10;
+            
             pageNoNothiAllNo = 1;
             dakListUserParam.limit = limitNothiAllNo;
             dakListUserParam.page = pageNoNothiAllNo;
@@ -3142,7 +3152,7 @@ namespace dNothi.Desktop.UI
         {
             allPreviousButtonVisibilityOff();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            limitOtherOfficeNothiInboxNo = 10;
+            
             pageNoOtherOfficeNothiInboxNo = 1;
             dakListUserParam.limit = limitOtherOfficeNothiInboxNo;
             dakListUserParam.page = pageNoOtherOfficeNothiInboxNo;
@@ -3427,16 +3437,62 @@ namespace dNothi.Desktop.UI
             }
             
         }
-        
 
+        SettingsUserControl settingsUserControl = new SettingsUserControl();
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            var x = SettingsButton.Parent;
+            if (!settingsUserControl.Visible)
+            {
+                settingsUserControl.Visible = true;
+                settingsUserControl.Location = new System.Drawing.Point(SettingsButton.Location.X, SettingsButton.Height);
+                Controls.Add(settingsUserControl);
+                settingsUserControl.BringToFront();
+                settingsUserControl.SettingsSaveButton += delegate (object sender1, EventArgs e1) { SettingsSaveButton_Click(sender1 as Settings, e1); };
+
+            }
+            else
+            {
+                settingsUserControl.Visible = false;
+                //modulePanel.Width = 334;
+            }
+        }
+        private void SettingsSaveButton_Click(Settings settings, EventArgs e)
+        {
+            limitNothiInboxNo = settings.nothiInboxPagination;
+            limitNothiOutboxNo = settings.nothiSentPagination;
+            limitNothiAllNo = settings.nothiAllPagination;
+            limitOtherOfficeNothiInboxNo = settings.othersOfficeNothiInboxPagination;
+            limitotherOfficeNothiOutboxNo = settings.othersOfficeNothiSentPagination;
+            if (agotoNothiSelected == 1)
+            {
+              LoadNothiInboxButton(settings, e);  
+            }
+            else if (preritoNothiSelected == 1)
+            {
+                LoadNothiOutboxButton(settings, e);
+            }
+            else if (shokolNothiSelected == 1)
+            {
+                LoadNothiAllButton(settings, e);
+            }
+            else if (onnoOfficeagotoNothiSelected == 1)
+            {
+                LoadOthersOfficeNothiInboxButton(settings, e);
+            }
+            else if (onnoOfficepreritoNothiSelected == 1)
+            {
+                LoadOthersOfficeNothiOutboxButton(settings, e);
+            }
+
+        }
 
         int limitotherOfficeNothiOutboxNo, pageNootherOfficeNothiOutboxNo, totalotherOfficeNothiOutboxNo, lengthStartotherOfficeNothiOutboxNo, lengthEndotherOfficeNothiOutboxNo;
-
         private void LoadNothiOtherOfficeNothiOutbox()
         {
             allPreviousButtonVisibilityOff();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            limitotherOfficeNothiOutboxNo = 10;
+            
             pageNootherOfficeNothiOutboxNo = 1;
             dakListUserParam.limit = limitotherOfficeNothiOutboxNo;
             dakListUserParam.page = pageNootherOfficeNothiOutboxNo;
