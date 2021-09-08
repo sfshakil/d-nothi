@@ -2079,7 +2079,7 @@ namespace dNothi.Desktop.UI
             nothipreronRegisterBook.Visible = false;
             nothiPotrajariRegisterBook.Visible = false;
             nothiShakaWiseProtibedan.Visible = false;
-
+            someSearchFunctionOn();
 
             allReset();
             panel3.Visible = true;
@@ -2119,6 +2119,7 @@ namespace dNothi.Desktop.UI
             nothiPotrajariRegisterBook.Visible = false;
             nothiMasterRegisterBook.Visible = false;
             nothiShakaWiseProtibedan.Visible = false;
+            someSearchFunctionOn();
             allReset();
             panel3.Visible = true;
             agotoNothiSelected = 0;
@@ -2180,6 +2181,7 @@ namespace dNothi.Desktop.UI
             nothiPotrajariRegisterBook.Visible = false;
             nothiMasterRegisterBook.Visible = false;
             nothiShakaWiseProtibedan.Visible = false;
+            someSearchFunctionOn();
             allReset();
             panel3.Visible = true;
             agotoNothiSelected = 0;
@@ -2595,13 +2597,16 @@ namespace dNothi.Desktop.UI
             //string date = dateRangeTextBox.Text;
 
             var search_Param = "nothi_subject="+ nothiSubject + "&nothi_priority="+ priority + "&nothi_type="+ nothiSelectedType.id + "&office_unit_id="+ office.office_unit_id + "&officer_designation_id="+ designation.designation_id + "&last_modified_date="+ last_modified_date + "";
-            
+            var search_Paramforothersoffice = "nothi_subject="+ nothiSubject + "&nothi_priority="+ priority + "&nothi_type="+ nothiSelectedType.id + "&office_unit_id="+ office.office_unit_id + "&to_officer_designation_id=" + designation.designation_id + "&last_modified_date="+ last_modified_date + "";
+            //nothi_subject = &nothi_priority = 4 & nothi_type = 0 & office_unit_id = 0 & last_modified_date = 2021 / 09 / 02:2021 / 09 / 08 & to_officer_designation_id = 426733
+            //nothi_subject = &nothi_priority = 0 & nothi_type = 0 & office_unit_id = 0 & last_modified_date = &officer_designation_id = 0
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             limitNothiInboxNo = 100000;
             pageNoNothiInboxNo = 1;
             pageNoNothiOutboxNo = 1;
             pageNoNothiAllNo = 1;
-
+            pageNoOtherOfficeNothiInboxNo = 1;
+            pageNootherOfficeNothiOutboxNo = 1;
             dakListUserParam.limit = limitNothiInboxNo;
             dakListUserParam.page = pageNoNothiInboxNo;
 
@@ -2690,7 +2695,87 @@ namespace dNothi.Desktop.UI
                     }
                 }
             }
-            
+            else if (onnoOfficeagotoNothiSelected == 1)
+            {
+                var otherOfficenothiInbox = _nothiInbox.GetOthersOfficeNothiInbox(dakListUserParam, search_Paramforothersoffice);
+                if (otherOfficenothiInbox != null && otherOfficenothiInbox.status == "success")
+                {
+                    //_nothiInbox.SaveOrUpdateNothiRecords(nothiInbox.data.records);
+
+                    totalOtherOfficeNothiInboxNo = otherOfficenothiInbox.data.total_records;
+
+                    if (otherOfficenothiInbox.data.records.Count > 0)
+                    {
+                        lengthEndOtherOfficeNothiInboxNo = otherOfficenothiInbox.data.records.Count;
+                        lbLengthStart.Text = string.Concat(pageNoOtherOfficeNothiInboxNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        lbLengthEnd.Text = string.Concat(lengthEndOtherOfficeNothiInboxNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                        allNextButtonVisibilityOff();
+                        if (totalOtherOfficeNothiInboxNo > 10)
+                        {
+                            btnOthersOfficeNothiInboxNext.Visible = true;
+                        }
+                        pnlNoData.Visible = false;
+                        lbTotalNothi.Text = "সর্বমোট: " + string.Concat(otherOfficenothiInbox.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        LoadOtherOfficeNothiInboxinPanel(otherOfficenothiInbox.data.records);
+
+                    }
+                    else
+                    {
+                        allNextButtonVisibilityOff();
+
+                        pnlNoData.Visible = true;
+                        nothiListFlowLayoutPanel.Controls.Clear();
+                    }
+                }
+                else
+                {
+                    allNextButtonVisibilityOff();
+
+                    pnlNoData.Visible = true;
+                    nothiListFlowLayoutPanel.Controls.Clear();
+                }
+            }
+            else if (onnoOfficepreritoNothiSelected == 1)
+            {
+                OtherOfficeNothiListOutboxResponse otherOfficeNothiOutbox = _nothiOutbox.OtherOfficeNothiOutboxListEndPoint(dakListUserParam, search_Paramforothersoffice);
+
+                if (otherOfficeNothiOutbox.status == "success")
+                {
+                    totalotherOfficeNothiOutboxNo = otherOfficeNothiOutbox.data.total_records;
+
+                    if (otherOfficeNothiOutbox.data.records.Count > 0)
+                    {
+                        lengthEndotherOfficeNothiOutboxNo = otherOfficeNothiOutbox.data.records.Count;
+                        lbLengthStart.Text = string.Concat(pageNootherOfficeNothiOutboxNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        lbLengthEnd.Text = string.Concat(lengthEndotherOfficeNothiOutboxNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
+
+                        allNextButtonVisibilityOff();
+                        if (totalotherOfficeNothiOutboxNo > 10)
+                        {
+                            btnOthersOfficeNothiOutboxNext.Visible = true;
+                        }
+
+                        pnlNoData.Visible = false;
+                        lbTotalNothi.Text = "সর্বমোট: " + string.Concat(otherOfficeNothiOutbox.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                        LoadOtherOfficeNothiOutboxinPanel(otherOfficeNothiOutbox.data.records);
+                    }
+                    else
+                    {
+                        allNextButtonVisibilityOff();
+                        pnlNoData.Visible = true;
+                        nothiListFlowLayoutPanel.Controls.Clear();
+                    }
+
+                }
+                else
+                {
+                    allNextButtonVisibilityOff();
+
+                    pnlNoData.Visible = true;
+                    nothiListFlowLayoutPanel.Controls.Clear();
+                }
+            }
         }
 
         private void registerButton_Click(object sender, EventArgs e)
@@ -2988,7 +3073,20 @@ namespace dNothi.Desktop.UI
             CalPopUpWindow(noteCreatePopUpForm);
 
         }
-
+        public void someSearchFunctionOffforOthersOffice()
+        {
+            label16.Visible = false;
+            cbxNothiType.Visible = false;
+            label5.Visible = false;
+            cbxNothiBranch.Visible = false;
+        }
+        public void someSearchFunctionOn()
+        {
+            label16.Visible = true;
+            cbxNothiType.Visible = true;
+            label5.Visible = true;
+            cbxNothiBranch.Visible = true;
+        }
         private void btnOtherOfficeNothiInbox_Click(object sender, EventArgs e)
         {
             if (InternetConnection.Check())
@@ -3001,7 +3099,7 @@ namespace dNothi.Desktop.UI
                 detailsNothiSearcPanel.Visible = false;
                 nothiPotrajariRegisterBook.Visible = false;
                 nothiMasterRegisterBook.Visible = false;
-
+                someSearchFunctionOffforOthersOffice();
                 allReset();
                 panel3.Visible = true;
 
@@ -3290,7 +3388,7 @@ namespace dNothi.Desktop.UI
                 detailsNothiSearcPanel.Visible = false;
                 nothiPotrajariRegisterBook.Visible = false;
                 nothiMasterRegisterBook.Visible = false;
-
+                someSearchFunctionOffforOthersOffice();
                 allReset();
                 panel3.Visible = true;
 

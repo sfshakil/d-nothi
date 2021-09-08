@@ -88,6 +88,10 @@ namespace dNothi.Desktop.UI
             this.lbLengthEnd = new System.Windows.Forms.Label();
             this.lbTotalNothi = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btnOthersOfficeNothiOutboxPrevious = new FontAwesome.Sharp.IconButton();
+            this.btnOthersOfficeNothiInboxPrevious = new FontAwesome.Sharp.IconButton();
+            this.btnOthersOfficeNothiOutboxNext = new FontAwesome.Sharp.IconButton();
+            this.btnOthersOfficeNothiInboxNext = new FontAwesome.Sharp.IconButton();
             this.btnNothiOutboxPrevious = new FontAwesome.Sharp.IconButton();
             this.btnNothiAllPrevious = new FontAwesome.Sharp.IconButton();
             this.btnNothiAllNext = new FontAwesome.Sharp.IconButton();
@@ -174,10 +178,6 @@ namespace dNothi.Desktop.UI
             this.nothiCustomDatePickerUserControl = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.nothiBackGroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.btnOthersOfficeNothiInboxNext = new FontAwesome.Sharp.IconButton();
-            this.btnOthersOfficeNothiOutboxNext = new FontAwesome.Sharp.IconButton();
-            this.btnOthersOfficeNothiInboxPrevious = new FontAwesome.Sharp.IconButton();
-            this.btnOthersOfficeNothiOutboxPrevious = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel40.SuspendLayout();
@@ -1300,6 +1300,86 @@ namespace dNothi.Desktop.UI
             this.panel8.Size = new System.Drawing.Size(121, 62);
             this.panel8.TabIndex = 66;
             // 
+            // btnOthersOfficeNothiOutboxPrevious
+            // 
+            this.btnOthersOfficeNothiOutboxPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnOthersOfficeNothiOutboxPrevious.FlatAppearance.BorderSize = 0;
+            this.btnOthersOfficeNothiOutboxPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.btnOthersOfficeNothiOutboxPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOthersOfficeNothiOutboxPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.btnOthersOfficeNothiOutboxPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.btnOthersOfficeNothiOutboxPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOthersOfficeNothiOutboxPrevious.IconSize = 24;
+            this.btnOthersOfficeNothiOutboxPrevious.Location = new System.Drawing.Point(0, 7);
+            this.btnOthersOfficeNothiOutboxPrevious.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOthersOfficeNothiOutboxPrevious.Name = "btnOthersOfficeNothiOutboxPrevious";
+            this.btnOthersOfficeNothiOutboxPrevious.Size = new System.Drawing.Size(60, 50);
+            this.btnOthersOfficeNothiOutboxPrevious.TabIndex = 43;
+            this.MyToolTip.SetToolTip(this.btnOthersOfficeNothiOutboxPrevious, "পূর্ববর্তী");
+            this.btnOthersOfficeNothiOutboxPrevious.UseVisualStyleBackColor = false;
+            this.btnOthersOfficeNothiOutboxPrevious.Visible = false;
+            this.btnOthersOfficeNothiOutboxPrevious.Click += new System.EventHandler(this.btnOthersOfficeNothiOutboxPrevious_Click);
+            // 
+            // btnOthersOfficeNothiInboxPrevious
+            // 
+            this.btnOthersOfficeNothiInboxPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnOthersOfficeNothiInboxPrevious.FlatAppearance.BorderSize = 0;
+            this.btnOthersOfficeNothiInboxPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.btnOthersOfficeNothiInboxPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOthersOfficeNothiInboxPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.btnOthersOfficeNothiInboxPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.btnOthersOfficeNothiInboxPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOthersOfficeNothiInboxPrevious.IconSize = 24;
+            this.btnOthersOfficeNothiInboxPrevious.Location = new System.Drawing.Point(0, 7);
+            this.btnOthersOfficeNothiInboxPrevious.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOthersOfficeNothiInboxPrevious.Name = "btnOthersOfficeNothiInboxPrevious";
+            this.btnOthersOfficeNothiInboxPrevious.Size = new System.Drawing.Size(60, 50);
+            this.btnOthersOfficeNothiInboxPrevious.TabIndex = 42;
+            this.MyToolTip.SetToolTip(this.btnOthersOfficeNothiInboxPrevious, "পূর্ববর্তী");
+            this.btnOthersOfficeNothiInboxPrevious.UseVisualStyleBackColor = false;
+            this.btnOthersOfficeNothiInboxPrevious.Visible = false;
+            this.btnOthersOfficeNothiInboxPrevious.Click += new System.EventHandler(this.btnOthersOfficeNothiInboxPrevious_Click);
+            // 
+            // btnOthersOfficeNothiOutboxNext
+            // 
+            this.btnOthersOfficeNothiOutboxNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnOthersOfficeNothiOutboxNext.FlatAppearance.BorderSize = 0;
+            this.btnOthersOfficeNothiOutboxNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.btnOthersOfficeNothiOutboxNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOthersOfficeNothiOutboxNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.btnOthersOfficeNothiOutboxNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.btnOthersOfficeNothiOutboxNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOthersOfficeNothiOutboxNext.IconSize = 24;
+            this.btnOthersOfficeNothiOutboxNext.Location = new System.Drawing.Point(60, 7);
+            this.btnOthersOfficeNothiOutboxNext.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOthersOfficeNothiOutboxNext.Name = "btnOthersOfficeNothiOutboxNext";
+            this.btnOthersOfficeNothiOutboxNext.Size = new System.Drawing.Size(60, 50);
+            this.btnOthersOfficeNothiOutboxNext.TabIndex = 41;
+            this.MyToolTip.SetToolTip(this.btnOthersOfficeNothiOutboxNext, "পরবর্তী");
+            this.btnOthersOfficeNothiOutboxNext.UseVisualStyleBackColor = false;
+            this.btnOthersOfficeNothiOutboxNext.Visible = false;
+            this.btnOthersOfficeNothiOutboxNext.Click += new System.EventHandler(this.btnOthersOfficeNothiOutboxNext_Click);
+            // 
+            // btnOthersOfficeNothiInboxNext
+            // 
+            this.btnOthersOfficeNothiInboxNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.btnOthersOfficeNothiInboxNext.FlatAppearance.BorderSize = 0;
+            this.btnOthersOfficeNothiInboxNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
+            this.btnOthersOfficeNothiInboxNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOthersOfficeNothiInboxNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.btnOthersOfficeNothiInboxNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
+            this.btnOthersOfficeNothiInboxNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnOthersOfficeNothiInboxNext.IconSize = 24;
+            this.btnOthersOfficeNothiInboxNext.Location = new System.Drawing.Point(60, 7);
+            this.btnOthersOfficeNothiInboxNext.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOthersOfficeNothiInboxNext.Name = "btnOthersOfficeNothiInboxNext";
+            this.btnOthersOfficeNothiInboxNext.Size = new System.Drawing.Size(60, 50);
+            this.btnOthersOfficeNothiInboxNext.TabIndex = 40;
+            this.MyToolTip.SetToolTip(this.btnOthersOfficeNothiInboxNext, "পরবর্তী");
+            this.btnOthersOfficeNothiInboxNext.UseVisualStyleBackColor = false;
+            this.btnOthersOfficeNothiInboxNext.Visible = false;
+            this.btnOthersOfficeNothiInboxNext.Click += new System.EventHandler(this.btnOthersOfficeNothiInboxNext_Click);
+            // 
             // btnNothiOutboxPrevious
             // 
             this.btnNothiOutboxPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -1863,7 +1943,7 @@ namespace dNothi.Desktop.UI
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.92982F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.38217F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.41258F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 222F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 226F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel8.Controls.Add(this.panel36, 0, 0);
             this.tableLayoutPanel8.Controls.Add(this.panel37, 0, 0);
@@ -1882,7 +1962,7 @@ namespace dNothi.Desktop.UI
             // panel36
             // 
             this.panel36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel36.Location = new System.Drawing.Point(372, 0);
+            this.panel36.Location = new System.Drawing.Point(370, 0);
             this.panel36.Margin = new System.Windows.Forms.Padding(0);
             this.panel36.Name = "panel36";
             this.panel36.Size = new System.Drawing.Size(10, 64);
@@ -1892,11 +1972,11 @@ namespace dNothi.Desktop.UI
             // 
             this.panel37.Controls.Add(this.cbxNothiBranch);
             this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel37.Location = new System.Drawing.Point(382, 0);
+            this.panel37.Location = new System.Drawing.Point(380, 0);
             this.panel37.Margin = new System.Windows.Forms.Padding(0);
             this.panel37.Name = "panel37";
             this.panel37.Padding = new System.Windows.Forms.Padding(1, 18, 1, 1);
-            this.panel37.Size = new System.Drawing.Size(373, 64);
+            this.panel37.Size = new System.Drawing.Size(371, 64);
             this.panel37.TabIndex = 9;
             this.panel37.Paint += new System.Windows.Forms.PaintEventHandler(this.nothiModulePanel_Paint);
             // 
@@ -1916,7 +1996,7 @@ namespace dNothi.Desktop.UI
             this.cbxNothiBranch.MaxDropDownItems = 100;
             this.cbxNothiBranch.MaxLength = 100;
             this.cbxNothiBranch.Name = "cbxNothiBranch";
-            this.cbxNothiBranch.Size = new System.Drawing.Size(371, 34);
+            this.cbxNothiBranch.Size = new System.Drawing.Size(369, 34);
             this.cbxNothiBranch.TabIndex = 77;
             this.cbxNothiBranch.Text = "দপ্তর/শাখা";
             // 
@@ -1937,7 +2017,7 @@ namespace dNothi.Desktop.UI
             this.panel39.Margin = new System.Windows.Forms.Padding(0);
             this.panel39.Name = "panel39";
             this.panel39.Padding = new System.Windows.Forms.Padding(1, 18, 1, 1);
-            this.panel39.Size = new System.Drawing.Size(362, 64);
+            this.panel39.Size = new System.Drawing.Size(360, 64);
             this.panel39.TabIndex = 7;
             this.panel39.Paint += new System.Windows.Forms.PaintEventHandler(this.nothiModulePanel_Paint);
             // 
@@ -1957,7 +2037,7 @@ namespace dNothi.Desktop.UI
             this.cbxSearchOfficer.MaxDropDownItems = 100;
             this.cbxSearchOfficer.MaxLength = 100;
             this.cbxSearchOfficer.Name = "cbxSearchOfficer";
-            this.cbxSearchOfficer.Size = new System.Drawing.Size(360, 34);
+            this.cbxSearchOfficer.Size = new System.Drawing.Size(358, 34);
             this.cbxSearchOfficer.TabIndex = 77;
             this.cbxSearchOfficer.Text = "নাম/পদবি দিয়ে খুঁজুন";
             // 
@@ -1968,7 +2048,7 @@ namespace dNothi.Desktop.UI
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.92982F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 1.38217F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.41258F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 224F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 228F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel7.Controls.Add(this.panel31, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.panel30, 0, 0);
@@ -1987,7 +2067,7 @@ namespace dNothi.Desktop.UI
             // panel31
             // 
             this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel31.Location = new System.Drawing.Point(371, 0);
+            this.panel31.Location = new System.Drawing.Point(369, 0);
             this.panel31.Margin = new System.Windows.Forms.Padding(0);
             this.panel31.Name = "panel31";
             this.panel31.Size = new System.Drawing.Size(10, 31);
@@ -1997,10 +2077,10 @@ namespace dNothi.Desktop.UI
             // 
             this.panel30.Controls.Add(this.label5);
             this.panel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel30.Location = new System.Drawing.Point(381, 0);
+            this.panel30.Location = new System.Drawing.Point(379, 0);
             this.panel30.Margin = new System.Windows.Forms.Padding(0);
             this.panel30.Name = "panel30";
-            this.panel30.Size = new System.Drawing.Size(372, 31);
+            this.panel30.Size = new System.Drawing.Size(370, 31);
             this.panel30.TabIndex = 9;
             // 
             // label5
@@ -2034,7 +2114,7 @@ namespace dNothi.Desktop.UI
             this.panel28.Location = new System.Drawing.Point(10, 0);
             this.panel28.Margin = new System.Windows.Forms.Padding(0);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(361, 31);
+            this.panel28.Size = new System.Drawing.Size(359, 31);
             this.panel28.TabIndex = 7;
             // 
             // label10
@@ -2599,86 +2679,6 @@ namespace dNothi.Desktop.UI
             // 
             this.nothiBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.nothiBackGroundWorker_DoWork);
             this.nothiBackGroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.nothiBackGroundWorker_RunWorkerCompleted);
-            // 
-            // btnOthersOfficeNothiInboxNext
-            // 
-            this.btnOthersOfficeNothiInboxNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.btnOthersOfficeNothiInboxNext.FlatAppearance.BorderSize = 0;
-            this.btnOthersOfficeNothiInboxNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.btnOthersOfficeNothiInboxNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOthersOfficeNothiInboxNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.btnOthersOfficeNothiInboxNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
-            this.btnOthersOfficeNothiInboxNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnOthersOfficeNothiInboxNext.IconSize = 24;
-            this.btnOthersOfficeNothiInboxNext.Location = new System.Drawing.Point(60, 7);
-            this.btnOthersOfficeNothiInboxNext.Margin = new System.Windows.Forms.Padding(0);
-            this.btnOthersOfficeNothiInboxNext.Name = "btnOthersOfficeNothiInboxNext";
-            this.btnOthersOfficeNothiInboxNext.Size = new System.Drawing.Size(60, 50);
-            this.btnOthersOfficeNothiInboxNext.TabIndex = 40;
-            this.MyToolTip.SetToolTip(this.btnOthersOfficeNothiInboxNext, "পরবর্তী");
-            this.btnOthersOfficeNothiInboxNext.UseVisualStyleBackColor = false;
-            this.btnOthersOfficeNothiInboxNext.Visible = false;
-            this.btnOthersOfficeNothiInboxNext.Click += new System.EventHandler(this.btnOthersOfficeNothiInboxNext_Click);
-            // 
-            // btnOthersOfficeNothiOutboxNext
-            // 
-            this.btnOthersOfficeNothiOutboxNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.btnOthersOfficeNothiOutboxNext.FlatAppearance.BorderSize = 0;
-            this.btnOthersOfficeNothiOutboxNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.btnOthersOfficeNothiOutboxNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOthersOfficeNothiOutboxNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.btnOthersOfficeNothiOutboxNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
-            this.btnOthersOfficeNothiOutboxNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnOthersOfficeNothiOutboxNext.IconSize = 24;
-            this.btnOthersOfficeNothiOutboxNext.Location = new System.Drawing.Point(60, 7);
-            this.btnOthersOfficeNothiOutboxNext.Margin = new System.Windows.Forms.Padding(0);
-            this.btnOthersOfficeNothiOutboxNext.Name = "btnOthersOfficeNothiOutboxNext";
-            this.btnOthersOfficeNothiOutboxNext.Size = new System.Drawing.Size(60, 50);
-            this.btnOthersOfficeNothiOutboxNext.TabIndex = 41;
-            this.MyToolTip.SetToolTip(this.btnOthersOfficeNothiOutboxNext, "পরবর্তী");
-            this.btnOthersOfficeNothiOutboxNext.UseVisualStyleBackColor = false;
-            this.btnOthersOfficeNothiOutboxNext.Visible = false;
-            this.btnOthersOfficeNothiOutboxNext.Click += new System.EventHandler(this.btnOthersOfficeNothiOutboxNext_Click);
-            // 
-            // btnOthersOfficeNothiInboxPrevious
-            // 
-            this.btnOthersOfficeNothiInboxPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.btnOthersOfficeNothiInboxPrevious.FlatAppearance.BorderSize = 0;
-            this.btnOthersOfficeNothiInboxPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.btnOthersOfficeNothiInboxPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOthersOfficeNothiInboxPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.btnOthersOfficeNothiInboxPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
-            this.btnOthersOfficeNothiInboxPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnOthersOfficeNothiInboxPrevious.IconSize = 24;
-            this.btnOthersOfficeNothiInboxPrevious.Location = new System.Drawing.Point(0, 7);
-            this.btnOthersOfficeNothiInboxPrevious.Margin = new System.Windows.Forms.Padding(0);
-            this.btnOthersOfficeNothiInboxPrevious.Name = "btnOthersOfficeNothiInboxPrevious";
-            this.btnOthersOfficeNothiInboxPrevious.Size = new System.Drawing.Size(60, 50);
-            this.btnOthersOfficeNothiInboxPrevious.TabIndex = 42;
-            this.MyToolTip.SetToolTip(this.btnOthersOfficeNothiInboxPrevious, "পূর্ববর্তী");
-            this.btnOthersOfficeNothiInboxPrevious.UseVisualStyleBackColor = false;
-            this.btnOthersOfficeNothiInboxPrevious.Visible = false;
-            this.btnOthersOfficeNothiInboxPrevious.Click += new System.EventHandler(this.btnOthersOfficeNothiInboxPrevious_Click);
-            // 
-            // btnOthersOfficeNothiOutboxPrevious
-            // 
-            this.btnOthersOfficeNothiOutboxPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.btnOthersOfficeNothiOutboxPrevious.FlatAppearance.BorderSize = 0;
-            this.btnOthersOfficeNothiOutboxPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.btnOthersOfficeNothiOutboxPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOthersOfficeNothiOutboxPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.btnOthersOfficeNothiOutboxPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
-            this.btnOthersOfficeNothiOutboxPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnOthersOfficeNothiOutboxPrevious.IconSize = 24;
-            this.btnOthersOfficeNothiOutboxPrevious.Location = new System.Drawing.Point(0, 7);
-            this.btnOthersOfficeNothiOutboxPrevious.Margin = new System.Windows.Forms.Padding(0);
-            this.btnOthersOfficeNothiOutboxPrevious.Name = "btnOthersOfficeNothiOutboxPrevious";
-            this.btnOthersOfficeNothiOutboxPrevious.Size = new System.Drawing.Size(60, 50);
-            this.btnOthersOfficeNothiOutboxPrevious.TabIndex = 43;
-            this.MyToolTip.SetToolTip(this.btnOthersOfficeNothiOutboxPrevious, "পূর্ববর্তী");
-            this.btnOthersOfficeNothiOutboxPrevious.UseVisualStyleBackColor = false;
-            this.btnOthersOfficeNothiOutboxPrevious.Visible = false;
-            this.btnOthersOfficeNothiOutboxPrevious.Click += new System.EventHandler(this.btnOthersOfficeNothiOutboxPrevious_Click);
             // 
             // Nothi
             // 
