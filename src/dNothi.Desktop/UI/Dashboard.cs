@@ -135,8 +135,8 @@ namespace dNothi.Desktop.UI
             InitializeComponent();
 
 
-
-
+            AgotoPageLimitFromsettings = SentPageLimitFromsettings = NothiteUposthapitoPageLimitFromsettings  = NothijatoPageLimitFromsettings = ArchaivePageLimitFromsettings = KhoshraPageLimitFromsettings = NothiCommonStaticValue.pageLimit;
+            
             pb = new PictureBox();
 
             pb.Dock = DockStyle.Fill;
@@ -145,6 +145,12 @@ namespace dNothi.Desktop.UI
 
 
         }
+        private int AgotoPageLimitFromsettings;
+        private int SentPageLimitFromsettings;
+        private int NothiteUposthapitoPageLimitFromsettings;
+        private int NothijatoPageLimitFromsettings;
+        private int ArchaivePageLimitFromsettings;
+        private int KhoshraPageLimitFromsettings;
         private void Blur()
         {
             //Bitmap bmp = Screenshot.TakeSnapshot(dashBoardBlurPanel);
@@ -673,7 +679,7 @@ namespace dNothi.Desktop.UI
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             // Satic Class
-            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.limit = SentPageLimitFromsettings;
             dakListUserParam.page = pageNumber;
 
             DakListOutboxResponse dakListOutboxResponse = _dakOutboxService.GetDakOutbox(dakListUserParam);
@@ -1054,7 +1060,7 @@ namespace dNothi.Desktop.UI
             _currentDakCatagory.isInbox = true;
 
 
-            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.limit = AgotoPageLimitFromsettings;
             dakListUserParam.page = pageNumber;
 
             try
@@ -1911,7 +1917,7 @@ namespace dNothi.Desktop.UI
             NormalizeDashBoard();
             _currentDakCatagory.isNothivukto = true;
 
-            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.limit = NothiteUposthapitoPageLimitFromsettings;
             dakListUserParam.page = pageNumber;
 
 
@@ -2219,7 +2225,7 @@ namespace dNothi.Desktop.UI
 
             _currentDakCatagory.isArchived = true;
 
-            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.limit = ArchaivePageLimitFromsettings;
             dakListUserParam.page = pageNumber;
 
 
@@ -2569,7 +2575,7 @@ namespace dNothi.Desktop.UI
             NormalizeDashBoard();
             _currentDakCatagory.isNothijato = true;
 
-            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.limit = NothijatoPageLimitFromsettings;
             dakListUserParam.page = pageNumber;
 
 
@@ -3198,7 +3204,7 @@ namespace dNothi.Desktop.UI
             NormalizeDashBoard();
 
             // Satic Class
-            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.limit = KhoshraPageLimitFromsettings;
             dakListUserParam.page = pageNumber;
 
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -5850,6 +5856,57 @@ namespace dNothi.Desktop.UI
         {
             
             System.Diagnostics.Process.Start(DefaultAPIConfiguration.DoptorDomainAddressLocal+"/application/"+_dakuserparam.doptor_token);
+        }
+        SettingsUserControl settingsUserControl = new SettingsUserControl();
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            if (!settingsUserControl.Visible)
+            {
+                settingsUserControl.Visible = true;
+                settingsUserControl.Location = new System.Drawing.Point(SettingsButton.Location.X, SettingsButton.Height);
+                Controls.Add(settingsUserControl);
+                settingsUserControl.BringToFront();
+                settingsUserControl.SettingsSaveButton += delegate (object sender1, EventArgs e1) { SettingsSaveButton_Click(sender1 as Settings, e1); };
+
+            }
+            else
+            {
+                settingsUserControl.Visible = false;
+                //modulePanel.Width = 334;
+            }
+        }
+        private void SettingsSaveButton_Click(Settings settings, EventArgs e)
+        {
+            AgotoPageLimitFromsettings = settings.dakInboxPagination;
+            SentPageLimitFromsettings = settings.dakSentPagination;
+            NothiteUposthapitoPageLimitFromsettings = settings.dakNothiteUposthapitoPagination;
+            NothijatoPageLimitFromsettings = settings.dakNothijatoPagination;
+            ArchaivePageLimitFromsettings = settings.dakArchaivePagination;
+            KhoshraPageLimitFromsettings = settings.dakKhoshraPagination;
+            if (_currentDakCatagory.isInbox == true)
+            {
+                LoadDakInbox();
+            }
+            else if (_currentDakCatagory.isOutbox == true)
+            {
+                LoadDakOutbox();
+            }
+            else if (_currentDakCatagory.isNothivukto == true)
+            {
+                LoadDakNothivukto();
+            }
+            else if (_currentDakCatagory.isNothijato == true)
+            {
+                LoadDakNothijato();
+            }
+            else if (_currentDakCatagory.isArchived == true)
+            {
+                LoadDakArchive();
+            }
+            else if (_currentDakCatagory.isKhosra == true)
+            {
+                LoadDakKhasraList();
+            }
         }
     }
 

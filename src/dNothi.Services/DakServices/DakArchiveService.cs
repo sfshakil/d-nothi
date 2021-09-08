@@ -102,7 +102,7 @@ namespace dNothi.Services.DakServices
                 dakArchiveRequest.AddParameter("designation_id", dakListUserParam.designation_id);
                 dakArchiveRequest.AddParameter("office_id", dakListUserParam.office_id);
                 dakArchiveRequest.AddParameter("page", dakListUserParam.page);
-                dakArchiveRequest.AddParameter("limit", dakListUserParam.limit);
+                dakArchiveRequest.AddParameter("length", dakListUserParam.limit);
                 IRestResponse dakArchiveResponse = dakArchiveApi.Execute(dakArchiveRequest);
 
 

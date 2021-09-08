@@ -13,5 +13,11 @@ namespace dNothi.JsonParser.Entity
         public int nothiAllPagination { get; set; }
         public int othersOfficeNothiInboxPagination { get; set; }
         public int othersOfficeNothiSentPagination { get; set; }
+        public int dakInboxPagination { get; set; }
+        public int dakSentPagination { get; set; }
+        public int dakNothiteUposthapitoPagination { get; set; }
+        public int dakNothijatoPagination { get; set; }
+        public int dakArchaivePagination { get; set; }
+        public int dakKhoshraPagination { get; set; }
     }
 }

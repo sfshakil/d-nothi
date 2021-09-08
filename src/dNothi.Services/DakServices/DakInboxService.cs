@@ -108,7 +108,7 @@ namespace dNothi.Services.DakServices
                 dakInboxRequest.AddParameter("designation_id", dakListUserParam.designation_id);
                 dakInboxRequest.AddParameter("office_id", dakListUserParam.office_id);
                 dakInboxRequest.AddParameter("page", dakListUserParam.page);
-                dakInboxRequest.AddParameter("limit", dakListUserParam.limit);
+                dakInboxRequest.AddParameter("length", dakListUserParam.limit);
                 IRestResponse dakInboxResponse = dakInboxApi.Execute(dakInboxRequest);
 
 
