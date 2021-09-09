@@ -85,6 +85,7 @@
     <Compile Include="Entities\GuardFileInsert.cs" />
     <Compile Include="Entities\GuardFileList.cs" />
     <Compile Include="Entities\DakBoxSharingInsert.cs" />
+    <Compile Include="Entities\SettingsList.cs" />
     <Compile Include="Entities\NoteList.cs" />
     <Compile Include="Entities\NothiRegisterBook.cs" />
     <Compile Include="Entities\DakRegisterBook.cs" />

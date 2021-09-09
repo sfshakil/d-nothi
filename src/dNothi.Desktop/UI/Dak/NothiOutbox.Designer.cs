@@ -52,6 +52,12 @@
             this.btnNothiOutboxOnumodon = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlOffice = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.lbOffice = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.panel17 = new System.Windows.Forms.Panel();
@@ -89,6 +95,10 @@
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.pnlOffice.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel21.SuspendLayout();
             this.panel10.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -466,6 +476,7 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.Controls.Add(this.pnlOffice, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.panel10, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel9, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.panel8, 1, 0);
@@ -480,6 +491,80 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1342, 132);
             this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // pnlOffice
+            // 
+            this.pnlOffice.AutoSize = true;
+            this.pnlOffice.Controls.Add(this.tableLayoutPanel7);
+            this.pnlOffice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlOffice.Location = new System.Drawing.Point(3, 101);
+            this.pnlOffice.Name = "pnlOffice";
+            this.pnlOffice.Size = new System.Drawing.Size(1056, 28);
+            this.pnlOffice.TabIndex = 5;
+            this.pnlOffice.Visible = false;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.AutoSize = true;
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel7.Controls.Add(this.panel20, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.panel21, 1, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1056, 28);
+            this.tableLayoutPanel7.TabIndex = 2;
+            // 
+            // panel20
+            // 
+            this.panel20.AutoSize = true;
+            this.panel20.Controls.Add(this.label3);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel20.Location = new System.Drawing.Point(3, 3);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(73, 22);
+            this.panel20.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(235)))), ((int)(((byte)(255)))));
+            this.label3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(80)))), ((int)(((byte)(133)))));
+            this.label3.Location = new System.Drawing.Point(4, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 26);
+            this.label3.TabIndex = 74;
+            this.label3.Text = "অফিসঃ";
+            // 
+            // panel21
+            // 
+            this.panel21.AutoSize = true;
+            this.panel21.Controls.Add(this.lbOffice);
+            this.panel21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel21.Location = new System.Drawing.Point(82, 3);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(971, 22);
+            this.panel21.TabIndex = 0;
+            // 
+            // lbOffice
+            // 
+            this.lbOffice.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.lbOffice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbOffice.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbOffice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.lbOffice.Location = new System.Drawing.Point(0, 0);
+            this.lbOffice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbOffice.Name = "lbOffice";
+            this.lbOffice.Size = new System.Drawing.Size(971, 22);
+            this.lbOffice.TabIndex = 65;
+            this.lbOffice.Text = "officeLabel";
             // 
             // panel10
             // 
@@ -841,6 +926,13 @@
             this.panel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.pnlOffice.ResumeLayout(false);
+            this.pnlOffice.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.panel21.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -930,5 +1022,11 @@
         private System.Windows.Forms.Label lblPresentDesk;
         private System.Windows.Forms.Panel bodyPanel;
         private System.Windows.Forms.TableLayoutPanel newAllNoteFlowLayoutPanel;
+        private System.Windows.Forms.Panel pnlOffice;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Label lbOffice;
     }
 }

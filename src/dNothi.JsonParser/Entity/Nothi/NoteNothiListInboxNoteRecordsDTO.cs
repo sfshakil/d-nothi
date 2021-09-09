@@ -29,6 +29,8 @@ namespace dNothi.JsonParser.Entity.Nothi
 
 
 
-       
+        public string note_status { get; set; }
+        public int can_send { get; set; }
+
     }
 }

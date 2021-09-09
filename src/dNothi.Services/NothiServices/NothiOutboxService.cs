@@ -103,6 +103,10 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiOutboxListEndPoint;
         }
+        protected string GetOtherOfficeNothiOutboxListEndPoint()
+        {
+            return DefaultAPIConfiguration.OtherOfficeNothiOutboxListEndPoint;
+        }
 
         public NothiListOutboxResponse GetNothiOutbox(DakUserParam dakUserParam, string search_params)
         {
@@ -124,6 +128,34 @@ namespace dNothi.Services.NothiServices
                 var responseJson = response.Content;
                 responseJson = System.Text.RegularExpressions.Regex.Replace(responseJson, "<pre.*</pre>", string.Empty, RegexOptions.Singleline);
                 nothiListOutboxResponse = JsonConvert.DeserializeObject<NothiListOutboxResponse>(responseJson);
+                return nothiListOutboxResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public OtherOfficeNothiListOutboxResponse OtherOfficeNothiOutboxListEndPoint(DakUserParam dakUserParam, string search_params)
+        {
+            OtherOfficeNothiListOutboxResponse nothiListOutboxResponse = new OtherOfficeNothiListOutboxResponse();
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetOtherOfficeNothiOutboxListEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
+                request.AddParameter("length", dakUserParam.limit);
+                request.AddParameter("page", dakUserParam.page);
+                request.AddParameter("search_params", search_params);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                //responseJson = System.Text.RegularExpressions.Regex.Replace(responseJson, "<pre.*</pre>", string.Empty, RegexOptions.Singleline);
+                nothiListOutboxResponse = JsonConvert.DeserializeObject<OtherOfficeNothiListOutboxResponse>(responseJson);
                 return nothiListOutboxResponse;
             }
             catch (Exception ex)

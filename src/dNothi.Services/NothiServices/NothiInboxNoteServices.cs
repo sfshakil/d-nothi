@@ -110,6 +110,10 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiInboxNoteEndPoint;
         }
+        protected string GetOtherOfficeNothiInboxNoteEndPoint()
+        {
+            return DefaultAPIConfiguration.OtherOfficeNothiInboxNoteEndPoint;
+        }
         protected string GetNoteAttachmentsEndPoint()
         {
             return DefaultAPIConfiguration.NoteAttachmentsEndPoint;
@@ -172,6 +176,35 @@ namespace dNothi.Services.NothiServices
                 //SaveOrUpdateNothiRecords(dakListUserParam, responseJson, Convert.ToInt32(eachNothiId), note_category);
                 noteAttachmentsListResponse = JsonConvert.DeserializeObject<NoteMovementsListResponse>(responseJson);
                 return noteAttachmentsListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public OtherOfficeNothiListInboxNoteResponse GetOtherOfficeNothiInboxNote(DakUserParam dakListUserParam, string eachNothiId, string note_category, string note_order)
+        {
+            OtherOfficeNothiListInboxNoteResponse otherOfficeNothiListInboxNoteResponse = new OtherOfficeNothiListInboxNoteResponse();
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetOtherOfficeNothiInboxNoteEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakListUserParam.office_id + "\",\"office_unit_id\":\"" + dakListUserParam.office_unit_id + "\",\"designation_id\":\"" + dakListUserParam.designation_id + "\"}");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + Convert.ToInt32(eachNothiId) + "\",\"note_category\":\"" + note_category + "\"}");
+                request.AddParameter("length", "100");
+                request.AddParameter("page", "1");
+                request.AddParameter("order", note_order);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                
+                otherOfficeNothiListInboxNoteResponse = JsonConvert.DeserializeObject<OtherOfficeNothiListInboxNoteResponse>(responseJson);
+                return otherOfficeNothiListInboxNoteResponse;
             }
             catch (Exception ex)
             {

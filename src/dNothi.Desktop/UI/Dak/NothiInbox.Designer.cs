@@ -92,7 +92,7 @@
             this.panel4.Controls.Add(this.bodyPanel);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 145);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1487, 0);
             this.panel4.TabIndex = 20;
@@ -103,7 +103,7 @@
             this.bodyPanel.Controls.Add(this.newAllNoteFlowLayoutPanel);
             this.bodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyPanel.Location = new System.Drawing.Point(0, 0);
-            this.bodyPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bodyPanel.Margin = new System.Windows.Forms.Padding(4);
             this.bodyPanel.Name = "bodyPanel";
             this.bodyPanel.Size = new System.Drawing.Size(1487, 0);
             this.bodyPanel.TabIndex = 17;

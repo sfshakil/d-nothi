@@ -78,9 +78,12 @@ namespace dNothi.Constants
         public const string DakFileUploadEndPoint = "/api/content/upload";
         public const string OnuchhedFileUploadEndPoint = "/api/content/upload";
         public const string NothiInboxListEndPoint = "/api/nothi/list/inbox";
+        public const string OtherOfficeNothiInboxListEndPoint = "/api/nothi/list/otheroffice/inbox";
         public const string NothiOutboxListEndPoint = "/api/nothi/list/outbox";
+        public const string OtherOfficeNothiOutboxListEndPoint = "/api/nothi/list/otheroffice/outbox";
         public const string NothiAllListEndPoint = "/api/nothi/list/all";
         public const string NothiInboxNoteEndPoint = "/api/nothi/note/pending";
+        public const string OtherOfficeNothiInboxNoteEndPoint = "/api/nothi/note/otheroffice/pending";
         public const string NothiInformationEndpoint = "/api/nothi/get_nothi";
         public const string NoteAttachmentsEndPoint = "/api/nothi/note/attachments";
         public const string NoteMovementsEndPoint = "/api/nothi/note/movement/list";
@@ -126,6 +129,7 @@ namespace dNothi.Constants
         public const string NoteFinishedEndPoint = "/api/nothi/note/finish";
         public const string NothiReportEndPoint = "/api/nothi/nibondhon_bohi";
         public const string NothiProtibedanUnitWiseEndPoint = "/api/nothi/list/unit_wise";
+        public const string NothiPotakaSaveEndPoint = "/api/potro/flag/save";
 
         public const string DakNibondanBohiEndPoint = "/api/register/dak/nibondhon_bohi";
 

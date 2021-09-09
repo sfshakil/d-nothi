@@ -60,6 +60,10 @@ namespace dNothi.Desktop.UI.Dak
                 eyeIcon.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             }
         }
+        public void visibilityOffOption()
+        {
+            btnOption.Visible = false;
+        }
         public void invisible()
         {
             fromToIcon.Visible = false;

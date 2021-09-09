@@ -109,7 +109,7 @@ namespace dNothi.Services.DakServices
                 nothijatoDakRequest.AddParameter("designation_id", dakListUserParam.designation_id);
                 nothijatoDakRequest.AddParameter("office_id", dakListUserParam.office_id);
                 nothijatoDakRequest.AddParameter("page", dakListUserParam.page);
-                nothijatoDakRequest.AddParameter("limit", dakListUserParam.limit);
+                nothijatoDakRequest.AddParameter("length", dakListUserParam.limit);
                 IRestResponse nothijatoDakResponse = nothijatoDakApi.Execute(nothijatoDakRequest);
 
 

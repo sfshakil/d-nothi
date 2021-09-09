@@ -257,7 +257,7 @@ namespace dNothi.Services.DakServices
                 nothivuktoDakRequest.AddParameter("designation_id", dakListUserParam.designation_id);
                 nothivuktoDakRequest.AddParameter("office_id", dakListUserParam.office_id);
                 nothivuktoDakRequest.AddParameter("page", dakListUserParam.page);
-                nothivuktoDakRequest.AddParameter("limit", dakListUserParam.limit);
+                nothivuktoDakRequest.AddParameter("length", dakListUserParam.limit);
                 IRestResponse nothivuktoDakResponse = nothivuktoDakApi.Execute(nothivuktoDakRequest);
 
 

@@ -10,6 +10,6 @@ namespace dNothi.Services.NothiServices
 {
     public interface ISingleOnucchedServices
     {
-        SingleOnucchedResponse GetSingleOnucched(DakUserParam _dakuserparam, long nothiId, long noteId, long onucchedId);
+        SingleOnucchedResponse GetSingleOnucched(DakUserParam _dakuserparam, NothiListRecordsDTO nothiListRecordsDTO, long noteId, long onucchedId);
     }
 }

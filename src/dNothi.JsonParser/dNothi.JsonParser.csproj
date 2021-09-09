@@ -90,6 +90,7 @@
     <Compile Include="Entity\Nothi\NothiNumberResponse.cs" />
     <Compile Include="Entity\Nothi\NothiBranchListResponse.cs" />
     <Compile Include="Entity\ProfileChangeResponse.cs" />
+    <Compile Include="Entity\Settings.cs" />
     <Compile Include="INothivuktoPotroParser.cs" />
     <Compile Include="NothivuktoPotroParser.cs" />
     <Compile Include="AllPotroParser.cs" />

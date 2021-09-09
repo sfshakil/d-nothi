@@ -33,5 +33,8 @@ namespace dNothi.JsonParser.Entity.Nothi
         public int modified_by { get; set; }
         public string office { get; set; }
         public string office_unit { get; set; }
+
+        
+        public string last_note_date { get; set; }
     }
 }

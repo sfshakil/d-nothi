@@ -21,12 +21,12 @@ namespace dNothi.Services.NothiServices
         {
             _nothiItem = nothiItem;
         }
-        public NothijatoResponse GetNothijatoListInfo(DakUserParam dakUserParam, long id, string potro_subject)
+        public NothijatoResponse GetNothijatoListInfo(DakUserParam dakUserParam, NothiListRecordsDTO nothiListRecordsDTO, string potro_subject)
         {
             NothijatoResponse nothijatoResponse = new NothijatoResponse();
             if (!dNothi.Utility.InternetConnection.Check())
             {
-                var nothiList = _nothiItem.Table.FirstOrDefault(a => a.nothi_id == id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+                var nothiList = _nothiItem.Table.FirstOrDefault(a => a.nothi_id == nothiListRecordsDTO.id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
 
                 if (nothiList != null)
                 {
@@ -45,7 +45,7 @@ namespace dNothi.Services.NothiServices
                 request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\"}");
-                request.AddParameter("nothi", "{\"nothi_id\":\"" + id + "\", \"nothi_office\":\"" + dakUserParam.office_id + "\"}");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothiListRecordsDTO.id + "\", \"nothi_office\":\"" + nothiListRecordsDTO.office_id + "\"}");
                 request.AddParameter("length", "1000000000000");
                 if (potro_subject != "")
                 {
@@ -54,7 +54,7 @@ namespace dNothi.Services.NothiServices
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
-                SaveOrUpdateNothiRecords(dakUserParam, id, responseJson);
+                SaveOrUpdateNothiRecords(dakUserParam, nothiListRecordsDTO.id, responseJson);
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson)["data"].ToString();
                 //var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
                 nothijatoResponse = JsonConvert.DeserializeObject<NothijatoResponse>(responseJson);

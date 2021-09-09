@@ -12,6 +12,7 @@ namespace dNothi.Services.NothiServices
     {
         NothiListInboxResponse GetNothiInbox(DakUserParam dakUserParam);
         NothiListInboxResponse GetSearchNothiInbox(DakUserParam dakUserParam, String search_params);
+        OthersOfficeNothiListInboxResponse GetOthersOfficeNothiInbox(DakUserParam dakUserParam, String search_params);
         //void SaveOrUpdateNothiRecords(List<NothiListRecordsDTO> nothi_list_record);
     }
 }

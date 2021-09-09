@@ -67,6 +67,10 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiDeleteDecisionListEndpoint;
         }
+        protected string GetNothiPotakaSaveEndPoint()
+        {
+            return DefaultAPIConfiguration.NothiPotakaSaveEndPoint;
+        }
         protected string GetNothiAddDecisionListEndpoint()
         {
             return DefaultAPIConfiguration.NothiAddDecisionListEndpoint;
@@ -180,6 +184,8 @@ namespace dNothi.Services.NothiServices
                 request.AlwaysMultipartFormData = true;
                 request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\",\"officer_id\":\"" + dakUserParam.officer_id + "\",\"user_id\":\"" + dakUserParam.user_id + "\",\"office\":\"" + dakUserParam.office + "\",\"office_unit\":\"" + dakUserParam.office_unit + "\",\"designation\":\"" + dakUserParam.designation + "\",\"officer\":\"" + dakUserParam.officer + "\",\"designation_level\":\"" + dakUserParam.designation_level + "\"}");
                 request.AddParameter("note", "{\"nothi_note_id\":\""+ note_id + "\",\"nothi_office_id\":"+ dakUserParam.office_id + ",\"nothi_master_id\":\""+ nothi_id + "\"}");
+                request.AddParameter("length", dakUserParam.limit);
+                request.AddParameter("page", dakUserParam.page);
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
@@ -262,6 +268,31 @@ namespace dNothi.Services.NothiServices
 
                 var responseJson = response.Content;
                 NothiDecisionListDeleteResponse nothiDecisionListResponse = JsonConvert.DeserializeObject<NothiDecisionListDeleteResponse>(responseJson);
+                return nothiDecisionListResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiPotakaResponse GetNothiPotakaSaveResponse(DakUserParam dakUserParam, NothiPotakaData nothiPotakaData, KhoshraPotroWaitinDataRecordDTO khoshraPotroWaitinDataRecordDTO)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiPotakaSaveEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParam.office_id + "\",\"office_unit_id\":\"" + dakUserParam.office_unit_id + "\",\"designation_id\":\"" + dakUserParam.designation_id + "\",\"officer_id\":\"" + dakUserParam.officer_id + "\",\"user_id\":\"" + dakUserParam.user_id + "\",\"office\":\"" + dakUserParam.office + "\",\"office_unit\":\"" + dakUserParam.office_unit + "\",\"designation\":\"" + dakUserParam.designation + "\",\"officer\":\"" + dakUserParam.officer + "\",\"designation_level\":\"" + dakUserParam.designation_level + "\"}");
+                request.AddParameter("potro_flag", "{\"title\":\""+ nothiPotakaData.title + "\",\"color\":\""+ nothiPotakaData.color + "\",\"page_no\":\""+ nothiPotakaData .page_number+ "\",\"potro_attachment_id\":\""+ khoshraPotroWaitinDataRecordDTO.mulpotro.id + "\"}");
+                request.AddParameter("note", "{\"nothi_master_id\":\"" + khoshraPotroWaitinDataRecordDTO.basic.nothi_master_id + "\",\"nothi_office_id\":" + nothiPotakaData.office_id + ",\"nothi_note_id\":\"" + nothiPotakaData.nothi_note_id + "\"}");
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiPotakaResponse nothiDecisionListResponse = JsonConvert.DeserializeObject<NothiPotakaResponse>(responseJson);
                 return nothiDecisionListResponse;
             }
             catch (Exception ex)

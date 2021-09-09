@@ -16,6 +16,7 @@ using dNothi.Core.Entities;
 using dNothi.Desktop.UI.CustomMessageBox;
 using Xamarin.Forms.Xaml;
 using dNothi.JsonParser.Entity.Dak;
+using static dNothi.JsonParser.Entity.Nothi.NothiListInboxNoteResponse;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -66,14 +67,18 @@ namespace dNothi.Desktop.UI.Dak
         private string _shakha;
         private string _totalnothi;
         private string _lastdate;
-        
-       
+        public bool _isOtherOffice;
+
         public NothiListRecordsDTO _nothiListRecordsDTO;
         
         public NothiListRecordsDTO nothiListRecordsDTO { get { return _nothiListRecordsDTO; } set { _nothiListRecordsDTO = value; } }
 
 
-
+        public void visibilityoffNothiInboxOnumodon()
+        {
+            btnNothiInboxOnumodon.Visible = false;
+            btnNewNote.Visible = false;
+        }
 
         [Category("Custom Props")]
         public string nothi
@@ -127,7 +132,14 @@ namespace dNothi.Desktop.UI.Dak
                 iconButton3.IconChar = FontAwesome.Sharp.IconChar.FolderMinus;
                 iconButton3.IconColor = Color.White;
                 iconButton3.BackColor = Color.FromArgb(27, 197, 189);
-                loadnewAllNoteFlowLayoutPanel("asc");
+                if (_isOtherOffice == true)
+                {
+                    loadotherOfficeNoteFlowLayoutPanel("asc");
+                }
+                else
+                {
+                    loadnewAllNoteFlowLayoutPanel("asc");
+                }
             }
             else
             {
@@ -192,6 +204,87 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
+        private void loadotherOfficeNoteFlowLayoutPanel(string note_order)
+        {
+            btnNoteOrder.Location = new Point(newAllNoteFlowLayoutPanel.Width / 2, 0);
+            var eachNothiId = lbNothiId.Text;
+            var nothiListUserParam = _userService.GetLocalDakUserParam();
+            string note_category = "all";
+
+            
+            var nothiInboxNote = _nothiInboxNote.GetOtherOfficeNothiInboxNote(nothiListUserParam, eachNothiId, note_category, note_order);
+
+            if (nothiInboxNote.status == "success")
+            {
+
+                if (nothiInboxNote.data.records.Count > 0)
+                {
+                    LoadOtherOfficeNothiNoteInboxinPanel(nothiInboxNote.data.records);
+                }
+            }
+        }
+        public void LoadOtherOfficeNothiNoteInboxinPanel(List<OtherOfficeNothiListInboxNoteDataRecord> nothiNoteInboxLists)
+        {
+            newAllNoteFlowLayoutPanel.Controls.Clear();
+            foreach (OtherOfficeNothiListInboxNoteDataRecord nothiListInboxNoteRecordsDTO in nothiNoteInboxLists)
+            {
+                var nothiNoteShomuho = UserControlFactory.Create<NothiNoteShomuho>();
+                _noteListForNoteAll.nothi = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordNothi, NothiNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.nothi);
+                _noteListForNoteAll.note = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordNote, NoteNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.note);
+                _noteListForNoteAll.desk = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordDesk, DeskNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.desk);
+                _noteListForNoteAll.to = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordTo, ToNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.to);
+                
+                nothiNoteShomuho.note_ID = nothiListInboxNoteRecordsDTO.note.nothi_note_id.ToString();
+                nothiNoteShomuho.note_subject = nothiListInboxNoteRecordsDTO.note.note_subject;
+                nothiNoteShomuho.note_no = Convert.ToString(nothiListInboxNoteRecordsDTO.note.note_no);
+                nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
+                nothiNoteShomuho.onucched_count = nothiListInboxNoteRecordsDTO.note.onucched_count;
+
+                nothiNoteShomuho.noteAttachment = nothiListInboxNoteRecordsDTO.note.attachment_count.ToString();
+                nothiNoteShomuho.btnAttachment += delegate (object sender1, EventArgs e1) {
+                    NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO1 = new NothiListInboxNoteRecordsDTO();
+                    nothiListInboxNoteRecordsDTO1.nothi.id = nothiListInboxNoteRecordsDTO.nothi.id;
+                    nothiListInboxNoteRecordsDTO1.note.nothi_note_id = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+                    NoteAttachment_ButtonClick(nothiListInboxNoteRecordsDTO1, e1); };
+                nothiNoteShomuho.loadEyeIcon(nothiListInboxNoteRecordsDTO.desk.note_current_status);
+                nothiNoteShomuho.notePriority(nothiListInboxNoteRecordsDTO.desk.priority);
+                nothiNoteShomuho.visibilityOffOption();
+                nothiNoteShomuho.NoteDetailsButton += delegate (object sender1, EventArgs e1) {
+                    
+                    NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO1 = new NothiListInboxNoteRecordsDTO();
+                    nothiListInboxNoteRecordsDTO1.nothi = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordNothi, NothiNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.nothi);
+                    nothiListInboxNoteRecordsDTO1.note = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordNote, NoteNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.note);
+                    nothiListInboxNoteRecordsDTO1.desk = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordDesk, DeskNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.desk);
+                    nothiListInboxNoteRecordsDTO1.to = MappingModels.MapModel<OtherOfficeNothiListInboxNoteDataRecordTo, ToNothiListInboxNoteRecordsDTO>(nothiListInboxNoteRecordsDTO.to);
+                    
+                    NoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO1); };
+
+
+                if (nothiListInboxNoteRecordsDTO.note.onucched_count > 0)
+                {
+                    nothiNoteShomuho.onucched = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
+                }
+                if (nothiListInboxNoteRecordsDTO.note.khoshra_potro > 0)
+                {
+                    nothiNoteShomuho.khosra = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
+                }
+                if (nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval > 0)
+                {
+                    nothiNoteShomuho.khoshraWaiting = nothiListInboxNoteRecordsDTO.note.khoshra_waiting_for_approval.ToString();
+                }
+
+                nothiNoteShomuho.deskofficer = nothiListInboxNoteRecordsDTO.from.officer;
+                nothiNoteShomuho.toofficer = nothiListInboxNoteRecordsDTO.to.officer;
+                //nothiNoteShomuho.isNothiAll = false;
+
+
+
+                UIDesignCommonMethod.AddRowinTable(newAllNoteFlowLayoutPanel, nothiNoteShomuho);
+
+            }
+
+
+        }
         public event EventHandler LocalNoteDetailsButton;
         bool isActive = false;
       
@@ -458,7 +551,7 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler NoteAllButton;
         private void btnAllNote_Click(object sender, EventArgs e)
         {
-            if (this.NoteAllButton != null)
+            if (this.NoteAllButton != null && _noteListForNoteAll.desk != null && _noteListForNoteAll.note != null && _noteListForNoteAll.nothi != null && _noteListForNoteAll.to != null)
                 this.NoteAllButton(_noteListForNoteAll, e);
         }
 
@@ -538,24 +631,52 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnNoteOrder_Click(object sender, EventArgs e)
         {
-            if (btnNoteOrder.IconChar == FontAwesome.Sharp.IconChar.ChevronDown)
+            if (_isOtherOffice == true)
             {
-                newAllNoteFlowLayoutPanel.Controls.Clear();
-                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
-                loadnewAllNoteFlowLayoutPanel("desc");
+                if (btnNoteOrder.IconChar == FontAwesome.Sharp.IconChar.ChevronDown)
+                {
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+                    loadotherOfficeNoteFlowLayoutPanel("desc");
+                }
+                else
+                {
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+                    loadotherOfficeNoteFlowLayoutPanel("asc");
+                }
             }
             else
             {
-                newAllNoteFlowLayoutPanel.Controls.Clear();
-                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
-                loadnewAllNoteFlowLayoutPanel("asc");
+                if (btnNoteOrder.IconChar == FontAwesome.Sharp.IconChar.ChevronDown)
+                {
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+                    loadnewAllNoteFlowLayoutPanel("desc");
+                }
+                else
+                {
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+                    loadnewAllNoteFlowLayoutPanel("asc");
+                }
             }
+            
         }
 
         private void btnRefreshNote_Click(object sender, EventArgs e)
         {
-            newAllNoteFlowLayoutPanel.Controls.Clear();
-            loadnewAllNoteFlowLayoutPanel("asc");
+            if (_isOtherOffice == true)
+            {
+                newAllNoteFlowLayoutPanel.Controls.Clear();
+                loadotherOfficeNoteFlowLayoutPanel("asc");
+            }
+            else
+            {
+                newAllNoteFlowLayoutPanel.Controls.Clear();
+                loadnewAllNoteFlowLayoutPanel("asc");
+            }
+            
         }
     }
 }

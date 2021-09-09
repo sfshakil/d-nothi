@@ -73,13 +73,21 @@ namespace dNothi.Desktop.UI.Dak
                     lbLengthEnd.Text = string.Concat(nothiDecisionList.Data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     lbTotalBibechhoPotro.Text = " সর্বমোট: " + string.Concat(nothiDecisionList.Data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                     totalDecisionList = nothiDecisionList.Data.total_records;
-                    LoadNothiInboxinPanel(nothiDecisionList.Data.records,1);
+                    LoadNothiInboxinPanel(nothiDecisionList.Data.records, 1);
                 }
 
             }
             else
             {
-                ErrorMessage(nothiDecisionList.Status);
+                if (nothiDecisionList.Status == null)
+                {
+                    ErrorMessage("দুঃখিত কোন তথ্য পাওয়া যায় নি।");
+
+                }
+                else
+                {
+                    ErrorMessage(nothiDecisionList.Status);
+                }
             }
         }
         private void LoadNothiInboxinPanel(List<RecordsDTO> nothiDecisionLists, int startingSerialnumber)

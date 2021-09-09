@@ -10,6 +10,6 @@ namespace dNothi.Services.NothiServices
 {
     public interface IOnuchhedListServices
     {
-        OnucchedListResponse GetAllOnucchedList(DakUserParam _dakuserparam, long nothiid, long note_id);
+        OnucchedListResponse GetAllOnucchedList(DakUserParam _dakuserparam, NothiListRecordsDTO nothiListRecordsDTO, long note_id);
     }
 }

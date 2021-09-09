@@ -80,7 +80,7 @@ namespace dNothi.Services.DakServices
                 request.AddParameter("designation_id", dakListUserParam.designation_id);
                 request.AddParameter("office_id", dakListUserParam.office_id);
                 request.AddParameter("page", dakListUserParam.page);
-                request.AddParameter("limit", dakListUserParam.limit);
+                request.AddParameter("length", dakListUserParam.limit);
                 IRestResponse Response = dakOutboxApi.Execute(request);
 
 

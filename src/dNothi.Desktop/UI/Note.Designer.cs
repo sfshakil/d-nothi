@@ -2423,6 +2423,7 @@
             this.MyToolTip.SetToolTip(this.PotakaButton, "পতাকা");
             this.PotakaButton.UseVisualStyleBackColor = false;
             this.PotakaButton.Visible = false;
+            this.PotakaButton.Click += new System.EventHandler(this.PotakaButton_Click);
             this.PotakaButton.MouseLeave += new System.EventHandler(this.PotakaButton_MouseLeave);
             this.PotakaButton.MouseHover += new System.EventHandler(this.PotakaButton_MouseHover);
             // 

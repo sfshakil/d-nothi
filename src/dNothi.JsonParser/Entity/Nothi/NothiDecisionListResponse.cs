@@ -293,5 +293,30 @@ namespace dNothi.JsonParser.Entity.Nothi
         public NothiDecisionListDeleteData data { get; set; }
         public List<object> options { get; set; }
     }
+    public class NothiPotakaData
+    {
+        public string title { get; set; }
+        public string color { get; set; }
+        public int page_no { get; set; }
+        public string page_number { get; set; }
+        public int potro_attachment_id { get; set; }
+        public int nothi_master_id { get; set; }
+        public int nothi_note_id { get; set; }
+        public int office_id { get; set; }
+        public int office_unit_id { get; set; }
+        public int designation_id { get; set; }
+        public string office { get; set; }
+        public string office_unit { get; set; }
+        public string designation { get; set; }
+        public string created { get; set; }
+        public int id { get; set; }
+    }
+
+    public class NothiPotakaResponse
+    {
+        public string status { get; set; }
+        public List<NothiPotakaData> data { get; set; }
+        public List<object> options { get; set; }
+    }
 
 }

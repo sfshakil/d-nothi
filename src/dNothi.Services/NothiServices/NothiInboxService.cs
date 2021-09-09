@@ -142,7 +142,37 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiInboxListEndPoint;
         }
+        protected string GetOtherOfficeNothiInboxListEndPoint()
+        {
+            return DefaultAPIConfiguration.OtherOfficeNothiInboxListEndPoint;
+        }
 
-        
+        public OthersOfficeNothiListInboxResponse GetOthersOfficeNothiInbox(DakUserParam dakUserParam, string search_params)
+        {
+            OthersOfficeNothiListInboxResponse nothiListInboxResponse = new OthersOfficeNothiListInboxResponse();
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetOtherOfficeNothiInboxListEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("length", dakUserParam.limit);
+                request.AddParameter("page", dakUserParam.page);
+                var serializedObject = JsonConvert.SerializeObject(dakUserParam);
+                request.AddParameter("cdesk", serializedObject);
+                request.AddParameter("search_params", search_params);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                nothiListInboxResponse = JsonConvert.DeserializeObject<OthersOfficeNothiListInboxResponse>(responseJson);
+                return nothiListInboxResponse;
+            }
+            catch (Exception ex)
+            {
+                return nothiListInboxResponse;
+            }
+        }
     }
 }

@@ -94,7 +94,7 @@ namespace dNothi.Services.DakServices
                 dakKhosraRequest.AddParameter("designation_id", dakListUserParam.designation_id);
                 dakKhosraRequest.AddParameter("office_id", dakListUserParam.office_id);
                 dakKhosraRequest.AddParameter("page", dakListUserParam.page);
-                dakKhosraRequest.AddParameter("limit", dakListUserParam.limit);
+                dakKhosraRequest.AddParameter("length", dakListUserParam.limit);
                 IRestResponse dakKhosraResponse = dakKhorsAPI.Execute(dakKhosraRequest);
 
 

@@ -324,6 +324,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             
         }
+        public NothiListRecordsDTO _nothiListRecordsDTO;
         private void loadNote() 
         {
             var eachNothiId = _NoteAllListDataRecordDTO.nothi.id;
@@ -356,6 +357,7 @@ namespace dNothi.Desktop.UI.Dak
             form.nothiSubject = _nothiSubject;
             form.noteSubject = noteSubject;
             form.nothiLastDate = _nothiLastDate;
+            form._nothiListRecordsDTO = _nothiListRecordsDTO;
             form.noteAllListDataRecordDTO = _NoteAllListDataRecordDTO;
 
             form.office = _office;

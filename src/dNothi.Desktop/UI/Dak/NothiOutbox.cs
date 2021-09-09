@@ -56,9 +56,16 @@ namespace dNothi.Desktop.UI.Dak
         private string _prapok;
         private string _bortomanDesk;
         private string _lastdate;
+        private string _office;
+        private string _nothi_office;
         private int _nothiId;
         private int _noteTotal;
-
+        public bool _isOtherOffice;
+        public void visibilityOnNothiOutboxOfficePanel()
+        {
+            pnlOffice.Visible = true;
+            dakSearchButton.Visible = false;
+        }
         [Category("Custom Props")]
         //public string noteTotal
         //{
@@ -66,6 +73,16 @@ namespace dNothi.Desktop.UI.Dak
         //    set { _noteTotal = value;
         //        lbNoteTotal.Text = "সর্বমোট: " + string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))); }
         //}
+        public string office
+        {
+            get { return _office; }
+            set { _office = value; lbOffice.Text = value; }
+        }
+        public string nothi_office
+        {
+            get { return _nothi_office; }
+            set { _nothi_office = value;  }
+        }
         public string nothi
         {
             get { return _nothi; }
@@ -114,7 +131,15 @@ namespace dNothi.Desktop.UI.Dak
             if (iconButton3.IconChar == FontAwesome.Sharp.IconChar.FolderPlus)
             {
                 btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
-                loadnewAllNoteFlowLayoutPanel("asc");
+                
+                if (_isOtherOffice == true)
+                {
+                    loadotherOfficeNoteFlowLayoutPanel("asc");
+                }
+                else
+                {
+                    loadnewAllNoteFlowLayoutPanel("asc");
+                }
             }
             else
             {
@@ -126,6 +151,95 @@ namespace dNothi.Desktop.UI.Dak
                 iconButton3.IconChar = FontAwesome.Sharp.IconChar.FolderPlus;
                 iconButton3.IconColor = Color.White;
                 iconButton3.BackColor = Color.FromArgb(27, 197, 189);
+            }
+        }
+        private void loadotherOfficeNoteFlowLayoutPanel(string note_order)
+        {
+            btnNoteOrder.Location = new Point(newAllNoteFlowLayoutPanel.Width / 2, 0);
+            var eachNothiId = lbNothiId.Text;
+            var nothiListUserParam = _userService.GetLocalDakUserParam();
+            string note_category = "other_office_sent";
+            
+            var nothiInboxNote = _nothiOutboxNote.GetOtherOfficeNothiOutboxNote(nothiListUserParam, eachNothiId, note_category, note_order, nothi_office);
+
+            if (nothiInboxNote.status == "success")
+            {
+                if (nothiInboxNote.data.records.Count > 0)
+                {
+                    _noteTotal = nothiInboxNote.data.total_records;
+                    lbNoteTotal.Text = "সর্বমোট: " + string.Concat(nothiInboxNote.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    int totalNote = _noteTotal;
+                    //int totalNote = Convert.ToInt32(totalnothi.Substring(9));
+                    if (nothiInboxNote.data.records.Count == 1)
+                    {
+                        this.Height = totalNote * 190 + originalHeight;
+                    }
+                    else
+                    {
+                        this.Height = totalNote * 170 + originalHeight;
+                    }
+
+                    this.Width = originalWidth;
+                    pnlNewAllNote.Visible = true;
+                    newAllNoteFlowLayoutPanel.Visible = true;
+                    iconButton3.IconChar = FontAwesome.Sharp.IconChar.FolderMinus;
+                    iconButton3.IconColor = Color.White;
+                    iconButton3.BackColor = Color.FromArgb(27, 197, 189);
+                    LoadOtherOfficeNothiNoteAllinPanel(nothiInboxNote.data.records);
+
+                }
+            }
+        }
+        public void LoadOtherOfficeNothiNoteAllinPanel(List<NothiListInboxNoteRecordsDTO> nothiNoteInboxLists)
+        {
+            newAllNoteFlowLayoutPanel.Controls.Clear();
+            foreach (NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO in nothiNoteInboxLists)
+            {
+                var nothiNoteShomuho = new NothiOutboxNoteShomuho();
+
+                if (nothiListInboxNoteRecordsDTO.note.note_status != "not_permitted")
+                {
+                    _noteListForNoteAll = nothiNoteInboxLists[0];
+
+                    nothiNoteShomuho.noteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+                    nothiNoteShomuho.noteNumber = nothiListInboxNoteRecordsDTO.note.note_no.ToString();
+                    nothiNoteShomuho.notesubject = nothiListInboxNoteRecordsDTO.note.note_subject.ToString();
+                    nothiNoteShomuho.prapok = nothiListInboxNoteRecordsDTO.to.officer + "," +
+                                              nothiListInboxNoteRecordsDTO.to.designation + "," +
+                                              nothiListInboxNoteRecordsDTO.to.office_unit + "," +
+                                              nothiListInboxNoteRecordsDTO.to.office;
+                    nothiNoteShomuho.currentDesk = nothiListInboxNoteRecordsDTO.desk.officer + "," +
+                                                   nothiListInboxNoteRecordsDTO.desk.designation + "," +
+                                                   nothiListInboxNoteRecordsDTO.desk.office_unit + "," +
+                                                   nothiListInboxNoteRecordsDTO.desk.office + "; শাখা: " +
+                                                   nothiListInboxNoteRecordsDTO.nothi.office_unit_name + "," +
+                                                   nothiListInboxNoteRecordsDTO.nothi.office_name + "; নথি নম্বর: " +
+                                                   nothiListInboxNoteRecordsDTO.nothi.nothi_no + "; বিষয়: " +
+                                                   nothiListInboxNoteRecordsDTO.nothi.subject;
+
+                    nothiNoteShomuho.onucched = nothiListInboxNoteRecordsDTO.note.onucched_count.ToString();
+                    nothiNoteShomuho.khoshra = nothiListInboxNoteRecordsDTO.note.khoshra_potro.ToString();
+                    nothiNoteShomuho.potrojari = nothiListInboxNoteRecordsDTO.note.potrojari.ToString();
+
+                    nothiNoteShomuho.nishponno = nothiListInboxNoteRecordsDTO.note.approved_potro.ToString();
+
+                    nothiNoteShomuho.noteIssueDate = nothiListInboxNoteRecordsDTO.desk.issue_date;
+                    nothiNoteShomuho.canRevert = nothiListInboxNoteRecordsDTO.note.can_revert;
+                    nothiNoteShomuho.notePriority(nothiListInboxNoteRecordsDTO.desk.priority);
+                    nothiNoteShomuho.noteAttachment = nothiListInboxNoteRecordsDTO.note.attachment_count.ToString();
+                    nothiNoteShomuho.btnnoteAttachment += delegate (object sender1, EventArgs e1) { NoteAttachment_ButtonClick(nothiListInboxNoteRecordsDTO, e1); };
+                    nothiNoteShomuho.OutboxNoteDetailsButton += delegate (object sender1, EventArgs e1) { OutboxNoteDetails_ButtonClick(sender1 as NoteListDataRecordNoteDTO, e1, nothiListInboxNoteRecordsDTO); };
+                }
+                else
+                {
+                    nothiNoteShomuho.noteID = nothiListInboxNoteRecordsDTO.note.nothi_note_id;
+                    nothiNoteShomuho.noteNumber = nothiListInboxNoteRecordsDTO.note.note_no.ToString();
+                    nothiNoteShomuho.notesubject = nothiListInboxNoteRecordsDTO.note.note_subject_sub_text;
+                    nothiNoteShomuho.not_permittedVisibilityOff();
+                }
+
+                UIDesignCommonMethod.AddRowinTable(newAllNoteFlowLayoutPanel, nothiNoteShomuho);
+
             }
         }
         private void loadnewAllNoteFlowLayoutPanel(string note_order)
@@ -191,7 +305,7 @@ namespace dNothi.Desktop.UI.Dak
             }
 
 
-            var nothiInboxNote = _nothiOutboxNote.GetNothiOutboxNote(nothiListUserParam, eachNothiId, note_category, note_order);
+            var nothiInboxNote = _nothiOutboxNote.GetNothiOutboxNote(nothiListUserParam, eachNothiId, note_category, note_order, nothi_office);
 
             if (nothiInboxNote.status == "success")
             {
@@ -217,6 +331,30 @@ namespace dNothi.Desktop.UI.Dak
                     iconButton3.IconColor = Color.White;
                     iconButton3.BackColor = Color.FromArgb(27, 197, 189);
                     LoadNothiNoteAllinPanel(nothiInboxNote.data.records);
+
+                }
+                else
+                {
+                    _noteTotal = nothiInboxNote.data.total_records;
+                    lbNoteTotal.Text = "সর্বমোট: " + string.Concat(nothiInboxNote.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    int totalNote = _noteTotal;
+                    this.Height =  170 + originalHeight;
+                    this.Width = originalWidth;
+                    pnlNewAllNote.Visible = true;
+                    newAllNoteFlowLayoutPanel.Visible = true;
+                    iconButton3.IconChar = FontAwesome.Sharp.IconChar.FolderMinus;
+                    iconButton3.IconColor = Color.White;
+                    iconButton3.BackColor = Color.FromArgb(27, 197, 189);
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    //_noteListForNoteAll = nothiNoteInboxLists[0];
+                    var nothiNoteShomuho = new NothiOutboxNoteShomuho();
+
+                    nothiNoteShomuho.No_Note();
+
+
+                    UIDesignCommonMethod.AddRowinTable(newAllNoteFlowLayoutPanel, nothiNoteShomuho);
+
+                    
 
                 }
             }
@@ -373,6 +511,7 @@ namespace dNothi.Desktop.UI.Dak
                 nothiListRecords.subject = nothiListInboxNoteRecordsDTO.nothi.subject;
                 nothiListRecords.id = nothiListInboxNoteRecordsDTO.nothi.id;
                 nothiListRecords.office_name = nothiListInboxNoteRecordsDTO.nothi.office_name;
+                nothiListRecords.office_id = nothiListInboxNoteRecordsDTO.desk.office_id;
 
                 NoteOnucchedRevertResPonse noteOnucchedRevert = _noteOnucchedRevert.GetNoteOnucchedRevert(nothiListUserParam, nothiListRecords, newnotedata);
                 if (noteOnucchedRevert.status == "success")
@@ -494,30 +633,58 @@ namespace dNothi.Desktop.UI.Dak
         public event EventHandler NoteAllButton;
         private void btnAllNote_Click(object sender, EventArgs e)
         {
-            if (this.NoteAllButton != null)
+            if (this.NoteAllButton != null && _noteListForNoteAll.desk != null && _noteListForNoteAll.note != null && _noteListForNoteAll.nothi != null && _noteListForNoteAll.to != null)
                 this.NoteAllButton(_noteListForNoteAll, e);
         }
 
         private void btnRefreshNote_Click(object sender, EventArgs e)
         {
-            newAllNoteFlowLayoutPanel.Controls.Clear();
-            loadnewAllNoteFlowLayoutPanel("asc");
-        }
-
-        private void btnNoteOrder_Click(object sender, EventArgs e)
-        {
-            if (btnNoteOrder.IconChar == FontAwesome.Sharp.IconChar.ChevronDown)
+            if (_isOtherOffice == true)
             {
                 newAllNoteFlowLayoutPanel.Controls.Clear();
-                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
-                loadnewAllNoteFlowLayoutPanel("desc");
+                loadotherOfficeNoteFlowLayoutPanel("asc");
             }
             else
             {
                 newAllNoteFlowLayoutPanel.Controls.Clear();
-                btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
                 loadnewAllNoteFlowLayoutPanel("asc");
             }
+            
+        }
+
+        private void btnNoteOrder_Click(object sender, EventArgs e)
+        {
+            if (_isOtherOffice == true)
+            {
+                if (btnNoteOrder.IconChar == FontAwesome.Sharp.IconChar.ChevronDown)
+                {
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+                    loadotherOfficeNoteFlowLayoutPanel("desc");
+                }
+                else
+                {
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+                    loadotherOfficeNoteFlowLayoutPanel("asc");
+                }
+            }
+            else
+            {
+                if (btnNoteOrder.IconChar == FontAwesome.Sharp.IconChar.ChevronDown)
+                {
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+                    loadnewAllNoteFlowLayoutPanel("desc");
+                }
+                else
+                {
+                    newAllNoteFlowLayoutPanel.Controls.Clear();
+                    btnNoteOrder.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+                    loadnewAllNoteFlowLayoutPanel("asc");
+                }
+            }
+            
         }
     }
 }

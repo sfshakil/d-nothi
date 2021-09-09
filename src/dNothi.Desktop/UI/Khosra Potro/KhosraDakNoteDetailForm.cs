@@ -57,9 +57,11 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             try
             {
                 var _dakuserparam = _userService.GetLocalDakUserParam();
-
+                NothiListRecordsDTO nothiListRecordsDTO = new NothiListRecordsDTO();
+                nothiListRecordsDTO.id = nothiid;
+                nothiListRecordsDTO.office_id = _dakuserparam.office_id;
                 //NoteAllListResponse allNoteList = _nothiNoteTalikaServices.GetNoteListAll(_dakuserparam, nothiListRecords.id);
-                OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiid, note_id);
+                OnucchedListResponse onucchedList = _onuchhedList.GetAllOnucchedList(_dakuserparam, nothiListRecordsDTO, note_id);
                 if (onucchedList == null)
                 {
                    
@@ -90,7 +92,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
                                 SingleOnucchedResponse singleOnucched = new SingleOnucchedResponse();
                                 try
                                 {
-                                     singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiid, note_id, z.onuchhed_id);
+                                     singleOnucched = _singleOnucched.GetSingleOnucched(_dakuserparam, nothiListRecordsDTO, note_id, z.onuchhed_id);
 
                                 }
                                 catch

@@ -92,7 +92,7 @@ namespace dNothi.Services.NothiServices
 
                 Onuchhed o1 = new Onuchhed();
                 o1.nothi_id = nothiListRecordsDTO.id.ToString();
-                o1.nothi_office = dakUserParam.office_id.ToString();
+                o1.nothi_office = nothiListRecordsDTO.office_id.ToString();
                 o1.note_description = editorEncodedData;
                 o1.note_id = newnotedata.note_id.ToString();
                 o1.id = onuchhedId;

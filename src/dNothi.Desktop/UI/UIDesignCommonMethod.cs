@@ -23,11 +23,16 @@ namespace dNothi.Desktop.UI
         public static String ConvertImageURLToBase64(String url)
         {
             StringBuilder _sb = new StringBuilder();
+            try
+            {
+                Byte[] _byte = GetImage(url);
 
-            Byte[] _byte = GetImage(url);
+                _sb.Append(Convert.ToBase64String(_byte, 0, _byte.Length));
 
-            _sb.Append(Convert.ToBase64String(_byte, 0, _byte.Length));
-
+                
+            }
+            catch {
+            }
             return _sb.ToString();
         }
 

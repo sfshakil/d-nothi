@@ -143,7 +143,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             filePnael.Visible = false;
         }
-
+        public void khoshrabuttonoff()
+        {
+            btnKhosra.Enabled = false;
+        }
         [Category("Custom Props")]
         public string office
         {

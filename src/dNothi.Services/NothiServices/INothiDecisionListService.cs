@@ -18,5 +18,6 @@ namespace dNothi.Services.NothiServices
         NothiBibechhoPotroResponse GetNothiBibechhoPotroList(DakUserParam dakUserParam, string nothi_id);
         NothiOnuchhedListResponse GetNothiOnuchhedList(DakUserParam dakUserParam, string nothi_id);
         NothiPotakaListResponse GetNothiPotakaList(DakUserParam dakUserParam, string nothi_id, string note_id);
+        NothiPotakaResponse GetNothiPotakaSaveResponse(DakUserParam dakUserParam, NothiPotakaData nothiPotakaData, KhoshraPotroWaitinDataRecordDTO khoshraPotroWaitinDataRecordDTO);
     }
 }

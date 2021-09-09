@@ -30,6 +30,7 @@ using AutoMapper;
 using Newtonsoft.Json.Linq;
 using dNothi.Desktop.UI.PotroJariGroups;
 using dNothi.Constants;
+using dNothi.Core.Interfaces;
 using dNothi.Services.DakServices.DakReports;
 
 namespace dNothi.Desktop.UI
@@ -91,7 +92,7 @@ namespace dNothi.Desktop.UI
         IDakSharingService<ResponseModel> _dakSharingServeice { get; set; }
 
         public DakCatagoryList _currentDakCatagory { get; set; }
-
+        IRepository<SettingsList> _settingsList;
         public Dashboard(IDakInboxServices dakInbox,
             IUserService userService,
             IDakOutboxService dakOutboxService,
@@ -109,8 +110,11 @@ namespace dNothi.Desktop.UI
              IDakFolderService dakFolderService,
              IProtibedonService protibedonService,
                INothiInboxNoteServices nothiInboxNote,
+               IRepository<SettingsList> settingsList,
         IDakNothijatoService dakNothijatoService, IDakSharingService<ResponseModel> dakSharingServeice)
         {
+            WaitForm = new WaitFormFunc();
+            WaitForm.Show(this);
             _nothiInboxNote = nothiInboxNote;
             _dakNothivuktoService = dakNothivuktoService;
             _userService = userService;
@@ -131,19 +135,58 @@ namespace dNothi.Desktop.UI
             _dakFolderService = dakFolderService;
             _syncerServices = syncerServices;
             _dakSharingServeice = dakSharingServeice;
+            _settingsList = settingsList;
             InitializeComponent();
 
-
-
-
+            setUpPaginationFromLocalDB();
+            
             pb = new PictureBox();
 
             pb.Dock = DockStyle.Fill;
-            WaitForm = new WaitFormFunc();
-
+            
+            WaitForm.Close();
 
 
         }
+        private void setUpPaginationFromLocalDB()
+        {
+            DakUserParam _dakuserparam = _userService.GetLocalDakUserParam();
+            List<SettingsList> settingsListDB = _settingsList.Table.Where(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
+
+            if (settingsListDB != null)
+            {
+                if (settingsListDB.Count > 0)
+                {
+                    foreach (SettingsList settingsList in settingsListDB)
+                    {
+                        settingsUserControl.setupcbxFromDB(settingsList);
+                        AgotoPageLimitFromsettings = settingsList.dakInboxPagination;
+                        SentPageLimitFromsettings = settingsList.dakSentPagination;
+                        NothiteUposthapitoPageLimitFromsettings = settingsList.dakNothiteUposthapitoPagination;
+                        NothijatoPageLimitFromsettings = settingsList.dakNothijatoPagination;
+                        ArchaivePageLimitFromsettings = settingsList.dakArchaivePagination;
+                        KhoshraPageLimitFromsettings = settingsList.dakKhoshraPagination;
+
+                    }
+                }
+                else
+                {
+                    AgotoPageLimitFromsettings = SentPageLimitFromsettings = NothiteUposthapitoPageLimitFromsettings = NothijatoPageLimitFromsettings = ArchaivePageLimitFromsettings = KhoshraPageLimitFromsettings = NothiCommonStaticValue.pageLimit;
+
+                }
+            }
+            else
+            {
+                AgotoPageLimitFromsettings = SentPageLimitFromsettings = NothiteUposthapitoPageLimitFromsettings = NothijatoPageLimitFromsettings = ArchaivePageLimitFromsettings = KhoshraPageLimitFromsettings = NothiCommonStaticValue.pageLimit;
+
+            }
+        }
+        private int AgotoPageLimitFromsettings;
+        private int SentPageLimitFromsettings;
+        private int NothiteUposthapitoPageLimitFromsettings;
+        private int NothijatoPageLimitFromsettings;
+        private int ArchaivePageLimitFromsettings;
+        private int KhoshraPageLimitFromsettings;
         private void Blur()
         {
             //Bitmap bmp = Screenshot.TakeSnapshot(dashBoardBlurPanel);
@@ -672,7 +715,7 @@ namespace dNothi.Desktop.UI
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
             // Satic Class
-            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.limit = SentPageLimitFromsettings;
             dakListUserParam.page = pageNumber;
 
             DakListOutboxResponse dakListOutboxResponse = _dakOutboxService.GetDakOutbox(dakListUserParam);
@@ -1041,7 +1084,8 @@ namespace dNothi.Desktop.UI
 
         private async void LoadDakInbox()
         {
-           // RefreshDetailsSearchAllInput();
+            WaitForm.Show(this);
+            // RefreshDetailsSearchAllInput();
             RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
@@ -1052,7 +1096,7 @@ namespace dNothi.Desktop.UI
             _currentDakCatagory.isInbox = true;
 
 
-            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.limit = AgotoPageLimitFromsettings;
             dakListUserParam.page = pageNumber;
 
             try
@@ -1063,10 +1107,12 @@ namespace dNothi.Desktop.UI
 
 
                     _dakInbox.SaveorUpdateDakInbox(dakInbox);
+                    WaitForm.Close();
                     if (dakInbox.data.records.Count > 0)
                     {
                         Pagination(dakInbox.data.records.Count, dakInbox.data.total_records);
                         LoadDakInboxinPanel(dakInbox.data.records);
+                        
                         return;
 
                     }
@@ -1108,7 +1154,7 @@ namespace dNothi.Desktop.UI
             //    noDakTableLayoutPanel.Visible = true;
 
             //}
-
+            WaitForm.Close();
 
         }
 
@@ -1165,7 +1211,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakInboxinPanel(List<DakListRecordsDTO> dakLists)
         {
-
+            WaitForm.Show(this);
             dakBodyFlowLayoutPanel.Controls.Clear();
             DakCatagoryList dakCatagoryList = new DakCatagoryList();
             dakCatagoryList.isInbox = true;
@@ -1174,7 +1220,7 @@ namespace dNothi.Desktop.UI
                 //LoadSingleDakInboxinPanel(dakListInboxRecordsDTO);
                 LoadSingleDakinPanel(dakListInboxRecordsDTO, dakCatagoryList);
             }
-
+            WaitForm.Close();
         }
 
         private void DakTagShow_ButtonClick(List<DakTagDTO> dak_Tags)
@@ -1909,7 +1955,7 @@ namespace dNothi.Desktop.UI
             NormalizeDashBoard();
             _currentDakCatagory.isNothivukto = true;
 
-            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.limit = NothiteUposthapitoPageLimitFromsettings;
             dakListUserParam.page = pageNumber;
 
 
@@ -2217,7 +2263,7 @@ namespace dNothi.Desktop.UI
 
             _currentDakCatagory.isArchived = true;
 
-            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.limit = ArchaivePageLimitFromsettings;
             dakListUserParam.page = pageNumber;
 
 
@@ -2567,7 +2613,7 @@ namespace dNothi.Desktop.UI
             NormalizeDashBoard();
             _currentDakCatagory.isNothijato = true;
 
-            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.limit = NothijatoPageLimitFromsettings;
             dakListUserParam.page = pageNumber;
 
 
@@ -3196,7 +3242,7 @@ namespace dNothi.Desktop.UI
             NormalizeDashBoard();
 
             // Satic Class
-            dakListUserParam.limit = NothiCommonStaticValue.pageLimit;
+            dakListUserParam.limit = KhoshraPageLimitFromsettings;
             dakListUserParam.page = pageNumber;
 
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -5852,6 +5898,57 @@ namespace dNothi.Desktop.UI
         {
             
             System.Diagnostics.Process.Start(DefaultAPIConfiguration.DoptorDomainAddressLocal+"/application/"+_dakuserparam.doptor_token);
+        }
+        SettingsUserControl settingsUserControl = UserControlFactory.Create<SettingsUserControl>();
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            if (!settingsUserControl.Visible)
+            {
+                settingsUserControl.Visible = true;
+                settingsUserControl.Location = new System.Drawing.Point(SettingsButton.Location.X, SettingsButton.Height);
+                Controls.Add(settingsUserControl);
+                settingsUserControl.BringToFront();
+                settingsUserControl.SettingsSaveButton += delegate (object sender1, EventArgs e1) { SettingsSaveButton_Click(sender1 as Settings, e1); };
+
+            }
+            else
+            {
+                settingsUserControl.Visible = false;
+                //modulePanel.Width = 334;
+            }
+        }
+        private void SettingsSaveButton_Click(Settings settings, EventArgs e)
+        {
+            AgotoPageLimitFromsettings = settings.dakInboxPagination;
+            SentPageLimitFromsettings = settings.dakSentPagination;
+            NothiteUposthapitoPageLimitFromsettings = settings.dakNothiteUposthapitoPagination;
+            NothijatoPageLimitFromsettings = settings.dakNothijatoPagination;
+            ArchaivePageLimitFromsettings = settings.dakArchaivePagination;
+            KhoshraPageLimitFromsettings = settings.dakKhoshraPagination;
+            if (_currentDakCatagory.isInbox == true)
+            {
+                LoadDakInbox();
+            }
+            else if (_currentDakCatagory.isOutbox == true)
+            {
+                LoadDakOutbox();
+            }
+            else if (_currentDakCatagory.isNothivukto == true)
+            {
+                LoadDakNothivukto();
+            }
+            else if (_currentDakCatagory.isNothijato == true)
+            {
+                LoadDakNothijato();
+            }
+            else if (_currentDakCatagory.isArchived == true)
+            {
+                LoadDakArchive();
+            }
+            else if (_currentDakCatagory.isKhosra == true)
+            {
+                LoadDakKhasraList();
+            }
         }
 
         private void dakSearchSubTextBox_KeyDown(object sender, KeyEventArgs e)
