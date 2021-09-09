@@ -16,6 +16,9 @@ using dNothi.Services.NothiReportService;
 using dNothi.Services.UserServices;
 using dNothi.Services.BasicService;
 using System.Reflection;
+using dNothi.Services.NothiReportService.Model;
+using iText.Layout.Element;
+using dNothi.Services.DakServices;
 
 namespace dNothi.Desktop.UI.NothiUI
 {
@@ -50,16 +53,17 @@ namespace dNothi.Desktop.UI.NothiUI
             todate = DateTime.Now.ToString("yyyy/MM/dd");
             dateTextBox.Text = fromdate + ":" + todate;
 
-
-            dakPriorityComboBox.DataSource = getShaka();
+            var userparam = _userService.GetLocalDakUserParam();
+            dakPriorityComboBox.DataSource = getShaka(userparam);
             dakPriorityComboBox.DisplayMember = "Name";
             dakPriorityComboBox.ValueMember = "Id";
+            dakPriorityComboBox.SelectedValue = userparam.office_unit_id;
         }
 
-        private List<ComboBoxItem> getShaka()
+        private List<ComboBoxItem> getShaka(DakUserParam userparam)
         {
             List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
-            var userparam = _userService.GetLocalDakUserParam();
+           
             var officeUnitResponse = _basicService.GetOfficeUnitList(userparam);
             if (officeUnitResponse.status == "success")
             {
@@ -112,9 +116,7 @@ namespace dNothi.Desktop.UI.NothiUI
             dateTextBox.Text = customDatePicker._date;
 
             customDatePicker.Visible = false;
-            page = 1;
-            lastCountValue = 1;
-            LoadData();
+            Formload();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -137,11 +139,23 @@ namespace dNothi.Desktop.UI.NothiUI
              DataExportToPDF(); 
             //printPdf();
         }
-        public int totalData = 0;
+      
+        private void Formload()
+        {
+            lastCountValue = 1;
+            page = 1;
+            start = 1;
+            LoadData();
+            if (totalrecord < 10) { end = totalrecord; }
+            else { end = 10; }
+            NextPreviousButtonShow();
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+
+        }
         private void LoadData()
         {
             var userParam = _userService.GetLocalDakUserParam();
-            string pagessize = comboBox1.Text;
+          //  string pagessize = comboBox1.Text;
             string dateRange = dateTextBox.Text;
             string unitid = dakPriorityComboBox.SelectedValue.ToString();
             if (dateRange == string.Empty)
@@ -156,14 +170,14 @@ namespace dNothi.Desktop.UI.NothiUI
                 todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
             }
 
-            pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(pagessize));
+           // pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(pagessize));
 
             userParam.page = page;
             userParam.limit = pageLimit;
             var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam, fromdate, todate, unitid, _isNothiPerito, _isNothiGrahon, _isNothiRegister,_isPotraJariBohi,_isNothiMasterFile);
             if (nothiRegisterBook.status == "success")
             {
-                totalRowlabel.Text = "সর্বমোট "+ ConversionMethod.EnglishNumberToBangla( nothiRegisterBook.data.total_records.ToString())+" টি";
+                totalLabel.Text = "সর্বমোট "+ ConversionMethod.EnglishNumberToBangla( nothiRegisterBook.data.total_records.ToString());
                 noRowMessageLabel.Visible = false;
                 lastrecord = nothiRegisterBook.data.records.Count();
                 //lastCountValue = 1;
@@ -188,7 +202,8 @@ namespace dNothi.Desktop.UI.NothiUI
                     noRowMessageLabel.Visible = false;
                     //lastCountValue = columns.Max(x => x.lastCountValue);
                 }
-                totalData= nothiRegisterBook.data.total_records;
+              
+                totalrecord = nothiRegisterBook.data.total_records;
                 float pagesize = (float)(nothiRegisterBook.data.total_records) / (float)pageLimit;
                 totalPage = (int)Math.Ceiling(pagesize);
                 registerReportDataGridView.DataSource = null;
@@ -246,134 +261,108 @@ namespace dNothi.Desktop.UI.NothiUI
                 worksheet = workbook.Sheets["Sheet1"];
                 worksheet = workbook.ActiveSheet;
                 worksheet.Name = "নথি নিবন্ধন বহি";
-
-                var userParam = _userService.GetLocalDakUserParam();
-                string pagessize = comboBox1.Text;
-                string dateRange = dateTextBox.Text;
-                string unitid = dakPriorityComboBox.SelectedValue.ToString();
-                if (dateRange == string.Empty)
+                var nothiRegisterBook = LoadExportData();
+                try
                 {
-                    fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
-                    todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
-                }
-                else
-                {
-                    fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
-                    todate = DateTime.Now.ToString("yyyy/MM/dd");
-                }
-
-
-                userParam.page = 1;
-                userParam.limit = totalData;
-                var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam, fromdate, todate, unitid, _isNothiPerito, _isNothiGrahon, _isNothiRegister, _isPotraJariBohi, _isNothiMasterFile);
-                if (nothiRegisterBook.status == "success")
-                {
-                    int lastCount = 0;
-                    var columns = (from t in nothiRegisterBook.data.records
-                                   select new RegisterReport
-                                   { 
-
-                                       sl = ConversionMethod.EnglishNumberToBangla((lastCount++).ToString()),
-                                       acceptNum = t.nothi.nothi_no,
-                                       docketingNo = "",
-                                       sharokNo = t.nothi.subject,
-                                       applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.nothi.modified
-
-                                   }).ToList();
-                    DataTable dt = new DataTable();
-                    dt.Columns.Add("sl", typeof(string));
-                    dt.Columns.Add("acceptNum", typeof(string));
-                    dt.Columns.Add("docketingNo", typeof(string));
-                    dt.Columns.Add("sharokNo", typeof(string));
-                    dt.Columns.Add("applyDate", typeof(string));
-                    foreach (var item in columns)
+                    for (int i = 0; i < registerReportDataGridView.Columns.Count; i++)
                     {
-                        dt.Rows.Add(new object[] {
-                        item.sl,
-                        item.acceptNum,
-                        item.docketingNo,
-                        item.sharokNo,
-                        item.applyDate,
-                         });
+                        worksheet.Cells[1, i + 1] = registerReportDataGridView.Columns[i].HeaderText;
                     }
-                    //DataTable table =ToDataTable<RegisterReport>(columns);
-
-                  try
+                    for (int i = 0; i < nothiRegisterBook.Rows.Count; i++)
                     {
-                        for (int i = 0; i < registerReportDataGridView.Columns.Count; i++)
+                        for (int j = 0; j < nothiRegisterBook.Columns.Count; j++)
                         {
-                            worksheet.Cells[1, i + 1] = registerReportDataGridView.Columns[i].HeaderText;
-                        }
-                        for (int i = 0; i < dt.Rows.Count; i++)
-                        {
-                            for (int j = 0; j < dt.Columns.Count; j++)
+                            if (nothiRegisterBook.Rows[i][j].ToString() != null)
                             {
-                                if (dt.Rows[i][j].ToString() != null)
-                                {
-                                    worksheet.Cells[i + 2, j + 1] = dt.Rows[i][j].ToString();
-                                }
-                                else
-                                {
-                                    worksheet.Cells[i + 2, j + 1] = "";
-                                }
+                                worksheet.Cells[i + 2, j + 1] = nothiRegisterBook.Rows[i][j].ToString();
+                            }
+                            else
+                            {
+                                worksheet.Cells[i + 2, j + 1] = "";
                             }
                         }
-
-                        //Getting the location and file name of the excel to save from user. 
-                        SaveFileDialog saveDialog = new SaveFileDialog();
-                        saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-                        saveDialog.FilterIndex = 2;
-
-                        if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                        {
-                            workbook.SaveAs(saveDialog.FileName);
-                            MessageBox.Show("Export Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
                     }
-                    catch (System.Exception ex)
+
+                    //Getting the location and file name of the excel to save from user. 
+                    SaveFileDialog saveDialog = new SaveFileDialog();
+                    saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                    saveDialog.FilterIndex = 2;
+
+                    if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
-                        MessageBox.Show(ex.Message);
+                        workbook.SaveAs(saveDialog.FileName);
+                        MessageBox.Show("Export Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
-                    finally
-                    {
-                        app.Quit();
-                        workbook = null;
-                        worksheet = null;
-                    }
-
-
-
+                finally
+                {
+                    app.Quit();
+                    workbook = null;
+                    worksheet = null;
                 }
 
 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
         }
-        public static DataTable ToDataTable<T>(List<T> items)
+        private DataTable LoadExportData()
         {
-            DataTable dataTable = new DataTable(typeof(T).Name);
+            var userParam = _userService.GetLocalDakUserParam();
 
-            //Get all the properties
-            PropertyInfo[] Props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
-            foreach (PropertyInfo prop in Props)
+            string dateRange = dateTextBox.Text;
+            string unitid = dakPriorityComboBox.SelectedValue.ToString();
+            if (dateRange == string.Empty)
             {
-                //Setting column names as Property names
-                dataTable.Columns.Add(prop.Name);
+                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+                todate = DateTime.Now.ToString("yyyy/MM/dd");
+               
             }
-            foreach (T item in items)
+            else
             {
-                var values = new object[Props.Length];
-                for (int i = 0; i < Props.Length; i++)
-                {
-                    //inserting property values to datatable rows
-                    values[i] = Props[i].GetValue(item, null);
-                }
-                dataTable.Rows.Add(values);
+                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
+                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
             }
-            //put a breakpoint here and check datatable
-            return dataTable;
+
+            userParam.page = 1;
+            userParam.limit = totalrecord;
+            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam, fromdate, todate, unitid, _isNothiPerito, _isNothiGrahon, _isNothiRegister, _isPotraJariBohi, _isNothiMasterFile);
+            int lastCount = 1;
+            var columns = (from t in nothiRegisterBook.data.records
+                           select new RegisterReport
+                           {
+
+                               sl = ConversionMethod.EnglishNumberToBangla((lastCount++).ToString()),
+                               acceptNum = t.nothi.nothi_no,
+                               docketingNo = "",
+                               sharokNo = t.nothi.subject,
+                               applyDate = ConversionMethod.numberToConsonet(t.nothi.nothi_class.ToString()) + ", " + t.nothi.modified
+
+                           }).ToList();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("sl", typeof(string));
+            dt.Columns.Add("acceptNum", typeof(string));
+            dt.Columns.Add("docketingNo", typeof(string));
+            dt.Columns.Add("sharokNo", typeof(string));
+            dt.Columns.Add("applyDate", typeof(string));
+            foreach (var item in columns)
+            {
+                dt.Rows.Add(new object[] {
+                        item.sl,
+                        item.acceptNum,
+                        item.docketingNo,
+                        item.sharokNo,
+                        item.applyDate,
+                         });
+            }
+           
+            return dt;
         }
+      
         private void DataExportToPDF()
         {
            
@@ -399,8 +388,11 @@ namespace dNothi.Desktop.UI.NothiUI
                     }
                     if (!fileError)
                     {
+                        var nothiRegisterBook = LoadExportData();
                         try
                         {
+                            int cols = nothiRegisterBook.Columns.Count;
+                            int rows = nothiRegisterBook.Rows.Count;
                             BaseFont bf = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\Fonts\ARIALUNI.TTF", BaseFont.IDENTITY_H,true);
                             //BaseFont bf = BaseFont.CreateFont(MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi), BaseFont.IDENTITY_H, true);
                              PdfPTable pdfTable = new PdfPTable(registerReportDataGridView.Columns.Count);
@@ -417,7 +409,7 @@ namespace dNothi.Desktop.UI.NothiUI
                                 pdfTable.AddCell(cell);
                             }
 
-                            foreach (DataGridViewRow row in registerReportDataGridView.Rows)
+                            foreach (DataGridViewRow row in nothiRegisterBook.Rows)
                             {
                                 foreach (DataGridViewCell cell in row.Cells)
                                 {
@@ -429,6 +421,18 @@ namespace dNothi.Desktop.UI.NothiUI
                                 }
                             }
 
+                            for (int k = 0; k < rows; k++)
+                            {
+                                for (int j = 0; j < cols; j++)
+                                {
+                                   
+                                    iTextSharp.text.Font RowFont = FontFactory.GetFont(FontFactory.COURIER_BOLD, 12);
+                                    PdfPCell cellsrow = new PdfPCell(new Phrase(12, nothiRegisterBook.Rows[k][j].ToString(), RowFont));
+                                  
+                                    pdfTable.AddCell(cellsrow);
+
+                                }
+                            }
                             using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
                             {
                                 Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
@@ -454,16 +458,23 @@ namespace dNothi.Desktop.UI.NothiUI
                 MessageBox.Show("No Record To Export !!!", "Info");
             }
         }
+
        
         private void RegisterReportUserControl_Load(object sender, EventArgs e)
         {
-            page = 1;
-            lastCountValue = 1;
-            LoadData();
-            NextPreviousButtonShow();
+            Formload();
         }
 
-       
+
+        private void dakPriorityComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (dakPriorityComboBox.SelectedValue.ToString() != "dNothi.Desktop.ComboBoxItem")
+                
+            {
+                Formload();
+            }
+        }
+
         #region Pagination
         private void NextPreviousButtonShow()
         {
@@ -471,34 +482,32 @@ namespace dNothi.Desktop.UI.NothiUI
             {
                 if (page == 1 && totalPage > 1)
                 {
-                    iconButton3.Enabled = false;
+                    PreviousIconButton.Enabled = false;
                 }
                 else
                 {
-                    iconButton3.Enabled = true;
+                    PreviousIconButton.Enabled = true;
 
                 }
-                pageNextButton.Enabled = true;
+                nextIconButton.Enabled = true;
             }
             if (page == totalPage)
             {
                 if (page == 1 && totalPage == 1)
                 {
-                    iconButton3.Enabled = false;
+                    PreviousIconButton.Enabled = false;
 
                 }
                 else
                 {
-                    iconButton3.Enabled = true;
+                    PreviousIconButton.Enabled = true;
 
                 }
-                pageNextButton.Enabled = false;
+                nextIconButton.Enabled = false;
             }
 
-
-
         }
-        private void pageNextButton_Click(object sender, EventArgs e)
+        private void nextIconButton_Click(object sender, EventArgs e)
         {
             string endrow;
 
@@ -522,10 +531,11 @@ namespace dNothi.Desktop.UI.NothiUI
 
 
             if (totalrecord < end) { endrow = totalrecord.ToString(); }
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(endrow);
 
             NextPreviousButtonShow();
         }
-        private void iconButton3_Click(object sender, EventArgs e)
+        private void PreviousIconButton_Click(object sender, EventArgs e)
         {
 
             if (page > 1)
@@ -534,8 +544,7 @@ namespace dNothi.Desktop.UI.NothiUI
                 page -= 1;
                 start -= pageLimit;
                 end -= pageLimit;
-                lastCountValue -= (pageLimit+lastrecord);
-
+                lastCountValue -= (pageLimit + lastrecord);
             }
             else
             {
@@ -547,31 +556,12 @@ namespace dNothi.Desktop.UI.NothiUI
 
 
             LoadData();
-            //perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
             NextPreviousButtonShow();
 
         }
 
         #endregion
-
-        private void dakPriorityComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (dakPriorityComboBox.SelectedValue.ToString() != "dNothi.Desktop.ComboBoxItem")
-                
-            {
-                page = 1;
-                lastCountValue = 1;
-                LoadData();
-                NextPreviousButtonShow();
-            }
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            page = 1;
-            lastCountValue = 1;
-            LoadData();
-        }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {

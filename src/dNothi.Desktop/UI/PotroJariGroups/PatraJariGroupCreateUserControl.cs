@@ -278,7 +278,8 @@ namespace dNothi.Desktop.UI.PotroJariGroups
 
             UpdateOfficerTalika();
         }
-
+        public bool isEdit;
+        public event EventHandler btnSaveClick;
         private void btnSave_Click(object sender, EventArgs e)
         {
             DakUserParam userParam = _userService.GetLocalDakUserParam();
@@ -321,6 +322,14 @@ namespace dNothi.Desktop.UI.PotroJariGroups
                         totalOfficerlabel.Text= ConversionMethod.EnglishNumberToBangla(totalOfficer.ToString());
                         talikaTableLayoutPanel.Controls.Clear();
                         officers.Clear();
+                        if(isEdit)
+                        {
+                        foreach (Form f in Application.OpenForms)
+                        { BeginInvoke((Action)(() => f.Hide())); }
+                        PotrojariGroupForm potrojariGroupForm = FormFactory.Create<PotrojariGroupForm>();
+                        BeginInvoke((Action)(() => potrojariGroupForm.ShowDialog()));
+                        potrojariGroupForm.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                    }
                     }
                 else
                 {
@@ -339,7 +348,10 @@ namespace dNothi.Desktop.UI.PotroJariGroups
 
             }
         }
-
+        private void DoSomethingAsync(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
         private void selfInfoTableLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(210, 234, 255), ButtonBorderStyle.Solid);

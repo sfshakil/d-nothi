@@ -193,7 +193,11 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         {
             UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
             successMessage.message = Message;
-            successMessage.ShowDialog();
+            // successMessage.ShowDialog();
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
 
         }
         private void DakNothiteUposthapitoForm_Load(object sender, EventArgs e)

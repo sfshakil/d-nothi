@@ -59,6 +59,7 @@
             this.dakAttachmentinGridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dakUploadPanel3 = new System.Windows.Forms.Panel();
             this.BottomPanel = new System.Windows.Forms.Panel();
+            this.ownDeskSendButton = new FontAwesome.Sharp.IconButton();
             this.addDesignationButton = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -176,7 +177,6 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ownDeskSendButton = new FontAwesome.Sharp.IconButton();
             this.dakUploadPanel1.SuspendLayout();
             this.dakUploadPanel2.SuspendLayout();
             this.FilePanel.SuspendLayout();
@@ -361,7 +361,7 @@
             this.label4.Location = new System.Drawing.Point(2, 4);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(12, 8, 0, 0);
-            this.label4.Size = new System.Drawing.Size(88, 26);
+            this.label4.Size = new System.Drawing.Size(87, 26);
             this.label4.TabIndex = 68;
             this.label4.Text = "ফাইল নির্বাচন";
             this.label4.Click += new System.EventHandler(this.fileUploadButton_Click);
@@ -400,7 +400,7 @@
             this.attachmentHeaderLabel.Location = new System.Drawing.Point(5, 8);
             this.attachmentHeaderLabel.Name = "attachmentHeaderLabel";
             this.attachmentHeaderLabel.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.attachmentHeaderLabel.Size = new System.Drawing.Size(162, 21);
+            this.attachmentHeaderLabel.Size = new System.Drawing.Size(163, 21);
             this.attachmentHeaderLabel.TabIndex = 68;
             this.attachmentHeaderLabel.Text = "মূল ডাক ও সংযুক্তিসমূহ";
             // 
@@ -448,6 +448,28 @@
             this.BottomPanel.Size = new System.Drawing.Size(1059, 835);
             this.BottomPanel.TabIndex = 36;
             this.BottomPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.fileUploadPanel_Paint);
+            // 
+            // ownDeskSendButton
+            // 
+            this.ownDeskSendButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ownDeskSendButton.BackColor = System.Drawing.Color.BlueViolet;
+            this.ownDeskSendButton.FlatAppearance.BorderSize = 0;
+            this.ownDeskSendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ownDeskSendButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ownDeskSendButton.ForeColor = System.Drawing.Color.White;
+            this.ownDeskSendButton.IconChar = FontAwesome.Sharp.IconChar.ShareSquare;
+            this.ownDeskSendButton.IconColor = System.Drawing.Color.White;
+            this.ownDeskSendButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ownDeskSendButton.IconSize = 24;
+            this.ownDeskSendButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ownDeskSendButton.Location = new System.Drawing.Point(909, 2);
+            this.ownDeskSendButton.Name = "ownDeskSendButton";
+            this.ownDeskSendButton.Size = new System.Drawing.Size(145, 35);
+            this.ownDeskSendButton.TabIndex = 79;
+            this.ownDeskSendButton.Text = "নিজ ডেস্কে প্রেরণ";
+            this.ownDeskSendButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ownDeskSendButton.UseVisualStyleBackColor = false;
+            this.ownDeskSendButton.Click += new System.EventHandler(this.ownDeskSendButton_Click);
             // 
             // addDesignationButton
             // 
@@ -748,7 +770,6 @@
             this.onulipiprapokDataGridViewCheckBoxColumn.HeaderText = "অনুলিপি প্রাপক";
             this.onulipiprapokDataGridViewCheckBoxColumn.MinimumWidth = 100;
             this.onulipiprapokDataGridViewCheckBoxColumn.Name = "onulipiprapokDataGridViewCheckBoxColumn";
-            this.onulipiprapokDataGridViewCheckBoxColumn.Width = 101;
             // 
             // viewDesignationSealListBindingSource
             // 
@@ -1010,7 +1031,7 @@
             this.label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label13.Location = new System.Drawing.Point(725, 285);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(55, 18);
+            this.label13.Size = new System.Drawing.Size(54, 18);
             this.label13.TabIndex = 77;
             this.label13.Text = "অগ্রধিকার";
             // 
@@ -1334,7 +1355,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(13, 19);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(78, 18);
+            this.label19.Size = new System.Drawing.Size(76, 18);
             this.label19.TabIndex = 89;
             this.label19.Text = "অফিসার খুঁজুন";
             // 
@@ -1839,7 +1860,7 @@
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(9, 399);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(50, 18);
+            this.label35.Size = new System.Drawing.Size(49, 18);
             this.label35.TabIndex = 106;
             this.label35.Text = "মোবাইল";
             // 
@@ -1848,7 +1869,7 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(9, 321);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(46, 18);
+            this.label34.Size = new System.Drawing.Size(44, 18);
             this.label34.TabIndex = 104;
             this.label34.Text = "ইমেইল";
             // 
@@ -1867,7 +1888,7 @@
             this.label31.Location = new System.Drawing.Point(9, 166);
             this.label31.Margin = new System.Windows.Forms.Padding(0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(88, 18);
+            this.label31.Size = new System.Drawing.Size(87, 18);
             this.label31.TabIndex = 99;
             this.label31.Text = "কার্যালয়/ঠিকানা ";
             // 
@@ -1886,7 +1907,7 @@
             this.label25.Location = new System.Drawing.Point(7, 10);
             this.label25.Margin = new System.Windows.Forms.Padding(0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(49, 18);
+            this.label25.Size = new System.Drawing.Size(48, 18);
             this.label25.TabIndex = 94;
             this.label25.Text = "অফিসার";
             // 
@@ -2001,28 +2022,6 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "attachment_id";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Visible = false;
-            // 
-            // ownDeskSendButton
-            // 
-            this.ownDeskSendButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.ownDeskSendButton.BackColor = System.Drawing.Color.BlueViolet;
-            this.ownDeskSendButton.FlatAppearance.BorderSize = 0;
-            this.ownDeskSendButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ownDeskSendButton.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ownDeskSendButton.ForeColor = System.Drawing.Color.White;
-            this.ownDeskSendButton.IconChar = FontAwesome.Sharp.IconChar.ShareSquare;
-            this.ownDeskSendButton.IconColor = System.Drawing.Color.White;
-            this.ownDeskSendButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ownDeskSendButton.IconSize = 24;
-            this.ownDeskSendButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ownDeskSendButton.Location = new System.Drawing.Point(909, 2);
-            this.ownDeskSendButton.Name = "ownDeskSendButton";
-            this.ownDeskSendButton.Size = new System.Drawing.Size(145, 35);
-            this.ownDeskSendButton.TabIndex = 79;
-            this.ownDeskSendButton.Text = "নিজ ডেস্কে প্রেরণ";
-            this.ownDeskSendButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ownDeskSendButton.UseVisualStyleBackColor = false;
-            this.ownDeskSendButton.Click += new System.EventHandler(this.ownDeskSendButton_Click);
             // 
             // DaptorikDakUploadUserControl
             // 

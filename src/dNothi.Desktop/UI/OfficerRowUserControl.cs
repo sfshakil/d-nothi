@@ -21,7 +21,10 @@ namespace dNothi.Desktop.UI
         public int _designationId { get; set; }
         public int designationId { get {return _designationId ; } set { _designationId=value; } }
 
-
+        public int _groupId { get; set; }
+        public int groupId { get { return _groupId; } set { _groupId = value; } }
+        public int _officerCount { get; set; }
+        public int officerCount { get { return _officerCount; } set { _officerCount = value; } }
 
         public string _officerName { get; set; }
         public string officerName { get { return _officerName; } set { _officerName = value; officerNameLabel.Text = value; } }

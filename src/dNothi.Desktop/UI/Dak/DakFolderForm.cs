@@ -461,7 +461,11 @@ namespace dNothi.Desktop.UI.Dak
         {
             UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
             successMessage.message = Message;
-            successMessage.ShowDialog();
+            // successMessage.ShowDialog();
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
 
         }
 

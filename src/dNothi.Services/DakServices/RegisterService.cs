@@ -4,6 +4,7 @@ using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.BasicService.Models;
+using dNothi.Services.DakServices.DakReports;
 using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
@@ -24,7 +25,7 @@ namespace dNothi.Services.DakServices
         {
             _localDakRegisterBookRepository = localDakRegisterBookRepository;
         }
-        public RegisterReportResponse GetDakGrohonResponse(DakUserParam dakUserParam,string fromDate, string toDate, string branchName)
+        public DakReportModel GetDakGrohonResponse(DakUserParam dakUserParam,string fromDate, string toDate, string branchName)
         {
             int unitid = 0;
             if(branchName!=null)
@@ -34,19 +35,19 @@ namespace dNothi.Services.DakServices
             bool dnb = true;
             bool dnc = false;
             bool dnd = false;
-            RegisterReportResponse registerReportResponse = new RegisterReportResponse();
+            DakReportModel registerReportResponse = new DakReportModel();
             if (!InternetConnection.Check())
             {
                
 
-                registerReportResponse = JsonConvert.DeserializeObject<RegisterReportResponse>(GetLocalDakRegisterBook(dakUserParam, fromDate , toDate, unitid, dnb, dnc, dnd));
+                registerReportResponse = JsonConvert.DeserializeObject<DakReportModel>(GetLocalDakRegisterBook(dakUserParam, fromDate , toDate, unitid, dnb, dnc, dnd));
                 return registerReportResponse;
                
             }
 
             try
             {
-                var dakGrohonAPI = new RestClient(GetAPIDomain() + GetDakGrohonEndPoint());
+                var dakGrohonAPI = new RestClient(GetAPIDomain() + DefaultAPIConfiguration.DakNibondanBohiEndPoint);
                 dakGrohonAPI.Timeout = -1;
                 var dakGrohonRequest = new RestRequest(Method.POST);
                 dakGrohonRequest.AddHeader("api-version", GetOldAPIVersion());
@@ -54,15 +55,15 @@ namespace dNothi.Services.DakServices
                 dakGrohonRequest.AlwaysMultipartFormData = true;
                 dakGrohonRequest.AddParameter("designation_id", dakUserParam.designation_id);
                 dakGrohonRequest.AddParameter("office_id", dakUserParam.office_id);
-
-                dakGrohonRequest.AddParameter("start_date",fromDate);
-                dakGrohonRequest.AddParameter("end_date", toDate);
-                dakGrohonRequest.AddParameter("unit_id", branchName);
                 dakGrohonRequest.AddParameter("length", dakUserParam.limit);
                 dakGrohonRequest.AddParameter("page", dakUserParam.page);
-
-
-
+                //dakGrohonRequest.AddParameter("start_date",fromDate);
+                //dakGrohonRequest.AddParameter("end_date", toDate);
+                // dakGrohonRequest.AddParameter("unit_id", branchName);
+                string search_params = "to_office_unit_id=" + unitid + "&to_office_id=" + dakUserParam.office_id + "&movement_date_range=" + fromDate + ":" + toDate + "";
+               
+                dakGrohonRequest.AddParameter("search_params", search_params);
+              
                 IRestResponse dakGrohonResponseIRest = dakGrohonAPI.Execute(dakGrohonRequest);
 
 
@@ -72,7 +73,7 @@ namespace dNothi.Services.DakServices
                 var data=  SaveLocalDakRegisterBook(dakGrohonResponseJson, dakUserParam, fromDate, toDate, unitid, dnb, dnc, dnd);
                 //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
                 // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                registerReportResponse = JsonConvert.DeserializeObject<RegisterReportResponse>(dakGrohonResponseJson);
+                registerReportResponse = JsonConvert.DeserializeObject<DakReportModel>(dakGrohonResponseJson);
                 return registerReportResponse;
             }
             catch (Exception ex)
@@ -118,22 +119,7 @@ namespace dNothi.Services.DakServices
             return true;
         }
 
-        //private void param() {
-        //[designation_id] => 22418
-        //[office_id] => 65
-        //[user_id] => 4398
-        //[page] => 1
-        //[length] => 10
-        //[start_date] => 2021 / 07 / 04
-        //[end_date] => 2021 / 08 / 02
-        //[unit_id] => 
-        //[subject] =>
-        //[from] => 
-        //[previous_sender] =>
-        //[security_level] => 
-        //[priority_level] =>
-        //[daak_type] => 
-        //}
+     
 
         public RegisterReportResponse GetDakBiliResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName)
         {
@@ -166,13 +152,14 @@ namespace dNothi.Services.DakServices
                 dakGrohonRequest.AddParameter("designation_id", dakUserParam.designation_id);
                 dakGrohonRequest.AddParameter("office_id", dakUserParam.office_id);
 
-                dakGrohonRequest.AddParameter("start_date",fromDate);
+                dakGrohonRequest.AddParameter("start_date", fromDate);
                 dakGrohonRequest.AddParameter("end_date", toDate);
                 dakGrohonRequest.AddParameter("unit_id", branchName);
                 dakGrohonRequest.AddParameter("length", dakUserParam.limit);
                 dakGrohonRequest.AddParameter("page", dakUserParam.page);
 
-
+                //string search_params = "to_office_unit_id=" + unitid + "&from_office_id=" + dakUserParam.office_id + "&movement_date_range=" + fromDate + ":" + toDate + "";
+                //dakGrohonRequest.AddParameter("search_params", search_params);
 
                 IRestResponse dakGrohonResponseIRest = dakGrohonAPI.Execute(dakGrohonRequest);
 
@@ -181,8 +168,7 @@ namespace dNothi.Services.DakServices
 
                 var dakGrohonResponseJson = dakGrohonResponseIRest.Content;
                 var data = SaveLocalDakRegisterBook(dakGrohonResponseJson, dakUserParam, fromDate, toDate, unitid, dnb, dnc, dnd);
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
+             
                 registerReportResponse = JsonConvert.DeserializeObject<RegisterReportResponse>(dakGrohonResponseJson);
                 return registerReportResponse;
             }
@@ -230,7 +216,8 @@ namespace dNothi.Services.DakServices
                 dakGrohonRequest.AddParameter("length", dakUserParam.limit);
                 dakGrohonRequest.AddParameter("page", dakUserParam.page);
 
-
+                //string search_params = "office_unit_id=" + unitid + "&office_id=" + dakUserParam.office_id + "&movement_date_range=" + fromDate + ":" + toDate + "";
+                //dakGrohonRequest.AddParameter("search_params", search_params);
 
                 IRestResponse dakGrohonResponseIRest = dakGrohonAPI.Execute(dakGrohonRequest);
 
@@ -339,7 +326,7 @@ namespace dNothi.Services.DakServices
 
     public interface IRegisterService
     {
-        RegisterReportResponse GetDakGrohonResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName);
+        DakReportModel GetDakGrohonResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName);
         RegisterReportResponse GetDakBiliResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName);
         RegisterReportResponse GetDakDiaryResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName);
         dakTrakingModel GetDakTrakingResponse(DakUserParam dakUserParam, string fromDate, string toDate, string mobile, string subject, string application_no);

@@ -185,6 +185,7 @@
             this.dakSearchUsingTextButton = new FontAwesome.Sharp.IconButton();
             this.resetSubjectSearchButton = new FontAwesome.Sharp.IconButton();
             this.dashboardButton = new FontAwesome.Sharp.IconButton();
+            this.moduleButton = new FontAwesome.Sharp.IconButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -200,7 +201,6 @@
             this.searchHeaderTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.detailPanelDropDownButton = new FontAwesome.Sharp.IconButton();
             this.headerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.moduleButton = new FontAwesome.Sharp.IconButton();
             this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.button30 = new System.Windows.Forms.Button();
@@ -533,6 +533,7 @@
             this.dakSearchSubTextBox.PlaceholderText = "বিষয়/সিদ্ধান্ত দিয়ে খুঁজুন ";
             this.dakSearchSubTextBox.Size = new System.Drawing.Size(857, 19);
             this.dakSearchSubTextBox.TabIndex = 3;
+            this.dakSearchSubTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dakSearchSubTextBox_KeyDown);
             // 
             // label3
             // 
@@ -848,7 +849,7 @@
             this.dakTypeComboBox.Margin = new System.Windows.Forms.Padding(5);
             this.dakTypeComboBox.Name = "dakTypeComboBox";
             this.dakTypeComboBox.Size = new System.Drawing.Size(120, 28);
-            this.dakTypeComboBox.TabIndex = 4;
+            this.dakTypeComboBox.TabIndex = 7;
             this.dakTypeComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox_DrawItem);
             // 
             // dakSecretComboBox
@@ -1935,10 +1936,8 @@
             // 
             // DakTrakingIconButton
             // 
-            this.DakTrakingIconButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.DakTrakingIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.DakTrakingIconButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.DakTrakingIconButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.DakTrakingIconButton.FlatAppearance.BorderSize = 0;
             this.DakTrakingIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
@@ -2219,7 +2218,7 @@
             this.protibedonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.protibedonButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.protibedonButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.protibedonButton.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            this.protibedonButton.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
             this.protibedonButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.protibedonButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.protibedonButton.IconSize = 24;
@@ -2951,6 +2950,24 @@
             this.dashboardButton.UseVisualStyleBackColor = true;
             this.dashboardButton.Click += new System.EventHandler(this.dashboardButton_Click);
             // 
+            // moduleButton
+            // 
+            this.moduleButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.moduleButton.FlatAppearance.BorderSize = 0;
+            this.moduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moduleButton.IconChar = FontAwesome.Sharp.IconChar.ThLarge;
+            this.moduleButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.moduleButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.moduleButton.IconSize = 32;
+            this.moduleButton.Location = new System.Drawing.Point(280, 3);
+            this.moduleButton.Name = "moduleButton";
+            this.moduleButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.moduleButton.Size = new System.Drawing.Size(52, 43);
+            this.moduleButton.TabIndex = 106;
+            this.MyToolTip.SetToolTip(this.moduleButton, "অন্যান্য মডিউল");
+            this.moduleButton.UseVisualStyleBackColor = true;
+            this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
+            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -3219,23 +3236,6 @@
             this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.headerTableLayoutPanel.Size = new System.Drawing.Size(1034, 49);
             this.headerTableLayoutPanel.TabIndex = 9;
-            // 
-            // moduleButton
-            // 
-            this.moduleButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.moduleButton.FlatAppearance.BorderSize = 0;
-            this.moduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.moduleButton.IconChar = FontAwesome.Sharp.IconChar.ThLarge;
-            this.moduleButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.moduleButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.moduleButton.IconSize = 32;
-            this.moduleButton.Location = new System.Drawing.Point(280, 3);
-            this.moduleButton.Name = "moduleButton";
-            this.moduleButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.moduleButton.Size = new System.Drawing.Size(52, 43);
-            this.moduleButton.TabIndex = 106;
-            this.moduleButton.UseVisualStyleBackColor = true;
-            this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
             // 
             // onlineToggleButton2
             // 

@@ -15,6 +15,7 @@ namespace dNothi.Core.Entities
         public string model { get; set; }
         public string file_size_in_kb { get; set; }
         public string user_file_name { get; set; }
+        [MaxLength]
         public string content { get; set; }
         public long GuardFileId { get; set; }
 

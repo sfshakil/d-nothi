@@ -116,7 +116,7 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _daksource = value;
-                sourceLabel.Text = value.ToUpper();
+                sourceLabel.Text = value!=null? value.ToUpper():string.Empty;
             }
                 
         }

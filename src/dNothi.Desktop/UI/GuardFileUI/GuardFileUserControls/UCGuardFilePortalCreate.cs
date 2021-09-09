@@ -221,10 +221,13 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         }
         private void ShowAlertMessage(string mulpotroNotSelectErrorMessage)
         {
-            UIFormValidationAlertMessageForm alertMessageBox = new UIFormValidationAlertMessageForm();
-            alertMessageBox.message = mulpotroNotSelectErrorMessage;
-
-            alertMessageBox.ShowDialog();
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = mulpotroNotSelectErrorMessage;
+            successMessage.Show();
+            var t = Task.Delay(3000);
+            t.Wait();
+            successMessage.Hide();
+            //alertMessageBox.ShowDialog();
         }
 
        
@@ -232,7 +235,11 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         {
             UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
             successMessage.message = Message;
-            successMessage.ShowDialog();
+            successMessage.Show();
+            var t = Task.Delay(3000);
+            t.Wait();
+            successMessage.Hide();
+            // successMessage.ShowDialog();
 
         }
 

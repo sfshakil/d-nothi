@@ -1543,6 +1543,7 @@
     <Compile Include="View Model\ConvertRegisterResponsetoReport.cs" />
     <Compile Include="View Model\Protibedon.cs" />
     <Compile Include="View Model\RegisterReport.cs" />
+    <Compile Include="View Model\OfficerGroup.cs" />
     <Compile Include="View Model\ViewDesignationSealList.cs" />
     <Compile Include="View Model\WebBrowserColumn.cs" />
     <EmbeddedResource Include="CustomControl\ListBoxHS.resx">

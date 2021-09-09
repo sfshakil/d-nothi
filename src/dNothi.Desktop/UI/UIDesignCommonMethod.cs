@@ -470,16 +470,24 @@ namespace dNothi.Desktop.UI
 
             successMessage.message = Message;
             successMessage.isSuccess = true;
-            successMessage.Show();
+            //successMessage.Show();
+            //var t = Task.Delay(3000); //1 second/1000 ms
+            //t.Wait();
+            //successMessage.Hide();
+            successMessage.Visible=true;
             var t = Task.Delay(3000); //1 second/1000 ms
             t.Wait();
-            successMessage.Hide();
+            successMessage.Visible = false;
         }
         public static void ErrorMessage(string Message)
         {
             UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
             successMessage.message = Message;
-            successMessage.ShowDialog();
+            successMessage.Visible = true;
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Visible = false;
+            //successMessage.ShowDialog();
 
         }
 
