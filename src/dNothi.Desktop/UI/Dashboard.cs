@@ -30,6 +30,7 @@ using AutoMapper;
 using Newtonsoft.Json.Linq;
 using dNothi.Desktop.UI.PotroJariGroups;
 using dNothi.Constants;
+using dNothi.Core.Interfaces;
 
 namespace dNothi.Desktop.UI
 {
@@ -90,7 +91,7 @@ namespace dNothi.Desktop.UI
         IDakSharingService<ResponseModel> _dakSharingServeice { get; set; }
 
         public DakCatagoryList _currentDakCatagory { get; set; }
-
+        IRepository<SettingsList> _settingsList;
         public Dashboard(IDakInboxServices dakInbox,
             IUserService userService,
             IDakOutboxService dakOutboxService,
@@ -108,6 +109,7 @@ namespace dNothi.Desktop.UI
              IDakFolderService dakFolderService,
              IProtibedonService protibedonService,
                INothiInboxNoteServices nothiInboxNote,
+               IRepository<SettingsList> settingsList,
         IDakNothijatoService dakNothijatoService, IDakSharingService<ResponseModel> dakSharingServeice)
         {
             WaitForm = new WaitFormFunc();
@@ -132,10 +134,10 @@ namespace dNothi.Desktop.UI
             _dakFolderService = dakFolderService;
             _syncerServices = syncerServices;
             _dakSharingServeice = dakSharingServeice;
+            _settingsList = settingsList;
             InitializeComponent();
 
-
-            AgotoPageLimitFromsettings = SentPageLimitFromsettings = NothiteUposthapitoPageLimitFromsettings  = NothijatoPageLimitFromsettings = ArchaivePageLimitFromsettings = KhoshraPageLimitFromsettings = NothiCommonStaticValue.pageLimit;
+            setUpPaginationFromLocalDB();
             
             pb = new PictureBox();
 
@@ -144,6 +146,39 @@ namespace dNothi.Desktop.UI
             WaitForm.Close();
 
 
+        }
+        private void setUpPaginationFromLocalDB()
+        {
+            DakUserParam _dakuserparam = _userService.GetLocalDakUserParam();
+            List<SettingsList> settingsListDB = _settingsList.Table.Where(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
+
+            if (settingsListDB != null)
+            {
+                if (settingsListDB.Count > 0)
+                {
+                    foreach (SettingsList settingsList in settingsListDB)
+                    {
+                        settingsUserControl.setupcbxFromDB(settingsList);
+                        AgotoPageLimitFromsettings = settingsList.dakInboxPagination;
+                        SentPageLimitFromsettings = settingsList.dakSentPagination;
+                        NothiteUposthapitoPageLimitFromsettings = settingsList.dakNothiteUposthapitoPagination;
+                        NothijatoPageLimitFromsettings = settingsList.dakNothijatoPagination;
+                        ArchaivePageLimitFromsettings = settingsList.dakArchaivePagination;
+                        KhoshraPageLimitFromsettings = settingsList.dakKhoshraPagination;
+
+                    }
+                }
+                else
+                {
+                    AgotoPageLimitFromsettings = SentPageLimitFromsettings = NothiteUposthapitoPageLimitFromsettings = NothijatoPageLimitFromsettings = ArchaivePageLimitFromsettings = KhoshraPageLimitFromsettings = NothiCommonStaticValue.pageLimit;
+
+                }
+            }
+            else
+            {
+                AgotoPageLimitFromsettings = SentPageLimitFromsettings = NothiteUposthapitoPageLimitFromsettings = NothijatoPageLimitFromsettings = ArchaivePageLimitFromsettings = KhoshraPageLimitFromsettings = NothiCommonStaticValue.pageLimit;
+
+            }
         }
         private int AgotoPageLimitFromsettings;
         private int SentPageLimitFromsettings;
@@ -5857,7 +5892,7 @@ namespace dNothi.Desktop.UI
             
             System.Diagnostics.Process.Start(DefaultAPIConfiguration.DoptorDomainAddressLocal+"/application/"+_dakuserparam.doptor_token);
         }
-        SettingsUserControl settingsUserControl = new SettingsUserControl();
+        SettingsUserControl settingsUserControl = UserControlFactory.Create<SettingsUserControl>();
         private void SettingsButton_Click(object sender, EventArgs e)
         {
             if (!settingsUserControl.Visible)

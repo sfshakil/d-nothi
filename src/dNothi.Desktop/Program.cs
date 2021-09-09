@@ -151,6 +151,7 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<dNothi.Core.Entities.UserItem>>().As<IRepository<dNothi.Core.Entities.UserItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiItem>>().As<IRepository<dNothi.Core.Entities.NothiItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteList>>().As<IRepository<dNothi.Core.Entities.NoteList>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.SettingsList>>().As<IRepository<dNothi.Core.Entities.SettingsList>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteItem>>().As<IRepository<dNothi.Core.Entities.NoteItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiNoteTalikaItem>>().As<IRepository<dNothi.Core.Entities.NothiNoteTalikaItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiTypeListItem>>().As<IRepository<dNothi.Core.Entities.NothiTypeListItem>>();
@@ -285,6 +286,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
 
             builder.RegisterType<UI.Nothi>().AsSelf();
+            builder.RegisterType<UI.SettingsUserControl>().AsSelf();
            
             builder.RegisterType<KhosraAttachmentForm>().AsSelf();
             builder.RegisterType<UI.KhosraDashboard>().AsSelf();

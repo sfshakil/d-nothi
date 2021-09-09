@@ -1,4 +1,8 @@
-﻿using dNothi.JsonParser.Entity;
+﻿using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
+using dNothi.JsonParser.Entity;
+using dNothi.Services.DakServices;
+using dNothi.Services.UserServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,14 +11,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 using System.Windows.Forms;
 
 namespace dNothi.Desktop.UI
 {
     public partial class SettingsUserControl : UserControl
     {
-        public SettingsUserControl()
+        IRepository<SettingsList> _settingsList;
+        IUserService _userService { get; set; }
+        public SettingsUserControl(IUserService userService, IRepository<SettingsList> settingsList)
         {
+            _userService = userService;
+            _settingsList = settingsList;
+
             InitializeComponent();
             BodyPanel.Visible = false;
         }
@@ -143,9 +153,51 @@ namespace dNothi.Desktop.UI
             settings.dakNothijatoPagination = setpagination(cbxNothijatoDak.SelectedIndex);
             settings.dakArchaivePagination = setpagination(cbxArchaiveDak.SelectedIndex);
             settings.dakKhoshraPagination = setpagination(cbxKhoshra.SelectedIndex);
-
+            saveinDatabase(settings);
             if (this.SettingsSaveButton != null)
                 this.SettingsSaveButton(settings, e);
+        }
+        private void saveinDatabase(Settings settings)
+        {
+            DakUserParam _dakuserparam = _userService.GetLocalDakUserParam();
+            SettingsList settingsListDB = _settingsList.Table.FirstOrDefault(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id);
+
+            if (settingsListDB != null)
+            {
+                settingsListDB.nothiInboxPagination = settings.nothiInboxPagination;
+                settingsListDB.nothiSentPagination = settings.nothiSentPagination;
+                settingsListDB.nothiAllPagination = settings.nothiAllPagination;
+                settingsListDB.othersOfficeNothiInboxPagination = settings.othersOfficeNothiInboxPagination;
+                settingsListDB.othersOfficeNothiSentPagination = settings.othersOfficeNothiSentPagination;
+
+                settingsListDB.dakInboxPagination = settings.dakInboxPagination;
+                settingsListDB.dakSentPagination = settings.dakSentPagination;
+                settingsListDB.dakNothiteUposthapitoPagination = settings.dakNothiteUposthapitoPagination;
+                settingsListDB.dakNothijatoPagination = settings.dakNothijatoPagination;
+                settingsListDB.dakArchaivePagination = settings.dakArchaivePagination;
+                settingsListDB.dakKhoshraPagination = settings.dakKhoshraPagination;
+                _settingsList.Update(settingsListDB);
+            }
+            else
+            {
+                SettingsList settingsList = new SettingsList();
+                settingsList.nothiInboxPagination = settings.nothiInboxPagination;
+                settingsList.nothiSentPagination = settings.nothiSentPagination;
+                settingsList.nothiAllPagination = settings.nothiAllPagination;
+                settingsList.othersOfficeNothiInboxPagination = settings.othersOfficeNothiInboxPagination;
+                settingsList.othersOfficeNothiSentPagination = settings.othersOfficeNothiSentPagination;
+
+                settingsList.dakInboxPagination = settings.dakInboxPagination;
+                settingsList.dakSentPagination = settings.dakSentPagination;
+                settingsList.dakNothiteUposthapitoPagination = settings.dakNothiteUposthapitoPagination;
+                settingsList.dakNothijatoPagination = settings.dakNothijatoPagination;
+                settingsList.dakArchaivePagination = settings.dakArchaivePagination;
+                settingsList.dakKhoshraPagination = settings.dakKhoshraPagination;
+
+                settingsList.designation_id = _userService.GetLocalDakUserParam().designation_id;
+                settingsList.office_id = _userService.GetLocalDakUserParam().office_id;
+                _settingsList.Insert(settingsList);
+            }
         }
         public int setpagination(int index)
         {
@@ -165,7 +217,58 @@ namespace dNothi.Desktop.UI
             }
             return i;
         }
+        public int returnIndexFromLimit(int limit)
+        {
+            var i = 0;
+            if (limit == 10)
+            {
+                i = 0;
+            }
+            else if (limit == 20)
+            {
+                i = 1;
+            }
+            else if (limit == 50)
+            {
+                i = 2;
+            }
+            else if (limit == 100)
+            {
+                i = 3;
+            }
+            return i;
+        }
+        public void setupcbxFromDB(SettingsList settings)
+        {
+            cbxNothiInbox.SelectedIndex = returnIndexFromLimit(settings.nothiInboxPagination) ;
+            cbxNothiSent.SelectedIndex = returnIndexFromLimit(settings.nothiSentPagination) ;
+            cbxNothiAll.SelectedIndex = returnIndexFromLimit(settings.nothiAllPagination) ;
+            cbxOthersOfficeNothiInbox.SelectedIndex = returnIndexFromLimit(settings.othersOfficeNothiInboxPagination) ;
+            cbxOthersOfficeNothiSent.SelectedIndex = returnIndexFromLimit(settings.othersOfficeNothiSentPagination) ;
 
-        
+            cbxDakInbox.SelectedIndex = returnIndexFromLimit(settings.dakInboxPagination) ;
+            cbxDakSent.SelectedIndex = returnIndexFromLimit(settings.dakSentPagination );
+            cbxNothiteUposthapitoDak.SelectedIndex = returnIndexFromLimit(settings.dakNothiteUposthapitoPagination) ;
+            cbxNothijatoDak.SelectedIndex = returnIndexFromLimit(settings.dakNothijatoPagination) ;
+            cbxArchaiveDak.SelectedIndex = returnIndexFromLimit(settings.dakArchaivePagination) ;
+            cbxKhoshra.SelectedIndex = returnIndexFromLimit(settings.dakKhoshraPagination) ;
+        }
+        //public Settings getLocalData()
+        //{
+        //    Settings settings = new Settings();
+        //    settings.nothiInboxPagination = setpagination(cbxNothiInbox.SelectedIndex);
+        //    settings.nothiSentPagination = setpagination(cbxNothiSent.SelectedIndex);
+        //    settings.nothiAllPagination = setpagination(cbxNothiAll.SelectedIndex);
+        //    settings.othersOfficeNothiInboxPagination = setpagination(cbxOthersOfficeNothiInbox.SelectedIndex);
+        //    settings.othersOfficeNothiSentPagination = setpagination(cbxOthersOfficeNothiSent.SelectedIndex);
+
+        //    settings.dakInboxPagination = setpagination(cbxDakInbox.SelectedIndex);
+        //    settings.dakSentPagination = setpagination(cbxDakSent.SelectedIndex);
+        //    settings.dakNothiteUposthapitoPagination = setpagination(cbxNothiteUposthapitoDak.SelectedIndex);
+        //    settings.dakNothijatoPagination = setpagination(cbxNothijatoDak.SelectedIndex);
+        //    settings.dakArchaivePagination = setpagination(cbxArchaiveDak.SelectedIndex);
+        //    settings.dakKhoshraPagination = setpagination(cbxKhoshra.SelectedIndex);
+        //    return settings;
+        //}
     }
 }

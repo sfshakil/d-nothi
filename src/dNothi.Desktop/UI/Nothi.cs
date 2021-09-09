@@ -45,7 +45,7 @@ namespace dNothi.Desktop.UI
         IDesignationSealService _designationSealService { get; set; }
         INothiAllNoteServices _nothiAllNote { get; set; }
         INoteDeleteService _noteDelete { get; set; }
-
+        IRepository<SettingsList> _settingsList;
         public WaitFormFunc WaitForm;
         ModalMenuUserControl uc = null;
         NothiMasterRegisterReportUserControl nothiMasterRegisterBook = UserControlFactory.Create<NothiMasterRegisterReportUserControl>();
@@ -61,7 +61,7 @@ namespace dNothi.Desktop.UI
             INothiCreateService nothiCreateServices, IRepository<NothiCreateItemAction> nothiCreateItemAction,
             INoteDeleteService noteDelete,
             IOnuchhedForwardService onuchhedForwardService, IOnucchedSave onucchedSave, IOnucchedFileUploadService onucchedFileUploadService, 
-            INothiTypeListServices nothiType, IDesignationSealService designationSealService, INothiAllNoteServices nothiAllNote)
+            INothiTypeListServices nothiType, IDesignationSealService designationSealService, INothiAllNoteServices nothiAllNote, IRepository<SettingsList> settingsList)
         {
             _nothiNoteTalikaServices = nothiNoteTalikaServices;
             _userService = userService;
@@ -79,6 +79,7 @@ namespace dNothi.Desktop.UI
             _designationSealService = designationSealService;
             _nothiAllNote = nothiAllNote;
             _noteDelete = noteDelete;
+            _settingsList = settingsList;
             InitializeComponent();
             LoadNothiTypeListDropDown();
             LoadOfficerListDropDown();
@@ -91,20 +92,12 @@ namespace dNothi.Desktop.UI
 
             WaitForm = new WaitFormFunc();
             loadNothiExtra();
-            //nothiBackGroundWorker.RunWorkerAsync();
         }
         public void loadNothiExtra()
         {
             WaitForm.Show(this);
 
-
-            limitNothiInboxNo = 10;
-            limitNothiOutboxNo = 10;
-            limitNothiAllNo = 10;
-            limitOtherOfficeNothiInboxNo = 10;
-            limitotherOfficeNothiOutboxNo = 10;
-
-
+            setUpPaginationFromLocalDB();
             LoadNothiInbox();
             ResetAllMenuButtonSelection();
             SetDefaultFont(this.Controls);
@@ -124,6 +117,37 @@ namespace dNothi.Desktop.UI
             loadNothiInboxTotal();
             WaitForm.Close();
 
+        }
+        private void setUpPaginationFromLocalDB()
+        {
+            DakUserParam _dakuserparam = _userService.GetLocalDakUserParam();
+            List<SettingsList> settingsListDB = _settingsList.Table.Where(a => a.office_id == _dakuserparam.office_id && a.designation_id == _dakuserparam.designation_id).ToList();
+
+            if (settingsListDB != null)
+            {
+                if (settingsListDB.Count > 0 )
+                {
+                    foreach (SettingsList settingsList in settingsListDB)
+                    {
+                        settingsUserControl.setupcbxFromDB(settingsList);
+                        limitNothiInboxNo = settingsList.nothiInboxPagination;
+                        limitNothiOutboxNo = settingsList.nothiSentPagination;
+                        limitNothiAllNo = settingsList.nothiAllPagination;
+                        limitOtherOfficeNothiInboxNo = settingsList.othersOfficeNothiInboxPagination;
+                        limitotherOfficeNothiOutboxNo = settingsList.othersOfficeNothiSentPagination;
+                    }
+                }
+                else
+                {
+                    limitNothiInboxNo = limitNothiOutboxNo = limitNothiAllNo = limitOtherOfficeNothiInboxNo = limitotherOfficeNothiOutboxNo = NothiCommonStaticValue.pageLimit;
+
+                }
+
+            }
+            else
+            {
+                limitNothiInboxNo = limitNothiOutboxNo = limitNothiAllNo = limitOtherOfficeNothiInboxNo = limitotherOfficeNothiOutboxNo = NothiCommonStaticValue.pageLimit;
+            }
         }
         NothiTypeListResponse nothiType = new NothiTypeListResponse();
         AllDesignationSealListResponse designationSealListResponse = new AllDesignationSealListResponse();
@@ -3438,7 +3462,7 @@ namespace dNothi.Desktop.UI
             
         }
 
-        SettingsUserControl settingsUserControl = new SettingsUserControl();
+        SettingsUserControl settingsUserControl = UserControlFactory.Create<SettingsUserControl>();
         private void SettingsButton_Click(object sender, EventArgs e)
         {
             var x = SettingsButton.Parent;
