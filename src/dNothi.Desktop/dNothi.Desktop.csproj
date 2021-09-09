@@ -653,6 +653,12 @@
     <Compile Include="UI\Dak\NewNothiTypeGuidelines.Designer.cs">
       <DependentUpon>NewNothiTypeGuidelines.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\PotakaUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\PotakaUserControl.Designer.cs">
+      <DependentUpon>PotakaUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\PotrojariGroupContent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1681,6 +1687,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\OnumoditoPodobi.resx">
       <DependentUpon>OnumoditoPodobi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\PotakaUserControl.resx">
+      <DependentUpon>PotakaUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\PotrangshoPrapokerTalika.resx">
       <DependentUpon>PotrangshoPrapokerTalika.cs</DependentUpon>

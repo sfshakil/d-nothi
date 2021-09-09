@@ -511,6 +511,7 @@ namespace dNothi.Desktop.UI.Dak
                 nothiListRecords.subject = nothiListInboxNoteRecordsDTO.nothi.subject;
                 nothiListRecords.id = nothiListInboxNoteRecordsDTO.nothi.id;
                 nothiListRecords.office_name = nothiListInboxNoteRecordsDTO.nothi.office_name;
+                nothiListRecords.office_id = nothiListInboxNoteRecordsDTO.desk.office_id;
 
                 NoteOnucchedRevertResPonse noteOnucchedRevert = _noteOnucchedRevert.GetNoteOnucchedRevert(nothiListUserParam, nothiListRecords, newnotedata);
                 if (noteOnucchedRevert.status == "success")

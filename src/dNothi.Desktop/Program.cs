@@ -287,6 +287,7 @@ namespace dNothi.Desktop
 
             builder.RegisterType<UI.Nothi>().AsSelf();
             builder.RegisterType<UI.SettingsUserControl>().AsSelf();
+            builder.RegisterType<UI.Dak.PotakaUserControl>().AsSelf();
            
             builder.RegisterType<KhosraAttachmentForm>().AsSelf();
             builder.RegisterType<UI.KhosraDashboard>().AsSelf();

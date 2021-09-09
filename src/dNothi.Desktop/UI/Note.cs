@@ -182,7 +182,7 @@ namespace dNothi.Desktop.UI
             {
                 _NoteAllListDataRecordDTO = value;
 
-                if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox")
+                if (_nothiListRecordsDTO != null &&(_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox"))
                 {
                     if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox")
                     {
@@ -13240,6 +13240,45 @@ namespace dNothi.Desktop.UI
         {
             PotakaButton.IconColor = Color.FromArgb(246, 78, 96);
             PotakaButton.BackColor = Color.FromArgb(228, 230, 239);
+        }
+        public Form PotakaControlToForm(Control control)
+        {
+            Form form = new Form();
+            form.Name = "ExtraPotakaForm";
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.AutoSize = true;
+            //form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - control.Width, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            //form.Size = control.Size;
+            form.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            form.Width = control.Width;
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            control.Height = form.Height;
+            form.Controls.Add(control);
+            return form;
+        }
+        private void PotakaButton_Click(object sender, EventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                var nothiTalikaNewWindow = UserControlFactory.Create<PotakaUserControl>();
+                if (_khoshraPotroWaitinDataRecordDTO == null)
+                {
+                    _khoshraPotroWaitinDataRecordDTO = GetKhosraWaiting();
+                }
+                nothiTalikaNewWindow.attachmentURL = _khoshraPotroWaitinDataRecordDTO.mulpotro.url;
+                nothiTalikaNewWindow.officeId = _NoteAllListDataRecordDTO.nothi.office_id;
+                nothiTalikaNewWindow.noteId = _NoteAllListDataRecordDTO.note.nothi_note_id;
+                nothiTalikaNewWindow._khoshraPotroWaitinDataRecordDTO = _khoshraPotroWaitinDataRecordDTO;
+                var form = PotakaControlToForm(nothiTalikaNewWindow);
+                CalPopUpWindow(form);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
         }
     }
 }

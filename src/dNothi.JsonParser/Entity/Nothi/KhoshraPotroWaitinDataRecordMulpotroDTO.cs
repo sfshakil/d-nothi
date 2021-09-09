@@ -13,5 +13,6 @@ namespace dNothi.JsonParser.Entity.Nothi
         public int id { get; set; }
         public object buttons { get; set; }
         public List<String> buttonsDTOList { get; set; }
+        public string url { get; set; }
     }
 }
