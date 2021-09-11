@@ -122,6 +122,7 @@ namespace dNothi.Services.NothiServices
                                         if (nothiListRecordsDTO1.id == noteSaveItemAction.local_nothi_id && nothiListRecordsDTO1.local_nothi_type == "all" && noteSaveItemAction.Id == newnotedata.note_id)
                                         {
                                             nothiListRecordsDTO1.id = noteSaveItemAction.nothi_id;
+                                            nothiListRecordsDTO1.office_id = noteSaveItemAction.office_id;
                                             newnotedata.note_id = noteSaveResponse.data.note_id;
                                             onuchhedSaveItemAction.newnotedataJson = JsonConvert.SerializeObject(newnotedata);
                                             onuchhedSaveItemAction.nothiListRecordsDTOJson = JsonConvert.SerializeObject(nothiListRecordsDTO1);
@@ -171,9 +172,12 @@ namespace dNothi.Services.NothiServices
                                         NothiListRecordsDTO nothiListRecordsDTO1 = JsonConvert.DeserializeObject<NothiListRecordsDTO>(onuchhedSaveItemAction.nothiListRecordsDTOJson);
                                         if (nothiListRecordsDTO1.id == noteSaveItemAction.local_nothi_id && nothiListRecordsDTO1.office_id == 0 && nothiListRecordsDTO1.local_nothi_type== "Inbox")
                                         {
+                                            nothiListRecordsDTO1.id = noteSaveItemAction.nothi_id;
+                                            nothiListRecordsDTO1.office_id = noteSaveItemAction.office_id;
                                             NoteSaveDTO newnotedata = JsonConvert.DeserializeObject<NoteSaveDTO>(onuchhedSaveItemAction.newnotedataJson);
                                             newnotedata.note_id = noteSaveResponse.data.note_id;
                                             onuchhedSaveItemAction.newnotedataJson = JsonConvert.SerializeObject(newnotedata);
+                                            onuchhedSaveItemAction.nothiListRecordsDTOJson = JsonConvert.SerializeObject(nothiListRecordsDTO1);
                                             _onuchhedSaveItemAction.Update(onuchhedSaveItemAction);
                                             List<NoteSendItemAction> noteSendItemActions = _noteSendItemAction.Table.Where(a => a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id).ToList();
                                             if (noteSendItemActions != null && noteSendItemActions.Count > 0)

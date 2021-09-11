@@ -2671,7 +2671,7 @@ namespace dNothi.Desktop.UI
                 else if (selectedItem == "আগত নোট")
                 {
                     noteViewFLP.Controls.Clear();
-                    NoteListResponse inboxNoteList = _nothiNoteTalikaServices.GetNoteListInbox(_dakuserparam, nothiListRecords.id);
+                    NoteListResponse inboxNoteList = _nothiNoteTalikaServices.GetNoteListInbox(_dakuserparam, nothiListRecords);
                     lbNothiType.Text = "আগত নোট (" + string.Concat(inboxNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                     if (inboxNoteList.data.records.Count > 0)
                     {
@@ -2713,7 +2713,7 @@ namespace dNothi.Desktop.UI
                 else if (selectedItem == "প্রেরিত নোট")
                 {
                     noteViewFLP.Controls.Clear();
-                    NoteListResponse sentNoteList = _nothiNoteTalikaServices.GetNoteListSent(_dakuserparam, nothiListRecords.id);
+                    NoteListResponse sentNoteList = _nothiNoteTalikaServices.GetNoteListSent(_dakuserparam, nothiListRecords);
                     lbNothiType.Text = "প্রেরিত নোট (" + string.Concat(sentNoteList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0'))) + ")";
                     if (sentNoteList.data.records.Count > 0)
                     {
@@ -10127,8 +10127,9 @@ namespace dNothi.Desktop.UI
 
         private void btnCanRevert_Click(object sender, EventArgs e)
         {
-            newnotedata.note_subject = checkSub;
-            newnotedata.note_id = checkNoteId;
+            newnotedata.note_subject = _NoteAllListDataRecordDTO.note.note_subject;
+            newnotedata.note_id = _NoteAllListDataRecordDTO.note.nothi_note_id;
+            newnotedata.note_no = _NoteAllListDataRecordDTO.note.note_no.ToString();
             NoteOnucchedRevertResPonse noteOnucchedRevert = _noteOnucchedRevert.GetNoteOnucchedRevert(_dakuserparam, nothiListRecords, newnotedata);
             if (noteOnucchedRevert.status == "success")
             {

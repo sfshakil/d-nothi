@@ -195,13 +195,13 @@ namespace dNothi.Services.NothiServices
                 throw;
             }
         }
-        public NoteListResponse GetNoteListSent(DakUserParam dakUserParam, long nothi_id)
+        public NoteListResponse GetNoteListSent(DakUserParam dakUserParam, NothiListRecordsDTO nothiListRecordsDTO)
         {
             NoteListResponse noteListResponse = new NoteListResponse();
 
             if (!dNothi.Utility.InternetConnection.Check())
             {
-                var noteInboxSentAllItem = _noteInboxSentAllItem.Table.FirstOrDefault(a => a.nothi_id == nothi_id && a.note_category == "Sent" && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+                var noteInboxSentAllItem = _noteInboxSentAllItem.Table.FirstOrDefault(a => a.nothi_id == nothiListRecordsDTO.id && a.note_category == "Sent" && a.office_id == nothiListRecordsDTO.office_id && a.designation_id == dakUserParam.designation_id);
 
                 if (noteInboxSentAllItem != null)
                 {
@@ -224,11 +224,11 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("cdesk", dakUserParam.json_String);
                 request.AddParameter("length", "1000");
                 request.AddParameter("page", "1");
-                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi_id + "\",\"note_category\":\"Sent\"}");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothiListRecordsDTO.id + "\",\"note_category\":\"Sent\",\"nothi_office\":\"" + nothiListRecordsDTO.office_id + "\"}");
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
-                SaveOrUpdateNoteInboxSentAll(dakUserParam, responseJson, nothi_id, "Sent");
+                SaveOrUpdateNoteInboxSentAll(dakUserParam, responseJson, nothiListRecordsDTO.id, "Sent");
                 noteListResponse = JsonConvert.DeserializeObject<NoteListResponse>(responseJson);
                 return noteListResponse;
             }
@@ -237,13 +237,13 @@ namespace dNothi.Services.NothiServices
                 throw;
             }
         }
-        public NoteListResponse GetNoteListInbox(DakUserParam dakUserParam, long nothi_id)
+        public NoteListResponse GetNoteListInbox(DakUserParam dakUserParam, NothiListRecordsDTO nothiListRecordsDTO)
         {
             NoteListResponse noteListResponse = new NoteListResponse();
 
             if (!dNothi.Utility.InternetConnection.Check())
             {
-                var noteInboxSentAllItem = _noteInboxSentAllItem.Table.FirstOrDefault(a => a.nothi_id == nothi_id && a.note_category == "Inbox" && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+                var noteInboxSentAllItem = _noteInboxSentAllItem.Table.FirstOrDefault(a => a.nothi_id == nothiListRecordsDTO.id && a.note_category == "Inbox" && a.office_id == nothiListRecordsDTO.office_id && a.designation_id == dakUserParam.designation_id);
 
                 if (noteInboxSentAllItem != null)
                 {
@@ -266,11 +266,11 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("cdesk", dakUserParam.json_String);
                 request.AddParameter("length", "1000");
                 request.AddParameter("page", "1");
-                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothi_id + "\",\"note_category\":\"Inbox\"}");
+                request.AddParameter("nothi", "{\"nothi_id\":\"" + nothiListRecordsDTO.id + "\",\"note_category\":\"Inbox\",\"nothi_office\":\""+ nothiListRecordsDTO.office_id + "\"}");
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
-                SaveOrUpdateNoteInboxSentAll(dakUserParam, responseJson, nothi_id, "Inbox");
+                SaveOrUpdateNoteInboxSentAll(dakUserParam, responseJson, nothiListRecordsDTO.id, "Inbox");
                 noteListResponse = JsonConvert.DeserializeObject<NoteListResponse>(responseJson);
                 return noteListResponse;
             }
