@@ -411,9 +411,9 @@ namespace dNothi.Desktop.UI.NothiUI
         private void RegisterReportUserControl_Load(object sender, EventArgs e)
         {
             page = 1;
-            lastCountValue = 1;
-            LoadData();
-            NextPreviousButtonShow();
+                lastCountValue = 1;
+                LoadData();
+                NextPreviousButtonShow();
         }
 
        
@@ -509,14 +509,17 @@ namespace dNothi.Desktop.UI.NothiUI
 
         private void dakPriorityComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (dakPriorityComboBox.SelectedValue.ToString() != "dNothi.Desktop.ComboBoxItem")
-                
+            if (InternetConnection.Check()) 
             {
-                page = 1;
-                lastCountValue = 1;
-                LoadData();
-                NextPreviousButtonShow();
+                if (dakPriorityComboBox.SelectedValue.ToString() != "dNothi.Desktop.ComboBoxItem")
+                {
+                    page = 1;
+                    lastCountValue = 1;
+                    LoadData();
+                    NextPreviousButtonShow();
+                }
             }
+                
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

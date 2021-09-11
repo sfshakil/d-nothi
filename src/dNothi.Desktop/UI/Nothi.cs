@@ -3782,16 +3782,16 @@ namespace dNothi.Desktop.UI
         }
         private void protibedanIconButton_Click(object sender, EventArgs e)
         {
-            if (protibedonPanel.Visible)
-            {
-                protibedonPanel.Visible = false;
-                caretIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
-            }
-            else
-            {
-                protibedonPanel.Visible = true;
-                caretIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
-            }
+            //if (protibedonPanel.Visible)
+            //{
+            //    protibedonPanel.Visible = false;
+            //    caretIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            //}
+            //else
+            //{
+            //    protibedonPanel.Visible = true;
+            //    caretIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+            //}
 
         }
 
