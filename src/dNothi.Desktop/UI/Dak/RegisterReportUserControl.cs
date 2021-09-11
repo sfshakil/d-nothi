@@ -16,6 +16,7 @@ using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
 using dNothi.JsonParser.Entity;
 using dNothi.Services.BasicService;
+using dNothi.Services.DakServices.DakReports;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -46,56 +47,18 @@ namespace dNothi.Desktop.UI.Dak
             todate = DateTime.Now.ToString("yyyy/MM/dd");
             dateTextBox.Text = fromdate+":"+todate;
 
-            
-            dakPriorityComboBox.DataSource= getShaka();
+            var userparam = _userService.GetLocalDakUserParam();
+            dakPriorityComboBox.DataSource= getShaka(userparam);
             dakPriorityComboBox.DisplayMember = "Name";
             dakPriorityComboBox.ValueMember = "Id";
-            dakPriorityComboBox.SelectedIndex = 0;
+            dakPriorityComboBox.SelectedValue = userparam.office_unit_id;
         }
-        private List<ComboBoxItem> getList()
+      
+        private List<ComboBoxItem> getShaka(DakUserParam userParam)
         {
             List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
-            ComboBoxItem data0 = new ComboBoxItem("শাখা নির্বাচন করুন", 0);
-            comboBoxItems.Add(data0);
-           
-            ComboBoxItem data = new ComboBoxItem ( "প্রকল্প পরিচালকের",  6691 );
-            comboBoxItems.Add(data);                           
-            ComboBoxItem data1 = new ComboBoxItem ( "পলিসি অ্যাডভাইজর",  6692 );
-            comboBoxItems.Add(data1);                          
-            ComboBoxItem data2 = new ComboBoxItem ("ক্যাপাসিটি ডেভেলপমেন্ট", 6699 );
-            comboBoxItems.Add(data2);                          
-            ComboBoxItem data3 = new ComboBoxItem( "ক্যাপাসিটি ডেভেলপমেন্ট", 6700);
-            comboBoxItems.Add(data3);                          
-            ComboBoxItem data4 = new ComboBoxItem ("কমিউনিকেশন ও পার্টনারশীপ" ,6707 );
-            comboBoxItems.Add(data4);                          
-            ComboBoxItem data5 = new ComboBoxItem (  "এইচডি মিডিয়া", 6711 );
-            comboBoxItems.Add(data5);                          
-            ComboBoxItem data6 = new ComboBoxItem ("ই - লার্নিং", 6712);
-            comboBoxItems.Add(data6);                          
-            ComboBoxItem data7 = new ComboBoxItem ( "এডমিন", 6712);
-            comboBoxItems.Add(data7);                          
-            ComboBoxItem data8 = new ComboBoxItem ( "মনিটরিং এ্যান্ড ইভালুয়েশন", 9739 );
-            comboBoxItems.Add(data8);                          
-            ComboBoxItem data9 = new ComboBoxItem (  "ই - সার্ভিস ", 9625 );
-            comboBoxItems.Add(data9);
-            ComboBoxItem data10 = new ComboBoxItem (  "হিউম্যান রিসোর্স", 9739 );
-            comboBoxItems.Add(data10);
-            ComboBoxItem data11 = new ComboBoxItem ( "ইনোভেশন -১", 9742 );
-            comboBoxItems.Add(data11);
-            ComboBoxItem data12 = new ComboBoxItem (  "অবকাঠামো", 9747 );
-            comboBoxItems.Add(data12);
-            ComboBoxItem data13 = new ComboBoxItem ("টেকনোলজি", 46122 );
-            comboBoxItems.Add(data13);
-            ComboBoxItem data14 = new ComboBoxItem (  "টেস্ট 111", 46180 );
-            comboBoxItems.Add(data14);
-            return comboBoxItems;
-
-        }
-        private List<ComboBoxItem> getShaka()
-        {
-            List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
-            var userparam = _userService.GetLocalDakUserParam();
-            var officeUnitResponse = _basicService.GetOfficeUnitList(userparam);
+          
+            var officeUnitResponse = _basicService.GetOfficeUnitList(userParam);
             if (officeUnitResponse.status == "success")
             {
                 comboBoxItems.Add(new ComboBoxItem("শাখা নির্বাচন করুন", 0));
@@ -162,8 +125,7 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _totalRecord = value;
-                totalRowlabel.Text = "সর্বমোট " + ConversionMethod.EnglishNumberToBangla(value.ToString()) + " টি";
-
+                
                 //comboBox1.DisplayMember = "Name";
                 //comboBox1.ValueMember = "Id";
                 //if (value >= 20)
@@ -271,64 +233,64 @@ namespace dNothi.Desktop.UI.Dak
         {
             DataExportToExcel();
         }
-        private void DataExportToExcel()
-        {
-            try
-            {
-                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
-                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
-                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-                app.Visible = true;
-                worksheet = workbook.Sheets["Sheet1"];
-                worksheet = workbook.ActiveSheet;
-                worksheet.Name = "Records";
+        //private void DataExportToExcel()
+        //{
+        //    try
+        //    {
+        //        Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+        //        Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+        //        Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+        //        app.Visible = true;
+        //        worksheet = workbook.Sheets["Sheet1"];
+        //        worksheet = workbook.ActiveSheet;
+        //        worksheet.Name = "Records";
 
-                try
-                {
-                    for (int i = 0; i < registerReportDataGridView.Columns.Count; i++)
-                    {
-                        worksheet.Cells[1, i + 1] = registerReportDataGridView.Columns[i].HeaderText;
-                    }
-                    for (int i = 0; i < registerReportDataGridView.Rows.Count; i++)
-                    {
-                        for (int j = 0; j < registerReportDataGridView.Columns.Count; j++)
-                        {
-                            if (registerReportDataGridView.Rows[i].Cells[j].Value != null)
-                            {
-                                worksheet.Cells[i + 2, j + 1] = registerReportDataGridView.Rows[i].Cells[j].Value.ToString();
-                            }
-                            else
-                            {
-                                worksheet.Cells[i + 2, j + 1] = "";
-                            }
-                        }
-                    }
+        //        try
+        //        {
+        //            for (int i = 0; i < registerReportDataGridView.Columns.Count; i++)
+        //            {
+        //                worksheet.Cells[1, i + 1] = registerReportDataGridView.Columns[i].HeaderText;
+        //            }
+        //            for (int i = 0; i < registerReportDataGridView.Rows.Count; i++)
+        //            {
+        //                for (int j = 0; j < registerReportDataGridView.Columns.Count; j++)
+        //                {
+        //                    if (registerReportDataGridView.Rows[i].Cells[j].Value != null)
+        //                    {
+        //                        worksheet.Cells[i + 2, j + 1] = registerReportDataGridView.Rows[i].Cells[j].Value.ToString();
+        //                    }
+        //                    else
+        //                    {
+        //                        worksheet.Cells[i + 2, j + 1] = "";
+        //                    }
+        //                }
+        //            }
 
-                    //Getting the location and file name of the excel to save from user. 
-                    SaveFileDialog saveDialog = new SaveFileDialog();
-                    saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
-                    saveDialog.FilterIndex = 2;
+        //            //Getting the location and file name of the excel to save from user. 
+        //            SaveFileDialog saveDialog = new SaveFileDialog();
+        //            saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+        //            saveDialog.FilterIndex = 2;
 
-                    if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    {
-                        workbook.SaveAs(saveDialog.FileName);
-                        MessageBox.Show("Export Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (System.Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+        //            if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+        //            {
+        //                workbook.SaveAs(saveDialog.FileName);
+        //                MessageBox.Show("Export Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //            }
+        //        }
+        //        catch (System.Exception ex)
+        //        {
+        //            MessageBox.Show(ex.Message);
+        //        }
 
-                finally
-                {
-                    app.Quit();
-                    workbook = null;
-                    worksheet = null;
-                }
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
-        }
+        //        finally
+        //        {
+        //            app.Quit();
+        //            workbook = null;
+        //            worksheet = null;
+        //        }
+        //    }
+        //    catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
+        //}
         private void DataExportToPDF()
         {
             if (registerReportDataGridView.Rows.Count > 0)
@@ -419,36 +381,38 @@ namespace dNothi.Desktop.UI.Dak
             LoadData();
             NextPreviousButtonShow();
         }
-        private void LoadData()
+
+        private List<RegisterReport> GetDataFromServer(int page,int limit)
         {
             List<RegisterReport> RegisterReportlist = new List<RegisterReport>();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+
            
-            string name = comboBox1.Text;
             string dateRange = dateTextBox.Text;
             string value = dakPriorityComboBox.SelectedValue.ToString();
-            if (dateRange==string.Empty) {
-                 fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
-                 todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
+            if (dateRange != string.Empty)
+            {
+                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
+                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
             }
             else
             {
-                 fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
-                 todate = DateTime.Now.ToString("yyyy/MM/dd");
+                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+                todate = DateTime.Now.ToString("yyyy/MM/dd");
             }
 
-            pageLimit =Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(name));
-            
+           
+
             dakListUserParam.page = page;
-            dakListUserParam.limit = pageLimit;
-         
+            dakListUserParam.limit = limit;
+
 
             if (isDakGrohon)
             {
 
-                RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(dakListUserParam, fromdate, todate, value);
+                DakReportModel registerReportResponse = _registerService.GetDakGrohonResponse(dakListUserParam, fromdate, todate, value);
                 ConvertRegisterResponsetoReport.lastCount = lastCountValue;
-                RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
+                RegisterReportlist = ConvertRegisterResponsetoReport.GetGrahonRegisterReports(registerReportResponse);
             }
             if (isDakBili)
             {
@@ -463,6 +427,13 @@ namespace dNothi.Desktop.UI.Dak
                 RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
             }
 
+            return RegisterReportlist;
+        }
+        private void LoadData()
+        {
+            string name = comboBox1.Text;
+            pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(name));
+            var RegisterReportlist = GetDataFromServer(page, pageLimit);
             lastrecord = RegisterReportlist.Count();
             if (RegisterReportlist.Count <= 0)
             {
@@ -473,7 +444,9 @@ namespace dNothi.Desktop.UI.Dak
                 noRowMessageLabel.Visible = false;
                 lastCountValue = RegisterReportlist.Max(x => x.sln);
             }
-           
+            _totalRecord = RegisterReportlist.Count;
+            totalRowlabel.Text = "সর্বমোট " + ConversionMethod.EnglishNumberToBangla(_totalRecord.ToString()) + " টি";
+
             float pagesize = (float)_totalRecord / (float)pageLimit;
             totalPage = (int)Math.Ceiling(pagesize);
            
@@ -614,7 +587,6 @@ namespace dNothi.Desktop.UI.Dak
             LoadData();
             NextPreviousButtonShow();
         }
-
         private void dakPriorityComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (dakPriorityComboBox.SelectedValue.ToString()!= "dNothi.Desktop.ComboBoxItem")
@@ -624,6 +596,110 @@ namespace dNothi.Desktop.UI.Dak
                 LoadData();
             }
            
+        }
+        private void DataExportToExcel()
+        {
+            try
+            {
+                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+                app.Visible = true;
+                worksheet = workbook.Sheets["Sheet1"];
+                worksheet = workbook.ActiveSheet;
+                worksheet.Name = headlineLabel.Text;
+                var nothiRegisterBook = LoadExportData();
+                try
+                {
+                    for (int i = 0; i < registerReportDataGridView.Columns.Count; i++)
+                    {
+                        worksheet.Cells[1, i + 1] = registerReportDataGridView.Columns[i].HeaderText;
+                    }
+                    for (int i = 0; i < nothiRegisterBook.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < nothiRegisterBook.Columns.Count; j++)
+                        {
+                            if (nothiRegisterBook.Rows[i][j].ToString() != null)
+                            {
+                                worksheet.Cells[i + 2, j + 1] = nothiRegisterBook.Rows[i][j].ToString();
+                            }
+                            else
+                            {
+                                worksheet.Cells[i + 2, j + 1] = "";
+                            }
+                        }
+                    }
+
+                    //Getting the location and file name of the excel to save from user. 
+                    SaveFileDialog saveDialog = new SaveFileDialog();
+                    saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                    saveDialog.FilterIndex = 2;
+
+                    if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        workbook.SaveAs(saveDialog.FileName);
+                        MessageBox.Show("Export Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                finally
+                {
+                    app.Quit();
+                    workbook = null;
+                    worksheet = null;
+                }
+
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
+        }
+        private DataTable LoadExportData()
+        {
+            int pagevalue = 1;
+           
+             var registerReportlist = GetDataFromServer(pagevalue, _totalRecord);
+            int count = 1;
+            DataTable dt = new DataTable();
+            dt.Columns.Add("sl", typeof(string));
+            dt.Columns.Add("acceptNum", typeof(string));
+            dt.Columns.Add("docketingNo", typeof(string));
+            dt.Columns.Add("sharokNo", typeof(string));
+            dt.Columns.Add("applyDate", typeof(string));
+            dt.Columns.Add("type", typeof(string));
+            dt.Columns.Add("sub", typeof(string));
+            dt.Columns.Add("applicant", typeof(string));
+            dt.Columns.Add("previousPrapok", typeof(string));
+            dt.Columns.Add("mainPrapok", typeof(string));
+            dt.Columns.Add("receivedDate", typeof(string));
+            dt.Columns.Add("security", typeof(string));
+            dt.Columns.Add("priority", typeof(string));
+            dt.Columns.Add("finalState", typeof(string));
+
+            foreach (var item in registerReportlist)
+            {
+                dt.Rows.Add(new object[] {
+                        ConversionMethod.EnglishNumberToBangla(count++.ToString()),
+                        item.acceptNum,
+                        item.docketingNo,
+                        item.sharokNo,
+                        item.applyDate,
+                        item.type,
+                         item.sub,
+                          item.applicant,
+                           item.previousPrapok,
+                            item.mainPrapok,
+                            item.receivedDate,
+                            item.security,
+                            item.priority,
+                            item.finalState
+                         });
+            }
+
+            return dt;
         }
     }
 }

@@ -131,6 +131,7 @@
     <Compile Include="DakServices\DakListService.cs" />
     <Compile Include="DakServices\DakListSortedService.cs" />
     <Compile Include="DakServices\DakNothivuktoNoteAddParam.cs" />
+    <Compile Include="DakServices\DakReports\DakReportModel.cs" />
     <Compile Include="DakServices\DakSearchParam.cs" />
     <Compile Include="DakServices\DakSearchService.cs" />
     <Compile Include="DakServices\DakSharingService\CommonSetting.cs" />

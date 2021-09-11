@@ -556,6 +556,7 @@
             this.moduleButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.moduleButton.Size = new System.Drawing.Size(52, 57);
             this.moduleButton.TabIndex = 107;
+            this.toolTip1.SetToolTip(this.moduleButton, "অন্যান্য মডিউল");
             this.moduleButton.UseVisualStyleBackColor = true;
             this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
             // 
@@ -829,7 +830,7 @@
             this.button2.Location = new System.Drawing.Point(25, 0);
             this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.button2.Padding = new System.Windows.Forms.Padding(3);
             this.button2.Size = new System.Drawing.Size(173, 57);
             this.button2.TabIndex = 3;
             this.button2.UseVisualStyleBackColor = false;
@@ -1413,7 +1414,7 @@
             this.iconButton14.Location = new System.Drawing.Point(0, 0);
             this.iconButton14.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton14.Name = "iconButton14";
-            this.iconButton14.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconButton14.Padding = new System.Windows.Forms.Padding(2);
             this.iconButton14.Size = new System.Drawing.Size(31, 38);
             this.iconButton14.TabIndex = 3;
             this.iconButton14.UseVisualStyleBackColor = false;
@@ -1550,7 +1551,7 @@
             this.iconButton11.Location = new System.Drawing.Point(0, 0);
             this.iconButton11.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton11.Name = "iconButton11";
-            this.iconButton11.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconButton11.Padding = new System.Windows.Forms.Padding(2);
             this.iconButton11.Size = new System.Drawing.Size(31, 38);
             this.iconButton11.TabIndex = 3;
             this.iconButton11.UseVisualStyleBackColor = false;
@@ -1686,7 +1687,7 @@
             this.iconButton8.Location = new System.Drawing.Point(0, 0);
             this.iconButton8.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton8.Name = "iconButton8";
-            this.iconButton8.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconButton8.Padding = new System.Windows.Forms.Padding(2);
             this.iconButton8.Size = new System.Drawing.Size(31, 38);
             this.iconButton8.TabIndex = 3;
             this.iconButton8.UseVisualStyleBackColor = false;
@@ -1826,7 +1827,7 @@
             this.iconButton5.Location = new System.Drawing.Point(0, 0);
             this.iconButton5.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton5.Name = "iconButton5";
-            this.iconButton5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconButton5.Padding = new System.Windows.Forms.Padding(2);
             this.iconButton5.Size = new System.Drawing.Size(31, 38);
             this.iconButton5.TabIndex = 3;
             this.iconButton5.UseVisualStyleBackColor = false;
@@ -1967,7 +1968,7 @@
             this.iconButton3.Location = new System.Drawing.Point(0, 0);
             this.iconButton3.Margin = new System.Windows.Forms.Padding(0);
             this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconButton3.Padding = new System.Windows.Forms.Padding(2);
             this.iconButton3.Size = new System.Drawing.Size(31, 38);
             this.iconButton3.TabIndex = 3;
             this.iconButton3.UseVisualStyleBackColor = false;
@@ -2065,7 +2066,7 @@
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.Controls.Add(this.dakSecrurityComboBox);
             this.panel8.Location = new System.Drawing.Point(160, 52);
-            this.panel8.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel8.Margin = new System.Windows.Forms.Padding(5);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(145, 35);
             this.panel8.TabIndex = 94;
@@ -2111,7 +2112,7 @@
             this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.Controls.Add(this.dakPriorityComboBox);
             this.panel7.Location = new System.Drawing.Point(5, 52);
-            this.panel7.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel7.Margin = new System.Windows.Forms.Padding(5);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(145, 35);
             this.panel7.TabIndex = 93;

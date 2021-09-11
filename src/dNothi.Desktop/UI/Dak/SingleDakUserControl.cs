@@ -25,6 +25,8 @@ namespace dNothi.Desktop.UI.Dak
         public bool _isOfflineDak { get; set; }
         public bool isOfflineDak { get { return _isOfflineDak; } set { _isOfflineDak = value; uploadIconButton.Visible = true; } }
 
+        public bool _isotherOffice { get; set; }
+        public bool isotherOffice { get { return _isotherOffice; } set { _isotherOffice = value; MyToolTip.SetToolTip(otherOfficeIconButton, "অন্য অফিস থেকে আগত"); otherOfficeIconButton.Visible = value; } }
 
         public bool _IsNothijatoDak { get; set; }
         public bool IsNothijatoDak
@@ -301,6 +303,8 @@ namespace dNothi.Desktop.UI.Dak
             IterateControls(this.Controls);
             SetDefaultFont(this.Controls);
         }
+
+       
 
         public bool _isChecked;
         public bool isChecked { get { return _isChecked; } set { _isChecked = value; dakCheckBox.Checked = value; } }

@@ -22,6 +22,8 @@ namespace dNothi.Desktop.UI
     {
         List<ViewDesignationSealList> viewDesignationSealLists = new List<ViewDesignationSealList>();
         public List<int> _selectedOfficerDesignations = new List<int>();
+        public List<OfficerGroup> _selectedOfficerDesignation = new List<OfficerGroup>();
+        
         IUserService _userService { get; set; }
        IPotroJariGroupService _potroJariGroupService { get; set; }
         public SelectOfficerForm(IUserService userService, IPotroJariGroupService potroJariGroupService)
@@ -35,6 +37,34 @@ namespace dNothi.Desktop.UI
         {
            
         }
+       
+        private void sliderCrossButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        public bool _isOneOfficerAllowed;
+        private bool _isPotrojariVisible;
+        public bool isPotrojariVisible { get => _isPotrojariVisible; set {
+
+                _isPotrojariVisible = value;
+                if(value)
+                {
+                    tabControl1.TabPages.Insert(2, potraJariTabPage);
+
+                    this.potraJariTabPage.Show();
+                    
+                }
+                else
+                {
+
+                    this.potraJariTabPage.Hide();
+                    tabControl1.TabPages.Remove(potraJariTabPage);
+                    countOfficer.Location= new Point(190, 97);
+
+                }
+            } }
+
         private void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
             if (e.TabPage == potraJariTabPage)
@@ -42,12 +72,6 @@ namespace dNothi.Desktop.UI
                 Formload();
             }
         }
-        private void sliderCrossButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
-
-        public bool _isOneOfficerAllowed;
 
         private DesignationSealListResponse _designationSealListResponse;
 
@@ -360,6 +384,8 @@ namespace dNothi.Desktop.UI
 
             foreach (var officer in officerList)
             {
+                var OfficerGroup = new OfficerGroup { DesignationId=officer._designationId, GroupName=officer._officerName, GroupId= officer._groupId, OfficerCount=officer._officerCount };
+                _selectedOfficerDesignation.Add(OfficerGroup);
                 _selectedOfficerDesignations.Add(officer._designationId);
             }
 
@@ -618,10 +644,13 @@ namespace dNothi.Desktop.UI
                                         officerRowUserControl.officerName = item2.groupName;
 
                                         officerRowUserControl.designationId = item2.groupId;
+                                        officerRowUserControl.groupId = item2.groupId;
+                                        officerRowUserControl.officerCount = potrajariUsers.Count;
 
                                         officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) { RemoveOfficerFromList(item2.groupId); };
                                         officerRowUserControl.Width = officerListFlowLayoutPanel.Width - 50;
-
+                                        var officerGroup = new OfficerGroup { DesignationId = item2.groupId, GroupId = item2.groupId, GroupName = item2.groupName, OfficerCount= potrajariUsers.Count };
+                                        _selectedOfficerDesignation.Add(officerGroup);
                                         _selectedOfficerDesignations.Add(item2.groupId);
                                         UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officerRowUserControl);
                                     }
@@ -652,19 +681,26 @@ namespace dNothi.Desktop.UI
                                     {
                                         OfficerRowUserControl officerRowUserControl = new OfficerRowUserControl();
                                         var result = viewDesignationSealLists.FirstOrDefault(a => a.designation_id == item2.designationId);
+                                        string officerName = string.Empty;
                                         if (result != null)
                                         {
-                                            officerRowUserControl.officerName = result.designationwithname;
-
+                                            officerName = result.designationwithname;
+                                            officerRowUserControl.officerName = officerName;
+                                           
                                         }
                                         else
                                         {
-                                            officerRowUserControl.officerName = item2.UserName + item2.UserDesignation + item2.UserOfficeName;
+                                            officerName= item2.UserName + item2.UserDesignation + item2.UserOfficeName;
+                                            officerRowUserControl.officerName = officerName;
                                         }
                                         officerRowUserControl.designationId = item2.designationId;
+                                        
 
                                         officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) { RemoveOfficerFromList(item2.designationId); };
                                         officerRowUserControl.Width = officerListFlowLayoutPanel.Width - 50;
+
+                                        var officerGroup = new OfficerGroup { DesignationId = item2.groupId, GroupId = item2.groupId, GroupName = officerName, OfficerCount = 0 };
+                                        _selectedOfficerDesignation.Add(officerGroup);
 
                                         _selectedOfficerDesignations.Add(item2.designationId);
                                         UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officerRowUserControl);

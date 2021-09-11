@@ -48,23 +48,7 @@ namespace dNothi.Desktop.UI.Dak
             dateTextBox.Text = fromdate+":"+todate;
 
         }
-       
-        private List<ComboBoxItem> getShaka()
-        {
-            List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
-            var userparam = _userService.GetLocalDakUserParam();
-            var officeUnitResponse = _basicService.GetOfficeUnitList(userparam);
-            if (officeUnitResponse.status == "success")
-            {
-                comboBoxItems.Add(new ComboBoxItem("শাখা নির্বাচন করুন", 0));
-                foreach (var item in officeUnitResponse.data)
-                {
-                    comboBoxItems.Add(new ComboBoxItem(item.unit_name_bng, item.unit_id));
-                }
-            }
-            return comboBoxItems;
-        }
-        
+      
         private int _totalRecord { get; set; }
         public int totalRecord
         {
@@ -73,30 +57,7 @@ namespace dNothi.Desktop.UI.Dak
             {
                 _totalRecord = value;
                
-                //comboBox1.DisplayMember = "Name";
-                //comboBox1.ValueMember = "Id";
-                //if (value >= 20)
-                //{
-                //    int totalpage = (int)Math.Ceiling((float)value / (float)20);
-                //    int pageSize = 20;
-                //    int page = 0;
-                //    for (int i = 1; i <= totalpage; i++)
-                //    {
-                //        page += pageSize;
-                //        comboBox1.Items.Add(new ComboBoxItem(ConversionMethod.EnglishNumberToBangla(page.ToString()), i));
-                //    }
-                //    comboBox1.SelectedIndex = 0;
-                //}
-                //else
-                //{
-                //    comboBox1.Items.Add(new ComboBoxItem("১০", 1));
-                //    comboBox1.Items.Add(new ComboBoxItem("২০", 2));
-                //    comboBox1.Items.Add(new ComboBoxItem("৩০", 3));
-                //    comboBox1.Items.Add(new ComboBoxItem("৪০", 4));
-                //    comboBox1.Items.Add(new ComboBoxItem("৫০", 5));
-                //    comboBox1.SelectedIndex = 0;
-                //}
-
+            
             }
         }
         public List<RegisterReport> _registerReports { get; set; }
@@ -296,56 +257,38 @@ namespace dNothi.Desktop.UI.Dak
            // DataExportToPDF();
         }
 
-     
-        private void LoadData()
+        private List<RegisterReport> GetDataFromServer(int pages,int limit)
         {
             List<RegisterReport> RegisterReportlist = new List<RegisterReport>();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             string dateRange = dateTextBox.Text;
 
-            if (dateRange==string.Empty) {
-                 fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
-                 todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
+            if (dateRange == string.Empty)
+            {
+                fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
+                todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
             }
             else
             {
-                 fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
-                 todate = DateTime.Now.ToString("yyyy/MM/dd");
+                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+                todate = DateTime.Now.ToString("yyyy/MM/dd");
             }
 
 
-            string subject= subjectTextBox.Text;
+            string subject = subjectTextBox.Text;
             string mobile = mobileTextBox.Text;
             string application_no = applicaionNoTextBox.Text;
-            dakListUserParam.page = page;
-            dakListUserParam.limit = pageLimit;
-            //RegisterReportResponse GetDakTrakingResponse(DakUserParam dakUserParam, string fromDate, string toDate, string mobile, string subject, string application_no);
+            dakListUserParam.page = pages;
+            dakListUserParam.limit = limit;
 
             dakTrakingModel registerReportResponse = _registerService.GetDakTrakingResponse(dakListUserParam, fromdate, todate, mobile, subject, application_no);
-           
+
             RegisterReportlist = ConvertRegisterResponsetoReport.GetDakTrakingReports(registerReportResponse);
-
-            //if (isDakGrohon)
-            //{
-
-            //    RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(dakListUserParam, fromdate, todate, value);
-            //    ConvertRegisterResponsetoReport.lastCount = lastCountValue;
-            //    RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
-            //}
-            //if (isDakBili)
-            //{
-            //    RegisterReportResponse registerReportResponse = _registerService.GetDakBiliResponse(dakListUserParam, fromdate, todate, value);
-            //    ConvertRegisterResponsetoReport.lastCount = lastCountValue;
-            //    RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
-            //}
-            //if (isDakDiary)
-            //{
-            //    RegisterReportResponse registerReportResponse = _registerService.GetDakDiaryResponse(dakListUserParam, fromdate, todate, value);
-            //    ConvertRegisterResponsetoReport.lastCount = lastCountValue;
-            //    RegisterReportlist = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
-            //}
-
-            //lastrecord = RegisterReportlist.Count();
+            return RegisterReportlist;
+        }
+        private void LoadData()
+        {
+            var RegisterReportlist = GetDataFromServer(page,pageLimit);
             if (RegisterReportlist.Count <= 0)
             {
                 noRowMessageLabel.Visible = true;

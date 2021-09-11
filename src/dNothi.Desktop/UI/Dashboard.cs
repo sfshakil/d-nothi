@@ -31,6 +31,7 @@ using Newtonsoft.Json.Linq;
 using dNothi.Desktop.UI.PotroJariGroups;
 using dNothi.Constants;
 using dNothi.Core.Interfaces;
+using dNothi.Services.DakServices.DakReports;
 
 namespace dNothi.Desktop.UI
 {
@@ -1384,7 +1385,9 @@ namespace dNothi.Desktop.UI
 
             SingleDakUserControl dakInboxUserControl = new SingleDakUserControl();
             SetDakCategory(dakInboxUserControl, dakCatagoryList);
-            
+            if (dakListInboxRecordsDTO.dak_origin.receiving_office_unit_id != dakListInboxRecordsDTO.dak_origin.sender_office_unit_id)
+            { dakInboxUserControl.isotherOffice = true; }
+
             dakInboxUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
             dakInboxUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
             dakInboxUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
@@ -4695,7 +4698,11 @@ namespace dNothi.Desktop.UI
         {
             UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
             successMessage.message = Message;
-            successMessage.ShowDialog();
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+            //successMessage.ShowDialog();
 
         }
 
@@ -5261,11 +5268,11 @@ namespace dNothi.Desktop.UI
             dakBodyFlowLayoutPanel.RowCount = 0;
             _dakuserparam.page = 1;
             _dakuserparam.limit = 10;
-            RegisterReportResponse registerReportResponse = _registerService.GetDakGrohonResponse(_dakuserparam,fromdate,todate, null);
+            DakReportModel registerReportResponse = _registerService.GetDakGrohonResponse(_dakuserparam,fromdate,todate, null);
             RegisterReportUserControl registerReportUserControl = UserControlFactory.Create<RegisterReportUserControl>();
             registerReportUserControl.isDakGrohon = true;
             registerReportUserControl.totalRecord = registerReportResponse.data.total_records;
-            registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
+            registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetGrahonRegisterReports(registerReportResponse);
            
             UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, registerReportUserControl);
            // registerReportUserControl.Dock = DockStyle.Fill;
@@ -5942,6 +5949,12 @@ namespace dNothi.Desktop.UI
             {
                 LoadDakKhasraList();
             }
+        }
+
+        private void dakSearchSubTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                dakSearchUsingTextButton.PerformClick();
         }
     }
 

@@ -15,23 +15,32 @@ namespace dNothi.Desktop.UI
 
             successMessage.message = Message;
             successMessage.isSuccess = true;
-            successMessage.Show();
+            // successMessage.Show();
+            successMessage.Visible=true;
             var t = Task.Delay(3000);
             t.Wait();
-            successMessage.Hide();
+            successMessage.Visible = false;
+           // successMessage.Hide();
         }
         public  void ShowAlertMessage(string mulpotroNotSelectErrorMessage)
         {
             UIFormValidationAlertMessageForm alertMessageBox = new UIFormValidationAlertMessageForm();
             alertMessageBox.message = mulpotroNotSelectErrorMessage;
-
-            alertMessageBox.ShowDialog();
+            alertMessageBox.Visible = true;
+            var t = Task.Delay(3000);
+            t.Wait();
+            alertMessageBox.Visible = false;
+            // alertMessageBox.ShowDialog();
         }
         public   void ErrorMessage(string Message)
         {
             UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
             successMessage.message = Message;
-            successMessage.ShowDialog();
+            successMessage.Visible = true;
+            var t = Task.Delay(3000);
+            t.Wait();
+            successMessage.Visible = false;
+            // successMessage.ShowDialog();
 
         }
     }

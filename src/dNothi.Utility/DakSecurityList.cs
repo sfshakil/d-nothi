@@ -20,7 +20,7 @@ namespace dNothi.Utility
             List<DakSecurityData> dakSecurityDatas = new List<DakSecurityData>();
             dakSecurityDatas.Add(new DakSecurityData { _id = "0", _typeName = "বাছাই করুন" });
             dakSecurityDatas.Add(new DakSecurityData { _id = "5", _typeName = "অতি গোপনীয়" });
-            dakSecurityDatas.Add(new DakSecurityData { _id = "4", _typeName = "বিশেষ গোপনীয়" });
+           // dakSecurityDatas.Add(new DakSecurityData { _id = "4", _typeName = "বিশেষ গোপনীয়" });
             dakSecurityDatas.Add(new DakSecurityData { _id = "3", _typeName = "গোপনীয়" });
             dakSecurityDatas.Add(new DakSecurityData { _id = "2", _typeName = "সীমিত" });
 
@@ -37,7 +37,7 @@ namespace dNothi.Utility
         {
             _dakSecurities.Add(new DakSecurity("2", "সীমিত", "সীমিত-Icon-PNG2"));
             _dakSecurities.Add(new DakSecurity("3", "গোপনীয়", "গোপনীয়-Icon-PNG"));
-            _dakSecurities.Add(new DakSecurity("4", "বিশেষ গোপনীয়", "বিশেষ গোপনীয়-Icon-PNG"));
+            //_dakSecurities.Add(new DakSecurity("4", "বিশেষ গোপনীয়", "বিশেষ গোপনীয়-Icon-PNG"));
             _dakSecurities.Add(new DakSecurity("5", "অতি গোপনীয়", "অতি গোপনীয়-Icon-PNG"));
            // _dakSecurities.Add(new DakSecurity("0", "বাছাই করুন", ""));
 
@@ -47,7 +47,7 @@ namespace dNothi.Utility
         {
             _dakSecurities.Add(new DakSecurity("2", "সীমিত", "সীমিত-Icon-PNG2"));
             _dakSecurities.Add(new DakSecurity("3", "গোপনীয়", "গোপনীয়-Icon-PNG"));
-            _dakSecurities.Add(new DakSecurity("4", "বিশেষ গোপনীয়", "বিশেষ গোপনীয়-Icon-PNG"));
+           // _dakSecurities.Add(new DakSecurity("4", "বিশেষ গোপনীয়", "বিশেষ গোপনীয়-Icon-PNG"));
             _dakSecurities.Add(new DakSecurity("5", "অতি গোপনীয়", "অতি গোপনীয়-Icon-PNG"));
             _dakSecurities.Add(new DakSecurity("0", "বাছাই করুন", ""));
 

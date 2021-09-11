@@ -269,15 +269,23 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 {
                     ShowAlertMessage("দুংখিত! শিরোনাম ফাঁকা রাখা যাবে না।");
                 }
-                if (typesearchComboBox.selectedId <= 0)
+                else
                 {
-                    ShowAlertMessage("দুংখিত! ধরণ ফাঁকা রাখা যাবে না।");
+                    if (typesearchComboBox.selectedId <= 0)
+                    {
+                        ShowAlertMessage("দুংখিত! ধরণ ফাঁকা রাখা যাবে না।");
+                    }
+                    else
+                    {
+                        if (_uploadFileResponse.data == null)
+                        {
+                            ShowAlertMessage("দুংখিত! গার্ড ফাইল দেয়া হয়নি।");
+                        }
+                    }
                 }
-                if (_uploadFileResponse.data.Count<=0)
-                {
-                    ShowAlertMessage("দুংখিত! গার্ড ফাইল দেয়া হয়নি।");
                 }
-            }
+               
+            
 
            
 
@@ -288,25 +296,34 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
             successMessage.message = Message;
             successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000);
+            // successMessage.ShowDialog();
+            successMessage.Visible = true;
+             var t = Task.Delay(3000);
             t.Wait();
-            successMessage.Hide();
+            successMessage.Visible = false;
+            //successMessage.Hide();
         }
         private void ShowAlertMessage(string mulpotroNotSelectErrorMessage)
         {
             UIFormValidationAlertMessageForm alertMessageBox = new UIFormValidationAlertMessageForm();
             alertMessageBox.message = mulpotroNotSelectErrorMessage;
-
-            alertMessageBox.ShowDialog();
+            alertMessageBox.Visible = true;
+            var t = Task.Delay(3000);
+            t.Wait();
+            alertMessageBox.Visible = false;
+           // alertMessageBox.ShowDialog();
         }
 
        
         public void ErrorMessage(string Message)
         {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
+            UIFormValidationAlertMessageForm errorMessage = new UIFormValidationAlertMessageForm();
+            errorMessage.message = Message;
+            errorMessage.Visible = true;
+            var t = Task.Delay(3000);
+            t.Wait();
+            errorMessage.Visible = false;
+            //successMessage.ShowDialog();
 
         }
 

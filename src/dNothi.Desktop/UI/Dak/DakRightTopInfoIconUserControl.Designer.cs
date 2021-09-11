@@ -89,7 +89,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(727, 32);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(623, 32);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dakSourcePanel
@@ -101,10 +101,10 @@
             this.dakSourcePanel.Controls.Add(this.panel5);
             this.dakSourcePanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.dakSourcePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakSourcePanel.Location = new System.Drawing.Point(549, 0);
+            this.dakSourcePanel.Location = new System.Drawing.Point(476, 0);
             this.dakSourcePanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakSourcePanel.Name = "dakSourcePanel";
-            this.dakSourcePanel.Size = new System.Drawing.Size(103, 32);
+            this.dakSourcePanel.Size = new System.Drawing.Size(82, 32);
             this.dakSourcePanel.TabIndex = 29;
             // 
             // sourceLabel
@@ -118,7 +118,7 @@
             this.sourceLabel.Location = new System.Drawing.Point(18, 8);
             this.sourceLabel.Margin = new System.Windows.Forms.Padding(0);
             this.sourceLabel.Name = "sourceLabel";
-            this.sourceLabel.Size = new System.Drawing.Size(85, 21);
+            this.sourceLabel.Size = new System.Drawing.Size(64, 18);
             this.sourceLabel.TabIndex = 12;
             this.sourceLabel.Text = "NOTHI-V2";
             this.sourceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -167,7 +167,7 @@
             this.AttentionTypePanel.Location = new System.Drawing.Point(86, 0);
             this.AttentionTypePanel.Margin = new System.Windows.Forms.Padding(0);
             this.AttentionTypePanel.Name = "AttentionTypePanel";
-            this.AttentionTypePanel.Size = new System.Drawing.Size(73, 32);
+            this.AttentionTypePanel.Size = new System.Drawing.Size(64, 32);
             this.AttentionTypePanel.TabIndex = 28;
             this.AttentionTypePanel.Visible = false;
             // 
@@ -181,7 +181,7 @@
             this.attentionTypeLabel.ForeColor = System.Drawing.SystemColors.GrayText;
             this.attentionTypeLabel.Location = new System.Drawing.Point(22, 9);
             this.attentionTypeLabel.Name = "attentionTypeLabel";
-            this.attentionTypeLabel.Size = new System.Drawing.Size(48, 21);
+            this.attentionTypeLabel.Size = new System.Drawing.Size(39, 18);
             this.attentionTypeLabel.TabIndex = 10;
             this.attentionTypeLabel.Text = "সীমিত";
             this.attentionTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -209,10 +209,10 @@
             this.dakSecurityIconPanel.Controls.Add(this.dakSecurityIcon);
             this.dakSecurityIconPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dakSecurityIconPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakSecurityIconPanel.Location = new System.Drawing.Point(159, 0);
+            this.dakSecurityIconPanel.Location = new System.Drawing.Point(150, 0);
             this.dakSecurityIconPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakSecurityIconPanel.Name = "dakSecurityIconPanel";
-            this.dakSecurityIconPanel.Size = new System.Drawing.Size(155, 32);
+            this.dakSecurityIconPanel.Size = new System.Drawing.Size(128, 32);
             this.dakSecurityIconPanel.TabIndex = 27;
             this.dakSecurityIconPanel.Visible = false;
             // 
@@ -226,7 +226,7 @@
             this.dakSecurityLabel.ForeColor = System.Drawing.SystemColors.GrayText;
             this.dakSecurityLabel.Location = new System.Drawing.Point(22, 9);
             this.dakSecurityLabel.Name = "dakSecurityLabel";
-            this.dakSecurityLabel.Size = new System.Drawing.Size(130, 21);
+            this.dakSecurityLabel.Size = new System.Drawing.Size(103, 18);
             this.dakSecurityLabel.TabIndex = 10;
             this.dakSecurityLabel.Text = "সীমিত asdsadsad";
             this.dakSecurityLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -254,10 +254,10 @@
             this.potrojariPanel.Controls.Add(this.panel4);
             this.potrojariPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.potrojariPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.potrojariPanel.Location = new System.Drawing.Point(652, 0);
+            this.potrojariPanel.Location = new System.Drawing.Point(558, 0);
             this.potrojariPanel.Margin = new System.Windows.Forms.Padding(0);
             this.potrojariPanel.Name = "potrojariPanel";
-            this.potrojariPanel.Size = new System.Drawing.Size(75, 32);
+            this.potrojariPanel.Size = new System.Drawing.Size(65, 32);
             this.potrojariPanel.TabIndex = 26;
             this.potrojariPanel.Visible = false;
             // 
@@ -272,7 +272,7 @@
             this.label1.Location = new System.Drawing.Point(18, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(0, 10, 0, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 21);
+            this.label1.Size = new System.Drawing.Size(47, 18);
             this.label1.TabIndex = 12;
             this.label1.Text = "পত্রজারি";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -280,7 +280,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.BackgroundImage = global::dNothi.Desktop.Properties.Resources.icons8_maple_leaf_24;
+            this.panel4.BackgroundImage = global::dNothi.Desktop.Properties.Resources.icons8_download_from_cloud_64;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Enabled = false;
@@ -299,10 +299,10 @@
             this.dakTypePanel.Controls.Add(this.panel6);
             this.dakTypePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dakTypePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakTypePanel.Location = new System.Drawing.Point(469, 0);
+            this.dakTypePanel.Location = new System.Drawing.Point(406, 0);
             this.dakTypePanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakTypePanel.Name = "dakTypePanel";
-            this.dakTypePanel.Size = new System.Drawing.Size(80, 32);
+            this.dakTypePanel.Size = new System.Drawing.Size(70, 32);
             this.dakTypePanel.TabIndex = 25;
             this.dakTypePanel.Visible = false;
             // 
@@ -316,7 +316,7 @@
             this.dakTypeLabel.ForeColor = System.Drawing.SystemColors.GrayText;
             this.dakTypeLabel.Location = new System.Drawing.Point(22, 9);
             this.dakTypeLabel.Name = "dakTypeLabel";
-            this.dakTypeLabel.Size = new System.Drawing.Size(55, 21);
+            this.dakTypeLabel.Size = new System.Drawing.Size(45, 18);
             this.dakTypeLabel.TabIndex = 10;
             this.dakTypeLabel.Text = "নাগরিক";
             this.dakTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -344,10 +344,10 @@
             this.dakPriorityIconPanel.Controls.Add(this.panel3);
             this.dakPriorityIconPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dakPriorityIconPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakPriorityIconPanel.Location = new System.Drawing.Point(314, 0);
+            this.dakPriorityIconPanel.Location = new System.Drawing.Point(278, 0);
             this.dakPriorityIconPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakPriorityIconPanel.Name = "dakPriorityIconPanel";
-            this.dakPriorityIconPanel.Size = new System.Drawing.Size(155, 32);
+            this.dakPriorityIconPanel.Size = new System.Drawing.Size(128, 32);
             this.dakPriorityIconPanel.TabIndex = 24;
             this.dakPriorityIconPanel.Visible = false;
             // 
@@ -361,7 +361,7 @@
             this.prioriyLabel.ForeColor = System.Drawing.SystemColors.GrayText;
             this.prioriyLabel.Location = new System.Drawing.Point(22, 9);
             this.prioriyLabel.Name = "prioriyLabel";
-            this.prioriyLabel.Size = new System.Drawing.Size(130, 21);
+            this.prioriyLabel.Size = new System.Drawing.Size(103, 18);
             this.prioriyLabel.TabIndex = 10;
             this.prioriyLabel.Text = "সীমিত sadasdasd";
             this.prioriyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -406,7 +406,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "DakRightTopInfoIconUserControl";
-            this.Size = new System.Drawing.Size(727, 32);
+            this.Size = new System.Drawing.Size(623, 32);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.dakSourcePanel.ResumeLayout(false);

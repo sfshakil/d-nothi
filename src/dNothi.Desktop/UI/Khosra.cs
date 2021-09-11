@@ -26,6 +26,7 @@ using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.Services.NothiServices;
 using dNothi.JsonParser.Entity;
 using dNothi.Services.KasaraPatraDashBoardService.Models;
+using dNothi.Desktop.View_Model;
 
 namespace dNothi.Desktop.UI
 {
@@ -605,19 +606,24 @@ namespace dNothi.Desktop.UI
         {
             var selectOfficerForm =FormFactory.Create<SelectOfficerForm>();
 
-            if (officerSelectButton == onumodonkariOfficerSelectButton || officerSelectButton == prerokListShowButton)
+            if (officerSelectButton.Name == "onumodonkariOfficerSelectButton" || officerSelectButton.Name == "prerokListShowButton")
             {
                 selectOfficerForm._isOneOfficerAllowed = true;
+                selectOfficerForm.isPotrojariVisible = false;
             }
-
+            if (officerSelectButton.Name == "attentionListShowButton" || officerSelectButton.Name == "onulipiListShowButton" || officerSelectButton.Name == "prapokListShowButton")
+            {
+                selectOfficerForm.isPotrojariVisible = true;
+            }
+           
             selectOfficerForm.designationSealListResponse = _designationSealListResponse;
 
-            selectOfficerForm.SaveButtonClick += delegate (object se, EventArgs ev) { SaveOfficerinOnumodonKariOfficerList(officerSelectButton, selectOfficerForm._selectedOfficerDesignations, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel); };
+            selectOfficerForm.SaveButtonClick += delegate (object se, EventArgs ev) { SaveOfficerinOnumodonKariOfficerList(officerSelectButton, selectOfficerForm._selectedOfficerDesignations, selectOfficerForm._selectedOfficerDesignation, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel); };
 
             UIDesignCommonMethod.CalPopUpWindow(selectOfficerForm, this);
         }
 
-        private void SaveOfficerinOnumodonKariOfficerList(FontAwesome.Sharp.IconButton officerSelectButton, List<int> selectedOfficerDesignations, Panel officerListPanel, Panel officerEmptyPanel, TableLayoutPanel officerListFlowLayoutPanel)
+        private void SaveOfficerinOnumodonKariOfficerList(FontAwesome.Sharp.IconButton officerSelectButton, List<int> selectedOfficerDesignations, List<OfficerGroup> selectedOfficerDesignation, Panel officerListPanel, Panel officerEmptyPanel, TableLayoutPanel officerListFlowLayoutPanel)
         {
             officerListFlowLayoutPanel.Controls.Clear();
 
@@ -630,10 +636,10 @@ namespace dNothi.Desktop.UI
                     {
                         designationSeal = _designationSealListResponse.data.own_office.FirstOrDefault(a => a.designation_id == id);
                     }
-
+                    OfficerRowUserControl officerRowUserControl = new OfficerRowUserControl();
                     if (designationSeal != null)
                     {
-                        OfficerRowUserControl officerRowUserControl = new OfficerRowUserControl();
+                       
                         officerRowUserControl.officerName = designationSeal.officer_name + "," + designationSeal.designation_bng + "," + designationSeal.office_unit + "," + designationSeal.office_bng;
                         officerRowUserControl.designationId = designationSeal.designation_id;
                         officerRowUserControl.officerInfo = designationSeal;
@@ -659,7 +665,26 @@ namespace dNothi.Desktop.UI
                         UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officerRowUserControl);
 
                     }
+                    var officers = selectedOfficerDesignation.Where(x => x.GroupId == id).FirstOrDefault();
+                    if (officers!=null)
+                    {
+                       
+                        officerRowUserControl.officerName = officers.GroupName+"("+ officers.OfficerCount+")";
+                        officerRowUserControl.designationId = officers.GroupId;
+                        officerRowUserControl.officerInfo = new PrapokDTO {  designation_id= officers.GroupId , designation_bng= officers.GroupName + "(" + officers.OfficerCount + ")" };
 
+                        officerRowUserControl.DeleteButton += delegate (object se, EventArgs ev) {
+
+                            ReloadOfficerList(officerSelectButton, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel);
+                        };
+
+                        officerListFlowLayoutPanel.Controls.Add(officerRowUserControl);
+
+                        officerRowUserControl.InvisibleUpDown();
+                       
+
+                        UIDesignCommonMethod.AddRowinTable(officerListFlowLayoutPanel, officerRowUserControl);
+                    }
                 }
                 ReloadOfficerList(officerSelectButton, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel);
 
@@ -1833,7 +1858,8 @@ namespace dNothi.Desktop.UI
             if (conditonBoxForm.Yes)
             {
 
-
+                WaitForm = new WaitFormFunc();
+                WaitForm.Show();
                 //_currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.dateSharokTitleOriginal, KhoshraTemplateHtmlStringChange.dateSharokTitleReplace);
 
 
@@ -1933,9 +1959,17 @@ namespace dNothi.Desktop.UI
                 {
                     AddPrpoktoParam(khosraSaveParamPotro);
                 }
+              
                 if (senderOfficer != null)
                 {
                     AddSendertoParam(khosraSaveParamPotro);
+                }
+                else
+                {
+                    if (onumodonOfficer != null)
+                    {
+                        AddOnumodontoParam(khosraSaveParamPotro);
+                    }
                 }
                 if (attentionOfficers != null)
                 {
@@ -1945,7 +1979,8 @@ namespace dNothi.Desktop.UI
 
 
 
-
+                //WaitForm = new WaitFormFunc();
+                //WaitForm.Show();
 
 
                 KhosraSaveResponse khosraSaveResponse = _khosraSaveService.GetKhosraSaveResponse(dakUserParam, khosraSaveParamPotro);
@@ -1953,6 +1988,7 @@ namespace dNothi.Desktop.UI
 
                 if (khosraSaveResponse.status == "success")
                 {
+                    WaitForm.Close();
                     UIDesignCommonMethod.SuccessMessage(khosraSaveResponse.data);
 
                      if(_noteDTO != null && _noteDTO.note!=null)
@@ -2214,10 +2250,6 @@ namespace dNothi.Desktop.UI
         }
         private string SetPotroElementToHtmlString(string currentHtmlString, string subject)
         {
-
-
-
-
 
 
             try

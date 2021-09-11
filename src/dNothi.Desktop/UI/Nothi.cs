@@ -3782,6 +3782,21 @@ namespace dNothi.Desktop.UI
         }
         private void protibedanIconButton_Click(object sender, EventArgs e)
         {
+            if (protibedonPanel.Visible)
+            {
+                protibedonPanel.Visible = false;
+                caretIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            }
+            else
+            {
+                protibedonPanel.Visible = true;
+                caretIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
+            }
+
+        }
+
+        private void shakaNothiListReportButton_Click(object sender, EventArgs e)
+        {
             panel3.Visible = false;
             detailsNothiSearcPanel.Visible = false;
             nothiSearchHeadingPanel.Visible = false;
@@ -3796,7 +3811,6 @@ namespace dNothi.Desktop.UI
             nothiShakaWiseProtibedan.Dock = DockStyle.Fill;
             pnlNothiBody.Controls.Add(nothiShakaWiseProtibedan);
             pnlNothiBody.BringToFront();
-
         }
 
         private void SaveorUpdate()

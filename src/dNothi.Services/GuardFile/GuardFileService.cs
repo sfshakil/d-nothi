@@ -78,6 +78,14 @@ namespace dNothi.Services.GuardFile
         public ResponseEdit Insert(DakUserParam userParam, int actionLink, string model, Inputparam data)
         {
             string inputData = string.Empty;
+            if (model == "GuardFiles")
+            {
+                inputData = getparamGuardFiles(userParam, (GuardFileModel.Record)Convert.ChangeType(data, typeof(GuardFileModel.Record)));
+            }
+            else
+            {
+                inputData = getparamGuardFilesCategories((GuardFileCategory.Record)Convert.ChangeType(data, typeof(GuardFileCategory.Record)));
+            }
 
             if (!InternetConnection.Check())
             {
@@ -88,14 +96,7 @@ namespace dNothi.Services.GuardFile
             }
             else
             {
-                if (model == "GuardFiles")
-                {
-                    inputData = getparamGuardFiles(userParam, (GuardFileModel.Record)Convert.ChangeType(data, typeof(GuardFileModel.Record)));
-                }
-                else
-                {
-                    inputData = getparamGuardFilesCategories((GuardFileCategory.Record)Convert.ChangeType(data, typeof(GuardFileCategory.Record)));
-                }
+               
                 return InsertGuardFile(userParam, actionLink, model, inputData);
             }
             //try
@@ -442,7 +443,7 @@ namespace dNothi.Services.GuardFile
             GuardFileInsert localGuardFileInsert = new GuardFileInsert { 
                     data=data, designation_id=userParam.designation_id, isCreated= isInsert, model= model,
                      office_id=userParam.office_id,
-                     GuardFileId = id
+                     GuardFileId = id, isInProblem=false
             };
                 _localGuardFileInsertRepository.Insert(localGuardFileInsert);
             if( localGuardFileInsert.model == "GuardFiles")
@@ -489,35 +490,42 @@ namespace dNothi.Services.GuardFile
             string status = string.Empty;
             foreach (var item in localGuardFileInsertDelete)
             {
-                string inputData = string.Empty;
-                if (item.isCreated == true)
+                string inputData = item.data;
+                if (!item.isInProblem)
                 {
-                    if (item.model == "GuardFiles")
+                    if (item.isCreated == true)
                     {
-                        var localGuardFileUpload = _localGuardFileUploadRepository.Table.Where(x => x.GuardFileId == item.Id).FirstOrDefault();
-                        DakFileUploadParam fileUploadParam = new DakFileUploadParam
+                        if (item.model == "GuardFiles")
                         {
-                            content = localGuardFileUpload.content,
-                            file_size_in_kb = localGuardFileUpload.file_size_in_kb,
-                            user_file_name = localGuardFileUpload.user_file_name
-                        };
-                       var uploadFileResponse= guardFileAttachmentUpload(userParam, fileUploadParam, 5);
+                            var localGuardFileUpload = _localGuardFileUploadRepository.Table.Where(x => x.GuardFileId == item.Id).FirstOrDefault();
+                            DakFileUploadParam fileUploadParam = new DakFileUploadParam
+                            {
+                                content = localGuardFileUpload.content,
+                                file_size_in_kb = localGuardFileUpload.file_size_in_kb,
+                                user_file_name = localGuardFileUpload.user_file_name
+                            };
+                            var uploadFileResponse = guardFileAttachmentUpload(userParam, fileUploadParam, 5);
 
-                        GuardFileModel.Record record = new GuardFileModel.Record();
-                        record = JsonConvert.DeserializeObject<GuardFileModel.Record>(item.data);
-                        record.attachment = uploadFileResponse.data[0];
-                        inputData = getparamGuardFiles(userParam, record);
+                            GuardFileModel.Record record = new GuardFileModel.Record();
+                            record = JsonConvert.DeserializeObject<GuardFileModel.Record>(item.data);
+                            record.attachment = uploadFileResponse.data[0];
+                            inputData = getparamGuardFiles(userParam, record);
 
+                        }
+                        ResponseEdit response = InsertGuardFile(userParam, 3, item.model, inputData);
+                        status = response.status;
                     }
-                    ResponseEdit response = InsertGuardFile(userParam, 3, item.model, inputData);
-                    status = response.status;
+                    else
+                    {
+                        DeleteResponse response = deleteGuardFile(userParam, 4, item.GuardFileId, item.model);
+                        status = response.status;
+                    }
+                    if (status == "success")
+                    {
+                        _localGuardFileInsertRepository.Delete(item);
+                    }
                 }
                 else
-                {
-                    DeleteResponse response= deleteGuardFile(userParam, 4,item.GuardFileId, item.model);
-                    status= response.status;
-                }
-                if (status == "success")
                 {
                     _localGuardFileInsertRepository.Delete(item);
                 }

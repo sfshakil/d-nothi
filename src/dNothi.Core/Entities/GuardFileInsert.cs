@@ -17,10 +17,7 @@ namespace dNothi.Core.Entities
         public bool isGuardFile { get; set; }
         public int  GuardFileId { get; set; }
 
-        public string name_bng { get; set; }
-        public string name_eng { get; set; }
-        public int guard_file_category_id { get; set; }
-
+        public bool isInProblem { get; set; }
         [MaxLength]
         public string data { get; set; }
      

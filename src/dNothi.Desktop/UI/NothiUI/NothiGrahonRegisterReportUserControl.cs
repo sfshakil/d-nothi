@@ -15,6 +15,7 @@ using iTextSharp.text.pdf;
 using dNothi.Services.NothiReportService;
 using dNothi.Services.UserServices;
 using dNothi.Services.BasicService;
+using dNothi.Services.DakServices;
 
 namespace dNothi.Desktop.UI.NothiUI
 {
@@ -50,15 +51,17 @@ namespace dNothi.Desktop.UI.NothiUI
             dateTextBox.Text = fromdate + ":" + todate;
 
 
-            dakPriorityComboBox.DataSource = getShaka();
+            var userparam = _userService.GetLocalDakUserParam();
+            dakPriorityComboBox.DataSource = getShaka(userparam);
             dakPriorityComboBox.DisplayMember = "Name";
             dakPriorityComboBox.ValueMember = "Id";
+            dakPriorityComboBox.SelectedValue = userparam.office_unit_id;
         }
 
-        private List<ComboBoxItem> getShaka()
+        private List<ComboBoxItem> getShaka(DakUserParam userparam)
         {
             List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
-            var userparam = _userService.GetLocalDakUserParam();
+
             var officeUnitResponse = _basicService.GetOfficeUnitList(userparam);
             if (officeUnitResponse.status == "success")
             {

@@ -471,6 +471,7 @@ namespace dNothi.Desktop.UI.PotroJariGroups
            // newPotrojariPanel.Visible = false;
             newPotrojariPanel.Controls.Clear();
             var uscontrol = UserControlFactory.Create<PatraJariGroupCreateUserControl>();
+            uscontrol.isEdit = true;
             uscontrol.potrojariGroupModel = item;
             uscontrol.groupName = item.group.group_name;
             newPotrojariPanel.Controls.Add(uscontrol);
@@ -683,11 +684,10 @@ namespace dNothi.Desktop.UI.PotroJariGroups
            // newPotrojariPanel.Visible = false;
             MakeThisPanelClicked(sender);
             newPotrojariPanel.Controls.Clear();
-           var uscontrol = UserControlFactory.Create<PatraJariGroupCreateUserControl>();
+            var uscontrol = UserControlFactory.Create<PatraJariGroupCreateUserControl>();
+          
             newPotrojariPanel.Controls.Add(uscontrol);
 
-
-           
             //var panels = tableLayoutPanel2.Controls.OfType<Panel>().Where(x => x.Name.EndsWith("Txt"));
             //foreach (Panel p in panels)
             //{

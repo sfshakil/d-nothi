@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GurdFileControl));
             dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse1 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.moduleButton = new FontAwesome.Sharp.IconButton();
             this.dashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -54,7 +55,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.moduleDakCountLabel = new System.Windows.Forms.Label();
-            this.moduleButton = new FontAwesome.Sharp.IconButton();
             this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
@@ -92,6 +92,24 @@
             this.logoTableLayoutPanel.SuspendLayout();
             this.dakMenuButton.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // moduleButton
+            // 
+            this.moduleButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.moduleButton.FlatAppearance.BorderSize = 0;
+            this.moduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moduleButton.IconChar = FontAwesome.Sharp.IconChar.ThLarge;
+            this.moduleButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.moduleButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.moduleButton.IconSize = 32;
+            this.moduleButton.Location = new System.Drawing.Point(280, 3);
+            this.moduleButton.Name = "moduleButton";
+            this.moduleButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.moduleButton.Size = new System.Drawing.Size(39, 43);
+            this.moduleButton.TabIndex = 106;
+            this.MyToolTip.SetToolTip(this.moduleButton, "অন্যান্য মডিউল");
+            this.moduleButton.UseVisualStyleBackColor = true;
+            this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
             // 
             // dashboardBodyTableLayoutPanel
             // 
@@ -444,23 +462,6 @@
             this.moduleDakCountLabel.TabIndex = 18;
             this.moduleDakCountLabel.Text = "১২";
             this.moduleDakCountLabel.Click += new System.EventHandler(this.DakDashboardClick);
-            // 
-            // moduleButton
-            // 
-            this.moduleButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.moduleButton.FlatAppearance.BorderSize = 0;
-            this.moduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.moduleButton.IconChar = FontAwesome.Sharp.IconChar.ThLarge;
-            this.moduleButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.moduleButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.moduleButton.IconSize = 32;
-            this.moduleButton.Location = new System.Drawing.Point(280, 3);
-            this.moduleButton.Name = "moduleButton";
-            this.moduleButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.moduleButton.Size = new System.Drawing.Size(39, 43);
-            this.moduleButton.TabIndex = 106;
-            this.moduleButton.UseVisualStyleBackColor = true;
-            this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
             // 
             // onlineToggleButton2
             // 

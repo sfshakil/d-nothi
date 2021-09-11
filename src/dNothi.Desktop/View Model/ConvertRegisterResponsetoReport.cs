@@ -1,5 +1,6 @@
 ﻿using dNothi.JsonParser.Entity;
 using dNothi.Services.BasicService.Models;
+using dNothi.Services.DakServices.DakReports;
 using dNothi.Utility;
 using System;
 using System.Collections.Generic;
@@ -182,6 +183,79 @@ namespace dNothi.Desktop.View_Model
             {
 
             }
+
+            return registerReportLis;
+
+        }
+
+        public static List<RegisterReport> GetGrahonRegisterReports(DakReportModel registerReportResponse)
+        {
+            int count = 1;
+
+            List<RegisterReport> registerReportLis = new List<RegisterReport>();
+
+            
+                count += lastCount;
+                foreach (DakReportModel.Record registerReportRecordDTO in registerReportResponse.data.records)
+                {
+
+                    RegisterReport registerReport = new RegisterReport();
+                    registerReport.sln = count;
+                    registerReport.sl = ConversionMethod.EnglishNumberToBangla(count.ToString());
+                    count++;
+                    DakSecurityList dakSecurityList = new DakSecurityList(true);
+                    
+                    registerReport.acceptNum = ConversionMethod.EnglishNumberToBangla(registerReportRecordDTO.dak_origin.dak_received_no);
+
+                         registerReport.docketingNo = ConversionMethod.EngDigittoBanDigit(registerReportRecordDTO.dak_origin.docketing_no.ToString());
+                            registerReport.sub = registerReportRecordDTO.dak_user.dak_subject;
+                if (registerReportRecordDTO.dak_user.dak_security == "0")
+                {
+                    registerReport.security = "";
+
+                }
+                else
+                {
+                    registerReport.security = dakSecurityList.GetDakSecuritiesName(Convert.ToString(registerReportRecordDTO.dak_user.dak_security));
+
+                }
+
+                registerReport.previousPrapok = registerReportRecordDTO.movement_status.from.officer + ", " + registerReportRecordDTO.movement_status.from.designation + "," + registerReportRecordDTO.movement_status.from.office_unit + "," + registerReportRecordDTO.movement_status.from.office;
+                            registerReport.sharokNo = ConversionMethod.EngDigittoBanDigit(registerReportRecordDTO.dak_origin.sender_sarok_no);
+                            registerReport.applyDate = registerReportRecordDTO.dak_user.created;
+
+
+               
+                registerReport.receivedDate = registerReportRecordDTO.dak_origin.receiving_date;
+
+                registerReport.type = ConversionMethod.GetDakTypeNameBangla(registerReportRecordDTO.dak_user.dak_type);
+
+                       registerReport.mainPrapok = registerReportRecordDTO.dak_origin.receiving_officer_name + ", " + registerReportRecordDTO.dak_origin.receiving_officer_designation_label + "," + registerReportRecordDTO.dak_origin.receiving_office_unit_name + "," + registerReportRecordDTO.dak_origin.receiving_office_name;
+
+                   
+                        registerReport.applicant = registerReportRecordDTO.dak_origin.sender_name+ ","+registerReportRecordDTO.dak_origin.sender_officer_designation_label+","+ registerReportRecordDTO.dak_origin.sender_office_unit_name+","+ registerReportRecordDTO.dak_origin.sender_office_name;
+
+
+
+
+                DakPriorityList dakPriorityList = new DakPriorityList(true);
+
+                if (registerReportRecordDTO.dak_user.dak_priority =="0")
+                {
+                    registerReport.priority = "";
+                }
+                else
+                {
+                    registerReport.priority = dakPriorityList.GetDakPriorityName(Convert.ToString(registerReportRecordDTO.dak_user.dak_priority));
+
+                }
+
+
+                registerReport.finalState = registerReportRecordDTO.dak_user.dak_decision;
+
+                registerReportLis.Add(registerReport);
+                }
+           
 
             return registerReportLis;
 

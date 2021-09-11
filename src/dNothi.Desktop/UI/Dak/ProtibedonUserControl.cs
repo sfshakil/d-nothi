@@ -13,6 +13,10 @@ using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.BasicService;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using iText.Layout.Element;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -47,8 +51,6 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-
-
         public bool _isNothiteUposthapito { get; set; }
         public bool isNothiteUposthapito
         {
@@ -66,8 +68,6 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-
-
         public bool _isPotrojari { get; set; }
         public bool isPotrojari
         {
@@ -84,8 +84,6 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-
-
 
         public List<Protibedon> _protibedons { get; set; }
         public List<Protibedon> protibedons
@@ -182,56 +180,18 @@ namespace dNothi.Desktop.UI.Dak
             fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
             todate = DateTime.Now.ToString("yyyy/MM/dd");
             dateTextBox.Text = fromdate + ":" + todate;
-
-            dakPriorityComboBox.DataSource = getShaka();
+            var userparam = _userService.GetLocalDakUserParam();
+            dakPriorityComboBox.DataSource = getShaka(userparam);
             dakPriorityComboBox.DisplayMember = "Name";
             dakPriorityComboBox.ValueMember = "Id";
+            dakPriorityComboBox.SelectedValue = userparam.office_unit_id;
         }
-        private List<ComboBoxItem> getList()
+      
+        private List<ComboBoxItem> getShaka(DakUserParam userParam)
         {
             List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
-            ComboBoxItem data0 = new ComboBoxItem("শাখা নির্বাচন করুন", 0);
-            comboBoxItems.Add(data0);
-
-            ComboBoxItem data = new ComboBoxItem("প্রকল্প পরিচালকের", 6691);
-            comboBoxItems.Add(data);
-            ComboBoxItem data1 = new ComboBoxItem("পলিসি অ্যাডভাইজর", 6692);
-            comboBoxItems.Add(data1);
-            ComboBoxItem data2 = new ComboBoxItem("ক্যাপাসিটি ডেভেলপমেন্ট", 6699);
-            comboBoxItems.Add(data2);
-            ComboBoxItem data3 = new ComboBoxItem("ক্যাপাসিটি ডেভেলপমেন্ট", 6700);
-            comboBoxItems.Add(data3);
-            ComboBoxItem data4 = new ComboBoxItem("কমিউনিকেশন ও পার্টনারশীপ", 6707);
-            comboBoxItems.Add(data4);
-            ComboBoxItem data5 = new ComboBoxItem("এইচডি মিডিয়া", 6711);
-            comboBoxItems.Add(data5);
-            ComboBoxItem data6 = new ComboBoxItem("ই - লার্নিং", 6712);
-            comboBoxItems.Add(data6);
-            ComboBoxItem data7 = new ComboBoxItem("এডমিন", 6712);
-            comboBoxItems.Add(data7);
-            ComboBoxItem data8 = new ComboBoxItem("মনিটরিং এ্যান্ড ইভালুয়েশন", 9739);
-            comboBoxItems.Add(data8);
-            ComboBoxItem data9 = new ComboBoxItem("ই - সার্ভিস ", 9625);
-            comboBoxItems.Add(data9);
-            ComboBoxItem data10 = new ComboBoxItem("হিউম্যান রিসোর্স", 9739);
-            comboBoxItems.Add(data10);
-            ComboBoxItem data11 = new ComboBoxItem("ইনোভেশন -১", 9742);
-            comboBoxItems.Add(data11);
-            ComboBoxItem data12 = new ComboBoxItem("অবকাঠামো", 9747);
-            comboBoxItems.Add(data12);
-            ComboBoxItem data13 = new ComboBoxItem("টেকনোলজি", 46122);
-            comboBoxItems.Add(data13);
-            ComboBoxItem data14 = new ComboBoxItem("টেস্ট 111", 46180);
-            comboBoxItems.Add(data14);
-            return comboBoxItems;
-
-        }
-
-        private List<ComboBoxItem> getShaka()
-        {
-            List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
-            var userparam=  _userService.GetLocalDakUserParam();
-            var officeUnitResponse = _basicService.GetOfficeUnitList(userparam);
+            
+            var officeUnitResponse = _basicService.GetOfficeUnitList(userParam);
             if (officeUnitResponse.status == "success")
             {
                 comboBoxItems.Add(new ComboBoxItem("শাখা নির্বাচন করুন", 0));
@@ -293,106 +253,26 @@ namespace dNothi.Desktop.UI.Dak
             LoadData();
             NextPreviousButtonShow();
 
-
-            //List<Protibedon> protibedonlist = new List<Protibedon>();
-            //DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            //string name = comboBox1.Text;
-            //string dateRange = dateTextBox.Text;
-            //string unit = dakPriorityComboBox.SelectedValue.ToString();
-            //if (dateRange == string.Empty)
-            //{
-            //    fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
-            //    todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
-            //}
-            //else
-            //{
-            //    fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
-            //    todate = DateTime.Now.ToString("yyyy/MM/dd");
-            //}
-
-            //pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(name));
-
-            //dakListUserParam.page = page;
-            //dakListUserParam.limit = pageLimit;
-            //if (isPending)
-            //{
-            //    ProtibedonResponse protibedonResponse = _protibedonService.GetPendingProtibedonResponse(dakListUserParam, fromdate, todate, unit);
-            //    protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
-            //}
-            //if(isResolved)
-            //{
-            //    ProtibedonResponse protibedonResponse = _protibedonService.GetResolvedProtibedonResponse(dakListUserParam, fromdate, todate, unit);
-            //    protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
-            //}
-            //if(isNothiteUposthapito)
-            //{
-            //    DakProtibedonResponse protibedonResponse = _protibedonService.GetNothiteUposthapitoProtibedonResponse(dakListUserParam, fromdate, todate, unit);
-            //    protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
-            //}
-            //if(isPotrojari)
-            //{
-            //    DakProtibedonResponse protibedonResponse = _protibedonService.GetPotrojariProtibedonResponse(dakListUserParam, fromdate, todate, unit);
-            //    protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
-
-            //}
-            //if(isNothijato)
-            //{
-            //    DakProtibedonResponse protibedonResponse = _protibedonService.GetNothijatoProtibedonResponse(dakListUserParam, fromdate, todate, unit);
-            //    protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
-            //}
-            //if (protibedonlist.Count <= 0)
-            //{
-            //    noRowMessageLabel.Visible = true;
-            //}
-            //else
-            //{
-            //    noRowMessageLabel.Visible = false;
-            //}
-            //registerReportDataGridView.DataSource = null;
-            //registerReportDataGridView.DataSource = protibedonlist;
-
-
-            //// Resize the master DataGridView columns to fit the newly loaded data.
-            //registerReportDataGridView.AutoResizeColumns();
-
-            //// Configure the details DataGridView so that its columns automatically
-            //// adjust their widths when the data changes.
-            //registerReportDataGridView.AutoSizeColumnsMode =
-            //    DataGridViewAutoSizeColumnsMode.AllCells;
-
-            //MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
-            //registerReportDataGridView.ColumnHeadersDefaultCellStyle.Font = MemoryFonts.GetFont(0, 12, registerReportDataGridView.Font.Style);
-
-            ////if (this.comboBoxSelectedIndexChanged != null)
-            ////{
-            ////    string name = comboBox1.Text;
-
-            ////   // string  ids = comboBox1.SelectedValue.ToString();
-            ////    int id = 1;
-            ////    this.comboBoxSelectedIndexChanged(name,id);
-            ////}
-
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-
+            DataExportToPDF();
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-
+            DataExportToExcel();
         }
 
-        private void LoadData()
+        private List<Protibedon> LoadDataFromServer(int pages,int limit)
         {
             List<Protibedon> protibedonlist = new List<Protibedon>();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
-            string name = comboBox1.Text;
             string dateRange = dateTextBox.Text;
             string unit = dakPriorityComboBox.SelectedValue.ToString();
-            if (dateRange == string.Empty)
+            if (dateRange != string.Empty)
             {
                 fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
                 todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
@@ -403,10 +283,10 @@ namespace dNothi.Desktop.UI.Dak
                 todate = DateTime.Now.ToString("yyyy/MM/dd");
             }
 
-            pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(name));
+           
 
-            dakListUserParam.page = page;
-            dakListUserParam.limit = pageLimit;
+            dakListUserParam.page = pages;
+            dakListUserParam.limit = limit;
 
             if (isPending)
             {
@@ -439,7 +319,15 @@ namespace dNothi.Desktop.UI.Dak
                 ConvertProtibedonResponsetoProtibedon.lastCount = lastCountValue;
                 protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
             }
+            return protibedonlist;
+        }
+        private void LoadData()
+        {
 
+            string name = comboBox1.Text;
+            pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(name));
+
+            var protibedonlist = LoadDataFromServer(page,pageLimit);
             if (protibedonlist.Count <= 0)
             {
                 noRowMessageLabel.Visible = true;
@@ -566,5 +454,191 @@ namespace dNothi.Desktop.UI.Dak
         }
 
         #endregion
+
+        private void DataExportToExcel()
+        {
+            try
+            {
+                Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
+                Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
+                app.Visible = true;
+                worksheet = workbook.Sheets["Sheet1"];
+                worksheet = workbook.ActiveSheet;
+                worksheet.Name = headlineLabel.Text;
+                var nothiRegisterBook = LoadExportData();
+                try
+                {
+                    for (int i = 0; i < registerReportDataGridView.Columns.Count; i++)
+                    {
+                        worksheet.Cells[1, i + 1] = registerReportDataGridView.Columns[i].HeaderText;
+                    }
+                    for (int i = 0; i < nothiRegisterBook.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < nothiRegisterBook.Columns.Count; j++)
+                        {
+                            if (nothiRegisterBook.Rows[i][j].ToString() != null)
+                            {
+                                worksheet.Cells[i + 2, j + 1] = nothiRegisterBook.Rows[i][j].ToString();
+                            }
+                            else
+                            {
+                                worksheet.Cells[i + 2, j + 1] = "";
+                            }
+                        }
+                    }
+
+                    //Getting the location and file name of the excel to save from user. 
+                    SaveFileDialog saveDialog = new SaveFileDialog();
+                    saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                    saveDialog.FilterIndex = 2;
+
+                    if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        workbook.SaveAs(saveDialog.FileName);
+                        MessageBox.Show("Export Successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                finally
+                {
+                    app.Quit();
+                    workbook = null;
+                    worksheet = null;
+                }
+
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message.ToString()); }
+        }
+        private DataTable LoadExportData()
+        {
+            int pagevalue = 1;
+            int count = 1;
+            var registerReportlist = LoadDataFromServer(pagevalue, _totalRecord);
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("sl", typeof(string));
+            dt.Columns.Add("acceptNum", typeof(string));
+            dt.Columns.Add("docketingNo", typeof(string));
+            dt.Columns.Add("sharokNo", typeof(string));
+            dt.Columns.Add("applyDate", typeof(string));
+            dt.Columns.Add("type", typeof(string));
+            dt.Columns.Add("sub", typeof(string));
+            dt.Columns.Add("applicant", typeof(string));
+            dt.Columns.Add("previousPrapok", typeof(string));
+            dt.Columns.Add("mainPrapok", typeof(string));
+            dt.Columns.Add("receivedDate", typeof(string));
+            dt.Columns.Add("security", typeof(string));
+            dt.Columns.Add("priority", typeof(string));
+            dt.Columns.Add("finalState", typeof(string));
+
+            foreach (var item in registerReportlist)
+            {
+                dt.Rows.Add(new object[] {
+                        ConversionMethod.EnglishNumberToBangla(count++.ToString()),
+                        item.acceptNum,
+                        item.docketingNo,
+                        item.sharokNo,
+                        item.applyDate,
+                       
+                         item.sub,
+                          item.applicant,
+                          
+                            item.mainPrapok,
+                           
+                            item.security,
+                            item.priority,
+                            item.finalState
+                         });
+            }
+
+            return dt;
+        }
+
+        private void DataExportToPDF()
+        {
+
+            if (registerReportDataGridView.Rows.Count > 0)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "PDF (*.pdf)|*.pdf";
+                sfd.FileName = "Output.pdf";
+                bool fileError = false;
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    if (File.Exists(sfd.FileName))
+                    {
+                        try
+                        {
+                            File.Delete(sfd.FileName);
+                        }
+                        catch (IOException ex)
+                        {
+                            fileError = true;
+                            MessageBox.Show("It wasn't possible to write the data to the disk." + ex.Message);
+                        }
+                    }
+                    if (!fileError)
+                    {
+                       
+                        try
+                        {
+                            //BaseFont bf = BaseFont.CreateFont(MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi), BaseFont.IDENTITY_H, true);
+                            PdfPTable pdfTable = new PdfPTable(registerReportDataGridView.Columns.Count);
+                            pdfTable.DefaultCell.Padding = 3;
+                            pdfTable.WidthPercentage = 100;
+                            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+                           // BaseFont bfbanglaunicode = BaseFont.CreateFont("D:\\WINDOWS\\Fonts\\simsun.ttc,1", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                            BaseFont bfbanglaunicode = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\Fonts\ARIALUNI.TTF", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                            iTextSharp.text.Font fontunicode = new iTextSharp.text.Font(bfbanglaunicode, 12, iTextSharp.text.Font.NORMAL, new iTextSharp.text.BaseColor(0, 0, 0));
+
+                            var dakProtibedan = LoadExportData();
+                            foreach (DataGridViewColumn column in registerReportDataGridView.Columns)
+                            {
+                               
+                                PdfPCell cell = new PdfPCell(new Phrase(12, column.HeaderText, fontunicode));
+                               
+                                pdfTable.AddCell(cell);
+                            }
+                            for (int i = 0; i < dakProtibedan.Rows.Count; i++)
+                            {
+                                for (int j = 0; j < dakProtibedan.Columns.Count; j++)
+                                {
+                                    pdfTable.AddCell(new Phrase(dakProtibedan.Rows[i][j].ToString(), fontunicode));
+                                }
+                            }
+                            using (FileStream stream = new FileStream(sfd.FileName, FileMode.Create))
+                            {
+                                Document pdfDoc = new Document(PageSize.A4, 10f, 20f, 20f, 10f);
+                                PdfWriter.GetInstance(pdfDoc, stream);
+
+                                pdfDoc.Open();
+                                pdfDoc.Add(pdfTable);
+                                pdfDoc.Close();
+                                stream.Close();
+                            }
+
+                            MessageBox.Show("Data Exported Successfully !!!", "Info");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error :" + ex.Message);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No Record To Export !!!", "Info");
+            }
+        }
+        //BaseFont bfChinese = BaseFont.CreateFont("D:\\WINDOWS\\Fonts\\simsun.ttc,1", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+        //iTextSharp.text.Font fontChinese = new iTextSharp.text.Font(bfChinese, 12, iTextSharp.text.Font.NORMAL, new iTextSharp.text.BaseColor(0, 0, 0));
+
     }
 }
