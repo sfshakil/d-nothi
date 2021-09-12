@@ -1,8 +1,12 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Entities.Khosra;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.DakServices;
 using dNothi.Services.DakServices.DakSharingService.Model;
 using dNothi.Services.KasaraPatraDashBoardService.Models;
+using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -16,9 +20,27 @@ namespace dNothi.Services.KasaraPatraDashBoardService
 {
    public class KararaPotroDashBoardServices : IKasaraPatraDashBoardService
     {
+        IRepository<KhosraLocal> _localKhosraLocalRepository;
+        IRepository<KhosraListLocal> _localKhosraListLocalRepository;
+
+        public KararaPotroDashBoardServices(IRepository<KhosraLocal> localKhosraLocalRepository, IRepository<KhosraListLocal> localKhosraListLocalRepository)
+        {
+            _localKhosraLocalRepository = localKhosraLocalRepository;
+            _localKhosraListLocalRepository = localKhosraListLocalRepository;
+        }
         public KasaraPotro GetList(DakUserParam userParam, int menuNo)
         {
+            string cdesk = "{\"office_id\":\"" + userParam.office_id + "\",\"office_unit_id\":\"" + userParam.office_unit_id + "\",\"designation_id\":\"" + userParam.designation_id + "\"}";
+            string searchParam = "potro_subject=" + userParam.NameSearchParam + "";
 
+
+            if (!InternetConnection.Check())
+            {
+                var responseJson= GetLocalKhasraList(userParam, menuNo, cdesk, searchParam);
+                KasaraPotro nothikhoshrapotrolist = JsonConvert.DeserializeObject<KasaraPotro>(responseJson, NullDeserializeSetting());
+                return nothikhoshrapotrolist;
+            }
+            
             try
             {
                 var Api = new RestClient(GetAPIDomain() + GetEndPoint(menuNo));
@@ -28,19 +50,20 @@ namespace dNothi.Services.KasaraPatraDashBoardService
                 request.AddHeader("Authorization", "Bearer " + userParam.token);
                 request.AlwaysMultipartFormData = true;
 
-                request.AddParameter("cdesk", "{\"office_id\":\"" + userParam.office_id + "\",\"office_unit_id\":\"" + userParam.office_unit_id + "\",\"designation_id\":\"" + userParam.designation_id + "\"}");
+                request.AddParameter("cdesk", cdesk);
 
                 request.AddParameter("page", userParam.page);
                 request.AddParameter("limit", userParam.limit);
                 if (!string.IsNullOrEmpty(userParam.NameSearchParam))
                 {
-                    request.AddParameter("search_params", "potro_subject="+ userParam.NameSearchParam + "");
+                    request.AddParameter("search_params", searchParam);
                 }
               
                 IRestResponse Response = Api.Execute(request);
                 var responseJson = Response.Content;
 
                 responseJson = responseJson.Replace("\"recipient\":[]","\"recipient\":\"\"");
+                SaveLocalllyKhosraList(responseJson, userParam, menuNo, cdesk, searchParam);
                 KasaraPotro nothikhoshrapotrolist = JsonConvert.DeserializeObject<KasaraPotro>(responseJson, NullDeserializeSetting());
                 return nothikhoshrapotrolist;
             }
@@ -161,6 +184,54 @@ namespace dNothi.Services.KasaraPatraDashBoardService
 
 
         }
+
+        private string GetLocalKhasraList(DakUserParam userParam, int menuid,string cdesk,string searchParam)
+        {
+            var khasraData = _localKhosraListLocalRepository.Table.
+                Where(x=>x.cdesk== cdesk && x.limit==userParam.limit && x.MenuId==menuid && x.page==userParam.page && x.search_params== searchParam)
+                .FirstOrDefault();
+
+            if (khasraData != null)
+            {
+                return khasraData.responseData;
+            }
+            else
+            {
+                return "";
+            }
+
+        }
+
+        private void SaveLocalllyKhosraList(string responseJson, DakUserParam userParam, int menuid, string cdesk, string searchParam)
+        {
+
+            var khasraData = _localKhosraListLocalRepository.Table.
+                Where(x => x.cdesk == cdesk && x.limit == userParam.limit && x.MenuId == menuid && x.page == userParam.page && x.search_params == searchParam)
+                .FirstOrDefault();
+
+            if (khasraData != null)
+            {
+                khasraData.responseData = responseJson;
+                _localKhosraListLocalRepository.Update(khasraData);
+            }
+            else
+            {
+                KhosraListLocal localkasraList = new KhosraListLocal
+                {
+                    cdesk = cdesk,
+                    MenuId = menuid,
+                    page = userParam.page,
+                    limit = userParam.limit,
+                    search_params = searchParam,
+                    responseData = responseJson,
+                    isLocal = true
+                     
+                };
+                _localKhosraListLocalRepository.Insert(localkasraList);
+            }
+
+        }
+
 
         private JsonSerializerSettings NullDeserializeSetting()
         {

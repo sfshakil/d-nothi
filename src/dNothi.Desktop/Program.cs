@@ -35,6 +35,8 @@ using dNothi.Desktop.UI.Khosra_Potro;
 using dNothi.Services.NothiReportService;
 using dNothi.Services.BasicService;
 using dNothi.Services.ProfileChangeService;
+using dNothi.Core.Entities.Khosra;
+using dNothi.Services.KasaraPatraDashBoardService;
 
 namespace dNothi.Desktop
 {
@@ -198,7 +200,9 @@ namespace dNothi.Desktop
 
             builder.RegisterType<EfRepository<GuardFileUpload>>().As<IRepository<GuardFileUpload>>();
 
-
+            builder.RegisterType<EfRepository<KhosraLocal>>().As<IRepository<KhosraLocal>>();
+            builder.RegisterType<EfRepository<KhosraListLocal>>().As<IRepository<KhosraListLocal>>();
+            
 
             builder.RegisterType<BasicService>().As<IBasicService>();
 
@@ -280,7 +284,7 @@ namespace dNothi.Desktop
 
             builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();
             builder.RegisterGeneric(typeof(DakSharingService<>)).As(typeof(IDakSharingService<>)).AsSelf();
-
+            builder.RegisterType<KararaPotroDashBoardServices>().As<IKasaraPatraDashBoardService>(); 
 
 
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();

@@ -1,4 +1,6 @@
 ﻿using dNothi.Constants;
+using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
 using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Khosra;
 using dNothi.Services.DakServices;
@@ -16,6 +18,13 @@ namespace dNothi.Services.KhasraService
 {
   public  class KhosraSaveService:IKhosraSaveService
     {
+        IRepository<KhosraLocal> _localKhosraLocalRepository;
+       
+        public KhosraSaveService(IRepository<KhosraLocal> localKhosraLocalRepository)
+        {
+            _localKhosraLocalRepository = localKhosraLocalRepository;
+        }
+
         public GetSarokNoResponse GetSharokNoResponse(DakUserParam dakUserParameter, int nothiid, int potrojariid)
         {
             try
@@ -53,6 +62,25 @@ namespace dNothi.Services.KhasraService
 
         public KhosraSaveResponse GetKhosraSaveResponse(DakUserParam dakUserParameter, KhosraSaveParamPotro potro)
         {
+            string cdesk = "{\"office_id\":\"" + dakUserParameter.office_id + "\",\"office_unit_id\":\"" + dakUserParameter.office_unit_id + "\",\"designation_id\":\"" + dakUserParameter.designation_id + "\"}";
+            string potroRequestJson = JsonParsingMethod.ObjecttoJson(potro);
+            if (!InternetConnection.Check())
+            {
+                if (potro.recipient.receiver.Count > 0)
+                {
+                    return SaveLocalKhosra(cdesk, potroRequestJson);
+                }
+                else
+                {
+                    return new KhosraSaveResponse { status = "error", message="কমপক্ষে একজন প্রাপক লাগবে।" };
+                }
+            }
+           return KhosraSave(dakUserParameter, cdesk, potroRequestJson);
+       
+        }
+        private KhosraSaveResponse KhosraSave(DakUserParam dakUserParameter,string cdesk,string potroRequestJson)
+        {
+            KhosraSaveResponse khasraPotroSaveResponse = new KhosraSaveResponse();
             try
             {
 
@@ -63,28 +91,58 @@ namespace dNothi.Services.KhasraService
                 khasraSaveRequest.AddHeader("api-version", GetOldAPIVersion());
                 khasraSaveRequest.AddHeader("Authorization", "Bearer " + dakUserParameter.token);
                 khasraSaveRequest.AlwaysMultipartFormData = true;
-                khasraSaveRequest.AddParameter("cdesk", "{\"office_id\":\"" + dakUserParameter.office_id + "\",\"office_unit_id\":\"" + dakUserParameter.office_unit_id + "\",\"designation_id\":\"" + dakUserParameter.designation_id + "\"}");
-                string potroRequestJson = JsonParsingMethod.ObjecttoJson(potro);
-                
+                khasraSaveRequest.AddParameter("cdesk", cdesk);
+
                 khasraSaveRequest.AddParameter("potro", potroRequestJson);
 
                 IRestResponse khasraSaveResponse = khasraSaveAPI.Execute(khasraSaveRequest);
 
 
                 var khasraSaveResponseJson = ConversionMethod.FilterJsonResponse(khasraSaveResponse.Content);
-                
-                KhosraSaveResponse khasraPotroSaveResponse = JsonConvert.DeserializeObject<KhosraSaveResponse>(khasraSaveResponseJson);
+
+                khasraPotroSaveResponse = JsonConvert.DeserializeObject<KhosraSaveResponse>(khasraSaveResponseJson);
                 return khasraPotroSaveResponse;
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                throw;
+                return khasraPotroSaveResponse;
             }
         }
+        private KhosraSaveResponse SaveLocalKhosra(string cdesk,string potro)
+        {
+             
+            KhosraLocal localKhosraLocal = new KhosraLocal
+            {
 
+                cdesk = cdesk,
+                isLocal = true,
+                 potro= potro
 
+            };
+            _localKhosraLocalRepository.Insert(localKhosraLocal);
+           return new KhosraSaveResponse { status = "success", data="খসড়া সংরক্ষণ সফল হয়েছে।" };
 
+        }
 
+        public bool SendKosraLocalDataTOServer(DakUserParam userParam)
+        {
+            bool success = false;
+            var localKosraInsertDelete = _localKhosraLocalRepository.Table.ToList();
+          
+            foreach (var item in localKosraInsertDelete)
+            {
+                var returnData=  KhosraSave(userParam, item.cdesk, item.potro);
+
+                   if (returnData.status == "success")
+                    {
+                    success = true;
+                       _localKhosraLocalRepository.Delete(item);
+                    }
+                   
+            }
+
+            return success;
+        }
         protected string GetAPIVersion()
         {
             return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;
@@ -118,5 +176,7 @@ namespace dNothi.Services.KhasraService
     {
          KhosraSaveResponse GetKhosraSaveResponse(DakUserParam dakUserParameter, KhosraSaveParamPotro potro);
          GetSarokNoResponse GetSharokNoResponse(DakUserParam dakUserParameter, int nothiid, int potrojariid);
+         bool SendKosraLocalDataTOServer(DakUserParam userParam);
+
     }
 }

@@ -131,11 +131,9 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         public void ButtonVisibility(bool sampadan, bool view, bool prapaklist,bool ispotrojari)
         {
             sampadanIconButton.Visible = sampadan;
-           
             viewIconButton.Visible = view;
             prapaklistIconButton.Visible = prapaklist;
             portalIconButton.Visible = ispotrojari;
-
 
         }
 

@@ -27,6 +27,7 @@ using dNothi.Services.NothiServices;
 using dNothi.JsonParser.Entity;
 using dNothi.Services.KasaraPatraDashBoardService.Models;
 using dNothi.Desktop.View_Model;
+using dNothi.Services.SyncServices;
 
 namespace dNothi.Desktop.UI
 {
@@ -49,7 +50,7 @@ namespace dNothi.Desktop.UI
         public KhasraPotroTemplateResponse khasraPotroTemplateResponse { get; set; }
         public WaitFormFunc WaitForm;
         private DakUserParam _dakuserparam { get; set; }
-
+        ISyncerService syncerServices;
 
         private void commonKhosraRowUserControl_NoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, NothiListRecordsDTO nothiListRecordsDTO, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
@@ -115,7 +116,7 @@ namespace dNothi.Desktop.UI
         }
 
 
-        public Khosra(INothiInboxNoteServices nothiInboxNote, IDesignationSealService designationSealService, IKhosraSaveService khosraSaveService, IUserService userService, IKhasraTemplateService khasraTemplateService, IDakForwardService dakForwardService)
+        public Khosra(INothiInboxNoteServices nothiInboxNote, IDesignationSealService designationSealService, IKhosraSaveService khosraSaveService, IUserService userService, IKhasraTemplateService khasraTemplateService, IDakForwardService dakForwardService, ISyncerService _syncerServices)
         {
             _nothiInboxNote = nothiInboxNote;
             _khosraSaveService = khosraSaveService;
@@ -123,6 +124,7 @@ namespace dNothi.Desktop.UI
             _userService = userService;
             _dakForwardService = dakForwardService;
             _khasraTemplateService = khasraTemplateService;
+            syncerServices = _syncerServices;
             WaitForm = new WaitFormFunc();
             InitializeComponent();
             timePicker.CustomFormat = "HH:mm";
@@ -1858,8 +1860,7 @@ namespace dNothi.Desktop.UI
             if (conditonBoxForm.Yes)
             {
 
-                WaitForm = new WaitFormFunc();
-                WaitForm.Show();
+             
                 //_currentHtmlString = _currentHtmlString.Replace(KhoshraTemplateHtmlStringChange.dateSharokTitleOriginal, KhoshraTemplateHtmlStringChange.dateSharokTitleReplace);
 
 
@@ -1979,8 +1980,8 @@ namespace dNothi.Desktop.UI
 
 
 
-                //WaitForm = new WaitFormFunc();
-                //WaitForm.Show();
+                WaitForm = new WaitFormFunc();
+                WaitForm.Show();
 
 
                 KhosraSaveResponse khosraSaveResponse = _khosraSaveService.GetKhosraSaveResponse(dakUserParam, khosraSaveParamPotro);
@@ -2023,10 +2024,12 @@ namespace dNothi.Desktop.UI
                 }
                 else if (khosraSaveResponse.status == "error")
                 {
+                    WaitForm.Close();
                     UIDesignCommonMethod.ErrorMessage(khosraSaveResponse.message);
                 }
                 else
                 {
+                    WaitForm.Close();
                     UIDesignCommonMethod.ErrorMessage("");
                 }
             }

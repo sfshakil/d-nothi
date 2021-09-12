@@ -45,11 +45,13 @@ namespace dNothi.Desktop.UI
         int totalrecord = 0;
        
         IUserService _userService { get; set; }
-        public KhosraDashboard(IUserService userService, ISyncerService syncerServices )
+        public KhosraDashboard(IUserService userService, ISyncerService syncerServices,
+               IKasaraPatraDashBoardService kasaraPatraDashBoardService)
         {
             InitializeComponent();
             _userService = userService;
             _syncerServices = syncerServices;
+            _kasaraPatraDashBoardService = kasaraPatraDashBoardService;
 
         }
 
@@ -293,7 +295,7 @@ namespace dNothi.Desktop.UI
         private void LoadData(int menuNo,int pages)
         {
             khosraListTableLayoutPanel.Controls.Clear();
-            _kasaraPatraDashBoardService = new KararaPotroDashBoardServices();
+           
             string nameSearchparam = dakSearchSubTextBox.Text;
             var dakListUserParam = _userService.GetLocalDakUserParam();
 
@@ -304,7 +306,7 @@ namespace dNothi.Desktop.UI
 
             var kasarapatralist = _kasaraPatraDashBoardService.GetList(dakListUserParam, menuNo);
 
-            if (kasarapatralist.Status == "success")
+            if (kasarapatralist.Status == "success" || kasarapatralist!=null)
             {
                 noKhosraPanel.Visible = false;
                 foreach (var item in kasarapatralist.data.Records)
@@ -314,7 +316,7 @@ namespace dNothi.Desktop.UI
                     
                     var subcontrol = KasaraUserControlButtonVisibilityAndNoteNo(item, dakListUserParam.designation_id);
                     commonKhosraRowUserControl.potroPage = item.Basic.PotroPages;
-                    commonKhosraRowUserControl.sharokNo = item.Basic.SarokNo +" "+ (item.NoteOwner!=null?item.NoteOwner.NothiSubject:"");
+                    commonKhosraRowUserControl.sharokNo = item.Basic.SarokNo +" "+ (item.NoteOwner!=null?item.NoteOwner.NothiSubject:string.Empty);
                     commonKhosraRowUserControl.sub = item.Basic.PotroSubject;
                     commonKhosraRowUserControl.date = item.Basic.Modified;
                     if(item.Recipient !=null)
@@ -375,13 +377,14 @@ namespace dNothi.Desktop.UI
                 priority = item.NoteOwner.Priority.ToString(),
                 subject = item.NoteOwner.NothiSubject
             };
+
             var noteListDataRecordNoteDTO = new NoteListDataRecordNoteDTO { nothi_note_id = item.NoteOwner.NothiNoteId, note_no = item.NoteOwner.NoteNo, is_editable = 1 };
+          
             var nothiListInboxNoteRecordsDTO = new NothiListInboxNoteRecordsDTO
             {
                 note = new NoteNothiListInboxNoteRecordsDTO
                 {
-                    note_subject = item.NoteOwner.NoteSubject
-            ,
+                    note_subject = item.NoteOwner.NoteSubject,
                     nothi_note_id = item.NoteOwner.NothiNoteId,
                     onucched_count = item.NoteOwner.OnucchedCount,
                     khoshra_potro = item.NoteOwner.KhoshraPotro,

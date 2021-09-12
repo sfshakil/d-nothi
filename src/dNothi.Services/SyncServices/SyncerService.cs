@@ -9,6 +9,7 @@ using dNothi.Services.DakServices.DakSharingService;
 using dNothi.Services.DakServices.DakSharingService.Model;
 using dNothi.Services.GuardFile;
 using dNothi.Services.GuardFile.Model;
+using dNothi.Services.KhasraService;
 using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
@@ -57,6 +58,7 @@ namespace dNothi.Services.SyncServices
         IDakSharingService<ResponseModel> _dakSharingService { get; set; }
         IRepository<SyncStatus> _sycnRepository;
         IGuardFileService<GuardFileModel, GuardFileModel.Record> _guardFileService;
+        IKhosraSaveService _khosraSaveService;
         public SyncerService(
               INoteSaveService noteSave,
 
@@ -87,7 +89,8 @@ namespace dNothi.Services.SyncServices
 
             IRepository<SyncStatus> sycnRepository,
             IDakSharingService<ResponseModel> dakSharingService,
-            IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService)
+            IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService,
+             IKhosraSaveService khosraSaveService)
         {
             _nothiCreateServices = nothiCreateServices;
             _nothiTypeSave = nothiTypeSave;
@@ -118,6 +121,7 @@ namespace dNothi.Services.SyncServices
             _sycnRepository = sycnRepository;
             _dakSharingService = dakSharingService;
             _guardFileService = guardFileService;
+            _khosraSaveService = khosraSaveService;
         }
         /****************=========================================================================***************************
          ****************=========================================================================***************************
@@ -202,8 +206,7 @@ namespace dNothi.Services.SyncServices
                 _dakSharingService.SendLocalDataToServer(_userService.GetLocalDakUserParam());
                 _dakSharingService.SendDakSortingLocalDataToServer(_userService.GetLocalDakUserParam());
                 _guardFileService.SendGuradFileLocalDataTOServer(_userService.GetLocalDakUserParam());
-
-
+                _khosraSaveService.SendKosraLocalDataTOServer(_userService.GetLocalDakUserParam());
             }
 
 

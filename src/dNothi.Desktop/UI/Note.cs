@@ -95,9 +95,10 @@ namespace dNothi.Desktop.UI
             IOnuchhedListServices onuchhedList, ISingleOnucchedServices singleOnucched, INoteOnucchedRevertServices noteOnucchedRevert, INoteSaveService noteSave, INothiAllNoteServices nothiAllNote,
             IOnucchedFileUploadService onucchedFileUploadService, IKhosraSaveService khosraSaveService, INothiInboxNoteServices nothiInboxNote,
             IDesignationSealService designationSealService,
-        IRepository<NoteSaveItemAction> noteSaveItemAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction, IRepository<FileUploadAction> fileUploadAction)
+        IRepository<NoteSaveItemAction> noteSaveItemAction, IRepository<OnuchhedSaveItemAction> onuchhedSaveItemAction, IRepository<FileUploadAction> fileUploadAction,
+        IKasaraPatraDashBoardService kasaraPatraDashBoardService)
         {
-            _kasaraPatraDashBoardService = new KararaPotroDashBoardServices();
+           
             _potrojariServices = potrojariServices;
             _userService = userService;
             _onucchedSave = onucchedSave;
@@ -127,6 +128,7 @@ namespace dNothi.Desktop.UI
             _fileUploadAction = fileUploadAction;
             _nothiInboxNote = nothiInboxNote;
             _designationSealService = designationSealService;
+            _kasaraPatraDashBoardService = kasaraPatraDashBoardService;
 
             WaitForm = new WaitFormFunc();
             InitializeComponent();
