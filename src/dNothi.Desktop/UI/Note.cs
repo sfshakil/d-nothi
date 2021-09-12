@@ -11253,6 +11253,7 @@ namespace dNothi.Desktop.UI
             {
                 WaitForm.Show(this);
                 var nothiGaurdFileList = UserControlFactory.Create<NothiGaurdFileList>();
+                nothiGaurdFileList.gaurdFileRecord = _gaurdFileRecord;
                 nothiGaurdFileList.GaurdFileAttachment += delegate (object sender1, EventArgs e1) { GaurdFileText_Click(sender1 as GaurdFileRecord, e1); };
                 var form = NothiNextStepControlToForm(nothiGaurdFileList);
                 WaitForm.Close();
@@ -11264,8 +11265,10 @@ namespace dNothi.Desktop.UI
             }
 
         }
+        private GaurdFileRecord _gaurdFileRecord;
         private void GaurdFileText_Click(GaurdFileRecord gaurdFileRecord, EventArgs e1)
         {
+            _gaurdFileRecord = gaurdFileRecord;
             string addParagraphStartTag = "<p>";
             string addParagraphEndTag = "</p>";
             string allText = "";

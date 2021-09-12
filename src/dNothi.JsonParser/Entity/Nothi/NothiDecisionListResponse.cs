@@ -66,6 +66,7 @@ namespace dNothi.JsonParser.Entity.Nothi
         public int office_unit_organogram_id { get; set; }
         public int guard_file_category_id { get; set; }
         public string guard_file_category_name_bng { get; set; }
+        public int includedGuardFileCount { get; set; }
         public GaurdFileAttachment attachment { get; set; }
     }
 

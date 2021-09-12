@@ -30,13 +30,14 @@ namespace dNothi.Desktop.UI.Dak
         private void InitializeComponent()
         {
             this.panel12 = new System.Windows.Forms.Panel();
+            this.typesearchComboBox = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.guardFiletabControl = new System.Windows.Forms.TabControl();
             this.guardFileTabPage = new System.Windows.Forms.TabPage();
             this.gaurdFileViewBodyPanel = new System.Windows.Forms.Panel();
             this.gaurdFileViewFLP = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -45,13 +46,18 @@ namespace dNothi.Desktop.UI.Dak
             this.label2 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.lbLengthStart = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lbLengthEnd = new System.Windows.Forms.Label();
-            this.lbTotalGaurdFile = new System.Windows.Forms.Label();
-            this.btnNothiOutboxPrevious = new FontAwesome.Sharp.IconButton();
-            this.btnNothiAllNext = new FontAwesome.Sharp.IconButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.searchHeaderTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.dakSearchSubTextBox = new PlaceholderTextBox.PlaceholderTextBox();
+            this.recycleIconButton = new FontAwesome.Sharp.IconButton();
+            this.dakSearchUsingTextButton = new FontAwesome.Sharp.IconButton();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.gperPageRowLabel = new System.Windows.Forms.Label();
+            this.gtotalLabel = new System.Windows.Forms.Label();
+            this.gPreviousIconButton = new FontAwesome.Sharp.IconButton();
+            this.gnextIconButton = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.guardFilePortalTabPage = new System.Windows.Forms.TabPage();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -96,12 +102,15 @@ namespace dNothi.Desktop.UI.Dak
             this.gaurdFileViewBodyPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.searchHeaderTableLayoutPanel.SuspendLayout();
+            this.panel23.SuspendLayout();
+            this.panel25.SuspendLayout();
             this.guardFilePortalTabPage.SuspendLayout();
             this.bodyTableLayoutPanel.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -123,6 +132,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // panel12
             // 
+            this.panel12.Controls.Add(this.typesearchComboBox);
             this.panel12.Controls.Add(this.guardFiletabControl);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(0, 74);
@@ -130,6 +140,23 @@ namespace dNothi.Desktop.UI.Dak
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(950, 651);
             this.panel12.TabIndex = 85;
+            // 
+            // typesearchComboBox
+            // 
+            this.typesearchComboBox.AutoSize = true;
+            this.typesearchComboBox.BackColor = System.Drawing.Color.White;
+            this.typesearchComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typesearchComboBox.isListShown = false;
+            this.typesearchComboBox.itemList = null;
+            this.typesearchComboBox.Location = new System.Drawing.Point(26, 70);
+            this.typesearchComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.typesearchComboBox.MinimumSize = new System.Drawing.Size(120, 0);
+            this.typesearchComboBox.Name = "typesearchComboBox";
+            this.typesearchComboBox.searchButtonText = "ধরণ বাছাই করুন";
+            this.typesearchComboBox.selectedId = 0;
+            this.typesearchComboBox.Size = new System.Drawing.Size(307, 44);
+            this.typesearchComboBox.TabIndex = 87;
+            this.typesearchComboBox.ChangeSelectedIndex += new System.EventHandler(this.typesearchComboBox_ChangeSelectedIndex);
             // 
             // guardFiletabControl
             // 
@@ -151,7 +178,7 @@ namespace dNothi.Desktop.UI.Dak
             this.guardFileTabPage.AccessibleRole = System.Windows.Forms.AccessibleRole.PageTab;
             this.guardFileTabPage.Controls.Add(this.gaurdFileViewBodyPanel);
             this.guardFileTabPage.Controls.Add(this.panel4);
-            this.guardFileTabPage.Controls.Add(this.panel3);
+            this.guardFileTabPage.Controls.Add(this.tableLayoutPanel1);
             this.guardFileTabPage.Controls.Add(this.panel2);
             this.guardFileTabPage.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guardFileTabPage.ImageIndex = 2;
@@ -168,11 +195,11 @@ namespace dNothi.Desktop.UI.Dak
             this.gaurdFileViewBodyPanel.AutoScroll = true;
             this.gaurdFileViewBodyPanel.Controls.Add(this.gaurdFileViewFLP);
             this.gaurdFileViewBodyPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gaurdFileViewBodyPanel.Location = new System.Drawing.Point(3, 113);
+            this.gaurdFileViewBodyPanel.Location = new System.Drawing.Point(3, 123);
             this.gaurdFileViewBodyPanel.Margin = new System.Windows.Forms.Padding(0);
             this.gaurdFileViewBodyPanel.Name = "gaurdFileViewBodyPanel";
             this.gaurdFileViewBodyPanel.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
-            this.gaurdFileViewBodyPanel.Size = new System.Drawing.Size(936, 491);
+            this.gaurdFileViewBodyPanel.Size = new System.Drawing.Size(936, 481);
             this.gaurdFileViewBodyPanel.TabIndex = 85;
             // 
             // gaurdFileViewFLP
@@ -196,7 +223,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.panel4.Controls.Add(this.panel7);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(3, 67);
+            this.panel4.Location = new System.Drawing.Point(3, 77);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
@@ -206,7 +233,7 @@ namespace dNothi.Desktop.UI.Dak
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.panel7.Controls.Add(this.tableLayoutPanel1);
+            this.panel7.Controls.Add(this.tableLayoutPanel);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(15, 0);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
@@ -214,34 +241,35 @@ namespace dNothi.Desktop.UI.Dak
             this.panel7.Size = new System.Drawing.Size(906, 46);
             this.panel7.TabIndex = 80;
             // 
-            // tableLayoutPanel1
+            // tableLayoutPanel
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.76923F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.23077F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 465F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
-            this.tableLayoutPanel1.Controls.Add(this.panel11, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel10, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel8, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(906, 46);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel.ColumnCount = 4;
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel.Controls.Add(this.panel11, 0, 0);
+            this.tableLayoutPanel.Controls.Add(this.panel10, 0, 0);
+            this.tableLayoutPanel.Controls.Add(this.panel9, 0, 0);
+            this.tableLayoutPanel.Controls.Add(this.panel8, 0, 0);
+            this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel.Name = "tableLayoutPanel";
+            this.tableLayoutPanel.RowCount = 1;
+            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel.Size = new System.Drawing.Size(906, 46);
+            this.tableLayoutPanel.TabIndex = 0;
+            this.tableLayoutPanel.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel_CellPaint);
             // 
             // panel11
             // 
             this.panel11.Controls.Add(this.label4);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(301, 0);
+            this.panel11.Location = new System.Drawing.Point(406, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(465, 46);
+            this.panel11.Size = new System.Drawing.Size(362, 46);
             this.panel11.TabIndex = 83;
             // 
             // label4
@@ -255,15 +283,16 @@ namespace dNothi.Desktop.UI.Dak
             this.label4.Size = new System.Drawing.Size(27, 16);
             this.label4.TabIndex = 2;
             this.label4.Text = "নাম";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel10
             // 
             this.panel10.Controls.Add(this.label5);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(766, 0);
+            this.panel10.Location = new System.Drawing.Point(768, 0);
             this.panel10.Margin = new System.Windows.Forms.Padding(0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(140, 46);
+            this.panel10.Size = new System.Drawing.Size(138, 46);
             this.panel10.TabIndex = 82;
             // 
             // label5
@@ -285,7 +314,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(92, 46);
+            this.panel9.Size = new System.Drawing.Size(135, 46);
             this.panel9.TabIndex = 81;
             // 
             // label2
@@ -304,10 +333,10 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.panel8.Controls.Add(this.label3);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(92, 0);
+            this.panel8.Location = new System.Drawing.Point(135, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(209, 46);
+            this.panel8.Size = new System.Drawing.Size(271, 46);
             this.panel8.TabIndex = 80;
             // 
             // label3
@@ -322,116 +351,193 @@ namespace dNothi.Desktop.UI.Dak
             this.label3.TabIndex = 1;
             this.label3.Text = "ধরন";
             // 
-            // panel3
+            // tableLayoutPanel1
             // 
-            this.panel3.Controls.Add(this.lbLengthStart);
-            this.panel3.Controls.Add(this.label13);
-            this.panel3.Controls.Add(this.lbLengthEnd);
-            this.panel3.Controls.Add(this.lbTotalGaurdFile);
-            this.panel3.Controls.Add(this.btnNothiOutboxPrevious);
-            this.panel3.Controls.Add(this.btnNothiAllNext);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(3, 28);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.panel3.Size = new System.Drawing.Size(936, 39);
-            this.panel3.TabIndex = 81;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel1.Controls.Add(this.searchHeaderTableLayoutPanel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel24, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel25, 2, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 28);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(936, 49);
+            this.tableLayoutPanel1.TabIndex = 86;
             // 
-            // lbLengthStart
+            // searchHeaderTableLayoutPanel
             // 
-            this.lbLengthStart.AutoSize = true;
-            this.lbLengthStart.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbLengthStart.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbLengthStart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbLengthStart.Location = new System.Drawing.Point(752, 0);
-            this.lbLengthStart.Margin = new System.Windows.Forms.Padding(0);
-            this.lbLengthStart.Name = "lbLengthStart";
-            this.lbLengthStart.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.lbLengthStart.Size = new System.Drawing.Size(16, 24);
-            this.lbLengthStart.TabIndex = 73;
-            this.lbLengthStart.Text = "০";
+            this.searchHeaderTableLayoutPanel.ColumnCount = 3;
+            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.searchHeaderTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.searchHeaderTableLayoutPanel.Controls.Add(this.panel23, 0, 0);
+            this.searchHeaderTableLayoutPanel.Controls.Add(this.recycleIconButton, 2, 0);
+            this.searchHeaderTableLayoutPanel.Controls.Add(this.dakSearchUsingTextButton, 1, 0);
+            this.searchHeaderTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchHeaderTableLayoutPanel.Location = new System.Drawing.Point(374, 0);
+            this.searchHeaderTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.searchHeaderTableLayoutPanel.Name = "searchHeaderTableLayoutPanel";
+            this.searchHeaderTableLayoutPanel.RowCount = 1;
+            this.searchHeaderTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.searchHeaderTableLayoutPanel.Size = new System.Drawing.Size(280, 49);
+            this.searchHeaderTableLayoutPanel.TabIndex = 112;
             // 
-            // label13
+            // panel23
             // 
-            this.label13.AutoSize = true;
-            this.label13.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label13.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label13.Location = new System.Drawing.Point(768, 0);
-            this.label13.Margin = new System.Windows.Forms.Padding(0);
-            this.label13.Name = "label13";
-            this.label13.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label13.Size = new System.Drawing.Size(13, 24);
-            this.label13.TabIndex = 72;
-            this.label13.Text = "-";
+            this.panel23.AutoSize = true;
+            this.panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.panel23.Controls.Add(this.dakSearchSubTextBox);
+            this.panel23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel23.Location = new System.Drawing.Point(0, 0);
+            this.panel23.Margin = new System.Windows.Forms.Padding(0);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(211, 49);
+            this.panel23.TabIndex = 4;
+            this.panel23.Paint += new System.Windows.Forms.PaintEventHandler(this.panel23_Paint);
             // 
-            // lbLengthEnd
+            // dakSearchSubTextBox
             // 
-            this.lbLengthEnd.AutoSize = true;
-            this.lbLengthEnd.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbLengthEnd.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbLengthEnd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbLengthEnd.Location = new System.Drawing.Point(781, 0);
-            this.lbLengthEnd.Margin = new System.Windows.Forms.Padding(0);
-            this.lbLengthEnd.Name = "lbLengthEnd";
-            this.lbLengthEnd.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.lbLengthEnd.Size = new System.Drawing.Size(16, 24);
-            this.lbLengthEnd.TabIndex = 71;
-            this.lbLengthEnd.Text = "০";
+            this.dakSearchSubTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dakSearchSubTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.dakSearchSubTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dakSearchSubTextBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dakSearchSubTextBox.Location = new System.Drawing.Point(19, 11);
+            this.dakSearchSubTextBox.Name = "dakSearchSubTextBox";
+            this.dakSearchSubTextBox.PlaceholderText = "নাম দিয়ে খুঁজুন";
+            this.dakSearchSubTextBox.Size = new System.Drawing.Size(143, 19);
+            this.dakSearchSubTextBox.TabIndex = 3;
             // 
-            // lbTotalGaurdFile
+            // recycleIconButton
             // 
-            this.lbTotalGaurdFile.AutoSize = true;
-            this.lbTotalGaurdFile.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbTotalGaurdFile.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.lbTotalGaurdFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbTotalGaurdFile.Location = new System.Drawing.Point(797, 0);
-            this.lbTotalGaurdFile.Margin = new System.Windows.Forms.Padding(0);
-            this.lbTotalGaurdFile.Name = "lbTotalGaurdFile";
-            this.lbTotalGaurdFile.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.lbTotalGaurdFile.Size = new System.Drawing.Size(66, 24);
-            this.lbTotalGaurdFile.TabIndex = 70;
-            this.lbTotalGaurdFile.Text = " সর্বমোট: ০";
+            this.recycleIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.recycleIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.recycleIconButton.FlatAppearance.BorderSize = 0;
+            this.recycleIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlText;
+            this.recycleIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.recycleIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.recycleIconButton.IconChar = FontAwesome.Sharp.IconChar.Recycle;
+            this.recycleIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.recycleIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.recycleIconButton.IconSize = 24;
+            this.recycleIconButton.Location = new System.Drawing.Point(245, 0);
+            this.recycleIconButton.Margin = new System.Windows.Forms.Padding(0);
+            this.recycleIconButton.Name = "recycleIconButton";
+            this.recycleIconButton.Size = new System.Drawing.Size(35, 49);
+            this.recycleIconButton.TabIndex = 29;
+            this.recycleIconButton.UseVisualStyleBackColor = false;
+            this.recycleIconButton.Click += new System.EventHandler(this.recycleIconButton_Click);
             // 
-            // btnNothiOutboxPrevious
+            // dakSearchUsingTextButton
             // 
-            this.btnNothiOutboxPrevious.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.btnNothiOutboxPrevious.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnNothiOutboxPrevious.FlatAppearance.BorderSize = 0;
-            this.btnNothiOutboxPrevious.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.btnNothiOutboxPrevious.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNothiOutboxPrevious.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.btnNothiOutboxPrevious.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
-            this.btnNothiOutboxPrevious.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNothiOutboxPrevious.IconSize = 24;
-            this.btnNothiOutboxPrevious.Location = new System.Drawing.Point(863, 0);
-            this.btnNothiOutboxPrevious.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNothiOutboxPrevious.Name = "btnNothiOutboxPrevious";
-            this.btnNothiOutboxPrevious.Size = new System.Drawing.Size(34, 39);
-            this.btnNothiOutboxPrevious.TabIndex = 75;
-            this.btnNothiOutboxPrevious.UseVisualStyleBackColor = false;
-            this.btnNothiOutboxPrevious.Visible = false;
-            this.btnNothiOutboxPrevious.Click += new System.EventHandler(this.btnNothiOutboxPrevious_Click);
+            this.dakSearchUsingTextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(198)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
+            this.dakSearchUsingTextButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dakSearchUsingTextButton.FlatAppearance.BorderSize = 0;
+            this.dakSearchUsingTextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.dakSearchUsingTextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dakSearchUsingTextButton.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.dakSearchUsingTextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
+            this.dakSearchUsingTextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dakSearchUsingTextButton.IconSize = 32;
+            this.dakSearchUsingTextButton.Location = new System.Drawing.Point(211, 0);
+            this.dakSearchUsingTextButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakSearchUsingTextButton.Name = "dakSearchUsingTextButton";
+            this.dakSearchUsingTextButton.Size = new System.Drawing.Size(34, 49);
+            this.dakSearchUsingTextButton.TabIndex = 30;
+            this.dakSearchUsingTextButton.UseVisualStyleBackColor = false;
+            this.dakSearchUsingTextButton.Click += new System.EventHandler(this.dakSearchUsingTextButton_Click);
             // 
-            // btnNothiAllNext
+            // panel24
             // 
-            this.btnNothiAllNext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.btnNothiAllNext.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnNothiAllNext.FlatAppearance.BorderSize = 0;
-            this.btnNothiAllNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(230)))), ((int)(((byte)(239)))));
-            this.btnNothiAllNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNothiAllNext.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.btnNothiAllNext.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
-            this.btnNothiAllNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNothiAllNext.IconSize = 24;
-            this.btnNothiAllNext.Location = new System.Drawing.Point(897, 0);
-            this.btnNothiAllNext.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNothiAllNext.Name = "btnNothiAllNext";
-            this.btnNothiAllNext.Size = new System.Drawing.Size(34, 39);
-            this.btnNothiAllNext.TabIndex = 74;
-            this.btnNothiAllNext.UseVisualStyleBackColor = false;
-            this.btnNothiAllNext.Visible = false;
-            this.btnNothiAllNext.Click += new System.EventHandler(this.btnNothiAllNext_Click);
+            this.panel24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel24.Location = new System.Drawing.Point(0, 0);
+            this.panel24.Margin = new System.Windows.Forms.Padding(0);
+            this.panel24.Name = "panel24";
+            this.panel24.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.panel24.Size = new System.Drawing.Size(374, 49);
+            this.panel24.TabIndex = 89;
+            // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.gperPageRowLabel);
+            this.panel25.Controls.Add(this.gtotalLabel);
+            this.panel25.Controls.Add(this.gPreviousIconButton);
+            this.panel25.Controls.Add(this.gnextIconButton);
+            this.panel25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel25.Location = new System.Drawing.Point(654, 0);
+            this.panel25.Margin = new System.Windows.Forms.Padding(0);
+            this.panel25.Name = "panel25";
+            this.panel25.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.panel25.Size = new System.Drawing.Size(282, 49);
+            this.panel25.TabIndex = 88;
+            this.panel25.Paint += new System.Windows.Forms.PaintEventHandler(this.panel25_Paint);
+            // 
+            // gperPageRowLabel
+            // 
+            this.gperPageRowLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gperPageRowLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gperPageRowLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.gperPageRowLabel.Location = new System.Drawing.Point(34, 0);
+            this.gperPageRowLabel.Name = "gperPageRowLabel";
+            this.gperPageRowLabel.Size = new System.Drawing.Size(100, 49);
+            this.gperPageRowLabel.TabIndex = 37;
+            this.gperPageRowLabel.Text = "১ - ১২";
+            this.gperPageRowLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // gtotalLabel
+            // 
+            this.gtotalLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gtotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gtotalLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.gtotalLabel.Location = new System.Drawing.Point(134, 0);
+            this.gtotalLabel.Name = "gtotalLabel";
+            this.gtotalLabel.Size = new System.Drawing.Size(75, 49);
+            this.gtotalLabel.TabIndex = 33;
+            this.gtotalLabel.Text = " সর্বমোট: ১২";
+            this.gtotalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // gPreviousIconButton
+            // 
+            this.gPreviousIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.gPreviousIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gPreviousIconButton.FlatAppearance.BorderSize = 0;
+            this.gPreviousIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.gPreviousIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gPreviousIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.gPreviousIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.gPreviousIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.gPreviousIconButton.IconSize = 24;
+            this.gPreviousIconButton.Location = new System.Drawing.Point(209, 0);
+            this.gPreviousIconButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.gPreviousIconButton.Name = "gPreviousIconButton";
+            this.gPreviousIconButton.Size = new System.Drawing.Size(34, 49);
+            this.gPreviousIconButton.TabIndex = 34;
+            this.gPreviousIconButton.UseVisualStyleBackColor = false;
+            this.gPreviousIconButton.Click += new System.EventHandler(this.gPreviousIconButton_Click);
+            // 
+            // gnextIconButton
+            // 
+            this.gnextIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.gnextIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gnextIconButton.FlatAppearance.BorderSize = 0;
+            this.gnextIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.gnextIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gnextIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.gnextIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.gnextIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.gnextIconButton.IconSize = 24;
+            this.gnextIconButton.Location = new System.Drawing.Point(243, 0);
+            this.gnextIconButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.gnextIconButton.Name = "gnextIconButton";
+            this.gnextIconButton.Size = new System.Drawing.Size(34, 49);
+            this.gnextIconButton.TabIndex = 35;
+            this.gnextIconButton.UseVisualStyleBackColor = false;
+            this.gnextIconButton.Click += new System.EventHandler(this.gnextIconButton_Click);
             // 
             // panel2
             // 
@@ -940,13 +1046,14 @@ namespace dNothi.Desktop.UI.Dak
             this.Name = "NothiGaurdFileList";
             this.Size = new System.Drawing.Size(950, 725);
             this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.guardFiletabControl.ResumeLayout(false);
             this.guardFileTabPage.ResumeLayout(false);
             this.gaurdFileViewBodyPanel.ResumeLayout(false);
             this.gaurdFileViewBodyPanel.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -955,8 +1062,12 @@ namespace dNothi.Desktop.UI.Dak
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.searchHeaderTableLayoutPanel.ResumeLayout(false);
+            this.searchHeaderTableLayoutPanel.PerformLayout();
+            this.panel23.ResumeLayout(false);
+            this.panel23.PerformLayout();
+            this.panel25.ResumeLayout(false);
             this.guardFilePortalTabPage.ResumeLayout(false);
             this.bodyTableLayoutPanel.ResumeLayout(false);
             this.bodyTableLayoutPanel.PerformLayout();
@@ -998,7 +1109,7 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.TableLayoutPanel gaurdFileViewFLP;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel10;
@@ -1007,13 +1118,6 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label lbLengthStart;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label lbLengthEnd;
-        private System.Windows.Forms.Label lbTotalGaurdFile;
-        private FontAwesome.Sharp.IconButton btnNothiOutboxPrevious;
-        private FontAwesome.Sharp.IconButton btnNothiAllNext;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TabPage guardFilePortalTabPage;
         private System.Windows.Forms.Panel panel1;
@@ -1052,5 +1156,18 @@ namespace dNothi.Desktop.UI.Dak
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel searchHeaderTableLayoutPanel;
+        private System.Windows.Forms.Panel panel23;
+        private PlaceholderTextBox.PlaceholderTextBox dakSearchSubTextBox;
+        private FontAwesome.Sharp.IconButton recycleIconButton;
+        private FontAwesome.Sharp.IconButton dakSearchUsingTextButton;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Label gperPageRowLabel;
+        private System.Windows.Forms.Label gtotalLabel;
+        private FontAwesome.Sharp.IconButton gPreviousIconButton;
+        private FontAwesome.Sharp.IconButton gnextIconButton;
+        private ManuelUserControl.SearchComboBox typesearchComboBox;
     }
 }

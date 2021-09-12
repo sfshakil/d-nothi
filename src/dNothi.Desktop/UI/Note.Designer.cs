@@ -1433,7 +1433,7 @@
             this.tinyMceEditor.Dock = System.Windows.Forms.DockStyle.Top;
             this.tinyMceEditor.HtmlContent = "";
             this.tinyMceEditor.Location = new System.Drawing.Point(0, 0);
-            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tinyMceEditor.Margin = new System.Windows.Forms.Padding(4);
             this.tinyMceEditor.Name = "tinyMceEditor";
             this.tinyMceEditor.Size = new System.Drawing.Size(450, 406);
             this.tinyMceEditor.TabIndex = 61;
@@ -2113,7 +2113,7 @@
             this.noteBodyFLP.Name = "noteBodyFLP";
             this.noteBodyFLP.RowCount = 1;
             this.noteBodyFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.noteBodyFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.noteBodyFLP.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
             this.noteBodyFLP.Size = new System.Drawing.Size(0, 49);
             this.noteBodyFLP.TabIndex = 55;
             // 
@@ -2304,7 +2304,7 @@
             this.splitter2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitter2.Location = new System.Drawing.Point(683, 0);
-            this.splitter2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitter2.Margin = new System.Windows.Forms.Padding(4);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(5, 490);
             this.splitter2.TabIndex = 3;
@@ -2322,7 +2322,7 @@
             this.potrangsoPanel.Controls.Add(this.panel17);
             this.potrangsoPanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.potrangsoPanel.Location = new System.Drawing.Point(688, 0);
-            this.potrangsoPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.potrangsoPanel.Margin = new System.Windows.Forms.Padding(4);
             this.potrangsoPanel.Name = "potrangsoPanel";
             this.potrangsoPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.potrangsoPanel.Size = new System.Drawing.Size(340, 490);
@@ -3441,9 +3441,9 @@
             this.label16.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(41)))), ((int)(((byte)(50)))));
             this.label16.Location = new System.Drawing.Point(8, 7);
-            this.label16.Margin = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.label16.Margin = new System.Windows.Forms.Padding(3);
             this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.label16.Padding = new System.Windows.Forms.Padding(2);
             this.label16.Size = new System.Drawing.Size(148, 22);
             this.label16.TabIndex = 19;
             this.label16.Text = "নোটে কোন সংযুক্ত পত্র নেই ";
@@ -3724,7 +3724,7 @@
             this.label17.Location = new System.Drawing.Point(7, 6);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
-            this.label17.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.label17.Padding = new System.Windows.Forms.Padding(3);
             this.label17.Size = new System.Drawing.Size(40, 24);
             this.label17.TabIndex = 87;
             this.label17.Text = "নোটঃ";
@@ -4251,7 +4251,7 @@
             this.label14.Location = new System.Drawing.Point(8, 6);
             this.label14.Margin = new System.Windows.Forms.Padding(0);
             this.label14.Name = "label14";
-            this.label14.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.label14.Padding = new System.Windows.Forms.Padding(3);
             this.label14.Size = new System.Drawing.Size(37, 24);
             this.label14.TabIndex = 87;
             this.label14.Text = "নথিঃ";
@@ -4351,7 +4351,7 @@
             this.panel65.Controls.Add(this.noteViewBodyPanel);
             this.panel65.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel65.Location = new System.Drawing.Point(0, 354);
-            this.panel65.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel65.Margin = new System.Windows.Forms.Padding(2);
             this.panel65.Name = "panel65";
             this.panel65.Size = new System.Drawing.Size(211, 136);
             this.panel65.TabIndex = 72;
@@ -4405,7 +4405,7 @@
             this.lbNothiType.Location = new System.Drawing.Point(11, 4);
             this.lbNothiType.Margin = new System.Windows.Forms.Padding(0);
             this.lbNothiType.Name = "lbNothiType";
-            this.lbNothiType.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbNothiType.Padding = new System.Windows.Forms.Padding(4);
             this.lbNothiType.Size = new System.Drawing.Size(56, 26);
             this.lbNothiType.TabIndex = 72;
             this.lbNothiType.Text = "অনুচ্ছেদ";
@@ -4472,7 +4472,7 @@
             this.noteSearchPanel.Controls.Add(this.tableNoteSearchPanel);
             this.noteSearchPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.noteSearchPanel.Location = new System.Drawing.Point(0, 41);
-            this.noteSearchPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.noteSearchPanel.Margin = new System.Windows.Forms.Padding(2);
             this.noteSearchPanel.Name = "noteSearchPanel";
             this.noteSearchPanel.Size = new System.Drawing.Size(211, 232);
             this.noteSearchPanel.TabIndex = 71;
@@ -4516,7 +4516,7 @@
             this.tableLayoutPanel1.Controls.Add(this.panel61, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.75F));
@@ -4604,7 +4604,7 @@
             this.tableLayoutPanel2.Controls.Add(this.panel64, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.28571F));
@@ -4647,7 +4647,7 @@
             this.cbxSearchOfficer.IntegralHeight = false;
             this.cbxSearchOfficer.ItemHeight = 16;
             this.cbxSearchOfficer.Location = new System.Drawing.Point(2, 8);
-            this.cbxSearchOfficer.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.cbxSearchOfficer.Margin = new System.Windows.Forms.Padding(5);
             this.cbxSearchOfficer.MaxDropDownItems = 100;
             this.cbxSearchOfficer.MaxLength = 100;
             this.cbxSearchOfficer.Name = "cbxSearchOfficer";
@@ -4701,7 +4701,7 @@
             this.tableLayoutPanel3.Controls.Add(this.iconButton3, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));

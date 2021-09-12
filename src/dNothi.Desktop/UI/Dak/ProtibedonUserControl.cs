@@ -593,8 +593,9 @@ namespace dNothi.Desktop.UI.Dak
                             pdfTable.DefaultCell.Padding = 3;
                             pdfTable.WidthPercentage = 100;
                             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
-                           // BaseFont bfbanglaunicode = BaseFont.CreateFont("D:\\WINDOWS\\Fonts\\simsun.ttc,1", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
-                            BaseFont bfbanglaunicode = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\Fonts\ARIALUNI.TTF", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                            //\Fonts\SolaimanLipi.ttf
+                            // BaseFont bfbanglaunicode = BaseFont.CreateFont("D:\\WINDOWS\\Fonts\\simsun.ttc,1", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                            BaseFont bfbanglaunicode = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\Fonts\NotoSansBengali-Regular.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
                             iTextSharp.text.Font fontunicode = new iTextSharp.text.Font(bfbanglaunicode, 12, iTextSharp.text.Font.NORMAL, new iTextSharp.text.BaseColor(0, 0, 0));
 
                             var dakProtibedan = LoadExportData();

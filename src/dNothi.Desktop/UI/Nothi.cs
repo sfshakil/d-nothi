@@ -3512,6 +3512,9 @@ namespace dNothi.Desktop.UI
         }
 
         int limitotherOfficeNothiOutboxNo, pageNootherOfficeNothiOutboxNo, totalotherOfficeNothiOutboxNo, lengthStartotherOfficeNothiOutboxNo, lengthEndotherOfficeNothiOutboxNo;
+
+       
+
         private void LoadNothiOtherOfficeNothiOutbox()
         {
             allPreviousButtonVisibilityOff();
@@ -3781,20 +3784,21 @@ namespace dNothi.Desktop.UI
         }
         private void protibedanIconButton_Click(object sender, EventArgs e)
         {
-            if (protibedonPanel.Visible)
+            
+            if (protibedanPanel.Visible)
             {
-                protibedonPanel.Visible = false;
+                protibedanPanel.Visible = false;
                 caretIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
             }
             else
             {
-                protibedonPanel.Visible = true;
+                protibedanPanel.Visible = true;
                 caretIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronUp;
             }
 
         }
 
-        private void shakaNothiListReportButton_Click(object sender, EventArgs e)
+        private void shakavittikNothiListButton_Click(object sender, EventArgs e)
         {
             panel3.Visible = false;
             detailsNothiSearcPanel.Visible = false;
@@ -3811,7 +3815,7 @@ namespace dNothi.Desktop.UI
             pnlNothiBody.Controls.Add(nothiShakaWiseProtibedan);
             pnlNothiBody.BringToFront();
         }
-
+      
         private void SaveorUpdate()
         {
             var nothiInbox = UserControlFactory.Create<NothiInbox>();

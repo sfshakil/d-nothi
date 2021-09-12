@@ -1,4 +1,5 @@
 ﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Desktop.UI.ManuelUserControl;
 using dNothi.Desktop.UI.OtherModule.GuardFileUserControls;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
@@ -23,29 +24,209 @@ namespace dNothi.Desktop.UI.Dak
     {
         IUserService _userService { get; set; }
         INothiDecisionListService _nothiDecisionListService { get; set; }
-        IGuardFileService<GuardFilePortal,GuardFileOffice> _guardFileService { get; set; }
-        public NothiGaurdFileList(IUserService userService, INothiDecisionListService nothiDecisionListService, IGuardFileService<GuardFilePortal, GuardFileOffice> guardFileService)
+        IGuardFileService<GuardFilePortal,GuardFileOffice> _guardFilePortalService { get; set; }
+        IGuardFileService<GuardFileModel, GuardFileModel.Record> _guardFileService { get; set; }
+        IGuardFileService<GuardFileCategory, GuardFileCategory.Record> _guardFileCategoryService;
+        private GaurdFileRecord _gaurdFileRecord;
+        public GaurdFileRecord gaurdFileRecord { get => _gaurdFileRecord; set => _gaurdFileRecord = value; }
+        public NothiGaurdFileList(IUserService userService, INothiDecisionListService nothiDecisionListService,
+            IGuardFileService<GuardFilePortal, GuardFileOffice> guardFilePortalService,
+             IGuardFileService<GuardFileCategory, GuardFileCategory.Record> guardFileCategoryService,
+              IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService )
         {
             _userService = userService;
             _nothiDecisionListService = nothiDecisionListService;
+            _guardFilePortalService = guardFilePortalService;
+            _guardFileCategoryService = guardFileCategoryService;
             _guardFileService = guardFileService;
             InitializeComponent();
+            typesearchComboBox.itemList = GuardFileCategories();
+            typesearchComboBox.isListShown = true;
             guardFiletabControl.SelectedIndexChanged += new EventHandler(guardFiletabControl_SelectedIndexChanged);
-            loadRow();
+            GuardFileFormload();
         }
-        private void portalCreate_SubmitButtonClick(object sender, EventArgs e)
+        #region GuardFile
+        public const string guardFile = "GuardFiles";
+        AllAlartMessage alartMessage = new AllAlartMessage();
+        int gPage = 1;
+        int gPageLimit = 10;
+
+        int gTotalPage = 1;
+        int gStart = 1;
+        int gEnd = 10;
+        int gTotalrecord = 0;
+        private List<ComboBoxItems> GuardFileCategories()
         {
-            loadRow();
+            List<ComboBoxItems> categoryList = new List<ComboBoxItems>();
+            categoryList.Add(new ComboBoxItems { id = 0, Name = "ধরন বাছাই করুন" });
+
+            foreach (var item in LoadGuardFileTypeList())
+            {
+                categoryList.Add(new ComboBoxItems { id = item.id, Name = item.name_bng });
+            }
+            return categoryList;
+
+
         }
+        public List<GuardFileCategory.Record> LoadGuardFileTypeList()
+        {
+            var dakListUserParam = _userService.GetLocalDakUserParam();
+
+
+            dakListUserParam.limit = 10;
+            dakListUserParam.page = 1;
+            var datalist = _guardFileCategoryService.GetList(dakListUserParam, 1);
+            return datalist.data.records;
+        }
+
+        private void GuardFileFormload()
+        {
+            gPage = 1;
+            gStart = 1;
+            LoadGuardFileList();
+            if (gTotalrecord < 10) { gEnd = gTotalrecord; }
+            else { gEnd = 10; }
+            gNextPreviousButtonShow();
+            gperPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(gStart.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(gEnd.ToString());
+
+        }
+
+        public void LoadGuardFileList()
+        {
+            int categoryid = typesearchComboBox.selectedId;
+            string naemSearchparam = dakSearchSubTextBox.Text;
+            var dakListUserParam = _userService.GetLocalDakUserParam();
+
+            dakListUserParam.page = gPage;
+            dakListUserParam.limit = gPageLimit;
+            dakListUserParam.CategoryId = categoryid;
+            dakListUserParam.NameSearchParam = naemSearchparam;
+            var datalist = _guardFileService.GetList(dakListUserParam, 2);
+            gaurdFileViewFLP.Controls.Clear();
+            if (datalist != null && datalist.status == "success")
+            {
+                if (datalist.data.records.Count > 0)
+                {
+                   
+                    LoadNothiInboxinPanel(datalist.data.records, dakListUserParam.designation_id);
+                }
+                gTotalrecord = datalist.data.total_records;
+                gtotalLabel.Text = "সর্বমোট:" + ConversionMethod.EnglishNumberToBangla(gTotalrecord.ToString());
+                float pagesize = (float)gTotalrecord / (float)gPageLimit;
+                gTotalPage = (int)Math.Ceiling(pagesize);
+
+            }
+            else
+            {
+               alartMessage.ErrorMessage(datalist.status);
+            }
+            
+        }
+     
+        #region pagination
+        private void gnextIconButton_Click(object sender, EventArgs e)
+        {
+            string endrow;
+
+            if (gPage <= gTotalPage)
+            {
+                gPage += 1;
+                gStart += gPageLimit;
+                gEnd += gPageLimit;
+
+            }
+            else
+            {
+                gPage = gTotalPage;
+
+            }
+            endrow = gEnd.ToString();
+            LoadGuardFileList();
+            if (gTotalrecord < gEnd) { endrow = gTotalrecord.ToString(); }
+            gperPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(gStart.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(endrow);
+
+            gNextPreviousButtonShow();
+        }
+        private void gPreviousIconButton_Click(object sender, EventArgs e)
+        {
+
+            if (gPage > 1)
+            {
+
+                gPage -= 1;
+                gStart -= gPageLimit;
+                gEnd -= gPageLimit;
+
+            }
+            else
+            {
+                gPage = 1;
+
+            }
+
+            LoadGuardFileList();
+            gperPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(gStart.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(gEnd.ToString());
+            gNextPreviousButtonShow();
+
+
+        }
+        private void gNextPreviousButtonShow()
+        {
+            if (gPage < gTotalPage)
+            {
+                if (gPage == 1 && gTotalPage > 1)
+                {
+                    gPreviousIconButton.Enabled = false;
+                }
+                else
+                {
+                    gPreviousIconButton.Enabled = true;
+
+                }
+                gnextIconButton.Enabled = true;
+            }
+            if (gPage == gTotalPage)
+            {
+                if (gPage == 1 && gTotalPage == 1)
+                {
+                    gPreviousIconButton.Enabled = false;
+
+                }
+                else
+                {
+                    gPreviousIconButton.Enabled = true;
+
+                }
+                gnextIconButton.Enabled = false;
+            }
+
+        }
+
+        #endregion
         private void guardFiletabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+        private void portalCreate_SubmitButtonClick(object sender, EventArgs e)
+        {
+           // loadRow();
+        }
+        private void panel23_Paint(object sender, PaintEventArgs e)
+        {
 
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+
+        }
+        private void panel25_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
+
+        }
         private void guardFiletabControl_Selected(object sender, TabControlEventArgs e)
         {
             if (e.TabPage == guardFilePortalTabPage)
             {
+                typesearchComboBox.Visible = false;
 
                 categoryComboBox.DataSource = GuardFilePortalOfficeTypeLoadData();
                 categoryComboBox.DisplayMember = "Name";
@@ -57,57 +238,90 @@ namespace dNothi.Desktop.UI.Dak
                 officeComboBox.DisplayMember = "Name";
                 officeComboBox.ValueMember = "Id";
                 officeComboBox.SelectedIndex = 0;
-                //GuardFilePortalFormLoad();
-            }
-
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
-        public void loadRow()
-        {
-            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
-            dakListUserParam.limit = 30;
-            dakListUserParam.page = 1;
-            var token = _userService.GetToken();
-            var nothiDecisionList = _nothiDecisionListService.GetNothiGaurdFileList(dakListUserParam);
-            if (nothiDecisionList != null && nothiDecisionList.status == "success")
-            {
-                if (nothiDecisionList.data.records.Count > 0)
-                {
-                    lbLengthStart.Text = "১";
-                    lbLengthEnd.Text = string.Concat(nothiDecisionList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                    lbTotalGaurdFile.Text = " সর্বমোট: " + string.Concat(nothiDecisionList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
-                    LoadNothiInboxinPanel(nothiDecisionList.data.records);
-                }
-
+                GuardFilePortalFormLoad();
             }
             else
             {
-                ErrorMessage(nothiDecisionList.status);
+                typesearchComboBox.Visible = true;
             }
+
         }
-        private void LoadNothiInboxinPanel(List<GaurdFileRecord> records)
+        //public void ErrorMessage(string Message)
+        //{
+        //    UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+        //    successMessage.message = Message;
+        //    successMessage.ShowDialog();
+
+        //}
+        //public void loadRow()
+        //{
+        //    DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+        //    dakListUserParam.limit = 30;
+        //    dakListUserParam.page = 1;
+        //    var token = _userService.GetToken();
+        //    var nothiDecisionList = _nothiDecisionListService.GetNothiGaurdFileList(dakListUserParam);
+        //    if (nothiDecisionList != null && nothiDecisionList.status == "success")
+        //    {
+        //        if (nothiDecisionList.data.records.Count > 0)
+        //        {
+        //            //lbLengthStart.Text = "১";
+        //            //lbLengthEnd.Text = string.Concat(nothiDecisionList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+        //            //lbTotalGaurdFile.Text = " সর্বমোট: " + string.Concat(nothiDecisionList.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
+        //            //LoadNothiInboxinPanel(nothiDecisionList.data.records);
+        //        }
+
+        //    }
+        //    else
+        //    {
+        //        ErrorMessage(nothiDecisionList.status);
+        //    }
+        //}
+        private void LoadNothiInboxinPanel(List<GuardFileModel.Record> records,int designationId)
         {
-            foreach (GaurdFileRecord record in records)
+            gaurdFileViewFLP.Controls.Clear();
+            foreach (GuardFileModel.Record record in records)
             {
                 var nothiGaurdFileListRow = UserControlFactory.Create<NothiGaurdFileListRow>();
+                nothiGaurdFileListRow.id = record.id;
                 nothiGaurdFileListRow.nameText = record.name_bng.ToString();
                 nothiGaurdFileListRow.categoryNameText = record.guard_file_category_name_bng.ToString();
+                nothiGaurdFileListRow.designation_id = designationId;
+                nothiGaurdFileListRow.office_unit_organogram_id = record.office_unit_organogram_id;
                 nothiGaurdFileListRow._attachmentURL = record.attachment != null? record.attachment.url: string.Empty;
                 nothiGaurdFileListRow.GaurdFileAddButton += delegate (object sender1, EventArgs e1) { GaurdFileAdd_ButtonClick(sender1 as GaurdFileRecord, e1); };
+                nothiGaurdFileListRow.btnDeleteButtonClick += delegate (object sender1, EventArgs e1) { guardFileTableUserControl_deleteButtonClick(sender1, e1,record.id); };
+
                 UIDesignCommonMethod.AddRowinTable(gaurdFileViewFLP, nothiGaurdFileListRow);
             }
+        }
+        private void guardFileTableUserControl_deleteButtonClick(object sender, EventArgs e, int id)
+        {
+
+            if (id > 0)
+            {
+
+                var dakListUserParam = _userService.GetLocalDakUserParam();
+                var response = _guardFileService.Delete(dakListUserParam, 4, id, guardFile);
+
+                if (response.status == "success")
+                {
+
+                    alartMessage.SuccessMessage("মুছে ফেলা হয়েছে।");
+                    LoadGuardFileList();
+
+                }
+                else
+                {
+
+                    alartMessage.ErrorMessage("পুনরায় চেষ্ঠা করুন।");
+
+                }
+            }
+
         }
         public event EventHandler GaurdFileAttachment;
         private void GaurdFileAdd_ButtonClick(GaurdFileRecord gaurdFileRecord, EventArgs e1)
         {
-          
-          
             if (this.GaurdFileAttachment != null)
                 this.GaurdFileAttachment(gaurdFileRecord, e1);
         }
@@ -134,8 +348,22 @@ namespace dNothi.Desktop.UI.Dak
         {
 
         }
+        private void dakSearchUsingTextButton_Click(object sender, EventArgs e)
+        {
+            GuardFileFormload();
+        }
+        private void typesearchComboBox_ChangeSelectedIndex(object sender, EventArgs e)
+        {
+            GuardFileFormload();
+        }
+        private void recycleIconButton_Click(object sender, EventArgs e)
+        {
+            dakSearchSubTextBox.Text = string.Empty;
+            GuardFileFormload();
 
-        
+        }
+
+        #endregion
 
         #region GuardFilePortal
 
@@ -174,7 +402,7 @@ namespace dNothi.Desktop.UI.Dak
             var userparam = _userService.GetLocalDakUserParam();
 
             int layerid =Convert.ToInt32(categoryComboBox.SelectedValue);
-            var guardFileOfficelist = _guardFileService.GuardFilePortalOfficeList(userparam, layerid, string.Empty);
+            var guardFileOfficelist = _guardFilePortalService.GuardFilePortalOfficeList(userparam, layerid, string.Empty);
             if (guardFileOfficelist.status == "success")
             {
                 comboBoxItems.Add(new ComboBoxItem("অফিস বাছাই করুন", 0));
@@ -210,7 +438,7 @@ namespace dNothi.Desktop.UI.Dak
 
             string type = officeComboBox.Text.ToString();
             string name = gfpNameSearchTextBox.Text;
-            var guardFilePortallist = _guardFileService.GuardFilePortalList(dakListUserParam, name, type);
+            var guardFilePortallist = _guardFilePortalService.GuardFilePortalList(dakListUserParam, name, type);
             if (guardFilePortallist.status == "success")
             {
                 noDataPanel.Visible = false;
@@ -258,7 +486,7 @@ namespace dNothi.Desktop.UI.Dak
                 GuardFilePortalFormLoad();
            
         }
-        
+      
         private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (categoryComboBox.SelectedIndex > 0)
@@ -281,6 +509,8 @@ namespace dNothi.Desktop.UI.Dak
         {
             GuardFilePortalFormLoad();
         }
+       
+      
         #region pagination
         private void nextIconButton_Click(object sender, EventArgs e)
         {
@@ -369,10 +599,15 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-        #endregion
+
 
         #endregion
 
-       
+        #endregion
+
+        private void tableLayoutPanel_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
+        {
+            UIDesignCommonMethod.Table_Cell_Color_Blue(sender, e);
+        }
     }
 }
