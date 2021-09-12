@@ -1012,6 +1012,7 @@ namespace dNothi.Desktop.UI
                     form.noteSubject = sender.ToString();
                     form.nothiLastDate = nothiListRecordsDTO.last_note_date;
                     form.noteIdfromNothiInboxNoteShomuho = notedata.note_id.ToString();
+                    form._nothiListRecordsDTO = nothiListRecordsDTO;
                     //var totalnothi = nothiListRecordsDTO.note_count; //nothiListInboxNoteRecordsDTO.note.note_no;
                     //totalnothi.ToString();
                     form.office = "( " + nothiListRecords.office_name + " " + nothiListRecordsDTO.last_note_date + ")";

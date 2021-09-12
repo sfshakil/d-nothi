@@ -862,7 +862,7 @@
             this.dakTypeComboBox.Location = new System.Drawing.Point(318, 6);
             this.dakTypeComboBox.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.dakTypeComboBox.Name = "dakTypeComboBox";
-            this.dakTypeComboBox.Size = new System.Drawing.Size(120, 28);
+            this.dakTypeComboBox.Size = new System.Drawing.Size(159, 33);
             this.dakTypeComboBox.TabIndex = 4;
             this.dakTypeComboBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.comboBox_DrawItem);
             // 
@@ -1990,8 +1990,10 @@
             // 
             // DakTrakingIconButton
             // 
+            this.DakTrakingIconButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DakTrakingIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.DakTrakingIconButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.DakTrakingIconButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.DakTrakingIconButton.FlatAppearance.BorderSize = 0;
             this.DakTrakingIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
@@ -2275,7 +2277,7 @@
             this.protibedonButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.protibedonButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.protibedonButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(99)))), ((int)(((byte)(114)))));
-            this.protibedonButton.IconChar = FontAwesome.Sharp.IconChar.FileAlt;
+            this.protibedonButton.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
             this.protibedonButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
             this.protibedonButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.protibedonButton.IconSize = 24;
@@ -3020,6 +3022,25 @@
             this.dashboardButton.UseVisualStyleBackColor = true;
             this.dashboardButton.Click += new System.EventHandler(this.dashboardButton_Click);
             // 
+            // SettingsButton
+            // 
+            this.SettingsButton.AutoSize = true;
+            this.SettingsButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SettingsButton.FlatAppearance.BorderSize = 0;
+            this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsButton.IconChar = FontAwesome.Sharp.IconChar.Cogs;
+            this.SettingsButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.SettingsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SettingsButton.IconSize = 38;
+            this.SettingsButton.Location = new System.Drawing.Point(736, 0);
+            this.SettingsButton.Margin = new System.Windows.Forms.Padding(0);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(51, 61);
+            this.SettingsButton.TabIndex = 112;
+            this.MyToolTip.SetToolTip(this.SettingsButton, "সেটিংস‌");
+            this.SettingsButton.UseVisualStyleBackColor = true;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -3296,6 +3317,19 @@
             this.headerTableLayoutPanel.Size = new System.Drawing.Size(1379, 61);
             this.headerTableLayoutPanel.TabIndex = 9;
             // 
+            // onlineToggleButton2
+            // 
+            this.onlineToggleButton2.AutoSize = true;
+            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
+            this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.onlineToggleButton2.Location = new System.Drawing.Point(847, 0);
+            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(53, 0);
+            this.onlineToggleButton2.Name = "onlineToggleButton2";
+            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.onlineToggleButton2.Size = new System.Drawing.Size(53, 61);
+            this.onlineToggleButton2.TabIndex = 4;
+            // 
             // moduleButton
             // 
             this.moduleButton.Dock = System.Windows.Forms.DockStyle.Left;
@@ -3305,26 +3339,14 @@
             this.moduleButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.moduleButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.moduleButton.IconSize = 32;
-            this.moduleButton.Location = new System.Drawing.Point(280, 3);
+            this.moduleButton.Location = new System.Drawing.Point(374, 4);
+            this.moduleButton.Margin = new System.Windows.Forms.Padding(4);
             this.moduleButton.Name = "moduleButton";
-            this.moduleButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.moduleButton.Size = new System.Drawing.Size(52, 43);
+            this.moduleButton.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.moduleButton.Size = new System.Drawing.Size(69, 53);
             this.moduleButton.TabIndex = 106;
             this.moduleButton.UseVisualStyleBackColor = true;
             this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
-            // 
-            // onlineToggleButton2
-            // 
-            this.onlineToggleButton2.AutoSize = true;
-            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
-            this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.onlineToggleButton2.Location = new System.Drawing.Point(615, 0);
-            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(40, 0);
-            this.onlineToggleButton2.Name = "onlineToggleButton2";
-            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.onlineToggleButton2.Size = new System.Drawing.Size(40, 49);
-            this.onlineToggleButton2.TabIndex = 4;
             // 
             // footerTableLayoutPanel
             // 
