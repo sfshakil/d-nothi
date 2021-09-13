@@ -353,6 +353,26 @@ namespace dNothi.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_share_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-share-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_share_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-share-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_share_24 {
             get {
                 object obj = ResourceManager.GetObject("icons8-share-24", resourceCulture);
@@ -366,6 +386,26 @@ namespace dNothi.Desktop.Properties {
         internal static System.Drawing.Bitmap icons8_share_241 {
             get {
                 object obj = ResourceManager.GetObject("icons8-share-241", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_share_30 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-share-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_share_301 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-share-301", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -676,6 +716,16 @@ namespace dNothi.Desktop.Properties {
         internal static System.Drawing.Bitmap Repeat_alt_New {
             get {
                 object obj = ResourceManager.GetObject("Repeat-alt-New", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap share_131964784996330922_24 {
+            get {
+                object obj = ResourceManager.GetObject("share-131964784996330922_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

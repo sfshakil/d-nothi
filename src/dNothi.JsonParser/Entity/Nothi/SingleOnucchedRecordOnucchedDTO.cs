@@ -26,5 +26,6 @@ namespace dNothi.JsonParser.Entity.Nothi
         public string meta_data { get; set; }
         public string created { get; set; }
         public string modified { get; set; }
+        public int shared_nothi_id { get; set; }
     }
 }

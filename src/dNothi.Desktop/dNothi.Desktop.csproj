@@ -2142,6 +2142,11 @@
     <None Include="Resources\nothicreateguideline.png" />
     <None Include="Resources\newnothitypeguideline.png" />
     <None Include="Resources\excelIcon.png" />
+    <None Include="Resources\share-131964784996330922_24.png" />
+    <None Include="Resources\icons8-share-100.png" />
+    <None Include="Resources\icons8-share-30.png" />
+    <None Include="Resources\icons8-share-301.png" />
+    <None Include="Resources\icons8-share-20.png" />
     <Content Include="tinymce\js\tinymce\jquery _3.6.js" />
     <None Include="tinymce\js\tinymce\langs\readme.md" />
     <None Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
