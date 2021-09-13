@@ -1,6 +1,8 @@
 ﻿using dNothi.Core.Entities;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Services.NothiServices;
+using dNothi.Services.UserServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +20,15 @@ namespace dNothi.Desktop.UI.Dak
     {
         private int originalWidth;
         private int originalHeight;
-        public SeparateOnuchhed()
+        INothiReviewerServices _nothiReviewerServices { get; set; }
+        IUserService _userService { get; set; }
+        public SeparateOnuchhed(INothiReviewerServices nothiReviewerServices, IUserService userService)
         {
             InitializeComponent();
             originalWidth = this.Width;
             originalHeight = this.Height;
+            _nothiReviewerServices = nothiReviewerServices;
+            _userService = userService;
             SetDefaultFont(this.Controls);
         }
 
@@ -582,7 +588,8 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnShare_Click(object sender, EventArgs e)
         {
-
+            var dakuserparam = _userService.GetLocalDakUserParam();
+            var response = _nothiReviewerServices.GetNothiReviewer(dakuserparam,shared_nothi_id);
         }
     }
 }

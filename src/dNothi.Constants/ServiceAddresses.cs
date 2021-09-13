@@ -130,6 +130,7 @@ namespace dNothi.Constants
         public const string NothiReportEndPoint = "/api/nothi/nibondhon_bohi";
         public const string NothiProtibedanUnitWiseEndPoint = "/api/nothi/list/unit_wise";
         public const string NothiPotakaSaveEndPoint = "/api/potro/flag/save";
+        public const string NothiReviewerEndPoint = "/api/nothi/reviewer";
 
         public const string DakNibondanBohiEndPoint = "/api/register/dak/nibondhon_bohi";
 
