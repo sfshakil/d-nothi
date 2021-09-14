@@ -642,6 +642,9 @@ namespace dNothi.Desktop.UI
                                     panel28.Visible = false;
                                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                    separateOnucched.note_onucched_status = rec[0].onucched.note_onucched_status;
+                                    separateOnucched.shared_nothi_id = rec[0].onucched.shared_nothi_id;
+                                    separateOnucched.note_onucched_Potrojari = rec[0].potrojari.Count;
                                     separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
                                     try
                                     {
@@ -1355,6 +1358,9 @@ namespace dNothi.Desktop.UI
                                     panel28.Visible = false;
                                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                    separateOnucched.note_onucched_status = rec[0].onucched.note_onucched_status;
+                                    separateOnucched.shared_nothi_id = rec[0].onucched.shared_nothi_id;
+                                    separateOnucched.note_onucched_Potrojari = rec[0].potrojari.Count;
                                     try
                                     {
                                         if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox")
@@ -3336,6 +3342,9 @@ namespace dNothi.Desktop.UI
                                     panel28.Visible = false;
                                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                    separateOnucched.note_onucched_status = rec[0].onucched.note_onucched_status;
+                                    separateOnucched.shared_nothi_id = rec[0].onucched.shared_nothi_id;
+                                    separateOnucched.note_onucched_Potrojari = rec[0].potrojari.Count;
                                     try
                                     {
                                         if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox")
@@ -3985,6 +3994,9 @@ namespace dNothi.Desktop.UI
                                             panel28.Visible = false;
                                             //DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                                             var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
+                                            separateOnucched.note_onucched_status = rec[0].onucched.note_onucched_status;
+                                            separateOnucched.shared_nothi_id = rec[0].onucched.shared_nothi_id;
+                                            separateOnucched.note_onucched_Potrojari = rec[0].potrojari.Count;
                                             try
                                             {
                                                 if (_nothiListRecordsDTO.nothi_type == "other_office_Inbox" || _nothiListRecordsDTO.nothi_type == "other_office_Outbox")

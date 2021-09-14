@@ -191,8 +191,10 @@
     <Compile Include="NothiReportService\INothiReportService.cs" />
     <Compile Include="NothiReportService\Model\NothiRegisterReport.cs" />
     <Compile Include="NothiReportService\NothiReportService.cs" />
+    <Compile Include="NothiServices\NothiReviewerServices.cs" />
     <Compile Include="NothiServices\AllPotroServices.cs" />
     <Compile Include="NothiServices\FileAttachment.cs" />
+    <Compile Include="NothiServices\INothiReviewerServices.cs" />
     <Compile Include="NothiServices\IAllPotroServices.cs" />
     <Compile Include="NothiServices\INothiDecisionListService.cs" />
     <Compile Include="NothiServices\INothivuktoPotroServices.cs" />

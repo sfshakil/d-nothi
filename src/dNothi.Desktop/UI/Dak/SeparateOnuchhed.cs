@@ -1,6 +1,8 @@
 ﻿using dNothi.Core.Entities;
 using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Services.NothiServices;
+using dNothi.Services.UserServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +20,15 @@ namespace dNothi.Desktop.UI.Dak
     {
         private int originalWidth;
         private int originalHeight;
-        public SeparateOnuchhed()
+        INothiReviewerServices _nothiReviewerServices { get; set; }
+        IUserService _userService { get; set; }
+        public SeparateOnuchhed(INothiReviewerServices nothiReviewerServices, IUserService userService)
         {
             InitializeComponent();
             originalWidth = this.Width;
             originalHeight = this.Height;
+            _nothiReviewerServices = nothiReviewerServices;
+            _userService = userService;
             SetDefaultFont(this.Controls);
         }
 
@@ -31,6 +37,32 @@ namespace dNothi.Desktop.UI.Dak
         private string _subjectBrowser;
         private int _onucchedId;
         private string _totalFileNo;
+        private int _shared_nothi_id;
+        private string _note_onucched_status;
+        private int _note_onucched_Potrojari;
+        public int shared_nothi_id
+        {
+            get { return _shared_nothi_id; }
+            set { _shared_nothi_id = value; }
+        }
+        public int note_onucched_Potrojari
+        {
+            get { return _note_onucched_Potrojari; }
+            set { _note_onucched_Potrojari = value;
+
+                if (_note_onucched_Potrojari > 0) 
+                {
+                    btnPotro.Visible = true;
+                    MyToolTip.SetToolTip(btnPotro, "মোট "+ string.Concat(value.ToString().Select(c => (char)('\u09E6' + c - '0'))) + "টি পত্র যুক্ত করা আছে");
+                }
+            } 
+        }
+
+        public string note_onucched_status
+        {
+            get { return _note_onucched_status; }
+            set { _note_onucched_status = value; }
+        }
         public void loadinLocal()
         {
             btnSchedule.Visible = true;
@@ -363,12 +395,39 @@ namespace dNothi.Desktop.UI.Dak
                 btnDelete.Visible = false;
                 btnKhosra.Visible = false;
                 btnEdit.Visible = false;
+                btnShare.Visible = false;
             }
             else
             {
-                btnDelete.Visible = true;
-                btnKhosra.Visible = true;
-                btnEdit.Visible = true;
+                if (note_onucched_status == "DRAFT")
+                {
+                    if (shared_nothi_id <= 0)
+                    {
+                        //all button visible
+                        btnShare.Visible = true;
+                        btnDelete.Visible = true;
+                        btnKhosra.Visible = true;
+                        btnEdit.Visible = true;
+                    }
+                    else
+                    {
+                        // only share button visible
+                        shareLabel.Visible = true;
+                        btnShare.Visible = true;
+                        btnDelete.Visible = false;
+                        btnKhosra.Visible = false;
+                        btnEdit.Visible = false;
+                    }
+                }
+                else
+                {
+                    // all button invisible
+                    btnDelete.Visible = false;
+                    btnKhosra.Visible = false;
+                    btnEdit.Visible = false;
+                    btnShare.Visible = false;
+                }
+                
             }
             
         }
@@ -525,6 +584,12 @@ namespace dNothi.Desktop.UI.Dak
             (sender as Form).Hide();
 
             // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
+
+        private void btnShare_Click(object sender, EventArgs e)
+        {
+            var dakuserparam = _userService.GetLocalDakUserParam();
+            var response = _nothiReviewerServices.GetNothiReviewer(dakuserparam,shared_nothi_id);
         }
     }
 }

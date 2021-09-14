@@ -237,6 +237,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiOutboxNoteServices>().As<INothiOutboxNoteServices>();
             builder.RegisterType<NothiAllNoteServices>().As<INothiAllNoteServices>();
             builder.RegisterType<NothiReportService>().As<INothiReportService>();
+            builder.RegisterType<NothiReviewerServices>().As<INothiReviewerServices>();
             
             builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>();
             builder.RegisterType<NothiNoteTalikaServices>().As<INothiNoteTalikaServices>();
