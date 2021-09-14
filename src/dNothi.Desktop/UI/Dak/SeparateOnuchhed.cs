@@ -1,5 +1,6 @@
 ﻿using dNothi.Core.Entities;
 using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Desktop.UI.NothiUI;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
@@ -590,6 +591,11 @@ namespace dNothi.Desktop.UI.Dak
         {
             var dakuserparam = _userService.GetLocalDakUserParam();
             var response = _nothiReviewerServices.GetNothiReviewer(dakuserparam,shared_nothi_id);
+            var noteOnuccedReview = FormFactory.Create<NothiOnuccedReviewForm>();
+           
+            noteOnuccedReview.nothiReviewerDTO = response;
+            CalPopUpWindow(noteOnuccedReview);
+            // noteOnuccedReview.
         }
     }
 }

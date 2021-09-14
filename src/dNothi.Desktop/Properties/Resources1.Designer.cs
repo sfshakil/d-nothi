@@ -203,6 +203,16 @@ namespace dNothi.Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fa_cloud {
+            get {
+                object obj = ResourceManager.GetObject("fa-cloud", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Fading_wheel {
             get {
                 object obj = ResourceManager.GetObject("Fading wheel", resourceCulture);
@@ -716,6 +726,16 @@ namespace dNothi.Desktop.Properties {
         internal static System.Drawing.Bitmap Repeat_alt_New {
             get {
                 object obj = ResourceManager.GetObject("Repeat-alt-New", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search {
+            get {
+                object obj = ResourceManager.GetObject("search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
