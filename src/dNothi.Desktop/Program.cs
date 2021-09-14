@@ -199,6 +199,8 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<NothiRegisterBook>>().As<IRepository<NothiRegisterBook>>();
 
             builder.RegisterType<EfRepository<GuardFileUpload>>().As<IRepository<GuardFileUpload>>();
+            builder.RegisterType<EfRepository<KhosraFileUpload>>().As<IRepository<KhosraFileUpload>>();
+            
 
             builder.RegisterType<EfRepository<KhosraLocal>>().As<IRepository<KhosraLocal>>();
             builder.RegisterType<EfRepository<KhosraListLocal>>().As<IRepository<KhosraListLocal>>();
@@ -293,7 +295,8 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Nothi>().AsSelf();
             builder.RegisterType<UI.SettingsUserControl>().AsSelf();
             builder.RegisterType<UI.Dak.PotakaUserControl>().AsSelf();
-           
+            builder.RegisterType<NothiOnuccedReviewForm>().AsSelf();
+            
             builder.RegisterType<KhosraAttachmentForm>().AsSelf();
             builder.RegisterType<UI.KhosraDashboard>().AsSelf();
             builder.RegisterType<UI.PotrojariGroup>().AsSelf();

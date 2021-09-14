@@ -10,5 +10,7 @@ namespace dNothi.Services.DakServices
     {
         public string file_name{get;set;}
         public string delete_token { get;set;}
+
+        public long Id { get; set; }
     }
 }

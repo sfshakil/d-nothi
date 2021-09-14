@@ -228,7 +228,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
 
 
                 DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
-
+              
                 using (var form = FormFactory.Create<Dashboard>())
                 {
                     dakUploadedFileResponse = form.UploadFile(_dakFileUploadParam);
@@ -250,7 +250,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
 
                         }
 
-                      
+                        dakUploadAttachmentTableRow.id= dakUploadedFileResponse.data[0].id;
                         dakUploadAttachmentTableRow.isAllowedforMulpotro = false;
 
 
@@ -304,13 +304,13 @@ namespace dNothi.Desktop.UI.Khosra_Potro
         }
 
        
-
         private void DeleteControl_ButtonClick(object sender, EventArgs e, DakAttachmentDTO dakAttachment)
         {
             //this.Hide();
             DakUploadFileDeleteParam deleteParam = new DakUploadFileDeleteParam();
+            deleteParam.Id = dakAttachment.id;
             deleteParam.delete_token = dakAttachment.delete_token;
-            deleteParam.file_name = dakAttachment.file_name;
+            //deleteParam.file_name = dakAttachment.file_name;
 
             DakFileDeleteResponse response;
 

@@ -1374,6 +1374,18 @@
     <Compile Include="UI\NothiCreateNextStep.Designer.cs">
       <DependentUpon>NothiCreateNextStep.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\NothiUI\KhosraReviewOfficerRowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\KhosraReviewOfficerRowUserControl.Designer.cs">
+      <DependentUpon>KhosraReviewOfficerRowUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiOnuccedReviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiOnuccedReviewForm.Designer.cs">
+      <DependentUpon>NothiOnuccedReviewForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\NothiUI\NoteCreatePopUpForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2031,6 +2043,12 @@
     <EmbeddedResource Include="UI\NothiCreateNextStep.resx">
       <DependentUpon>NothiCreateNextStep.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\KhosraReviewOfficerRowUserControl.resx">
+      <DependentUpon>KhosraReviewOfficerRowUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\NothiOnuccedReviewForm.resx">
+      <DependentUpon>NothiOnuccedReviewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\NothiUI\NoteCreatePopUpForm.resx">
       <DependentUpon>NoteCreatePopUpForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -2147,6 +2165,8 @@
     <None Include="Resources\icons8-share-30.png" />
     <None Include="Resources\icons8-share-301.png" />
     <None Include="Resources\icons8-share-20.png" />
+    <Content Include="Resources\fa-cloud.png" />
+    <Content Include="Resources\search.png" />
     <Content Include="tinymce\js\tinymce\jquery _3.6.js" />
     <None Include="tinymce\js\tinymce\langs\readme.md" />
     <None Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
