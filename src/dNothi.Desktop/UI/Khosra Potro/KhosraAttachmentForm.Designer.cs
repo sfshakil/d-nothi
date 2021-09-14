@@ -607,7 +607,7 @@
             this.label7.Location = new System.Drawing.Point(2, 4);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(12, 8, 0, 0);
-            this.label7.Size = new System.Drawing.Size(88, 26);
+            this.label7.Size = new System.Drawing.Size(87, 26);
             this.label7.TabIndex = 68;
             this.label7.Text = "ফাইল নির্বাচন";
             // 

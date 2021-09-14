@@ -66,14 +66,22 @@ namespace dNothi.Services.KhasraService
             string potroRequestJson = JsonParsingMethod.ObjecttoJson(potro);
             if (!InternetConnection.Check())
             {
-                if (potro.recipient.receiver.Count > 0)
+                if(potro.recipient.receiver!=null)
                 {
-                    return SaveLocalKhosra(cdesk, potroRequestJson);
+                    if (potro.recipient.receiver.Count > 0)
+                    {
+                        return SaveLocalKhosra(cdesk, potroRequestJson);
+                    }
+                    else
+                    {
+                        return new KhosraSaveResponse { status = "error", message = "কমপক্ষে একজন প্রাপক লাগবে।" };
+                    }
                 }
                 else
                 {
-                    return new KhosraSaveResponse { status = "error", message="কমপক্ষে একজন প্রাপক লাগবে।" };
+                    return new KhosraSaveResponse { status = "error", message = "কমপক্ষে একজন প্রাপক লাগবে।" };
                 }
+                
             }
            return KhosraSave(dakUserParameter, cdesk, potroRequestJson);
        

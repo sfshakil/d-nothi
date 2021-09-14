@@ -1,5 +1,6 @@
 ﻿using dNothi.Constants;
 using dNothi.Core.Entities;
+using dNothi.Core.Entities.Khosra;
 using dNothi.Core.Interfaces;
 using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Dak;
@@ -21,15 +22,20 @@ namespace dNothi.Services.DakServices
     public class DakUploadService : IDakUploadService
     {
         IRepository<LocalUploadedDak> _localUploadedDakRepository;
+        IRepository<KhosraFileUpload> _localKhosraFileUploadRepository;
         public IUserService _userService { get; set;}
         IRepository<AllOfficeItem> _allOfficeItem;
         IRepository<DakItemDetails> _dakItemRepository;
-        public DakUploadService(IRepository<DakItemDetails> dakItemRepository,IRepository<LocalUploadedDak> localUploadedDak, IUserService userService, IRepository<AllOfficeItem> allOfficeItem)
+        public DakUploadService(IRepository<DakItemDetails> dakItemRepository,
+            IRepository<LocalUploadedDak> localUploadedDak, IUserService userService,
+            IRepository<AllOfficeItem> allOfficeItem,
+             IRepository<KhosraFileUpload> localKhosraFileUploadRepository)
         {
             _dakItemRepository = dakItemRepository;
             _localUploadedDakRepository = localUploadedDak;
             _userService = userService;
             _allOfficeItem = allOfficeItem;
+            _localKhosraFileUploadRepository = localKhosraFileUploadRepository;
         }
         public DakUploadedFileResponse GetDakUploadedFile(DakUserParam dakListUserParam, DakFileUploadParam dakFileUploadParam)
         {
@@ -44,9 +50,14 @@ namespace dNothi.Services.DakServices
                 dakAttachmentDTO.file_size_in_kb = dakFileUploadParam.file_size_in_kb;
                 dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
                 dakAttachmentDTO.content_body = dakFileUploadParam.content;
+                
+                
+                if (dakFileUploadParam.model == "PotrojariAttachments")
+                {
+                  long id=  SaveLocalKosraAttachmentUpload(dakListUserParam, dakFileUploadParam);
+                    dakAttachmentDTO.id = id;
+                 }
                 dakUploadedFileResponse.data.Add(dakAttachmentDTO);
-
-
                 return dakUploadedFileResponse;
 
             }
@@ -86,6 +97,30 @@ namespace dNothi.Services.DakServices
 
                 return dakUploadedFileResponse;
             }
+        }
+        private long SaveLocalKosraAttachmentUpload(DakUserParam userParam, DakFileUploadParam dakFileUploadParam)
+        {
+            KhosraFileUpload localkhasraFileUpload = new KhosraFileUpload
+            {
+
+                designation_id = userParam.designation_id,
+                model = dakFileUploadParam.model,
+                path= dakFileUploadParam.path,
+                office_id = userParam.office_id,
+                content = dakFileUploadParam.content,
+                file_size_in_kb = dakFileUploadParam.file_size_in_kb,
+                user_file_name = dakFileUploadParam.user_file_name,
+
+            };
+            _localKhosraFileUploadRepository.Insert(localkhasraFileUpload);
+            long id = _localKhosraFileUploadRepository.Table.Max(x => x.Id);
+
+            var  dakAttachmentDTO = new DakAttachmentDTO {id=id};
+            List<DakAttachmentDTO> dakAttachmentDTOlist = new List<DakAttachmentDTO>();
+            dakAttachmentDTOlist.Add(dakAttachmentDTO);
+
+            //  return new DakUploadedFileResponse { status = "success", data = dakAttachmentDTOlist };
+            return id;
         }
 
         protected string GetAPIVersion()
@@ -169,25 +204,41 @@ namespace dNothi.Services.DakServices
 
         public DakFileDeleteResponse GetFileDeleteResponsse(DakUserParam dakListUserParam, DakUploadFileDeleteParam deleteParam)
         {
-            var deleteAPI = new RestClient(GetAPIDomain() + GetDakDeleteFileEndpoint());
-            deleteAPI.Timeout = -1;
-            var deleteRequest = new RestRequest(Method.POST);
-            deleteRequest.AddHeader("api-version", "1");
-            deleteRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
-            deleteRequest.AlwaysMultipartFormData = true;
-            deleteRequest.AddParameter("office_id", dakListUserParam.office_id);
-            deleteRequest.AddParameter("designation_id", dakListUserParam.designation_id);
-            deleteRequest.AddParameter("file_name", deleteParam.file_name);
-            deleteRequest.AddParameter("delete_token", deleteParam.delete_token);
-            IRestResponse deleteResponse = deleteAPI.Execute(deleteRequest);
+            DakFileDeleteResponse deleteResponse1 = new DakFileDeleteResponse();
+            if (!InternetConnection.Check())
+            {
+                return LocalUplodedFileDelete(deleteParam);
+            }
+            try
+            {
+                var deleteAPI = new RestClient(GetAPIDomain() + GetDakDeleteFileEndpoint());
+                deleteAPI.Timeout = -1;
+                var deleteRequest = new RestRequest(Method.POST);
+                deleteRequest.AddHeader("api-version", "1");
+                deleteRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                deleteRequest.AlwaysMultipartFormData = true;
+                deleteRequest.AddParameter("office_id", dakListUserParam.office_id);
+                deleteRequest.AddParameter("designation_id", dakListUserParam.designation_id);
+                deleteRequest.AddParameter("file_name", deleteParam.file_name);
+                deleteRequest.AddParameter("delete_token", deleteParam.delete_token);
+                IRestResponse deleteResponse = deleteAPI.Execute(deleteRequest);
 
-            var deleteResponseJson = deleteResponse.Content;
-            DakFileDeleteResponse deleteResponse1 = JsonConvert.DeserializeObject<DakFileDeleteResponse>(deleteResponseJson);
+                var deleteResponseJson = deleteResponse.Content;
+                deleteResponse1 = JsonConvert.DeserializeObject<DakFileDeleteResponse>(deleteResponseJson);
 
-            return deleteResponse1;
+                return deleteResponse1;
+            }
+            catch(Exception ex)
+            {
+                return deleteResponse1;
+            }
 
-
-
+        }
+        private DakFileDeleteResponse LocalUplodedFileDelete(DakUploadFileDeleteParam deleteParam)
+        {
+          var deletedData=  _localKhosraFileUploadRepository.Table.Where(x => x.Id == deleteParam.Id).FirstOrDefault();
+            _localKhosraFileUploadRepository.Delete(deletedData);
+            return new DakFileDeleteResponse {  status="success"};
         }
 
         public DakDraftedResponse GetLocalDakDraftedResponse(DakUserParam dakListUserParam, DakUploadParameter dakUploadParameter)

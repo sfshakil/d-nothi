@@ -338,7 +338,7 @@ namespace dNothi.Desktop.UI
         }
         public static void FileIconSet(string value, FontAwesome.Sharp.IconButton btnFile)
         {
-            string extUpper = value.ToUpperInvariant();
+            string extUpper = value!=null? value.ToUpperInvariant():string.Empty;
 
              if (PdfExtensions.Any(a=>extUpper.Contains(a)))
             {

@@ -23,7 +23,7 @@ namespace dNothi.Utility
             //dakPriorityDatas.Add(new DakPriorityData{_id= "1", _typeName= "জরুরি" });
 
             dakPriorityDatas.Add(new DakPriorityData { _id = "4", _typeName = "সর্বোচ্চ অগ্রাধিকার" });
-            dakPriorityDatas.Add(new DakPriorityData { _id = "1", _typeName = "অবিলম্বে" });
+            dakPriorityDatas.Add(new DakPriorityData { _id = "3", _typeName = "অবিলম্বে" });
             dakPriorityDatas.Add(new DakPriorityData { _id = "2", _typeName = "জরুরি" });
 
 
@@ -36,30 +36,48 @@ namespace dNothi.Utility
 
         public DakPriorityList()
         {
-            _dakPriority.Add(new DakPriority("4", "সর্বোচ্চ অগ্রাধিকার", "সর্বোচ্চ অগ্রাধিকার"));
-           // _dakPriority.Add(new DakPriority("3", "সর্বোচ্চ অগ্রাধিকার", "সর্বোচ্চ অগ্রাধিকার"));
+            // _dakPriority.Add(new DakPriority("4", "সর্বোচ্চ অগ্রাধিকার", "সর্বোচ্চ অগ্রাধিকার"));
+            // _dakPriority.Add(new DakPriority("3", "সর্বোচ্চ অগ্রাধিকার", "সর্বোচ্চ অগ্রাধিকার"));
             //_dakPriority.Add(new DakPriority("2", "অবিলম্বে", "অবিলম্বে"));
             //_dakPriority.Add(new DakPriority("1", "জরুরি", "জরুরি"));
-            _dakPriority.Add(new DakPriority("2", "জরুরি", "জরুরি"));
-            _dakPriority.Add(new DakPriority("1", "অবিলম্বে", "অবিলম্বে"));
+            //_dakPriority.Add(new DakPriority("2", "জরুরি", "জরুরি"));
+            //_dakPriority.Add(new DakPriority("1", "অবিলম্বে", "অবিলম্বে"));
 
             //_dakPriority.Add(new DakPriority("3", "তাগিদপত্র", "তাগিদপত্র"));
             //_dakPriority.Add(new DakPriority("2", "দৃষ্টি আকর্ষণ", "দৃষ্টি আকর্ষণ"));
             //_dakPriority.Add(new DakPriority("1", "জরুরি", "জরুরি"));
             // _dakPriority.Add(new DakPriority("0", "বাছাই করুন", ""));
 
+            _dakPriority.Add(new DakPriority("0", "বাছাই করুন", ""));
+
+            _dakPriority.Add(new DakPriority("2", "জরুরি", "জরুরি"));
+            _dakPriority.Add(new DakPriority("3", "অবিলম্বে", "অবিলম্বে"));
+            _dakPriority.Add(new DakPriority("4", "সর্বোচ্চ অগ্রাধিকার", "সর্বোচ্চ অগ্রাধিকার"));
+            _dakPriority.Add(new DakPriority("5", "তাগিদপত্র", "তাগিদপত্র"));
+            _dakPriority.Add(new DakPriority("6", "দৃষ্টি আকর্ষণ", "দৃষ্টি আকর্ষণ"));
+
 
         }
         public DakPriorityList(bool IsCombobox)
         {
-            _dakPriority.Add(new DakPriority("6", "সর্বোচ্চ অগ্রাধিকার", "সর্বোচ্চ অগ্রাধিকার"));
-            _dakPriority.Add(new DakPriority("5", "অবিলম্বে", "অবিলম্বে"));
-            _dakPriority.Add(new DakPriority("4", "জরুরি", "জরুরি"));
+            //_dakPriority.Add(new DakPriority("6", "সর্বোচ্চ অগ্রাধিকার", "সর্বোচ্চ অগ্রাধিকার"));
+            //_dakPriority.Add(new DakPriority("5", "অবিলম্বে", "অবিলম্বে"));
+            //_dakPriority.Add(new DakPriority("4", "জরুরি", "জরুরি"));
 
-            _dakPriority.Add(new DakPriority("3", "তাগিদপত্র", "তাগিদপত্র"));
-            _dakPriority.Add(new DakPriority("2", "দৃষ্টি আকর্ষণ", "দৃষ্টি আকর্ষণ"));
-            _dakPriority.Add(new DakPriority("1", "জরুরি", "জরুরি"));
-             _dakPriority.Add(new DakPriority("0", "বাছাই করুন", ""));
+            //_dakPriority.Add(new DakPriority("3", "তাগিদপত্র", "তাগিদপত্র"));
+            //_dakPriority.Add(new DakPriority("2", "দৃষ্টি আকর্ষণ", "দৃষ্টি আকর্ষণ"));
+            //_dakPriority.Add(new DakPriority("1", "জরুরি", "জরুরি"));
+            // _dakPriority.Add(new DakPriority("0", "বাছাই করুন", ""));
+
+            _dakPriority.Add(new DakPriority("0", "বাছাই করুন", ""));
+
+            _dakPriority.Add(new DakPriority("2", "জরুরি", "জরুরি"));
+            _dakPriority.Add(new DakPriority("3", "অবিলম্বে", "অবিলম্বে"));
+            _dakPriority.Add(new DakPriority("4", "সর্বোচ্চ অগ্রাধিকার", "সর্বোচ্চ অগ্রাধিকার"));
+            _dakPriority.Add(new DakPriority("5", "তাগিদপত্র", "তাগিদপত্র"));
+            _dakPriority.Add(new DakPriority("6", "দৃষ্টি আকর্ষণ", "দৃষ্টি আকর্ষণ"));
+           
+          
 
 
         }

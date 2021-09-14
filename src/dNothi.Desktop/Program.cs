@@ -199,6 +199,8 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<NothiRegisterBook>>().As<IRepository<NothiRegisterBook>>();
 
             builder.RegisterType<EfRepository<GuardFileUpload>>().As<IRepository<GuardFileUpload>>();
+            builder.RegisterType<EfRepository<KhosraFileUpload>>().As<IRepository<KhosraFileUpload>>();
+            
 
             builder.RegisterType<EfRepository<KhosraLocal>>().As<IRepository<KhosraLocal>>();
             builder.RegisterType<EfRepository<KhosraListLocal>>().As<IRepository<KhosraListLocal>>();

@@ -46,6 +46,8 @@ namespace dNothi.Desktop.UI.Dak
         {
             UIDesignCommonMethod.SuccessMessage("ডাউনলোড সম্পন্ন হয়েছে");
         }
+        private long _id;
+        public long id { get=>_id; set=>_id=value; }
 
         public string imgSource{
             get{return _imageSrc; }

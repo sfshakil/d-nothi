@@ -116,6 +116,7 @@
     <Compile Include="Mappings\GuardFile\GuardFileUploadMap.cs" />
     <Compile Include="Mappings\GuardFile\GuardFileMap.cs" />
     <Compile Include="Mappings\GuardFile\GuardFileListMap.cs" />
+    <Compile Include="Mappings\Khosra\KhosraFileUploadMap.cs" />
     <Compile Include="Mappings\Khosra\KhosraListLocalMap.cs" />
     <Compile Include="Mappings\Khosra\KhosraLocalMap.cs" />
     <Compile Include="Mappings\NothiEntityTypeConfiguration.cs" />

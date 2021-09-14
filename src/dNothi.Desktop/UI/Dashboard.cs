@@ -241,17 +241,19 @@ namespace dNothi.Desktop.UI
         }
         public DakFileDeleteResponse DeleteFile(DakUploadFileDeleteParam deleteParam)
         {
-            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            
+                DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
 
 
             DakFileDeleteResponse deleteResponse = _dakuploadservice.GetFileDeleteResponsse(dakListUserParam, deleteParam);
 
 
-            return deleteResponse;
+                return deleteResponse;
+           
         }
 
-
+     
 
         public DakUploadedFileResponse UploadFile(DakFileUploadParam dakFileUploadParam)
         {
