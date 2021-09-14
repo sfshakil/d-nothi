@@ -705,6 +705,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakOutbox()
         {
+            WaitForm.Show(this);
             //RefreshDetailsSearchAllInput();
             RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -748,6 +749,7 @@ namespace dNothi.Desktop.UI
                     Pagination(dakListOutboxResponse.data.records.Count, dakListOutboxResponse.data.total_records);
 
                     LoadDakOutboxinPanel(dakListOutboxResponse.data.records);
+                    WaitForm.Close();
                     return;
                 }
 
@@ -760,6 +762,7 @@ namespace dNothi.Desktop.UI
             {
                 noDakTableLayoutPanel.Visible = true;
             }
+            WaitForm.Close();
         }
         private bool IsOutboxSearch;
         private void LoadDakOutboxUsingSearchParam(string searchParam)
@@ -1945,6 +1948,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakNothivukto()
         {
+            WaitForm.Show(this);
             //RefreshDetailsSearchAllInput();
             RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -1969,7 +1973,7 @@ namespace dNothi.Desktop.UI
                 {
                     Pagination(dakInbox.data.records.Count, dakInbox.data.total_records);
                     LoadDakNothivuktoinPanel(dakInbox.data.records);
-
+                    //WaitForm.Close();
                 }
                 else
                 {
@@ -1977,6 +1981,7 @@ namespace dNothi.Desktop.UI
                 }
 
             }
+            WaitForm.Close();
         }
         private bool isNothivuktoSearched;
         private void LoadDakNothivuktoUsingSearchParam(string searchParam)
@@ -2253,7 +2258,8 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakArchive()
         {
-           // RefreshDetailsSearchAllInput();
+            WaitForm.Show(this);
+            // RefreshDetailsSearchAllInput();
             RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
@@ -2277,6 +2283,7 @@ namespace dNothi.Desktop.UI
                 {
                     Pagination(dakArchive.data.records.Count, dakArchive.data.total_records);
                     LoadDakArchiveinPanel(dakArchive.data.records);
+                    WaitForm.Close();
                     return;
 
                 }
@@ -2285,7 +2292,7 @@ namespace dNothi.Desktop.UI
             }
 
             noDakTableLayoutPanel.Visible = true;
-
+            WaitForm.Close();
 
 
         }
@@ -2605,6 +2612,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakNothijato()
         {
+            WaitForm.Show(this);
             //RefreshDetailsSearchAllInput();
             RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -2638,6 +2646,7 @@ namespace dNothi.Desktop.UI
             {
                 noDakTableLayoutPanel.Visible = false;
             }
+            WaitForm.Close();
         }
         private bool IsNothiJatoSearch;
         private void LoadDakNothijatoUsingSearchParam(string searchParam)
@@ -2809,6 +2818,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakListSorted()
         {
+            WaitForm.Show(this);
             RefreshDaakCount();
             _currentDakCatagory.isSorted = true;
             NormalizeDashBoard();
@@ -2833,6 +2843,7 @@ namespace dNothi.Desktop.UI
                 }
 
             }
+            WaitForm.Close();
         }
        
         private bool IsSortedSearch;
@@ -3066,8 +3077,8 @@ namespace dNothi.Desktop.UI
 
         private void daptorikDakUploadButton_Click(object sender, EventArgs e)
         {
-            searchHeaderTableLayoutPanel.Visible = true;
-            dakSortMetroPanel.Visible = true;
+            searchHeaderTableLayoutPanel.Visible = false;
+            dakSortMetroPanel.Visible = false;
             NormalizeDashBoard();
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
@@ -3235,6 +3246,7 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakKhasraList()
         {
+            WaitForm.Show(this);
             //RefreshDetailsSearchAllInput();
             RefreshDaakCount();
             _currentDakCatagory.isKhosra = true;
@@ -3280,6 +3292,7 @@ namespace dNothi.Desktop.UI
                     {
                         Pagination(dakListRecordsDTOsWithoutLocallyEdited.Count, dakListKhosraResponse.data.total_records);
                         LoadDakKhosrainPanel(dakListRecordsDTOsWithoutLocallyEdited);
+                        WaitForm.Close();
                         return;
                     }
 
@@ -3290,6 +3303,7 @@ namespace dNothi.Desktop.UI
             {
                 noDakTableLayoutPanel.Visible = true;
             }
+            WaitForm.Close();
         }
         private bool IsKhosraSearch;
         private void LoadDakKhasraListUsingSearchParam(string searchParam)
@@ -3478,6 +3492,7 @@ namespace dNothi.Desktop.UI
 
         private void DaptorikDakSavePageLoad(DraftedDakEditResponse dakEditResponse)
         {
+            WaitForm.Show(this);
             dakSortMetroPanel.Visible = false;
             searchHeaderTableLayoutPanel.Visible = false;
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -3486,6 +3501,10 @@ namespace dNothi.Desktop.UI
 
 
             DaptorikDakUploadUserControl dakUploadUserControl = new DaptorikDakUploadUserControl();
+            //dakUploadUserControl.Height = dakBodyFlowLayoutPanel.Height;
+            dakUploadUserControl.Width = dakBodyFlowLayoutPanel.Width;
+            dakUploadUserControl.Dock = DockStyle.Fill;
+            dakUploadUserControl.setDataGridViewColumnWidth();
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
 
 
@@ -3523,10 +3542,12 @@ namespace dNothi.Desktop.UI
             }
 
             dakBodyFlowLayoutPanel.Controls.Add(dakUploadUserControl);
+            WaitForm.Close();
         }
 
         private void NagorikDakSavePageLoad(DraftedDakEditResponse dakEditResponse)
         {
+            WaitForm.Show(this);
             dakSortMetroPanel.Visible = false;
             searchHeaderTableLayoutPanel.Visible = false;
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -3565,6 +3586,7 @@ namespace dNothi.Desktop.UI
             }
 
             dakBodyFlowLayoutPanel.Controls.Add(dakUploadUserControl);
+            WaitForm.Close();
         }
 
         private void DraftedDakDelete_ButtonClick(object sender, EventArgs e, int dak_id, string dak_type, int is_copied_dak, bool is_local)
@@ -5242,8 +5264,8 @@ namespace dNothi.Desktop.UI
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-            searchHeaderTableLayoutPanel.Visible = true;
-            dakSortMetroPanel.Visible = true;
+            searchHeaderTableLayoutPanel.Visible = false;
+            dakSortMetroPanel.Visible = false;
             if (registerPanel.Visible)
             {
                 registerPanel.Visible = false;
@@ -5259,8 +5281,9 @@ namespace dNothi.Desktop.UI
         string todate = DateTime.Now.ToString("yyyy/MM/dd");
         private void registerGrohonButton_Click(object sender, EventArgs e)
         {
-            searchHeaderTableLayoutPanel.Visible = true;
-            dakSortMetroPanel.Visible = true;
+            WaitForm.Show(this);
+            searchHeaderTableLayoutPanel.Visible = false;
+            dakSortMetroPanel.Visible = false;
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
@@ -5275,14 +5298,18 @@ namespace dNothi.Desktop.UI
             registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetGrahonRegisterReports(registerReportResponse);
            
             UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, registerReportUserControl);
-           // registerReportUserControl.Dock = DockStyle.Fill;
-           // int row = dakBodyFlowLayoutPanel.RowCount++;
-          //  dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0F));
-          //  dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
+            // registerReportUserControl.Dock = DockStyle.Fill;
+            // int row = dakBodyFlowLayoutPanel.RowCount++;
+            //  dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0F));
+            //  dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
+            WaitForm.Close();
         }
 
         private void registerBiliButton_Click(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
+            searchHeaderTableLayoutPanel.Visible = false;
+            dakSortMetroPanel.Visible = false;
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
@@ -5301,10 +5328,14 @@ namespace dNothi.Desktop.UI
             int row = dakBodyFlowLayoutPanel.RowCount++;
             dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
             dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
+            WaitForm.Close();
         }
 
         private void registerDiaryButton_Click(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
+            searchHeaderTableLayoutPanel.Visible = false;
+            dakSortMetroPanel.Visible = false;
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
@@ -5323,12 +5354,15 @@ namespace dNothi.Desktop.UI
             int row = dakBodyFlowLayoutPanel.RowCount++;
             dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
             dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
+            WaitForm.Close();
         }
 
         private void pendingReportButton_Click(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
+            searchHeaderTableLayoutPanel.Visible = false;
             dakSortMetroPanel.Visible = false;
 
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -5347,6 +5381,7 @@ namespace dNothi.Desktop.UI
             int row = dakBodyFlowLayoutPanel.RowCount++;
             dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
             dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
+            WaitForm.Close();
         }
 
        private void gridviewpagination_selectedChanged(string name,int id)
@@ -5371,6 +5406,9 @@ namespace dNothi.Desktop.UI
         }
         private void resolvedReportButton_Click(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
+            searchHeaderTableLayoutPanel.Visible = false;
+            dakSortMetroPanel.Visible = false;
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
@@ -5389,12 +5427,13 @@ namespace dNothi.Desktop.UI
             int row = dakBodyFlowLayoutPanel.RowCount++;
             dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
             dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
+            WaitForm.Close();
         }
 
         private void protibedonButton_Click(object sender, EventArgs e)
         {
-            searchHeaderTableLayoutPanel.Visible = true;
-            dakSortMetroPanel.Visible = true;
+            searchHeaderTableLayoutPanel.Visible = false;
+            dakSortMetroPanel.Visible = false;
             if (protibedonPanel.Visible)
             {
                 protibedonPanel.Visible = false;
@@ -5410,6 +5449,9 @@ namespace dNothi.Desktop.UI
 
         private void nothiteUposthapitoListReportButton_Click(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
+            searchHeaderTableLayoutPanel.Visible = false;
+            dakSortMetroPanel.Visible = false;
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
@@ -5429,10 +5471,14 @@ namespace dNothi.Desktop.UI
             int row = dakBodyFlowLayoutPanel.RowCount++;
             dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
             dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
+            WaitForm.Close();
         }
 
         private void PotrojariListReportButton_Click(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
+            searchHeaderTableLayoutPanel.Visible = false;
+            dakSortMetroPanel.Visible = false;
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
@@ -5451,10 +5497,14 @@ namespace dNothi.Desktop.UI
             int row = dakBodyFlowLayoutPanel.RowCount++;
             dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
             dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
+            WaitForm.Close();
         }
 
         private void nothijatoListReportButton_Click(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
+            searchHeaderTableLayoutPanel.Visible = false;
+            dakSortMetroPanel.Visible = false;
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
 
@@ -5473,6 +5523,7 @@ namespace dNothi.Desktop.UI
             int row = dakBodyFlowLayoutPanel.RowCount++;
             dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
             dakBodyFlowLayoutPanel.Controls.Add(protibedonUserControl, 0, row);
+            WaitForm.Close();
         }
 
         private void dakShareButton_Click(object sender, EventArgs e)
@@ -5871,6 +5922,7 @@ namespace dNothi.Desktop.UI
 
         private void DakTrakingIconButton_Click(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
             ResetAllMenuButtonSelection();
             SelectButton(sender as Button);
             searchHeaderTableLayoutPanel.Visible = false;
@@ -5887,6 +5939,7 @@ namespace dNothi.Desktop.UI
             //registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
 
             UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, allDakTrakingUserControl);
+            WaitForm.Close();
         }
 
         private void resetButton_Click(object sender, EventArgs e)

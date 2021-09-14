@@ -14,14 +14,14 @@ namespace dNothi.Utility
     {
         WaitNothiForm wait;
         Thread loadthread;
-        //public WaitFormFunc()
-        //{
-        //   // wait =new WaitNothiForm();
-        //   // loadthread = null;
-           
-        //}
+        public WaitFormFunc()
+        {
+            wait = new WaitNothiForm();
+            loadthread = null;
 
-       public void Show()
+        }
+
+        public void Show()
         {
             loadthread = new Thread(new ThreadStart(LoadingProcess));
             loadthread.Start();
@@ -30,7 +30,7 @@ namespace dNothi.Utility
         public void Show(Form parent)
         {
             loadthread = new Thread(new ParameterizedThreadStart(LoadingProcess));
-        
+
             loadthread.Start(parent);
         }
 
@@ -38,15 +38,15 @@ namespace dNothi.Utility
         {
             if (wait != null)
             {
-               wait.BeginInvoke(new System.Threading.ThreadStart(wait.CloseWaitForm));
-               
+                wait.BeginInvoke(new System.Threading.ThreadStart(wait.CloseWaitForm));
+
                 wait = null;
                 loadthread = null;
-                
+
             }
-          
+
         }
-      
+
         private void LoadingProcess()
         {
             wait = new WaitNothiForm();
@@ -58,9 +58,9 @@ namespace dNothi.Utility
         {
             Form parent1 = parent as Form;
             wait = new WaitNothiForm(parent1);
-           
+
             //wait.ShowDialog();
-            CalPopUpWindow(wait,parent1);
+            CalPopUpWindow(wait, parent1);
         }
         private void CalPopUpWindow(Form form, Form parent)
         {
@@ -75,12 +75,12 @@ namespace dNothi.Utility
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;
 
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form, parent); };
             hideform.ShowDialog();
         }
-        void hideform_Shown(object sender, EventArgs e, Form form)
+        void hideform_Shown(object sender, EventArgs e, Form form, Form parent)
         {
-
+            form.ShowInTaskbar = false;
             form.ShowDialog();
 
             (sender as Form).Hide();

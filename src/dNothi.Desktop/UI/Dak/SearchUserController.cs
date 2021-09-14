@@ -59,7 +59,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
-               
+                searchPanel.BringToFront();
                 searchPanel.Visible = true;
                 searchXTextBox.Focus();
             }

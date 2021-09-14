@@ -34,6 +34,7 @@ namespace dNothi.Desktop.UI
         IUserService _userService { get; set; }
         ISyncerService _syncerservice { get; set; }
         ModalLoginMenuUserControl modal = null;
+        public WaitFormFunc WaitForm;
         public Login(IUserService userService, IAccountService accountService, ISyncerService syncerservice)
         {
             InitializeComponent();
@@ -42,6 +43,7 @@ namespace dNothi.Desktop.UI
             _userService = userService;
             _accountService = accountService;
             _syncerservice = syncerservice;
+            WaitForm = new WaitFormFunc();
         }
         public void select_UserID()
         {
@@ -77,6 +79,7 @@ namespace dNothi.Desktop.UI
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
+            WaitForm.Show(this);
             var userName = txtUser.Text.Trim();
             var password = txtPassword.Text.Trim();
             var isRemember = true;
@@ -105,32 +108,34 @@ namespace dNothi.Desktop.UI
 
 
                     HideAndSHow();
-
+                    WaitForm.Close();
                     _userService.GetDoptorToken(userParam);
-                    this.Hide();
-
                     var form = FormFactory.Create<Dashboard>();
-
-                    form.ShowDialog();
-
+                    form.TopMost = true;
+                    BeginInvoke((Action)(() => form.ShowDialog()));
+                    BeginInvoke((Action)(() => form.TopMost = false));
+                    form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
 
                 }
                 else
                 {
+                    WaitForm.Close();
                     ShowAlertMessage("আপনি ভূল ইউজার নেম অথবা পাসওয়ার্ড ইনপুট দিয়েছেন।");
                 }
+                //WaitForm.Close();
             }
             catch(Exception Ex)
             {
+                WaitForm.Close();
                 var appUser = _accountService.LoginUser(userName, password);
                 if (appUser != null)
                 {
                     HideAndSHow();
-                    this.Hide();
-
                     var form = FormFactory.Create<Dashboard>();
-
-                    form.ShowDialog();
+                    form.TopMost = true;
+                    BeginInvoke((Action)(() => form.ShowDialog()));
+                    BeginInvoke((Action)(() => form.TopMost = false));
+                    form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
                 }
 
                 else
@@ -139,8 +144,12 @@ namespace dNothi.Desktop.UI
                 }
 
             }
-        }
 
+        }
+        private void DoSomethingAsync(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
         private void HideAndSHow()
         {
             HideAndShowData.Refresh();
