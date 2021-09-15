@@ -398,6 +398,7 @@ namespace dNothi.Desktop.UI
 
                             //string jsondetails = new JavaScriptSerializer().Serialize(dakDetailsResponse.data); 
                             detailsDakUserControl.Dock = DockStyle.Fill;
+                            //detailsDakUserControl.Height = Screen.PrimaryScreen.WorkingArea.Height - headerTableLayoutPanel.Height ;
                             detailsFlowLayoutPanel.Controls.Add(detailsDakUserControl);
                             return;
                         }
@@ -449,8 +450,8 @@ namespace dNothi.Desktop.UI
             dakSendUserControl.AddDesignationButtonClick += delegate (object sender, EventArgs e) { AddDesignationFromForwardWindow_ButtonClick(dakSendUserControl); };
             dakSendUserControl.SucessfullyDakForwarded += delegate (object sender, EventArgs e) { SuccessfullySingleDakForwarded(false, 0, dakSendUserControl._totalSuccessForwardRequest, 0, dakSendUserControl._IsDakLocallyUploaded); };
 
-
-            CalPopUpWindow(dakSendUserControl);
+            dakSendUserControl.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            CalPopUp1Window(dakSendUserControl);
 
 
         }
@@ -521,7 +522,7 @@ namespace dNothi.Desktop.UI
             DakMovementStatusResponse dakMovementStatusResponse = _dakListService.GetDakMovementStatusListbyDakId(dak_id, dak_type, is_copied_dak, dakListUserParam);
             DakMovementDetailsForm dakMovementDetailsForm = new DakMovementDetailsForm();
 
-
+            dakMovementDetailsForm.Height = Screen.PrimaryScreen.WorkingArea.Height;
             if (dakMovementStatusResponse != null)
             {
                 if (dakMovementStatusResponse.data != null)
@@ -548,7 +549,7 @@ namespace dNothi.Desktop.UI
                     }
                 }
             }
-            CalPopUpWindow(dakMovementDetailsForm);
+            CalPopUp1Window(dakMovementDetailsForm);
 
 
 
@@ -1227,7 +1228,50 @@ namespace dNothi.Desktop.UI
             }
             WaitForm.Close();
         }
+        public Form NothiNextStepControlToForm(Control control)
+        {
+            Form form = new Form();
+            form.Name = "extra";
+            form.ShowInTaskbar = false;
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - control.Width, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            //form.Size = control.Size;
+            form.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            form.Width = control.Width;
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            control.Height = form.Height;
+            form.Controls.Add(control);
+            return form;
+        }
+        private void CalPopUp1Window(Form form)
+        {
+            Form hideform = new Form();
 
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            hideform.Opacity = .4;
+            hideform.ShowInTaskbar = false;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform1_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+        void hideform1_Shown(object sender, EventArgs e, Form form)
+        {
+            form.ShowInTaskbar = false;
+
+            form.ShowDialog();
+
+            (sender as Form).Hide();
+
+            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
         private void DakTagShow_ButtonClick(List<DakTagDTO> dak_Tags)
         {
             if (dakTagPanel.Visible)
@@ -1251,10 +1295,6 @@ namespace dNothi.Desktop.UI
 
         private void DakTag_ButtonClick(object sender, EventArgs e, int dakid, List<DakTagDTO> dak_Tags, string dak_subject, string dak_Type, int is_copied_dak)
         {
-
-
-
-
             FolderListResponse folderListResponse = _dakFolderService.GetFolderList(_dakuserparam);
 
             var dakTagForm = FormFactory.Create<DakTagForm>();
@@ -1264,13 +1304,13 @@ namespace dNothi.Desktop.UI
             dakTagForm.dakId = dakid;
             dakTagForm.is_copied_Id = is_copied_dak;
             dakTagForm.dak_Type = dak_Type;
-
+            dakTagForm.Height = Screen.PrimaryScreen.WorkingArea.Height;
             dakTagForm.SuccessfullButton += delegate (object dakTagsender, EventArgs dakTagEvent) { RefreshdDakList(); };
 
 
 
 
-            CalPopUpWindow(dakTagForm);
+            CalPopUp1Window(dakTagForm);
 
 
 
@@ -1514,7 +1554,8 @@ namespace dNothi.Desktop.UI
             form.is_copied_dak = is_copied_dak;
             form.dakSubject = dak_subject;
             form.SucessfullyDakNothijato += delegate (object snd, EventArgs eve) { SucessfullyDakNothijato(form._dakNothijatoLocally); };
-            CalPopUpWindow(form);
+            form.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            CalPopUp1Window(form);
 
 
 

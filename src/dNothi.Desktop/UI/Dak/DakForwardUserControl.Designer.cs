@@ -35,20 +35,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DakForwardUserControl));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Subjectlabel = new System.Windows.Forms.Label();
             this.TopPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.decisionXTextBox = new dNothi.Desktop.XTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.decisionComboBox = new System.Windows.Forms.ComboBox();
             this.GetDecisionListButton = new FontAwesome.Sharp.IconButton();
@@ -68,6 +69,17 @@
             this.addDesignationButton_Click = new FontAwesome.Sharp.IconButton();
             this.prapokOwnDataGridView = new System.Windows.Forms.DataGridView();
             this.ActionButton = new System.Windows.Forms.DataGridViewImageColumn();
+            this.employeerecordidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designationid_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designationbngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitnamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.officenamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.designationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeenamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nijOfficeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.mulprapokDataGridViewCheckBoxColumn = new dNothi.Desktop.DataGridViewRadioButtonElements.DataGridViewRadioButtonColumn();
+            this.onulipiprapokDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.viewDesignationSealListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.otherOfficerTabPage = new System.Windows.Forms.TabPage();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -75,6 +87,16 @@
             this.placeholderTextBox1 = new PlaceholderTextBox.PlaceholderTextBox();
             this.prapokOthersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewCheckBoxColumn4 = new dNothi.Desktop.DataGridViewRadioButtonElements.DataGridViewRadioButtonColumn();
+            this.dataGridViewCheckBoxColumn5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.newDecisionAddButton = new System.Windows.Forms.Button();
@@ -102,6 +124,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.dakForwardBodyPanel = new System.Windows.Forms.Panel();
+            this.prioritySearchButton = new dNothi.Desktop.UI.Dak.SearchUserController();
+            this.secretLevelSearchButton = new dNothi.Desktop.UI.Dak.SearchUserController();
             this.HeadingPanel = new System.Windows.Forms.Panel();
             this.sliderCrossButton = new FontAwesome.Sharp.IconButton();
             this.multipleDakHeaderLabel = new System.Windows.Forms.Label();
@@ -113,30 +137,6 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.prioritySearchButton = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.secretLevelSearchButton = new dNothi.Desktop.UI.Dak.SearchUserController();
-            this.decisionXTextBox = new dNothi.Desktop.XTextBox();
-            this.employeerecordidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.designationid_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.designationbngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitnamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.officenamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.designationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeenamebngDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nijOfficeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.mulprapokDataGridViewCheckBoxColumn = new dNothi.Desktop.DataGridViewRadioButtonElements.DataGridViewRadioButtonColumn();
-            this.onulipiprapokDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.viewDesignationSealListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn4 = new dNothi.Desktop.DataGridViewRadioButtonElements.DataGridViewRadioButtonColumn();
-            this.dataGridViewCheckBoxColumn5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.TopPanel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -145,6 +145,7 @@
             this.ownOfficeTabPage.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prapokOwnDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewDesignationSealListBindingSource)).BeginInit();
             this.otherOfficerTabPage.SuspendLayout();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prapokOthersDataGridView)).BeginInit();
@@ -160,7 +161,6 @@
             this.HeadingPanel.SuspendLayout();
             this.selectedDakListPanel.SuspendLayout();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.viewDesignationSealListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Subjectlabel
@@ -174,7 +174,7 @@
             this.Subjectlabel.MinimumSize = new System.Drawing.Size(583, 0);
             this.Subjectlabel.Name = "Subjectlabel";
             this.Subjectlabel.Padding = new System.Windows.Forms.Padding(31, 0, 32, 0);
-            this.Subjectlabel.Size = new System.Drawing.Size(583, 24);
+            this.Subjectlabel.Size = new System.Drawing.Size(583, 34);
             this.Subjectlabel.TabIndex = 0;
             this.Subjectlabel.Text = "ই-নথির মাধ্যমে দাপ্তরিক নথি কার্যক্রম";
             this.Subjectlabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -205,6 +205,17 @@
             this.panel2.TabIndex = 37;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.BorderColorBlue);
             // 
+            // decisionXTextBox
+            // 
+            this.decisionXTextBox.BackColor = System.Drawing.Color.White;
+            this.decisionXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.decisionXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decisionXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.decisionXTextBox.Location = new System.Drawing.Point(3, 6);
+            this.decisionXTextBox.Name = "decisionXTextBox";
+            this.decisionXTextBox.Size = new System.Drawing.Size(499, 23);
+            this.decisionXTextBox.TabIndex = 34;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
@@ -224,7 +235,7 @@
             this.decisionComboBox.Location = new System.Drawing.Point(3, 4);
             this.decisionComboBox.Margin = new System.Windows.Forms.Padding(0);
             this.decisionComboBox.Name = "decisionComboBox";
-            this.decisionComboBox.Size = new System.Drawing.Size(443, 26);
+            this.decisionComboBox.Size = new System.Drawing.Size(443, 34);
             this.decisionComboBox.TabIndex = 9;
             this.decisionComboBox.Text = "আপনার সিদ্ধান্ত বাছাই করুন";
             this.decisionComboBox.SelectedIndexChanged += new System.EventHandler(this.decisionComboBox_SelectedIndexChanged);
@@ -253,7 +264,7 @@
             this.decisionOwnRadioButton.Location = new System.Drawing.Point(7, 71);
             this.decisionOwnRadioButton.Name = "decisionOwnRadioButton";
             this.decisionOwnRadioButton.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            this.decisionOwnRadioButton.Size = new System.Drawing.Size(24, 33);
+            this.decisionOwnRadioButton.Size = new System.Drawing.Size(27, 36);
             this.decisionOwnRadioButton.TabIndex = 8;
             this.decisionOwnRadioButton.UseVisualStyleBackColor = false;
             this.decisionOwnRadioButton.CheckedChanged += new System.EventHandler(this.decisionOwnRadioButton_CheckedChanged);
@@ -265,7 +276,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
             this.label3.Location = new System.Drawing.Point(275, 151);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 18);
+            this.label3.Size = new System.Drawing.Size(99, 26);
             this.label3.TabIndex = 8;
             this.label3.Text = " গোপনীয়তা";
             // 
@@ -276,7 +287,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
             this.label2.Location = new System.Drawing.Point(9, 151);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 18);
+            this.label2.Size = new System.Drawing.Size(89, 26);
             this.label2.TabIndex = 7;
             this.label2.Text = "অগ্রাধিকার";
             // 
@@ -287,7 +298,7 @@
             this.NothijatoRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
             this.NothijatoRadioButton.Location = new System.Drawing.Point(165, 43);
             this.NothijatoRadioButton.Name = "NothijatoRadioButton";
-            this.NothijatoRadioButton.Size = new System.Drawing.Size(100, 22);
+            this.NothijatoRadioButton.Size = new System.Drawing.Size(143, 30);
             this.NothijatoRadioButton.TabIndex = 4;
             this.NothijatoRadioButton.Text = "নথিজাত করুন ";
             this.NothijatoRadioButton.UseVisualStyleBackColor = true;
@@ -300,7 +311,7 @@
             this.nothivuktoRadioButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
             this.nothivuktoRadioButton.Location = new System.Drawing.Point(15, 43);
             this.nothivuktoRadioButton.Name = "nothivuktoRadioButton";
-            this.nothivuktoRadioButton.Size = new System.Drawing.Size(137, 22);
+            this.nothivuktoRadioButton.Size = new System.Drawing.Size(196, 30);
             this.nothivuktoRadioButton.TabIndex = 3;
             this.nothivuktoRadioButton.Text = "নথিতে উপস্থাপন করুন";
             this.nothivuktoRadioButton.UseVisualStyleBackColor = true;
@@ -376,10 +387,10 @@
             this.ownOfficeTabPage.Controls.Add(this.addDesignationButton_Click);
             this.ownOfficeTabPage.Controls.Add(this.prapokOwnDataGridView);
             this.ownOfficeTabPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ownOfficeTabPage.Location = new System.Drawing.Point(4, 41);
+            this.ownOfficeTabPage.Location = new System.Drawing.Point(4, 49);
             this.ownOfficeTabPage.Name = "ownOfficeTabPage";
             this.ownOfficeTabPage.Padding = new System.Windows.Forms.Padding(10);
-            this.ownOfficeTabPage.Size = new System.Drawing.Size(504, 473);
+            this.ownOfficeTabPage.Size = new System.Drawing.Size(504, 465);
             this.ownOfficeTabPage.TabIndex = 0;
             this.ownOfficeTabPage.Text = "নিজ অফিস";
             this.ownOfficeTabPage.UseVisualStyleBackColor = true;
@@ -417,7 +428,7 @@
             this.officerSearchOwnXTextBox.Location = new System.Drawing.Point(3, 7);
             this.officerSearchOwnXTextBox.Name = "officerSearchOwnXTextBox";
             this.officerSearchOwnXTextBox.PlaceholderText = "অফিসার খুঁজুন";
-            this.officerSearchOwnXTextBox.Size = new System.Drawing.Size(437, 19);
+            this.officerSearchOwnXTextBox.Size = new System.Drawing.Size(437, 27);
             this.officerSearchOwnXTextBox.TabIndex = 80;
             this.officerSearchOwnXTextBox.TextChanged += new System.EventHandler(this.officerSearchOwnXTextBox_TextChanged);
             // 
@@ -511,7 +522,105 @@
             this.ActionButton.MinimumWidth = 2;
             this.ActionButton.Name = "ActionButton";
             this.ActionButton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ActionButton.Width = 37;
+            this.ActionButton.Width = 43;
+            // 
+            // employeerecordidDataGridViewTextBoxColumn
+            // 
+            this.employeerecordidDataGridViewTextBoxColumn.DataPropertyName = "employee_record_id";
+            this.employeerecordidDataGridViewTextBoxColumn.HeaderText = "employee_record_id";
+            this.employeerecordidDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.employeerecordidDataGridViewTextBoxColumn.Name = "employeerecordidDataGridViewTextBoxColumn";
+            this.employeerecordidDataGridViewTextBoxColumn.Visible = false;
+            this.employeerecordidDataGridViewTextBoxColumn.Width = 190;
+            // 
+            // designationid_id
+            // 
+            this.designationid_id.DataPropertyName = "designation_id";
+            this.designationid_id.HeaderText = "designation_id";
+            this.designationid_id.MinimumWidth = 6;
+            this.designationid_id.Name = "designationid_id";
+            this.designationid_id.Visible = false;
+            this.designationid_id.Width = 150;
+            // 
+            // designationbngDataGridViewTextBoxColumn
+            // 
+            this.designationbngDataGridViewTextBoxColumn.DataPropertyName = "designation_bng";
+            this.designationbngDataGridViewTextBoxColumn.HeaderText = "designation_bng";
+            this.designationbngDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.designationbngDataGridViewTextBoxColumn.Name = "designationbngDataGridViewTextBoxColumn";
+            this.designationbngDataGridViewTextBoxColumn.Visible = false;
+            this.designationbngDataGridViewTextBoxColumn.Width = 165;
+            // 
+            // unitnamebngDataGridViewTextBoxColumn
+            // 
+            this.unitnamebngDataGridViewTextBoxColumn.DataPropertyName = "unit_name_bng";
+            this.unitnamebngDataGridViewTextBoxColumn.HeaderText = "unit_name_bng";
+            this.unitnamebngDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.unitnamebngDataGridViewTextBoxColumn.Name = "unitnamebngDataGridViewTextBoxColumn";
+            this.unitnamebngDataGridViewTextBoxColumn.Visible = false;
+            this.unitnamebngDataGridViewTextBoxColumn.Width = 158;
+            // 
+            // officenamebngDataGridViewTextBoxColumn
+            // 
+            this.officenamebngDataGridViewTextBoxColumn.DataPropertyName = "office_name_bng";
+            this.officenamebngDataGridViewTextBoxColumn.HeaderText = "office_name_bng";
+            this.officenamebngDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.officenamebngDataGridViewTextBoxColumn.Name = "officenamebngDataGridViewTextBoxColumn";
+            this.officenamebngDataGridViewTextBoxColumn.Visible = false;
+            this.officenamebngDataGridViewTextBoxColumn.Width = 171;
+            // 
+            // designationDataGridViewTextBoxColumn
+            // 
+            this.designationDataGridViewTextBoxColumn.DataPropertyName = "designation";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.designationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.designationDataGridViewTextBoxColumn.HeaderText = "পদ";
+            this.designationDataGridViewTextBoxColumn.MinimumWidth = 170;
+            this.designationDataGridViewTextBoxColumn.Name = "designationDataGridViewTextBoxColumn";
+            this.designationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.designationDataGridViewTextBoxColumn.Width = 170;
+            // 
+            // employeenamebngDataGridViewTextBoxColumn
+            // 
+            this.employeenamebngDataGridViewTextBoxColumn.DataPropertyName = "employee_name_bng";
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeenamebngDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.employeenamebngDataGridViewTextBoxColumn.HeaderText = "নাম";
+            this.employeenamebngDataGridViewTextBoxColumn.MinimumWidth = 90;
+            this.employeenamebngDataGridViewTextBoxColumn.Name = "employeenamebngDataGridViewTextBoxColumn";
+            this.employeenamebngDataGridViewTextBoxColumn.ReadOnly = true;
+            this.employeenamebngDataGridViewTextBoxColumn.Width = 90;
+            // 
+            // nijOfficeDataGridViewCheckBoxColumn
+            // 
+            this.nijOfficeDataGridViewCheckBoxColumn.DataPropertyName = "nij_Office";
+            this.nijOfficeDataGridViewCheckBoxColumn.HeaderText = "nij_Office";
+            this.nijOfficeDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.nijOfficeDataGridViewCheckBoxColumn.Name = "nijOfficeDataGridViewCheckBoxColumn";
+            this.nijOfficeDataGridViewCheckBoxColumn.Visible = false;
+            this.nijOfficeDataGridViewCheckBoxColumn.Width = 94;
+            // 
+            // mulprapokDataGridViewCheckBoxColumn
+            // 
+            this.mulprapokDataGridViewCheckBoxColumn.DataPropertyName = "mul_prapok";
+            this.mulprapokDataGridViewCheckBoxColumn.HeaderText = "মূল প্রাপক";
+            this.mulprapokDataGridViewCheckBoxColumn.MinimumWidth = 40;
+            this.mulprapokDataGridViewCheckBoxColumn.Name = "mulprapokDataGridViewCheckBoxColumn";
+            this.mulprapokDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.mulprapokDataGridViewCheckBoxColumn.Width = 98;
+            // 
+            // onulipiprapokDataGridViewCheckBoxColumn
+            // 
+            this.onulipiprapokDataGridViewCheckBoxColumn.DataPropertyName = "onulipi_prapok";
+            this.onulipiprapokDataGridViewCheckBoxColumn.HeaderText = "অনুলিপি প্রাপক";
+            this.onulipiprapokDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.onulipiprapokDataGridViewCheckBoxColumn.Name = "onulipiprapokDataGridViewCheckBoxColumn";
+            this.onulipiprapokDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.onulipiprapokDataGridViewCheckBoxColumn.Width = 132;
+            // 
+            // viewDesignationSealListBindingSource
+            // 
+            this.viewDesignationSealListBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.ViewDesignationSealList);
             // 
             // otherOfficerTabPage
             // 
@@ -519,11 +628,11 @@
             this.otherOfficerTabPage.Controls.Add(this.iconButton1);
             this.otherOfficerTabPage.Controls.Add(this.panel8);
             this.otherOfficerTabPage.Controls.Add(this.prapokOthersDataGridView);
-            this.otherOfficerTabPage.Location = new System.Drawing.Point(4, 41);
+            this.otherOfficerTabPage.Location = new System.Drawing.Point(4, 49);
             this.otherOfficerTabPage.Margin = new System.Windows.Forms.Padding(5);
             this.otherOfficerTabPage.Name = "otherOfficerTabPage";
             this.otherOfficerTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.otherOfficerTabPage.Size = new System.Drawing.Size(504, 473);
+            this.otherOfficerTabPage.Size = new System.Drawing.Size(504, 465);
             this.otherOfficerTabPage.TabIndex = 1;
             this.otherOfficerTabPage.Text = "অন্যান্য অফিস";
             this.otherOfficerTabPage.UseVisualStyleBackColor = true;
@@ -575,7 +684,7 @@
             this.placeholderTextBox1.Location = new System.Drawing.Point(3, 7);
             this.placeholderTextBox1.Name = "placeholderTextBox1";
             this.placeholderTextBox1.PlaceholderText = "অফিসার খুঁজুন";
-            this.placeholderTextBox1.Size = new System.Drawing.Size(437, 19);
+            this.placeholderTextBox1.Size = new System.Drawing.Size(437, 27);
             this.placeholderTextBox1.TabIndex = 80;
             // 
             // prapokOthersDataGridView
@@ -649,7 +758,101 @@
             this.dataGridViewImageColumn3.MinimumWidth = 2;
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn3.Width = 39;
+            this.dataGridViewImageColumn3.Width = 46;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "employee_record_id";
+            this.dataGridViewTextBoxColumn8.HeaderText = "employee_record_id";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Visible = false;
+            this.dataGridViewTextBoxColumn8.Width = 166;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "designation_id";
+            this.dataGridViewTextBoxColumn9.HeaderText = "designation_id";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Visible = false;
+            this.dataGridViewTextBoxColumn9.Width = 132;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "designation_bng";
+            this.dataGridViewTextBoxColumn10.HeaderText = "designation_bng";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Visible = false;
+            this.dataGridViewTextBoxColumn10.Width = 143;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "unit_name_bng";
+            this.dataGridViewTextBoxColumn11.HeaderText = "unit_name_bng";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Visible = false;
+            this.dataGridViewTextBoxColumn11.Width = 140;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "office_name_bng";
+            this.dataGridViewTextBoxColumn12.HeaderText = "office_name_bng";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Visible = false;
+            this.dataGridViewTextBoxColumn12.Width = 149;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "designation";
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewTextBoxColumn13.HeaderText = "পদ";
+            this.dataGridViewTextBoxColumn13.MinimumWidth = 170;
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Width = 170;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "employee_name_bng";
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridViewTextBoxColumn14.HeaderText = "নাম";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 90;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 90;
+            // 
+            // dataGridViewCheckBoxColumn2
+            // 
+            this.dataGridViewCheckBoxColumn2.DataPropertyName = "nij_Office";
+            this.dataGridViewCheckBoxColumn2.HeaderText = "nij_Office";
+            this.dataGridViewCheckBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+            this.dataGridViewCheckBoxColumn2.Visible = false;
+            this.dataGridViewCheckBoxColumn2.Width = 83;
+            // 
+            // dataGridViewCheckBoxColumn4
+            // 
+            this.dataGridViewCheckBoxColumn4.DataPropertyName = "mul_prapok";
+            this.dataGridViewCheckBoxColumn4.HeaderText = "মূল প্রাপক";
+            this.dataGridViewCheckBoxColumn4.MinimumWidth = 40;
+            this.dataGridViewCheckBoxColumn4.Name = "dataGridViewCheckBoxColumn4";
+            this.dataGridViewCheckBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCheckBoxColumn4.Width = 108;
+            // 
+            // dataGridViewCheckBoxColumn5
+            // 
+            this.dataGridViewCheckBoxColumn5.DataPropertyName = "onulipi_prapok";
+            this.dataGridViewCheckBoxColumn5.HeaderText = "অনুলিপি প্রাপক";
+            this.dataGridViewCheckBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewCheckBoxColumn5.Name = "dataGridViewCheckBoxColumn5";
+            this.dataGridViewCheckBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCheckBoxColumn5.Width = 145;
             // 
             // label4
             // 
@@ -888,7 +1091,7 @@
             this.newDecisionTextBox.Location = new System.Drawing.Point(3, 9);
             this.newDecisionTextBox.Name = "newDecisionTextBox";
             this.newDecisionTextBox.PlaceholderText = "নতুন সিদ্ধান্ত​";
-            this.newDecisionTextBox.Size = new System.Drawing.Size(177, 19);
+            this.newDecisionTextBox.Size = new System.Drawing.Size(177, 27);
             this.newDecisionTextBox.TabIndex = 80;
             // 
             // newDecisionAddCrossButton
@@ -954,7 +1157,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label6.Location = new System.Drawing.Point(36, 65);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(314, 18);
+            this.label6.Size = new System.Drawing.Size(470, 26);
             this.label6.TabIndex = 2;
             this.label6.Text = "সিদ্ধান্ত নির্বাচন করতে নির্দিষ্ট সিদ্ধান্তের পাশে নির্বাচন/চেক করুন";
             // 
@@ -965,7 +1168,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.label5.Location = new System.Drawing.Point(63, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 21);
+            this.label5.Size = new System.Drawing.Size(115, 30);
             this.label5.TabIndex = 1;
             this.label5.Text = "সিদ্ধান্ত সমূহ";
             // 
@@ -993,10 +1196,49 @@
             this.dakForwardBodyPanel.Controls.Add(this.TopPanel);
             this.dakForwardBodyPanel.Controls.Add(this.BottomPanel);
             this.dakForwardBodyPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dakForwardBodyPanel.Location = new System.Drawing.Point(0, 145);
+            this.dakForwardBodyPanel.Location = new System.Drawing.Point(0, 155);
             this.dakForwardBodyPanel.Name = "dakForwardBodyPanel";
-            this.dakForwardBodyPanel.Size = new System.Drawing.Size(583, 825);
+            this.dakForwardBodyPanel.Size = new System.Drawing.Size(579, 825);
             this.dakForwardBodyPanel.TabIndex = 37;
+            // 
+            // prioritySearchButton
+            // 
+            this.prioritySearchButton.AutoSize = true;
+            this.prioritySearchButton.BackColor = System.Drawing.Color.White;
+            this.prioritySearchButton.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prioritySearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
+            this.prioritySearchButton.listboxcollection = new string[] {
+        "বাছাই করুন",
+        "সর্বোচ্চ অগ্রাধিকার",
+        "অবিলম্বে",
+        "জরুরি"};
+            this.prioritySearchButton.Location = new System.Drawing.Point(39, 183);
+            this.prioritySearchButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.prioritySearchButton.MinimumSize = new System.Drawing.Size(150, 32);
+            this.prioritySearchButton.Name = "prioritySearchButton";
+            this.prioritySearchButton.searchButtonText = "বাছাই করুন";
+            this.prioritySearchButton.Size = new System.Drawing.Size(257, 51);
+            this.prioritySearchButton.TabIndex = 36;
+            // 
+            // secretLevelSearchButton
+            // 
+            this.secretLevelSearchButton.AutoSize = true;
+            this.secretLevelSearchButton.BackColor = System.Drawing.Color.White;
+            this.secretLevelSearchButton.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.secretLevelSearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
+            this.secretLevelSearchButton.listboxcollection = new string[] {
+        "বাছাই করুন",
+        "গোপনীয়",
+        "অতি গোপনীয়",
+        "বিশেষ গোপনীয়",
+        "সীমিত"};
+            this.secretLevelSearchButton.Location = new System.Drawing.Point(305, 183);
+            this.secretLevelSearchButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.secretLevelSearchButton.MinimumSize = new System.Drawing.Size(150, 30);
+            this.secretLevelSearchButton.Name = "secretLevelSearchButton";
+            this.secretLevelSearchButton.searchButtonText = "বাছাই করুন";
+            this.secretLevelSearchButton.Size = new System.Drawing.Size(240, 51);
+            this.secretLevelSearchButton.TabIndex = 35;
             // 
             // HeadingPanel
             // 
@@ -1008,7 +1250,7 @@
             this.HeadingPanel.Margin = new System.Windows.Forms.Padding(0);
             this.HeadingPanel.Name = "HeadingPanel";
             this.HeadingPanel.Padding = new System.Windows.Forms.Padding(29, 35, 0, 0);
-            this.HeadingPanel.Size = new System.Drawing.Size(583, 81);
+            this.HeadingPanel.Size = new System.Drawing.Size(579, 81);
             this.HeadingPanel.TabIndex = 38;
             // 
             // sliderCrossButton
@@ -1038,9 +1280,9 @@
             this.multipleDakHeaderLabel.Dock = System.Windows.Forms.DockStyle.Left;
             this.multipleDakHeaderLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.multipleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
-            this.multipleDakHeaderLabel.Location = new System.Drawing.Point(138, 35);
+            this.multipleDakHeaderLabel.Location = new System.Drawing.Point(187, 35);
             this.multipleDakHeaderLabel.Name = "multipleDakHeaderLabel";
-            this.multipleDakHeaderLabel.Size = new System.Drawing.Size(127, 21);
+            this.multipleDakHeaderLabel.Size = new System.Drawing.Size(184, 30);
             this.multipleDakHeaderLabel.TabIndex = 29;
             this.multipleDakHeaderLabel.Text = "সিলেক্টেড ডাক সমূহ";
             this.multipleDakHeaderLabel.Visible = false;
@@ -1053,7 +1295,7 @@
             this.singleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
             this.singleDakHeaderLabel.Location = new System.Drawing.Point(29, 35);
             this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
-            this.singleDakHeaderLabel.Size = new System.Drawing.Size(109, 21);
+            this.singleDakHeaderLabel.Size = new System.Drawing.Size(158, 30);
             this.singleDakHeaderLabel.TabIndex = 28;
             this.singleDakHeaderLabel.Text = "ডাক প্রেরণ করুন";
             // 
@@ -1067,7 +1309,7 @@
             this.selectedDakListPanel.Location = new System.Drawing.Point(0, 81);
             this.selectedDakListPanel.Name = "selectedDakListPanel";
             this.selectedDakListPanel.Padding = new System.Windows.Forms.Padding(31, 0, 32, 0);
-            this.selectedDakListPanel.Size = new System.Drawing.Size(583, 40);
+            this.selectedDakListPanel.Size = new System.Drawing.Size(579, 40);
             this.selectedDakListPanel.TabIndex = 39;
             this.selectedDakListPanel.Visible = false;
             // 
@@ -1095,7 +1337,7 @@
             this.selectedCount.Margin = new System.Windows.Forms.Padding(0);
             this.selectedCount.Name = "selectedCount";
             this.selectedCount.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.selectedCount.Size = new System.Drawing.Size(17, 18);
+            this.selectedCount.Size = new System.Drawing.Size(25, 26);
             this.selectedCount.TabIndex = 4;
             this.selectedCount.Text = "2";
             // 
@@ -1108,7 +1350,7 @@
             this.label12.Location = new System.Drawing.Point(31, 0);
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label12.Size = new System.Drawing.Size(520, 40);
+            this.label12.Size = new System.Drawing.Size(516, 40);
             this.label12.TabIndex = 3;
             this.label12.Text = "মোট সিলেক্টেড ";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1134,6 +1376,7 @@
             this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewImageColumn2.HeaderText = "+";
             this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.Width = 23;
@@ -1145,234 +1388,8 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.Location = new System.Drawing.Point(0, 121);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(583, 24);
+            this.panel10.Size = new System.Drawing.Size(579, 34);
             this.panel10.TabIndex = 38;
-            // 
-            // prioritySearchButton
-            // 
-            this.prioritySearchButton.AutoSize = true;
-            this.prioritySearchButton.BackColor = System.Drawing.Color.White;
-            this.prioritySearchButton.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prioritySearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
-            this.prioritySearchButton.listboxcollection = new string[] {
-        "বাছাই করুন",
-        "সর্বোচ্চ অগ্রাধিকার",
-        "অবিলম্বে",
-        "জরুরি"};
-            this.prioritySearchButton.Location = new System.Drawing.Point(39, 183);
-            this.prioritySearchButton.MinimumSize = new System.Drawing.Size(150, 32);
-            this.prioritySearchButton.Name = "prioritySearchButton";
-            this.prioritySearchButton.searchButtonText = "বাছাই করুন";
-            this.prioritySearchButton.Size = new System.Drawing.Size(257, 34);
-            this.prioritySearchButton.TabIndex = 36;
-            // 
-            // secretLevelSearchButton
-            // 
-            this.secretLevelSearchButton.AutoSize = true;
-            this.secretLevelSearchButton.BackColor = System.Drawing.Color.White;
-            this.secretLevelSearchButton.Font = new System.Drawing.Font("SolaimanLipi", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.secretLevelSearchButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(76)))), ((int)(((byte)(93)))));
-            this.secretLevelSearchButton.listboxcollection = new string[] {
-        "বাছাই করুন",
-        "গোপনীয়",
-        "অতি গোপনীয়",
-        "বিশেষ গোপনীয়",
-        "সীমিত"};
-            this.secretLevelSearchButton.Location = new System.Drawing.Point(305, 183);
-            this.secretLevelSearchButton.MinimumSize = new System.Drawing.Size(150, 30);
-            this.secretLevelSearchButton.Name = "secretLevelSearchButton";
-            this.secretLevelSearchButton.searchButtonText = "বাছাই করুন";
-            this.secretLevelSearchButton.Size = new System.Drawing.Size(240, 34);
-            this.secretLevelSearchButton.TabIndex = 35;
-            // 
-            // decisionXTextBox
-            // 
-            this.decisionXTextBox.BackColor = System.Drawing.Color.White;
-            this.decisionXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.decisionXTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.decisionXTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.decisionXTextBox.Location = new System.Drawing.Point(3, 6);
-            this.decisionXTextBox.Name = "decisionXTextBox";
-            this.decisionXTextBox.Size = new System.Drawing.Size(499, 19);
-            this.decisionXTextBox.TabIndex = 34;
-            // 
-            // employeerecordidDataGridViewTextBoxColumn
-            // 
-            this.employeerecordidDataGridViewTextBoxColumn.DataPropertyName = "employee_record_id";
-            this.employeerecordidDataGridViewTextBoxColumn.HeaderText = "employee_record_id";
-            this.employeerecordidDataGridViewTextBoxColumn.Name = "employeerecordidDataGridViewTextBoxColumn";
-            this.employeerecordidDataGridViewTextBoxColumn.Visible = false;
-            this.employeerecordidDataGridViewTextBoxColumn.Width = 190;
-            // 
-            // designationid_id
-            // 
-            this.designationid_id.DataPropertyName = "designation_id";
-            this.designationid_id.HeaderText = "designation_id";
-            this.designationid_id.Name = "designationid_id";
-            this.designationid_id.Visible = false;
-            this.designationid_id.Width = 150;
-            // 
-            // designationbngDataGridViewTextBoxColumn
-            // 
-            this.designationbngDataGridViewTextBoxColumn.DataPropertyName = "designation_bng";
-            this.designationbngDataGridViewTextBoxColumn.HeaderText = "designation_bng";
-            this.designationbngDataGridViewTextBoxColumn.Name = "designationbngDataGridViewTextBoxColumn";
-            this.designationbngDataGridViewTextBoxColumn.Visible = false;
-            this.designationbngDataGridViewTextBoxColumn.Width = 165;
-            // 
-            // unitnamebngDataGridViewTextBoxColumn
-            // 
-            this.unitnamebngDataGridViewTextBoxColumn.DataPropertyName = "unit_name_bng";
-            this.unitnamebngDataGridViewTextBoxColumn.HeaderText = "unit_name_bng";
-            this.unitnamebngDataGridViewTextBoxColumn.Name = "unitnamebngDataGridViewTextBoxColumn";
-            this.unitnamebngDataGridViewTextBoxColumn.Visible = false;
-            this.unitnamebngDataGridViewTextBoxColumn.Width = 158;
-            // 
-            // officenamebngDataGridViewTextBoxColumn
-            // 
-            this.officenamebngDataGridViewTextBoxColumn.DataPropertyName = "office_name_bng";
-            this.officenamebngDataGridViewTextBoxColumn.HeaderText = "office_name_bng";
-            this.officenamebngDataGridViewTextBoxColumn.Name = "officenamebngDataGridViewTextBoxColumn";
-            this.officenamebngDataGridViewTextBoxColumn.Visible = false;
-            this.officenamebngDataGridViewTextBoxColumn.Width = 171;
-            // 
-            // designationDataGridViewTextBoxColumn
-            // 
-            this.designationDataGridViewTextBoxColumn.DataPropertyName = "designation";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.designationDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.designationDataGridViewTextBoxColumn.HeaderText = "পদ";
-            this.designationDataGridViewTextBoxColumn.MinimumWidth = 170;
-            this.designationDataGridViewTextBoxColumn.Name = "designationDataGridViewTextBoxColumn";
-            this.designationDataGridViewTextBoxColumn.ReadOnly = true;
-            this.designationDataGridViewTextBoxColumn.Width = 170;
-            // 
-            // employeenamebngDataGridViewTextBoxColumn
-            // 
-            this.employeenamebngDataGridViewTextBoxColumn.DataPropertyName = "employee_name_bng";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employeenamebngDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.employeenamebngDataGridViewTextBoxColumn.HeaderText = "নাম";
-            this.employeenamebngDataGridViewTextBoxColumn.MinimumWidth = 90;
-            this.employeenamebngDataGridViewTextBoxColumn.Name = "employeenamebngDataGridViewTextBoxColumn";
-            this.employeenamebngDataGridViewTextBoxColumn.ReadOnly = true;
-            this.employeenamebngDataGridViewTextBoxColumn.Width = 90;
-            // 
-            // nijOfficeDataGridViewCheckBoxColumn
-            // 
-            this.nijOfficeDataGridViewCheckBoxColumn.DataPropertyName = "nij_Office";
-            this.nijOfficeDataGridViewCheckBoxColumn.HeaderText = "nij_Office";
-            this.nijOfficeDataGridViewCheckBoxColumn.Name = "nijOfficeDataGridViewCheckBoxColumn";
-            this.nijOfficeDataGridViewCheckBoxColumn.Visible = false;
-            this.nijOfficeDataGridViewCheckBoxColumn.Width = 94;
-            // 
-            // mulprapokDataGridViewCheckBoxColumn
-            // 
-            this.mulprapokDataGridViewCheckBoxColumn.DataPropertyName = "mul_prapok";
-            this.mulprapokDataGridViewCheckBoxColumn.HeaderText = "মূল প্রাপক";
-            this.mulprapokDataGridViewCheckBoxColumn.MinimumWidth = 40;
-            this.mulprapokDataGridViewCheckBoxColumn.Name = "mulprapokDataGridViewCheckBoxColumn";
-            this.mulprapokDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.mulprapokDataGridViewCheckBoxColumn.Width = 83;
-            // 
-            // onulipiprapokDataGridViewCheckBoxColumn
-            // 
-            this.onulipiprapokDataGridViewCheckBoxColumn.DataPropertyName = "onulipi_prapok";
-            this.onulipiprapokDataGridViewCheckBoxColumn.HeaderText = "অনুলিপি প্রাপক";
-            this.onulipiprapokDataGridViewCheckBoxColumn.Name = "onulipiprapokDataGridViewCheckBoxColumn";
-            this.onulipiprapokDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.onulipiprapokDataGridViewCheckBoxColumn.Width = 110;
-            // 
-            // viewDesignationSealListBindingSource
-            // 
-            this.viewDesignationSealListBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.ViewDesignationSealList);
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "employee_record_id";
-            this.dataGridViewTextBoxColumn8.HeaderText = "employee_record_id";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Visible = false;
-            this.dataGridViewTextBoxColumn8.Width = 166;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "designation_id";
-            this.dataGridViewTextBoxColumn9.HeaderText = "designation_id";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Visible = false;
-            this.dataGridViewTextBoxColumn9.Width = 132;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "designation_bng";
-            this.dataGridViewTextBoxColumn10.HeaderText = "designation_bng";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Visible = false;
-            this.dataGridViewTextBoxColumn10.Width = 143;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "unit_name_bng";
-            this.dataGridViewTextBoxColumn11.HeaderText = "unit_name_bng";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Visible = false;
-            this.dataGridViewTextBoxColumn11.Width = 140;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "office_name_bng";
-            this.dataGridViewTextBoxColumn12.HeaderText = "office_name_bng";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Visible = false;
-            this.dataGridViewTextBoxColumn12.Width = 149;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "designation";
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridViewTextBoxColumn13.HeaderText = "পদ";
-            this.dataGridViewTextBoxColumn13.MinimumWidth = 170;
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Width = 170;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "employee_name_bng";
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridViewTextBoxColumn14.HeaderText = "নাম";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 90;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 90;
-            // 
-            // dataGridViewCheckBoxColumn2
-            // 
-            this.dataGridViewCheckBoxColumn2.DataPropertyName = "nij_Office";
-            this.dataGridViewCheckBoxColumn2.HeaderText = "nij_Office";
-            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-            this.dataGridViewCheckBoxColumn2.Visible = false;
-            this.dataGridViewCheckBoxColumn2.Width = 83;
-            // 
-            // dataGridViewCheckBoxColumn4
-            // 
-            this.dataGridViewCheckBoxColumn4.DataPropertyName = "mul_prapok";
-            this.dataGridViewCheckBoxColumn4.HeaderText = "মূল প্রাপক";
-            this.dataGridViewCheckBoxColumn4.MinimumWidth = 40;
-            this.dataGridViewCheckBoxColumn4.Name = "dataGridViewCheckBoxColumn4";
-            this.dataGridViewCheckBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewCheckBoxColumn4.Width = 81;
-            // 
-            // dataGridViewCheckBoxColumn5
-            // 
-            this.dataGridViewCheckBoxColumn5.DataPropertyName = "onulipi_prapok";
-            this.dataGridViewCheckBoxColumn5.HeaderText = "অনুলিপি প্রাপক";
-            this.dataGridViewCheckBoxColumn5.Name = "dataGridViewCheckBoxColumn5";
-            this.dataGridViewCheckBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewCheckBoxColumn5.Width = 105;
             // 
             // DakForwardUserControl
             // 
@@ -1386,8 +1403,6 @@
             this.Controls.Add(this.selectedDakListPanel);
             this.Controls.Add(this.HeadingPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(600, 950);
-            this.MinimumSize = new System.Drawing.Size(600, 726);
             this.Name = "DakForwardUserControl";
             this.Load += new System.EventHandler(this.DakForwardUserControl_Load);
             this.TopPanel.ResumeLayout(false);
@@ -1401,6 +1416,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.prapokOwnDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.viewDesignationSealListBindingSource)).EndInit();
             this.otherOfficerTabPage.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
@@ -1425,7 +1441,6 @@
             this.selectedDakListPanel.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.viewDesignationSealListBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
