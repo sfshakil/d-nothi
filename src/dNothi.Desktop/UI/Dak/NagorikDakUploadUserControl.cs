@@ -85,20 +85,20 @@ namespace dNothi.Desktop.UI.Dak
 
                 if(value.gender!="")
                 {
-                    genderSearchButton.searchButtonText = value.gender;
+                    //genderSearchButton.searchButtonText = value.gender;
+                    genderSearchButton1.SelectedItem = value.gender;
                 }
                  if(value.nationality != "")
                 {
-                    searchNationalityUserController1.searchButtonText = value.nationality;
+                    //searchNationalityUserController1.searchButtonText = value.nationality;
+                    searchNationalityUserController.SelectedItem = value.nationality;
                 }
                    if(value.religion != "")
                 {
-                    searchReligionUserController.searchButtonText = value.religion;
+                    //searchReligionUserController.searchButtonText = value.religion;
+                    searchReligionUserController1.SelectedItem = value.religion;
                 }
-                    if(value.religion != "")
-                {
-                    searchReligionUserController.searchButtonText = value.religion;
-                }
+
 
             
                 nameBanglaXTextBox.Text = value.name_bng;
@@ -117,7 +117,8 @@ namespace dNothi.Desktop.UI.Dak
                 if (value.dak_priority_level != "0")
                 {
                     DakPriorityList dakPriority = new DakPriorityList();
-                    prioritySearchButton.searchButtonText = dakPriority.GetDakPriorityName(value.dak_priority_level);
+                    //prioritySearchButton.searchButtonText = dakPriority.GetDakPriorityName(value.dak_priority_level);
+                    prioritySearchButton1.SelectedItem = dakPriority.GetDakPriorityName(value.dak_priority_level);
 
 
 
@@ -127,7 +128,8 @@ namespace dNothi.Desktop.UI.Dak
                 if (value.dak_security_level != "0")
                 {
                     DakSecurityList dakSecurityList = new DakSecurityList();
-                    seurityLevelSearchButton.searchButtonText = dakSecurityList.GetDakSecuritiesName(value.dak_security_level);
+                    //seurityLevelSearchButton.searchButtonText = dakSecurityList.GetDakSecuritiesName(value.dak_security_level);
+                    seurityLevelSearchButton1.SelectedItem = dakSecurityList.GetDakSecuritiesName(value.dak_security_level);
 
 
                 }
@@ -263,14 +265,18 @@ namespace dNothi.Desktop.UI.Dak
             DakAttachmentListinGrid dakAttachmentListinGrid = new DakAttachmentListinGrid();
             _dakAttachmentinGrids = dakAttachmentListinGrid.dakAttachmentinGrids;
             PriorityListCollection.Clear();
-
-
+            originalHeight = dakUploadPanel2.Size.Height;
+            searchNationalityUserController.SelectedIndex = 0;
+            genderSearchButton1.SelectedIndex = 0;
+            searchReligionUserController1.SelectedIndex = 0;
+            prioritySearchButton1.SelectedIndex = 0;
+            seurityLevelSearchButton1.SelectedIndex = 0;
 
             MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
 
 
         }
-
+        private int originalHeight;
         private void AttachmentTable_RadioButtonClick(object sender, EventArgs e, long attachmentId)
         {
             var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
@@ -623,7 +629,12 @@ namespace dNothi.Desktop.UI.Dak
                         dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentId); };
 
 
+                        //attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow);
+
+                        dakUploadAttachmentTableRow.Width = dakUploadAttachmentListTableUserControl2.Width;
                         attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow);
+                        dakUploadPanel2.AutoSize = false;
+                        dakUploadPanel2.Size = new Size(dakUploadPanel2.Size.Width, originalHeight + attachmentListFlowLayoutPanel.Height);
                     }
                 }
 
@@ -656,6 +667,8 @@ namespace dNothi.Desktop.UI.Dak
                         attachmentListFlowLayoutPanel.Controls.Remove(attachment);
                     }
                 }
+                dakUploadPanel2.AutoSize = false;
+                dakUploadPanel2.Size = new Size(dakUploadPanel2.Size.Width, originalHeight + attachmentListFlowLayoutPanel.Height);
             }
 
 
@@ -818,9 +831,12 @@ namespace dNothi.Desktop.UI.Dak
             dak.parmanent_address = permenantAddressXTextBox.Text;
             dak.email = emailXTextBox.Text;
             dak.mobile_no = mobileXTextBox.Text;
-            dak.nationality = searchNationalityUserController1.searchButtonText.ToString();
-            dak.gender = genderSearchButton.searchButtonText.ToString();
-            dak.religion = searchReligionUserController.searchButtonText.ToString();
+            //dak.nationality = searchNationalityUserController1.searchButtonText.ToString();
+            dak.nationality = searchNationalityUserController.SelectedItem.ToString();
+            //dak.gender = genderSearchButton.searchButtonText.ToString();
+            dak.gender = genderSearchButton1.SelectedItem.ToString();
+            //dak.religion = searchReligionUserController.searchButtonText.ToString();
+            dak.religion = searchReligionUserController1.SelectedItem.ToString();
 
 
 
@@ -834,18 +850,22 @@ namespace dNothi.Desktop.UI.Dak
 
 
             DakPriorityList dakPriority = new DakPriorityList();
-            int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.searchButtonText.ToString()));
+            //int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton.searchButtonText.ToString()));
+            int dak_priority_id = Convert.ToInt32(dakPriority.GetDakPrioritiesId(prioritySearchButton1.SelectedItem.ToString()));
 
 
 
 
             DakSecurityList dakSecurityList = new DakSecurityList();
-            int dak_security_id = Convert.ToInt32(dakSecurityList.GetDakSecuritiesId(seurityLevelSearchButton.searchButtonText.ToString()));
+            //int dak_security_id = Convert.ToInt32(dakSecurityList.GetDakSecuritiesId(seurityLevelSearchButton.searchButtonText.ToString()));
+            int dak_security_id = Convert.ToInt32(dakSecurityList.GetDakSecuritiesId(seurityLevelSearchButton1.SelectedItem.ToString()));
 
             dak.priority = dak_priority_id.ToString();
-            dak.dak_priority = prioritySearchButton.ToString();
+            //dak.dak_priority = prioritySearchButton.ToString();
+            dak.dak_priority = prioritySearchButton1.SelectedItem.ToString();
             dak.security = dak_security_id.ToString();
-            dak.dak_security = seurityLevelSearchButton.ToString();
+            //dak.dak_security = seurityLevelSearchButton.ToString();
+            dak.dak_security = seurityLevelSearchButton1.SelectedItem.ToString();
 
 
             dakUploadParameter.dak_info = dakUploadParameter.CSharpObjtoJson(dak);
@@ -916,7 +936,22 @@ namespace dNothi.Desktop.UI.Dak
             dakUploadParameter.designation_id = _dak_List_User_Param.designation_id;
 
         }
+        public void setDataGridViewColumnWidth()
+        {
+            prapokDataGridView.Columns[6].FillWeight = (prapokDataGridView.Width * 50) / 100;
+            prapokDataGridView.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            prapokDataGridView.Columns[6].Width = (prapokDataGridView.Width * 50) / 100;
+            prapokDataGridView.Columns[7].FillWeight = (prapokDataGridView.Width * 20) / 100;
 
+            prapokDataGridView.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            prapokDataGridView.Columns[7].Width = (prapokDataGridView.Width * 20) / 100;
+            prapokDataGridView.Columns[9].FillWeight = (prapokDataGridView.Width * 10) / 100;
+            prapokDataGridView.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            prapokDataGridView.Columns[9].Width = (prapokDataGridView.Width * 10) / 100;
+            prapokDataGridView.Columns[10].FillWeight = (prapokDataGridView.Width * 10) / 100;
+            prapokDataGridView.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            prapokDataGridView.Columns[10].Width = (prapokDataGridView.Width * 10) / 100;
+        }
         public event EventHandler AddDesignationButtonClick;
         private void addDesignationButton_Click(object sender, EventArgs e)
         {

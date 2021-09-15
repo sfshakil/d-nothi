@@ -2458,7 +2458,7 @@ namespace dNothi.Desktop.UI
         }
         void hideform_Shown(object sender, EventArgs e, Form form)
         {
-
+            form.ShowInTaskbar = false;
             form.ShowDialog();
 
             (sender as Form).Hide();
@@ -4567,6 +4567,7 @@ namespace dNothi.Desktop.UI
         public Form NothiNextStepControlToForm(Control control)
         {
             Form form = new Form();
+            form.ShowInTaskbar = false;
             form.StartPosition = FormStartPosition.Manual;
             form.FormBorderStyle = FormBorderStyle.None;
             form.BackColor = Color.White;
