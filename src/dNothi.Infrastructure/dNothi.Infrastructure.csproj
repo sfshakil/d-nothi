@@ -119,6 +119,7 @@
     <Compile Include="Mappings\Khosra\KhosraFileUploadMap.cs" />
     <Compile Include="Mappings\Khosra\KhosraListLocalMap.cs" />
     <Compile Include="Mappings\Khosra\KhosraLocalMap.cs" />
+    <Compile Include="Mappings\Khosra\PermittedPotroLocaMap.cs" />
     <Compile Include="Mappings\NothiEntityTypeConfiguration.cs" />
     <Compile Include="Mappings\Nothi\FileUploadActionMap.cs" />
     <Compile Include="Mappings\Nothi\AllOfficeItemMap.cs" />

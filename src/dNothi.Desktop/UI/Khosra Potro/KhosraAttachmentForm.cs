@@ -158,10 +158,6 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             totalAttachmentAllLabel.Text = "সর্বমোট " + ConversionMethod.EngDigittoBanDigit(total_records.ToString()) + " টি";
             attachmentAllRangeLabel.Text = ConversionMethod.EngDigittoBanDigit(potroAll_StartPage.ToString()) + "-" + ConversionMethod.EngDigittoBanDigit(potroAll_EndPage.ToString());
 
-            
-
-
-
         }
 
         private void SetPaginationText(int total_records, int StartPage, int EndPage)
@@ -220,6 +216,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
 
                 _dakFileUploadParam.path = "Potrojari";
                 _dakFileUploadParam.model = "PotrojariAttachments";
+                _dakFileUploadParam.attachmentType = Path.GetExtension(opnfd.FileName);
 
                 var size = new System.IO.FileInfo(opnfd.FileName).Length;
 
@@ -310,7 +307,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             DakUploadFileDeleteParam deleteParam = new DakUploadFileDeleteParam();
             deleteParam.Id = dakAttachment.id;
             deleteParam.delete_token = dakAttachment.delete_token;
-            //deleteParam.file_name = dakAttachment.file_name;
+            deleteParam.file_name = dakAttachment.file_name;
 
             DakFileDeleteResponse response;
 
