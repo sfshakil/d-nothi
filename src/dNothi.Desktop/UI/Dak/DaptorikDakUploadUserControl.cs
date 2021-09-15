@@ -588,23 +588,78 @@ namespace dNothi.Desktop.UI.Dak
             NijOffice = false;
             PopulateGrid();
         }
+        public Form NothiNextStepControlToForm(Control control)
+        {
+            Form form = new Form();
+            form.Name = "extra";
+            form.ShowInTaskbar = false;
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - control.Width, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            //form.Size = control.Size;
+            form.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            form.Width = control.Width;
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            control.Height = form.Height;
+            form.Controls.Add(control);
+            return form;
+        }
+        private void CalPopUpWindow(Form form)
+        {
+            Form hideform = new Form();
 
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            hideform.Opacity = .4;
+            hideform.ShowInTaskbar = false;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+        void hideform_Shown(object sender, EventArgs e, Form form)
+        {
+            form.ShowInTaskbar = false;
+
+            form.ShowDialog();
+
+            (sender as Form).Hide();
+
+            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
+        }
         private void senderSearchButton_Click(object sender, EventArgs e)
         {
-            senderSortSidePanel.Height = Screen.PrimaryScreen.WorkingArea.Height; //{Width = 1382 Height = 744}
+            //senderSortSidePanel.Height = Screen.PrimaryScreen.WorkingArea.Height; //{Width = 1382 Height = 744}
             //senderSortSidePanel.Width = Screen.PrimaryScreen.WorkingArea.Width; //{Width = 1382 Height = 744}
-            senderSortSidePanel.Location = new Point(this.Width - senderSortSidePanel.Width, 0); 
+            //senderSortSidePanel.Location = new Point(this.Width - senderSortSidePanel.Width, 0); 
             senderSortSidePanel.Visible = true;
-            senderSortSidePanel.Focus();
+            //senderSortSidePanel.Focus();
             
             HoverColorChangeSenderSearchButton();
+            var nothiNoteMovementListform = NothiNextStepControlToForm(senderSortSidePanel);
+            CalPopUpWindow(nothiNoteMovementListform);
         }
 
         private void sliderCrossButton_Click(object sender, EventArgs e)
         {
-            var parent = this.Parent as Form; if (parent != null) { parent.Hide(); }
+            //var parent = this.Parent as Form; if (parent != null) { parent.Hide(); }
             senderSortSidePanel.Visible = false;
             NormalColorSenderSearchButton();
+            List<Form> openForms = new List<Form>();
+
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+
+            foreach (Form f in openForms)
+            {
+                if (f.Name == "extra")
+                    f.Close();
+            }
         }
 
         private void fileUploadButton_Click(object sender, EventArgs e)
@@ -699,7 +754,8 @@ namespace dNothi.Desktop.UI.Dak
                         dakUploadAttachmentTableRow.attachmentId = dakUploadedFileResponse.data[0].attachment_id; ;
                         dakUploadAttachmentTableRow.RadioButtonClick += delegate (object radioSender, EventArgs radioEvent) { AttachmentTable_RadioButtonClick(sender, e, dakUploadAttachmentTableRow.attachmentId); };
 
-
+                        //dakUploadAttachmentTableRow.Dock = DockStyle.Fill;
+                        dakUploadAttachmentTableRow.Width = dakUploadAttachmentListTableUserControl2.Width;
                         attachmentListFlowLayoutPanel.Controls.Add(dakUploadAttachmentTableRow);
                         dakUploadPanel2.AutoSize = false;
                         dakUploadPanel2.Size = new Size(dakUploadPanel2.Size.Width, originalHeight + attachmentListFlowLayoutPanel.Height);
@@ -871,6 +927,17 @@ namespace dNothi.Desktop.UI.Dak
             }
 
             senderSortSidePanel.Visible = false;
+            NormalColorSenderSearchButton();
+            List<Form> openForms = new List<Form>();
+
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+
+            foreach (Form f in openForms)
+            {
+                if (f.Name == "extra")
+                    f.Close();
+            }
         }
 
         private void searchOfficerRightControl_Load(object sender, EventArgs e)
@@ -881,11 +948,35 @@ namespace dNothi.Desktop.UI.Dak
         private void prerokBachaifroOfficeRightButton_Click(object sender, EventArgs e)
         {
             selectedPrerokLabel.Text =searchOfficerRightControl.searchButtonText+","+searchDesignationRightControl.searchButtonText+","+searchUnitRightControl.searchButtonText+","+ searchCascadingOfficeRightControl.searchButtonText;
+            senderSortSidePanel.Visible = false;
+            NormalColorSenderSearchButton();
+            List<Form> openForms = new List<Form>();
+
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+
+            foreach (Form f in openForms)
+            {
+                if (f.Name == "extra")
+                    f.Close();
+            }
         }
 
         private void prerokBachaiOwnRightButton_Click(object sender, EventArgs e)
         {
             selectedPrerokLabel.Text = officerManualEntryXTextBox.Text + "," + designationManualEntryXTextBox.Text + "," + unitAddressManualEntryXTextBox.Text + "," + officeAddressManualEntryXTextBox.Text + ",Mobile:" + mobileAddressManualEntryXTextBox.Text + ", Email:" + emailAddressManualEntryXTextBox.Text;
+            senderSortSidePanel.Visible = false;
+            NormalColorSenderSearchButton();
+            List<Form> openForms = new List<Form>();
+
+            foreach (Form f in Application.OpenForms)
+                openForms.Add(f);
+
+            foreach (Form f in openForms)
+            {
+                if (f.Name == "extra")
+                    f.Close();
+            }
         }
 
         private void dakUploadAttachmentTableRow1_Load(object sender, EventArgs e)

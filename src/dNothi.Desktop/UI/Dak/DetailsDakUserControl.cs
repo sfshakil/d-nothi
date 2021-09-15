@@ -209,6 +209,7 @@ namespace dNothi.Desktop.UI.Dak
                     detailsAttachmentListUserControl.dakAttachmentDTOs = _dakAttachmentResponse.data;
                  
                     detailsAttachmentListUserControl.allattachmentdownloadlink = "";
+                    detailsAttachmentListUserControl.Width = attachmentListFlowLayoutPanel.Parent.Width;
                     attachmentListFlowLayoutPanel.Controls.Add(detailsAttachmentListUserControl);
                 }
                 catch
