@@ -50,8 +50,8 @@ namespace dNothi.Services.DakServices
                 dakAttachmentDTO.file_size_in_kb = dakFileUploadParam.file_size_in_kb;
                 dakAttachmentDTO.user_file_name = dakFileUploadParam.user_file_name;
                 dakAttachmentDTO.content_body = dakFileUploadParam.content;
-                
-                
+                dakAttachmentDTO.attachment_type = dakFileUploadParam.attachmentType;
+
                 if (dakFileUploadParam.model == "PotrojariAttachments")
                 {
                   long id=  SaveLocalKosraAttachmentUpload(dakListUserParam, dakFileUploadParam);

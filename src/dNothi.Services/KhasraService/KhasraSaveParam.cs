@@ -13,6 +13,8 @@ namespace dNothi.Services.KhasraService
         public KhosraSaveParamRecipent recipient { get; set; }
         public List<string> attachment { get; set; }
 
+        public List<KhosraPotroSaveAttachment> attachments { get; set; }
+
     }
 
     public class KhosraSaveParamRecipent

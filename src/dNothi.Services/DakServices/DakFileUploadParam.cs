@@ -13,6 +13,7 @@ namespace dNothi.Services.DakServices
         public string file_size_in_kb { get; set; }
         public string user_file_name { get; set; }
         public string content { get; set; }
+        public string attachmentType { get; set; }
 
       public  DakFileUploadParam()
         {

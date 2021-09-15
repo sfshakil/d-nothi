@@ -1412,6 +1412,7 @@ namespace dNothi.Desktop.UI
         {
             RefreshKhosra();
             label7.Text = UIDesignCommonMethod.copyRightLableText;
+            khoshraBackgroundWorker.RunWorkerAsync();
             khosraTableLayoutPanel.Enabled = false;
             WaitForm = new WaitFormFunc();
             WaitForm.Show();
@@ -1583,9 +1584,64 @@ namespace dNothi.Desktop.UI
             //{
             //    _isTinyMceEditorLoaded = false;
             //}
-        }
+            if (InternetConnection.Check())
+            {
 
-        private void khoshraBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+                syncerServices.SyncLocaltoRemoteData();
+                if (onlineStatus.IconColor != Color.LimeGreen)
+                {
+
+
+
+                    if (IsHandleCreated)
+                    {
+                        onlineStatus.Invoke(new MethodInvoker(delegate
+
+                        {
+                            onlineStatus.IconColor = Color.LimeGreen;
+                            toolTip1.SetToolTip(onlineStatus, "Online");
+
+                        }));
+                    }
+                    else
+                    {
+
+                    }
+
+
+
+
+                    //khoshraBackgroundWorker.RunWorkerAsync();
+                }
+
+
+
+
+
+            }
+            else
+            {
+                if (IsHandleCreated)
+                {
+                    onlineStatus.Invoke(new MethodInvoker(delegate
+
+                    {
+                        onlineStatus.IconColor = Color.Silver;
+                        toolTip1.SetToolTip(onlineStatus, "Offline");
+
+                    }));
+                }
+                else
+                {
+
+                }
+
+
+
+            }
+
+        }
+       private void khoshraBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
             if (tinyMceEditor.IsAccessible)
@@ -1675,10 +1731,6 @@ namespace dNothi.Desktop.UI
             });
 
         }
-
-
-        
-        
 
         private async void LoadTime(DateTime now)
         {
@@ -1866,7 +1918,8 @@ namespace dNothi.Desktop.UI
 
                 DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
                 KhosraSaveParamPotro khosraSaveParamPotro = new KhosraSaveParamPotro();
-                khosraSaveParamPotro.attachment = GetSelectedAttachment();
+                khosraSaveParamPotro.attachments = GetSelectedAttachment();
+                khosraSaveParamPotro.attachment = GetSelectedAttachmenJson();
                 khosraSaveParamPotro.potrojari = new KhasraSaveParamPotrojari();
                 khosraSaveParamPotro.potrojari.potro_type = _khasraPotroTemplateData.template_id;
                 if (draft_id != 0)
@@ -2037,9 +2090,10 @@ namespace dNothi.Desktop.UI
 
         }
 
-        private List<string> GetSelectedAttachment()
+        private List<KhosraPotroSaveAttachment> GetSelectedAttachment()
         {
             List<string> attachments = new List<string>();
+            List<KhosraPotroSaveAttachment> khosraPotroSaveAttachmentlist = new List<KhosraPotroSaveAttachment>();
 
             var khosraSelectedAttachmentRows = selectedAttachmentTableLayoutPanel.Controls.OfType<KhosraSelectedAttachmentRow>().Where(a => a.isDeleted == false).ToList();
             if (khosraSelectedAttachmentRows != null && khosraSelectedAttachmentRows.Count > 0)
@@ -2051,8 +2105,9 @@ namespace dNothi.Desktop.UI
 
                     if (attachment._permittedPotroResponseMulpotroDTO.nothi_potro_id == 0)
                     {
-                        attachments.Add(ConversionMethod.ObjecttoJson(new { id = attachment._permittedPotroResponseMulpotroDTO.id, user_file_name = attachment._permittedPotroResponseMulpotroDTO.user_file_name }));
-
+                         attachments.Add(ConversionMethod.ObjecttoJson(new { id = attachment._permittedPotroResponseMulpotroDTO.id, user_file_name = attachment._permittedPotroResponseMulpotroDTO.user_file_name }));
+                        khosraPotroSaveAttachment.id = attachment._permittedPotroResponseMulpotroDTO.id;
+                        khosraPotroSaveAttachment.user_file_name = attachment._permittedPotroResponseMulpotroDTO.user_file_name;
                     }
                     else
                     {
@@ -2060,12 +2115,45 @@ namespace dNothi.Desktop.UI
 
                         //  khosraPotroSaveAttachment.nothi_potro_attachment_id = attachment._permittedPotroResponseMulpotroDTO.id;
                         //  khosraPotroSaveAttachment.nothi_potro_id = attachment._permittedPotroResponseMulpotroDTO.nothi_potro_id;
+                        khosraPotroSaveAttachment.nothi_potro_attachment_id = attachment._permittedPotroResponseMulpotroDTO.id;
+                        khosraPotroSaveAttachment.nothi_potro_id = attachment._permittedPotroResponseMulpotroDTO.nothi_potro_id;
+                        khosraPotroSaveAttachment.user_file_name = attachment._permittedPotroResponseMulpotroDTO.user_file_name;
 
                     }
 
                     // khosraPotroSaveAttachment.user_file_name = attachment._permittedPotroResponseMulpotroDTO.user_file_name;
 
                     //  attachments.Add(khosraPotroSaveAttachment);
+                    khosraPotroSaveAttachmentlist.Add(khosraPotroSaveAttachment);
+                }
+
+            }
+            return khosraPotroSaveAttachmentlist;
+        }
+
+        private List<string> GetSelectedAttachmenJson()
+        {
+            List<string> attachments = new List<string>();
+          
+            var khosraSelectedAttachmentRows = selectedAttachmentTableLayoutPanel.Controls.OfType<KhosraSelectedAttachmentRow>().Where(a => a.isDeleted == false).ToList();
+            if (khosraSelectedAttachmentRows != null && khosraSelectedAttachmentRows.Count > 0)
+            {
+
+                foreach (var attachment in khosraSelectedAttachmentRows)
+                {
+                    
+                    if (attachment._permittedPotroResponseMulpotroDTO.nothi_potro_id == 0)
+                    {
+                        attachments.Add(ConversionMethod.ObjecttoJson(new { id = attachment._permittedPotroResponseMulpotroDTO.id, user_file_name = attachment._permittedPotroResponseMulpotroDTO.user_file_name }));
+                      
+                    }
+                    else
+                    {
+                        attachments.Add(ConversionMethod.ObjecttoJson(new { nothi_potro_attachment_id = attachment._permittedPotroResponseMulpotroDTO.id, nothi_potro_id = attachment._permittedPotroResponseMulpotroDTO.nothi_potro_id, user_file_name = attachment._permittedPotroResponseMulpotroDTO.user_file_name }));
+
+                    }
+
+                  
                 }
 
             }
@@ -2558,5 +2646,8 @@ namespace dNothi.Desktop.UI
         {
 
         }
+
+       
+       
     }
 }

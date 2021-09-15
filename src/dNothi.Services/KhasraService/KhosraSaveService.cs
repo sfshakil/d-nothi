@@ -1,7 +1,9 @@
 ﻿using dNothi.Constants;
 using dNothi.Core.Entities;
+using dNothi.Core.Entities.Khosra;
 using dNothi.Core.Interfaces;
 using dNothi.JsonParser;
+using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Khosra;
 using dNothi.Services.DakServices;
 using dNothi.Utility;
@@ -19,10 +21,12 @@ namespace dNothi.Services.KhasraService
   public  class KhosraSaveService:IKhosraSaveService
     {
         IRepository<KhosraLocal> _localKhosraLocalRepository;
-       
-        public KhosraSaveService(IRepository<KhosraLocal> localKhosraLocalRepository)
+        IRepository<KhosraFileUpload> _localKhosraFileUploadRepository;
+
+        public KhosraSaveService(IRepository<KhosraLocal> localKhosraLocalRepository, IRepository<KhosraFileUpload> localKhosraFileUploadRepository)
         {
             _localKhosraLocalRepository = localKhosraLocalRepository;
+            _localKhosraFileUploadRepository = localKhosraFileUploadRepository;
         }
 
         public GetSarokNoResponse GetSharokNoResponse(DakUserParam dakUserParameter, int nothiid, int potrojariid)
@@ -70,7 +74,7 @@ namespace dNothi.Services.KhasraService
                 {
                     if (potro.recipient.receiver.Count > 0)
                     {
-                        return SaveLocalKhosra(cdesk, potroRequestJson);
+                        return SaveLocalKhosra(cdesk, potroRequestJson, potro);
                     }
                     else
                     {
@@ -83,7 +87,9 @@ namespace dNothi.Services.KhasraService
                 }
                 
             }
-           return KhosraSave(dakUserParameter, cdesk, potroRequestJson);
+
+        
+            return KhosraSave(dakUserParameter, cdesk, potroRequestJson);
        
         }
         private KhosraSaveResponse KhosraSave(DakUserParam dakUserParameter,string cdesk,string potroRequestJson)
@@ -116,7 +122,7 @@ namespace dNothi.Services.KhasraService
                 return khasraPotroSaveResponse;
             }
         }
-        private KhosraSaveResponse SaveLocalKhosra(string cdesk,string potro)
+        private KhosraSaveResponse SaveLocalKhosra(string cdesk,string potro, KhosraSaveParamPotro potroParam)
         {
              
             KhosraLocal localKhosraLocal = new KhosraLocal
@@ -128,6 +134,26 @@ namespace dNothi.Services.KhasraService
 
             };
             _localKhosraLocalRepository.Insert(localKhosraLocal);
+            long maxId = _localKhosraLocalRepository.Table.Max(x=>x.Id);
+            if (potroParam.attachment.Count > 0)
+            {
+                foreach (var item in potroParam.attachments)
+                {
+                    if (item.nothi_potro_attachment_id > 0)
+                    {
+                    }
+                    else {
+
+                          var uploadedData=   _localKhosraFileUploadRepository.Table.Where(x => x.Id == item.id).FirstOrDefault();
+                        if(uploadedData!=null)
+                        {
+                            uploadedData.KhosraId = maxId;
+                            _localKhosraFileUploadRepository.Update(uploadedData);
+                        }
+                       }
+                }
+            }
+
            return new KhosraSaveResponse { status = "success", data="খসড়া সংরক্ষণ সফল হয়েছে।" };
 
         }
@@ -136,20 +162,93 @@ namespace dNothi.Services.KhasraService
         {
             bool success = false;
             var localKosraInsertDelete = _localKhosraLocalRepository.Table.ToList();
-          
+           
             foreach (var item in localKosraInsertDelete)
             {
-                var returnData=  KhosraSave(userParam, item.cdesk, item.potro);
+                   string potro   = GetAttachment( userParam, item);
 
+                   var returnData=  KhosraSave(userParam, item.cdesk, potro);
                    if (returnData.status == "success")
                     {
-                    success = true;
+                        success = true;
                        _localKhosraLocalRepository.Delete(item);
                     }
                    
             }
 
             return success;
+        }
+        private string GetAttachment(DakUserParam userParam,KhosraLocal khosraLocal)
+        {
+            List<string> attachments = new List<string>();
+            var potroData= JsonConvert.DeserializeObject<KhosraSaveParamPotro>(khosraLocal.potro);
+            
+            var khosraAttachment = _localKhosraFileUploadRepository.Table.Where(x => x.KhosraId == khosraLocal.Id).ToList();
+            if (potroData.attachments.Count > 0)
+            {
+                foreach (var item in khosraAttachment)
+                {
+                    DakFileUploadParam fileUploadParam = new DakFileUploadParam
+                    {
+                        content = item.content,
+                        file_size_in_kb = item.file_size_in_kb,
+                        model = item.model,
+                        path = item.path,
+                        user_file_name = item.user_file_name
+                    };
+                    var uploadedFileResponse = GetDakUploadedFile(userParam, fileUploadParam);
+                    attachments.Add(ConversionMethod.ObjecttoJson(new { id = uploadedFileResponse.data[0].id, user_file_name = uploadedFileResponse.data[0].user_file_name }));
+                    _localKhosraFileUploadRepository.Delete(item);
+                }
+                foreach (var item in potroData.attachments)
+                {
+                    if (item.nothi_potro_id > 0)
+                    {
+
+                        attachments.Add(ConversionMethod.ObjecttoJson(new { nothi_potro_attachment_id = item.id, nothi_potro_id = item.nothi_potro_id, user_file_name = item.user_file_name }));
+
+                    }
+                }
+                potroData.attachment = attachments;
+            }
+            string potroRequestJson = JsonParsingMethod.ObjecttoJson(potroData);
+            return potroRequestJson;
+        }
+        private DakUploadedFileResponse GetDakUploadedFile(DakUserParam dakListUserParam, DakFileUploadParam dakFileUploadParam)
+        {
+            DakUploadedFileResponse dakUploadedFileResponse = new DakUploadedFileResponse();
+       
+            try
+            {
+                var dakFileUploadApi = new RestClient(GetAPIDomain() + DefaultAPIConfiguration.DakFileUploadEndPoint);
+                dakFileUploadApi.Timeout = -1;
+                var dakFileUploadRequest = new RestRequest(Method.POST);
+                dakFileUploadRequest.AddHeader("api-version", GetAPIVersion());
+                dakFileUploadRequest.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+
+                dakFileUploadRequest.AlwaysMultipartFormData = true;
+                dakFileUploadRequest.AddParameter("designation_id", dakListUserParam.designation_id);
+                dakFileUploadRequest.AddParameter("office_id", dakListUserParam.office_id);
+                dakFileUploadRequest.AddParameter("path", dakFileUploadParam.path);
+                dakFileUploadRequest.AddParameter("file_size_in_kb", dakFileUploadParam.file_size_in_kb);
+                dakFileUploadRequest.AddParameter("user_file_name", dakFileUploadParam.user_file_name);
+                dakFileUploadRequest.AddParameter("content", dakFileUploadParam.content);
+              
+                dakFileUploadRequest.AddParameter("model", dakFileUploadParam.model);
+               
+                IRestResponse dakFileUploadResponse = dakFileUploadApi.Execute(dakFileUploadRequest);
+
+
+                var dakFileUploadResponseJson = dakFileUploadResponse.Content;
+                dakUploadedFileResponse = JsonConvert.DeserializeObject<DakUploadedFileResponse>(dakFileUploadResponseJson);
+                return dakUploadedFileResponse;
+            }
+            catch (Exception ex)
+            {
+
+
+                return dakUploadedFileResponse;
+            }
         }
         protected string GetAPIVersion()
         {
