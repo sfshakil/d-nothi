@@ -150,12 +150,10 @@ namespace dNothi.Desktop.UI.Dak
         private void CalPopUpWindow(Form form)
         {
             Form hideform = new Form();
-            Screen scr = Screen.FromPoint(this.Location);
-
             hideform.BackColor = Color.Black;
-            hideform.Width = scr.WorkingArea.Width;
-            hideform.Height = scr.WorkingArea.Height;
-            hideform.Opacity = .6;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            hideform.Opacity = .4;
+            hideform.ShowInTaskbar = false;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;
@@ -165,7 +163,9 @@ namespace dNothi.Desktop.UI.Dak
 
         void hideform_Shown(object sender, EventArgs e, Form form)
         {
-
+            form.ShowInTaskbar = false;
+            form.TopMost = true;
+            form.TopMost = false;
             form.ShowDialog();
 
             (sender as Form).Hide();
@@ -263,7 +263,8 @@ namespace dNothi.Desktop.UI.Dak
             attachmentViewPopUpForm.dakAttachmentDTOs = _dakAttachmentDTOs;
             attachmentViewPopUpForm.PreviousButton += delegate (object os, EventArgs ev) { Previous(_dakAttachmentDTO, _dakAttachmentDTOs); };
             attachmentViewPopUpForm.NextButton += delegate (object os, EventArgs ev) { Next(_dakAttachmentDTO, _dakAttachmentDTOs); };
-
+            attachmentViewPopUpForm.AutoSize = false;
+            attachmentViewPopUpForm.StartPosition = FormStartPosition.CenterScreen;
             CalPopUpWindow(attachmentViewPopUpForm);
         }
 

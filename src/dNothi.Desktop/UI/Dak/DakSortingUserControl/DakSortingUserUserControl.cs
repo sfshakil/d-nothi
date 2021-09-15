@@ -158,13 +158,15 @@ namespace dNothi.Desktop.UI.Dak
                     DakPriorityList dakPriorityList = new DakPriorityList();
                     string priorityName = dakPriorityList.GetDakPriorityName(draftedDecision.priority);
 
-                    if (priorityName == "")
+                    if (priorityName == "" || priorityName == "বাছাই করুন")
                     {
+                            label7.Visible = false;
                          dakPriorityIconPanel.Visible = false;
                     }
                     else
                     {
-                        dakPriorityIconPanel.Visible = true;
+                            label7.Visible = true;
+                            dakPriorityIconPanel.Visible = true;
                         prioriyLabel.Text = priorityName;
 
                     }
@@ -180,13 +182,15 @@ namespace dNothi.Desktop.UI.Dak
 
                     dakSecurityIcon.BackgroundImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(icon);
 
-                    if (Name == "")
+                    if (Name == "" )
                     {
+                            label9.Visible = false;
                         dakSecurityIconPanel.Visible = false;
                     }
                     else
                     {
-                        dakSecurityIconPanel.Visible = true;
+                            label9.Visible = true;
+                            dakSecurityIconPanel.Visible = true;
                         dakSecurityLabel.Text = Name;
                     }
 

@@ -1329,9 +1329,9 @@ namespace dNothi.Desktop.UI
                     dakAttachmentViewForm.subject = dak_subject;
 
                     dakAttachmentViewForm.dakAttachmentResponse = dakAttachmentResponse;
+                    dakAttachmentViewForm.Height = Screen.PrimaryScreen.WorkingArea.Height;
 
-
-                    CalPopUpWindow(dakAttachmentViewForm);
+                    CalPopUp1Window(dakAttachmentViewForm);
 
                 }
             }
@@ -3955,7 +3955,8 @@ namespace dNothi.Desktop.UI
                 dakFolderForm.folderListDataDTO = folderListResponse.data;
             }
             dakFolderForm.ShowDakListButton += delegate (object showDakListButton, EventArgs showDakListEvent) { ShowDakList_ButtonClick(showDakListButton, showDakListEvent, dakFolderForm._selectedFolderId, dakFolderForm._selectedFolderName); };
-
+            dakFolderForm.AutoSize = false;
+            dakFolderForm.Height = Screen.PrimaryScreen.WorkingArea.Height;
             CalPopUpWindow(dakFolderForm);
 
 
@@ -4496,7 +4497,9 @@ namespace dNothi.Desktop.UI
         }
         void hideform_Shown(object sender, EventArgs e, Form form)
         {
-
+            form.ShowInTaskbar = false;
+            form.TopMost = true;
+            form.TopMost = false;
             form.ShowDialog();
 
             (sender as Form).Hide();
@@ -4596,8 +4599,9 @@ namespace dNothi.Desktop.UI
 
 
             hideform.BackColor = Color.Black;
-            hideform.Size = this.Size;
-            hideform.Opacity = .6;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            hideform.Opacity = .4;
+            hideform.ShowInTaskbar = false;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;

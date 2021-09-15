@@ -103,7 +103,7 @@ namespace dNothi.Desktop.UI.Dak
             this.singleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
             this.singleDakHeaderLabel.Location = new System.Drawing.Point(0, 25);
             this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
-            this.singleDakHeaderLabel.Size = new System.Drawing.Size(137, 21);
+            this.singleDakHeaderLabel.Size = new System.Drawing.Size(203, 30);
             this.singleDakHeaderLabel.TabIndex = 28;
             this.singleDakHeaderLabel.Text = "ব্যক্তিগত ফোল্ডারসমূহ";
             // 
@@ -137,7 +137,7 @@ namespace dNothi.Desktop.UI.Dak
             this.label1.Location = new System.Drawing.Point(23, 115);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 18);
+            this.label1.Size = new System.Drawing.Size(322, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "আপনি মোট (0) টি ফোল্ডার খুজে পেয়েছেন";
             // 
@@ -160,7 +160,7 @@ namespace dNothi.Desktop.UI.Dak
             this.searchTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchTextBox.Location = new System.Drawing.Point(8, 10);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(487, 19);
+            this.searchTextBox.Size = new System.Drawing.Size(487, 27);
             this.searchTextBox.TabIndex = 0;
             this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
@@ -172,13 +172,13 @@ namespace dNothi.Desktop.UI.Dak
             this.bodyTableLayoutPanel.Controls.Add(this.actionTableLayoutPanel, 0, 0);
             this.bodyTableLayoutPanel.Controls.Add(this.personalFolderTreeView, 0, 1);
             this.bodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bodyTableLayoutPanel.Location = new System.Drawing.Point(23, 146);
+            this.bodyTableLayoutPanel.Location = new System.Drawing.Point(23, 154);
             this.bodyTableLayoutPanel.Name = "bodyTableLayoutPanel";
             this.bodyTableLayoutPanel.Padding = new System.Windows.Forms.Padding(1);
             this.bodyTableLayoutPanel.RowCount = 2;
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 449F));
-            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(504, 527);
+            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(504, 519);
             this.bodyTableLayoutPanel.TabIndex = 40;
             this.bodyTableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.BlueBorder);
             // 
@@ -201,7 +201,7 @@ namespace dNothi.Desktop.UI.Dak
             this.actionTableLayoutPanel.Name = "actionTableLayoutPanel";
             this.actionTableLayoutPanel.RowCount = 1;
             this.actionTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.actionTableLayoutPanel.Size = new System.Drawing.Size(502, 38);
+            this.actionTableLayoutPanel.Size = new System.Drawing.Size(502, 44);
             this.actionTableLayoutPanel.TabIndex = 0;
             // 
             // dakListButton
@@ -216,11 +216,11 @@ namespace dNothi.Desktop.UI.Dak
             this.dakListButton.IconColor = System.Drawing.Color.White;
             this.dakListButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.dakListButton.IconSize = 24;
-            this.dakListButton.Location = new System.Drawing.Point(283, 0);
+            this.dakListButton.Location = new System.Drawing.Point(354, 0);
             this.dakListButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakListButton.Name = "dakListButton";
             this.dakListButton.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.dakListButton.Size = new System.Drawing.Size(116, 38);
+            this.dakListButton.Size = new System.Drawing.Size(152, 44);
             this.dakListButton.TabIndex = 3;
             this.dakListButton.Text = "ডাক তালিকা";
             this.dakListButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -240,11 +240,11 @@ namespace dNothi.Desktop.UI.Dak
             this.deleteButton.IconColor = System.Drawing.Color.White;
             this.deleteButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.deleteButton.IconSize = 24;
-            this.deleteButton.Location = new System.Drawing.Point(175, 0);
+            this.deleteButton.Location = new System.Drawing.Point(218, 0);
             this.deleteButton.Margin = new System.Windows.Forms.Padding(0);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.deleteButton.Size = new System.Drawing.Size(108, 38);
+            this.deleteButton.Size = new System.Drawing.Size(136, 44);
             this.deleteButton.TabIndex = 2;
             this.deleteButton.Text = "মুছে ফেলুন";
             this.deleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -264,11 +264,11 @@ namespace dNothi.Desktop.UI.Dak
             this.editButton.IconColor = System.Drawing.Color.White;
             this.editButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.editButton.IconSize = 24;
-            this.editButton.Location = new System.Drawing.Point(79, 0);
+            this.editButton.Location = new System.Drawing.Point(95, 0);
             this.editButton.Margin = new System.Windows.Forms.Padding(0);
             this.editButton.Name = "editButton";
             this.editButton.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.editButton.Size = new System.Drawing.Size(96, 38);
+            this.editButton.Size = new System.Drawing.Size(123, 44);
             this.editButton.TabIndex = 1;
             this.editButton.Text = "সংশোধন";
             this.editButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -292,7 +292,7 @@ namespace dNothi.Desktop.UI.Dak
             this.addButton.Margin = new System.Windows.Forms.Padding(0);
             this.addButton.Name = "addButton";
             this.addButton.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.addButton.Size = new System.Drawing.Size(79, 38);
+            this.addButton.Size = new System.Drawing.Size(95, 44);
             this.addButton.TabIndex = 0;
             this.addButton.Text = " নতুন";
             this.addButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -308,7 +308,7 @@ namespace dNothi.Desktop.UI.Dak
             this.personalFolderTreeView.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(92)))), ((int)(((byte)(110)))));
             this.personalFolderTreeView.ImageIndex = 0;
             this.personalFolderTreeView.ImageList = this.MyImageList;
-            this.personalFolderTreeView.Location = new System.Drawing.Point(6, 54);
+            this.personalFolderTreeView.Location = new System.Drawing.Point(6, 60);
             this.personalFolderTreeView.Margin = new System.Windows.Forms.Padding(5);
             this.personalFolderTreeView.Name = "personalFolderTreeView";
             treeNode1.Name = "privateNode";
@@ -317,7 +317,7 @@ namespace dNothi.Desktop.UI.Dak
             this.personalFolderTreeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1});
             this.personalFolderTreeView.SelectedImageIndex = 0;
-            this.personalFolderTreeView.Size = new System.Drawing.Size(492, 467);
+            this.personalFolderTreeView.Size = new System.Drawing.Size(492, 453);
             this.personalFolderTreeView.TabIndex = 1;
             this.personalFolderTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.personalFolderTreeView_AfterSelect);
             this.personalFolderTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.personalFolderTreeView_NodeMouseClick);
@@ -350,6 +350,7 @@ namespace dNothi.Desktop.UI.Dak
             this.dataGridViewImageColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewImageColumn2.HeaderText = "+";
             this.dataGridViewImageColumn2.Image = global::dNothi.Desktop.Properties.Resources.delete;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.Width = 23;
@@ -362,8 +363,6 @@ namespace dNothi.Desktop.UI.Dak
             this.ClientSize = new System.Drawing.Size(550, 726);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(550, 726);
-            this.MinimumSize = new System.Drawing.Size(550, 726);
             this.Name = "DakFolderForm";
             this.Load += new System.EventHandler(this.DakFolderForm_Load);
             this.HeadingPanel.ResumeLayout(false);

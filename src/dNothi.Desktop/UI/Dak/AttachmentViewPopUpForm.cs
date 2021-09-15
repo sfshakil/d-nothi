@@ -239,10 +239,12 @@ namespace dNothi.Desktop.UI.Dak
         private void rightArrowButton_Click(object sender, EventArgs e)
         {
             this.Controls.Clear();
-            this.InitializeComponent();
             
+            this.InitializeComponent();
+            this.AutoSize = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
             //WaitForm.Show(this);
-           // waitPictureBox.Visible = true;
+            // waitPictureBox.Visible = true;
 
             if (_dakAttachmentDTOs != null)
             {
@@ -299,6 +301,8 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.Controls.Clear();
             InitializeComponent();
+            this.AutoSize = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
             //WaitForm = new WaitFormFunc();
             // WaitForm.Show(this);
             waitPictureBox.Visible = true;
