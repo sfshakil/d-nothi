@@ -88,7 +88,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
 
             }
         }
-        public int id { get { return _id; } set { _id = value;label1.Text =value.ToString();  } }
+        public int id { get { return _id; } set { _id = value;label1.Text =ConversionMethod.EnglishNumberToBangla( value.ToString());  } }
 
         public string _typeNo
         {

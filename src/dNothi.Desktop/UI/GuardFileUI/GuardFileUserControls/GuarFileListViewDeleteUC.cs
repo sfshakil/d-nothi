@@ -79,8 +79,8 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             {
 
 
-                gdftype gd = new gdftype();
-                gd.type = typeNameLabel.Text;
+                //gdftype gd = new gdftype();
+                //gd.type = typeNameLabel.Text;
 
                 //if (decisionCheckBox.Checked)
                 //{
@@ -91,7 +91,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 //    dakDecision.dak_decision_employee = 0;
                 //}
 
-                gd.rowNo = _id.ToString();
+               // gd.rowNo = _id.ToString();
                 var status = true;
 
                 //DakUserParam dakUserParam = _userService.GetLocalDakUserParam();

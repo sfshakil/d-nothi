@@ -782,9 +782,6 @@ namespace dNothi.Desktop.UI
         public bool InternetConnectionTemp;
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-
-
-
             if (InternetConnection.Check())
             {
 
@@ -840,12 +837,6 @@ namespace dNothi.Desktop.UI
 
 
             }
-
-
-
-
-
-
         }
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {

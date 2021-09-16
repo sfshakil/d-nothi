@@ -1954,7 +1954,7 @@ namespace dNothi.Desktop.UI
                         GetSarokNoResponse sarok_no = _khosraSaveService.GetSharokNoResponse(dakUserParam, Convert.ToInt32(_noteSelected.nothi_id), potrojari_id);
                         khosraSaveParamPotro.potrojari.sarok_no = sarok_no.sarok_no;
                     }
-
+                    khosraSaveParamPotro.potrojari.SarokNo_potrojariId = potrojari_id;
                     khosraSaveParamPotro.potrojari.nothi_note_id = Convert.ToInt32(_noteSelected.note_id);
 
                     _currentHtmlString = SetSharokNoinHtml(khosraSaveParamPotro.potrojari.sarok_no, _currentHtmlString);

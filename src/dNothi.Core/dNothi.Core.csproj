@@ -88,6 +88,7 @@
     <Compile Include="Entities\Khosra\KhosraFileUpload.cs" />
     <Compile Include="Entities\Khosra\KhosraListLocal.cs" />
     <Compile Include="Entities\Khosra\KhosraLocal.cs" />
+    <Compile Include="Entities\Khosra\SarokNoLocal.cs" />
     <Compile Include="Entities\Khosra\PermittedPotroLocal.cs" />
     <Compile Include="Entities\SettingsList.cs" />
     <Compile Include="Entities\NoteList.cs" />
