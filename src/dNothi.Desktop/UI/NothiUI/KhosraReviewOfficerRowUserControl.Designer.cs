@@ -33,9 +33,9 @@
             this.designationLabel = new System.Windows.Forms.Label();
             this.officerNameLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.permissionComboBox = new System.Windows.Forms.ComboBox();
             this.permissionPanel = new System.Windows.Forms.Panel();
+            this.permissionComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.permissionPanel.SuspendLayout();
             this.SuspendLayout();
@@ -43,19 +43,21 @@
             // deleteButton
             // 
             this.deleteButton.AutoSize = true;
+            this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.deleteButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.deleteButton.FlatAppearance.BorderSize = 0;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteButton.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.deleteButton.IconColor = System.Drawing.Color.Red;
+            this.deleteButton.IconColor = System.Drawing.Color.White;
             this.deleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.deleteButton.IconSize = 24;
-            this.deleteButton.Location = new System.Drawing.Point(685, 3);
-            this.deleteButton.MaximumSize = new System.Drawing.Size(30, 28);
+            this.deleteButton.Location = new System.Drawing.Point(917, 0);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(0);
+            this.deleteButton.MaximumSize = new System.Drawing.Size(40, 34);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(30, 28);
+            this.deleteButton.Size = new System.Drawing.Size(40, 34);
             this.deleteButton.TabIndex = 33;
-            this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // officeUnitLabel
@@ -68,8 +70,8 @@
             this.officeUnitLabel.Location = new System.Drawing.Point(0, 34);
             this.officeUnitLabel.Margin = new System.Windows.Forms.Padding(0);
             this.officeUnitLabel.Name = "officeUnitLabel";
-            this.officeUnitLabel.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.officeUnitLabel.Size = new System.Drawing.Size(573, 22);
+            this.officeUnitLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.officeUnitLabel.Size = new System.Drawing.Size(780, 31);
             this.officeUnitLabel.TabIndex = 32;
             this.officeUnitLabel.Text = "প্রকল্প পরিচালকের দপ্তর এসপায়ার টু ইনোভেট (এটুআই) ";
             // 
@@ -79,11 +81,11 @@
             this.designationLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.designationLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(128)))), ((int)(((byte)(140)))));
-            this.designationLabel.Location = new System.Drawing.Point(193, 0);
+            this.designationLabel.Location = new System.Drawing.Point(301, 0);
             this.designationLabel.Margin = new System.Windows.Forms.Padding(0);
             this.designationLabel.Name = "designationLabel";
-            this.designationLabel.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.designationLabel.Size = new System.Drawing.Size(380, 34);
+            this.designationLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.designationLabel.Size = new System.Drawing.Size(479, 34);
             this.designationLabel.TabIndex = 31;
             this.designationLabel.Text = "(প্রকল্প পরিচালক (অতিরিক্ত সচিব))";
             // 
@@ -96,7 +98,7 @@
             this.officerNameLabel.Location = new System.Drawing.Point(0, 0);
             this.officerNameLabel.Margin = new System.Windows.Forms.Padding(0);
             this.officerNameLabel.Name = "officerNameLabel";
-            this.officerNameLabel.Size = new System.Drawing.Size(193, 34);
+            this.officerNameLabel.Size = new System.Drawing.Size(301, 34);
             this.officerNameLabel.TabIndex = 30;
             this.officerNameLabel.Text = "ড. মোঃ আব্দুল মান্নান. পিএএ";
             // 
@@ -108,29 +110,34 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.Controls.Add(this.permissionPanel, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.designationLabel, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.officeUnitLabel, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.deleteButton, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.officerNameLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.permissionPanel, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(718, 56);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(957, 65);
             this.tableLayoutPanel1.TabIndex = 33;
             // 
-            // label1
+            // permissionPanel
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(0, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(718, 1);
-            this.label1.TabIndex = 34;
+            this.permissionPanel.Controls.Add(this.permissionComboBox);
+            this.permissionPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.permissionPanel.Location = new System.Drawing.Point(780, 0);
+            this.permissionPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.permissionPanel.Name = "permissionPanel";
+            this.permissionPanel.Padding = new System.Windows.Forms.Padding(1);
+            this.tableLayoutPanel1.SetRowSpan(this.permissionPanel, 2);
+            this.permissionPanel.Size = new System.Drawing.Size(137, 65);
+            this.permissionPanel.TabIndex = 93;
+            this.permissionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.permissionPanel_Paint);
             // 
             // permissionComboBox
             // 
@@ -140,32 +147,33 @@
             this.permissionComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.permissionComboBox.FormattingEnabled = true;
             this.permissionComboBox.IntegralHeight = false;
-            this.permissionComboBox.Location = new System.Drawing.Point(0, 0);
+            this.permissionComboBox.Location = new System.Drawing.Point(1, 1);
+            this.permissionComboBox.Margin = new System.Windows.Forms.Padding(0);
             this.permissionComboBox.Name = "permissionComboBox";
-            this.permissionComboBox.Size = new System.Drawing.Size(103, 26);
+            this.permissionComboBox.Size = new System.Drawing.Size(135, 34);
             this.permissionComboBox.TabIndex = 92;
+            this.permissionComboBox.SelectedIndexChanged += new System.EventHandler(this.permissionComboBox_SelectedIndexChanged);
             // 
-            // permissionPanel
+            // label1
             // 
-            this.permissionPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.permissionPanel.Controls.Add(this.permissionComboBox);
-            this.permissionPanel.Location = new System.Drawing.Point(576, 14);
-            this.permissionPanel.Name = "permissionPanel";
-            this.tableLayoutPanel1.SetRowSpan(this.permissionPanel, 2);
-            this.permissionPanel.Size = new System.Drawing.Size(103, 28);
-            this.permissionPanel.TabIndex = 93;
-            this.permissionPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.permissionPanel_Paint);
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Location = new System.Drawing.Point(0, 79);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(957, 1);
+            this.label1.TabIndex = 34;
             // 
             // KhosraReviewOfficerRowUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "KhosraReviewOfficerRowUserControl";
-            this.Size = new System.Drawing.Size(718, 62);
+            this.Size = new System.Drawing.Size(957, 80);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.permissionPanel.ResumeLayout(false);

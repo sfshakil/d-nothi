@@ -40,4 +40,27 @@ namespace dNothi.JsonParser.Entity.Nothi
         public string designation_level { get; set; }
         public string designation_sequence { get; set; }
     }
+    public class NothiSharedData
+    {
+        public List<object> data { get; set; }
+    }
+
+    public class NothiSharedOffDTO
+    {
+        public string status { get; set; }
+        public NothiSharedData data { get; set; }
+        public List<object> options { get; set; }
+    }
+    public class NothiSharedSaveData
+    {
+        public int data { get; set; }
+    }
+
+    public class NothiSharedSaveDTO
+    {
+        public string status { get; set; }
+        public NothiSharedSaveData data { get; set; }
+        public List<object> options { get; set; }
+    }
+
 }

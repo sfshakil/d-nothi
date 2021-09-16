@@ -11,5 +11,7 @@ namespace dNothi.Services.NothiServices
     public interface INothiReviewerServices
     {
         NothiReviewerDTO GetNothiReviewer(DakUserParam dakuserparam, long nothi_shared_id);
+        NothiSharedOffDTO GetNothiSharedOff(DakUserParam dakuserparam, NothiReviewerDTO nothiReviewer);
+        NothiSharedSaveDTO GetNothiSharedSave(DakUserParam dakuserparam, NothiListInboxNoteRecordsDTO noteAllListDataRecord, long onuchhed_id, List<User> selectedUser);
     }
 }

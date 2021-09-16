@@ -644,6 +644,9 @@ namespace dNothi.Desktop.UI
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
                                     separateOnucched.note_onucched_status = rec[0].onucched.note_onucched_status;
                                     separateOnucched.shared_nothi_id = rec[0].onucched.shared_nothi_id;
+                                    separateOnucched.noteAllListDataRecordDTO = _NoteAllListDataRecordDTO;
+                                    separateOnucched.SharingOffButtonClick += delegate (object sender1, EventArgs e1) { loadAgainNote(); };
+                                    separateOnucched.SharingSaveButtonClick += delegate (object sender1, EventArgs e1) { loadAgainNote(); };
                                     separateOnucched.note_onucched_Potrojari = rec[0].potrojari.Count;
                                     separateOnucched.office = onucchedsingleListRec.employee_name + " " + onucchedsingleListRec.created;
                                     try
@@ -1360,6 +1363,9 @@ namespace dNothi.Desktop.UI
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
                                     separateOnucched.note_onucched_status = rec[0].onucched.note_onucched_status;
                                     separateOnucched.shared_nothi_id = rec[0].onucched.shared_nothi_id;
+                                    separateOnucched.noteAllListDataRecordDTO = _NoteAllListDataRecordDTO;
+                                    separateOnucched.SharingOffButtonClick += delegate (object sender1, EventArgs e1) { loadAgainNote(); };
+                                    separateOnucched.SharingSaveButtonClick += delegate (object sender1, EventArgs e1) { loadAgainNote(); };
                                     separateOnucched.note_onucched_Potrojari = rec[0].potrojari.Count;
                                     try
                                     {
@@ -2459,6 +2465,8 @@ namespace dNothi.Desktop.UI
         void hideform_Shown(object sender, EventArgs e, Form form)
         {
             form.ShowInTaskbar = false;
+            form.TopMost = true;
+            form.TopMost = false;
             form.ShowDialog();
 
             (sender as Form).Hide();
@@ -3344,6 +3352,9 @@ namespace dNothi.Desktop.UI
                                     var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
                                     separateOnucched.note_onucched_status = rec[0].onucched.note_onucched_status;
                                     separateOnucched.shared_nothi_id = rec[0].onucched.shared_nothi_id;
+                                    separateOnucched.noteAllListDataRecordDTO = _NoteAllListDataRecordDTO;
+                                    separateOnucched.SharingOffButtonClick += delegate (object sender1, EventArgs e1) { loadAgainNote(); };
+                                    separateOnucched.SharingSaveButtonClick += delegate (object sender1, EventArgs e1) { loadAgainNote(); };
                                     separateOnucched.note_onucched_Potrojari = rec[0].potrojari.Count;
                                     try
                                     {
@@ -3996,6 +4007,9 @@ namespace dNothi.Desktop.UI
                                             var separateOnucched = UserControlFactory.Create<SeparateOnuchhed>();
                                             separateOnucched.note_onucched_status = rec[0].onucched.note_onucched_status;
                                             separateOnucched.shared_nothi_id = rec[0].onucched.shared_nothi_id;
+                                            separateOnucched.noteAllListDataRecordDTO = _NoteAllListDataRecordDTO;
+                                            separateOnucched.SharingOffButtonClick += delegate (object sender1, EventArgs e1) { loadAgainNote(); };
+                                            separateOnucched.SharingSaveButtonClick += delegate (object sender1, EventArgs e1) { loadAgainNote(); };
                                             separateOnucched.note_onucched_Potrojari = rec[0].potrojari.Count;
                                             try
                                             {

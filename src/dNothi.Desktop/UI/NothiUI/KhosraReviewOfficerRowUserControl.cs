@@ -88,5 +88,32 @@ namespace dNothi.Desktop.UI.NothiUI
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
 
         }
+        public event EventHandler PermissionChangedButton;
+        private void permissionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int permission_string = 0;
+            if (permission == "read")
+            {
+                permission_string = 2;
+            }
+            else
+            {
+                permission_string = 1;
+            }
+            if (permission_string != Convert.ToInt32(permissionComboBox.SelectedValue))
+            {
+                var review_mode = "";
+                if (Convert.ToInt32(permissionComboBox.SelectedValue) == 2)
+                {
+                    review_mode = "read";
+                }
+                else
+                {
+                    review_mode = "write";
+                }
+                if (this.PermissionChangedButton != null)
+                    this.PermissionChangedButton(review_mode, e);
+            }
+        }
     }
 }

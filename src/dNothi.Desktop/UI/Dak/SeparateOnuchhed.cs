@@ -4,6 +4,7 @@ using dNothi.Desktop.UI.NothiUI;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.NothiServices;
 using dNothi.Services.UserServices;
+using dNothi.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,6 +42,9 @@ namespace dNothi.Desktop.UI.Dak
         private int _shared_nothi_id;
         private string _note_onucched_status;
         private int _note_onucched_Potrojari;
+        public NothiListInboxNoteRecordsDTO _NoteAllListDataRecordDTO { get; set; }
+        public NothiListInboxNoteRecordsDTO noteAllListDataRecordDTO { get { return _NoteAllListDataRecordDTO; } set { _NoteAllListDataRecordDTO = value; } }
+        
         public int shared_nothi_id
         {
             get { return _shared_nothi_id; }
@@ -569,8 +573,10 @@ namespace dNothi.Desktop.UI.Dak
 
 
             hideform.BackColor = Color.Black;
+            hideform.Name = "extra";
             hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
             hideform.Opacity = .4;
+            hideform.ShowInTaskbar = false;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;
@@ -579,22 +585,63 @@ namespace dNothi.Desktop.UI.Dak
         }
         void hideform_Shown(object sender, EventArgs e, Form form)
         {
-
+            form.ShowInTaskbar = false;
+            form.TopMost = true;
+            form.TopMost = false;
             form.ShowDialog();
 
             (sender as Form).Hide();
 
             // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
         }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
 
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.ShowDialog();
+
+        }
+        public event EventHandler SharingOffButtonClick;
+        public event EventHandler SharingSaveButtonClick;
         private void btnShare_Click(object sender, EventArgs e)
         {
-            var dakuserparam = _userService.GetLocalDakUserParam();
-            var response = _nothiReviewerServices.GetNothiReviewer(dakuserparam,shared_nothi_id);
-            var noteOnuccedReview = FormFactory.Create<NothiOnuccedReviewForm>();
-           
-            noteOnuccedReview.nothiReviewerDTO = response;
-            CalPopUpWindow(noteOnuccedReview);
+            if (InternetConnection.Check())
+            {
+                var dakuserparam = _userService.GetLocalDakUserParam();
+                var response = _nothiReviewerServices.GetNothiReviewer(dakuserparam, shared_nothi_id);
+                var noteOnuccedReview = FormFactory.Create<NothiOnuccedReviewForm>();
+
+                noteOnuccedReview.nothiReviewerDTO = response;
+                noteOnuccedReview.noteAllListDataRecordDTO = _NoteAllListDataRecordDTO;
+                noteOnuccedReview.onucchedId = onucchedId;
+                noteOnuccedReview.SharingOffButton += delegate (object sender1, EventArgs e1) 
+                {
+                    if (this.SharingOffButtonClick != null)
+                        this.SharingOffButtonClick(sender, e);
+                };;
+                noteOnuccedReview.SharingSaveButton += delegate (object sender1, EventArgs e1) 
+                {
+                    if (this.SharingSaveButtonClick != null)
+                        this.SharingSaveButtonClick(sender, e);
+                };;
+                CalPopUpWindow(noteOnuccedReview);
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+            
             // noteOnuccedReview.
         }
     }
