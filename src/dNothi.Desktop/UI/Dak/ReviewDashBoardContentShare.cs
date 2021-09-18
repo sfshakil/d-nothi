@@ -1,4 +1,9 @@
-﻿using System;
+﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Services.NothiServices;
+using dNothi.Services.UserServices;
+using dNothi.Utility;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,25 +17,81 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class ReviewDashBoardContentShare : UserControl
     {
-        public ReviewDashBoardContentShare()
+        INothiReviewerServices _nothiReviewerServices { get; set; }
+        IUserService _userService { get; set; }
+        public ReviewDashBoardContentShare(INothiReviewerServices nothiReviewerServices, IUserService userService)
         {
+            _nothiReviewerServices = nothiReviewerServices;
+            _userService = userService;
             InitializeComponent();
         }
+        private int _nothiSharedId;
 
+        public int nothiSharedId
+        {
+            get { return _nothiSharedId; }
+            set {  _nothiSharedId = value;
+                loadSharedReviewer();
+            }
+        }
+        private void loadSharedReviewer()
+        {
+            if (InternetConnection.Check())
+            {
+                var dakuserparam = _userService.GetLocalDakUserParam();
+                var response = _nothiReviewerServices.GetNothiReviewer(dakuserparam, nothiSharedId);
+                if (response != null )
+                {
+                    dakBodyFlowLayoutPanel.Controls.Clear();
+                    if (response.users != null && response.users.Count > 0)
+                    {
+                        foreach (User user in response.users)
+                        {
+                            Reviewer noteOnuccedReview = new Reviewer();
+                            noteOnuccedReview.officerName = user.officer;
+                            noteOnuccedReview.officerDesignation = user.designation+","+user.office_unit+","+user.office;
+                            UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, noteOnuccedReview);
+                        }
+                        
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+        }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+
+        }
         private void panel1_MouseHover(object sender, EventArgs e)
         {
-            panel1.BackColor = Color.FromArgb(235, 237, 243);
-            panel2.BackColor = Color.FromArgb(235, 237, 243);
-            label4.BackColor = Color.FromArgb(235, 237, 243);
-            label5.BackColor = Color.FromArgb(235, 237, 243);
         }
 
         private void panel1_MouseLeave(object sender, EventArgs e)
         {
-            panel1.BackColor = Color.White;
-            panel2.BackColor = Color.White;
-            label4.BackColor = Color.White;
-            label5.BackColor = Color.White;
         }
 
         private void ReviewDashBoardContentShare_Paint(object sender, PaintEventArgs e)

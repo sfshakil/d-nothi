@@ -25,7 +25,9 @@ namespace dNothi.Desktop.UI
             foreach (Form f in Application.OpenForms)
             { BeginInvoke((Action)(() => f.Hide())); }
             KhosraDashboard khosraDashboard = FormFactory.Create<KhosraDashboard>();
+            khosraDashboard.TopMost = true;
             BeginInvoke((Action)(() => khosraDashboard.ShowDialog()));
+            BeginInvoke((Action)(() => khosraDashboard.TopMost = false));
             khosraDashboard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -35,9 +37,11 @@ namespace dNothi.Desktop.UI
             UIDesignCommonMethod.returnForm = this.Parent.FindForm();
             foreach (Form f in Application.OpenForms)
             { BeginInvoke((Action)(() => f.Hide())); }
-            var form = FormFactory.Create<Khosra>();
-            BeginInvoke((Action)(() => form.ShowDialog()));
-            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+            var khosra = FormFactory.Create<Khosra>();
+            khosra.TopMost = true;
+            BeginInvoke((Action)(() => khosra.ShowDialog()));
+            BeginInvoke((Action)(() => khosra.TopMost = false));
+            khosra.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
         private void DoSomethingAsync(object sender, EventArgs e)
         {
@@ -49,7 +53,9 @@ namespace dNothi.Desktop.UI
             foreach (Form f in Application.OpenForms)
             { BeginInvoke((Action)(() => f.Hide())); }
             ReviewDashBoard reviewDashBoard = FormFactory.Create<ReviewDashBoard>();
+            reviewDashBoard.TopMost = true;
             BeginInvoke((Action)(() => reviewDashBoard.ShowDialog()));
+            BeginInvoke((Action)(() => reviewDashBoard.TopMost = false));
             reviewDashBoard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -59,7 +65,9 @@ namespace dNothi.Desktop.UI
             foreach (Form f in Application.OpenForms)
             { BeginInvoke((Action)(() => f.Hide())); }
             var gurdFileControl = FormFactory.Create<GurdFileControl>();
+            gurdFileControl.TopMost = true;
             BeginInvoke((Action)(() => gurdFileControl.ShowDialog()));
+            BeginInvoke((Action)(() => gurdFileControl.TopMost = false));
             gurdFileControl.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
@@ -70,8 +78,9 @@ namespace dNothi.Desktop.UI
             { BeginInvoke((Action)(() => f.Hide())); }
            
             PotrojariGroupForm potrojariGroup = FormFactory.Create<PotrojariGroupForm>();
-           
+            potrojariGroup.TopMost = true;
             BeginInvoke((Action)(() => potrojariGroup.ShowDialog()));
+            BeginInvoke((Action)(() => potrojariGroup.TopMost = false));
             potrojariGroup.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
     }

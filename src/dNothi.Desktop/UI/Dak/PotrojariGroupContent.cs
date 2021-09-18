@@ -436,7 +436,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             btnDelete.IconColor = Color.FromArgb(78, 165, 254);
         }
-        ReviewDashBoardContentShare rvwDashBoardContentShare = new ReviewDashBoardContentShare();
+        ReviewDashBoardContentShare rvwDashBoardContentShare = UserControlFactory.Create<ReviewDashBoardContentShare>();
 
         private void namePanel_Paint(object sender, PaintEventArgs e)
         {

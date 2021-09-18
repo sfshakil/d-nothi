@@ -49,8 +49,9 @@
             this.modulePanel.Controls.Add(this.panel1);
             this.modulePanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.modulePanel.Location = new System.Drawing.Point(0, 0);
+            this.modulePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.modulePanel.Name = "modulePanel";
-            this.modulePanel.Size = new System.Drawing.Size(334, 364);
+            this.modulePanel.Size = new System.Drawing.Size(445, 448);
             this.modulePanel.TabIndex = 107;
             // 
             // tableLayoutPanel1
@@ -66,14 +67,14 @@
             this.tableLayoutPanel1.Controls.Add(this.khosraButton, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.khosraPotroButton, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 91);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 112);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(334, 273);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(445, 336);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // potrojariButton
@@ -87,9 +88,10 @@
             this.potrojariButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
             this.potrojariButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.potrojariButton.IconSize = 35;
-            this.potrojariButton.Location = new System.Drawing.Point(4, 182);
+            this.potrojariButton.Location = new System.Drawing.Point(5, 225);
+            this.potrojariButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.potrojariButton.Name = "potrojariButton";
-            this.potrojariButton.Size = new System.Drawing.Size(159, 87);
+            this.potrojariButton.Size = new System.Drawing.Size(213, 106);
             this.potrojariButton.TabIndex = 4;
             this.potrojariButton.Text = "পত্রজারি গ্রুপ";
             this.potrojariButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -107,9 +109,10 @@
             this.guardFileModuleButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
             this.guardFileModuleButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.guardFileModuleButton.IconSize = 32;
-            this.guardFileModuleButton.Location = new System.Drawing.Point(170, 93);
+            this.guardFileModuleButton.Location = new System.Drawing.Point(227, 115);
+            this.guardFileModuleButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guardFileModuleButton.Name = "guardFileModuleButton";
-            this.guardFileModuleButton.Size = new System.Drawing.Size(160, 82);
+            this.guardFileModuleButton.Size = new System.Drawing.Size(213, 101);
             this.guardFileModuleButton.TabIndex = 3;
             this.guardFileModuleButton.Text = "গার্ড ফাইল";
             this.guardFileModuleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -119,7 +122,6 @@
             // reviewDashBoardButton
             // 
             this.reviewDashBoardButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reviewDashBoardButton.Enabled = false;
             this.reviewDashBoardButton.FlatAppearance.BorderSize = 0;
             this.reviewDashBoardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.reviewDashBoardButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -128,9 +130,10 @@
             this.reviewDashBoardButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
             this.reviewDashBoardButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.reviewDashBoardButton.IconSize = 32;
-            this.reviewDashBoardButton.Location = new System.Drawing.Point(4, 93);
+            this.reviewDashBoardButton.Location = new System.Drawing.Point(5, 115);
+            this.reviewDashBoardButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.reviewDashBoardButton.Name = "reviewDashBoardButton";
-            this.reviewDashBoardButton.Size = new System.Drawing.Size(159, 82);
+            this.reviewDashBoardButton.Size = new System.Drawing.Size(213, 101);
             this.reviewDashBoardButton.TabIndex = 2;
             this.reviewDashBoardButton.Text = "রিভিউ ড্যাশবোর্ড";
             this.reviewDashBoardButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -148,9 +151,10 @@
             this.khosraButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
             this.khosraButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.khosraButton.IconSize = 32;
-            this.khosraButton.Location = new System.Drawing.Point(170, 4);
+            this.khosraButton.Location = new System.Drawing.Point(227, 5);
+            this.khosraButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.khosraButton.Name = "khosraButton";
-            this.khosraButton.Size = new System.Drawing.Size(160, 82);
+            this.khosraButton.Size = new System.Drawing.Size(213, 101);
             this.khosraButton.TabIndex = 1;
             this.khosraButton.Text = "খসড়া";
             this.khosraButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -168,9 +172,10 @@
             this.khosraPotroButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
             this.khosraPotroButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.khosraPotroButton.IconSize = 32;
-            this.khosraPotroButton.Location = new System.Drawing.Point(4, 4);
+            this.khosraPotroButton.Location = new System.Drawing.Point(5, 5);
+            this.khosraPotroButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.khosraPotroButton.Name = "khosraPotroButton";
-            this.khosraPotroButton.Size = new System.Drawing.Size(159, 82);
+            this.khosraPotroButton.Size = new System.Drawing.Size(213, 101);
             this.khosraPotroButton.TabIndex = 0;
             this.khosraPotroButton.Text = "খসড়া-পত্র ড্যাশবোর্ড";
             this.khosraPotroButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -186,8 +191,9 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(334, 91);
+            this.panel1.Size = new System.Drawing.Size(445, 112);
             this.panel1.TabIndex = 0;
             // 
             // label14
@@ -197,20 +203,22 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("SolaimanLipi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(117, 36);
+            this.label14.Location = new System.Drawing.Point(156, 44);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 24);
+            this.label14.Size = new System.Drawing.Size(167, 34);
             this.label14.TabIndex = 0;
             this.label14.Text = "অন্যান্য মডিউল";
             // 
             // ModulePanelUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.modulePanel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ModulePanelUserControl";
-            this.Size = new System.Drawing.Size(334, 364);
+            this.Size = new System.Drawing.Size(445, 448);
             this.modulePanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
