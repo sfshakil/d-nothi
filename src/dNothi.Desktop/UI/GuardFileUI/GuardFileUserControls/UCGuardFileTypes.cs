@@ -31,7 +31,9 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         int start = 1;
         int end = 10;
         int totalrecord = 0;
-      
+        int rowid = 0;
+        int lastrecord = 0;
+
         public const string GuardFileCategory = "GuardFileCategories";
       
         AllAlartMessage alartMessage = new AllAlartMessage();
@@ -63,8 +65,6 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             dakListUserParam.page = page;
             var datalist= _guardFileCategoryService.GetList(dakListUserParam,1);
             //guardFileTypeTableLayoutPanel.Controls.Clear();
-
-
             // RemoveArbitraryRow(guardFileTypeTableLayoutPanel,3);
             RemoveTableLayoutPanelRow(guardFileTypeTableLayoutPanel, guardFileTypeTableLayoutPanel.RowCount, 3);
 
@@ -72,7 +72,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             {
                 if (datalist.data.records.Count > 0)
                 {
-                    int rowid = 0;
+                    lastrecord = datalist.data.records.Count();
                     foreach (var item in datalist.data.records)
                     {
                         rowid++;
@@ -261,6 +261,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 page -= 1;
                 start -= pageLimit;
                 end -= pageLimit;
+                rowid -=(pageLimit + lastrecord);
 
             }
             else

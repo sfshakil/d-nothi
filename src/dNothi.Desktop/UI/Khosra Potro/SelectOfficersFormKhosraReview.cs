@@ -25,7 +25,7 @@ namespace dNothi.Desktop.UI
     {
         List<ViewDesignationSealList> viewDesignationSealLists = new List<ViewDesignationSealList>();
         public List<int> _selectedOfficerDesignations = new List<int>();
-        List<gdftype> fl = new List<gdftype>();
+       // List<gdftype> fl = new List<gdftype>();
         int tabpageno = 2;
         public SelectOfficersFormKhosraReview( )
         {
@@ -33,31 +33,31 @@ namespace dNothi.Desktop.UI
             InitializeComponent();
 
            
-            fl.Add(new gdftype() { rowNo = "1", type = "বাজেট ", typeNo = "1" });
-            fl.Add(new gdftype() { rowNo = "2", type = "test", typeNo = "2" });
-            fl.Add(new gdftype() { rowNo = "3", type = "test2", typeNo = "3" });
-            fl.Add(new gdftype() { rowNo = "4", type = "test3", typeNo = "4" });
-            var data = from s in fl
-                       select new ComboBoxItems
-                       {
-                           id = Convert.ToInt32(s.rowNo),
-                           Name = s.type
-                       };
+            //fl.Add(new gdftype() { rowNo = "1", type = "বাজেট ", typeNo = "1" });
+            //fl.Add(new gdftype() { rowNo = "2", type = "test", typeNo = "2" });
+            //fl.Add(new gdftype() { rowNo = "3", type = "test2", typeNo = "3" });
+            //fl.Add(new gdftype() { rowNo = "4", type = "test3", typeNo = "4" });
+            //var data = from s in fl
+            //           select new ComboBoxItems
+            //           {
+            //               id = Convert.ToInt32(s.rowNo),
+            //               Name = s.type
+            //           };
 
-            officeSearchComboBox.itemList = data.ToList();
-            officeSearchComboBox.isListShown = true;
+            //officeSearchComboBox.itemList = data.ToList();
+            //officeSearchComboBox.isListShown = true;
 
-            LayersearchComboBox.itemList = data.ToList();
-            LayersearchComboBox.isListShown = true;
+            //LayersearchComboBox.itemList = data.ToList();
+            //LayersearchComboBox.isListShown = true;
 
-            officeBacaiSearchComboBox.itemList = data.ToList();
-            officeBacaiSearchComboBox.isListShown = true;
+            //officeBacaiSearchComboBox.itemList = data.ToList();
+            //officeBacaiSearchComboBox.isListShown = true;
 
-            originBacaiSearchComboBox.itemList = data.ToList();
-            originBacaiSearchComboBox.isListShown = true;
+            //originBacaiSearchComboBox.itemList = data.ToList();
+            //originBacaiSearchComboBox.isListShown = true;
 
-            districtSearchComboBox.itemList = data.ToList();
-            districtSearchComboBox.isListShown = true;
+            //districtSearchComboBox.itemList = data.ToList();
+            //districtSearchComboBox.isListShown = true;
             loadTree();
             //SetDefaultFont(this.Controls);
            

@@ -767,7 +767,6 @@
     <Compile Include="UI\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\GuardFileUI\gdftype.cs" />
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuardFileListForm.cs">
       <SubType>Form</SubType>
     </Compile>
