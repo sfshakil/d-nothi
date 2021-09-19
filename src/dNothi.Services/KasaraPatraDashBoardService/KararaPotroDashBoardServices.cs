@@ -6,6 +6,7 @@ using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.DakServices;
 using dNothi.Services.DakServices.DakSharingService.Model;
 using dNothi.Services.KasaraPatraDashBoardService.Models;
+using dNothi.Services.KhasraService;
 using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
@@ -36,9 +37,230 @@ namespace dNothi.Services.KasaraPatraDashBoardService
 
             if (!InternetConnection.Check())
             {
-                var responseJson= GetLocalKhasraList(userParam, menuNo, cdesk, searchParam);
+                var responseJson = GetLocalKhasraList(userParam, menuNo, cdesk, searchParam);
+
                 KasaraPotro nothikhoshrapotrolist = JsonConvert.DeserializeObject<KasaraPotro>(responseJson, NullDeserializeSetting());
-                return nothikhoshrapotrolist;
+                List<KasaraPotro.Record> records = new List<KasaraPotro.Record>();
+                var localData = _localKhosraLocalRepository.Table.Where(x=>x.kosra_type==menuNo && x.page== userParam.page).ToList();
+
+                foreach (var kosra in localData)
+                {
+                    KhosraSaveParamPotro potroParam = JsonConvert.DeserializeObject<KhosraSaveParamPotro>(kosra.potro);
+                    DakUserParam dakUserParam = JsonConvert.DeserializeObject<DakUserParam>(kosra.cdesk);
+
+                    string modifieddate = ConversionMethod.BanglaDigittoEngDigit(potroParam.potrojaris.modified);
+                    DateTime dateTime2 = Convert.ToDateTime(modifieddate);
+                    modifieddate = ConversionMethod.EngDigittoBanDigit(dateTime2.ToString("dd/MM/yy HH:mm tt"));
+                    KasaraPotro.Basic basic = new KasaraPotro.Basic { PotroPages = potroParam.attachment.Count(),
+                        PotroSubject = potroParam.potrojari.potro_subject,
+                        Modified = modifieddate, NoteOnucchedId = potroParam.potrojari.note_onucched_id, PotroType = potroParam.potrojari.potro_type,
+                        DakId = 0, PotroStatus = potroParam.potrojari.operation_type!="draft"? potroParam.potrojari.operation_type:"Draft", SarokNo = string.Empty,
+                        PotroTypeName = potroParam.potrojaris.potro_type_name, 
+                    };
+                    KasaraPotro.NoteOwner noteOwner;
+                    KasaraPotro.NoteOnucched noteOnucched;
+                    
+
+                    if (kosra.kosra_type== 1)
+                    {
+                        noteOwner = new KasaraPotro.NoteOwner {  NoteNo=0, DesignationId=0};
+                        noteOnucched =new KasaraPotro.NoteOnucched { Id=0 };
+                    }
+                   
+                    else
+                    {
+                         noteOwner = new KasaraPotro.NoteOwner
+                        {
+                            NothiMasterId = potroParam.potrojari.nothi_master_id,
+                            IssueDate = kosra.EntryDate,
+                            NoteCurrentStatus = null,
+                            NoteSubject = potroParam.potrojari.note_subject,
+                            NothiSubject = potroParam.potrojari.note_subject,
+                            DesignationId = dakUserParam.designation_id,
+                            Designation = dakUserParam.designation,
+                            Office = dakUserParam.office,
+                            OfficeId = dakUserParam.office_id,
+                            OfficeUnit = dakUserParam.office_unit,
+                            OfficeUnitId = dakUserParam.office_unit_id,
+                            Priority = potroParam.potrojari.potro_priority_level,
+                            NothiNoteId = potroParam.potrojari.nothi_note_id,
+                            NoteNo = potroParam.potrojaris.note_no
+
+                        };
+
+                         noteOnucched = new KasaraPotro.NoteOnucched { Id = potroParam.potrojari.note_onucched_id };
+
+                    }
+                   
+
+                    List<KasaraPotro.Approver> approvers = new List<KasaraPotro.Approver>();
+                    foreach (var item in potroParam.recipient.approver)
+                    {
+                        KasaraPotro.Approver approver = new KasaraPotro.Approver
+                        {
+                            Designation = item.Value.designation,
+                            DesignationId = Convert.ToInt32(item.Value.designation_id),
+                            Id = Convert.ToInt32(item.Value.id),
+                            IsSent = Convert.ToInt32(item.Value.is_sent),
+                            Label = item.Value.label,
+                            Office = item.Value.office,
+                            OfficeId = Convert.ToInt32(item.Value.office_id),
+                            Officer = item.Value.officer,
+                            OfficerEmail = item.Value.officer_email,
+                            OfficerId = Convert.ToInt32(item.Value.officer_id),
+                            OfficeUnit = item.Value.office_unit,
+                            OfficeUnitId = Convert.ToInt32(item.Value.office_unit_id),
+                            PotrojariId = Convert.ToInt32(item.Value.potrojari_id),
+                            PotroStatus = item.Value.potro_status,
+                            PotroType = Convert.ToInt32(item.Value.potro_status),
+                            RecipientType = item.Value.recipient_type,
+                            VisibleDesignation = null,
+                            VisibleName = item.Value.visible_name
+
+                          
+                        };
+                        approvers.Add(approver);
+                    }
+
+
+                    List<KasaraPotro.Sender> senders = new List<KasaraPotro.Sender>();
+                    foreach (var item in potroParam.recipient.sender)
+                    {
+                        KasaraPotro.Sender sender = new KasaraPotro.Sender
+                        {
+                            Designation = item.Value.designation,
+                            DesignationId = Convert.ToInt32(item.Value.designation_id),
+                            Id = Convert.ToInt32(item.Value.id),
+                            IsSent = Convert.ToInt32(item.Value.is_sent),
+                            Label = item.Value.label,
+                            Office = item.Value.office,
+                            OfficeId = Convert.ToInt32(item.Value.office_id),
+                            Officer = item.Value.officer,
+                            OfficerEmail = item.Value.officer_email,
+                            OfficerId = Convert.ToInt32(item.Value.officer_id),
+                            OfficeUnit = item.Value.office_unit,
+                            OfficeUnitId = Convert.ToInt32(item.Value.office_unit_id),
+                            PotrojariId = Convert.ToInt32(item.Value.potrojari_id),
+                            PotroStatus = item.Value.potro_status,
+                            PotroType = Convert.ToInt32(item.Value.potro_status),
+                            RecipientType = item.Value.recipient_type,
+                            VisibleDesignation = null,
+                            VisibleName = item.Value.visible_name
+
+
+                        };
+                        senders.Add(sender);
+                    }
+
+                    List<KasaraPotro.Attention> attentions = new List<KasaraPotro.Attention>();
+                    if (potroParam.recipient.attention != null)
+                    {
+                        foreach (var item in potroParam.recipient.attention)
+                        {
+                            KasaraPotro.Attention attention = new KasaraPotro.Attention
+                            {
+                                Designation = item.Value.designation,
+                                DesignationId = Convert.ToInt32(item.Value.designation_id),
+                                Id = Convert.ToInt32(item.Value.id),
+                                IsSent = Convert.ToInt32(item.Value.is_sent),
+                                Label = item.Value.label,
+                                Office = item.Value.office,
+                                OfficeId = Convert.ToInt32(item.Value.office_id),
+                                Officer = item.Value.officer,
+                                OfficerEmail = item.Value.officer_email,
+                                OfficerId = Convert.ToInt32(item.Value.officer_id),
+                                OfficeUnit = item.Value.office_unit,
+                                OfficeUnitId = Convert.ToInt32(item.Value.office_unit_id),
+                                PotrojariId = Convert.ToInt32(item.Value.potrojari_id),
+                                PotroStatus = item.Value.potro_status,
+                                PotroType = Convert.ToInt32(item.Value.potro_status),
+                                RecipientType = item.Value.recipient_type,
+                                VisibleDesignation = null,
+                                VisibleName = item.Value.visible_name
+
+
+                            };
+                            attentions.Add(attention);
+                        }
+                    }
+
+                    List<KasaraPotro.Onulipi> onulipis = new List<KasaraPotro.Onulipi>();
+                    if (potroParam.recipient.onulipi != null)
+                    {
+                        foreach (var item in potroParam.recipient.onulipi)
+                        {
+                            KasaraPotro.Onulipi onulipi = new KasaraPotro.Onulipi
+                            {
+                                Designation = item.Value.designation,
+                                DesignationId = Convert.ToInt32(item.Value.designation_id),
+                                Id = Convert.ToInt32(item.Value.id),
+                                IsSent = Convert.ToInt32(item.Value.is_sent),
+                                Label = item.Value.label,
+                                Office = item.Value.office,
+                                OfficeId = Convert.ToInt32(item.Value.office_id),
+                                Officer = item.Value.officer,
+                                OfficerEmail = item.Value.officer_email,
+                                OfficerId = Convert.ToInt32(item.Value.officer_id),
+                                OfficeUnit = item.Value.office_unit,
+                                OfficeUnitId = Convert.ToInt32(item.Value.office_unit_id),
+                                PotrojariId = Convert.ToInt32(item.Value.potrojari_id),
+                                PotroStatus = item.Value.potro_status,
+
+                                VisibleName = item.Value.visible_name
+
+
+                            };
+                            onulipis.Add(onulipi);
+                        }
+                    }
+
+                    List<KasaraPotro.Receiver> receivers = new List<KasaraPotro.Receiver>();
+                    if (potroParam.recipient.receiver != null)
+                    {
+                        foreach (var item in potroParam.recipient.receiver)
+                        {
+                            KasaraPotro.Receiver receiver = new KasaraPotro.Receiver
+                            {
+                                Designation = item.Value.designation,
+                                DesignationId = Convert.ToInt32(item.Value.designation_id),
+                                Id = Convert.ToInt32(item.Value.id),
+                                IsSent = Convert.ToInt32(item.Value.is_sent),
+                                Label = item.Value.label,
+                                Office = item.Value.office,
+                                OfficeId = Convert.ToInt32(item.Value.office_id),
+                                Officer = item.Value.officer,
+                                OfficerEmail = item.Value.officer_email,
+                                OfficerId = Convert.ToInt32(item.Value.officer_id),
+                                OfficeUnit = item.Value.office_unit,
+                                OfficeUnitId = Convert.ToInt32(item.Value.office_unit_id),
+                                PotrojariId = Convert.ToInt32(item.Value.potrojari_id),
+                                PotroStatus = item.Value.potro_status,
+
+                                VisibleName = item.Value.visible_name
+
+
+                            };
+                            receivers.Add(receiver);
+                        }
+                    }
+
+
+                    KasaraPotro.Recipient recipient = new KasaraPotro.Recipient { Approver= approvers, Sender=senders, Attention=attentions, Onulipi=onulipis, Receiver=receivers};
+
+                    KasaraPotro.Record record = new KasaraPotro.Record { Basic = basic, NoteOnucched = noteOnucched, NoteOwner = noteOwner, Recipient = recipient};
+
+                    records.Add(record);
+                    
+                }
+              
+                for(int item=0;item<(nothikhoshrapotrolist.data.Records.Count()- localData.Count());item++)
+                {
+                    records.Add(nothikhoshrapotrolist.data.Records[item]);
+                }
+                KasaraPotro.Data data = new KasaraPotro.Data { Records = records, TotalRecords =(nothikhoshrapotrolist.data.TotalRecords+ localData.Count()) };
+                KasaraPotro kasaraPotro = new KasaraPotro { data = data, Status = "success" };
+
+                return kasaraPotro;
             }
             
             try
@@ -73,35 +295,48 @@ namespace dNothi.Services.KasaraPatraDashBoardService
             }
         }
 
+
         public PrapakerTalika GetPrapakerTalika(DakUserParam userParam, int potro)
         {
+            //if (InternetConnection.Check())
+            //{
+            //    //var localData = _localKhosraLocalRepository.Table.Where(x => x.Id==potro).FirstOrDefault();
+            //    //KhosraSaveParamPotro potroParam = JsonConvert.DeserializeObject<KhosraSaveParamPotro>(localData.potro);
+            //    //foreach(var item in potroParam.recipient.approver)
+            //    //{
 
-            try
-            {
-                var Api = new RestClient(GetAPIDomain() + GetEndPoint(6));
-                Api.Timeout = -1;
-                var request = new RestRequest(Method.POST);
-                request.AddHeader("api-version", GetAPIVersion());
-                request.AddHeader("Authorization", "Bearer " + userParam.token);
-                request.AlwaysMultipartFormData = true;
+            //    //}
+            //    //PrapakerTalika nothikhoshrapotrolist = new PrapakerTalika { data = potroParam.recipient, status = "success" };
+            //    //return nothikhoshrapotrolist;
 
-
-                request.AddParameter("cdesk", "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"Technology\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "}");
-                request.AddParameter("potro", potro);
-                IRestResponse Response = Api.Execute(request);
-
-
-                var responseJson = Response.Content;
-                responseJson = responseJson.Replace("\"data\":[]", "\"data\":\"\"");
-                PrapakerTalika nothikhoshrapotrolist = JsonConvert.DeserializeObject<PrapakerTalika>(responseJson, NullDeserializeSetting());
-                return nothikhoshrapotrolist;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            //}
+            
+                try
+                {
+                    var Api = new RestClient(GetAPIDomain() + GetEndPoint(6));
+                    Api.Timeout = -1;
+                    var request = new RestRequest(Method.POST);
+                    request.AddHeader("api-version", GetAPIVersion());
+                    request.AddHeader("Authorization", "Bearer " + userParam.token);
+                    request.AlwaysMultipartFormData = true;
 
 
+                    request.AddParameter("cdesk", "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"Technology\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "}");
+                    request.AddParameter("potro", potro);
+                    IRestResponse Response = Api.Execute(request);
+
+
+                    var responseJson = Response.Content;
+                    responseJson = responseJson.Replace("\"data\":[]", "\"data\":\"\"");
+                    PrapakerTalika nothikhoshrapotrolist = JsonConvert.DeserializeObject<PrapakerTalika>(responseJson, NullDeserializeSetting());
+                    return nothikhoshrapotrolist;
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+
+             
 
         }
 
@@ -201,7 +436,6 @@ namespace dNothi.Services.KasaraPatraDashBoardService
             }
 
         }
-
         private void SaveLocalllyKhosraList(string responseJson, DakUserParam userParam, int menuid, string cdesk, string searchParam)
         {
 
@@ -231,7 +465,6 @@ namespace dNothi.Services.KasaraPatraDashBoardService
             }
 
         }
-
 
         private JsonSerializerSettings NullDeserializeSetting()
         {

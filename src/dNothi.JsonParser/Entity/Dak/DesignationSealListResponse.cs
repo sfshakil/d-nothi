@@ -154,6 +154,8 @@ public class DesignationSealListResponse
             {
                 return designation_label;
             }
+            set { designation_bng = value; }
+           
         }
 
         public string office_name_eng { get; set; }

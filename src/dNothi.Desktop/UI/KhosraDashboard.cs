@@ -13,6 +13,7 @@ using dNothi.Services.SyncServices;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
 using FontAwesome.Sharp;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using org.ietf.jgss;
 using System;
@@ -334,7 +335,7 @@ namespace dNothi.Desktop.UI
                 
                     commonKhosraRowUserControl.attachmentButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_attachmentButtonClick(sender, e,item); };
                     commonKhosraRowUserControl.sampadanButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_sampadanButtonClick(sender, e, item, mapmodel); };
-                    commonKhosraRowUserControl.PrapakListButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_PrapakListButtonClick(sender, e,item.Basic.Id); };
+                    commonKhosraRowUserControl.PrapakListButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_PrapakListButtonClick(sender, e,item.Basic.Id, item.Recipient); };
                     commonKhosraRowUserControl.portalIconButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_portalIconButtonClick(sender, e,item); };
                    
                     commonKhosraRowUserControl.viewButtonClick += delegate (object sender, EventArgs e) { commonKhosraRowUserControl_NoteDetails_ButtonClick(mapmodel.Item1, e, mapmodel.Item2, mapmodel.Item3); };
@@ -401,7 +402,7 @@ namespace dNothi.Desktop.UI
         {
             bool sampadan = false, view = false, prapaklist = false,  nodeVisible = false;
             string nodeNo = string.Empty;
-            if (item.NoteOwner.NoteNo > 0)
+            if ((item.NoteOwner!=null? item.NoteOwner.NoteNo:0) > 0)
             {
                 nodeVisible = true;
                 nodeNo = ConversionMethod.EnglishNumberToBangla(item.NoteOwner.NoteNo.ToString());
@@ -415,7 +416,7 @@ namespace dNothi.Desktop.UI
                 prapaklist = true;
             if (item.Basic.PotroStatus == "Draft")
                 sampadan = true;
-            if (item.NoteOwner.DesignationId == UserParam_designation_id)
+            if ((item.NoteOwner != null ? item.NoteOwner.DesignationId:0) == UserParam_designation_id)
                 view = true;
             return (sampadan, view, prapaklist, nodeVisible, nodeNo);
         }
@@ -512,13 +513,16 @@ namespace dNothi.Desktop.UI
             //this.ShowInTaskbar = true;
 
         }
-        private void commonKhosraRowUserControl_PrapakListButtonClick(object sender, EventArgs e,int nodeId)
+        private void commonKhosraRowUserControl_PrapakListButtonClick(object sender, EventArgs e,int nodeId, KasaraPotro.Recipient recipient)
         {
-
+                PrapakerTalika prapakerTalika = new PrapakerTalika();
                 var dakListUserParam = _userService.GetLocalDakUserParam();
-                dakListUserParam.limit = 10;
-                var prapakerTalika = _kasaraPatraDashBoardService.GetPrapakerTalika(dakListUserParam, nodeId);
-                if (prapakerTalika.status == "success")
+                dakListUserParam.limit = pageLimit;
+            if (InternetConnection.Check())
+                prapakerTalika = _kasaraPatraDashBoardService.GetPrapakerTalika(dakListUserParam, nodeId);
+            else
+                 prapakerTalika = new PrapakerTalika { status="success", data= Getprapoktalika(recipient) };
+           if (prapakerTalika.status == "success")
                 {
 
                     KhosraPrapokListViewForm khosraPrapokListViewForm = new KhosraPrapokListViewForm();
@@ -528,6 +532,55 @@ namespace dNothi.Desktop.UI
                     UIDesignCommonMethod.CalPopUpWindow(khosraPrapokListViewForm, this);
                 }
             
+        }
+        private PrapakerTalika.Data Getprapoktalika(KasaraPotro.Recipient recipient)
+        {
+            List<PrapokDTO> approvers = new List<PrapokDTO>();
+            List<PrapokDTO> senders = new List<PrapokDTO>();
+            List<PrapokDTO> attentions = new List<PrapokDTO>();
+            List<PrapokDTO> onulipis = new List<PrapokDTO>();
+            List<PrapokDTO> receivers = new List<PrapokDTO>();
+            if (recipient.Approver != null)
+            {
+               
+                foreach (var item in recipient.Approver)
+                {
+                    PrapokDTO approver = new PrapokDTO { designation= item.Designation,  designation_bng = item.Designation, office = item.Office, officer = item.Officer };
+                    approvers.Add(approver);
+                }
+            }
+
+            if (recipient.Sender != null)
+            {
+
+                foreach (var item in recipient.Sender)
+                {
+                    PrapokDTO sender = new PrapokDTO { designation = item.Designation, designation_bng = item.Designation, office = item.Office, officer = item.Officer };
+                    senders.Add(sender);
+                }
+            }
+
+            if (recipient.Attention != null)
+            {
+
+                foreach (var item in recipient.Attention)
+                {
+                    PrapokDTO attention = new PrapokDTO { designation = item.Designation, designation_bng = item.Designation, office = item.Office, officer = item.Officer };
+                    attentions.Add(attention);
+                }
+            }
+            if (recipient.Onulipi != null)
+            {
+                 onulipis= JsonConvert.DeserializeObject<List<PrapokDTO>>(recipient.Onulipi.ToString());
+               
+            }
+            if (recipient.Receiver != null)
+            {
+                receivers = JsonConvert.DeserializeObject<List<PrapokDTO>>(recipient.Receiver.ToString());
+
+            }
+            PrapakerTalika.Data data = new PrapakerTalika.Data { approver= approvers, sender=senders, attention= attentions, onulipi= onulipis, receiver=receivers };
+            return data;
         }
         private void commonKhosraRowUserControl_viewButtonClick(object sender, EventArgs e)
         {

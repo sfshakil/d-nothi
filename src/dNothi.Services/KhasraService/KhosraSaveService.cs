@@ -87,10 +87,11 @@ namespace dNothi.Services.KhasraService
         public KhosraSaveResponse GetKhosraSaveResponse(DakUserParam dakUserParameter, KhosraSaveParamPotro potro)
         {
             string cdesk = "{\"office_id\":\"" + dakUserParameter.office_id + "\",\"office_unit_id\":\"" + dakUserParameter.office_unit_id + "\",\"designation_id\":\"" + dakUserParameter.designation_id + "\"}";
-            string potroRequestJson = JsonParsingMethod.ObjecttoJson(potro);
+           
             if (!InternetConnection.Check())
             {
-                if(potro.recipient.receiver!=null)
+                string potroRequestJson = JsonParsingMethod.ObjecttoJson(potro);
+                if (potro.recipient.receiver!=null)
                 {
                     if (potro.recipient.receiver.Count > 0)
                     {
@@ -107,9 +108,15 @@ namespace dNothi.Services.KhasraService
                 }
                 
             }
-
+            else
+            {
+                KhosraSaveParamPotros potros = new KhosraSaveParamPotros { attachment = potro.attachment, potrojari = potro.potrojari, recipient = potro.recipient };
+                string potroRequestJson = JsonParsingMethod.ObjecttoJson(potros);
+                
+               return KhosraSave(dakUserParameter, cdesk, potroRequestJson);
+            }
         
-            return KhosraSave(dakUserParameter, cdesk, potroRequestJson);
+            
        
         }
         private KhosraSaveResponse KhosraSave(DakUserParam dakUserParameter,string cdesk,string potroRequestJson)
@@ -144,16 +151,19 @@ namespace dNothi.Services.KhasraService
         }
         private KhosraSaveResponse SaveLocalKhosra(string cdesk,string potro, KhosraSaveParamPotro potroParam)
         {
-             
-            KhosraLocal localKhosraLocal = new KhosraLocal
+
+            KhosraLocal localKhosra = new KhosraLocal
             {
 
                 cdesk = cdesk,
                 isLocal = true,
-                potro= potro
+                potro = potro,
+                kosra_type = (potroParam.potrojari.nothi_note_id > 0 ? 2 : 1),
+                page = 1,
+                EntryDate = DateTime.Now.Date.ToString("dd-MM-yyyy")
 
             };
-            _localKhosraLocalRepository.Insert(localKhosraLocal);
+            _localKhosraLocalRepository.Insert(localKhosra);
            
             long maxId = _localKhosraLocalRepository.Table.Max(x=>x.Id);
 
@@ -182,7 +192,7 @@ namespace dNothi.Services.KhasraService
 
             if(potroParam.potrojari.nothi_master_id>0 && potroParam.potrojari.sarok_no!=string.Empty)
             {
-                string potros = "{\"nothi_id\":\"" + potroParam.potrojari.nothi_master_id + "\",\"potrojari_id\":\"" + potroParam.potrojari.SarokNo_potrojariId + "\",\"req_data\":{\"sarok_no\":\"\"}}";
+                string potros = "{\"nothi_id\":\"" + potroParam.potrojari.nothi_master_id + "\",\"potrojari_id\":\"" + potroParam.potrojaris.SarokNo_potrojariId + "\",\"req_data\":{\"sarok_no\":\"\"}}";
                 long sid = long.Parse(potroParam.potrojari.sarok_no);
                 var sarokNoLocalData = _localSarokNoLocalRepository.Table.Where(x => x.Id ==sid).FirstOrDefault();
                 if (sarokNoLocalData != null)
@@ -206,6 +216,7 @@ namespace dNothi.Services.KhasraService
                 cdesk = cdesk,
                
                 potro = potro
+                 
 
             };
             _localSarokNoLocalRepository.Insert(localSarokNoLocal);
@@ -240,9 +251,21 @@ namespace dNothi.Services.KhasraService
             List<string> attachments = new List<string>();
             var potroData= JsonConvert.DeserializeObject<KhosraSaveParamPotro>(khosraLocal.potro);
             
-            var khosraAttachment = _localKhosraFileUploadRepository.Table.Where(x => x.KhosraId == khosraLocal.Id).ToList();
-          
+           
+            //local sarokno to server
+
+            var sarokNoLocal = _localSarokNoLocalRepository.Table.Where(x => x.khosraId == khosraLocal.Id).FirstOrDefault();
+
+            if (sarokNoLocal != null)
+            {
+                var sarokresponse = getSarokNo(userParam, sarokNoLocal.cdesk, sarokNoLocal.potro);
+                potroData.potrojari.sarok_no = sarokresponse.sarok_no;
+                _localSarokNoLocalRepository.Delete(sarokNoLocal);
+            }
+
+
             //local file upload to server
+            var khosraAttachment = _localKhosraFileUploadRepository.Table.Where(x => x.KhosraId == khosraLocal.Id).ToList();
             if (potroData.attachments.Count > 0)
             {
                 foreach (var item in potroData.attachments)
@@ -251,7 +274,7 @@ namespace dNothi.Services.KhasraService
                     {
 
                         attachments.Add(ConversionMethod.ObjecttoJson(new { nothi_potro_attachment_id = item.id, nothi_potro_id = item.nothi_potro_id, user_file_name = item.user_file_name }));
-
+                       
                     }
                 }
                 foreach (var item in khosraAttachment)
@@ -266,25 +289,23 @@ namespace dNothi.Services.KhasraService
                         user_file_name = item.user_file_name
                     };
                     var uploadedFileResponse = GetDakUploadedFile(userParam, fileUploadParam);
-                    attachments.Add(ConversionMethod.ObjecttoJson(new { id = uploadedFileResponse.data[0].id, user_file_name = uploadedFileResponse.data[0].user_file_name }));
-                    DeleteLocalAttachment(attachmentdata);
+                    if (uploadedFileResponse.status == "success")
+                    {
+                        attachments.Add(ConversionMethod.ObjecttoJson(new { id = uploadedFileResponse.data[0].id, user_file_name = uploadedFileResponse.data[0].user_file_name }));
+
+                        DeleteLocalAttachment(attachmentdata);
+                    }
+                    else
+                    {
+                        DeleteLocalAttachment(attachmentdata);
+                    }
                 }
                 
                 
             }
            
             potroData.attachment = attachments;
-            //local sarokno to server
-
-            var sarokNoLocal = _localSarokNoLocalRepository.Table.Where(x => x.khosraId == khosraLocal.Id).FirstOrDefault();
            
-            if(sarokNoLocal!=null)
-            {
-               var sarokresponse = getSarokNo(userParam, sarokNoLocal.cdesk, sarokNoLocal.potro);
-                potroData.potrojari.sarok_no = sarokresponse.sarok_no;
-                _localSarokNoLocalRepository.Delete(sarokNoLocal);
-            }
-            
 
             string potroRequestJson = JsonParsingMethod.ObjecttoJson(potroData);
             return potroRequestJson;

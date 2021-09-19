@@ -115,7 +115,6 @@ namespace dNothi.Desktop.UI
 
         }
 
-
         public Khosra(INothiInboxNoteServices nothiInboxNote, IDesignationSealService designationSealService, IKhosraSaveService khosraSaveService, IUserService userService, IKhasraTemplateService khasraTemplateService, IDakForwardService dakForwardService, ISyncerService _syncerServices)
         {
             _nothiInboxNote = nothiInboxNote;
@@ -1887,8 +1886,6 @@ namespace dNothi.Desktop.UI
         }
         private DateTime? dateTimeApprover;
 
-
-
         private string _potrosub;
         private string _potrotype;
         private string _sarokNo;
@@ -1922,12 +1919,18 @@ namespace dNothi.Desktop.UI
                 khosraSaveParamPotro.attachment = GetSelectedAttachmenJson();
                 khosraSaveParamPotro.potrojari = new KhasraSaveParamPotrojari();
                 khosraSaveParamPotro.potrojari.potro_type = _khasraPotroTemplateData.template_id;
+
+                //optional
+                khosraSaveParamPotro.potrojaris  = new KhasraSaveParamPotrojaris();
+                khosraSaveParamPotro.potrojaris.potro_type_name = _khasraPotroTemplateData.template_name;
+                khosraSaveParamPotro.potrojaris.modified = _khasraPotroTemplateData.modified;
+                //optional end
+
                 if (draft_id != 0)
                 {
                     khosraSaveParamPotro.potrojari.id = draft_id;
 
                 }
-
                 //khosraSaveParamPotro.potrojari.attached_potro=
                 int potrojari_id = 0;
 
@@ -1944,6 +1947,8 @@ namespace dNothi.Desktop.UI
                 {
                     khosraSaveParamPotro.potrojari.note_subject = _noteSelected.note_subject;
                     khosraSaveParamPotro.potrojari.nothi_master_id = Convert.ToInt32(_noteSelected.nothi_id);
+                    khosraSaveParamPotro.potrojaris.note_no =Convert.ToInt32( _noteSelected.note_no);
+                   
 
                     if (!string.IsNullOrEmpty(_sarokNo))
                     {
@@ -1954,15 +1959,11 @@ namespace dNothi.Desktop.UI
                         GetSarokNoResponse sarok_no = _khosraSaveService.GetSharokNoResponse(dakUserParam, Convert.ToInt32(_noteSelected.nothi_id), potrojari_id);
                         khosraSaveParamPotro.potrojari.sarok_no = sarok_no.sarok_no;
                     }
-                    khosraSaveParamPotro.potrojari.SarokNo_potrojariId = potrojari_id;
+                    khosraSaveParamPotro.potrojaris.SarokNo_potrojariId = potrojari_id;
                     khosraSaveParamPotro.potrojari.nothi_note_id = Convert.ToInt32(_noteSelected.note_id);
 
                     _currentHtmlString = SetSharokNoinHtml(khosraSaveParamPotro.potrojari.sarok_no, _currentHtmlString);
                 }
-
-
-
-
 
                 khosraSaveParamPotro.potrojari.potro_description = ConversionMethod.Base64Encode(_currentHtmlString);
                 khosraSaveParamPotro.potrojari.potro_priority_level = dakPriorityComboBox.SelectedIndex;
@@ -1997,10 +1998,6 @@ namespace dNothi.Desktop.UI
                 //khosraSaveParamPotro.potrojari.sarok_no=
                 khosraSaveParamPotro.recipient = new KhosraSaveParamRecipent();
 
-
-
-
-
                 if (onumodonOfficer != null)
                 {
                     AddOnumodontoParam(khosraSaveParamPotro);
@@ -2013,7 +2010,6 @@ namespace dNothi.Desktop.UI
                 {
                     AddPrpoktoParam(khosraSaveParamPotro);
                 }
-              
                 if (senderOfficer != null)
                 {
                     AddSendertoParam(khosraSaveParamPotro);
@@ -2030,22 +2026,17 @@ namespace dNothi.Desktop.UI
                     AddAttentiontoParam(khosraSaveParamPotro);
                 }
 
-
-
-
                 WaitForm = new WaitFormFunc();
                 WaitForm.Show();
 
-
                 KhosraSaveResponse khosraSaveResponse = _khosraSaveService.GetKhosraSaveResponse(dakUserParam, khosraSaveParamPotro);
                 
-
                 if (khosraSaveResponse.status == "success")
                 {
                     WaitForm.Close();
                     UIDesignCommonMethod.SuccessMessage(khosraSaveResponse.data);
 
-                     if(_noteDTO != null && _noteDTO.note!=null)
+                    if(_noteDTO != null && _noteDTO.note!=null)
                     {
                         _noteDTO.note.khoshra_potro += 1;
 
@@ -2056,7 +2047,6 @@ namespace dNothi.Desktop.UI
 
                         _noteDTO.note.khoshra_waiting_for_approval += 1;
                     }
-
                     if (!_IsNewNoteSelected && _noteListDataRecordNoteDTO != null && !string.IsNullOrEmpty(_noteSelected.note_id) && _noteSelected.note_id != "0")
                     {
                         commonKhosraRowUserControl_NoteDetails_ButtonClick(_noteListDataRecordNoteDTO, _nothiListRecordsDTO, _nothiListInboxNoteRecordsDTO);

@@ -896,6 +896,8 @@ namespace dNothi.Services.KasaraPatraDashBoardService.Models
 
             [JsonProperty("recipient")]
             public Recipient Recipient { get; set; }
+
+            public string recipients { get; set; }
         }
 
         public class Data
