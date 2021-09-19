@@ -12,11 +12,17 @@ namespace dNothi.Services.KhasraService
         public KhasraSaveParamPotrojari potrojari { get; set; }
         public KhosraSaveParamRecipent recipient { get; set; }
         public List<string> attachment { get; set; }
-
+        public KhasraSaveParamPotrojaris potrojaris { get; set; }
         public List<KhosraPotroSaveAttachment> attachments { get; set; }
 
     }
+    public class KhosraSaveParamPotros
+    {
+        public KhasraSaveParamPotrojari potrojari { get; set; }
+        public KhosraSaveParamRecipent recipient { get; set; }
+        public List<string> attachment { get; set; }
 
+    }
     public class KhosraSaveParamRecipent
     {
         public Dictionary<string, KhosraSaveParamOfficer> receiver { get; set; }
@@ -61,7 +67,14 @@ namespace dNothi.Services.KhasraService
 
     }
 
-
+    public class KhasraSaveParamPotrojaris
+    {
+        public string potro_type_name { get; set; }
+        public string modified { get; set; }
+        public string nothi_subject { get; set; }
+        public int note_no { get; set; }
+        public int SarokNo_potrojariId { get; set; }
+    }
 
     public class KhasraSaveParamPotrojari
     {
@@ -85,7 +98,7 @@ namespace dNothi.Services.KhasraService
         public string sarok_no { get; set; }
         public int draft_officer_id { get; set; }
 
-        public int SarokNo_potrojariId { get; set; }
+      
     }
 
 
