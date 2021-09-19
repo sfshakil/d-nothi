@@ -820,7 +820,9 @@ namespace dNothi.Desktop.UI
 
         void hideform_Shown(object sender, EventArgs e, Form form)
         {
-
+            form.ShowInTaskbar = false;
+            form.TopMost = true;
+            form.TopMost = false;
             form.ShowDialog();
 
             (sender as Form).Hide();
@@ -2030,7 +2032,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Dashboard>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
 
@@ -2038,7 +2042,9 @@ namespace dNothi.Desktop.UI
         {
             //this.Hide();
             var form = FormFactory.Create<Dashboard>();
+            form.TopMost = true;
             BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev, 0); };
         }
 

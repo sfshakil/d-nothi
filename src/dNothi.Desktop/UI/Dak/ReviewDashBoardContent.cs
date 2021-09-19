@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dNothi.JsonParser.Entity.Nothi;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +18,51 @@ namespace dNothi.Desktop.UI.Dak
             InitializeComponent();
             rvwDashBoardContentShare.Visible = false;
         }
-
+        private NothiShaeredByMeRecord _nothiShaeredByMeRecord;
+        private string _nothi;
+        private string _note;
+        private string _noteSubject;
+        private string _modifiedDate;
+        private string _potroType;
+        public string nothi
+        {
+            get { return _nothi; }
+            set { _nothi = value; lbNothi.Text = value; }
+        }
+        public string note
+        {
+            get { return _note; }
+            set { _note = value; lbNote.Text = value; }
+        }
+        public string noteSubject
+        {
+            get { return _noteSubject; }
+            set { _noteSubject = value; lbNoteSubject.Text = value; }
+        }
+        public string modifiedDate
+        {
+            get { return _modifiedDate; }
+            set { _modifiedDate = value; lbModifiedDate.Text = value; }
+        }
+        public string potroType
+        {
+            get { return _potroType; }
+            set { _potroType = value; lbPotroType.Text = value; }
+        }
+        public NothiShaeredByMeRecord nothiShaeredByMeRecord
+        {
+            get { return _nothiShaeredByMeRecord; }
+            set { _nothiShaeredByMeRecord = value;
+                if (_nothiShaeredByMeRecord!= null)
+                {
+                    nothi = _nothiShaeredByMeRecord.nothi.nothi_detail.nothi_no + " " + _nothiShaeredByMeRecord.nothi.nothi_detail.nothi_subject;
+                    note = string.Concat(_nothiShaeredByMeRecord.nothi.nothi_detail.note_no.ToString().Select(c => (char)('\u09E6' + c - '0'))) + "." + string.Concat(_nothiShaeredByMeRecord.nothi.nothi_detail.onucched_no.ToString().Select(c => (char)('\u09E6' + c - '0')));
+                    noteSubject = _nothiShaeredByMeRecord.nothi.nothi_detail.note_subject;
+                    modifiedDate = _nothiShaeredByMeRecord.user.modified;
+                    potroType = _nothiShaeredByMeRecord.nothi.type;
+                }
+            }
+        }
         private void ReviewDashBoardContent_MouseHover(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(245, 245, 245);
@@ -31,69 +76,55 @@ namespace dNothi.Desktop.UI.Dak
         private void label4_MouseHover(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(245, 245, 245);
-            label4.ForeColor = Color.FromArgb(78, 165, 254);
+            lbNoteSubject.ForeColor = Color.FromArgb(78, 165, 254);
         }
 
         private void label6_MouseHover(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(245, 245, 245);
-            label6.ForeColor = Color.FromArgb(78, 165, 254);
+            lbNothi.ForeColor = Color.FromArgb(78, 165, 254);
 
         }
 
-        private void label8_MouseHover(object sender, EventArgs e)
-        {
-            this.BackColor = Color.FromArgb(245, 245, 245);
-            label8.ForeColor = Color.FromArgb(78, 165, 254);
-        }
+        
 
         private void label10_MouseHover(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(245, 245, 245);
-            label10.ForeColor = Color.FromArgb(78, 165, 254);
+            lbNote.ForeColor = Color.FromArgb(78, 165, 254);
         }
 
         private void label12_MouseHover(object sender, EventArgs e)
         {
             this.BackColor = Color.FromArgb(245, 245, 245);
-            label12.ForeColor = Color.FromArgb(78, 165, 254);
+            lbPotroType.ForeColor = Color.FromArgb(78, 165, 254);
         }
 
-        private void label14_MouseHover(object sender, EventArgs e)
-        {
-            this.BackColor = Color.FromArgb(245, 245, 245);
-            label14.ForeColor = Color.FromArgb(78, 165, 254);
-        }
+        
 
         private void label4_MouseLeave(object sender, EventArgs e)
         {
-            label4.ForeColor = Color.FromArgb(63, 66, 84);
+            lbNoteSubject.ForeColor = Color.FromArgb(63, 66, 84);
         }
 
         private void label6_MouseLeave(object sender, EventArgs e)
         {
-            label6.ForeColor = Color.FromArgb(63, 66, 84);
+            lbNothi.ForeColor = Color.FromArgb(63, 66, 84);
         }
 
-        private void label8_MouseLeave(object sender, EventArgs e)
-        {
-            label8.ForeColor = Color.FromArgb(63, 66, 84);
-        }
+        
 
         private void label10_MouseLeave(object sender, EventArgs e)
         {
-            label10.ForeColor = Color.FromArgb(63, 66, 84);
+            lbNote.ForeColor = Color.FromArgb(63, 66, 84);
         }
 
         private void label12_MouseLeave(object sender, EventArgs e)
         {
-            label12.ForeColor = Color.FromArgb(63, 66, 84);
+            lbPotroType.ForeColor = Color.FromArgb(63, 66, 84);
         }
 
-        private void label14_MouseLeave(object sender, EventArgs e)
-        {
-            label14.ForeColor = Color.FromArgb(63, 66, 84);
-        }
+        
 
         private void btnEdit_MouseHover(object sender, EventArgs e)
         {
@@ -118,67 +149,61 @@ namespace dNothi.Desktop.UI.Dak
             this.BackColor = Color.FromArgb(250, 250, 250);
             btnShowInEditor.IconColor = Color.FromArgb(78, 165, 254);
         }
-        
-        void hideform_Shown(object sender, EventArgs e, Form form)
-        {
-
-            form.ShowDialog();
-
-            (sender as Form).Hide();
-
-            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
-        }
-        public Form AttachNothiTypeListControlToForm(Control control)
-        {
-            Form form = new Form();
-
-            form.StartPosition = FormStartPosition.Manual;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.BackColor = Color.White;
-
-            form.AutoSize = true;
-            form.Location = new System.Drawing.Point(16, 32);
-            control.Location = new System.Drawing.Point(0, 0);
-            form.Size = control.Size;
-            form.Controls.Add(control);
-            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-
-            return form;
-        }
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-
-
-            hideform.BackColor = Color.Black;
-            hideform.Size = form.Size;
-            hideform.Opacity = .1;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
-        ReviewDashBoardContentShare rvwDashBoardContentShare = new ReviewDashBoardContentShare();
+        ReviewDashBoardContentShare rvwDashBoardContentShare = UserControlFactory.Create<ReviewDashBoardContentShare>();
         private void btnShare_Click(object sender, EventArgs e)
         {
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "ExtraPopUPWindow")
+                {
+                    BeginInvoke((Action)(() => f.Hide()));
+                }
+
+            }
             if (rvwDashBoardContentShare.Visible)
             {
                 rvwDashBoardContentShare.Visible = false;
             }
             else
             {
-                Controls.Add(rvwDashBoardContentShare);
-                rvwDashBoardContentShare.Location = new Point(415, 76);
+                
                 rvwDashBoardContentShare.Visible = true;
-                rvwDashBoardContentShare.BringToFront();
+                rvwDashBoardContentShare.nothiSharedId = _nothiShaeredByMeRecord.user.shared_nothi_id;
+                NextStepControlToForm(rvwDashBoardContentShare);
             }
+        }
+        public void NextStepControlToForm(Control control)
+        {
+            Form form = new Form();
+            form.TopMost = true;
+            form.TopMost = false;
+            form.Name = "ExtraPopUPWindow";
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.AutoSize = true;
+            form.ShowInTaskbar = false;
+
+            form.Location = new Point(Cursor.Position.X - control.Width,Cursor.Position.Y);
+            control.Location = new System.Drawing.Point(0, 0);
+            //form.Size = control.Size;
+            form.Height = control.Height;
+            form.Width = control.Width;
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            control.Height = form.Height;
+            form.Controls.Add(control);
+            form.Show();
         }
 
         private void btnShowInEditor_Click(object sender, EventArgs e)
         {
             RvwDashContentShowInEditor rvwDashContentShowInEditor = FormFactory.Create<RvwDashContentShowInEditor>();
             rvwDashContentShowInEditor.Show();
+        }
+
+        private void label14_Paint(object sender, PaintEventArgs e)
+        {
+            ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(235, 237, 243), ButtonBorderStyle.Solid);
         }
     }
 }

@@ -5605,9 +5605,13 @@ namespace dNothi.Desktop.UI
 
         private void reviewDashBoardButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            foreach (Form f in Application.OpenForms)
+            { BeginInvoke((Action)(() => f.Hide())); }
             ReviewDashBoard reviewDashBoard = FormFactory.Create<ReviewDashBoard>();
-            reviewDashBoard.ShowDialog();
+            reviewDashBoard.TopMost = true;
+            BeginInvoke((Action)(() => reviewDashBoard.ShowDialog()));
+            BeginInvoke((Action)(() => reviewDashBoard.TopMost = false));
+            reviewDashBoard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         private void guardFileModuleButton_Click(object sender, EventArgs e)

@@ -296,6 +296,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.Login>().AsSelf().InstancePerLifetimeScope();
 
             builder.RegisterType<UI.Nothi>().AsSelf();
+            builder.RegisterType<UI.Dak.ReviewDashBoardContentShare>().AsSelf();
             builder.RegisterType<UI.SettingsUserControl>().AsSelf();
             builder.RegisterType<UI.Dak.PotakaUserControl>().AsSelf();
             builder.RegisterType<NothiOnuccedReviewForm>().AsSelf();

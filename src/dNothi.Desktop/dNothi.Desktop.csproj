@@ -695,6 +695,12 @@
     <Compile Include="UI\Dak\ReviewDashBoardContentShare.Designer.cs">
       <DependentUpon>ReviewDashBoardContentShare.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\Reviewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\Reviewer.Designer.cs">
+      <DependentUpon>Reviewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\SingleDakUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1729,6 +1735,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\ReviewDashBoardContentShare.resx">
       <DependentUpon>ReviewDashBoardContentShare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\Reviewer.resx">
+      <DependentUpon>Reviewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\SetKarjodibosh.resx">
       <DependentUpon>SetKarjodibosh.cs</DependentUpon>

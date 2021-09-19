@@ -62,5 +62,49 @@ namespace dNothi.JsonParser.Entity.Nothi
         public NothiSharedSaveData data { get; set; }
         public List<object> options { get; set; }
     }
+    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+    public class NothiShaeredByMeRecordUser
+    {
+        public int shared_nothi_id { get; set; }
+        public string review_mode { get; set; }
+        public string modified { get; set; }
+    }
+
+    public class NothiDetail
+    {
+        public string share_module { get; set; }
+        public string nothi_no { get; set; }
+        public string nothi_subject { get; set; }
+        public string note_no { get; set; }
+        public string note_subject { get; set; }
+        public string onucched_no { get; set; }
+        public string potro_subject { get; set; }
+        public string potro_type { get; set; }
+        public string sarok_no { get; set; }
+    }
+
+    public class NothiShaeredByMeRecordNothi
+    {
+        public NothiDetail nothi_detail { get; set; }
+        public List<object> committed_by_designation_detail { get; set; }
+        public int id { get; set; }
+        public string shared_status { get; set; }
+        public int onucched_id { get; set; }
+        public int potrojari_id { get; set; }
+        public string type { get; set; }
+    }
+
+    public class NothiShaeredByMeRecord
+    {
+        public NothiShaeredByMeRecordUser user { get; set; }
+        public NothiShaeredByMeRecordNothi nothi { get; set; }
+    }
+
+    public class NothiShaeredByMeDTO
+    {
+        public int total_records { get; set; }
+        public List<NothiShaeredByMeRecord> records { get; set; }
+    }
+
 
 }

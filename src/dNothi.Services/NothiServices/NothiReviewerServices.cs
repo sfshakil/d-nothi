@@ -67,6 +67,16 @@ namespace dNothi.Services.NothiServices
         {
             return DefaultAPIConfiguration.NothiSharedOff;
         }
+        protected string GetNothiSharedByMeEndPoint()
+        {
+            return DefaultAPIConfiguration.NothiSharedByMeEndPoint;
+        }protected string GetNothiSharedToMeEndPoint()
+        {
+            return DefaultAPIConfiguration.NothiSharedToMeEndPoint;
+        }protected string GetNothiSharedRecentEndPoint()
+        {
+            return DefaultAPIConfiguration.NothiSharedRecentEndPoint;
+        }
 
         public NothiSharedOffDTO GetNothiSharedOff(DakUserParam dakListUserParam, NothiReviewerDTO nothiReviewer)
         {
@@ -125,6 +135,84 @@ namespace dNothi.Services.NothiServices
                 
                 var responseJson = response.Content;
                 NothiSharedSaveDTO allPotroResponse = JsonConvert.DeserializeObject<NothiSharedSaveDTO>(responseJson);
+                return allPotroResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiShaeredByMeDTO GetNothiSharedByMe(DakUserParam dakListUserParam)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiSharedByMeEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                //var serializedObject1 = JsonConvert.SerializeObject(dakListUserParam);
+                request.AddParameter("cdesk", "{\"office_id\":" + dakListUserParam.office_id + ",\"office_unit_id\":" + dakListUserParam.office_unit_id + ",\"designation_id\":" + dakListUserParam.designation_id + ",\"officer_id\":" + dakListUserParam.officer_id + ",\"user_id\":" + dakListUserParam.user_id + ",\"office\":\"" + dakListUserParam.office + "\",\"officer\":\"" + dakListUserParam.officer + "\",\"designation_level\":" + dakListUserParam.designation_level + "}");
+                request.AddParameter("page", dakListUserParam.page);
+                request.AddParameter("length", dakListUserParam.limit);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiShaeredByMeDTO allPotroResponse = JsonConvert.DeserializeObject<NothiShaeredByMeDTO>(responseJson);
+                return allPotroResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiShaeredByMeDTO GetNothiSharedToMe(DakUserParam dakListUserParam)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiSharedToMeEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                //var serializedObject1 = JsonConvert.SerializeObject(dakListUserParam);
+                request.AddParameter("cdesk", "{\"office_id\":" + dakListUserParam.office_id + ",\"office_unit_id\":" + dakListUserParam.office_unit_id + ",\"designation_id\":" + dakListUserParam.designation_id + ",\"officer_id\":" + dakListUserParam.officer_id + ",\"user_id\":" + dakListUserParam.user_id + ",\"office\":\"" + dakListUserParam.office + "\",\"officer\":\"" + dakListUserParam.officer + "\",\"designation_level\":" + dakListUserParam.designation_level + "}");
+                request.AddParameter("page", dakListUserParam.page);
+                request.AddParameter("length", dakListUserParam.limit);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiShaeredByMeDTO allPotroResponse = JsonConvert.DeserializeObject<NothiShaeredByMeDTO>(responseJson);
+                return allPotroResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiShaeredByMeDTO GetNothiSharedRecent(DakUserParam dakListUserParam)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiSharedRecentEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                //var serializedObject1 = JsonConvert.SerializeObject(dakListUserParam);
+                request.AddParameter("cdesk", "{\"office_id\":" + dakListUserParam.office_id + ",\"office_unit_id\":" + dakListUserParam.office_unit_id + ",\"designation_id\":" + dakListUserParam.designation_id + ",\"officer_id\":" + dakListUserParam.officer_id + ",\"user_id\":" + dakListUserParam.user_id + ",\"office\":\"" + dakListUserParam.office + "\",\"officer\":\"" + dakListUserParam.officer + "\",\"designation_level\":" + dakListUserParam.designation_level + "}");
+                request.AddParameter("page", dakListUserParam.page);
+                request.AddParameter("length", dakListUserParam.limit);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiShaeredByMeDTO allPotroResponse = JsonConvert.DeserializeObject<NothiShaeredByMeDTO>(responseJson);
                 return allPotroResponse;
             }
             catch (Exception ex)
