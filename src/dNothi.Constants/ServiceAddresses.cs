@@ -135,6 +135,7 @@ namespace dNothi.Constants
         public const string NothiSharedByMeEndPoint = "/api/nothi/review/shared_by_me";
         public const string NothiSharedToMeEndPoint = "/api/nothi/review/shared_to_me";
         public const string NothiSharedRecentEndPoint = "/api/nothi/review/shared_recent";
+        public const string NothiSharedEditorDataEndPoint = "/api/potro/import";
 
         public const string DakNibondanBohiEndPoint = "/api/register/dak/nibondhon_bohi";
 

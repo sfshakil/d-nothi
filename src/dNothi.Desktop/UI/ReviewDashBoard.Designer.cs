@@ -75,6 +75,9 @@ namespace dNothi.Desktop.UI
             this.bodyContentPanel = new System.Windows.Forms.Panel();
             this.newPotrojariPanel = new System.Windows.Forms.Panel();
             this.dakBodyFlowLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlNoData = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.totalPotrojariPanel = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -110,9 +113,6 @@ namespace dNothi.Desktop.UI
             this.button28 = new System.Windows.Forms.Button();
             this.button27 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
-            this.pnlNoData = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
             this.ReviewDashBoardBackGroundWorker = new System.ComponentModel.BackgroundWorker();
             this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.panel4.SuspendLayout();
@@ -128,6 +128,8 @@ namespace dNothi.Desktop.UI
             this.panel2.SuspendLayout();
             this.bodyContentPanel.SuspendLayout();
             this.newPotrojariPanel.SuspendLayout();
+            this.pnlNoData.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.totalPotrojariPanel.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -145,8 +147,6 @@ namespace dNothi.Desktop.UI
             this.nothiModulePanel.SuspendLayout();
             this.dakModulePanel.SuspendLayout();
             this.footerTableLayoutPanel.SuspendLayout();
-            this.pnlNoData.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -837,6 +837,45 @@ namespace dNothi.Desktop.UI
             this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(1488, 0);
             this.dakBodyFlowLayoutPanel.TabIndex = 2;
             // 
+            // pnlNoData
+            // 
+            this.pnlNoData.Controls.Add(this.tableLayoutPanel1);
+            this.pnlNoData.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlNoData.Location = new System.Drawing.Point(0, 0);
+            this.pnlNoData.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlNoData.Name = "pnlNoData";
+            this.pnlNoData.Size = new System.Drawing.Size(1488, 27);
+            this.pnlNoData.TabIndex = 16;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.Controls.Add(this.label3, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1488, 27);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.label3.Location = new System.Drawing.Point(599, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.label3.Size = new System.Drawing.Size(256, 27);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "দুঃখিত কোন তথ্য পাওয়া যায় নি।";
+            // 
             // totalPotrojariPanel
             // 
             this.totalPotrojariPanel.BackColor = System.Drawing.Color.White;
@@ -1405,45 +1444,6 @@ namespace dNothi.Desktop.UI
             this.button26.TabIndex = 43;
             this.button26.UseVisualStyleBackColor = false;
             // 
-            // pnlNoData
-            // 
-            this.pnlNoData.Controls.Add(this.tableLayoutPanel1);
-            this.pnlNoData.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlNoData.Location = new System.Drawing.Point(0, 0);
-            this.pnlNoData.Margin = new System.Windows.Forms.Padding(4);
-            this.pnlNoData.Name = "pnlNoData";
-            this.pnlNoData.Size = new System.Drawing.Size(1488, 27);
-            this.pnlNoData.TabIndex = 16;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.Controls.Add(this.label3, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1488, 27);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.label3.Location = new System.Drawing.Point(599, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.label3.Size = new System.Drawing.Size(256, 27);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "দুঃখিত কোন তথ্য পাওয়া যায় নি।";
-            // 
             // ReviewDashBoardBackGroundWorker
             // 
             this.ReviewDashBoardBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ReviewDashBoardBackGroundWorker_DoWork);
@@ -1477,6 +1477,7 @@ namespace dNothi.Desktop.UI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.ReviewDashBoard_Load);
             this.panel4.ResumeLayout(false);
             this.metroPanel2.ResumeLayout(false);
             this.metroPanel2.PerformLayout();
@@ -1497,6 +1498,10 @@ namespace dNothi.Desktop.UI
             this.bodyContentPanel.ResumeLayout(false);
             this.newPotrojariPanel.ResumeLayout(false);
             this.newPotrojariPanel.PerformLayout();
+            this.pnlNoData.ResumeLayout(false);
+            this.pnlNoData.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.totalPotrojariPanel.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -1522,10 +1527,6 @@ namespace dNothi.Desktop.UI
             this.dakModulePanel.PerformLayout();
             this.footerTableLayoutPanel.ResumeLayout(false);
             this.footerTableLayoutPanel.PerformLayout();
-            this.pnlNoData.ResumeLayout(false);
-            this.pnlNoData.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

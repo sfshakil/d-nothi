@@ -76,6 +76,9 @@ namespace dNothi.Services.NothiServices
         }protected string GetNothiSharedRecentEndPoint()
         {
             return DefaultAPIConfiguration.NothiSharedRecentEndPoint;
+        }protected string GetNothiSharedEditorDataEndPoint()
+        {
+            return DefaultAPIConfiguration.NothiSharedEditorDataEndPoint;
         }
 
         public NothiSharedOffDTO GetNothiSharedOff(DakUserParam dakListUserParam, NothiReviewerDTO nothiReviewer)
@@ -213,6 +216,31 @@ namespace dNothi.Services.NothiServices
 
                 var responseJson = response.Content;
                 NothiShaeredByMeDTO allPotroResponse = JsonConvert.DeserializeObject<NothiShaeredByMeDTO>(responseJson);
+                return allPotroResponse;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public NothiSharedEditorDataDTO GetNothiSharedEditorData(DakUserParam dakListUserParam, long shared_id)
+        {
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNothiSharedEditorDataEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakListUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                //var serializedObject1 = JsonConvert.SerializeObject(dakListUserParam);
+                request.AddParameter("cdesk", "{\"office_id\":" + dakListUserParam.office_id + ",\"office_unit_id\":" + dakListUserParam.office_unit_id + ",\"designation_id\":" + dakListUserParam.designation_id + ",\"officer_id\":" + dakListUserParam.officer_id + ",\"user_id\":" + dakListUserParam.user_id + ",\"office\":\"" + dakListUserParam.office + "\",\"officer\":\"" + dakListUserParam.officer + "\",\"designation_level\":" + dakListUserParam.designation_level + "}");
+                request.AddParameter("shared_id", shared_id);
+                IRestResponse response = client.Execute(request);
+
+                var responseJson = response.Content;
+                NothiSharedEditorDataDTO allPotroResponse = JsonConvert.DeserializeObject<NothiSharedEditorDataDTO>(responseJson);
                 return allPotroResponse;
             }
             catch (Exception ex)

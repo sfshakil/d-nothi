@@ -50,10 +50,10 @@ namespace dNothi.Desktop.UI.Dak
         /// <summary>
         /// Set tinyMCE to fullscreen mode
         /// </summary>
-        //public void SetFullscreen()
-        //{
-        //    webBrowserControl.Document?.InvokeScript("tinyMCE.execCommand('mceFullScreen')");
-        //}
+        public void SetFullscreen()
+        {
+            webBrowserControl.Document?.InvokeScript("tinyMCE.execCommand('mceFullScreen')");
+        }
 
         /// <summary>
         /// Create editor instance

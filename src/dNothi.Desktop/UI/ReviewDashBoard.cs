@@ -434,5 +434,10 @@ namespace dNothi.Desktop.UI
                 ReviewDashBoardBackGroundWorker.RunWorkerAsync();
             }
         }
+
+        private void ReviewDashBoard_Load(object sender, EventArgs e)
+        {
+            ReviewDashBoardBackGroundWorker.RunWorkerAsync();
+        }
     }
 }

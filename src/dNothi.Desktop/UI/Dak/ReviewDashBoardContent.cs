@@ -1,4 +1,6 @@
-﻿using dNothi.JsonParser.Entity.Nothi;
+﻿using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -194,11 +196,40 @@ namespace dNothi.Desktop.UI.Dak
             form.Controls.Add(control);
             form.Show();
         }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
 
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.Show();
+            var t = Task.Delay(3000);
+            t.Wait();
+            successMessage.Hide();
+
+        }
         private void btnShowInEditor_Click(object sender, EventArgs e)
         {
-            RvwDashContentShowInEditor rvwDashContentShowInEditor = FormFactory.Create<RvwDashContentShowInEditor>();
-            rvwDashContentShowInEditor.Show();
+            if (InternetConnection.Check())
+            {
+                RvwDashContentShowInEditor rvwDashContentShowInEditor = FormFactory.Create<RvwDashContentShowInEditor>();
+                rvwDashContentShowInEditor.Size = Screen.PrimaryScreen.WorkingArea.Size;
+                rvwDashContentShowInEditor.nothiShaeredByMeRecord = _nothiShaeredByMeRecord;
+                BeginInvoke((Action)(() => rvwDashContentShowInEditor.ShowDialog()));
+            }
+            else
+            {
+                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
         }
 
         private void label14_Paint(object sender, PaintEventArgs e)

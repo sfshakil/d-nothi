@@ -1,11 +1,19 @@
-﻿using dNothi.Services.UserServices;
+﻿using CefSharp;
+using CefSharp.WinForms;
+using dNothi.JsonParser.Entity.Nothi;
+using dNothi.Services.DakServices;
+using dNothi.Services.NothiServices;
+using dNothi.Services.UserServices;
+using dNothi.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,35 +21,85 @@ namespace dNothi.Desktop.UI
 {
     public partial class RvwDashContentShowInEditor : Form
     {
-        public RvwDashContentShowInEditor(IUserService userService)
+        IUserService _userService { get; set; }
+        INothiReviewerServices _nothiReviewerServices { get; set; }
+        public WaitFormFunc WaitForm;
+        public RvwDashContentShowInEditor(IUserService userService, INothiReviewerServices nothiReviewerServices)
         {
             _userService = userService;
+            _nothiReviewerServices = nothiReviewerServices;
             InitializeComponent();
-            khosraViewWebBrowser.Url = new Uri("https://www.google.com/");
-        }
+            WaitForm = new WaitFormFunc();
 
-        IUserService _userService { get; set; }
-        designationSelect designationDetailsPanelNothi = new designationSelect();
-        private void profilePanel_Click(object sender, EventArgs e)
+
+        }
+        private void CreateEditor()
         {
-            
-            if (designationDetailsPanelNothi.Width == 434 && !designationDetailsPanelNothi.Visible)
+            if (File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"tinymce\js\tinymce\tinymce.min.js")))
             {
-                designationDetailsPanelNothi.Visible = true;
-                //   designationDetailsPanelNothi.designationLinkText = _dakuserparam.designation_label + "," + _dakuserparam.unit_label + "," + _dakuserparam.office_label;
-                designationDetailsPanelNothi.Location = new System.Drawing.Point(227 + 689, 50);
-                Controls.Add(designationDetailsPanelNothi);
-                designationDetailsPanelNothi.BringToFront();
-                designationDetailsPanelNothi.Width = 427;
-                designationDetailsPanelNothi.officeInfos = _userService.GetAllLocalOfficeInfo();
+                tinyMceEditor.Load(@"file:///" + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"tinymce/tinymce.htm").Replace('\\', '/'));
+
 
             }
             else
             {
-                designationDetailsPanelNothi.Visible = false;
-                designationDetailsPanelNothi.Width = 434;
+                MessageBox.Show("Could not find the tinyMCE script directory. Please ensure the directory is in the same location as tinymce.htm", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
+        }
+        //public ChromiumWebBrowser browser;
+
+        private NothiShaeredByMeRecord _nothiShaeredByMeRecord;
+        public NothiShaeredByMeRecord nothiShaeredByMeRecord
+        {
+            get { return _nothiShaeredByMeRecord; }
+            set { _nothiShaeredByMeRecord = value; }
+        }
+        public void loadEditorData()
+        {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            dakListUserParam.limit = 10;
+            dakListUserParam.page = 1;
+            NothiSharedEditorDataDTO response = _nothiReviewerServices.GetNothiSharedEditorData(dakListUserParam, _nothiShaeredByMeRecord.user.shared_nothi_id);
+            if (response != null && response.status == "success")
+            {
+                var editorcontent = Encoding.UTF8.GetString(Convert.FromBase64String(response.data.shared_nothi.edited_content));
+                string editortext = getparagraphtext(editorcontent);
+                string addParagraphStartTag = "<p>";
+                string addParagraphEndTag = "</p>";
+                var allText = addParagraphStartTag + editortext + addParagraphEndTag;
+                tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { allText });
+                tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
+            }
+            else
+            {
+                tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { "" });
+                tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
+            }
+        }
+        public string getparagraphtext(string editortext)
+        {
+            Match m = Regex.Match(editortext, @"<p>\s*(.+?)\s*</p>");
+            if (m.Success)
+            {
+                return m.Groups[1].Value;
+            }
+            else
+                return editortext;
+        }
+
+        private void tinyMceEditor_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
+        {
+            loadEditorData();
+        }
+
+        private void tinyMceEditor_LoadingStateChanged(object sender, LoadingStateChangedEventArgs e)
+        {
+
+        }
+
+        private void RvwDashContentShowInEditor_Load(object sender, EventArgs e)
+        {
+            CreateEditor();
         }
     }
 }
