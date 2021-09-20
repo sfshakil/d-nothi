@@ -50,6 +50,7 @@ namespace dNothi.Desktop.UI
             {
                 ReviewDashBoardContent pgc = new ReviewDashBoardContent();
                 pgc.nothiShaeredByMeRecord = record;
+                pgc.ReviewDashboard_Back += delegate (object sender1, EventArgs e1) { btnReviewByMe_Click(null, null); };
                 UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, pgc);
             }
         }

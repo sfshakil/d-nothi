@@ -17,5 +17,6 @@ namespace dNothi.Services.NothiServices
         NothiShaeredByMeDTO GetNothiSharedToMe(DakUserParam dakuserparam);
         NothiShaeredByMeDTO GetNothiSharedRecent(DakUserParam dakuserparam);
         NothiSharedEditorDataDTO GetNothiSharedEditorData(DakUserParam dakuserparam, long shared_id);
+        NothiSharedEditorDataSendDTO GetNothiSharedEditorSaveData(DakUserParam dakuserparam, NothiShaeredByMeRecord nothiShaeredByMeRecord);
     }
 }
