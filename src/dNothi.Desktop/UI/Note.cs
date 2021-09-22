@@ -7377,7 +7377,7 @@ namespace dNothi.Desktop.UI
                 btnNothijatoNext.Visible = true;
                 string potro_subject = "";
                 noteKhoshraList = _noteKhoshraList.GetnoteKhoshraListInfo(_dakuserparam, nothiListRecords.id, notelist.nothi_note_id, potro_subject);
-                if (noteKhoshraList.status == "success")
+                if (noteKhoshraList.status == "success" && noteKhoshraList.data.total_records > 0)
                 {
                     i = 0;
                     pnlPotrangshoDetails.Visible = true;
@@ -9802,14 +9802,15 @@ namespace dNothi.Desktop.UI
         {
             Form form = new Form();
 
-            form.StartPosition = FormStartPosition.Manual;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.FormBorderStyle = FormBorderStyle.None;
             form.BackColor = Color.White;
 
             form.AutoSize = true;
-            form.Location = new System.Drawing.Point(233, 0);
+            //form.Location = new System.Drawing.Point(233, 0);
             control.Location = new System.Drawing.Point(0, 0);
-            form.Size = control.Size;
+            form.Height = control.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            form.Width = control.Width;
             form.Controls.Add(control);
             control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 

@@ -55,17 +55,17 @@ namespace dNothi.Desktop.UI.Dak
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1205, 53);
+            this.panel2.Size = new System.Drawing.Size(1607, 65);
             this.panel2.TabIndex = 89;
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 52);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 64);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1205, 1);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1607, 1);
             this.flowLayoutPanel1.TabIndex = 42;
             // 
             // closeButton
@@ -79,9 +79,10 @@ namespace dNothi.Desktop.UI.Dak
             this.closeButton.IconColor = System.Drawing.Color.Silver;
             this.closeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.closeButton.IconSize = 20;
-            this.closeButton.Location = new System.Drawing.Point(1156, 13);
+            this.closeButton.Location = new System.Drawing.Point(1541, 16);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(28, 26);
+            this.closeButton.Size = new System.Drawing.Size(37, 32);
             this.closeButton.TabIndex = 40;
             this.closeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.closeButton.UseVisualStyleBackColor = false;
@@ -91,9 +92,10 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.label1.Location = new System.Drawing.Point(9, 9);
+            this.label1.Location = new System.Drawing.Point(12, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 30);
+            this.label1.Size = new System.Drawing.Size(255, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "স্বারক নম্বর পরিবর্তন";
             // 
@@ -104,10 +106,10 @@ namespace dNothi.Desktop.UI.Dak
             this.panel1.Controls.Add(this.panel11);
             this.panel1.Controls.Add(this.flowLayoutPanel5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 53);
+            this.panel1.Location = new System.Drawing.Point(0, 65);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1205, 94);
+            this.panel1.Size = new System.Drawing.Size(1607, 116);
             this.panel1.TabIndex = 95;
             // 
             // lbNothiNoText
@@ -117,9 +119,10 @@ namespace dNothi.Desktop.UI.Dak
             this.lbNothiNoText.Enabled = false;
             this.lbNothiNoText.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothiNoText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothiNoText.Location = new System.Drawing.Point(21, 34);
+            this.lbNothiNoText.Location = new System.Drawing.Point(28, 42);
+            this.lbNothiNoText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNothiNoText.Name = "lbNothiNoText";
-            this.lbNothiNoText.Size = new System.Drawing.Size(208, 21);
+            this.lbNothiNoText.Size = new System.Drawing.Size(265, 26);
             this.lbNothiNoText.TabIndex = 87;
             this.lbNothiNoText.Text = "৫৬.৪২.০০০০.০১৩.১৬.০০৩.২১.";
             // 
@@ -130,9 +133,10 @@ namespace dNothi.Desktop.UI.Dak
             this.lbNothiNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lbNothiNo.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothiNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothiNo.Location = new System.Drawing.Point(9, 26);
+            this.lbNothiNo.Location = new System.Drawing.Point(12, 32);
+            this.lbNothiNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNothiNo.Name = "lbNothiNo";
-            this.lbNothiNo.Size = new System.Drawing.Size(544, 40);
+            this.lbNothiNo.Size = new System.Drawing.Size(725, 49);
             this.lbNothiNo.TabIndex = 85;
             this.lbNothiNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbNothiNo.Paint += new System.Windows.Forms.PaintEventHandler(this.lbNothiNo_Paint);
@@ -141,9 +145,10 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
             this.panel11.Controls.Add(this.lbNothilast4digit);
-            this.panel11.Location = new System.Drawing.Point(553, 26);
+            this.panel11.Location = new System.Drawing.Point(737, 32);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(627, 40);
+            this.panel11.Size = new System.Drawing.Size(836, 49);
             this.panel11.TabIndex = 86;
             this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.lbNothiNo_Paint);
             // 
@@ -153,10 +158,11 @@ namespace dNothi.Desktop.UI.Dak
             this.lbNothilast4digit.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lbNothilast4digit.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNothilast4digit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.lbNothilast4digit.Location = new System.Drawing.Point(12, 6);
+            this.lbNothilast4digit.Location = new System.Drawing.Point(16, 7);
+            this.lbNothilast4digit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lbNothilast4digit.Multiline = true;
             this.lbNothilast4digit.Name = "lbNothilast4digit";
-            this.lbNothilast4digit.Size = new System.Drawing.Size(592, 30);
+            this.lbNothilast4digit.Size = new System.Drawing.Size(789, 37);
             this.lbNothilast4digit.TabIndex = 72;
             this.lbNothilast4digit.Text = "৭";
             // 
@@ -164,14 +170,15 @@ namespace dNothi.Desktop.UI.Dak
             // 
             this.flowLayoutPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 93);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 115);
             this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(1205, 1);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(1607, 1);
             this.flowLayoutPanel5.TabIndex = 42;
             // 
             // btnSave
             // 
+            this.btnSave.AutoSize = true;
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
             this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -182,10 +189,10 @@ namespace dNothi.Desktop.UI.Dak
             this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSave.IconSize = 25;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(1088, 160);
+            this.btnSave.Location = new System.Drawing.Point(1429, 197);
             this.btnSave.Margin = new System.Windows.Forms.Padding(0);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(96, 42);
+            this.btnSave.Size = new System.Drawing.Size(150, 52);
             this.btnSave.TabIndex = 96;
             this.btnSave.Text = "সংরক্ষণ";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -194,6 +201,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // btnCancel
             // 
+            this.btnCancel.AutoSize = true;
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -204,10 +212,10 @@ namespace dNothi.Desktop.UI.Dak
             this.btnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancel.IconSize = 25;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(984, 160);
+            this.btnCancel.Location = new System.Drawing.Point(1267, 197);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(0);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(104, 42);
+            this.btnCancel.Size = new System.Drawing.Size(162, 52);
             this.btnCancel.TabIndex = 98;
             this.btnCancel.Text = " বন্ধ করুন";
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -216,7 +224,7 @@ namespace dNothi.Desktop.UI.Dak
             // 
             // ChangeSharokNumber
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.btnCancel);
@@ -225,7 +233,7 @@ namespace dNothi.Desktop.UI.Dak
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ChangeSharokNumber";
-            this.Size = new System.Drawing.Size(1205, 218);
+            this.Size = new System.Drawing.Size(1607, 268);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.lbNothiNo_Paint);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -234,6 +242,7 @@ namespace dNothi.Desktop.UI.Dak
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
