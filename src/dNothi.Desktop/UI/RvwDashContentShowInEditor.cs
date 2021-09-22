@@ -1,5 +1,7 @@
 ﻿using CefSharp;
 using CefSharp.WinForms;
+using dNothi.Desktop.UI.CustomMessageBox;
+using dNothi.Desktop.UI.Dak;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
@@ -24,6 +26,7 @@ namespace dNothi.Desktop.UI
         IUserService _userService { get; set; }
         INothiReviewerServices _nothiReviewerServices { get; set; }
         public WaitFormFunc WaitForm;
+        ReviewDashBoardContentShare rvwDashBoardContentShare = UserControlFactory.Create<ReviewDashBoardContentShare>();
         public RvwDashContentShowInEditor(IUserService userService, INothiReviewerServices nothiReviewerServices)
         {
             _userService = userService;
@@ -52,7 +55,32 @@ namespace dNothi.Desktop.UI
         public NothiShaeredByMeRecord nothiShaeredByMeRecord
         {
             get { return _nothiShaeredByMeRecord; }
-            set { _nothiShaeredByMeRecord = value; }
+            set { _nothiShaeredByMeRecord = value;
+                DakUserParam UserParam = _userService.GetLocalDakUserParam();
+                lbNoteSubject.Text = "বিষয়ঃ " + _nothiShaeredByMeRecord.nothi.nothi_detail.note_subject;
+                userNameLabel.Text = UserParam.officer+" ("+ UserParam.designation+", "+ UserParam.unit_label+")";
+            }
+        }
+        public void SuccessMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+
+            successMessage.message = Message;
+            successMessage.isSuccess = true;
+            successMessage.Show();
+            var t = Task.Delay(3000); //1 second/1000 ms
+            t.Wait();
+            successMessage.Hide();
+        }
+        public void ErrorMessage(string Message)
+        {
+            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
+            successMessage.message = Message;
+            successMessage.Show();
+            var t = Task.Delay(3000);
+            t.Wait();
+            successMessage.Hide();
+
         }
         public void loadEditorData()
         {
@@ -75,6 +103,11 @@ namespace dNothi.Desktop.UI
                 tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { "" });
                 tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
             }
+        }
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
         }
         public string getparagraphtext(string editortext)
         {
@@ -100,6 +133,74 @@ namespace dNothi.Desktop.UI
         private void RvwDashContentShowInEditor_Load(object sender, EventArgs e)
         {
             CreateEditor();
+        }
+
+        private void ShareButton_Click(object sender, EventArgs e)
+        {
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name == "ExtraPopUPWindow")
+                {
+                    BeginInvoke((Action)(() => f.Hide()));
+                }
+
+            }
+            if (rvwDashBoardContentShare.Visible)
+            {
+                rvwDashBoardContentShare.Visible = false;
+            }
+            else
+            {
+
+                rvwDashBoardContentShare.Visible = true;
+                rvwDashBoardContentShare.nothiSharedId = _nothiShaeredByMeRecord.user.shared_nothi_id;
+                NextStepControlToForm(rvwDashBoardContentShare);
+            }
+        }
+        public void NextStepControlToForm(Control control)
+        {
+            Form form = new Form();
+            form.TopMost = true;
+            form.TopMost = false;
+            form.Name = "ExtraPopUPWindow";
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.AutoSize = true;
+            form.ShowInTaskbar = false;
+
+            form.Location = new Point(Cursor.Position.X - control.Width, Cursor.Position.Y);
+            control.Location = new System.Drawing.Point(0, 0);
+            //form.Size = control.Size;
+            form.Height = control.Height;
+            form.Width = control.Width;
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            control.Height = form.Height;
+            form.Controls.Add(control);
+            form.Show();
+        }
+        public event EventHandler ReviewDashboardBack;
+        private async void btnSave_Click(object sender, EventArgs e)
+        {
+            DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
+            JavascriptResponse response1 = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
+            string sub = response1.Result.ToString();
+            var paragraph = getparagraphtext(sub);
+            var decodecontent = Base64Encode(paragraph);
+            _nothiShaeredByMeRecord.nothi.onucched_subject = decodecontent;
+            NothiSharedEditorDataSendDTO response = _nothiReviewerServices.GetNothiSharedEditorSaveData(dakListUserParam, _nothiShaeredByMeRecord);
+            if (response != null && response.status == "success")
+            {
+                SuccessMessage("সফলভাবে প্রক্রিয়াটি সম্পন্ন হয়েছে");
+                if (this.ReviewDashboardBack != null)
+                    this.ReviewDashboardBack(sender, e);
+                this.Hide();
+            }
+            else
+            {
+                ErrorMessage(response.status);
+                this.Hide();
+            }
         }
     }
 }

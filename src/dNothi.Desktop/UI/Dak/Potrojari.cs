@@ -70,7 +70,9 @@ namespace dNothi.Desktop.UI.Dak
         }
         void hideform_Shown(object sender, EventArgs e, Form form)
         {
-
+            form.ShowInTaskbar = false;
+            form.TopMost = true;
+            form.TopMost = false;
             form.ShowDialog();
 
             (sender as Form).Hide();
@@ -81,11 +83,10 @@ namespace dNothi.Desktop.UI.Dak
         {
             Form hideform = new Form();
 
-
+            hideform.ShowInTaskbar = false;
             hideform.BackColor = Color.Black;
             //hideform.Size = this.Size;
-            hideform.Height = 729;
-            hideform.Width = 1366;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
             hideform.Opacity = .4;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
@@ -97,12 +98,12 @@ namespace dNothi.Desktop.UI.Dak
         {
             Form form = new Form();
 
-            form.StartPosition = FormStartPosition.Manual;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.FormBorderStyle = FormBorderStyle.None;
             form.BackColor = Color.White;
 
             form.AutoSize = true;
-            form.Location = new System.Drawing.Point(100, 250);
+            //form.Location = new System.Drawing.Point(100, 250);
             control.Location = new System.Drawing.Point(0, 0);
             form.Size = control.Size;
             form.Controls.Add(control);

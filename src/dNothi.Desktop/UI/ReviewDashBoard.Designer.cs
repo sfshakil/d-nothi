@@ -92,6 +92,7 @@ namespace dNothi.Desktop.UI
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.headerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.profilePanel = new System.Windows.Forms.Panel();
             this.userPictureBox = new FontAwesome.Sharp.IconPictureBox();
             this.onlineStatus = new FontAwesome.Sharp.IconButton();
@@ -114,7 +115,6 @@ namespace dNothi.Desktop.UI
             this.button27 = new System.Windows.Forms.Button();
             this.button26 = new System.Windows.Forms.Button();
             this.ReviewDashBoardBackGroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.panel4.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -1051,6 +1051,19 @@ namespace dNothi.Desktop.UI
             this.panel1.Size = new System.Drawing.Size(1488, 65);
             this.panel1.TabIndex = 2;
             // 
+            // onlineToggleButton2
+            // 
+            this.onlineToggleButton2.AutoSize = true;
+            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
+            this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.onlineToggleButton2.Location = new System.Drawing.Point(950, 0);
+            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(53, 0);
+            this.onlineToggleButton2.Name = "onlineToggleButton2";
+            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.onlineToggleButton2.Size = new System.Drawing.Size(53, 65);
+            this.onlineToggleButton2.TabIndex = 109;
+            // 
             // profilePanel
             // 
             this.profilePanel.AutoSize = true;
@@ -1448,19 +1461,6 @@ namespace dNothi.Desktop.UI
             // 
             this.ReviewDashBoardBackGroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.ReviewDashBoardBackGroundWorker_DoWork);
             this.ReviewDashBoardBackGroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.ReviewDashBoardBackGroundWorker_RunWorkerCompleted);
-            // 
-            // onlineToggleButton2
-            // 
-            this.onlineToggleButton2.AutoSize = true;
-            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
-            this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.onlineToggleButton2.Location = new System.Drawing.Point(950, 0);
-            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(53, 0);
-            this.onlineToggleButton2.Name = "onlineToggleButton2";
-            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.onlineToggleButton2.Size = new System.Drawing.Size(53, 65);
-            this.onlineToggleButton2.TabIndex = 109;
             // 
             // ReviewDashBoard
             // 

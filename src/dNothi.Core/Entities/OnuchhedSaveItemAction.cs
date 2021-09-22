@@ -11,6 +11,7 @@ namespace dNothi.Core.Entities
     public class OnuchhedSaveItemAction : BaseEntity
     {
         public  string onuchhedId { get; set; }
+        public  string onuchhedType { get; set; }
         [MaxLength]
         public  string dakUserParamJson { get; set; }
         [MaxLength]

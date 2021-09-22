@@ -21,13 +21,16 @@ namespace dNothi.Services.NothiServices
         private readonly INoteListParser _noteListParser;
         IRepository<NothiNoteTalikaItem> _nothiNoteTalikaItem;
         IRepository<NoteInboxSentAllItem> _noteInboxSentAllItem;
+        IRepository<NoteSearchItem> _noteSearchItem;
         public NothiNoteTalikaServices(INoteListParser noteListParser, 
             IRepository<NothiNoteTalikaItem> nothiNoteTalikaItem, 
-            IRepository<NoteInboxSentAllItem> noteInboxSentAllItem)
+            IRepository<NoteInboxSentAllItem> noteInboxSentAllItem,
+            IRepository<NoteSearchItem> noteSearchItem)
         {
             _noteListParser = noteListParser;
             _nothiNoteTalikaItem = nothiNoteTalikaItem;
             _noteInboxSentAllItem = noteInboxSentAllItem;
+            _noteSearchItem = noteSearchItem;
         }
         public NothiNoteTalikaListResponse GetNothiNoteTalika(DakUserParam dakUserParam, string nothi_type_id)
         {
@@ -429,6 +432,18 @@ namespace dNothi.Services.NothiServices
 
         public NoteAllListResponse GetNoteListAll(DakUserParam dakUserParam, long nothi_id, string note_category, string note_subject, string officer_designation_id)
         {
+            NoteAllListResponse noteListResponse = new NoteAllListResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var noteList = _noteSearchItem.Table.FirstOrDefault(a => a.nothi_id == nothi_id && a.note_category == note_category && a.note_subject == note_subject && a.officer_designation_id == officer_designation_id && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+                if (noteList != null)
+                {
+                    noteListResponse = JsonConvert.DeserializeObject<NoteAllListResponse>(noteList.jsonResponse);
+
+                }
+                return noteListResponse;
+            }
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNoteSearchListEndpoint());
@@ -447,12 +462,37 @@ namespace dNothi.Services.NothiServices
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
-                NoteAllListResponse noteListResponse = _noteListParser.ParseMessage(responseJson);
+                SaveOrUpdateNoteSearchRecords(dakUserParam, nothi_id, note_category, note_subject, officer_designation_id, responseJson);
+                noteListResponse = _noteListParser.ParseMessage(responseJson);
                 return noteListResponse;
             }
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+        public void SaveOrUpdateNoteSearchRecords(DakUserParam dakListUserParam, long nothi_id, string note_category, string note_subject, string officer_designation_id, string responseJson)
+        {
+            var noteListDB = _noteSearchItem.Table.FirstOrDefault(a => a.nothi_id == nothi_id && a.note_category == note_category && a.note_subject == note_subject && a.officer_designation_id == officer_designation_id && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+            if (noteListDB != null)
+            {
+                noteListDB.jsonResponse = responseJson;
+                _noteSearchItem.Update(noteListDB);
+            }
+            else
+            {
+                NoteSearchItem noteSearchItem = new NoteSearchItem();
+                noteSearchItem.nothi_id = nothi_id;
+                noteSearchItem.note_category = note_category;
+                noteSearchItem.note_subject = note_subject;
+                noteSearchItem.officer_designation_id = officer_designation_id;
+                noteSearchItem.jsonResponse = responseJson;
+
+                noteSearchItem.designation_id = dakListUserParam.designation_id;
+                noteSearchItem.office_id = dakListUserParam.office_id;
+                _noteSearchItem.Insert(noteSearchItem);
+
             }
         }
     }

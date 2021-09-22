@@ -19,8 +19,10 @@ namespace dNothi.Services.NothiServices
     public class NothiOutboxService : INothiOutboxServices
     {
         IRepository<NothiItem> _nothiItem;
-        public NothiOutboxService(IRepository<NothiItem> nothiItem)
+        IRepository<NothiInboxSearchItem> _nothiInboxSearchItem;
+        public NothiOutboxService(IRepository<NothiItem> nothiItem, IRepository<NothiInboxSearchItem> nothiInboxSearchItem)
         {
+            _nothiInboxSearchItem = nothiInboxSearchItem;
             _nothiItem = nothiItem;
         }
         public NothiListOutboxResponse GetNothiOutbox(DakUserParam dakUserParam)
@@ -111,6 +113,17 @@ namespace dNothi.Services.NothiServices
         public NothiListOutboxResponse GetNothiOutbox(DakUserParam dakUserParam, string search_params)
         {
             NothiListOutboxResponse nothiListOutboxResponse = new NothiListOutboxResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var nothiInboxSearch = _nothiInboxSearchItem.Table.FirstOrDefault(a => a.Search_param == search_params && a.is_nothi_outbox == true && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+                if (nothiInboxSearch != null)
+                {
+                    nothiListOutboxResponse = JsonConvert.DeserializeObject<NothiListOutboxResponse>(nothiInboxSearch.json_response_outbox);
+
+                }
+                return nothiListOutboxResponse;
+            }
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNothiOutboxListEndpoint());
@@ -127,6 +140,7 @@ namespace dNothi.Services.NothiServices
 
                 var responseJson = response.Content;
                 responseJson = System.Text.RegularExpressions.Regex.Replace(responseJson, "<pre.*</pre>", string.Empty, RegexOptions.Singleline);
+                SaveOrUpdateNothiOutboxSearch(dakUserParam, search_params, responseJson);
                 nothiListOutboxResponse = JsonConvert.DeserializeObject<NothiListOutboxResponse>(responseJson);
                 return nothiListOutboxResponse;
             }
@@ -135,7 +149,27 @@ namespace dNothi.Services.NothiServices
                 throw;
             }
         }
+        public void SaveOrUpdateNothiOutboxSearch(DakUserParam dakListUserParam, string search_param, string responseJson)
+        {
+            var nothiInboxSearchDB = _nothiInboxSearchItem.Table.FirstOrDefault(a => a.Search_param == search_param && a.is_nothi_outbox == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
 
+            if (nothiInboxSearchDB != null)
+            {
+                nothiInboxSearchDB.json_response_outbox = responseJson;
+                _nothiInboxSearchItem.Update(nothiInboxSearchDB);
+            }
+            else
+            {
+                NothiInboxSearchItem nothiInboxSearchItem = new NothiInboxSearchItem();
+                nothiInboxSearchItem.Search_param = search_param;
+                nothiInboxSearchItem.is_nothi_outbox = true;
+                nothiInboxSearchItem.designation_id = dakListUserParam.designation_id;
+                nothiInboxSearchItem.office_id = dakListUserParam.office_id;
+                nothiInboxSearchItem.json_response_outbox = responseJson;
+                _nothiInboxSearchItem.Insert(nothiInboxSearchItem);
+
+            }
+        }
         public OtherOfficeNothiListOutboxResponse OtherOfficeNothiOutboxListEndPoint(DakUserParam dakUserParam, string search_params)
         {
             OtherOfficeNothiListOutboxResponse nothiListOutboxResponse = new OtherOfficeNothiListOutboxResponse();

@@ -70,6 +70,7 @@ namespace dNothi.Desktop.UI.Dak
         }
         public void loadinLocal()
         {
+            btnEdit.Visible = true;
             btnSchedule.Visible = true;
             btnDelete.Visible = false;
             btnKhosra.Visible = false;
@@ -399,7 +400,6 @@ namespace dNothi.Desktop.UI.Dak
             {
                 btnDelete.Visible = false;
                 btnKhosra.Visible = false;
-                btnEdit.Visible = false;
                 btnShare.Visible = false;
             }
             else
@@ -534,27 +534,13 @@ namespace dNothi.Desktop.UI.Dak
 
         private void btnEdit_MouseHover(object sender, EventArgs e)
         {
-            if (btnSchedule.Visible == true)
-            {
-                btnEdit.Visible = false;
-            }
-            else
-            {
-                btnEdit.Visible = true;
-                btnEdit.IconColor = Color.Red;
-            }
+            btnEdit.Visible = true;
+            btnEdit.IconColor = Color.Red;
         }
 
         private void btnEdit_MouseLeave(object sender, EventArgs e)
         {
-            if (btnSchedule.Visible == true)
-            {
-                btnEdit.Visible = false;
-            }
-            else
-            {
-                btnEdit.IconColor = Color.FromArgb(54, 153, 255);
-            }
+            btnEdit.IconColor = Color.FromArgb(54, 153, 255);
         }
 
         private void SubjectBrowser_Navigated(object sender, WebBrowserNavigatedEventArgs e)

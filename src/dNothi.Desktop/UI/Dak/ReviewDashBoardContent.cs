@@ -217,6 +217,7 @@ namespace dNothi.Desktop.UI.Dak
             successMessage.Hide();
 
         }
+        public event EventHandler ReviewDashboard_Back;
         private void btnShowInEditor_Click(object sender, EventArgs e)
         {
             if (InternetConnection.Check())
@@ -224,7 +225,11 @@ namespace dNothi.Desktop.UI.Dak
                 RvwDashContentShowInEditor rvwDashContentShowInEditor = FormFactory.Create<RvwDashContentShowInEditor>();
                 rvwDashContentShowInEditor.Size = Screen.PrimaryScreen.WorkingArea.Size;
                 rvwDashContentShowInEditor.nothiShaeredByMeRecord = _nothiShaeredByMeRecord;
-                BeginInvoke((Action)(() => rvwDashContentShowInEditor.ShowDialog()));
+                rvwDashContentShowInEditor.ReviewDashboardBack += delegate (object sender1, EventArgs e1) {
+                    if (this.ReviewDashboard_Back != null)
+                        this.ReviewDashboard_Back(sender, e);
+                };
+                rvwDashContentShowInEditor.ShowDialog();
             }
             else
             {

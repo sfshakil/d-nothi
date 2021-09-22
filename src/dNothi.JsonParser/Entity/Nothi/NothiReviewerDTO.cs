@@ -89,6 +89,7 @@ namespace dNothi.JsonParser.Entity.Nothi
         public object committed_by_designation_detail { get; set; }
         public int id { get; set; }
         public string shared_status { get; set; }
+        public string onucched_subject { get; set; }
         public int onucched_id { get; set; }
         public int potrojari_id { get; set; }
         public string type { get; set; }
@@ -170,5 +171,11 @@ namespace dNothi.JsonParser.Entity.Nothi
         public List<object> options { get; set; }
     }
 
+    public class NothiSharedEditorDataSendDTO
+    {
+        public string status { get; set; }
+        public string data { get; set; }
+        public List<object> options { get; set; }
+    }
 
 }
