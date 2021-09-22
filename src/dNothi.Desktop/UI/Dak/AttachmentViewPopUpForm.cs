@@ -120,10 +120,18 @@ namespace dNothi.Desktop.UI.Dak
                         //rightArrowButton.Visible = true;
 
                         //leftArrowButton.Visible = true;
-
-                        WebClient myClient = new WebClient();
-                        byte[] bytes = myClient.DownloadData(dakAttachmentDTO.url);
-                        var stream = new MemoryStream(bytes);
+                            
+                            if (dakAttachmentDTO.isLocal == true)
+                                {
+                                      byte[] bytes = Convert.FromBase64String(dakAttachmentDTO.content_body);
+                                }
+                            else
+                                {
+                                    WebClient myClient = new WebClient();
+                                    byte[] bytes = myClient.DownloadData(dakAttachmentDTO.url);
+                                     var stream = new MemoryStream(bytes);
+                               }
+                      
                         //if(pdfViewerControl.LoadFile(dakAttachmentDTO.url))
                         //{
                         //    mainAttachmentViewWebBrowser.Visible = false;

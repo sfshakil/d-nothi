@@ -17,10 +17,6 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class SingleDakUserControl : UserControl
     {
-       
-
-
-     
 
         public bool _isOfflineDak { get; set; }
         public bool isOfflineDak { get { return _isOfflineDak; } set { _isOfflineDak = value; uploadIconButton.Visible = true; } }
@@ -299,6 +295,7 @@ namespace dNothi.Desktop.UI.Dak
 
             dakPriorityIconPanel.Visible = false;
             dakSecurityIconPanel.Visible = false;
+           
 
             IterateControls(this.Controls);
             SetDefaultFont(this.Controls);
@@ -406,8 +403,34 @@ namespace dNothi.Desktop.UI.Dak
 
         }
         public DakListRecordsDTO _dak;
-        public DakListRecordsDTO dak { get { return _dak; } set { _dak = value; } }
+        public DakListRecordsDTO dak { get { return _dak; } set {
+                
+                _dak = value;
+                string mulprapok = string.Empty;
+                string source = "উৎস:" + value.dak_origin.sender_name + ",\r\n(" + value.dak_origin.sender_officer_designation_label + "," + value.dak_origin.sender_office_unit_name + ",\r\n" + value.dak_origin.sender_office_name+")";
+                var reciver = GetDakListMainReceiverName(value.movement_status);
+                if (reciver != null)
+                    mulprapok = "মূল-প্রাপক:" + reciver.officer + ",\r\n(" + reciver.designation + "," + reciver.office_unit + ",\r\n" + reciver.office + ")";
+                else
+                    mulprapok = string.Empty;
 
+                MyToolTip.SetToolTip(sourceLabel, source+ "\r\n" + mulprapok);
+                MyToolTip.SetToolTip(senderLabel, value.movement_status.from.designation+","+ value.movement_status.from.office_unit+ ",\r\n" + value.movement_status.from.office);
+                MyToolTip.SetToolTip(mainReceiverLabel, reciver.designation + "," + reciver.office_unit + ",\r\n" + reciver.office);
+            } }
+        private ToDTO GetDakListMainReceiverName(MovementStatusDTO movementStatusDTO)
+        {
+          
+            try
+            {
+                ToDTO toDTOs = movementStatusDTO.to.FirstOrDefault(a => a.attention_type == "1");
+                return toDTOs;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
         private string _nothiNo;
         private string _source;
@@ -711,7 +734,10 @@ namespace dNothi.Desktop.UI.Dak
         public string source
         {
             get { return _source; }
-            set { _source = value; sourceLabel.Text = value; }
+            set {
+                _source = value; sourceLabel.Text = value; 
+                
+            }
         }
 
 
@@ -721,7 +747,10 @@ namespace dNothi.Desktop.UI.Dak
         public string sender
         {
             get { return _sender; }
-            set { _sender = value; senderLabel.Text = value; }
+            set {
+                _sender = value; senderLabel.Text = value;
+               
+            }
         }
 
         [Category("Custom Props")]

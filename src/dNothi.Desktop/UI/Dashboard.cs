@@ -838,6 +838,7 @@ namespace dNothi.Desktop.UI
 
 
             DakOutboxUserControl dakOutboxUserControl = new DakOutboxUserControl();
+           // SingleDakUserControl dakOutboxUserControl = new SingleDakUserControl();
             dakOutboxUserControl.source = IsNagorikDakType(dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_origin.sender_name, dakListInboxRecordsDTO.dak_origin.name_bng);
 
 
@@ -2079,7 +2080,8 @@ namespace dNothi.Desktop.UI
         private void LoadDakSingleNothivuktoinPanel(DakListRecordsDTO dakListInboxRecordsDTO)
         {
 
-            DakNothivuktoUserControl dakNothivuktoUserControl = new DakNothivuktoUserControl();
+             DakNothivuktoUserControl dakNothivuktoUserControl = new DakNothivuktoUserControl();
+          //  SingleDakUserControl dakNothivuktoUserControl = new SingleDakUserControl();
             dakNothivuktoUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
             dakNothivuktoUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
             dakNothivuktoUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
@@ -2923,12 +2925,14 @@ namespace dNothi.Desktop.UI
 
         private void LoadDakSortedinPanel(List<DakListRecordsDTO> dakLists)
         {
-            List<DakSortedUserControl> dakSortedUserControls = new List<DakSortedUserControl>();
+           // List<DakSortedUserControl> dakSortedUserControls = new List<DakSortedUserControl>();
+            List<SingleDakUserControl> dakSortedUserControls = new List<SingleDakUserControl>();
             int i = 0;
             foreach (DakListRecordsDTO dakListInboxRecordsDTO in dakLists)
             {
+                SingleDakUserControl dakSortedUserControl = new SingleDakUserControl();
 
-                DakSortedUserControl dakSortedUserControl = new DakSortedUserControl();
+                //DakSortedUserControl dakSortedUserControl = new DakSortedUserControl();
                 dakSortedUserControl.date = dakListInboxRecordsDTO.dak_user.last_movement_date;
                 dakSortedUserControl.subject = dakListInboxRecordsDTO.dak_user.dak_subject;
                 dakSortedUserControl.decision = dakListInboxRecordsDTO.dak_user.dak_decision;
@@ -2967,6 +2971,7 @@ namespace dNothi.Desktop.UI
                 dakSortedUserControl.PreronIconButtonClick += delegate (object sender, EventArgs e) { PreronIconButton_Click(sender, e, dakListInboxRecordsDTO); };
 
                 i = i + 1;
+                //dakSortedUserControls.Add(dakSortedUserControl);
                 dakSortedUserControls.Add(dakSortedUserControl);
 
             }

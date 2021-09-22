@@ -488,11 +488,10 @@ namespace dNothi.Desktop.UI
 
             dakSecrurityComboBox.ValueMember = "_id";
 
-            
+
             dakSecrurityComboBox.SelectedValue = _dakSecurity.ToString();
-
+               
             dakSecrurityComboBox.SelectedIndexChanged += dakSecrurityComboBox_SelectedIndexChanged;
-
 
         }
 
@@ -1966,8 +1965,8 @@ namespace dNothi.Desktop.UI
                 }
 
                 khosraSaveParamPotro.potrojari.potro_description = ConversionMethod.Base64Encode(_currentHtmlString);
-                khosraSaveParamPotro.potrojari.potro_priority_level = dakPriorityComboBox.SelectedIndex;
-                khosraSaveParamPotro.potrojari.potro_security_level = dakSecrurityComboBox.SelectedIndex;
+                khosraSaveParamPotro.potrojari.potro_priority_level =Convert.ToInt32( dakPriorityComboBox.SelectedValue.ToString());
+                khosraSaveParamPotro.potrojari.potro_security_level = Convert.ToInt32(dakSecrurityComboBox.SelectedValue.ToString());
 
                 khosraSaveParamPotro.potrojari.potro_subject = GetPotroSubjectFromHtmlString(_currentHtmlString);
                
@@ -2049,19 +2048,29 @@ namespace dNothi.Desktop.UI
                     }
                     if (!_IsNewNoteSelected && _noteListDataRecordNoteDTO != null && !string.IsNullOrEmpty(_noteSelected.note_id) && _noteSelected.note_id != "0")
                     {
-                        commonKhosraRowUserControl_NoteDetails_ButtonClick(_noteListDataRecordNoteDTO, _nothiListRecordsDTO, _nothiListInboxNoteRecordsDTO);
+                        if (khosraSaveResponse.message == "localsuccess")
+                        {
+                            goToDashBoard();
+                        }
+                        else
+                        {
+                            commonKhosraRowUserControl_NoteDetails_ButtonClick(_noteListDataRecordNoteDTO, _nothiListRecordsDTO, _nothiListInboxNoteRecordsDTO);
+                        }
                     }
                     else if (_IsNewNoteSelected && _noteSelected != null && !string.IsNullOrEmpty(_noteSelected.note_id) && _noteSelected.note_id != "0")
                     {
-                        LoadNote();
+                        //if (khosraSaveResponse.message == "localsuccess")
+                        //{
+                        //    goToDashBoard();
+                        //}
+                        //else
+                        //{
+                            LoadNote();
+                       // }
                     }
                     else
                     {
-                        foreach (Form f in Application.OpenForms)
-                        { BeginInvoke((Action)(() => f.Hide())); }
-                        KhosraDashboard khosraDashboard = FormFactory.Create<KhosraDashboard>();
-                        BeginInvoke((Action)(() => khosraDashboard.ShowDialog()));
-                        khosraDashboard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                        goToDashBoard();
                     }
 
                 }
@@ -2080,6 +2089,14 @@ namespace dNothi.Desktop.UI
 
         }
 
+        private void goToDashBoard()
+        {
+            foreach (Form f in Application.OpenForms)
+            { BeginInvoke((Action)(() => f.Hide())); }
+            KhosraDashboard khosraDashboard = FormFactory.Create<KhosraDashboard>();
+            BeginInvoke((Action)(() => khosraDashboard.ShowDialog()));
+            khosraDashboard.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+        }
         private List<KhosraPotroSaveAttachment> GetSelectedAttachment()
         {
             List<string> attachments = new List<string>();
@@ -2202,6 +2219,7 @@ namespace dNothi.Desktop.UI
             form._nothiListInboxNoteRecordsDTO = _nothiListInboxNoteRecordsDTO;
             NothiListRecordsDTO nothiListRecords = new NothiListRecordsDTO();
             nothiListRecords.id = _nothiAllListDTO.nothi.id;
+
             if (_nothiAllListDTO.desk != null)
             {
                 nothiListRecords.issue_date = _nothiAllListDTO.desk.issue_date;
@@ -2210,6 +2228,7 @@ namespace dNothi.Desktop.UI
                 nothiListRecords.priority = _nothiAllListDTO.desk.priority.ToString();
 
             }
+
             if (_nothiAllListDTO.nothi != null)
             {
                 nothiListRecords.last_note_date = _nothiAllListDTO.nothi.last_note_date;

@@ -493,7 +493,7 @@ namespace dNothi.Desktop.UI.Dak
             this.sortedTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.sortedTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.sortedTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.sortedTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 4399F));
+            this.sortedTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5775F));
             this.sortedTableLayoutPanel.Controls.Add(this.preronIconButton, 4, 0);
             this.sortedTableLayoutPanel.Controls.Add(this.mainPrapokButton, 3, 0);
             this.sortedTableLayoutPanel.Controls.Add(this.daraftedSecurityHoldingPanel, 2, 0);
@@ -741,7 +741,7 @@ namespace dNothi.Desktop.UI.Dak
             this.dakActionPanel.Controls.Add(this.dakRevertButton);
             this.dakActionPanel.Controls.Add(this.DakSendButton);
             this.dakActionPanel.Controls.Add(this.dakMovementStatusButton);
-            this.dakActionPanel.Location = new System.Drawing.Point(-2094, 5);
+            this.dakActionPanel.Location = new System.Drawing.Point(-2414, 5);
             this.dakActionPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakActionPanel.MaximumSize = new System.Drawing.Size(0, 34);
             this.dakActionPanel.MinimumSize = new System.Drawing.Size(0, 34);

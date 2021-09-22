@@ -206,7 +206,7 @@ namespace dNothi.Services.SyncServices
                 _dakSharingService.SendLocalDataToServer(_userService.GetLocalDakUserParam());
                 _dakSharingService.SendDakSortingLocalDataToServer(_userService.GetLocalDakUserParam());
                 _guardFileService.SendGuradFileLocalDataTOServer(_userService.GetLocalDakUserParam());
-                _khosraSaveService.SendKosraLocalDataTOServer(_userService.GetLocalDakUserParam());
+               // _khosraSaveService.SendKosraLocalDataTOServer(_userService.GetLocalDakUserParam());
             }
 
 

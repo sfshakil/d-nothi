@@ -63,8 +63,6 @@ namespace dNothi.Services.UserServices
                     loginRequest.AddParameter("username", userParam.username);
                     loginRequest.AddParameter("password", userParam.password);
 
-
-
                     IRestResponse loginResponse = loginApi.Execute(loginRequest);
 
 

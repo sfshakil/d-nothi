@@ -151,22 +151,35 @@ namespace dNothi.Services.KhasraService
         }
         private KhosraSaveResponse SaveLocalKhosra(string cdesk,string potro, KhosraSaveParamPotro potroParam)
         {
-
-            KhosraLocal localKhosra = new KhosraLocal
+            long maxId;
+            var localKhosra=_localKhosraLocalRepository.Table.Where(x=>x.Id== potroParam.potrojari.id).FirstOrDefault();
+            if (localKhosra != null)
             {
+                maxId = potroParam.potrojari.id;
+                localKhosra.cdesk = cdesk;
+                localKhosra.EntryDate = DateTime.Now.ToString("dd/mm/yyyyy HH:mm tt");
+                localKhosra.kosra_type = (potroParam.potrojari.nothi_note_id > 0 ? 2 : 1);
+                localKhosra.potro = potro;
+                _localKhosraLocalRepository.Update(localKhosra);
 
-                cdesk = cdesk,
-                isLocal = true,
-                potro = potro,
-                kosra_type = (potroParam.potrojari.nothi_note_id > 0 ? 2 : 1),
-                page = 1,
-                EntryDate = DateTime.Now.Date.ToString("dd-MM-yyyy")
+            }
+            else
+            {
+                KhosraLocal localkosra = new KhosraLocal
+                {
 
-            };
-            _localKhosraLocalRepository.Insert(localKhosra);
+                    cdesk = cdesk,
+                    isLocal = true,
+                    potro = potro,
+                    kosra_type = (potroParam.potrojari.nothi_note_id > 0 ? 2 : 1),
+                    page = 1,
+                    EntryDate = DateTime.Now.Date.ToString("dd-MM-yyyy")
+
+                };
+                _localKhosraLocalRepository.Insert(localkosra);
+                maxId = _localKhosraLocalRepository.Table.Max(x => x.Id);
+            }
            
-            long maxId = _localKhosraLocalRepository.Table.Max(x=>x.Id);
-
             //insert khosraId UplodedAttachement table
 
             if (potroParam.attachment.Count > 0)
@@ -178,7 +191,7 @@ namespace dNothi.Services.KhasraService
                     }
                     else {
 
-                          var uploadedData=   _localKhosraFileUploadRepository.Table.Where(x => x.Id == item.id).FirstOrDefault();
+                        var uploadedData=   _localKhosraFileUploadRepository.Table.Where(x => x.Id == item.id).FirstOrDefault();
                         if(uploadedData!=null)
                         {
                             uploadedData.KhosraId = maxId;
@@ -203,7 +216,7 @@ namespace dNothi.Services.KhasraService
                 }
             }
 
-            return new KhosraSaveResponse { status = "success", data="খসড়া সংরক্ষণ সফল হয়েছে।" };
+            return new KhosraSaveResponse { status = "success", data="খসড়া সংরক্ষণ সফল হয়েছে।", message="localsuccess" };
 
         }
 
@@ -268,12 +281,12 @@ namespace dNothi.Services.KhasraService
             var khosraAttachment = _localKhosraFileUploadRepository.Table.Where(x => x.KhosraId == khosraLocal.Id).ToList();
             if (potroData.attachments.Count > 0)
             {
-                foreach (var item in potroData.attachments)
+                foreach (var items in potroData.attachments)
                 {
-                    if (item.nothi_potro_id > 0)
+                    if (items.nothi_potro_id > 0)
                     {
 
-                        attachments.Add(ConversionMethod.ObjecttoJson(new { nothi_potro_attachment_id = item.id, nothi_potro_id = item.nothi_potro_id, user_file_name = item.user_file_name }));
+                        attachments.Add(ConversionMethod.ObjecttoJson(new { nothi_potro_attachment_id = items.id, nothi_potro_id = items.nothi_potro_id, user_file_name = items.user_file_name }));
                        
                     }
                 }

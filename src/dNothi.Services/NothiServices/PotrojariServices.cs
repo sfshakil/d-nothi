@@ -15,18 +15,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using dNothi.Utility;
+using dNothi.Core.Entities.Khosra;
 
 namespace dNothi.Services.NothiServices
 {
     public class PotrojariServices : IPotrojariServices
     {
         IRepository<PotrangshoNothiItem> _nothiItem;
+        IRepository<kosraAnumodanLocal> _kosraAnumodanLocal;
 
         private readonly IPotrojariParser _potrojariParser;
-        public PotrojariServices(IPotrojariParser potrojariParser, IRepository<PotrangshoNothiItem> nothiItem)
+        public PotrojariServices(IPotrojariParser potrojariParser,
+            
+            IRepository<PotrangshoNothiItem> nothiItem,
+             IRepository<kosraAnumodanLocal> kosraAnumodanLocal)
         {
             _potrojariParser = potrojariParser;
             _nothiItem = nothiItem;
+            _kosraAnumodanLocal = kosraAnumodanLocal;
         }
         public PotrojariResponse GetPotrojariListInfo(DakUserParam dakUserParam, long id, string potro_subject)
         {
@@ -144,6 +151,16 @@ namespace dNothi.Services.NothiServices
 
         public PotroApproveResponse GetPotroOnumodonResponse(DakUserParam userParam, int potrojari_id, string potro_status, string potro_description)
         {
+            string cdesk = "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"" + userParam.office_unit + "\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "}";
+            string potro = "{\"potrojari_id\":\"" + potrojari_id + "\", \"potro_status\":\"" + potro_status + "\",\"potro_description\":\"" + potro_description + "\"}";
+
+
+            if (!InternetConnection.Check())
+            {
+                localKosraAnumodanSaveUpdate( potrojari_id, cdesk, potro,  potro_status);
+                PotroApproveResponse potroApproveResponse = new PotroApproveResponse { status = "success" };
+                return potroApproveResponse;
+            }
 
             try
             {
@@ -155,8 +172,8 @@ namespace dNothi.Services.NothiServices
                 request.AlwaysMultipartFormData = true;
 
 
-                request.AddParameter("cdesk", "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"" + userParam.office_unit + "\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "}");
-                  request.AddParameter("potro", "{\"potrojari_id\":\"" + potrojari_id + "\", \"potro_status\":\"" + potro_status + "\",\"potro_description\":\"" + potro_description + "\"}");
+                request.AddParameter("cdesk", cdesk);
+                  request.AddParameter("potro", potro);
                // request.AddParameter("potro", "{\"potrojari_id\":\""+potrojari_id+"\", \"potro_status\":\""+potro_status+"\"}");
 
                 IRestResponse Response = Api.Execute(request);
@@ -174,6 +191,30 @@ namespace dNothi.Services.NothiServices
 
 
 
+        }
+        private void localKosraAnumodanSaveUpdate(int potrojari_id,string cdesk,string potro,string potro_status)
+        {
+            var kosradata = _kosraAnumodanLocal.Table.Where(x => x.potrojari_id == potrojari_id).FirstOrDefault();
+            if(kosradata!=null)
+            {
+                kosradata.potrojari_id = potrojari_id;
+                kosradata.cdesk = cdesk;
+                kosradata.potro = potro;
+                kosradata.potro_status = potro_status;
+
+                _kosraAnumodanLocal.Update(kosradata);
+            }
+            else
+            {
+                kosraAnumodanLocal kosra = new kosraAnumodanLocal
+                {
+                    cdesk = cdesk,
+                    potro = potro,
+                    potrojari_id = potrojari_id,
+                    potro_status = potro_status
+                };
+                _kosraAnumodanLocal.Insert(kosra);
+            }
         }
 
         public PotrojariCompleteResponse GetPotrojariResponse(DakUserParam userParam, PotrojariParameter potrojariParameter)

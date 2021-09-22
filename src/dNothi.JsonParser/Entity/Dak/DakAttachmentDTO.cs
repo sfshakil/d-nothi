@@ -77,6 +77,8 @@ namespace dNothi.JsonParser.Entity.Dak
         public string application_origin { get; set; }
        
         public int potrojari_id { get; set; }
+
+        public bool isLocal { get; set; }
        
 
     }

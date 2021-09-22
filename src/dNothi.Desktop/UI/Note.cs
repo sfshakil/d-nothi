@@ -11069,15 +11069,9 @@ namespace dNothi.Desktop.UI
                     {
 
                         UIDesignCommonMethod.SuccessMessage(khoshraUnapprovedResponse.data);
-                       
-                        
+             
                         //ReFresh(allFlag);  
-                            
-
-
-
-
-
+                           
                         btnApprove.Visible = false;
                         btnUnapprove.Visible = true;
                         btnPotrojari.Visible = true;
