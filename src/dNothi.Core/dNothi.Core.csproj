@@ -90,6 +90,7 @@
     <Compile Include="Entities\Khosra\KhosraLocal.cs" />
     <Compile Include="Entities\Khosra\SarokNoLocal.cs" />
     <Compile Include="Entities\Khosra\PermittedPotroLocal.cs" />
+    <Compile Include="Entities\NoteSearchItem.cs" />
     <Compile Include="Entities\NothiInboxSearchItem.cs" />
     <Compile Include="Entities\SettingsList.cs" />
     <Compile Include="Entities\NoteList.cs" />
