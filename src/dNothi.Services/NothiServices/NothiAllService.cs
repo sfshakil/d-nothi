@@ -18,9 +18,11 @@ namespace dNothi.Services.NothiServices
     public class NothiAllService : INothiAllServices
     {
         IRepository<NothiItem> _nothiItem;
-        public NothiAllService(IRepository<NothiItem> nothiItem)
+        IRepository<NothiInboxSearchItem> _nothiInboxSearchItem;
+        public NothiAllService(IRepository<NothiItem> nothiItem, IRepository<NothiInboxSearchItem> nothiInboxSearchItem)
         {
             _nothiItem = nothiItem;
+            _nothiInboxSearchItem = nothiInboxSearchItem;
         }
         public NothiListAllResponse GetNothiAll(DakUserParam dakUserParam)
         {
@@ -142,6 +144,17 @@ namespace dNothi.Services.NothiServices
         public NothiListAllResponse GetNothiAll(DakUserParam dakUserParam, string search_params)
         {
             NothiListAllResponse nothiListAllResponse = new NothiListAllResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var nothiInboxSearch = _nothiInboxSearchItem.Table.FirstOrDefault(a => a.Search_param == search_params && a.is_nothi_all == true && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+                if (nothiInboxSearch != null)
+                {
+                    nothiListAllResponse = JsonConvert.DeserializeObject<NothiListAllResponse>(nothiInboxSearch.json_response_all);
+
+                }
+                return nothiListAllResponse;
+            }
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNothiAllListEndpoint());
@@ -157,12 +170,34 @@ namespace dNothi.Services.NothiServices
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
+                SaveOrUpdateNothiAllSearch(dakUserParam, search_params, responseJson);
                 nothiListAllResponse = JsonConvert.DeserializeObject<NothiListAllResponse>(responseJson);
                 return nothiListAllResponse;
             }
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+        public void SaveOrUpdateNothiAllSearch(DakUserParam dakListUserParam, string search_param, string responseJson)
+        {
+            var nothiInboxSearchDB = _nothiInboxSearchItem.Table.FirstOrDefault(a => a.Search_param == search_param && a.is_nothi_all == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+            if (nothiInboxSearchDB != null)
+            {
+                nothiInboxSearchDB.json_response_all = responseJson;
+                _nothiInboxSearchItem.Update(nothiInboxSearchDB);
+            }
+            else
+            {
+                NothiInboxSearchItem nothiInboxSearchItem = new NothiInboxSearchItem();
+                nothiInboxSearchItem.Search_param = search_param;
+                nothiInboxSearchItem.is_nothi_all = true;
+                nothiInboxSearchItem.designation_id = dakListUserParam.designation_id;
+                nothiInboxSearchItem.office_id = dakListUserParam.office_id;
+                nothiInboxSearchItem.json_response_all = responseJson;
+                _nothiInboxSearchItem.Insert(nothiInboxSearchItem);
+
             }
         }
         public NothiInformationResponse GetNothiInformation(DakUserParam dakUserParam, long nothi_id)

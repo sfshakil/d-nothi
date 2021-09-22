@@ -19,10 +19,12 @@ namespace dNothi.Services.NothiServices
     {
         IRepository<NothiListRecords> _nothiListRecords;
         IRepository<NothiItem> _nothiItem;
-        public NothiInboxService(IRepository<NothiListRecords> nothiListRecords, IRepository<NothiItem> nothiItem)
+        IRepository<NothiInboxSearchItem> _nothiInboxSearchItem;
+        public NothiInboxService(IRepository<NothiListRecords> nothiListRecords, IRepository<NothiItem> nothiItem, IRepository<NothiInboxSearchItem> nothiInboxSearchItem)
         {
             this._nothiListRecords = nothiListRecords;
             _nothiItem = nothiItem;
+            _nothiInboxSearchItem = nothiInboxSearchItem;
         }
 
         public NothiListInboxResponse GetNothiInbox(DakUserParam dakUserParam)
@@ -69,6 +71,17 @@ namespace dNothi.Services.NothiServices
         public NothiListInboxResponse GetSearchNothiInbox(DakUserParam dakUserParam, string search_params)
         {
             NothiListInboxResponse nothiListInboxResponse = new NothiListInboxResponse();
+            if (!dNothi.Utility.InternetConnection.Check())
+            {
+                var nothiInboxSearch = _nothiInboxSearchItem.Table.FirstOrDefault(a => a.Search_param == search_params && a.is_nothi_inbox == true && a.office_id == dakUserParam.office_id && a.designation_id == dakUserParam.designation_id);
+
+                if (nothiInboxSearch != null)
+                {
+                    nothiListInboxResponse = JsonConvert.DeserializeObject<NothiListInboxResponse>(nothiInboxSearch.json_response_inbox);
+
+                }
+                return nothiListInboxResponse;
+            }
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetNothiInboxListEndpoint());
@@ -85,6 +98,7 @@ namespace dNothi.Services.NothiServices
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
+                SaveOrUpdateNothiInboxSearch(dakUserParam, search_params, responseJson);
                 nothiListInboxResponse = JsonConvert.DeserializeObject<NothiListInboxResponse>(responseJson);
                 return nothiListInboxResponse;
             }
@@ -120,6 +134,27 @@ namespace dNothi.Services.NothiServices
                 nothiItem.office_id = dakListUserParam.office_id;
                 nothiItem.jsonResponse = responseJson;
                 _nothiItem.Insert(nothiItem);
+
+            }
+        }
+        public void SaveOrUpdateNothiInboxSearch(DakUserParam dakListUserParam, string search_param, string responseJson)
+        {
+            var nothiInboxSearchDB = _nothiInboxSearchItem.Table.FirstOrDefault(a => a.Search_param == search_param && a.is_nothi_inbox == true && a.office_id == dakListUserParam.office_id && a.designation_id == dakListUserParam.designation_id);
+
+            if (nothiInboxSearchDB != null)
+            {
+                nothiInboxSearchDB.json_response_inbox = responseJson;
+                _nothiInboxSearchItem.Update(nothiInboxSearchDB);
+            }
+            else
+            {
+                NothiInboxSearchItem nothiInboxSearchItem = new NothiInboxSearchItem();
+                nothiInboxSearchItem.Search_param = search_param;
+                nothiInboxSearchItem.is_nothi_inbox = true;
+                nothiInboxSearchItem.designation_id = dakListUserParam.designation_id;
+                nothiInboxSearchItem.office_id = dakListUserParam.office_id;
+                nothiInboxSearchItem.json_response_inbox = responseJson;
+                _nothiInboxSearchItem.Insert(nothiInboxSearchItem);
 
             }
         }

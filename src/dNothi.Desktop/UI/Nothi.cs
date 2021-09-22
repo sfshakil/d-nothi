@@ -2635,12 +2635,10 @@ namespace dNothi.Desktop.UI
                 last_modified_date = "";
             }
             string nothiSubject = placeholderTextBox2.Text;
-            //string date = dateRangeTextBox.Text;
 
             var search_Param = "nothi_subject="+ nothiSubject + "&nothi_priority="+ priority + "&nothi_type="+ nothiSelectedType.id + "&office_unit_id="+ office.office_unit_id + "&officer_designation_id="+ designation.designation_id + "&last_modified_date="+ last_modified_date + "";
             var search_Paramforothersoffice = "nothi_subject="+ nothiSubject + "&nothi_priority="+ priority + "&nothi_type="+ nothiSelectedType.id + "&office_unit_id="+ office.office_unit_id + "&to_officer_designation_id=" + designation.designation_id + "&last_modified_date="+ last_modified_date + "";
-            //nothi_subject = &nothi_priority = 4 & nothi_type = 0 & office_unit_id = 0 & last_modified_date = 2021 / 09 / 02:2021 / 09 / 08 & to_officer_designation_id = 426733
-            //nothi_subject = &nothi_priority = 0 & nothi_type = 0 & office_unit_id = 0 & last_modified_date = &officer_designation_id = 0
+            
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             limitNothiInboxNo = 100000;
             pageNoNothiInboxNo = 1;
@@ -2665,6 +2663,7 @@ namespace dNothi.Desktop.UI
                         allNextButtonVisibilityOff();
 
                         pnlNoData.Visible = false;
+                        nothiListFlowLayoutPanel.Controls.Clear();
                         lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiSearchInbox.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                         LoadNothiInboxinPanel(nothiSearchInbox.data.records);
 
@@ -2676,6 +2675,13 @@ namespace dNothi.Desktop.UI
                         pnlNoData.Visible = true;
                         nothiListFlowLayoutPanel.Controls.Clear();
                     }
+                }
+                else
+                {
+                    allNextButtonVisibilityOff();
+
+                    pnlNoData.Visible = true;
+                    nothiListFlowLayoutPanel.Controls.Clear();
                 }
             }
             else if (preritoNothiSelected == 1)
@@ -2695,6 +2701,7 @@ namespace dNothi.Desktop.UI
                         allNextButtonVisibilityOff();
 
                         pnlNoData.Visible = false;
+                        nothiListFlowLayoutPanel.Controls.Clear();
                         lbTotalNothi.Text = "সর্বমোট: " + string.Concat(nothiOutbox.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                         LoadNothiOutboxinPanel(nothiOutbox.data.records);
                     }
@@ -2705,6 +2712,13 @@ namespace dNothi.Desktop.UI
                         nothiListFlowLayoutPanel.Controls.Clear();
                     }
 
+                }
+                else
+                {
+                    allNextButtonVisibilityOff();
+
+                    pnlNoData.Visible = true;
+                    nothiListFlowLayoutPanel.Controls.Clear();
                 }
             }
             else if (shokolNothiSelected == 1)
@@ -2725,6 +2739,7 @@ namespace dNothi.Desktop.UI
                         allNextButtonVisibilityOff();
 
                         pnlNoData.Visible = false;
+                        nothiListFlowLayoutPanel.Controls.Clear();
                         lbTotalNothi.Text = "সর্বমোট: " + string.Concat(totalNothiAllNo.ToString().Select(c => (char)('\u09E6' + c - '0')));
                         LoadNothiAllinPanel(nothiAll.data.records);
                     }
@@ -2734,6 +2749,13 @@ namespace dNothi.Desktop.UI
                         pnlNoData.Visible = true;
                         nothiListFlowLayoutPanel.Controls.Clear();
                     }
+                }
+                else
+                {
+                    allNextButtonVisibilityOff();
+
+                    pnlNoData.Visible = true;
+                    nothiListFlowLayoutPanel.Controls.Clear();
                 }
             }
             else if (onnoOfficeagotoNothiSelected == 1)
@@ -2757,6 +2779,7 @@ namespace dNothi.Desktop.UI
                             btnOthersOfficeNothiInboxNext.Visible = true;
                         }
                         pnlNoData.Visible = false;
+                        nothiListFlowLayoutPanel.Controls.Clear();
                         lbTotalNothi.Text = "সর্বমোট: " + string.Concat(otherOfficenothiInbox.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                         LoadOtherOfficeNothiInboxinPanel(otherOfficenothiInbox.data.records);
 
@@ -2798,6 +2821,7 @@ namespace dNothi.Desktop.UI
                         }
 
                         pnlNoData.Visible = false;
+                        nothiListFlowLayoutPanel.Controls.Clear();
                         lbTotalNothi.Text = "সর্বমোট: " + string.Concat(otherOfficeNothiOutbox.data.total_records.ToString().Select(c => (char)('\u09E6' + c - '0')));
                         LoadOtherOfficeNothiOutboxinPanel(otherOfficeNothiOutbox.data.records);
                     }
