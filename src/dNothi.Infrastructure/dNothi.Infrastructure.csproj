@@ -125,6 +125,7 @@
     <Compile Include="Mappings\NothiEntityTypeConfiguration.cs" />
     <Compile Include="Mappings\Nothi\FileUploadActionMap.cs" />
     <Compile Include="Mappings\Nothi\AllOfficeItemMap.cs" />
+    <Compile Include="Mappings\Nothi\NothiNotePermissionItemMap.cs" />
     <Compile Include="Mappings\Nothi\NoteSearchItemMap.cs" />
     <Compile Include="Mappings\Nothi\NothiInboxSearchItemMap.cs" />
     <Compile Include="Mappings\Nothi\SettingsListMap.cs" />
