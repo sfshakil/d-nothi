@@ -9343,7 +9343,7 @@ namespace dNothi.Desktop.UI
             newnotedata.note_id = _NoteAllListDataRecordDTO.note.nothi_note_id;
             newnotedata.note_no = _NoteAllListDataRecordDTO.note.note_no.ToString();
             NoteOnucchedRevertResPonse noteOnucchedRevert = _noteOnucchedRevert.GetNoteOnucchedRevert(_dakuserparam, nothiListRecords, newnotedata);
-            if (noteOnucchedRevert.status == "success")
+            if (noteOnucchedRevert != null && noteOnucchedRevert.status == "success")
             {
                 UIMessageBox.SuccessMessage(noteOnucchedRevert.data);
                 foreach (Form f in Application.OpenForms)
