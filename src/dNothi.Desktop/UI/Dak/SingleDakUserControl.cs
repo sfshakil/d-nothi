@@ -145,6 +145,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
                 dakRevertButton.Visible = true;
+                dakArchiveButton.Visible = false;
                 dakCheckBox.Visible = false;
 
 
@@ -694,7 +695,7 @@ namespace dNothi.Desktop.UI.Dak
             set
             {
                 _attentionTypeIconValue = value;
-                if (value == "0")
+                if (value == "0" && !_IsArchivedDak)
                 {
                     dakArchiveButton.Visible = true;
                 }

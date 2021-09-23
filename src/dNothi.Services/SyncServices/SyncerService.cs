@@ -32,6 +32,7 @@ namespace dNothi.Services.SyncServices
         IOnucchedSave _onucchedSave { get; set; }
         IOnuchhedForwardService _onuchhedForwardService { get; set; }
         INoteSaveService _noteSave { get; set; }
+        INothiNotePermissionService _nothiNotePermissionSave { get; set; }
         IUserService _userService { get; set; }
         IRegisterService _registerService { get; set; }
         IDakFolderService _dakFolderService { get; set; }
@@ -62,6 +63,7 @@ namespace dNothi.Services.SyncServices
         IPotrojariServices _potrojariServices;
         public SyncerService(
               INoteSaveService noteSave,
+              INothiNotePermissionService nothiNotePermissionSave,
 
             IOnucchedSave onucchedSave,
              IUserService userService,
@@ -99,6 +101,7 @@ namespace dNothi.Services.SyncServices
             _onuchhedForwardService = onuchhedForwardService;
              _dakNothivuktoService = dakNothivuktoService;
             _noteSave = noteSave;
+            _nothiNotePermissionSave = nothiNotePermissionSave;
             _dakSearchService = dakSearchService;
             _registerService = registerService;
             _designationSealService = designationSealService;
@@ -203,6 +206,7 @@ namespace dNothi.Services.SyncServices
                 _nothiTypeSave.SendNothiTypeListFromLocal();
                 _nothiCreateServices.SendNothiCreateListFromLocal();
                 _noteSave.SendNoteListFromLocal();
+                _nothiNotePermissionSave.SendNothiNotePermissionFromLocal();
                 _onucchedFileUploadService.SendNoteListFromLocal();
                 _onucchedSave.SendNoteListFromLocal();
                 _onuchhedForwardService.SendNoteListFromLocal();

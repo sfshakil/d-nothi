@@ -9,6 +9,7 @@ using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
+using dNothi.Services.SyncServices;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
 using System;
@@ -29,8 +30,10 @@ namespace dNothi.Desktop.UI
     {
         private DakUserParam _dakuserparam = new DakUserParam();
         IUserService _userService { get; set; }
+        ISyncerService _syncerServices { get; set; }
         INothiInboxServices _nothiInbox { get; set; }
         INoteSaveService _noteSave { get; set; }
+        INothiNotePermissionService _nothiNotePermissionSave { get; set; }
         INothiOutboxServices _nothiOutbox { get; set; }
         IOnuchhedForwardService _onuchhedForwardService { get; set; }
         NothiCategoryList _nothiCurrentCategory = new NothiCategoryList();
@@ -57,18 +60,21 @@ namespace dNothi.Desktop.UI
         ShakaVittikNothiReportUserControl nothiShakaWiseProtibedan = UserControlFactory.Create<ShakaVittikNothiReportUserControl>();
         
         public Nothi(IUserService userService, INothiInboxServices nothiInbox, INothiNoteTalikaServices nothiNoteTalikaServices,
-            INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiTypeSaveService nothiTypeSave,
+            INothiOutboxServices nothiOutbox, INothiAllServices nothiAll, INoteSaveService noteSave, INothiNotePermissionService nothiNotePermissionSave,
+            INothiTypeSaveService nothiTypeSave,
             INothiCreateService nothiCreateServices, IRepository<NothiCreateItemAction> nothiCreateItemAction,
-            INoteDeleteService noteDelete,
+            INoteDeleteService noteDelete, ISyncerService syncerServices,
             IOnuchhedForwardService onuchhedForwardService, IOnucchedSave onucchedSave, IOnucchedFileUploadService onucchedFileUploadService, 
             INothiTypeListServices nothiType, IDesignationSealService designationSealService, INothiAllNoteServices nothiAllNote, IRepository<SettingsList> settingsList)
         {
             _nothiNoteTalikaServices = nothiNoteTalikaServices;
             _userService = userService;
+            _syncerServices = syncerServices;
             _nothiInbox = nothiInbox;
             _nothiOutbox = nothiOutbox;
             _nothiAll = nothiAll;
             _noteSave = noteSave;
+            _nothiNotePermissionSave = nothiNotePermissionSave;
             _nothiTypeSave = nothiTypeSave;
             _nothiCreateServices = nothiCreateServices;
             _nothiCreateItemAction = nothiCreateItemAction;
@@ -2455,12 +2461,7 @@ namespace dNothi.Desktop.UI
         {
             if (InternetConnection.Check())
             {
-                _nothiTypeSave.SendNothiTypeListFromLocal();
-                _nothiCreateServices.SendNothiCreateListFromLocal();
-                _noteSave.SendNoteListFromLocal();
-                _onucchedFileUploadService.SendNoteListFromLocal();
-                _onucchedSave.SendNoteListFromLocal();
-                _onuchhedForwardService.SendNoteListFromLocal();
+                _syncerServices.SyncLocaltoRemoteData();
                 if (onlineStatus.IconColor != Color.LimeGreen)
                 {
                     if (IsHandleCreated)
