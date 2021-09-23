@@ -19,7 +19,10 @@ namespace dNothi.Utility
         }
         public static string BanglaDigittoEngDigit(string input)
         {
-           
+            if (string.IsNullOrEmpty(input))
+            {
+                return "";
+            }
             string output = input.Replace("০", "0").Replace("১", "1").Replace("২", "2").Replace("৩", "3").Replace("৪", "4").Replace("৫", "5").Replace("৬", "6").Replace("৭", "7").Replace("৮", "8").Replace("৯", "9");
             return output;
         }

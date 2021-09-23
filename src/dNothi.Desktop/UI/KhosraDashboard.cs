@@ -316,6 +316,14 @@ namespace dNothi.Desktop.UI
                     CommonKhosraRowUserControl commonKhosraRowUserControl = new CommonKhosraRowUserControl();
                     
                     var subcontrol = KasaraUserControlButtonVisibilityAndNoteNo(item, dakListUserParam.designation_id);
+                    if (InternetConnection.Check())
+                    {
+                        commonKhosraRowUserControl.isLocal = true;
+                    }
+                    else
+                    {
+                        commonKhosraRowUserControl.isLocal = item.isLocal;
+                    }
                     commonKhosraRowUserControl.potroPage = item.Basic.PotroPages;
                     commonKhosraRowUserControl.sharokNo = item.Basic.SarokNo +" "+ (item.NoteOwner!=null?item.NoteOwner.NothiSubject:string.Empty);
                     commonKhosraRowUserControl.sub = item.Basic.PotroSubject;
@@ -432,15 +440,24 @@ namespace dNothi.Desktop.UI
         }
         private DakAttachmentResponse GetAllMulPattraAndSanjukti(KasaraPotro.Record kasaraPotro)
         {
-            DakAttachmentResponse dakAttachmentResponse = new DakAttachmentResponse {  data=null, status=null};
-            var dakListUserParam = _userService.GetLocalDakUserParam();
-            dakListUserParam.limit = 10;
-            var noteAntarvuktaKasralist = _kasaraPatraDashBoardService.GetMulPattraAndSanjukti(dakListUserParam, kasaraPotro);
-            if (noteAntarvuktaKasralist.status == "success")
+            DakAttachmentResponse dakAttachmentResponse = new DakAttachmentResponse { data = null, status = null };
+            if (!InternetConnection.Check())
             {
-                dakAttachmentResponse= noteAntarvuktaKasralist;
+                dakAttachmentResponse = _kasaraPatraDashBoardService.GetLocalMulpotroSanjukti(kasaraPotro.Basic.Id);
             }
+            else
+            {
+                var dakListUserParam = _userService.GetLocalDakUserParam();
+                dakListUserParam.limit = pageLimit;
+                var noteAntarvuktaKasralist = _kasaraPatraDashBoardService.GetMulPattraAndSanjukti(dakListUserParam, kasaraPotro);
+                if (noteAntarvuktaKasralist.status == "success")
+                {
+                    dakAttachmentResponse = noteAntarvuktaKasralist;
+                }
+            }
+          
             return dakAttachmentResponse;
+            
         }
         private void commonKhosraRowUserControl_sampadanButtonClick(object sender, EventArgs e, KasaraPotro.Record kasaraPotro, (NoteListDataRecordNoteDTO, NothiListRecordsDTO, NothiListInboxNoteRecordsDTO) mapmodel)
         {
@@ -448,14 +465,24 @@ namespace dNothi.Desktop.UI
 
             var khosra = FormFactory.Create<Khosra>();
             var dakListUserParam = _userService.GetLocalDakUserParam();
-            dakListUserParam.limit = 10;
-            var prapakerTalika = _kasaraPatraDashBoardService.GetPrapakerTalika(dakListUserParam, kasaraPotro.Basic.Id);
+            dakListUserParam.limit = pageLimit;
+            PrapakerTalika prapakerTalika = new PrapakerTalika();
+            if (InternetConnection.Check())
+            {
+                 prapakerTalika = _kasaraPatraDashBoardService.GetPrapakerTalika(dakListUserParam, kasaraPotro.Basic.Id);
+            }
+            else
+            {
+                prapakerTalika = new PrapakerTalika { status = "success", data = Getprapoktalika(kasaraPotro.Recipient) };
+            }
             KhasraPotroTemplateDataDTO khasraPotroTemplateData = new KhasraPotroTemplateDataDTO();
             if (kasaraPotro.NoteOwner != null)
             {
                 NoteNothiDTO noteNothiDTO = new NoteNothiDTO();
-                NothiListAllRecordsDTO nothiListAllRecordsDTO = new NothiListAllRecordsDTO();
                
+                NothiAllDTO nothi = new NothiAllDTO { id= kasaraPotro.Basic.NothiMasterId};
+
+                NothiListAllRecordsDTO nothiListAllRecordsDTO = new NothiListAllRecordsDTO {  nothi=nothi};
                 noteNothiDTO.note_id = Convert.ToString(kasaraPotro.Basic.NothiNoteId);
                 noteNothiDTO.id = kasaraPotro.Basic.NothiMasterId;
                 noteNothiDTO.note_subject = kasaraPotro.NoteOwner.NoteSubject;
@@ -473,7 +500,7 @@ namespace dNothi.Desktop.UI
             if (kasaraPotro.Basic.PotroPages>0)
             {
                 var attachment = GetAllMulPattraAndSanjukti(kasaraPotro);
-                khosra.draftAttachmentDTOs = attachment != null ? attachment.data.Where(a=>a.is_main!=1).ToList() : null;
+                khosra.draftAttachmentDTOs = attachment != null ? attachment.data.Where(a => a.is_main != 1).ToList() : null;
             }
 
             khosra.kasaradashboardHtmlContent = Base64Conversion.Base64ToHtmlContent(kasaraPotro.Mulpotro.PotroDescription);
@@ -487,7 +514,7 @@ namespace dNothi.Desktop.UI
             khosra._khasraPotroTemplateData = khasraPotroTemplateData;
         
             khosra._dakSecurity= Convert.ToInt32(kasaraPotro.Basic.PotroSecurityLevel);
-            khosra._dakPriority= Convert.ToInt32(kasaraPotro.Basic.PotroSecurityLevel);
+            khosra._dakPriority= Convert.ToInt32(kasaraPotro.Basic.PotroPriorityLevel);
 
 
             if (prapakerTalika.status == "success")
@@ -545,7 +572,7 @@ namespace dNothi.Desktop.UI
                
                 foreach (var item in recipient.Approver)
                 {
-                    PrapokDTO approver = new PrapokDTO { designation= item.Designation,  designation_bng = item.Designation, office = item.Office, officer = item.Officer };
+                    PrapokDTO approver = new PrapokDTO {  designation_id=item.DesignationId, officer_id=item.OfficeId,designation= item.Designation,  designation_bng = item.Designation, office = item.Office, officer = item.Officer };
                     approvers.Add(approver);
                 }
             }
@@ -555,7 +582,7 @@ namespace dNothi.Desktop.UI
 
                 foreach (var item in recipient.Sender)
                 {
-                    PrapokDTO sender = new PrapokDTO { designation = item.Designation, designation_bng = item.Designation, office = item.Office, officer = item.Officer };
+                    PrapokDTO sender = new PrapokDTO { designation_id = item.DesignationId, officer_id = item.OfficeId, designation = item.Designation, designation_bng = item.Designation, office = item.Office, officer = item.Officer };
                     senders.Add(sender);
                 }
             }
@@ -565,18 +592,33 @@ namespace dNothi.Desktop.UI
 
                 foreach (var item in recipient.Attention)
                 {
-                    PrapokDTO attention = new PrapokDTO { designation = item.Designation, designation_bng = item.Designation, office = item.Office, officer = item.Officer };
+                    PrapokDTO attention = new PrapokDTO { designation_id = item.DesignationId, officer_id = item.OfficeId, designation = item.Designation, designation_bng = item.Designation, office = item.Office, officer = item.Officer };
                     attentions.Add(attention);
                 }
             }
-            if (recipient.Onulipi != null)
+            
+            if (recipient.Onulipi!= null)
             {
-                 onulipis= JsonConvert.DeserializeObject<List<PrapokDTO>>(recipient.Onulipi.ToString());
-               
+                // onulipis= JsonConvert.DeserializeObject<List<PrapokDTO>>(recipient.Onulipi.ToString());
+                var onulipies = JsonConvert.DeserializeObject<List<KasaraPotro.Receiver>>(recipient.Onulipi.ToString());
+                foreach (var item in onulipies)
+                {
+                    PrapokDTO onulipi = new PrapokDTO { designation_id = item.DesignationId, officer_id = item.OfficeId, designation = item.Designation, designation_bng = item.Designation, office = item.Office, officer = item.Officer };
+                    onulipis.Add(onulipi);
+
+                }
+
             }
             if (recipient.Receiver != null)
             {
-                receivers = JsonConvert.DeserializeObject<List<PrapokDTO>>(recipient.Receiver.ToString());
+                var receiveres = JsonConvert.DeserializeObject<List<KasaraPotro.Receiver>>(recipient.Receiver.ToString());
+                foreach (var item in receiveres)
+                {
+                    PrapokDTO receiver = new PrapokDTO { designation_id = item.DesignationId, officer_id = item.OfficeId, designation = item.Designation, designation_bng = item.Designation, office = item.Office, officer = item.Officer };
+                    receivers.Add(receiver);
+                  
+                }
+               // receivers = JsonConvert.DeserializeObject<List<PrapokDTO>>(recipient.Receiver.ToString());
 
             }
             PrapakerTalika.Data data = new PrapakerTalika.Data { approver= approvers, sender=senders, attention= attentions, onulipi= onulipis, receiver=receivers };

@@ -209,7 +209,10 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<KhosraListLocal>>().As<IRepository<KhosraListLocal>>();
             builder.RegisterType<EfRepository<PermittedPotroLocal>>().As<IRepository<PermittedPotroLocal>>();
             builder.RegisterType<EfRepository<SarokNoLocal>>().As<IRepository<SarokNoLocal>>();
+            builder.RegisterType<EfRepository<kosraAnumodanLocal>>().As<IRepository<kosraAnumodanLocal>>();
             
+
+
 
 
             builder.RegisterType<BasicService>().As<IBasicService>();

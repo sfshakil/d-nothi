@@ -64,6 +64,19 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             MouseHoverAction();
         }
 
+        private bool _isLocal { get; set; }
+        public bool isLocal
+        {
+            get { return _isLocal; }
+            set
+            {
+                _isLocal = value;
+
+                //sampadanIconButton.Enabled = value;
+
+            }
+        }
+
         private int _potroPage { get; set; }
         public int potroPage
         {

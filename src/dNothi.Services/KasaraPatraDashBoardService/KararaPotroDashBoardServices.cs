@@ -2,6 +2,7 @@
 using dNothi.Core.Entities;
 using dNothi.Core.Entities.Khosra;
 using dNothi.Core.Interfaces;
+using dNothi.JsonParser;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.DakServices;
 using dNothi.Services.DakServices.DakSharingService.Model;
@@ -23,36 +24,56 @@ namespace dNothi.Services.KasaraPatraDashBoardService
     {
         IRepository<KhosraLocal> _localKhosraLocalRepository;
         IRepository<KhosraListLocal> _localKhosraListLocalRepository;
+        IRepository<KhosraFileUpload> _localKhosraFileUploadRepository;
 
-        public KararaPotroDashBoardServices(IRepository<KhosraLocal> localKhosraLocalRepository, IRepository<KhosraListLocal> localKhosraListLocalRepository)
+        public KararaPotroDashBoardServices(IRepository<KhosraLocal> localKhosraLocalRepository,
+            IRepository<KhosraListLocal> localKhosraListLocalRepository,
+            IRepository<KhosraFileUpload> localKhosraFileUploadRepository)
         {
             _localKhosraLocalRepository = localKhosraLocalRepository;
             _localKhosraListLocalRepository = localKhosraListLocalRepository;
+            _localKhosraFileUploadRepository = localKhosraFileUploadRepository;
         }
         public KasaraPotro GetList(DakUserParam userParam, int menuNo)
         {
             string cdesk = "{\"office_id\":\"" + userParam.office_id + "\",\"office_unit_id\":\"" + userParam.office_unit_id + "\",\"designation_id\":\"" + userParam.designation_id + "\"}";
             string searchParam = "potro_subject=" + userParam.NameSearchParam + "";
 
-
             if (!InternetConnection.Check())
             {
+                //int listType;
                 var responseJson = GetLocalKhasraList(userParam, menuNo, cdesk, searchParam);
 
                 KasaraPotro nothikhoshrapotrolist = JsonConvert.DeserializeObject<KasaraPotro>(responseJson, NullDeserializeSetting());
+
                 List<KasaraPotro.Record> records = new List<KasaraPotro.Record>();
-                var localData = _localKhosraLocalRepository.Table.Where(x=>x.kosra_type==menuNo && x.page== userParam.page).ToList();
+                //if (menuNo == 3)
+                //    listType = 1;
+                //else
+                //    listType = menuNo;
+
+                var localData = _localKhosraLocalRepository.Table.Where(x=>x.kosra_type== menuNo && x.page== userParam.page).ToList();
 
                 foreach (var kosra in localData)
                 {
+                    string reciveres, onulipies;
                     KhosraSaveParamPotro potroParam = JsonConvert.DeserializeObject<KhosraSaveParamPotro>(kosra.potro);
                     DakUserParam dakUserParam = JsonConvert.DeserializeObject<DakUserParam>(kosra.cdesk);
-
-                    string modifieddate = ConversionMethod.BanglaDigittoEngDigit(potroParam.potrojaris.modified);
-                    DateTime dateTime2 = Convert.ToDateTime(modifieddate);
-                    modifieddate = ConversionMethod.EngDigittoBanDigit(dateTime2.ToString("dd/MM/yy HH:mm tt"));
-                    KasaraPotro.Basic basic = new KasaraPotro.Basic { PotroPages = potroParam.attachment.Count(),
-                        PotroSubject = potroParam.potrojari.potro_subject,
+                    string modifieddate = string.Empty;
+                    if (potroParam.potrojaris.modified != null)
+                    {
+                         modifieddate = ConversionMethod.BanglaDigittoEngDigit(potroParam.potrojaris.modified);
+                        DateTime dateTime2 = Convert.ToDateTime(modifieddate);
+                        modifieddate = ConversionMethod.EngDigittoBanDigit(dateTime2.ToString("dd/MM/yy HH:mm tt"));
+                    }
+                    else
+                    {
+                        modifieddate = ConversionMethod.EngDigittoBanDigit(DateTime.Now.ToString("dd/MM/yy HH:mm tt"));
+                    }
+                    KasaraPotro.Basic basic = new KasaraPotro.Basic { PotroPages = potroParam.attachment.Count(), Id=(int)kosra.Id,
+                        PotroSubject = potroParam.potrojari.potro_subject, 
+                        PotroPriorityLevel= potroParam.potrojari.potro_priority_level.ToString(), 
+                        PotroSecurityLevel = potroParam.potrojari.potro_security_level.ToString(),
                         Modified = modifieddate, NoteOnucchedId = potroParam.potrojari.note_onucched_id, PotroType = potroParam.potrojari.potro_type,
                         DakId = 0, PotroStatus = potroParam.potrojari.operation_type!="draft"? potroParam.potrojari.operation_type:"Draft", SarokNo = string.Empty,
                         PotroTypeName = potroParam.potrojaris.potro_type_name, 
@@ -60,7 +81,6 @@ namespace dNothi.Services.KasaraPatraDashBoardService
                     KasaraPotro.NoteOwner noteOwner;
                     KasaraPotro.NoteOnucched noteOnucched;
                     
-
                     if (kosra.kosra_type== 1)
                     {
                         noteOwner = new KasaraPotro.NoteOwner {  NoteNo=0, DesignationId=0};
@@ -91,7 +111,7 @@ namespace dNothi.Services.KasaraPatraDashBoardService
                          noteOnucched = new KasaraPotro.NoteOnucched { Id = potroParam.potrojari.note_onucched_id };
 
                     }
-                   
+                    KasaraPotro.Mulpotro mulpotro=new KasaraPotro.Mulpotro { PotroDescription= potroParam.potrojari.potro_description };
 
                     List<KasaraPotro.Approver> approvers = new List<KasaraPotro.Approver>();
                     foreach (var item in potroParam.recipient.approver)
@@ -122,34 +142,42 @@ namespace dNothi.Services.KasaraPatraDashBoardService
                         approvers.Add(approver);
                     }
 
-
                     List<KasaraPotro.Sender> senders = new List<KasaraPotro.Sender>();
-                    foreach (var item in potroParam.recipient.sender)
+                    if (potroParam.recipient.sender.Values.Select(x => x.designation_id).FirstOrDefault() == "0")
                     {
-                        KasaraPotro.Sender sender = new KasaraPotro.Sender
+                        
+                            senders= MappingModels.MapModel<List<KasaraPotro.Approver>, List <KasaraPotro.Sender>> (approvers);
+                        
+                    }
+                    else
+                    {
+                        foreach (var item in potroParam.recipient.sender)
                         {
-                            Designation = item.Value.designation,
-                            DesignationId = Convert.ToInt32(item.Value.designation_id),
-                            Id = Convert.ToInt32(item.Value.id),
-                            IsSent = Convert.ToInt32(item.Value.is_sent),
-                            Label = item.Value.label,
-                            Office = item.Value.office,
-                            OfficeId = Convert.ToInt32(item.Value.office_id),
-                            Officer = item.Value.officer,
-                            OfficerEmail = item.Value.officer_email,
-                            OfficerId = Convert.ToInt32(item.Value.officer_id),
-                            OfficeUnit = item.Value.office_unit,
-                            OfficeUnitId = Convert.ToInt32(item.Value.office_unit_id),
-                            PotrojariId = Convert.ToInt32(item.Value.potrojari_id),
-                            PotroStatus = item.Value.potro_status,
-                            PotroType = Convert.ToInt32(item.Value.potro_status),
-                            RecipientType = item.Value.recipient_type,
-                            VisibleDesignation = null,
-                            VisibleName = item.Value.visible_name
+                            KasaraPotro.Sender sender = new KasaraPotro.Sender
+                            {
+                                Designation = item.Value.designation,
+                                DesignationId = Convert.ToInt32(item.Value.designation_id),
+                                Id = Convert.ToInt32(item.Value.id),
+                                IsSent = Convert.ToInt32(item.Value.is_sent),
+                                Label = item.Value.label,
+                                Office = item.Value.office,
+                                OfficeId = Convert.ToInt32(item.Value.office_id),
+                                Officer = item.Value.officer,
+                                OfficerEmail = item.Value.officer_email,
+                                OfficerId = Convert.ToInt32(item.Value.officer_id),
+                                OfficeUnit = item.Value.office_unit,
+                                OfficeUnitId = Convert.ToInt32(item.Value.office_unit_id),
+                                PotrojariId = Convert.ToInt32(item.Value.potrojari_id),
+                                PotroStatus = item.Value.potro_status,
+                                PotroType = Convert.ToInt32(item.Value.potro_status),
+                                RecipientType = item.Value.recipient_type,
+                                VisibleDesignation = null,
+                                VisibleName = item.Value.visible_name
 
 
-                        };
-                        senders.Add(sender);
+                            };
+                            senders.Add(sender);
+                        }
                     }
 
                     List<KasaraPotro.Attention> attentions = new List<KasaraPotro.Attention>();
@@ -183,7 +211,8 @@ namespace dNothi.Services.KasaraPatraDashBoardService
                             attentions.Add(attention);
                         }
                     }
-
+                    else
+                        attentions = null;
                     List<KasaraPotro.Onulipi> onulipis = new List<KasaraPotro.Onulipi>();
                     if (potroParam.recipient.onulipi != null)
                     {
@@ -212,11 +241,14 @@ namespace dNothi.Services.KasaraPatraDashBoardService
                             };
                             onulipis.Add(onulipi);
                         }
+                        onulipies = JsonParsingMethod.ObjecttoJson(onulipis);
                     }
-
+                    else
+                        onulipies = null;
                     List<KasaraPotro.Receiver> receivers = new List<KasaraPotro.Receiver>();
                     if (potroParam.recipient.receiver != null)
                     {
+
                         foreach (var item in potroParam.recipient.receiver)
                         {
                             KasaraPotro.Receiver receiver = new KasaraPotro.Receiver
@@ -242,18 +274,23 @@ namespace dNothi.Services.KasaraPatraDashBoardService
                             };
                             receivers.Add(receiver);
                         }
+
+                        reciveres = JsonParsingMethod.ObjecttoJson(receivers);
                     }
+                    else
+                        reciveres = string.Empty;
 
+                    KasaraPotro.Recipient recipient = new KasaraPotro.Recipient { Approver= approvers, Sender=senders, Attention=attentions, Onulipi= onulipies, Receiver= reciveres };
 
-                    KasaraPotro.Recipient recipient = new KasaraPotro.Recipient { Approver= approvers, Sender=senders, Attention=attentions, Onulipi=onulipis, Receiver=receivers};
-
-                    KasaraPotro.Record record = new KasaraPotro.Record { Basic = basic, NoteOnucched = noteOnucched, NoteOwner = noteOwner, Recipient = recipient};
-
+                    KasaraPotro.Record record = new KasaraPotro.Record { Basic = basic, NoteOnucched = noteOnucched, NoteOwner = noteOwner, Recipient = recipient,  Mulpotro=mulpotro, isLocal =true};
+                   // if(approvers.Where(x=>x.DesignationId==dakUserParam.designation_id).FirstOrDefault())
                     records.Add(record);
                     
                 }
-              
-                for(int item=0;item<(nothikhoshrapotrolist.data.Records.Count()- localData.Count());item++)
+                //nothikhoshrapotrolist.data.Records.Count() - localData.Count()
+
+
+                for (int item=0;item<10;item++)
                 {
                     records.Add(nothikhoshrapotrolist.data.Records[item]);
                 }
@@ -298,19 +335,6 @@ namespace dNothi.Services.KasaraPatraDashBoardService
 
         public PrapakerTalika GetPrapakerTalika(DakUserParam userParam, int potro)
         {
-            //if (InternetConnection.Check())
-            //{
-            //    //var localData = _localKhosraLocalRepository.Table.Where(x => x.Id==potro).FirstOrDefault();
-            //    //KhosraSaveParamPotro potroParam = JsonConvert.DeserializeObject<KhosraSaveParamPotro>(localData.potro);
-            //    //foreach(var item in potroParam.recipient.approver)
-            //    //{
-
-            //    //}
-            //    //PrapakerTalika nothikhoshrapotrolist = new PrapakerTalika { data = potroParam.recipient, status = "success" };
-            //    //return nothikhoshrapotrolist;
-
-            //}
-            
                 try
                 {
                     var Api = new RestClient(GetAPIDomain() + GetEndPoint(6));
@@ -340,6 +364,49 @@ namespace dNothi.Services.KasaraPatraDashBoardService
 
         }
 
+        public DakAttachmentResponse GetLocalMulpotroSanjukti(int kosraId)
+        {
+            DakAttachmentResponse dakAttachmentResponse = new DakAttachmentResponse();
+            List<DakAttachmentDTO> data = new List<DakAttachmentDTO>();
+            var localData = _localKhosraLocalRepository.Table.Where(x => x.Id== kosraId).FirstOrDefault();
+            KhosraSaveParamPotro potroParam = JsonConvert.DeserializeObject<KhosraSaveParamPotro>(localData.potro);
+            DakAttachmentDTO mulpotro = new DakAttachmentDTO {  potro_description= potroParam.potrojari.potro_description, content_body = potroParam.potrojari.potro_description, is_main = 1, file_name = potroParam.potrojaris.potro_type_name,user_file_name= potroParam.potrojaris.potro_type_name, attachment_type = "txt" };
+            data.Add(mulpotro);
+            foreach (var attachment in potroParam.attachments)
+            {
+                if (attachment.nothi_potro_id > 0)
+                {
+                    DakAttachmentDTO dakAttachment = new DakAttachmentDTO
+                    {
+                        file_name = attachment.user_file_name,
+                        attachment_type = (attachment.user_file_name).Split('.').Last(),
+                        user_file_name = attachment.user_file_name,
+                        file_size_in_kb = string.Empty,
+                        isLocal = true
+                    };
+                    data.Add(dakAttachment);
+                }
+            }
+
+            var localAttachments= _localKhosraFileUploadRepository.Table.Where(x => x.KhosraId == kosraId).ToList();
+            foreach(var localAttachment in localAttachments)
+            {
+                var dakAttachmentDTO = new DakAttachmentDTO { user_file_name= localAttachment.user_file_name, 
+                    content_body= localAttachment.content,
+                    file_size_in_kb = (localAttachment.file_size_in_kb).Split(' ').First(),
+                     file_name= localAttachment.user_file_name,
+                     attachment_type= (localAttachment.user_file_name).Split('.').Last(),
+                    isLocal=true,
+                     id= localAttachment.Id
+
+                };
+                data.Add(dakAttachmentDTO);
+            }
+            dakAttachmentResponse.data = data;
+            dakAttachmentResponse.status = "localsuccess";
+            return dakAttachmentResponse;
+
+        }
         public DakAttachmentResponse GetMulPattraAndSanjukti(DakUserParam userParam, KasaraPotro.Record record)
         {
 

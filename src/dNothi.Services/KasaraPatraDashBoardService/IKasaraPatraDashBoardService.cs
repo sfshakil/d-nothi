@@ -16,6 +16,8 @@ namespace dNothi.Services.KasaraPatraDashBoardService
         KasaraPotro GetList(DakUserParam dakListUserParam, int menuNo);
         PrapakerTalika GetPrapakerTalika(DakUserParam dakListUserParam, int potro);
         DakAttachmentResponse GetMulPattraAndSanjukti(DakUserParam dakListUserParam, KasaraPotro.Record record);
+        DakAttachmentResponse GetLocalMulpotroSanjukti(int kosraid);
+        
         ResponseModel KasaraDashBoardRecordCount(DakUserParam userParam);
     }
 }
