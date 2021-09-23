@@ -152,6 +152,7 @@ namespace dNothi.Desktop
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.UserItem>>().As<IRepository<dNothi.Core.Entities.UserItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiItem>>().As<IRepository<dNothi.Core.Entities.NothiItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiNotePermissionItem>>().As<IRepository<dNothi.Core.Entities.NothiNotePermissionItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteSearchItem>>().As<IRepository<dNothi.Core.Entities.NoteSearchItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiInboxSearchItem>>().As<IRepository<dNothi.Core.Entities.NothiInboxSearchItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteList>>().As<IRepository<dNothi.Core.Entities.NoteList>>();

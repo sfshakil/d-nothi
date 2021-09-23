@@ -1245,7 +1245,7 @@ namespace dNothi.Desktop.UI.Dak
                     nothiNotePermission = _nothiNotePermission.GetNothiNotePermission(_dakUserParam, _currentOnumodonRow.OrderByDescending(a => a.layer_index).ThenBy(a => a.route_index).ToList(), _nothiListRecordsDTO, Convert.ToInt32(_nothiListRecordsDTO.office_id), noteID);
                 }
 
-                if (nothiNotePermission.status == "success")
+                if (nothiNotePermission.status == "success" && nothiNotePermission.message != "Local")
                 {
                     SuccessMessage("সফলভাবে তথ্য সংরক্ষণ করা হয়েছে");
 
@@ -1261,6 +1261,10 @@ namespace dNothi.Desktop.UI.Dak
                             _noteIdfromNothiInboxNoteShomuho, _nothiNo, _nothiShakha, _nothiSubject, _nothiLastDate, _NoteAllListDataRecordDTO, _office, newNoteView);
                     }
                           
+                }else if (nothiNotePermission.status == "success" && nothiNotePermission.message == "Local")
+                {
+                    SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে তথ্য সংরক্ষণ করা হবে");
+                    this.Hide();
                 }
                 else
                 {
