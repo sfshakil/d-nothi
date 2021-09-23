@@ -14,6 +14,7 @@ namespace dNothi.Core.Entities.Khosra
         public string potro { get; set; }
         public int potrojari_id { get; set; }
         public string potro_status { get; set; }
+       
         [MaxLength]
         public string responseData { get; set; }
        

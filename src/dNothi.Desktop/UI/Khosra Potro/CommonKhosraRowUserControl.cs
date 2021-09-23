@@ -72,8 +72,7 @@ namespace dNothi.Desktop.UI.Khosra_Potro
             {
                 _isLocal = value;
 
-                //sampadanIconButton.Enabled = value;
-
+                sampadanIconButton.Enabled = value;
             }
         }
 

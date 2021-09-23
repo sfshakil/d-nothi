@@ -245,16 +245,17 @@ namespace dNothi.Services.KhasraService
            
             foreach (var item in localKosraInsertDelete)
             {
-                   string potro   = GetAttachment( userParam, item);
+              //  _localKhosraLocalRepository.Delete(item);
+                string potro   = GetAttachment( userParam, item);
 
-                   var returnData=  KhosraSave(userParam, item.cdesk, potro);
-                  
-                   if (returnData.status == "success")
-                    {
-                        success = true;
-                       _localKhosraLocalRepository.Delete(item);
-                    }
-                   
+                var returnData = KhosraSave(userParam, item.cdesk, potro);
+
+                if (returnData.status == "success")
+                {
+                    success = true;
+                    _localKhosraLocalRepository.Delete(item);
+                }
+
             }
 
             return success;
@@ -271,6 +272,7 @@ namespace dNothi.Services.KhasraService
 
             if (sarokNoLocal != null)
             {
+
                 var sarokresponse = getSarokNo(userParam, sarokNoLocal.cdesk, sarokNoLocal.potro);
                 potroData.potrojari.sarok_no = sarokresponse.sarok_no;
                 _localSarokNoLocalRepository.Delete(sarokNoLocal);
@@ -292,7 +294,9 @@ namespace dNothi.Services.KhasraService
                 }
                 foreach (var item in khosraAttachment)
                 {
+                   
                     var attachmentdata = _localKhosraFileUploadRepository.Table.Where(x => x.Id == item.Id).FirstOrDefault();
+                    // DeleteLocalAttachment(attachmentdata);
                     DakFileUploadParam fileUploadParam = new DakFileUploadParam
                     {
                         content = item.content,
