@@ -35,6 +35,7 @@ namespace dNothi.Desktop.UI
         ISyncerService _syncerservice { get; set; }
         ModalLoginMenuUserControl modal = null;
         public WaitFormFunc WaitForm;
+        AllAlartMessage UIMessageBox = new AllAlartMessage();
         public Login(IUserService userService, IAccountService accountService, ISyncerService syncerservice)
         {
             InitializeComponent();
@@ -69,13 +70,7 @@ namespace dNothi.Desktop.UI
             Controls.Add(ucPasswordResetPanel);
             ucPasswordResetPanel.BringToFront();
         }
-        private void ShowAlertMessage(string mulpotroNotSelectErrorMessage)
-        {
-            UIFormValidationAlertMessageForm alertMessageBox = new UIFormValidationAlertMessageForm();
-            alertMessageBox.message = mulpotroNotSelectErrorMessage;
-
-            alertMessageBox.ShowDialog();
-        }
+        
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
@@ -120,7 +115,7 @@ namespace dNothi.Desktop.UI
                 else
                 {
                     WaitForm.Close();
-                    ShowAlertMessage("আপনি ভূল ইউজার নেম অথবা পাসওয়ার্ড ইনপুট দিয়েছেন।");
+                    UIMessageBox.ShowAlertMessage("আপনি ভূল ইউজার নেম অথবা পাসওয়ার্ড ইনপুট দিয়েছেন।");
                 }
                 //WaitForm.Close();
             }
@@ -140,7 +135,7 @@ namespace dNothi.Desktop.UI
 
                 else
                 {
-                    ShowAlertMessage("আপনার ইন্টারনেট সংযোগ বিচ্ছিন্ন রযেছে।");
+                    UIMessageBox.ShowAlertMessage("আপনার ইন্টারনেট সংযোগ বিচ্ছিন্ন রযেছে।");
                 }
 
             }
@@ -365,7 +360,7 @@ namespace dNothi.Desktop.UI
         {
             if (!_userService.ValidatePassword(e.KeyChar))
             {
-               ShowAlertMessage(_userService.InvalidPasswordMessage());
+                UIMessageBox.ShowAlertMessage(_userService.InvalidPasswordMessage());
                 e.Handled = true;
             }
            

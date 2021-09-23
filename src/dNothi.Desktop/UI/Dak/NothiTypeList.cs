@@ -112,28 +112,6 @@ namespace dNothi.Desktop.UI.Dak
             get { return _noteId; }
             set { _noteId = value; lbNoteId.Text = value; }
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
-        private void DoSomethingAsync(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
         public event EventHandler NothiTypeDeleteButton;
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -150,7 +128,7 @@ namespace dNothi.Desktop.UI.Dak
                     var noteDelete = _noteDelete.GetNoteDelete(dakListUserParam, noteId);
                     if (noteDelete.status == "success")
                     {
-                        SuccessMessage("নথি ধরন মুছে ফেলা হয়েছে।");
+                        UIDesignCommonMethod.SuccessMessage("নথি ধরন মুছে ফেলা হয়েছে।");
                         if (this.NothiTypeDeleteButton != null)
                             this.NothiTypeDeleteButton(sender, e);
                         //foreach (Form f in Application.OpenForms)
@@ -168,7 +146,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIDesignCommonMethod.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
             
 
@@ -266,7 +244,7 @@ namespace dNothi.Desktop.UI.Dak
                     }
                     if (check)
                     {
-                        ErrorMessage("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
+                        UIDesignCommonMethod.ErrorMessage("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
 
                     }
                     else
@@ -278,7 +256,7 @@ namespace dNothi.Desktop.UI.Dak
                             if (nothiTypeSave.status == "success")
                             {
                                 this.Hide();
-                                SuccessMessage("নথি ধরণ হালনাগাদ করা হয়েছে।");
+                                UIDesignCommonMethod.SuccessMessage("নথি ধরণ হালনাগাদ করা হয়েছে।");
                                 if (this.nothitypeeditbutton != null)
                                     this.nothitypeeditbutton(sender, e);
                             }
@@ -288,7 +266,7 @@ namespace dNothi.Desktop.UI.Dak
                             var nothiTypeSave = _nothiTypeSave.GetNothiTypeList(dakListUserParam, txtNothiSubjectTypeEdit.Text, type_code, type_id);
                             if (nothiTypeSave.status == "success")
                             {
-                                SuccessMessage("নথি ধরণ হালনাগাদ করা হয়েছে।");
+                                UIDesignCommonMethod.SuccessMessage("নথি ধরণ হালনাগাদ করা হয়েছে।");
                                 if (this.nothitypeeditbutton != null)
                                     this.nothitypeeditbutton(sender, e);
                                 //foreach (Form f in Application.OpenForms)
@@ -305,12 +283,12 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 else
                 {
-                    ErrorMessage("দুঃখিত! ধরন ফাকা রাখা যাবে না।");
+                    UIDesignCommonMethod.ErrorMessage("দুঃখিত! ধরন ফাকা রাখা যাবে না।");
                 }
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIDesignCommonMethod.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
         }
         public event EventHandler NothiAddButton;
@@ -338,29 +316,7 @@ namespace dNothi.Desktop.UI.Dak
             form.Controls.Add(control);
             return form;
         }
-        void hideform_Shown(object sender, EventArgs e, Form form)
-        {
-            form.ShowDialog();
-
-            (sender as Form).Hide();
-
-            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
-        }
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-
-
-            hideform.BackColor = Color.Black;
-            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            hideform.Opacity = .4;
-            hideform.ShowInTaskbar = false;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
+        
         private void lbNothiNumber_Click(object sender, EventArgs e)
         {
             if (InternetConnection.Check())
@@ -376,14 +332,14 @@ namespace dNothi.Desktop.UI.Dak
                         nothiTalikaNewWindow.nothiTalikaHeading = lbNothiSubjectType.Text;
                         nothiTalikaNewWindow.LoadNothiNoteTalikaListinPanel(nothiNoteTalika.data.records);
                         var form = NothiTalikaControlToForm(nothiTalikaNewWindow);
-                        CalPopUpWindow(form);
+                        UIDesignCommonMethod.CalPopUpWindow(form,this);
                     }
 
                 }
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIDesignCommonMethod.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
             
         }

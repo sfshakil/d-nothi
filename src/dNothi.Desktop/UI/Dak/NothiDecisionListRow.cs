@@ -125,38 +125,16 @@ namespace dNothi.Desktop.UI.Dak
             {
                 FileViewWebBrowser fileViewWebBrowser = new FileViewWebBrowser();
                 fileViewWebBrowser.fileAddInWebBrowser(_shongjuktiURL, _decisionText);
-                CalPopUpWindow(fileViewWebBrowser);
+                UIDesignCommonMethod.CalPopUpWindow(fileViewWebBrowser,this);
             }
             else if (_potakaURL != null)
             {
                 FileViewWebBrowser fileViewWebBrowser = new FileViewWebBrowser();
                 fileViewWebBrowser.fileAddInWebBrowser(_potakaURL, _decisionText);
-                CalPopUpWindow(fileViewWebBrowser);
+                UIDesignCommonMethod.CalPopUpWindow(fileViewWebBrowser,this);
             }
         }
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-
-
-            hideform.BackColor = Color.Black;
-            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            hideform.Opacity = .4;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
-        void hideform_Shown(object sender, EventArgs e, Form form)
-        {
-
-            form.ShowDialog();
-
-            (sender as Form).Hide();
-
-            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
-        }
+        
         public event EventHandler VisibleDownloadAndShareButton;
         private void panel3_MouseHover(object sender, EventArgs e)
         {

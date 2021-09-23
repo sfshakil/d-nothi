@@ -725,13 +725,13 @@ namespace dNothi.Desktop.UI.Dak
 
                 if (addDesignationSealResponse.status == "success")
                 {
-                    SuccessMessage("সফলভাবে সংরক্ষণ হ​য়েছে।");
+                    UIDesignCommonMethod.SuccessMessage("সফলভাবে সংরক্ষণ হ​য়েছে।");
                     this.Hide();
 
                 }
                 else
                 {
-                    ErrorMessage("সংরক্ষণ সফল হ​য়নি।।");
+                    UIDesignCommonMethod.ErrorMessage("সংরক্ষণ সফল হ​য়নি।।");
                 }
 
             }
@@ -740,31 +740,6 @@ namespace dNothi.Desktop.UI.Dak
 
             }
         }
-
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-
-            successMessage.Show(this);
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.Show(this);
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-            // successMessage.ShowDialog();
-
-        }
-
         public TreeView prapokTreeView;
         private void prapokSearchOwnOfficeTextBox_TextChanged(object sender, EventArgs e)
         {

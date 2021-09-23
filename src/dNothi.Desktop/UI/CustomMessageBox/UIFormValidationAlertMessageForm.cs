@@ -21,7 +21,6 @@ namespace dNothi.Desktop.UI.CustomMessageBox
           
             InitializeComponent();
         }
-
         public bool isSuccess { get { return _isSuccess; }
             set
             {

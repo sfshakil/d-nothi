@@ -33,6 +33,7 @@ namespace dNothi.Desktop.UI
 {
     public partial class Khosra : Form
     {
+        AllAlartMessage UIMessageBox = new AllAlartMessage();
         public int _dakSecurity { get; set; }
         public int _dakPriority { get; set; }
         IUserService _userService { get; set; }
@@ -619,7 +620,7 @@ namespace dNothi.Desktop.UI
             selectOfficerForm.designationSealListResponse = _designationSealListResponse;
 
             selectOfficerForm.SaveButtonClick += delegate (object se, EventArgs ev) { SaveOfficerinOnumodonKariOfficerList(officerSelectButton, selectOfficerForm._selectedOfficerDesignations, selectOfficerForm._selectedOfficerDesignation, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel); };
-
+            selectOfficerForm.Height = Screen.PrimaryScreen.WorkingArea.Height;
             UIDesignCommonMethod.CalPopUpWindow(selectOfficerForm, this);
         }
 
@@ -2033,7 +2034,7 @@ namespace dNothi.Desktop.UI
                 if (khosraSaveResponse.status == "success")
                 {
                     WaitForm.Close();
-                    UIDesignCommonMethod.SuccessMessage(khosraSaveResponse.data);
+                    UIMessageBox.SuccessMessage(khosraSaveResponse.data);
 
                     if(_noteDTO != null && _noteDTO.note!=null)
                     {
@@ -2077,12 +2078,12 @@ namespace dNothi.Desktop.UI
                 else if (khosraSaveResponse.status == "error")
                 {
                     WaitForm.Close();
-                    UIDesignCommonMethod.ErrorMessage(khosraSaveResponse.message);
+                    UIMessageBox.ErrorMessage(khosraSaveResponse.message);
                 }
                 else
                 {
                     WaitForm.Close();
-                    UIDesignCommonMethod.ErrorMessage("");
+                    UIMessageBox.ErrorMessage("");
                 }
             }
 

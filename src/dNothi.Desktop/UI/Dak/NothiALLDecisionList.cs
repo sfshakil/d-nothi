@@ -49,13 +49,6 @@ namespace dNothi.Desktop.UI.Dak
             btnCancel.Visible = false;
             btnNewDecision.Visible = true;
         }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
         int totalDecisionList = 0;
         int pageNumber = 0;
         public void loadRow()
@@ -81,12 +74,12 @@ namespace dNothi.Desktop.UI.Dak
             {
                 if (nothiDecisionList.Status == null)
                 {
-                    ErrorMessage("দুঃখিত কোন তথ্য পাওয়া যায় নি।");
+                    UIDesignCommonMethod.ErrorMessage("দুঃখিত কোন তথ্য পাওয়া যায় নি।");
 
                 }
                 else
                 {
-                    ErrorMessage(nothiDecisionList.Status);
+                    UIDesignCommonMethod.ErrorMessage(nothiDecisionList.Status);
                 }
             }
         }
@@ -193,17 +186,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
             }
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
+        
         private void btnSave_Click(object sender, EventArgs e)
         {
 
@@ -224,14 +207,14 @@ namespace dNothi.Desktop.UI.Dak
                 var saveResponse = _nothiDecisionListService.GetNothiAddDecisionList(dakListUserParam, decisions, decisions_employee, 0);
                 if (saveResponse.status == "success")
                 {
-                    SuccessMessage("নথি সিদ্ধান্ত সংরক্ষণ হয়েছে");
+                    UIDesignCommonMethod.SuccessMessage("নথি সিদ্ধান্ত সংরক্ষণ হয়েছে");
                     btnCancel_Click(null, null);
                     loadRow();
                 }
             }
             else
             {
-                ErrorMessage("দুঃখিত! নথি সিদ্ধান্ত সংরক্ষন করা সম্ভব হচ্ছে না।");
+                UIDesignCommonMethod.ErrorMessage("দুঃখিত! নথি সিদ্ধান্ত সংরক্ষন করা সম্ভব হচ্ছে না।");
             }
         }
         private void NothiDecisionDelete_ButtonClick(RecordsDTO nothiDecisionList, EventArgs e)
@@ -240,12 +223,12 @@ namespace dNothi.Desktop.UI.Dak
             var saveResponse = _nothiDecisionListService.GetNothiDeleteDecisionList(dakListUserParam, nothiDecisionList.id);
             if (saveResponse.status == "success")
             {
-                SuccessMessage("নথি সিদ্ধান্ত মুছে ফেলা হয়েছে।");
+                UIDesignCommonMethod.SuccessMessage("নথি সিদ্ধান্ত মুছে ফেলা হয়েছে।");
                 loadRow();
             }
             else
             {
-                ErrorMessage(saveResponse.status);
+                UIDesignCommonMethod.ErrorMessage(saveResponse.status);
             }
         }
         private void NothiDecisionEdit_ButtonClick(RecordsDTO EditedRecord, RecordsDTO nothiDecisionList, EventArgs e)
@@ -254,7 +237,7 @@ namespace dNothi.Desktop.UI.Dak
             var saveResponse = _nothiDecisionListService.GetNothiAddDecisionList(dakListUserParam, EditedRecord.decisions, EditedRecord.decisions_employee, nothiDecisionList.id);
             if (saveResponse.status == "success")
             {
-                SuccessMessage("নথি সিদ্ধান্ত হালনাগাদ করা হয়েছে।");
+                UIDesignCommonMethod.SuccessMessage("নথি সিদ্ধান্ত হালনাগাদ করা হয়েছে।");
                 btnCancel_Click(null, null);
                 loadRow();
             }

@@ -607,31 +607,7 @@ namespace dNothi.Desktop.UI.Dak
             form.Controls.Add(control);
             return form;
         }
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-
-
-            hideform.BackColor = Color.Black;
-            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            hideform.Opacity = .4;
-            hideform.ShowInTaskbar = false;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
-        void hideform_Shown(object sender, EventArgs e, Form form)
-        {
-            form.ShowInTaskbar = false;
-
-            form.ShowDialog();
-
-            (sender as Form).Hide();
-
-            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
-        }
+        
         private void senderSearchButton_Click(object sender, EventArgs e)
         {
             //senderSortSidePanel.Height = Screen.PrimaryScreen.WorkingArea.Height; //{Width = 1382 Height = 744}
@@ -642,7 +618,7 @@ namespace dNothi.Desktop.UI.Dak
             
             HoverColorChangeSenderSearchButton();
             var nothiNoteMovementListform = NothiNextStepControlToForm(senderSortSidePanel);
-            CalPopUpWindow(nothiNoteMovementListform);
+            UIDesignCommonMethod.CalPopUpWindow(nothiNoteMovementListform,this);
         }
 
         private void sliderCrossButton_Click(object sender, EventArgs e)
@@ -782,7 +758,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             if (dakAttachment.id==0 ||(response != null && response.status == "success"))
             {
-                SuccessMessage("সফলভাবে সংযুক্তি মুছে ফেলা হয়েছে");
+                UIDesignCommonMethod.SuccessMessage("সফলভাবে সংযুক্তি মুছে ফেলা হয়েছে");
                 var attachmentList = attachmentListFlowLayoutPanel.Controls.OfType<DakUploadAttachmentTableRow>().ToList();
 
                 foreach (var attachment in attachmentList)
@@ -799,17 +775,7 @@ namespace dNothi.Desktop.UI.Dak
                    
         }
 
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
+        
 
         private void OCRControl_ButtonClick(object sender, EventArgs e, string imageBase64String, DakAttachmentDTO dakAttachment,string Extension)
         {

@@ -214,28 +214,11 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIDesignCommonMethod.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
             
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
+        
         private void detailsButtonNewTab_Click(object sender, EventArgs e)
         {
             if (InternetConnection.Check())
@@ -249,7 +232,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIDesignCommonMethod.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
         }
     }

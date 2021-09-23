@@ -42,28 +42,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.Hide();
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-            // successMessage.ShowDialog();
-
-        }
+        
         [Browsable(true)]
         [Category("Action")]
         [Description("Invoked when user clicks button")]
@@ -79,7 +58,7 @@ namespace dNothi.Desktop.UI.Dak
             else
             {
                 string message = "নোটের বিষয় দেওয়া হইনি";
-                ErrorMessage(message);
+                UIDesignCommonMethod.ErrorMessage(message);
             }
             
         }

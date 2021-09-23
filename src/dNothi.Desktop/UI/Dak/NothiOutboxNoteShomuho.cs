@@ -134,13 +134,6 @@ namespace dNothi.Desktop.UI.Dak
 
             btnSchedule.Visible = true;
         }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
         public event EventHandler OutboxNoteDetailsButton;
         public event EventHandler LocalNoteDetailsButton;
         private void NoteDetailsButton_Click(object sender, EventArgs e)
@@ -168,7 +161,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIDesignCommonMethod.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
             
         }
@@ -186,7 +179,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIDesignCommonMethod.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
         }
         public event EventHandler btnnoteAttachment;

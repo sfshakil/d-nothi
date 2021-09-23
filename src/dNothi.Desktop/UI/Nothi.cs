@@ -29,6 +29,7 @@ namespace dNothi.Desktop.UI
     public partial class Nothi : Form
     {
         private DakUserParam _dakuserparam = new DakUserParam();
+        AllAlartMessage alartMessage = new AllAlartMessage();
         IUserService _userService { get; set; }
         ISyncerService _syncerServices { get; set; }
         INothiInboxServices _nothiInbox { get; set; }
@@ -835,21 +836,6 @@ namespace dNothi.Desktop.UI
 
             // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
         }
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-
-
-            hideform.BackColor = Color.Black;
-            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            hideform.Opacity = .4;
-            hideform.ShowInTaskbar = false;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
 
         private void LocalNoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO, EventArgs e, NothiCreateItemAction nothiCreateItemAction, string nothi_type)
         {
@@ -926,7 +912,7 @@ namespace dNothi.Desktop.UI
             form.SaveNewNoteButtonClick += delegate (object sender1, EventArgs e1) { SaveNewNote_ButtonClick(sender1, e1, nothiListRecords); };
             //form.ShowDialog();
 
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
 
         }
         private void NothiOnumodon_ButtonClick(object sender, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO)
@@ -937,25 +923,7 @@ namespace dNothi.Desktop.UI
             form.GetNothiInboxRecords(nothiListRecords,"","");
             form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiInbox(); };
 
-            CalPopUpWindow(form);
-
-        }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
 
         }
         private void SaveNewNote_ButtonClick(object sender, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO)
@@ -1061,7 +1029,7 @@ namespace dNothi.Desktop.UI
                 }
                 else
                 {
-                    ErrorMessage(noteSave.status + noteSave.message);
+                    alartMessage.ErrorMessage(noteSave.status + noteSave.message);
                 }
             }
         }
@@ -1414,7 +1382,7 @@ namespace dNothi.Desktop.UI
             form.GetNothiInboxRecords(nothiOutboxListRecords,"","");
             form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiAll(); };
 
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
 
         }
         private void NothiAllOnumodon_ButtonClick(object sender, EventArgs e, NothiListAllRecordsDTO nothiAllListDTO)
@@ -1441,7 +1409,7 @@ namespace dNothi.Desktop.UI
 
             form.SuccessfullyOnumodonSaveButton += delegate (object saveOnumodonButtonSender, EventArgs saveOnumodonButtonEvent) { ClickNothiAll(); };
 
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
 
         }
         List<NothiCreateItemAction> nothiCreateItemActions = new List<NothiCreateItemAction>();
@@ -3035,7 +3003,7 @@ namespace dNothi.Desktop.UI
             }
             catch
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                alartMessage.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
             
             WaitForm.Close();
@@ -3093,7 +3061,7 @@ namespace dNothi.Desktop.UI
             var notelist = MappingModels.MapModel<NoteNothiListInboxNoteRecordsDTO, NoteListDataRecordNoteDTO>(nothiListInboxNoteRecordsDTO.note);
             //form.loadNewNoteDataFromNote(nothiType);
             form.loadNoteList(notelist);
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
         }
 
       
@@ -3113,7 +3081,7 @@ namespace dNothi.Desktop.UI
                 var noteDelete = _noteDelete.GetNoteDelteResponse(dakListUserParam, model, noteID);
                 if (noteDelete.status == "success")
                 {
-                    SuccessMessage(noteDelete.status);
+                    alartMessage.SuccessMessage(noteDelete.status);
                     uc.Visible = false;
                     noteListButton_Click(sender, e);
                 }
@@ -3136,7 +3104,7 @@ namespace dNothi.Desktop.UI
             };
 
 
-            CalPopUpWindow(noteCreatePopUpForm);
+            UIDesignCommonMethod.CalPopUpWindow(noteCreatePopUpForm,this);
 
         }
         public void someSearchFunctionOffforOthersOffice()
@@ -3199,7 +3167,7 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                alartMessage.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
             
         }
@@ -3489,7 +3457,7 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                alartMessage.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
             
         }
@@ -4173,11 +4141,11 @@ namespace dNothi.Desktop.UI
                 nothiDecisionList.loadRow();
                 var form = NothiNextStepControlToForm(nothiDecisionList);
                 //WaitForm.Close();
-                CalPopUpWindow(form);
+                UIDesignCommonMethod.CalPopUpWindow(form,this);
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                alartMessage.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
         }
 

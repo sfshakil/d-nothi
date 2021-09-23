@@ -664,7 +664,6 @@ namespace dNothi.Desktop.UI
 
             return form;
         }
-
         public static void CalPopUpWindow(Form form, Form parentForm)
         {
             Form hideform = new Form();
@@ -684,8 +683,9 @@ namespace dNothi.Desktop.UI
             Form hideform = new Form();
 
             hideform.BackColor = Color.Black;
-            hideform.Size = parentUc.Size;
-            hideform.Opacity = .6;
+            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            hideform.Opacity = .4;
+            hideform.ShowInTaskbar = false;
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;
@@ -737,10 +737,12 @@ namespace dNothi.Desktop.UI
 
             CallShadowWindow(form);
         }
-
         public static void hideform_Shown(object sender, EventArgs e, Form form)
         {
 
+            form.ShowInTaskbar = false;
+            form.TopMost = true;
+            form.TopMost = false;
             form.ShowDialog();
 
             (sender as Form).Hide();

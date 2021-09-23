@@ -35,13 +35,7 @@ namespace dNothi.Desktop.UI.Dak
             get { return _labelText; }
             set { _labelText = value; lbLabelText.Text = value; }
         }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
+        
         public void loadRow()
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -60,7 +54,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 
             } else {
-                ErrorMessage(nothiDecisionList.Status);
+                UIDesignCommonMethod.ErrorMessage(nothiDecisionList.Status);
             }
         }
         private void LoadNothiInboxinPanel(List<RecordsDTO> nothiDecisionLists)
@@ -201,7 +195,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
-                ErrorMessage(nothiOnuchhedList.status);
+                UIDesignCommonMethod.ErrorMessage(nothiOnuchhedList.status);
             }
         }
         private void LoadNothiOnuchhedTLP(List<OnuchhedListData> Records)

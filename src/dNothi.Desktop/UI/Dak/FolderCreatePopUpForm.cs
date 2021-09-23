@@ -94,7 +94,7 @@ namespace dNothi.Desktop.UI.Dak
                 if (dakFolderAddResponse.status == "success")
                 {
                     //_selectedFolderId= dakFolderAddResponse.data.id;
-                    SuccessMessage("ফোল্ডার টি সফলভাবে সংযুক্ত হযেছে!");
+                    UIDesignCommonMethod.SuccessMessage("ফোল্ডার টি সফলভাবে সংযুক্ত হযেছে!");
                     if (this.SaveButtonClick != null)
                         this.SaveButtonClick(sender, e);
 
@@ -102,7 +102,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 else
                 {
-                    ErrorMessage("ফোল্ডার টি সংযুক্তি সফল হইনি!");
+                    UIDesignCommonMethod.ErrorMessage("ফোল্ডার টি সংযুক্তি সফল হইনি!");
                 }
 
 
@@ -133,7 +133,7 @@ namespace dNothi.Desktop.UI.Dak
                 if (dakFolderAddResponse.status == "success")
                 {
                     dakFolderParam.id = dakFolderAddResponse.data.id;
-                    SuccessMessage("ফোল্ডার টির নাম সফলভাবে পরিবর্তন হযেছে!");
+                    UIDesignCommonMethod.SuccessMessage("ফোল্ডার টির নাম সফলভাবে পরিবর্তন হযেছে!");
                     if (this.SaveButtonClick != null)
                         this.SaveButtonClick(sender, e);
 
@@ -141,7 +141,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 else
                 {
-                    ErrorMessage("ফোল্ডার টির নাম পরিবর্তন সফল হইনি!");
+                    UIDesignCommonMethod.ErrorMessage("ফোল্ডার টির নাম পরিবর্তন সফল হইনি!");
                 }
 
 
@@ -150,28 +150,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-            //successMessage.ShowDialog();
-
-        }
+        
 
         private void FolderCreatePopUpForm_Load(object sender, EventArgs e)
         {
