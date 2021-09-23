@@ -408,15 +408,15 @@ namespace dNothi.Desktop.UI.Dak
                 
                 _dak = value;
                 //string mulprapok = string.Empty;
-                //string source = "উৎস:" + value.dak_origin.sender_name + ",\r\n(" + value.dak_origin.sender_officer_designation_label + "," + value.dak_origin.sender_office_unit_name + ",\r\n" + value.dak_origin.sender_office_name+")";
+                //string source = "উৎস:" + value.dak_origin.sender_name + ",\r\n(" + value.dak_origin.sender_officer_designation_label + "," + value.dak_origin.sender_office_unit_name + ",\r\n" + value.dak_origin.sender_office_name + ")";
                 //var reciver = GetDakListMainReceiverName(value.movement_status);
                 //if (reciver != null)
                 //    mulprapok = "মূল-প্রাপক:" + reciver.officer + ",\r\n(" + reciver.designation + "," + reciver.office_unit + ",\r\n" + reciver.office + ")";
                 //else
                 //    mulprapok = string.Empty;
 
-                //MyToolTip.SetToolTip(sourceLabel, source+ "\r\n" + mulprapok);
-                //MyToolTip.SetToolTip(senderLabel, value.movement_status.from.designation+","+ value.movement_status.from.office_unit+ ",\r\n" + value.movement_status.from.office);
+                //MyToolTip.SetToolTip(sourceLabel, source + "\r\n" + mulprapok);
+                //MyToolTip.SetToolTip(senderLabel, value.movement_status.from.designation + "," + value.movement_status.from.office_unit + ",\r\n" + value.movement_status.from.office);
                 //MyToolTip.SetToolTip(mainReceiverLabel, reciver.designation + "," + reciver.office_unit + ",\r\n" + reciver.office);
             } }
         private ToDTO GetDakListMainReceiverName(MovementStatusDTO movementStatusDTO)
@@ -736,8 +736,19 @@ namespace dNothi.Desktop.UI.Dak
         {
             get { return _source; }
             set {
-                _source = value; sourceLabel.Text = value; 
-                
+                _source = value; sourceLabel.Text = value;
+
+                string mulprapok = string.Empty;
+             
+                string source = "উৎস:" + dak.dak_origin.sender_name + ",\r\n(" + dak.dak_origin.sender_officer_designation_label + "," + dak.dak_origin.sender_office_unit_name + ",\r\n" + dak.dak_origin.sender_office_name + ")";
+                var reciver = GetDakListMainReceiverName(dak.movement_status);
+                if (reciver != null)
+                    mulprapok = "মূল-প্রাপক:" + reciver.officer + ",\r\n(" + reciver.designation + "," + reciver.office_unit + ",\r\n" + reciver.office + ")";
+                else
+                    mulprapok = string.Empty;
+
+                MyToolTip.SetToolTip(sourceLabel, source + "\r\n" + mulprapok);
+
             }
         }
 
@@ -751,7 +762,8 @@ namespace dNothi.Desktop.UI.Dak
             set {
                 _sender = value; 
                 senderLabel.Text = value;
-
+                MyToolTip.SetToolTip(senderLabel, dak.movement_status.from.designation + "," + dak.movement_status.from.office_unit + ",\r\n" + dak.movement_status.from.office);
+                
             }
         }
 
@@ -759,7 +771,12 @@ namespace dNothi.Desktop.UI.Dak
         public string receiver
         {
             get { return _receiver; }
-            set { _receiver = value; mainReceiverLabel.Text = value; }
+            set { _receiver = value; 
+                mainReceiverLabel.Text = value;
+                var reciver = GetDakListMainReceiverName(dak.movement_status);
+                MyToolTip.SetToolTip(mainReceiverLabel, reciver.designation + "," + reciver.office_unit + ",\r\n" + reciver.office);
+
+            }
         }
 
 

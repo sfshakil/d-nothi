@@ -289,10 +289,12 @@ namespace dNothi.Services.KasaraPatraDashBoardService
                 }
                 //nothikhoshrapotrolist.data.Records.Count() - localData.Count()
 
-
-                for (int item=0;item<10;item++)
+                if (nothikhoshrapotrolist.data.Records.Count>0)
                 {
-                    records.Add(nothikhoshrapotrolist.data.Records[item]);
+                    for (int item = 0; item < 10; item++)
+                    {
+                        records.Add(nothikhoshrapotrolist.data.Records[item]);
+                    }
                 }
                 KasaraPotro.Data data = new KasaraPotro.Data { Records = records, TotalRecords =(nothikhoshrapotrolist.data.TotalRecords+ localData.Count()) };
                 KasaraPotro kasaraPotro = new KasaraPotro { data = data, Status = "success" };

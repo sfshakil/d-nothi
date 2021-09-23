@@ -245,8 +245,8 @@ namespace dNothi.Services.KhasraService
            
             foreach (var item in localKosraInsertDelete)
             {
-              //  _localKhosraLocalRepository.Delete(item);
-                string potro   = GetAttachment( userParam, item);
+                //_localKhosraLocalRepository.Delete(item);
+                string potro = GetAttachment(userParam, item);
 
                 var returnData = KhosraSave(userParam, item.cdesk, potro);
 

@@ -206,16 +206,16 @@ namespace dNothi.Services.NothiServices
             var localanumodanInsertDelete = _kosraAnumodanLocal.Table.Where(q => q.cdesk==cdesk).ToList();
             foreach(var item in localanumodanInsertDelete)
             {
-                _kosraAnumodanLocal.Delete(item);
-                //var response= anumodan(item.cdesk, item.potro, userParam);
-                // if(response.status=="success")
-                // {
-                //     _kosraAnumodanLocal.Delete(item);
-                // }
-                // else
-                // {
-                //     _kosraAnumodanLocal.Delete(item);
-                // }
+                //  _kosraAnumodanLocal.Delete(item);
+                var response = anumodan(item.cdesk, item.potro, userParam);
+                if (response.status == "success")
+                {
+                    _kosraAnumodanLocal.Delete(item);
+                }
+                else
+                {
+                    _kosraAnumodanLocal.Delete(item);
+                }
             }
             return true;
         }

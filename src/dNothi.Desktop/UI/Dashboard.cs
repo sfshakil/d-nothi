@@ -1431,6 +1431,7 @@ namespace dNothi.Desktop.UI
 
             SingleDakUserControl dakInboxUserControl = new SingleDakUserControl();
             SetDakCategory(dakInboxUserControl, dakCatagoryList);
+            dakInboxUserControl.dak = dakListInboxRecordsDTO;
             if (dakListInboxRecordsDTO.dak_origin.receiving_office_unit_id != dakListInboxRecordsDTO.dak_origin.sender_office_unit_id)
             { dakInboxUserControl.isotherOffice = true; }
 
@@ -1528,7 +1529,7 @@ namespace dNothi.Desktop.UI
             dakInboxUserControl.ButtonClick += delegate (object sender, EventArgs e) { UserControl_ButtonClick(sender, e, dakListInboxRecordsDTO.dak_user.dak_id, dakListInboxRecordsDTO.dak_user.dak_type, dakListInboxRecordsDTO.dak_user.dak_subject, dakListInboxRecordsDTO.dak_user.is_copied_dak, dakListInboxRecordsDTO, dakCatagoryList); };
 
 
-            dakInboxUserControl.dak = dakListInboxRecordsDTO;
+            
             dakInboxUserControl.DakTagShowButtonCLick += delegate (object sender, EventArgs e) { DakTagShow_ButtonClick(dakListInboxRecordsDTO.dak_Tags); };
 
             UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, dakInboxUserControl);
