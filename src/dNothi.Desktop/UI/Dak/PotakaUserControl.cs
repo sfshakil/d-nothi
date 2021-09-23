@@ -62,24 +62,7 @@ namespace dNothi.Desktop.UI.Dak
                     f.Close();
             }
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
+        
         private void potakaSaveButton_Click(object sender, EventArgs e)
         {
             //color = সর্বোচ্চ অগ্রাধিকার(#fada5e) index = 1
@@ -116,22 +99,22 @@ namespace dNothi.Desktop.UI.Dak
                     var nothiPotakaSaveResponse = _nothiDecisionListService.GetNothiPotakaSaveResponse(dakListUserParam, nothiPotakaData, _khoshraPotroWaitinDataRecordDTO);
                     if (nothiPotakaSaveResponse != null && nothiPotakaSaveResponse.status == "success")
                     {
-                        SuccessMessage("সফলভাবে পতাকা সংরক্ষণ হয়েছে");
+                        UIDesignCommonMethod.SuccessMessage("সফলভাবে পতাকা সংরক্ষণ হয়েছে");
                         btnCross_Click(null, null);
                     }
                     else
                     {
-                        ErrorMessage(nothiPotakaSaveResponse.status);
+                        UIDesignCommonMethod.ErrorMessage(nothiPotakaSaveResponse.status);
                     }
                 }
                 else
                 {
-                    ErrorMessage("দুঃখিত! রঙ ফাঁকা রাখা যাবে না");
+                    UIDesignCommonMethod.ErrorMessage("দুঃখিত! রঙ ফাঁকা রাখা যাবে না");
                 }
             }
             else
             {
-                ErrorMessage("দুঃখিত! শিরোনাম ফাঁকা রাখা যাবে না");
+                UIDesignCommonMethod.ErrorMessage("দুঃখিত! শিরোনাম ফাঁকা রাখা যাবে না");
             }
         }
     }

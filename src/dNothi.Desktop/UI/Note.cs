@@ -39,6 +39,7 @@ namespace dNothi.Desktop.UI
     public partial class Note : Form
     {
         private DakUserParam _dakuserparam = new DakUserParam();
+        AllAlartMessage UIMessageBox = new AllAlartMessage();
 
         private int current_potro_id = 0;
         private KhoshraPotroWaitinDataRecordDTO _khoshraPotroWaitinDataRecordDTO;
@@ -899,7 +900,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage(ex.Message);
+                UIMessageBox.ErrorMessage(ex.Message);
             }
         }
         public void loadNoteViewToNoPo(NoteView noteView)
@@ -1006,7 +1007,7 @@ namespace dNothi.Desktop.UI
                 }
                 catch (Exception ex)
                 {
-                    ErrorMessage(ex.Message);
+                    UIMessageBox.ErrorMessage(ex.Message);
                 }
             }
 
@@ -1535,7 +1536,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage(ex.Message);
+                UIMessageBox.ErrorMessage(ex.Message);
             }
         }
         
@@ -2026,21 +2027,7 @@ namespace dNothi.Desktop.UI
 
             return form;
         }
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-
-
-            hideform.BackColor = Color.Black;
-            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            hideform.Opacity = .4;
-            hideform.ShowInTaskbar = false;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
+        
         private void btnAllNothi_Click(object sender, EventArgs e)
         {
             var form = FormFactory.Create<DakNothiteUposthapitoForm>();
@@ -2049,7 +2036,7 @@ namespace dNothi.Desktop.UI
             form.FormBorderStyle = FormBorderStyle.None;
             form.BackColor = Color.White;
             form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - form.Width, 0);
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
 
         }
 
@@ -2066,7 +2053,7 @@ namespace dNothi.Desktop.UI
             form.SaveNewNoteButtonClick += delegate (object sender1, EventArgs e1) { SaveNewNote_ButtonClick(sender1, e1, nothiNoteListRecords); };
             //form.ShowDialog();
 
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
 
         }
         private void SaveNewNote_ButtonClick(object sender, EventArgs e, NothiListRecordsDTO nothiListRecordsDTO)
@@ -2127,7 +2114,7 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                ErrorMessage(noteSave.status + noteSave.message);
+                UIMessageBox.ErrorMessage(noteSave.status + noteSave.message);
             }
 
 
@@ -2384,7 +2371,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
         }
         public void noteAllButtonClick(NothiListRecordsDTO nothiListRecords)
@@ -2655,36 +2642,19 @@ namespace dNothi.Desktop.UI
             else
                 return "";
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
+        
         private void DeleteButton_Click(string onucchedId, EventArgs e, DakUserParam dakListUserParam, NothiListRecordsDTO nothiListRecords, NoteSaveDTO newnotedata)
         {
             newnotedata.note_id = Convert.ToInt32(NoteIdfromNothiInboxNoteShomuho.Text);
             var onucchedDelete = _onucchedDelete.GetNothiOnuchhedDelete(dakListUserParam, nothiListRecords, newnotedata, onucchedId);
             if (onucchedDelete.status == "success")
             {
-                SuccessMessage(onucchedDelete.status + " " + onucchedDelete.message);
+                UIMessageBox.SuccessMessage(onucchedDelete.status + " " + onucchedDelete.message);
                 loadAgainNote();
             }
             else
             {
-                ErrorMessage(onucchedDelete.status + " " + onucchedDelete.message);
+                UIMessageBox.ErrorMessage(onucchedDelete.status + " " + onucchedDelete.message);
             }
 
         }
@@ -3098,7 +3068,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage(ex.Message);
+                UIMessageBox.ErrorMessage(ex.Message);
             }
         }
 
@@ -3623,7 +3593,7 @@ namespace dNothi.Desktop.UI
                                 noteHeaderPanel.Width = 990;
                                 noteHeaderPanel.Height = 81;
                                 //string message = "Error";
-                                ErrorMessage(onucchedList.message);
+                                UIMessageBox.ErrorMessage(onucchedList.message);
                             }
 
                         }
@@ -3631,7 +3601,7 @@ namespace dNothi.Desktop.UI
                         {
                             //string message = "Error";
                             onuchhedSaveWithAttachments.Clear();
-                            ErrorMessage(onucchedSave.message);
+                            UIMessageBox.ErrorMessage(onucchedSave.message);
                         }
                     }
 
@@ -3642,14 +3612,14 @@ namespace dNothi.Desktop.UI
                 else
                 {
                     string message = "অনুচ্ছেদ বডি দেওয়া হইনি";
-                    ErrorMessage(message);
+                    UIMessageBox.ErrorMessage(message);
                 }
 
                 //tinyMceEditor.Controls.Clear();
             }
             catch (Exception ex)
             {
-                ErrorMessage(ex.Message);
+                UIMessageBox.ErrorMessage(ex.Message);
             }
         }
 
@@ -3795,7 +3765,7 @@ namespace dNothi.Desktop.UI
 
             this.Controls.Add(nothiType);
             var form = NothiNextStepControlToForm(nothiType);
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
 
         }
         public void loadnothiListRecordsAndNothiTypeFromNothiOnumodonDesgSeal(NothiListRecordsDTO nothiListRecords, NothiNextStep nns, NoteListDataRecordNoteDTO notelist,
@@ -3826,7 +3796,7 @@ namespace dNothi.Desktop.UI
             {
                 if (lbOnlineorOfflineStatus.Text == "offline")
                 {
-                    //ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                    //UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
                     DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
                     var onumodonList = _onumodonService.GetNoteOnumodonMembers(dakListUserParam, nothiListRecords, NoteIdfromNothiInboxNoteShomuho.Text);
                     var onumodonList1 = _onumodonService.GetOnumodonMembers(dakListUserParam, nothiListRecords);
@@ -3854,7 +3824,7 @@ namespace dNothi.Desktop.UI
                     }
                     else
                     {
-                        ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                        UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
                     }
                 }
                 else
@@ -3888,7 +3858,7 @@ namespace dNothi.Desktop.UI
                         }
                         else
                         {
-                            ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                            UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
                         }
                     }
                     else
@@ -3908,14 +3878,14 @@ namespace dNothi.Desktop.UI
                         }
                         else
                         {
-                            ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                            UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -3964,7 +3934,7 @@ namespace dNothi.Desktop.UI
 
             this.Controls.Add(nothiType);
             var form = NothiNextStepControlToForm(nothiType);
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
 
         }
         public Form NothiNextStepControlToForm(Control control)
@@ -4427,7 +4397,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -5001,7 +4971,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -5499,7 +5469,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -6009,7 +5979,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
         }
 
@@ -6473,7 +6443,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
 
@@ -6990,7 +6960,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -7491,7 +7461,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
 
@@ -7979,7 +7949,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -8473,7 +8443,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -9005,7 +8975,7 @@ namespace dNothi.Desktop.UI
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
         }
 
@@ -9375,7 +9345,7 @@ namespace dNothi.Desktop.UI
             NoteOnucchedRevertResPonse noteOnucchedRevert = _noteOnucchedRevert.GetNoteOnucchedRevert(_dakuserparam, nothiListRecords, newnotedata);
             if (noteOnucchedRevert.status == "success")
             {
-                SuccessMessage(noteOnucchedRevert.data);
+                UIMessageBox.SuccessMessage(noteOnucchedRevert.data);
                 foreach (Form f in Application.OpenForms)
                 { BeginInvoke((Action)(() => f.Hide())); }
                 loadNote();
@@ -9383,7 +9353,7 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                ErrorMessage(noteOnucchedRevert.message);
+                UIMessageBox.ErrorMessage(noteOnucchedRevert.message);
             }
         }
         private void loadNote()
@@ -9826,11 +9796,11 @@ namespace dNothi.Desktop.UI
                 NothiNoteMovementList form = new NothiNoteMovementList();
                 form.loadNoteMovement(nothiMovements);
                 var nothiNoteMovementListform = NothiNextStepControlToForm(form);
-                CalPopUpWindow(nothiNoteMovementListform);
+                UIDesignCommonMethod.CalPopUpWindow(nothiNoteMovementListform,this);
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -9845,11 +9815,11 @@ namespace dNothi.Desktop.UI
                 nothiDecisionList.labelText = "নোটের সংযুক্তি";
                 nothiDecisionList.loadNoteRowAttachments(nothiInboxNote, 0);
                 var form = NothiNextStepControlToForm(nothiDecisionList);
-                CalPopUpWindow(form);
+                UIDesignCommonMethod.CalPopUpWindow(form,this);
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
         }
 
@@ -9897,9 +9867,9 @@ namespace dNothi.Desktop.UI
             OnumoditoPodobi onumoditoPodobi = new OnumoditoPodobi();
             onumoditoPodobi.GetNothiInboxRecords(records);
             //var form = AttachNothiGuidelinesControlToForm(onumoditoPodobi);
-            //CalPopUpWindow(form);
+            //UIDesignCommonMethod.CalPopUpWindow(form);
             var form = NothiNextStepControlToForm(onumoditoPodobi);
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
         }
 
         private void btnPrapokerTalika_Click(object sender, EventArgs e)
@@ -9926,7 +9896,7 @@ namespace dNothi.Desktop.UI
         {
             DraftHistory form = new DraftHistory();
             var nothiNoteMovementListform = AttachNothiGuidelinesControlToForm(form);
-            CalPopUpWindow(nothiNoteMovementListform);
+            UIDesignCommonMethod.CalPopUpWindow(nothiNoteMovementListform,this);
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -9964,7 +9934,7 @@ namespace dNothi.Desktop.UI
                 var nothiNoteMovementListform = AttachPotrojariControlToForm(form);
 
 
-                CalPopUpWindow(nothiNoteMovementListform);
+                UIDesignCommonMethod.CalPopUpWindow(nothiNoteMovementListform,this);
             }
 
         }
@@ -10044,7 +10014,7 @@ namespace dNothi.Desktop.UI
 
                 if (potrojariResponse != null && potrojariResponse.status == "success")
                 {
-                    UIDesignCommonMethod.SuccessMessage(potrojariResponse.data);
+                    UIMessageBox.SuccessMessage(potrojariResponse.data);
 
                     loadNote();
                     ReFresh(allFlag);
@@ -10185,7 +10155,7 @@ namespace dNothi.Desktop.UI
                     if (khoshraUnapprovedResponse.status == "success")
                     {
 
-                        UIDesignCommonMethod.SuccessMessage(khoshraUnapprovedResponse.data);
+                        UIMessageBox.SuccessMessage(khoshraUnapprovedResponse.data);
                         //ReFresh(allFlag);
                         btnApprove.Visible = true;
                         btnUnapprove.Visible = false;
@@ -10239,7 +10209,7 @@ namespace dNothi.Desktop.UI
                     if (khoshraUnapprovedResponse.status == "success")
                     {
 
-                        UIDesignCommonMethod.SuccessMessage(khoshraUnapprovedResponse.data);
+                        UIMessageBox.SuccessMessage(khoshraUnapprovedResponse.data);
              
                         //ReFresh(allFlag);  
                            
@@ -10315,7 +10285,7 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -10377,11 +10347,11 @@ namespace dNothi.Desktop.UI
                 nothiDecisionList.loadRow();
                 var form = NothiNextStepControlToForm(nothiDecisionList);
                 WaitForm.Close();
-                CalPopUpWindow(form);
+                UIDesignCommonMethod.CalPopUpWindow(form,this);
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -10452,11 +10422,11 @@ namespace dNothi.Desktop.UI
                 nothiGaurdFileList.GaurdFileAttachment += delegate (object sender1, EventArgs e1) { GaurdFileText_Click(sender1 as GaurdFileRecord, e1); };
                 var form = NothiNextStepControlToForm(nothiGaurdFileList);
                 WaitForm.Close();
-                CalPopUpWindow(form);
+                UIDesignCommonMethod.CalPopUpWindow(form,this);
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -10487,11 +10457,11 @@ namespace dNothi.Desktop.UI
                 nothiBibechhoPotroList.loadRow();
                 var form = NothiNextStepControlToForm(nothiBibechhoPotroList);
                 WaitForm.Close();
-                CalPopUpWindow(form);
+                UIDesignCommonMethod.CalPopUpWindow(form,this);
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -10519,11 +10489,11 @@ namespace dNothi.Desktop.UI
                 nothiDecisionList.loadRowAttachments(onuchhedSaveWithAttachments);
                 var form = NothiNextStepControlToForm(nothiDecisionList);
                 WaitForm.Close();
-                CalPopUpWindow(form);
+                UIDesignCommonMethod.CalPopUpWindow(form,this);
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -10549,11 +10519,11 @@ namespace dNothi.Desktop.UI
                 nothiDecisionList.PotakaAdd += delegate (object sender1, EventArgs e1) { PotakaAdd_Click(sender1 as PotakaListRecord, e1); };
                 var form = NothiNextStepControlToForm(nothiDecisionList);
                 WaitForm.Close();
-                CalPopUpWindow(form);
+                UIDesignCommonMethod.CalPopUpWindow(form,this);
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -10579,11 +10549,11 @@ namespace dNothi.Desktop.UI
                 nothiDecisionList.OnuchhedAdd += delegate (object sender1, EventArgs e1) { OnuchhedAdd_Click(sender1 as string, e1); };
                 var form = NothiNextStepControlToForm(nothiDecisionList);
                 WaitForm.Close();
-                CalPopUpWindow(form);
+                UIDesignCommonMethod.CalPopUpWindow(form,this);
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }
@@ -10748,7 +10718,7 @@ namespace dNothi.Desktop.UI
                 nothiSubjectupdate(senderSaveButton as object, eventSaveButton);
 
             };
-            CalPopUpWindow(noteCreatePopUpForm);
+            UIDesignCommonMethod.CalPopUpWindow(noteCreatePopUpForm,this);
         }
 
         private void nothiSubjectupdate(object sender, EventArgs e)
@@ -10829,7 +10799,7 @@ namespace dNothi.Desktop.UI
             NoteFinishedResponse noteFinishedResponse = _noteOnucchedRevert.GetNoteFinished(_dakuserparam, _NoteAllListDataRecordDTO.nothi.id.ToString(), _NoteAllListDataRecordDTO.note.nothi_note_id.ToString());
             if (noteFinishedResponse.status == "success")
             {
-                SuccessMessage("প্রক্রিয়াটি সম্পন্ন হয়েছে");
+                UIMessageBox.SuccessMessage("প্রক্রিয়াটি সম্পন্ন হয়েছে");
                 foreach (Form f in Application.OpenForms)
                 { BeginInvoke((Action)(() => f.Hide())); }
                 //loadALLCBXNothiType();
@@ -10838,7 +10808,7 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                ErrorMessage(noteFinishedResponse.message);
+                UIMessageBox.ErrorMessage(noteFinishedResponse.message);
             }
         }
 
@@ -11100,7 +11070,7 @@ namespace dNothi.Desktop.UI
                     }
                     catch (Exception ex)
                     {
-                        ErrorMessage(ex.Message);
+                        UIMessageBox.ErrorMessage(ex.Message);
                     }
                 }
                 else if (allFlag == 2)
@@ -11230,7 +11200,7 @@ namespace dNothi.Desktop.UI
                     }
                     catch (Exception ex)
                     {
-                        ErrorMessage(ex.Message);
+                        UIMessageBox.ErrorMessage(ex.Message);
                     }
                 }
                 else if (allFlag == 3)
@@ -11379,7 +11349,7 @@ namespace dNothi.Desktop.UI
                     }
                     catch (Exception ex)
                     {
-                        ErrorMessage(ex.Message);
+                        UIMessageBox.ErrorMessage(ex.Message);
                     }
                 }
                 else if (allFlag == 5)
@@ -11522,7 +11492,7 @@ namespace dNothi.Desktop.UI
                     }
                     catch (Exception ex)
                     {
-                        ErrorMessage(ex.Message);
+                        UIMessageBox.ErrorMessage(ex.Message);
                     }
                 }
                 else if (allFlag == 6)
@@ -11665,7 +11635,7 @@ namespace dNothi.Desktop.UI
                     }
                     catch (Exception ex)
                     {
-                        ErrorMessage(ex.Message);
+                        UIMessageBox.ErrorMessage(ex.Message);
                     }
                 }
                 else if (allFlag == 7)
@@ -11807,7 +11777,7 @@ namespace dNothi.Desktop.UI
                     }
                     catch (Exception ex)
                     {
-                        ErrorMessage(ex.Message);
+                        UIMessageBox.ErrorMessage(ex.Message);
                     }
                 }
                 else if (allFlag == 9)
@@ -11945,7 +11915,7 @@ namespace dNothi.Desktop.UI
                     }
                     catch (Exception ex)
                     {
-                        ErrorMessage(ex.Message);
+                        UIMessageBox.ErrorMessage(ex.Message);
                     }
                 }
                 else if (allFlag == 10)
@@ -12082,7 +12052,7 @@ namespace dNothi.Desktop.UI
                     }
                     catch (Exception ex)
                     {
-                        ErrorMessage(ex.Message);
+                        UIMessageBox.ErrorMessage(ex.Message);
                     }
                 }
                 else if (allFlag == 11)
@@ -12237,7 +12207,7 @@ namespace dNothi.Desktop.UI
                     }
                     catch (Exception ex)
                     {
-                        ErrorMessage(ex.Message);
+                        UIMessageBox.ErrorMessage(ex.Message);
                     }
                 }
                 else
@@ -12368,13 +12338,13 @@ namespace dNothi.Desktop.UI
                     }
                     catch (Exception ex)
                     {
-                        ErrorMessage(ex.Message);
+                        UIMessageBox.ErrorMessage(ex.Message);
                     }
                 }
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
         }
 
@@ -12427,11 +12397,11 @@ namespace dNothi.Desktop.UI
                 nothiTalikaNewWindow.noteId = _NoteAllListDataRecordDTO.note.nothi_note_id;
                 nothiTalikaNewWindow._khoshraPotroWaitinDataRecordDTO = _khoshraPotroWaitinDataRecordDTO;
                 var form = PotakaControlToForm(nothiTalikaNewWindow);
-                CalPopUpWindow(form);
+                UIDesignCommonMethod.CalPopUpWindow(form,this);
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIMessageBox.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
         }
     }

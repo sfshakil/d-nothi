@@ -265,7 +265,7 @@ namespace dNothi.Desktop.UI.Dak
                 if (dakNothivuktoResponse.message == "Local")
                 {
                     _dakNothiteUposthapitoLocally = true;
-                    SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি নথিতে উপস্থাপন করা হবে");
+                    UIDesignCommonMethod.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি নথিতে উপস্থাপন করা হবে");
 
 
                     if (this.SucessfullyDakNothivukto != null)
@@ -276,7 +276,7 @@ namespace dNothi.Desktop.UI.Dak
                 else if (dakNothivuktoResponse.status == "success")
                 {
                     _dakNothiteUposthapitoLocally = false;
-                    SuccessMessage(dakNothivuktoResponse.data);
+                    UIDesignCommonMethod.SuccessMessage(dakNothivuktoResponse.data);
 
 
                     if (this.SucessfullyDakNothivukto != null)
@@ -286,32 +286,11 @@ namespace dNothi.Desktop.UI.Dak
 
                 else
                 {
-                    ErrorMessage(dakNothivuktoResponse.message);
+                    UIDesignCommonMethod.ErrorMessage(dakNothivuktoResponse.message);
                 }
             }
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-            // successMessage.ShowDialog();
-
-        }
+        
         private void DakNothiteUposthapitoForm_Load(object sender, EventArgs e)
         {
 

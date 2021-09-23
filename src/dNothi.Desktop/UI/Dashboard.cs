@@ -408,12 +408,12 @@ namespace dNothi.Desktop.UI
                 }
                 if (!InternetConnection.Check())
                 {
-                    ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা! ");
+                    alartMessage.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা! ");
                 }
             }
 
         }
-
+        
         private void DetailsBack_ButtonClick(object sender, EventArgs e, int dakid, string dak_type, string dak_subject, int is_copied_dak)
         {
 
@@ -451,7 +451,7 @@ namespace dNothi.Desktop.UI
             dakSendUserControl.SucessfullyDakForwarded += delegate (object sender, EventArgs e) { SuccessfullySingleDakForwarded(false, 0, dakSendUserControl._totalSuccessForwardRequest, 0, dakSendUserControl._IsDakLocallyUploaded); };
 
             dakSendUserControl.Height = Screen.PrimaryScreen.WorkingArea.Height;
-            CalPopUp1Window(dakSendUserControl);
+            UIDesignCommonMethod.CalPopUpWindow(dakSendUserControl,this);
 
 
         }
@@ -460,7 +460,7 @@ namespace dNothi.Desktop.UI
         {
             var form = FormFactory.Create<AddDesignationSeal>();
 
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
 
             DesignationSealListResponse designationSealListResponse = _dakForwardService.GetSealListResponse(_dakuserparam);
 
@@ -549,7 +549,7 @@ namespace dNothi.Desktop.UI
                     }
                 }
             }
-            CalPopUp1Window(dakMovementDetailsForm);
+            UIDesignCommonMethod.CalPopUpWindow(dakMovementDetailsForm,this);
 
 
 
@@ -941,7 +941,7 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                ErrorMessage("ইন্টারনেট সংযোগের কারণে আপলোড ব্যর্থ হয়েছে!");
+                alartMessage.ErrorMessage("ইন্টারনেট সংযোগের কারণে আপলোড ব্যর্থ হয়েছে!");
             }
 
 
@@ -1248,31 +1248,8 @@ namespace dNothi.Desktop.UI
             form.Controls.Add(control);
             return form;
         }
-        private void CalPopUp1Window(Form form)
-        {
-            Form hideform = new Form();
-
-
-            hideform.BackColor = Color.Black;
-            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            hideform.Opacity = .4;
-            hideform.ShowInTaskbar = false;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform1_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
-        void hideform1_Shown(object sender, EventArgs e, Form form)
-        {
-            form.ShowInTaskbar = false;
-
-            form.ShowDialog();
-
-            (sender as Form).Hide();
-
-            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
-        }
+        
+        
         private void DakTagShow_ButtonClick(List<DakTagDTO> dak_Tags)
         {
             if (dakTagPanel.Visible)
@@ -1311,7 +1288,7 @@ namespace dNothi.Desktop.UI
 
 
 
-            CalPopUp1Window(dakTagForm);
+            UIDesignCommonMethod.CalPopUpWindow(dakTagForm,this);
 
 
 
@@ -1332,7 +1309,7 @@ namespace dNothi.Desktop.UI
                     dakAttachmentViewForm.dakAttachmentResponse = dakAttachmentResponse;
                     dakAttachmentViewForm.Height = Screen.PrimaryScreen.WorkingArea.Height;
 
-                    CalPopUp1Window(dakAttachmentViewForm);
+                    UIDesignCommonMethod.CalPopUpWindow(dakAttachmentViewForm,this);
 
                 }
             }
@@ -1556,7 +1533,7 @@ namespace dNothi.Desktop.UI
             form.dakSubject = dak_subject;
             form.SucessfullyDakNothijato += delegate (object snd, EventArgs eve) { SucessfullyDakNothijato(form._dakNothijatoLocally); };
             form.Height = Screen.PrimaryScreen.WorkingArea.Height;
-            CalPopUp1Window(form);
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
 
 
 
@@ -1571,12 +1548,12 @@ namespace dNothi.Desktop.UI
             DakArchiveResponse dakArchiveResponse = _dakArchiveService.GetDakArcivedResponse(_dakuserparam, dakid, dak_type, is_copied_dak);
             if (dakArchiveResponse.message == "Local")
             {
-                SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি আর্কাইভ করা হবে");
+                alartMessage.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি আর্কাইভ করা হবে");
                 LoadDakInbox();
             }
             else if (dakArchiveResponse.status == "success")
             {
-                SuccessMessage(dakArchiveResponse.data);
+                alartMessage.SuccessMessage(dakArchiveResponse.data);
                 if (detailsFlowLayoutPanel.Visible)
                 {
                     LoadDakArchive();
@@ -1589,7 +1566,7 @@ namespace dNothi.Desktop.UI
             }
             else
             {
-                ErrorMessage(dakArchiveResponse.message);
+                alartMessage.ErrorMessage(dakArchiveResponse.message);
 
             }
 
@@ -1605,7 +1582,7 @@ namespace dNothi.Desktop.UI
             form.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { SucessfullyDakNothivukto(form._dakNothiteUposthapitoLocally, form._noteSelected, form._nothiBranch, form._nothiName, form._nothiAllListDTO); };
 
            
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form, this);
 
 
 
@@ -2486,19 +2463,19 @@ namespace dNothi.Desktop.UI
             {
                 if (revertResponse.message == "Local")
                 {
-                    SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি ফেরত আনা হবে");
+                    alartMessage.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি ফেরত আনা হবে");
                     LoadDakArchive();
 
                 }
                 else if (revertResponse.status == "success")
                 {
-                    SuccessMessage(revertResponse.data);
+                    alartMessage.SuccessMessage(revertResponse.data);
                     LoadDakArchive();
 
                 }
                 else
                 {
-                    ErrorMessage(revertResponse.message);
+                    alartMessage.ErrorMessage(revertResponse.message);
 
                 }
             }
@@ -2512,18 +2489,18 @@ namespace dNothi.Desktop.UI
             {
                 if (revertResponse.message == "Local")
                 {
-                    SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি ফেরত আনা হবে");
+                    alartMessage.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি ফেরত আনা হবে");
                     LoadDakNothivukto();
                 }
                 else if (revertResponse.status == "success")
                 {
-                    SuccessMessage(revertResponse.message);
+                    alartMessage.SuccessMessage(revertResponse.message);
                     LoadDakNothivukto();
 
                 }
                 else
                 {
-                    ErrorMessage(revertResponse.message);
+                    alartMessage.ErrorMessage(revertResponse.message);
 
                 }
             }
@@ -2537,26 +2514,26 @@ namespace dNothi.Desktop.UI
             {
                 if (revertResponse.message == "Local")
                 {
-                    SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি ফেরত আনা হবে");
+                    alartMessage.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি ফেরত আনা হবে");
                     LoadDakOutbox();
 
                 }
                 else if (revertResponse.status == "success")
                 {
-                    SuccessMessage(revertResponse.data);
+                    alartMessage.SuccessMessage(revertResponse.data);
                     LoadDakOutbox();
 
                 }
                 else
                 {
-                    ErrorMessage(revertResponse.message);
+                    alartMessage.ErrorMessage(revertResponse.message);
 
                 }
 
             }
             else
             {
-                ErrorMessage("দুঃখিত ! ডাকটি অন্য কার্যক্রমের সাথে যুক্ত রয়েছে বিধায় ফেরত আনা সম্ভব হচ্ছে না");
+                alartMessage.ErrorMessage("দুঃখিত ! ডাকটি অন্য কার্যক্রমের সাথে যুক্ত রয়েছে বিধায় ফেরত আনা সম্ভব হচ্ছে না");
             }
 
         }
@@ -2568,19 +2545,19 @@ namespace dNothi.Desktop.UI
 
                 if (revertResponse.message == "Local")
                 {
-                    SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি ফেরত আনা হবে");
+                    alartMessage.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি ফেরত আনা হবে");
                     LoadDakNothijato();
 
                 }
                 else if (revertResponse.status == "success")
                 {
-                    SuccessMessage(revertResponse.message);
+                    alartMessage.SuccessMessage(revertResponse.message);
                     LoadDakNothijato();
 
                 }
                 else
                 {
-                    ErrorMessage(revertResponse.message);
+                    alartMessage.ErrorMessage(revertResponse.message);
 
                 }
             }
@@ -3143,7 +3120,7 @@ namespace dNothi.Desktop.UI
             {
                 if (dakSendResponse.status == "error")
                 {
-                    ErrorMessage("ডাকটি আপলোড সফল হইনি!");
+                    alartMessage.ErrorMessage("ডাকটি আপলোড সফল হইনি!");
                 }
                 else if (dakSendResponse.status == "success")
                 {
@@ -3176,7 +3153,7 @@ namespace dNothi.Desktop.UI
 
             if (dakSendResponse.data.dak_receipt_no == null || dakSendResponse.data.dak_receipt_no == "")
             {
-                SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি আপলোড করা হবে");
+                alartMessage.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি আপলোড করা হবে");
                 return;
             }
 
@@ -3194,7 +3171,7 @@ namespace dNothi.Desktop.UI
             dakUploadConfirmationMessage.imageBase64 = dakListUserParam.SignBase64;
 
 
-            CalPopUpWindow(dakUploadConfirmationMessage);
+            UIDesignCommonMethod.CalPopUpWindow(dakUploadConfirmationMessage, this);
 
 
         }
@@ -3207,7 +3184,7 @@ namespace dNothi.Desktop.UI
 
             var form = FormFactory.Create<AddDesignationSeal>();
 
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form, this);
             ReloadBodyPanel();
 
 
@@ -3249,11 +3226,11 @@ namespace dNothi.Desktop.UI
             {
                 if (dakDraftedResponse.status == "error")
                 {
-                    ErrorMessage("ডাকটি প্রেরণ সফল হইনি!");
+                    alartMessage.ErrorMessage("ডাকটি প্রেরণ সফল হইনি!");
                 }
                 else if (dakDraftedResponse.status == "success")
                 {
-                    SuccessMessage(dakDraftedResponse.data);
+                    alartMessage.SuccessMessage(dakDraftedResponse.data);
                     ResetAllMenuButtonSelection();
                     SelectButton(khasraDakButton);
                     LoadDakKhasraList();
@@ -3646,11 +3623,11 @@ namespace dNothi.Desktop.UI
             {
                 if (dakDeleteResponse.status == "error")
                 {
-                    ErrorMessage("ডাকটি মুছন সফল হইনি!");
+                    alartMessage.ErrorMessage("ডাকটি মুছন সফল হইনি!");
                 }
                 else if (dakDeleteResponse.status == "success")
                 {
-                    SuccessMessage(dakDeleteResponse.data);
+                    alartMessage.SuccessMessage(dakDeleteResponse.data);
                     LoadDakKhasraList();
 
                 }
@@ -3669,7 +3646,7 @@ namespace dNothi.Desktop.UI
             {
                 if (dakSendResponse.status == "error")
                 {
-                    ErrorMessage("ডাকটি প্রেরণ সফল হইনি!");
+                    alartMessage.ErrorMessage("ডাকটি প্রেরণ সফল হইনি!");
                 }
                 else if (dakSendResponse.status == "success")
                 {
@@ -3962,7 +3939,7 @@ namespace dNothi.Desktop.UI
             dakFolderForm.ShowDakListButton += delegate (object showDakListButton, EventArgs showDakListEvent) { ShowDakList_ButtonClick(showDakListButton, showDakListEvent, dakFolderForm._selectedFolderId, dakFolderForm._selectedFolderName); };
             dakFolderForm.AutoSize = false;
             dakFolderForm.Height = Screen.PrimaryScreen.WorkingArea.Height;
-            CalPopUpWindow(dakFolderForm);
+            UIDesignCommonMethod.CalPopUpWindow(dakFolderForm, this);
 
 
         }
@@ -4496,7 +4473,7 @@ namespace dNothi.Desktop.UI
 
 
 
-                CalPopUpWindow(dakSendUserControl);
+                UIDesignCommonMethod.CalPopUpWindow(dakSendUserControl, this);
 
             }
         }
@@ -4570,7 +4547,7 @@ namespace dNothi.Desktop.UI
 
 
 
-                CalPopUpWindow(form);
+                UIDesignCommonMethod.CalPopUpWindow(form,this);
 
 
 
@@ -4596,22 +4573,6 @@ namespace dNothi.Desktop.UI
             control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 
             return form;
-        }
-
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-
-
-            hideform.BackColor = Color.Black;
-            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            hideform.Opacity = .4;
-            hideform.ShowInTaskbar = false;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
         }
 
         private void Dashboard_Shown(object sender, EventArgs e)
@@ -4759,28 +4720,7 @@ namespace dNothi.Desktop.UI
         {
             //this.Close();
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-            //successMessage.ShowDialog();
-
-        }
+        
 
 
         public void LoadDetailsOfficer()
@@ -5584,7 +5524,7 @@ namespace dNothi.Desktop.UI
         {
             var dakBoxSharingForm = FormFactory.Create<DakBoxSharingForm>();
 
-            CalPopUpWindow(dakBoxSharingForm);
+            UIDesignCommonMethod.CalPopUpWindow(dakBoxSharingForm, this);
         }
 
         private void Drop_Shadow(object sender, PaintEventArgs e)

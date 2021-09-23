@@ -211,24 +211,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             return nothiListRecord;
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
+        
         
         NothiListRecordsDTO nothiList = new NothiListRecordsDTO();
         NoteView newNoteView ;
@@ -284,7 +267,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             if (newrecords.Count == 0)
             {
-                ErrorMessage("দয়া করে প্রাপক বাছাই করুন");
+                UIDesignCommonMethod.ErrorMessage("দয়া করে প্রাপক বাছাই করুন");
             }
             else
             {
@@ -302,7 +285,7 @@ namespace dNothi.Desktop.UI.Dak
                 
                 if (onuchhedForwardResponse.status == "success" && onuchhedForwardResponse.message != "Local")
                 {
-                    SuccessMessage("প্রক্রিয়াটি সম্পন্ন হয়েছে");
+                    UIDesignCommonMethod.SuccessMessage("প্রক্রিয়াটি সম্পন্ন হয়েছে");
                     
                     foreach (Form f in Application.OpenForms)
                     { BeginInvoke((Action)(() => f.Hide())); }
@@ -310,7 +293,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 else if (onuchhedForwardResponse.status == "success" && onuchhedForwardResponse.message == "Local")
                 {
-                    SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে নথিটি প্রেরণ করা হবে");
+                    UIDesignCommonMethod.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে নথিটি প্রেরণ করা হবে");
                     foreach (Form f in Application.OpenForms)
                     { BeginInvoke((Action)(() => f.Hide())); }
                     var form = FormFactory.Create<Nothi>();
@@ -318,7 +301,7 @@ namespace dNothi.Desktop.UI.Dak
                 }
                 else
                 {
-                    ErrorMessage(onuchhedForwardResponse.message);
+                    UIDesignCommonMethod.ErrorMessage(onuchhedForwardResponse.message);
                 }
 
             }
@@ -374,30 +357,8 @@ namespace dNothi.Desktop.UI.Dak
         {
             this.Hide();
         }
-        void hideform_Shown(object sender, EventArgs e, Form form)
-        {
-
-            form.ShowDialog();
-
-            (sender as Form).Hide();
-
-            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
-        }
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-
-
-            hideform.BackColor = Color.Black;
-            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            hideform.Opacity = .4;
-            hideform.ShowInTaskbar = false;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
+        
+        
         //NothiNextStep nothiType = UserControlFactory.Create<NothiNextStep>();
         //public void loadNewNoteDataFromNote(NothiNextStep newNoteViewFromNote)
         //{
@@ -442,7 +403,7 @@ namespace dNothi.Desktop.UI.Dak
             form.GetNothiInboxRecords(nothiListRecords,"Note", _noteID);
             //form.loadNewNoteDataFromNote(nothiType);
             form.loadNoteList(notelist);
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
         }
 
         private void searchOfficeDetailSearch_Paint(object sender, PaintEventArgs e)

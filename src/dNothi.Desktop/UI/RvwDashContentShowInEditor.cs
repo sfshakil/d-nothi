@@ -61,27 +61,6 @@ namespace dNothi.Desktop.UI
                 userNameLabel.Text = UserParam.officer+" ("+ UserParam.designation+", "+ UserParam.unit_label+")";
             }
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.Show();
-            var t = Task.Delay(3000);
-            t.Wait();
-            successMessage.Hide();
-
-        }
         public void loadEditorData()
         {
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
@@ -191,14 +170,14 @@ namespace dNothi.Desktop.UI
             NothiSharedEditorDataSendDTO response = _nothiReviewerServices.GetNothiSharedEditorSaveData(dakListUserParam, _nothiShaeredByMeRecord);
             if (response != null && response.status == "success")
             {
-                SuccessMessage("সফলভাবে প্রক্রিয়াটি সম্পন্ন হয়েছে");
+                UIDesignCommonMethod.SuccessMessage("সফলভাবে প্রক্রিয়াটি সম্পন্ন হয়েছে");
                 if (this.ReviewDashboardBack != null)
                     this.ReviewDashboardBack(sender, e);
                 this.Hide();
             }
             else
             {
-                ErrorMessage(response.status);
+                UIDesignCommonMethod.ErrorMessage(response.status);
                 this.Hide();
             }
         }

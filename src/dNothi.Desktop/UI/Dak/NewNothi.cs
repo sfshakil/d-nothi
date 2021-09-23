@@ -208,7 +208,7 @@ namespace dNothi.Desktop.UI.Dak
             nothiGuidelines.Height = Screen.PrimaryScreen.WorkingArea.Height;
             //nothiGuidelines.Location = new System.Drawing.Point(0, 0);
             var nothiTypeform = AttachNothiGuidelinesControlToForm(nothiGuidelines);
-            CalPopUpWindow(nothiTypeform);
+            UIDesignCommonMethod.CalPopUpWindow(nothiTypeform,this);
         }
         void hideform_Shown(object sender, EventArgs e, Form form)
         {
@@ -256,20 +256,7 @@ namespace dNothi.Desktop.UI.Dak
             form.Controls.Add(control);
             return form;
         }
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-            hideform.BackColor = Color.Black;
-            hideform.Height = Screen.PrimaryScreen.WorkingArea.Height; //{Width = 1382 Height = 744}
-            hideform.Width = Screen.PrimaryScreen.WorkingArea.Width; //{Width = 1382 Height = 744}
-            hideform.Opacity = .4;
-            hideform.ShowInTaskbar = false;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
+        
         public void loadCBXNothiType(int i)
         {
             cbxNothiType.SelectedIndex = i;
@@ -285,7 +272,7 @@ namespace dNothi.Desktop.UI.Dak
             nothiType.Location = new System.Drawing.Point(845, 0);
             var nothiTypeform = AttachNothiTypeListControlToForm(nothiType);
             nothiTypeform.Text = "NothiType";
-            CalPopUpWindow(nothiTypeform);
+            UIDesignCommonMethod.CalPopUpWindow(nothiTypeform, this);
         }
 
         private void btnNothiTypeList_MouseHover(object sender, EventArgs e)
@@ -396,39 +383,22 @@ namespace dNothi.Desktop.UI.Dak
         {
             if (cbxNothiType.Text == "বাছাই করুন" || lbNothilast4digit.Text == "***.**")
             {
-                ErrorMessage("দুঃখিত! নথির ধরন ফাকা রাখা যাবে না।");
+                UIDesignCommonMethod.ErrorMessage("দুঃখিত! নথির ধরন ফাকা রাখা যাবে না।");
             }
             else if (cbxNothiClass.Text == "বাছাই করুন")
             {
-                ErrorMessage("দুঃখিত! নথির শ্রেণি ফাকা রাখা যাবে না।");
+                UIDesignCommonMethod.ErrorMessage("দুঃখিত! নথির শ্রেণি ফাকা রাখা যাবে না।");
             }
             else if (txtNothiSubject.Text == "")
             {
-                ErrorMessage("দুঃখিত! নথির বিষয় ফাকা রাখা যাবে না।");
+                UIDesignCommonMethod.ErrorMessage("দুঃখিত! নথির বিষয় ফাকা রাখা যাবে না।");
             }
             else
             {
                 createNothi();
             }
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
+        
         public void createNothi()
         {
             DakUserParam UserParam = _userService.GetLocalDakUserParam();
@@ -468,10 +438,10 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     var form = FormFactory.Create<NothiCreateNextStep>();
                     form.loadNewNothiInfo(nothiCreate.data);
-                    CalPopUpWindow(form);
+                    UIDesignCommonMethod.CalPopUpWindow(form,this);
                 }
                 else
-                    SuccessMessage(nothiCreate.message);
+                    UIDesignCommonMethod.SuccessMessage(nothiCreate.message);
             }
         }
 

@@ -26,13 +26,7 @@ namespace dNothi.Desktop.UI.Dak
             InitializeComponent();
             //loadRow();
         }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
+        
         private string _nothi_id;
         [Category("Custom Props")]
         public string nothi_id
@@ -60,7 +54,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
-                ErrorMessage(nothiBibechhoPotroList.status);
+                UIDesignCommonMethod.ErrorMessage(nothiBibechhoPotroList.status);
             }
         }
         private void LoadNothiInboxinPanel(List<BibechhoPotroRecord> records)

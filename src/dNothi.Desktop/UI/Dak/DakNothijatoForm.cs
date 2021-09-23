@@ -271,7 +271,7 @@ namespace dNothi.Desktop.UI.Dak
                     if (dakNothijatoResponse.message == "Local")
                     {
                         _dakNothijatoLocally = true;
-                        SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি নথিজাত করা হবে");
+                        UIDesignCommonMethod.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি নথিজাত করা হবে");
 
                         
                         if (this.SucessfullyDakNothijato != null)
@@ -281,14 +281,14 @@ namespace dNothi.Desktop.UI.Dak
                     else if (dakNothijatoResponse.status == "success")
                     {
                         _dakNothijatoLocally = false;
-                        SuccessMessage(dakNothijatoResponse.data);
+                        UIDesignCommonMethod.SuccessMessage(dakNothijatoResponse.data);
                         if (this.SucessfullyDakNothijato != null)
                             this.SucessfullyDakNothijato(addSender, addEvent);
                         this.Hide();
                     }
                     else
                     {
-                        ErrorMessage(dakNothijatoResponse.message);
+                        UIDesignCommonMethod.ErrorMessage(dakNothijatoResponse.message);
                     }
                 }
             }
@@ -329,28 +329,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-            // successMessage.ShowDialog();
-
-        }
+        
 
         private void nothiTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {

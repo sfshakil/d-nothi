@@ -347,7 +347,7 @@ namespace dNothi.Desktop.UI.Dak
             var notelist = MappingModels.MapModel<NoteNothiListInboxNoteRecordsDTO, NoteListDataRecordNoteDTO>(nothiListInboxNoteRecordsDTO.note);
             //form.loadNewNoteDataFromNote(nothiType);
             form.loadNoteList(notelist);
-            CalPopUpWindow(form);
+            UIDesignCommonMethod.CalPopUpWindow(form,this);
         }
         private void uc_noteRemoveButtonClick(object sender, EventArgs e, NothiListInboxNoteRecordsDTO nothiListInboxNoteRecordsDTO)
         {
@@ -364,7 +364,7 @@ namespace dNothi.Desktop.UI.Dak
                 var noteDelete = _noteDelete.GetNoteDelteResponse(dakListUserParam, model, noteID);
                 if (noteDelete.status == "success")
                 {
-                    SuccessMessage(noteDelete.status);
+                    UIDesignCommonMethod.SuccessMessage(noteDelete.status);
                     this.Hide();
                 }
 
@@ -386,37 +386,12 @@ namespace dNothi.Desktop.UI.Dak
             };
 
 
-            CalPopUpWindow(noteCreatePopUpForm);
+            UIDesignCommonMethod.CalPopUpWindow(noteCreatePopUpForm,this);
 
         }
         public void SaveorUpdate()
         {
             loadnewAllNoteFlowLayoutPanel("asc");
-        }
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-
-            Screen scr = Screen.FromPoint(this.Location);
-            hideform.BackColor = Color.Black;
-            hideform.Size = scr.WorkingArea.Size;
-            hideform.Opacity = .6;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
-       
-        
-        void hideform_Shown(object sender, EventArgs e, Form form)
-        {
-
-            form.ShowDialog();
-
-            (sender as Form).Hide();
-
-            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
         }
       
         private void LocalNoteDetails_ButtonClick(NoteListDataRecordNoteDTO noteListDataRecordNoteDTO1, EventArgs e)
@@ -523,12 +498,12 @@ namespace dNothi.Desktop.UI.Dak
                 nothiDecisionList.loadNoteRowAttachments(nothiInboxNote, 1);
                 //nothiDecisionList.OnuchhedAdd += delegate (object sender1, EventArgs e1) { OnuchhedAdd_Click(sender1 as string, e1); };
                 var form = NothiNextStepControlToForm(nothiDecisionList);
-                
-                CalPopUpWindow(form);
+
+                UIDesignCommonMethod.CalPopUpWindow(form,this);
             }
             else
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIDesignCommonMethod.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
         }
         public Form NothiNextStepControlToForm(Control control)
@@ -593,24 +568,7 @@ namespace dNothi.Desktop.UI.Dak
             
             
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
+        
 
         //public event EventHandler NoteEditButtonClick;
 

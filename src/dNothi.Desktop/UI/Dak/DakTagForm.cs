@@ -427,7 +427,7 @@ namespace dNothi.Desktop.UI.Dak
             folderCreatePopUpForm.SaveButtonClick += delegate (object senderSaveButton, EventArgs eventSaveButton) { SaveorUpdate(); };
 
 
-            CalPopUpWindow(folderCreatePopUpForm);
+            UIDesignCommonMethod.CalPopUpWindow(folderCreatePopUpForm,this);
         }
 
         private void SaveorUpdate()
@@ -448,30 +448,7 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-
-            Screen scr = Screen.FromPoint(this.Location);
-            hideform.BackColor = Color.Black;
-            hideform.Size = scr.WorkingArea.Size;
-            hideform.Opacity = .6;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
-
-        void hideform_Shown(object sender, EventArgs e, Form form)
-        {
-
-            form.ShowDialog();
-
-            (sender as Form).Hide();
-
-            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
-        }
+        
 
         private void sliderCrossButton_Click(object sender, EventArgs e)
         {
@@ -502,7 +479,7 @@ namespace dNothi.Desktop.UI.Dak
             folderCreatePopUpForm.SaveButtonClick += delegate (object senderSaveButton, EventArgs eventSaveButton) { SaveorUpdate(); };
 
 
-            CalPopUpWindow(folderCreatePopUpForm);
+            UIDesignCommonMethod.CalPopUpWindow(folderCreatePopUpForm,this);
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -522,7 +499,7 @@ namespace dNothi.Desktop.UI.Dak
                     if (dakFolderDeleteResponse.status == "success")
                     {
 
-                        SuccessMessage("ফোল্ডার টির নাম সফলভাবে মুছে ফেলা হযেছে!");
+                        UIDesignCommonMethod.SuccessMessage("ফোল্ডার টির নাম সফলভাবে মুছে ফেলা হযেছে!");
                         TreeNode treeNode = FindTreeNode(personalFolderTreeView.Nodes, _selectedFolderId);
                         treeNode.Remove();
 
@@ -532,7 +509,7 @@ namespace dNothi.Desktop.UI.Dak
                     }
                     else
                     {
-                        ErrorMessage("ফোল্ডার টির নাম মুছে ফেলা সফল হইনি!");
+                        UIDesignCommonMethod.ErrorMessage("ফোল্ডার টির নাম মুছে ফেলা সফল হইনি!");
                     }
 
 
@@ -540,28 +517,7 @@ namespace dNothi.Desktop.UI.Dak
             }
         }
 
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-            //successMessage.ShowDialog();
-
-        }
+        
 
         [Browsable(true)]
         [Category("Action")]
@@ -685,7 +641,7 @@ namespace dNothi.Desktop.UI.Dak
             if (dakFolderMapResponse.status == "success" && dakFolderMapResponse.message == "Local")
             {
 
-                SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি ট্যাগ করা হবে!");
+                UIDesignCommonMethod.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি ট্যাগ করা হবে!");
 
                 _isSuccessfull = true;
 
@@ -693,14 +649,14 @@ namespace dNothi.Desktop.UI.Dak
             else if (dakFolderMapResponse.status == "success")
             {
 
-                SuccessMessage("সফলভাবে ডাক ট্যাগ সম্পন্ন হযেছে!");
+                UIDesignCommonMethod.SuccessMessage("সফলভাবে ডাক ট্যাগ সম্পন্ন হযেছে!");
 
                 _isSuccessfull = true;
                
             }
             else
             {
-                ErrorMessage("ডাক ট্যাগ সফল হইনি!");
+                UIDesignCommonMethod.ErrorMessage("ডাক ট্যাগ সফল হইনি!");
                 _isSuccessfull = false;
             }
         }

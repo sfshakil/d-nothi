@@ -781,7 +781,7 @@ namespace dNothi.Desktop.UI.Dak
 
                     if(dakForwardResponse.message == "Local")
                     {
-                        SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি প্রেরণ করা হবে");
+                        UIDesignCommonMethod.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে এই ডাকটি প্রেরণ করা হবে");
                         _IsDakLocallyUploaded = true;
                         if (this.SucessfullyDakForwarded != null)
                             this.SucessfullyDakForwarded(sender, e);
@@ -789,7 +789,7 @@ namespace dNothi.Desktop.UI.Dak
                     }
                     else if (dakForwardResponse.status == "success")
                     {
-                        SuccessMessage(dakForwardResponse.data);
+                        UIDesignCommonMethod.SuccessMessage(dakForwardResponse.data);
                         _totalSuccessForwardRequest = 1;
                         if (this.SucessfullyDakForwarded != null)
                             this.SucessfullyDakForwarded(sender, e);
@@ -1139,7 +1139,7 @@ namespace dNothi.Desktop.UI.Dak
 
                     if (deleteDesignationSealResponse.status == "success")
                     {
-                        SuccessMessage("প্রাপকটিকে সফলভাবে মুছে ফেলা হ​য়েছে।");
+                        UIDesignCommonMethod.SuccessMessage("প্রাপকটিকে সফলভাবে মুছে ফেলা হ​য়েছে।");
 
                         prapokOwnDataGridView.Rows.RemoveAt(row_index);
 
@@ -1311,7 +1311,7 @@ namespace dNothi.Desktop.UI.Dak
                 DakDecisionSetupResponse dakDecisionSetupResponse = _dakForwardService.GetDakDecisionSetupResponse(dakUserParam, addJson, deleteJson);
                 if(dakDecisionSetupResponse.status=="success")
                 {
-                    SuccessMessage("সফলভাবে সংরক্ষণ হ​য়েছে।");
+                    UIDesignCommonMethod.SuccessMessage("সফলভাবে সংরক্ষণ হ​য়েছে।");
                     LoadDecisionList();
                 }
             }
@@ -1319,17 +1319,7 @@ namespace dNothi.Desktop.UI.Dak
             LoadDecisionList();
 
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
+        
         private void newDecisionAddRightButton_Click(object sender, EventArgs e)
         {
             DakDecisionDTO dakDecision = new DakDecisionDTO();
@@ -1351,7 +1341,7 @@ namespace dNothi.Desktop.UI.Dak
             DakDecisionAddResponse dakDecisionAddResponse = _dakForwardService.GetDakDecisionAddResponse(dakUserParam, dakDecision);
             if (dakDecisionAddResponse != null && dakDecisionAddResponse.status == "success")
             {
-                SuccessMessage("সফলভাবে সংরক্ষণ হ​য়েছে।");
+                UIDesignCommonMethod.SuccessMessage("সফলভাবে সংরক্ষণ হ​য়েছে।");
                 newDecisionTextBox.Text = "";
                 LoadDecisionList();
                 //var decisionTable = UserControlFactory.Create<DakDecisionTableUserControl>();

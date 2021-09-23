@@ -198,29 +198,12 @@ namespace dNothi.Desktop.UI.Dak
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIDesignCommonMethod.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
             
 
         }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
+        
         public event DatabaseChangeHandler btnOptionClickedPoint;
         public delegate void DatabaseChangeHandler(int x,int y);
         public event EventHandler btnOptionClick;
@@ -294,7 +277,7 @@ namespace dNothi.Desktop.UI.Dak
                 var noteDelete = _noteDelete.GetNoteDelteResponse(dakListUserParam, model, noteID);
                 if (noteDelete.status == "success")
                 {
-                    SuccessMessage(noteDelete.status);
+                    UIDesignCommonMethod.SuccessMessage(noteDelete.status);
                     this.Hide();
                 }
 
@@ -318,7 +301,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             catch (Exception ex)
             {
-                ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+                UIDesignCommonMethod.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
             }
 
         }

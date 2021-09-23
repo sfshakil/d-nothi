@@ -111,7 +111,7 @@ namespace dNothi.Desktop.UI.Dak
             //nothiGuidelines.Location = new System.Drawing.Point(0, 0);
             var nothiTypeform = AttachNothiGuidelinesControlToForm(nothiGuidelines);
             nothiTypeform.Text = "NothiGuidelines";
-            CalPopUpWindow(nothiTypeform);
+            UIDesignCommonMethod.CalPopUpWindow(nothiTypeform,this);
         }
 
         private void CreateNewNothiType_Paint(object sender, PaintEventArgs e)
@@ -140,52 +140,8 @@ namespace dNothi.Desktop.UI.Dak
 
             return form;
         }
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-
-            hideform.BackColor = Color.Black;
-            hideform.Height = Screen.PrimaryScreen.WorkingArea.Height; //{Width = 1382 Height = 744}
-            hideform.Width = Screen.PrimaryScreen.WorkingArea.Width; //{Width = 1382 Height = 744}
-            hideform.Opacity = .4;
-            hideform.ShowInTaskbar = false;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
-        void hideform_Shown(object sender, EventArgs e, Form form)
-        {
-
-            form.ShowDialog();
-
-            (sender as Form).Hide();
-
-            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
-        }
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-            //successMessage.ShowDialog();
-
-        }
+        
+        
         public event EventHandler NothiTypeAddButton;
         private void btnNothiDhoron_Click(object sender, EventArgs e)
         {
@@ -196,7 +152,7 @@ namespace dNothi.Desktop.UI.Dak
                 int index = cbxNothiType.Items.IndexOf(lbNothitype2digit.Text);
                 if (index >= 0 || i >= 0)
                 {
-                    ErrorMessage("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
+                    UIDesignCommonMethod.ErrorMessage("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
                     
                 }
                 else
@@ -208,7 +164,7 @@ namespace dNothi.Desktop.UI.Dak
                         int index1 = cbxNothiType.Items.IndexOf(bng);
                         if (index1 >= 0)
                         {
-                            ErrorMessage("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
+                            UIDesignCommonMethod.ErrorMessage("দুঃখিত! এই ধরণ কোর্ডটি পূর্বে ব্যবহার করা হয়েছে");
                         }
                         else
                         {
@@ -218,7 +174,7 @@ namespace dNothi.Desktop.UI.Dak
                             
                             {
                                 this.Hide();
-                                SuccessMessage("নথি ধরন সংরক্ষন হয়েছে।");
+                                UIDesignCommonMethod.SuccessMessage("নথি ধরন সংরক্ষন হয়েছে।");
                                 if (this.NothiTypeAddButton != null)
                                     this.NothiTypeAddButton(sender, e);
 
@@ -234,7 +190,7 @@ namespace dNothi.Desktop.UI.Dak
                         if (nothiTypeSave.status == "success")
                         {
                             this.Hide();
-                            SuccessMessage("নথি ধরন সংরক্ষন হয়েছে।");
+                            UIDesignCommonMethod.SuccessMessage("নথি ধরন সংরক্ষন হয়েছে।");
                             if (this.NothiTypeAddButton != null)
                                 this.NothiTypeAddButton(sender, e);
 
@@ -245,7 +201,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
-                ErrorMessage("দুঃখিত! ধরন ফাকা রাখা যাবে না।");
+                UIDesignCommonMethod.ErrorMessage("দুঃখিত! ধরন ফাকা রাখা যাবে না।");
             }
             
         }

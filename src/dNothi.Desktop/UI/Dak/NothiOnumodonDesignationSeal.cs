@@ -1247,7 +1247,7 @@ namespace dNothi.Desktop.UI.Dak
 
                 if (nothiNotePermission.status == "success" && nothiNotePermission.message != "Local")
                 {
-                    SuccessMessage("সফলভাবে তথ্য সংরক্ষণ করা হয়েছে");
+                    UIDesignCommonMethod.SuccessMessage("সফলভাবে তথ্য সংরক্ষণ করা হয়েছে");
 
                     
                     if (this.SuccessfullyOnumodonSaveButton != null)
@@ -1263,12 +1263,12 @@ namespace dNothi.Desktop.UI.Dak
                           
                 }else if (nothiNotePermission.status == "success" && nothiNotePermission.message == "Local")
                 {
-                    SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে তথ্য সংরক্ষণ করা হবে");
+                    UIDesignCommonMethod.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে তথ্য সংরক্ষণ করা হবে");
                     this.Hide();
                 }
                 else
                 {
-                    ErrorMessage("সংরক্ষণ সফল হ​য়নি।।");
+                    UIDesignCommonMethod.ErrorMessage("সংরক্ষণ সফল হ​য়নি।।");
                 }
 
             }
@@ -1320,24 +1320,7 @@ namespace dNothi.Desktop.UI.Dak
         }
 
 
-        public void SuccessMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-
-            successMessage.message = Message;
-            successMessage.isSuccess = true;
-            successMessage.Show();
-            var t = Task.Delay(3000); //1 second/1000 ms
-            t.Wait();
-            successMessage.Hide();
-        }
-        public void ErrorMessage(string Message)
-        {
-            UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
-            successMessage.message = Message;
-            successMessage.ShowDialog();
-
-        }
+        
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {

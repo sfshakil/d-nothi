@@ -306,14 +306,14 @@ namespace dNothi.Desktop.UI.Dak
                 if (response.status == "success")
                 {
 
-                    alartMessage.SuccessMessage("মুছে ফেলা হয়েছে।");
+                    UIDesignCommonMethod.SuccessMessage("মুছে ফেলা হয়েছে।");
                     LoadGuardFileList();
 
                 }
                 else
                 {
 
-                    alartMessage.ErrorMessage("পুনরায় চেষ্ঠা করুন।");
+                    UIDesignCommonMethod.ErrorMessage("পুনরায় চেষ্ঠা করুন।");
 
                 }
             }

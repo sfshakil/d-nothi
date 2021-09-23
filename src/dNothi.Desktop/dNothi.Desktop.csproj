@@ -761,12 +761,6 @@
     <Compile Include="UI\ModalMenuUserControl.Designer.cs">
       <DependentUpon>ModalMenuUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\GuardFileListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1487,12 +1481,6 @@
     <Compile Include="UI\Profile\UploadPictureUserControl.Designer.cs">
       <DependentUpon>UploadPictureUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ResponsiveForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\ResponsiveForm.Designer.cs">
-      <DependentUpon>ResponsiveForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\ReviewDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1768,9 +1756,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\UserProfileForm.resx">
       <DependentUpon>UserProfileForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GuardFileListForm.resx">
       <DependentUpon>GuardFileListForm.cs</DependentUpon>
@@ -2104,9 +2089,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Profile\UploadPictureUserControl.resx">
       <DependentUpon>UploadPictureUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\ResponsiveForm.resx">
-      <DependentUpon>ResponsiveForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReviewDashBoard.resx">
       <DependentUpon>ReviewDashBoard.cs</DependentUpon>

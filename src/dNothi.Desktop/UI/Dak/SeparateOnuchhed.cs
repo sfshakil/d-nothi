@@ -550,36 +550,10 @@ namespace dNothi.Desktop.UI.Dak
                 SubjectBrowser.DocumentText = subjectBrowser;
                 FileViewWebBrowser fileViewWebBrowser = new FileViewWebBrowser();
                 fileViewWebBrowser.fileAddInWebBrowser(e.Url.AbsoluteUri, "");
-                CalPopUpWindow(fileViewWebBrowser);
+                UIDesignCommonMethod.CalPopUpWindow(fileViewWebBrowser,this);
             }
         }
-        private void CalPopUpWindow(Form form)
-        {
-            Form hideform = new Form();
-
-
-            hideform.BackColor = Color.Black;
-            hideform.Name = "extra";
-            hideform.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            hideform.Opacity = .4;
-            hideform.ShowInTaskbar = false;
-
-            hideform.FormBorderStyle = FormBorderStyle.None;
-            hideform.StartPosition = FormStartPosition.CenterScreen;
-            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
-            hideform.ShowDialog();
-        }
-        void hideform_Shown(object sender, EventArgs e, Form form)
-        {
-            form.ShowInTaskbar = false;
-            form.TopMost = true;
-            form.TopMost = false;
-            form.ShowDialog();
-
-            (sender as Form).Hide();
-
-            // var parent = form.Parent as Form; if (parent != null) { parent.Hide(); }
-        }
+        
         public void SuccessMessage(string Message)
         {
             UIFormValidationAlertMessageForm successMessage = new UIFormValidationAlertMessageForm();
@@ -621,7 +595,7 @@ namespace dNothi.Desktop.UI.Dak
                     if (this.SharingSaveButtonClick != null)
                         this.SharingSaveButtonClick(sender, e);
                 };;
-                CalPopUpWindow(noteOnuccedReview);
+                UIDesignCommonMethod.CalPopUpWindow(noteOnuccedReview,this);
             }
             else
             {

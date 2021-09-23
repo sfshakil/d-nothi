@@ -62,12 +62,12 @@ namespace dNothi.Desktop
             AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
 
 
-            //var form = FormFactory.Create<Nothi>();
-            //form.ShowDialog();
+            
             DialogResult result;
 
             var form = FormFactory.Create<Login>();
-            //var form = new Form1();
+            form.TopMost = true;
+            form.TopMost = false;
             form.ShowDialog();
             //using (var form = FormFactory.Create<Login>())
             //{
