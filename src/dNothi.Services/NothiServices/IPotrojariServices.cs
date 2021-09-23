@@ -16,5 +16,6 @@ namespace dNothi.Services.NothiServices
         PotroApproveResponse GetPotroOnumodonResponse(DakUserParam userParam, int potrojari_id, string potro_status, string potro_description);
         PotrojariResponse GetPotrojariListInfo(DakUserParam _dakuserparam, long id, string potro_subject);
         PrapakerTalika GetPrapakerTalika(DakUserParam dakListUserParam, int potro);
+        bool SendAnumodanLocalDataTOServer(DakUserParam userParam);
     }
 }

@@ -2060,14 +2060,14 @@ namespace dNothi.Desktop.UI
                     }
                     else if (_IsNewNoteSelected && _noteSelected != null && !string.IsNullOrEmpty(_noteSelected.note_id) && _noteSelected.note_id != "0")
                     {
-                        //if (khosraSaveResponse.message == "localsuccess")
-                        //{
-                        //    goToDashBoard();
-                        //}
-                        //else
-                        //{
+                        if (khosraSaveResponse.message == "localsuccess")
+                        {
+                            goToDashBoard();
+                        }
+                        else
+                        {
                             LoadNote();
-                       // }
+                        }
                     }
                     else
                     {

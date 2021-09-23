@@ -60,6 +60,7 @@ namespace dNothi.Services.SyncServices
         IRepository<SyncStatus> _sycnRepository;
         IGuardFileService<GuardFileModel, GuardFileModel.Record> _guardFileService;
         IKhosraSaveService _khosraSaveService;
+        IPotrojariServices _potrojariServices;
         public SyncerService(
               INoteSaveService noteSave,
               INothiNotePermissionService nothiNotePermissionSave,
@@ -92,7 +93,8 @@ namespace dNothi.Services.SyncServices
             IRepository<SyncStatus> sycnRepository,
             IDakSharingService<ResponseModel> dakSharingService,
             IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService,
-             IKhosraSaveService khosraSaveService)
+             IKhosraSaveService khosraSaveService,
+             IPotrojariServices potrojariServices)
         {
             _nothiCreateServices = nothiCreateServices;
             _nothiTypeSave = nothiTypeSave;
@@ -125,6 +127,7 @@ namespace dNothi.Services.SyncServices
             _dakSharingService = dakSharingService;
             _guardFileService = guardFileService;
             _khosraSaveService = khosraSaveService;
+            _potrojariServices = potrojariServices;
         }
         /****************=========================================================================***************************
          ****************=========================================================================***************************
@@ -211,6 +214,7 @@ namespace dNothi.Services.SyncServices
                 _dakSharingService.SendDakSortingLocalDataToServer(_userService.GetLocalDakUserParam());
                 _guardFileService.SendGuradFileLocalDataTOServer(_userService.GetLocalDakUserParam());
                // _khosraSaveService.SendKosraLocalDataTOServer(_userService.GetLocalDakUserParam());
+               // _potrojariServices.SendAnumodanLocalDataTOServer(_userService.GetLocalDakUserParam());
             }
 
 

@@ -158,10 +158,20 @@ namespace dNothi.Services.NothiServices
             if (!InternetConnection.Check())
             {
                 localKosraAnumodanSaveUpdate( potrojari_id, cdesk, potro,  potro_status);
-                PotroApproveResponse potroApproveResponse = new PotroApproveResponse { status = "success" };
+                PotroApproveResponse potroApproveResponse = new PotroApproveResponse { status = "success", data="অনুমোদন দেয়া সফল হয়েছে।" };
                 return potroApproveResponse;
             }
 
+
+            else
+            {
+                return anumodan(cdesk, potro, userParam);
+            }
+
+
+        }
+        private PotroApproveResponse anumodan(string cdesk, string potro,DakUserParam userParam)
+        {
             try
             {
                 var Api = new RestClient(GetAPIDomain() + GetPotroOnumodonEndPoint());
@@ -173,8 +183,8 @@ namespace dNothi.Services.NothiServices
 
 
                 request.AddParameter("cdesk", cdesk);
-                  request.AddParameter("potro", potro);
-               // request.AddParameter("potro", "{\"potrojari_id\":\""+potrojari_id+"\", \"potro_status\":\""+potro_status+"\"}");
+                request.AddParameter("potro", potro);
+                // request.AddParameter("potro", "{\"potrojari_id\":\""+potrojari_id+"\", \"potro_status\":\""+potro_status+"\"}");
 
                 IRestResponse Response = Api.Execute(request);
 
@@ -188,11 +198,28 @@ namespace dNothi.Services.NothiServices
             {
                 throw;
             }
-
-
-
         }
-        private void localKosraAnumodanSaveUpdate(int potrojari_id,string cdesk,string potro,string potro_status)
+        public bool SendAnumodanLocalDataTOServer(DakUserParam userParam)
+        {
+            string cdesk = "{\"office_id\":" + userParam.office_id + ",\"office_unit_id\":" + userParam.office_unit_id + ",\"designation_id\":" + userParam.designation_id + ",\"officer_id\":" + userParam.officer_id + ",\"user_id\":" + userParam.user_id + ",\"office\":\"" + userParam.office + "\",\"office_unit\":\"" + userParam.office_unit + "\",\"designation\":\"" + userParam.designation + "\",\"officer\":\"" + userParam.officer + "\",\"designation_level\":" + userParam.designation_level + "}";
+
+            var localanumodanInsertDelete = _kosraAnumodanLocal.Table.Where(q => q.cdesk==cdesk).ToList();
+            foreach(var item in localanumodanInsertDelete)
+            {
+                _kosraAnumodanLocal.Delete(item);
+                //var response= anumodan(item.cdesk, item.potro, userParam);
+                // if(response.status=="success")
+                // {
+                //     _kosraAnumodanLocal.Delete(item);
+                // }
+                // else
+                // {
+                //     _kosraAnumodanLocal.Delete(item);
+                // }
+            }
+            return true;
+        }
+       private void localKosraAnumodanSaveUpdate(int potrojari_id,string cdesk,string potro,string potro_status)
         {
             var kosradata = _kosraAnumodanLocal.Table.Where(x => x.potrojari_id == potrojari_id).FirstOrDefault();
             if(kosradata!=null)
