@@ -306,7 +306,12 @@ namespace dNothi.Desktop.UI
             form.Hide();
             if (UIDesignCommonMethod.returnForm != null)
             {
-               
+                var fo = UIDesignCommonMethod.returnForm as Form;
+                if (fo.Name == "Note")
+                {
+                    Note note = fo as Note;
+                    note.loadAgainNote();
+                }
                 UIDesignCommonMethod.returnForm.Show();
             }
             else
@@ -675,6 +680,21 @@ namespace dNothi.Desktop.UI
 
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;
+            hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
+            hideform.ShowDialog();
+        }
+        public static void CalPopUpWindow(Form form, Panel parentForm)
+        {
+            Form hideform = new Form();
+
+            hideform.BackColor = Color.Black;
+            hideform.Size = parentForm.Size;
+            hideform.Opacity = .4;
+            hideform.ShowInTaskbar = false;
+
+            hideform.FormBorderStyle = FormBorderStyle.None;
+            hideform.Location = parentForm.Location;
+            //hideform.StartPosition = FormStartPosition.CenterScreen;
             hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form); };
             hideform.ShowDialog();
         }

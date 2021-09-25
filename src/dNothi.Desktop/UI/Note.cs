@@ -10601,6 +10601,7 @@ namespace dNothi.Desktop.UI
                     khosra.SetSarokNo(_khoshraPotroWaitinDataRecordDTO.basic.sarok_no);
                 }
                 khosra._note_onucched_id = _khoshraPotroWaitinDataRecordDTO.note_onucched.id;
+                
 
                 if (clone)
                 {
@@ -10653,7 +10654,7 @@ namespace dNothi.Desktop.UI
                     khosra.prerokOfficerDesignations = prapakerTalika.data.sender;
                     khosra.attensionOfficerDesignations = prapakerTalika.data.attention;
                 }
-
+                khosra.shared_nothi_id = _khoshraPotroWaitinDataRecordDTO.basic.shared_nothi_id;
                 UIDesignCommonMethod.returnForm = this;
                 BeginInvoke((Action)(() => khosra.ShowDialog()));
                 khosra.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };

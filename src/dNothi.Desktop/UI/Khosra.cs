@@ -28,6 +28,7 @@ using dNothi.JsonParser.Entity;
 using dNothi.Services.KasaraPatraDashBoardService.Models;
 using dNothi.Desktop.View_Model;
 using dNothi.Services.SyncServices;
+using dNothi.Desktop.UI.NothiUI;
 
 namespace dNothi.Desktop.UI
 {
@@ -49,6 +50,7 @@ namespace dNothi.Desktop.UI
         public NothiListInboxNoteRecordsDTO _nothiListInboxNoteRecordsDTO { get; set; }
 
         public KhasraPotroTemplateResponse khasraPotroTemplateResponse { get; set; }
+        INothiReviewerServices _nothiReviewerServices { get; set; }
         public WaitFormFunc WaitForm;
         private DakUserParam _dakuserparam { get; set; }
         ISyncerService syncerServices;
@@ -116,7 +118,7 @@ namespace dNothi.Desktop.UI
 
         }
 
-        public Khosra(INothiInboxNoteServices nothiInboxNote, IDesignationSealService designationSealService, IKhosraSaveService khosraSaveService, IUserService userService, IKhasraTemplateService khasraTemplateService, IDakForwardService dakForwardService, ISyncerService _syncerServices)
+        public Khosra(INothiReviewerServices nothiReviewerServices, INothiInboxNoteServices nothiInboxNote, IDesignationSealService designationSealService, IKhosraSaveService khosraSaveService, IUserService userService, IKhasraTemplateService khasraTemplateService, IDakForwardService dakForwardService, ISyncerService _syncerServices)
         {
             _nothiInboxNote = nothiInboxNote;
             _khosraSaveService = khosraSaveService;
@@ -124,6 +126,7 @@ namespace dNothi.Desktop.UI
             _userService = userService;
             _dakForwardService = dakForwardService;
             _khasraTemplateService = khasraTemplateService;
+            _nothiReviewerServices = nothiReviewerServices;
             syncerServices = _syncerServices;
             WaitForm = new WaitFormFunc();
             InitializeComponent();
@@ -1395,16 +1398,62 @@ namespace dNothi.Desktop.UI
 
                 }
         }
+        public void shared()
+        {
+            KhoshraToShareWindowUserControl khoshraToShareWindowUserControl = new KhoshraToShareWindowUserControl();
+            
+        }
+        private int _shared_nothi_id;
+        public int shared_nothi_id
+        {
+            get { return _shared_nothi_id; }
+            set
+            {
+                _shared_nothi_id = value;
+                if (value > 0)
+                {
+                    saveButton.Visible = false;
+                    khosraReviewButton.Visible = true;
+                }else if (draft_id != null && draft_id>0)
+                {
+                    saveButton.Visible = true;
+                    khosraReviewButton.Visible = true;
+                }
+                else
+                {
+                    saveButton.Visible = true;
+                    khosraReviewButton.Visible = false;
+                }
+            }
+        }
         private void khosraReviewButton_Click(object sender, EventArgs e)
         {
-            SelectOfficersFormKhosraReview selectOfficerForm = new SelectOfficersFormKhosraReview();
+            if (InternetConnection.Check())
+            {
+                var dakuserparam = _userService.GetLocalDakUserParam();
+                var response = _nothiReviewerServices.GetNothiReviewer(dakuserparam, shared_nothi_id);
+                var noteOnuccedReview = FormFactory.Create<NothiOnuccedReviewForm>();
 
-
-            selectOfficerForm.designationSealListResponse = _designationSealListResponse;
-
-            //selectOfficerForm.SaveButtonClick += delegate (object se, EventArgs ev) { SaveOfficerinOnumodonKariOfficerList(officerSelectButton, selectOfficerForm._selectedOfficerDesignations, officerListPanel, officerEmptyPanel, officerListFlowLayoutPanel); };
-
-            UIDesignCommonMethod.CalPopUpWindow(selectOfficerForm, this);
+                noteOnuccedReview.nothiReviewerDTO = response;
+                noteOnuccedReview.noteAllListDataRecordDTO = _nothiListInboxNoteRecordsDTO;
+                noteOnuccedReview.onucchedId = 0;
+                noteOnuccedReview.potrojariId = draft_id;
+                noteOnuccedReview.SharingOffButton += delegate (object sender1, EventArgs e1)
+                {
+                    saveButton.Visible = true;
+                }; ;
+                noteOnuccedReview.SharingSaveButton += delegate (object sender1, EventArgs e1)
+                {
+                    saveButton.Visible = false;
+                    NothiSharedSaveData nothiSharedSaveData  = sender1 as NothiSharedSaveData;
+                    shared_nothi_id = nothiSharedSaveData.data;
+                }; ;
+                UIDesignCommonMethod.CalPopUpWindow(noteOnuccedReview, this);
+            }
+            else
+            {
+                UIDesignCommonMethod.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
         }
         public KhasraPotroTemplateDataDTO _khasraPotroTemplateData { get; set; }
         private void Khosra_Load(object sender, EventArgs e)
@@ -1714,7 +1763,10 @@ namespace dNothi.Desktop.UI
                     }
                     tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
                     _isTinyMceEditorLoaded = true;
-
+                    if (shared_nothi_id > 0)
+                    {
+                        shared();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -1895,7 +1947,6 @@ namespace dNothi.Desktop.UI
 
         private async void saveButton_Click(object sender, EventArgs e)
         {
-
 
             JavascriptResponse response = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
 

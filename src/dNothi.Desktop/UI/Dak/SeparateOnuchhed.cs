@@ -585,6 +585,7 @@ namespace dNothi.Desktop.UI.Dak
                 noteOnuccedReview.nothiReviewerDTO = response;
                 noteOnuccedReview.noteAllListDataRecordDTO = _NoteAllListDataRecordDTO;
                 noteOnuccedReview.onucchedId = onucchedId;
+                noteOnuccedReview.potrojariId = 0;
                 noteOnuccedReview.SharingOffButton += delegate (object sender1, EventArgs e1) 
                 {
                     if (this.SharingOffButtonClick != null)
