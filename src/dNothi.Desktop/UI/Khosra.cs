@@ -2117,7 +2117,7 @@ namespace dNothi.Desktop.UI
                         }
                         else
                         {
-                            LoadNote();
+                            UIDesignCommonMethod.BacktoPreviousForm(this);
                         }
                     }
                     else
