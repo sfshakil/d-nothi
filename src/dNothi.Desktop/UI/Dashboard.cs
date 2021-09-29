@@ -473,11 +473,7 @@ namespace dNothi.Desktop.UI
 
         private void SuccessfullySingleDakForwarded(bool v, int req, int success, int fail, bool _IsDakLocallyUploaded)
         {
-            
-              
-            
            
-
             if (_IsDakLocallyUploaded)
             {
                 LoadDakInbox();
@@ -1303,7 +1299,7 @@ namespace dNothi.Desktop.UI
                 if (dakAttachmentResponse.data != null)
                 {
 
-                    DakAttachmentViewForm dakAttachmentViewForm = new DakAttachmentViewForm();
+                    DakAttachmentViewForm dakAttachmentViewForm = FormFactory.Create<DakAttachmentViewForm>();
                     dakAttachmentViewForm.subject = dak_subject;
 
                     dakAttachmentViewForm.dakAttachmentResponse = dakAttachmentResponse;
@@ -4444,14 +4440,14 @@ namespace dNothi.Desktop.UI
             List<DakListRecordsDTO> daks = new List<DakListRecordsDTO>();
 
 
-            var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakInboxUserControl>().ToList();
+            var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<SingleDakUserControl>().ToList();
 
             if (dakInboxUserControls.Count > 0)
             {
-                List<DakInboxUserControl> dakInboxSelectedUserControls = dakInboxUserControls.Where(a => a._isChecked == true).ToList();
+                List<SingleDakUserControl> dakInboxSelectedUserControls = dakInboxUserControls.Where(a => a._isChecked == true).ToList();
                 if (dakInboxSelectedUserControls.Count > 0)
                 {
-                    foreach (DakInboxUserControl dakInboxUserControl in dakInboxSelectedUserControls)
+                    foreach (SingleDakUserControl dakInboxUserControl in dakInboxSelectedUserControls)
                     {
                         daks.Add(dakInboxUserControl._dak);
                     }
@@ -4477,8 +4473,9 @@ namespace dNothi.Desktop.UI
                 else if ((sender as Button) == multipleDakNothivuktoButton)
                 {
                     multipleDakAction.isNothivukto = true;
-                    multipleDakAction.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { LoadDakNothivukto(); };
-
+                    //multipleDakAction.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { LoadDakNothivukto(); };
+                    multipleDakAction.SucessfullyDakNothivukto += delegate (object snd, EventArgs eve) { LoadDakInbox(); };
+                    
                 }
                 multipleDakAction.dakListRecordsDTO = daks;
 

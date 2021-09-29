@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.cancelButton = new FontAwesome.Sharp.IconButton();
             this.saveEditButton = new FontAwesome.Sharp.IconButton();
             this.decisionDeleteButton = new FontAwesome.Sharp.IconButton();
@@ -52,16 +53,28 @@
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.cancelButton);
             this.panel2.Controls.Add(this.saveEditButton);
             this.panel2.Controls.Add(this.decisionDeleteButton);
             this.panel2.Controls.Add(this.decisionEditRightButton);
-            this.panel2.Location = new System.Drawing.Point(430, 15);
+            this.panel2.Location = new System.Drawing.Point(482, 15);
             this.panel2.MaximumSize = new System.Drawing.Size(0, 36);
             this.panel2.MinimumSize = new System.Drawing.Size(0, 36);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(114, 36);
+            this.panel2.Size = new System.Drawing.Size(134, 36);
             this.panel2.TabIndex = 85;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(0, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(132, 18);
+            this.label3.TabIndex = 89;
+            this.label3.Text = "অনলাইনে আপলোড হচ্ছে";
+            this.label3.Visible = false;
             // 
             // cancelButton
             // 
@@ -167,7 +180,7 @@
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(156)))), ((int)(((byte)(255)))));
-            this.label2.Location = new System.Drawing.Point(365, 24);
+            this.label2.Location = new System.Drawing.Point(417, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(15, 18);
             this.label2.TabIndex = 2;
@@ -181,7 +194,7 @@
             this.EditUpdatetableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
             this.EditUpdatetableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.EditUpdatetableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108F));
-            this.EditUpdatetableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.EditUpdatetableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.EditUpdatetableLayoutPanel.Controls.Add(this.label1, 0, 0);
             this.EditUpdatetableLayoutPanel.Controls.Add(this.flowLayoutPanel1, 1, 0);
             this.EditUpdatetableLayoutPanel.Controls.Add(this.label2, 2, 0);
@@ -192,7 +205,7 @@
             this.EditUpdatetableLayoutPanel.Name = "EditUpdatetableLayoutPanel";
             this.EditUpdatetableLayoutPanel.RowCount = 1;
             this.EditUpdatetableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.EditUpdatetableLayoutPanel.Size = new System.Drawing.Size(547, 66);
+            this.EditUpdatetableLayoutPanel.Size = new System.Drawing.Size(619, 66);
             this.EditUpdatetableLayoutPanel.TabIndex = 2;
             this.EditUpdatetableLayoutPanel.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.Border_Color_Table);
             this.EditUpdatetableLayoutPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Table_Border_Color);
@@ -206,7 +219,7 @@
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(223, 56);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(275, 56);
             this.flowLayoutPanel1.TabIndex = 86;
             // 
             // decisionNamePanel
@@ -241,7 +254,7 @@
             this.decisionNameLabel.Location = new System.Drawing.Point(3, 44);
             this.decisionNameLabel.Name = "decisionNameLabel";
             this.decisionNameLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.decisionNameLabel.Size = new System.Drawing.Size(188, 59);
+            this.decisionNameLabel.Size = new System.Drawing.Size(238, 41);
             this.decisionNameLabel.TabIndex = 0;
             this.decisionNameLabel.Text = "sdsadas ahgdahf fhgadfdavgfha fhgdafav fdhagvfgahfgvf agfagvgdafagvvfs fadvfasd";
             // 
@@ -254,8 +267,9 @@
             this.Controls.Add(this.EditUpdatetableLayoutPanel);
             this.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Name = "GuardFileTypeTableUserControl";
-            this.Size = new System.Drawing.Size(547, 66);
+            this.Size = new System.Drawing.Size(619, 66);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.EditUpdatetableLayoutPanel.ResumeLayout(false);
             this.EditUpdatetableLayoutPanel.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -281,5 +295,6 @@
         private System.Windows.Forms.TextBox decisionNameTextBox;
         private System.Windows.Forms.Label decisionNameLabel;
         private System.Windows.Forms.ToolTip MyToolTip;
+        private System.Windows.Forms.Label label3;
     }
 }

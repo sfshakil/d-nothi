@@ -461,7 +461,7 @@
             this.label4.Location = new System.Drawing.Point(2, 4);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(12, 2, 0, 0);
-            this.label4.Size = new System.Drawing.Size(125, 28);
+            this.label4.Size = new System.Drawing.Size(87, 20);
             this.label4.TabIndex = 68;
             this.label4.Text = "ফাইল নির্বাচন";
             this.label4.Click += new System.EventHandler(this.fileUploadButton_Click);
@@ -488,10 +488,10 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Left;
             this.label5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(248, 8);
+            this.label5.Location = new System.Drawing.Point(180, 8);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(12, 3, 0, 0);
-            this.label5.Size = new System.Drawing.Size(473, 29);
+            this.label5.Size = new System.Drawing.Size(321, 21);
             this.label5.TabIndex = 70;
             this.label5.Text = "(মূলপত্র হিসেবে শুধু পিডিএফ অথবা ইমেজ ব্যবহার করা যাবে)";
             // 
@@ -501,7 +501,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(231, 8);
+            this.label1.Location = new System.Drawing.Point(163, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(17, 43);
@@ -519,7 +519,7 @@
             this.attachmentHeaderLabel.Margin = new System.Windows.Forms.Padding(0);
             this.attachmentHeaderLabel.Name = "attachmentHeaderLabel";
             this.attachmentHeaderLabel.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.attachmentHeaderLabel.Size = new System.Drawing.Size(231, 30);
+            this.attachmentHeaderLabel.Size = new System.Drawing.Size(163, 21);
             this.attachmentHeaderLabel.TabIndex = 68;
             this.attachmentHeaderLabel.Text = "মূল ডাক ও সংযুক্তিসমূহ";
             // 
@@ -819,7 +819,7 @@
             this.mul_prapok.MinimumWidth = 6;
             this.mul_prapok.Name = "mul_prapok";
             this.mul_prapok.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.mul_prapok.Width = 104;
+            this.mul_prapok.Width = 77;
             // 
             // onulipiprapokDataGridViewCheckBoxColumn
             // 
@@ -833,7 +833,6 @@
             this.onulipiprapokDataGridViewCheckBoxColumn.HeaderText = "অনুলিপি প্রাপক";
             this.onulipiprapokDataGridViewCheckBoxColumn.MinimumWidth = 100;
             this.onulipiprapokDataGridViewCheckBoxColumn.Name = "onulipiprapokDataGridViewCheckBoxColumn";
-            this.onulipiprapokDataGridViewCheckBoxColumn.Width = 141;
             // 
             // viewDesignationSealListBindingSource
             // 
@@ -942,7 +941,7 @@
             this.officerSearchXTextBox.Location = new System.Drawing.Point(5, 5);
             this.officerSearchXTextBox.Name = "officerSearchXTextBox";
             this.officerSearchXTextBox.PlaceholderText = "অফিসার খুঁজুন";
-            this.officerSearchXTextBox.Size = new System.Drawing.Size(300, 27);
+            this.officerSearchXTextBox.Size = new System.Drawing.Size(300, 19);
             this.officerSearchXTextBox.TabIndex = 3;
             this.officerSearchXTextBox.TextChanged += new System.EventHandler(this.officerSearchXTextBox_TextChanged);
             // 
@@ -1094,7 +1093,7 @@
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label17.Location = new System.Drawing.Point(10, 10);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 30);
+            this.label17.Size = new System.Drawing.Size(45, 21);
             this.label17.TabIndex = 3;
             this.label17.Text = "প্রাপক";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1235,7 +1234,7 @@
             this.label15.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label15.Location = new System.Drawing.Point(2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(115, 26);
+            this.label15.Size = new System.Drawing.Size(75, 18);
             this.label15.TabIndex = 80;
             this.label15.Text = "ডাকের বিবরণ";
             // 
@@ -1305,7 +1304,7 @@
             this.seurityLevelSearchButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.seurityLevelSearchButton1.FormattingEnabled = true;
             this.seurityLevelSearchButton1.IntegralHeight = false;
-            this.seurityLevelSearchButton1.ItemHeight = 26;
+            this.seurityLevelSearchButton1.ItemHeight = 18;
             this.seurityLevelSearchButton1.Items.AddRange(new object[] {
             "বাছাই করুন",
             "গোপনীয়",
@@ -1317,7 +1316,7 @@
             this.seurityLevelSearchButton1.MaxDropDownItems = 100;
             this.seurityLevelSearchButton1.MaxLength = 100;
             this.seurityLevelSearchButton1.Name = "seurityLevelSearchButton1";
-            this.seurityLevelSearchButton1.Size = new System.Drawing.Size(185, 34);
+            this.seurityLevelSearchButton1.Size = new System.Drawing.Size(185, 26);
             this.seurityLevelSearchButton1.TabIndex = 76;
             // 
             // panel46
@@ -1354,7 +1353,7 @@
             this.prioritySearchButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.prioritySearchButton1.FormattingEnabled = true;
             this.prioritySearchButton1.IntegralHeight = false;
-            this.prioritySearchButton1.ItemHeight = 26;
+            this.prioritySearchButton1.ItemHeight = 18;
             this.prioritySearchButton1.Items.AddRange(new object[] {
             "বাছাই করুন",
             "সর্বোচ্চ অগ্রাধিকার",
@@ -1365,7 +1364,7 @@
             this.prioritySearchButton1.MaxDropDownItems = 100;
             this.prioritySearchButton1.MaxLength = 100;
             this.prioritySearchButton1.Name = "prioritySearchButton1";
-            this.prioritySearchButton1.Size = new System.Drawing.Size(183, 34);
+            this.prioritySearchButton1.Size = new System.Drawing.Size(183, 26);
             this.prioritySearchButton1.TabIndex = 76;
             // 
             // panel50
@@ -1401,7 +1400,7 @@
             this.subjectXTextBox.Location = new System.Drawing.Point(10, 10);
             this.subjectXTextBox.Name = "subjectXTextBox";
             this.subjectXTextBox.PlaceholderText = "বিষয়";
-            this.subjectXTextBox.Size = new System.Drawing.Size(605, 27);
+            this.subjectXTextBox.Size = new System.Drawing.Size(605, 19);
             this.subjectXTextBox.TabIndex = 4;
             // 
             // panel51
@@ -1424,7 +1423,7 @@
             this.label12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label12.Location = new System.Drawing.Point(24, 15);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(93, 26);
+            this.label12.Size = new System.Drawing.Size(62, 18);
             this.label12.TabIndex = 78;
             this.label12.Text = "গোপনীয়তা";
             // 
@@ -1448,7 +1447,7 @@
             this.label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label13.Location = new System.Drawing.Point(24, 15);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(84, 26);
+            this.label13.Size = new System.Drawing.Size(54, 18);
             this.label13.TabIndex = 77;
             this.label13.Text = "অগ্রধিকার";
             // 
@@ -1472,10 +1471,10 @@
             this.label36.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label36.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.Color.Red;
-            this.label36.Location = new System.Drawing.Point(52, 15);
+            this.label36.Location = new System.Drawing.Point(35, 15);
             this.label36.Margin = new System.Windows.Forms.Padding(0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(18, 19);
+            this.label36.Size = new System.Drawing.Size(14, 15);
             this.label36.TabIndex = 91;
             this.label36.Text = "*";
             // 
@@ -1488,7 +1487,7 @@
             this.label14.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label14.Location = new System.Drawing.Point(2, 15);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(50, 26);
+            this.label14.Size = new System.Drawing.Size(33, 18);
             this.label14.TabIndex = 76;
             this.label14.Text = "বিষয়";
             // 
@@ -1568,7 +1567,7 @@
             this.sendMediumSearchButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.sendMediumSearchButton1.FormattingEnabled = true;
             this.sendMediumSearchButton1.IntegralHeight = false;
-            this.sendMediumSearchButton1.ItemHeight = 26;
+            this.sendMediumSearchButton1.ItemHeight = 18;
             this.sendMediumSearchButton1.Items.AddRange(new object[] {
             "ডাকযোগে",
             "সরাসরি",
@@ -1579,7 +1578,7 @@
             this.sendMediumSearchButton1.MaxDropDownItems = 100;
             this.sendMediumSearchButton1.MaxLength = 100;
             this.sendMediumSearchButton1.Name = "sendMediumSearchButton1";
-            this.sendMediumSearchButton1.Size = new System.Drawing.Size(325, 34);
+            this.sendMediumSearchButton1.Size = new System.Drawing.Size(325, 26);
             this.sendMediumSearchButton1.TabIndex = 76;
             // 
             // panel38
@@ -1665,7 +1664,7 @@
             this.sharokNoTextBox.Margin = new System.Windows.Forms.Padding(0);
             this.sharokNoTextBox.Name = "sharokNoTextBox";
             this.sharokNoTextBox.PlaceholderText = "স্মারক নম্বর";
-            this.sharokNoTextBox.Size = new System.Drawing.Size(325, 27);
+            this.sharokNoTextBox.Size = new System.Drawing.Size(325, 19);
             this.sharokNoTextBox.TabIndex = 3;
             // 
             // panel36
@@ -1689,7 +1688,7 @@
             this.label11.Location = new System.Drawing.Point(24, 15);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(119, 26);
+            this.label11.Size = new System.Drawing.Size(81, 18);
             this.label11.TabIndex = 76;
             this.label11.Text = "প্রেরণের মাধ্যম";
             // 
@@ -1713,7 +1712,7 @@
             this.label10.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label10.Location = new System.Drawing.Point(24, 15);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(124, 26);
+            this.label10.Size = new System.Drawing.Size(84, 18);
             this.label10.TabIndex = 74;
             this.label10.Text = "স্মারকের তারিখ";
             // 
@@ -1736,7 +1735,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(96, 15);
+            this.label2.Location = new System.Drawing.Point(65, 15);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 42);
@@ -1752,7 +1751,7 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label8.Location = new System.Drawing.Point(2, 15);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 26);
+            this.label8.Size = new System.Drawing.Size(63, 18);
             this.label8.TabIndex = 67;
             this.label8.Text = "স্মারক নম্বর";
             // 
@@ -1778,7 +1777,7 @@
             this.label6.Location = new System.Drawing.Point(10, 10);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.label6.Size = new System.Drawing.Size(152, 30);
+            this.label6.Size = new System.Drawing.Size(108, 21);
             this.label6.TabIndex = 68;
             this.label6.Text = "ডাকের বিবরণ ";
             // 
@@ -1802,7 +1801,7 @@
             this.selectedPrerokLabel.Location = new System.Drawing.Point(10, 52);
             this.selectedPrerokLabel.Name = "selectedPrerokLabel";
             this.selectedPrerokLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.selectedPrerokLabel.Size = new System.Drawing.Size(10, 26);
+            this.selectedPrerokLabel.Size = new System.Drawing.Size(10, 18);
             this.selectedPrerokLabel.TabIndex = 74;
             // 
             // panel31
@@ -1874,7 +1873,7 @@
             this.label9.Location = new System.Drawing.Point(10, 10);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.label9.Size = new System.Drawing.Size(76, 30);
+            this.label9.Size = new System.Drawing.Size(56, 21);
             this.label9.TabIndex = 68;
             this.label9.Text = "প্রেরক";
             // 
@@ -1924,11 +1923,11 @@
             this.officerSearchTabPage.Controls.Add(this.prerokBachaiOfficerButton);
             this.officerSearchTabPage.Controls.Add(this.label19);
             this.officerSearchTabPage.Controls.Add(this.searchOfficerRightButton);
-            this.officerSearchTabPage.Location = new System.Drawing.Point(4, 45);
+            this.officerSearchTabPage.Location = new System.Drawing.Point(4, 37);
             this.officerSearchTabPage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.officerSearchTabPage.Name = "officerSearchTabPage";
             this.officerSearchTabPage.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.officerSearchTabPage.Size = new System.Drawing.Size(433, 588);
+            this.officerSearchTabPage.Size = new System.Drawing.Size(433, 596);
             this.officerSearchTabPage.TabIndex = 0;
             this.officerSearchTabPage.Text = "অফিসার খুঁজুন";
             this.officerSearchTabPage.UseVisualStyleBackColor = true;
@@ -2030,7 +2029,7 @@
             this.searchOfficerRightXTextBox.Location = new System.Drawing.Point(5, 9);
             this.searchOfficerRightXTextBox.Name = "searchOfficerRightXTextBox";
             this.searchOfficerRightXTextBox.PlaceholderText = "নাম/পদবী";
-            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(343, 27);
+            this.searchOfficerRightXTextBox.Size = new System.Drawing.Size(343, 19);
             this.searchOfficerRightXTextBox.TabIndex = 5;
             this.searchOfficerRightXTextBox.TextChanged += new System.EventHandler(this.searchOfficerRightXTextBox_TextChanged);
             // 
@@ -2057,7 +2056,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(13, 19);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(115, 26);
+            this.label19.Size = new System.Drawing.Size(76, 18);
             this.label19.TabIndex = 89;
             this.label19.Text = "অফিসার খুঁজুন";
             // 
@@ -2103,11 +2102,11 @@
             this.tabPage2.Controls.Add(this.searchOriginRightControl);
             this.tabPage2.Controls.Add(this.searchLayerRightControl);
             this.tabPage2.Controls.Add(this.searchDirectOfficeRightUserControl);
-            this.tabPage2.Location = new System.Drawing.Point(4, 45);
+            this.tabPage2.Location = new System.Drawing.Point(4, 37);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Size = new System.Drawing.Size(433, 588);
+            this.tabPage2.Size = new System.Drawing.Size(433, 596);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "অফিস বাছাই করুন";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -2116,10 +2115,10 @@
             // 
             this.panel7.Controls.Add(this.prerokBachaifroOfficeRightButton);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(3, 849);
+            this.panel7.Location = new System.Drawing.Point(3, 697);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(406, 108);
+            this.panel7.Size = new System.Drawing.Size(410, 108);
             this.panel7.TabIndex = 104;
             // 
             // prerokBachaifroOfficeRightButton
@@ -2146,10 +2145,10 @@
             this.label28.Dock = System.Windows.Forms.DockStyle.Top;
             this.label28.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label28.Location = new System.Drawing.Point(3, 806);
+            this.label28.Location = new System.Drawing.Point(3, 654);
             this.label28.Name = "label28";
             this.label28.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.label28.Size = new System.Drawing.Size(406, 43);
+            this.label28.Size = new System.Drawing.Size(410, 43);
             this.label28.TabIndex = 102;
             this.label28.Text = "অফিসার";
             // 
@@ -2159,10 +2158,10 @@
             this.label27.Dock = System.Windows.Forms.DockStyle.Top;
             this.label27.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label27.Location = new System.Drawing.Point(3, 763);
+            this.label27.Location = new System.Drawing.Point(3, 611);
             this.label27.Name = "label27";
             this.label27.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.label27.Size = new System.Drawing.Size(406, 43);
+            this.label27.Size = new System.Drawing.Size(410, 43);
             this.label27.TabIndex = 100;
             this.label27.Text = "পদ";
             // 
@@ -2172,10 +2171,10 @@
             this.label26.Dock = System.Windows.Forms.DockStyle.Top;
             this.label26.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label26.Location = new System.Drawing.Point(3, 719);
+            this.label26.Location = new System.Drawing.Point(3, 567);
             this.label26.Name = "label26";
             this.label26.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.label26.Size = new System.Drawing.Size(406, 44);
+            this.label26.Size = new System.Drawing.Size(410, 44);
             this.label26.TabIndex = 98;
             this.label26.Text = "দপ্তর/শাখা";
             // 
@@ -2185,10 +2184,10 @@
             this.label24.Dock = System.Windows.Forms.DockStyle.Top;
             this.label24.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label24.Location = new System.Drawing.Point(3, 675);
+            this.label24.Location = new System.Drawing.Point(3, 523);
             this.label24.Name = "label24";
             this.label24.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.label24.Size = new System.Drawing.Size(406, 44);
+            this.label24.Size = new System.Drawing.Size(410, 44);
             this.label24.TabIndex = 94;
             this.label24.Text = "অফিস বাছাই করুন";
             // 
@@ -2198,10 +2197,10 @@
             this.label23.Dock = System.Windows.Forms.DockStyle.Top;
             this.label23.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label23.Location = new System.Drawing.Point(3, 631);
+            this.label23.Location = new System.Drawing.Point(3, 479);
             this.label23.Name = "label23";
             this.label23.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.label23.Size = new System.Drawing.Size(406, 44);
+            this.label23.Size = new System.Drawing.Size(410, 44);
             this.label23.TabIndex = 92;
             this.label23.Text = "জেলা বাছাই করুন";
             // 
@@ -2211,10 +2210,10 @@
             this.label22.Dock = System.Windows.Forms.DockStyle.Top;
             this.label22.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label22.Location = new System.Drawing.Point(3, 591);
+            this.label22.Location = new System.Drawing.Point(3, 439);
             this.label22.Name = "label22";
             this.label22.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.label22.Size = new System.Drawing.Size(406, 40);
+            this.label22.Size = new System.Drawing.Size(410, 40);
             this.label22.TabIndex = 90;
             this.label22.Text = "অরিজিন বাছাই করুন";
             // 
@@ -2224,10 +2223,10 @@
             this.label21.Dock = System.Windows.Forms.DockStyle.Top;
             this.label21.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label21.Location = new System.Drawing.Point(3, 548);
+            this.label21.Location = new System.Drawing.Point(3, 396);
             this.label21.Name = "label21";
             this.label21.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.label21.Size = new System.Drawing.Size(406, 43);
+            this.label21.Size = new System.Drawing.Size(410, 43);
             this.label21.TabIndex = 88;
             this.label21.Text = "লেয়ার বাছাই করুন";
             // 
@@ -2237,10 +2236,10 @@
             this.label20.Dock = System.Windows.Forms.DockStyle.Top;
             this.label20.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label20.Location = new System.Drawing.Point(3, 508);
+            this.label20.Location = new System.Drawing.Point(3, 356);
             this.label20.Name = "label20";
             this.label20.Padding = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.label20.Size = new System.Drawing.Size(406, 40);
+            this.label20.Size = new System.Drawing.Size(410, 40);
             this.label20.TabIndex = 86;
             this.label20.Text = "অফিস খুঁজুন";
             // 
@@ -2251,12 +2250,12 @@
             this.searchOfficerRightControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchOfficerRightControl.listboxcollection = new string[] {
         "অফিসার"};
-            this.searchOfficerRightControl.Location = new System.Drawing.Point(3, 445);
+            this.searchOfficerRightControl.Location = new System.Drawing.Point(3, 312);
             this.searchOfficerRightControl.Margin = new System.Windows.Forms.Padding(3, 76, 3, 76);
             this.searchOfficerRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchOfficerRightControl.Name = "searchOfficerRightControl";
             this.searchOfficerRightControl.searchButtonText = "অফিসার";
-            this.searchOfficerRightControl.Size = new System.Drawing.Size(406, 63);
+            this.searchOfficerRightControl.Size = new System.Drawing.Size(410, 44);
             this.searchOfficerRightControl.TabIndex = 103;
             this.searchOfficerRightControl.Load += new System.EventHandler(this.searchOfficerRightControl_Load);
             // 
@@ -2267,12 +2266,12 @@
             this.searchDesignationRightControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchDesignationRightControl.listboxcollection = new string[] {
         "পদ"};
-            this.searchDesignationRightControl.Location = new System.Drawing.Point(3, 382);
+            this.searchDesignationRightControl.Location = new System.Drawing.Point(3, 268);
             this.searchDesignationRightControl.Margin = new System.Windows.Forms.Padding(3, 55, 3, 55);
             this.searchDesignationRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchDesignationRightControl.Name = "searchDesignationRightControl";
             this.searchDesignationRightControl.searchButtonText = "পদ";
-            this.searchDesignationRightControl.Size = new System.Drawing.Size(406, 63);
+            this.searchDesignationRightControl.Size = new System.Drawing.Size(410, 44);
             this.searchDesignationRightControl.TabIndex = 101;
             // 
             // searchUnitRightControl
@@ -2282,12 +2281,12 @@
             this.searchUnitRightControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchUnitRightControl.listboxcollection = new string[] {
         "দপ্তর/শাখা"};
-            this.searchUnitRightControl.Location = new System.Drawing.Point(3, 319);
+            this.searchUnitRightControl.Location = new System.Drawing.Point(3, 224);
             this.searchUnitRightControl.Margin = new System.Windows.Forms.Padding(3, 40, 3, 40);
             this.searchUnitRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchUnitRightControl.Name = "searchUnitRightControl";
             this.searchUnitRightControl.searchButtonText = "দপ্তর/শাখা";
-            this.searchUnitRightControl.Size = new System.Drawing.Size(406, 63);
+            this.searchUnitRightControl.Size = new System.Drawing.Size(410, 44);
             this.searchUnitRightControl.TabIndex = 99;
             // 
             // searchCascadingOfficeRightControl
@@ -2299,12 +2298,12 @@
         "জেলা প্রশাষকের কার্যালয়, চট্রগ্রাম ",
         "জেলা প্রশাষকের কার্যালয়, ঢাকা",
         "জেলা প্রশাষকের কার্যালয়, রাজশাহী"};
-            this.searchCascadingOfficeRightControl.Location = new System.Drawing.Point(3, 256);
+            this.searchCascadingOfficeRightControl.Location = new System.Drawing.Point(3, 180);
             this.searchCascadingOfficeRightControl.Margin = new System.Windows.Forms.Padding(3, 21, 3, 21);
             this.searchCascadingOfficeRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchCascadingOfficeRightControl.Name = "searchCascadingOfficeRightControl";
             this.searchCascadingOfficeRightControl.searchButtonText = "অফিস খুঁজুন";
-            this.searchCascadingOfficeRightControl.Size = new System.Drawing.Size(406, 63);
+            this.searchCascadingOfficeRightControl.Size = new System.Drawing.Size(410, 44);
             this.searchCascadingOfficeRightControl.TabIndex = 95;
             // 
             // searchDistrictRightControl
@@ -2314,12 +2313,12 @@
             this.searchDistrictRightControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchDistrictRightControl.listboxcollection = new string[] {
         "বাছাই করুন"};
-            this.searchDistrictRightControl.Location = new System.Drawing.Point(3, 193);
+            this.searchDistrictRightControl.Location = new System.Drawing.Point(3, 136);
             this.searchDistrictRightControl.Margin = new System.Windows.Forms.Padding(3, 15, 3, 15);
             this.searchDistrictRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchDistrictRightControl.Name = "searchDistrictRightControl";
             this.searchDistrictRightControl.searchButtonText = "বাছাই করুন";
-            this.searchDistrictRightControl.Size = new System.Drawing.Size(406, 63);
+            this.searchDistrictRightControl.Size = new System.Drawing.Size(410, 44);
             this.searchDistrictRightControl.TabIndex = 93;
             // 
             // searchOriginRightControl
@@ -2329,12 +2328,12 @@
             this.searchOriginRightControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchOriginRightControl.listboxcollection = new string[] {
         "বাছাই করুন"};
-            this.searchOriginRightControl.Location = new System.Drawing.Point(3, 130);
+            this.searchOriginRightControl.Location = new System.Drawing.Point(3, 92);
             this.searchOriginRightControl.Margin = new System.Windows.Forms.Padding(3, 11, 3, 11);
             this.searchOriginRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchOriginRightControl.Name = "searchOriginRightControl";
             this.searchOriginRightControl.searchButtonText = "বাছাই করুন";
-            this.searchOriginRightControl.Size = new System.Drawing.Size(406, 63);
+            this.searchOriginRightControl.Size = new System.Drawing.Size(410, 44);
             this.searchOriginRightControl.TabIndex = 91;
             // 
             // searchLayerRightControl
@@ -2344,12 +2343,12 @@
             this.searchLayerRightControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.searchLayerRightControl.listboxcollection = new string[] {
         "বাছাই করুন"};
-            this.searchLayerRightControl.Location = new System.Drawing.Point(3, 67);
+            this.searchLayerRightControl.Location = new System.Drawing.Point(3, 48);
             this.searchLayerRightControl.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
             this.searchLayerRightControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchLayerRightControl.Name = "searchLayerRightControl";
             this.searchLayerRightControl.searchButtonText = "বাছাই করুন";
-            this.searchLayerRightControl.Size = new System.Drawing.Size(406, 63);
+            this.searchLayerRightControl.Size = new System.Drawing.Size(410, 44);
             this.searchLayerRightControl.TabIndex = 89;
             // 
             // searchDirectOfficeRightUserControl
@@ -2366,7 +2365,7 @@
             this.searchDirectOfficeRightUserControl.MinimumSize = new System.Drawing.Size(150, 32);
             this.searchDirectOfficeRightUserControl.Name = "searchDirectOfficeRightUserControl";
             this.searchDirectOfficeRightUserControl.searchButtonText = "অফিস খুঁজুন";
-            this.searchDirectOfficeRightUserControl.Size = new System.Drawing.Size(406, 63);
+            this.searchDirectOfficeRightUserControl.Size = new System.Drawing.Size(410, 44);
             this.searchDirectOfficeRightUserControl.TabIndex = 87;
             // 
             // tabPage3
@@ -2387,11 +2386,11 @@
             this.tabPage3.Controls.Add(this.label30);
             this.tabPage3.Controls.Add(this.label25);
             this.tabPage3.Controls.Add(this.prerokBachaiOwnRightButton);
-            this.tabPage3.Location = new System.Drawing.Point(4, 45);
+            this.tabPage3.Location = new System.Drawing.Point(4, 37);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage3.Size = new System.Drawing.Size(433, 588);
+            this.tabPage3.Size = new System.Drawing.Size(433, 596);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "নিজে তথ্য লিখুন";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -2416,7 +2415,7 @@
             this.mobileAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.mobileAddressManualEntryXTextBox.Name = "mobileAddressManualEntryXTextBox";
             this.mobileAddressManualEntryXTextBox.ShortcutsEnabled = false;
-            this.mobileAddressManualEntryXTextBox.Size = new System.Drawing.Size(370, 27);
+            this.mobileAddressManualEntryXTextBox.Size = new System.Drawing.Size(370, 19);
             this.mobileAddressManualEntryXTextBox.TabIndex = 33;
             // 
             // panel17
@@ -2439,7 +2438,7 @@
             this.emailAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.emailAddressManualEntryXTextBox.Name = "emailAddressManualEntryXTextBox";
             this.emailAddressManualEntryXTextBox.ShortcutsEnabled = false;
-            this.emailAddressManualEntryXTextBox.Size = new System.Drawing.Size(370, 27);
+            this.emailAddressManualEntryXTextBox.Size = new System.Drawing.Size(370, 19);
             this.emailAddressManualEntryXTextBox.TabIndex = 33;
             // 
             // panel16
@@ -2462,7 +2461,7 @@
             this.unitAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.unitAddressManualEntryXTextBox.Name = "unitAddressManualEntryXTextBox";
             this.unitAddressManualEntryXTextBox.ShortcutsEnabled = false;
-            this.unitAddressManualEntryXTextBox.Size = new System.Drawing.Size(370, 27);
+            this.unitAddressManualEntryXTextBox.Size = new System.Drawing.Size(370, 19);
             this.unitAddressManualEntryXTextBox.TabIndex = 33;
             // 
             // label32
@@ -2496,7 +2495,7 @@
             this.officeAddressManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.officeAddressManualEntryXTextBox.Name = "officeAddressManualEntryXTextBox";
             this.officeAddressManualEntryXTextBox.ShortcutsEnabled = false;
-            this.officeAddressManualEntryXTextBox.Size = new System.Drawing.Size(370, 27);
+            this.officeAddressManualEntryXTextBox.Size = new System.Drawing.Size(370, 19);
             this.officeAddressManualEntryXTextBox.TabIndex = 33;
             this.officeAddressManualEntryXTextBox.TextChanged += new System.EventHandler(this.officeAddressManualEntryXTextBox_TextChanged);
             // 
@@ -2520,7 +2519,7 @@
             this.designationManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.designationManualEntryXTextBox.Name = "designationManualEntryXTextBox";
             this.designationManualEntryXTextBox.ShortcutsEnabled = false;
-            this.designationManualEntryXTextBox.Size = new System.Drawing.Size(370, 27);
+            this.designationManualEntryXTextBox.Size = new System.Drawing.Size(370, 19);
             this.designationManualEntryXTextBox.TabIndex = 33;
             // 
             // label29
@@ -2554,7 +2553,7 @@
             this.officerManualEntryXTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.officerManualEntryXTextBox.Name = "officerManualEntryXTextBox";
             this.officerManualEntryXTextBox.ShortcutsEnabled = false;
-            this.officerManualEntryXTextBox.Size = new System.Drawing.Size(370, 27);
+            this.officerManualEntryXTextBox.Size = new System.Drawing.Size(370, 19);
             this.officerManualEntryXTextBox.TabIndex = 33;
             // 
             // label35
@@ -2562,7 +2561,7 @@
             this.label35.AutoSize = true;
             this.label35.Location = new System.Drawing.Point(9, 399);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(73, 26);
+            this.label35.Size = new System.Drawing.Size(49, 18);
             this.label35.TabIndex = 106;
             this.label35.Text = "মোবাইল";
             // 
@@ -2571,7 +2570,7 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(9, 321);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(64, 26);
+            this.label34.Size = new System.Drawing.Size(44, 18);
             this.label34.TabIndex = 104;
             this.label34.Text = "ইমেইল";
             // 
@@ -2580,7 +2579,7 @@
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(8, 244);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(86, 26);
+            this.label33.Size = new System.Drawing.Size(57, 18);
             this.label33.TabIndex = 102;
             this.label33.Text = "দপ্তর/শাখা";
             // 
@@ -2590,7 +2589,7 @@
             this.label31.Location = new System.Drawing.Point(9, 166);
             this.label31.Margin = new System.Windows.Forms.Padding(0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(132, 26);
+            this.label31.Size = new System.Drawing.Size(87, 18);
             this.label31.TabIndex = 99;
             this.label31.Text = "কার্যালয়/ঠিকানা ";
             // 
@@ -2599,7 +2598,7 @@
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(8, 89);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(36, 26);
+            this.label30.Size = new System.Drawing.Size(25, 18);
             this.label30.TabIndex = 97;
             this.label30.Text = "পদ";
             // 
@@ -2609,7 +2608,7 @@
             this.label25.Location = new System.Drawing.Point(7, 10);
             this.label25.Margin = new System.Windows.Forms.Padding(0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(72, 26);
+            this.label25.Size = new System.Drawing.Size(48, 18);
             this.label25.TabIndex = 94;
             this.label25.Text = "অফিসার";
             // 
@@ -2743,7 +2742,7 @@
             // 
             // DaptorikDakUploadUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 26F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;

@@ -199,8 +199,9 @@ namespace dNothi.Constants
 
         //BasicApi
         public const string OfficeUintEndpoint = "/api/dak/seal/office/show";
+        public const string AllFileDownloadEndpoint = "/api/zip/maker";
 
-
+    
         // Doptor
 
         public const string DoptorDomainAddress = "https://n-doptor-api-stage.nothi.gov.bd";

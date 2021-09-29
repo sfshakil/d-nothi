@@ -164,7 +164,7 @@
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.MinimumSize = new System.Drawing.Size(590, 714);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
             this.panel1.Size = new System.Drawing.Size(600, 714);
             this.panel1.TabIndex = 3;
             // 
@@ -468,7 +468,7 @@
             this.label5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label5.Location = new System.Drawing.Point(280, 55);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(55, 18);
+            this.label5.Size = new System.Drawing.Size(54, 18);
             this.label5.TabIndex = 89;
             this.label5.Text = "অগ্রধিকার";
             // 

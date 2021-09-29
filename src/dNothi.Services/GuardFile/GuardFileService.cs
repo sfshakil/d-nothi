@@ -35,8 +35,9 @@ namespace dNothi.Services.GuardFile
             if (!InternetConnection.Check())
             {
                
-                    ResponseData localResponse = JsonConvert.DeserializeObject<ResponseData>(GetLocalGuardFileList(userParam, actionLink).Replace("\"attachment\":[]", "\"attachment\":\"\""));
-                    return localResponse;
+               
+                ResponseData localResponse = JsonConvert.DeserializeObject<ResponseData>(GetLocalGuardFileList(userParam, actionLink).Replace("\"attachment\":[]", "\"attachment\":\"\""));
+                return localResponse;
                 
             }
 
@@ -75,6 +76,40 @@ namespace dNothi.Services.GuardFile
             }
         }
 
+        public GuardFileCategory GetLocalGuarFileCategoryData(DakUserParam userParam, int actionLink)
+        {
+            GuardFileCategory guardFileCategory = new GuardFileCategory();
+            List<GuardFileCategory.Record> records = new List<GuardFileCategory.Record>();
+           
+            var localData = _localGuardFileInsertRepository.Table.Where(q => q.designation_id == userParam.designation_id && q.office_id == userParam.office_id && q.model == "GuardFileCategories").ToList();
+            foreach (var item in localData)
+            {
+                GuardFileCategory.Record record = new GuardFileCategory.Record();
+                record = JsonConvert.DeserializeObject<GuardFileCategory.Record>(item.data);
+                record.offline = true;
+                records.Add(record);
+            }
+            guardFileCategory.data = new GuardFileCategory.Data {records= records, total_records= localData.Count()};
+
+            return guardFileCategory;
+        }
+        public GuardFileModel GetLocalGuarFileData(DakUserParam userParam, int actionLink)
+        {
+            GuardFileModel guardFile = new GuardFileModel();
+            List<GuardFileModel.Record> records = new List<GuardFileModel.Record>();
+           
+            var localData = _localGuardFileInsertRepository.Table.Where(q => q.designation_id == userParam.designation_id && q.office_id == userParam.office_id && q.model == "GuardFiles").ToList();
+            foreach (var item in localData)
+            {
+                GuardFileModel.Record record = new GuardFileModel.Record();
+                record = JsonConvert.DeserializeObject<GuardFileModel.Record>(item.data);
+                record.offline = true;
+                records.Add(record);
+            }
+            guardFile.data = new GuardFileModel.Data { records = records, total_records = localData.Count()};
+
+            return guardFile;
+        }
         public ResponseEdit Insert(DakUserParam userParam, int actionLink, string model, Inputparam data)
         {
             string inputData = string.Empty;
@@ -444,6 +479,7 @@ namespace dNothi.Services.GuardFile
                     data=data, designation_id=userParam.designation_id, isCreated= isInsert, model= model,
                      office_id=userParam.office_id,
                      GuardFileId = id, isInProblem=false
+                     
             };
                 _localGuardFileInsertRepository.Insert(localGuardFileInsert);
             if( localGuardFileInsert.model == "GuardFiles")

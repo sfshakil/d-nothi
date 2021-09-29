@@ -81,7 +81,7 @@ namespace dNothi.Desktop.UI.Dak
                         designationSealListOfficerRowUserControl.isNewlyAdded = true;
 
                     }
-                  else if(_designationListAlreadyAdded.Any(a => a.designation_id == prapokDTO.designation_id))
+                  else if(_designationListAlreadyAdded!=null &&_designationListAlreadyAdded.Any(a => a.designation_id == prapokDTO.designation_id))
                     {
                         designationSealListOfficerRowUserControl.Visible = true;
                         if(!this.Visible)

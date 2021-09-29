@@ -107,5 +107,12 @@ namespace dNothi.Desktop.UI.Dak
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
 
         }
+        public event EventHandler allAttachmentDownload;
+
+        private void attachmentZipDownloadButton_Click(object sender, EventArgs e)
+        {
+            if (this.allAttachmentDownload != null)
+                this.allAttachmentDownload(sender, e);
+        }
     }
 }

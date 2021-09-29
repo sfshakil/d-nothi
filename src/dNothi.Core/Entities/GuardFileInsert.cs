@@ -16,7 +16,6 @@ namespace dNothi.Core.Entities
         public bool isCreated { get; set; }
         public bool isGuardFile { get; set; }
         public int  GuardFileId { get; set; }
-
         public bool isInProblem { get; set; }
         [MaxLength]
         public string data { get; set; }

@@ -59,11 +59,14 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
        
         public void LoadGuardFileTypeList()
         {
+           
             var dakListUserParam = _userService.GetLocalDakUserParam();
            
             dakListUserParam.limit = pageLimit;
             dakListUserParam.page = page;
-            var datalist= _guardFileCategoryService.GetList(dakListUserParam,1);
+           
+
+           var datalist=  GetDataList( dakListUserParam);
             //guardFileTypeTableLayoutPanel.Controls.Clear();
             // RemoveArbitraryRow(guardFileTypeTableLayoutPanel,3);
             RemoveTableLayoutPanelRow(guardFileTypeTableLayoutPanel, guardFileTypeTableLayoutPanel.RowCount, 3);
@@ -78,7 +81,8 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                         rowid++;
                         var decisionTable = UserControlFactory.Create<GuardFileTypeTableUserControl>();
                         decisionTable.id = rowid;
-                        decisionTable.decision = item.name_bng;
+                        decisionTable.isOnline = item.offline;
+                         decisionTable.decision = item.name_bng;
                         decisionTable.TypeNo = item.guard_file_type_count;
                         decisionTable.TypeId = item.id;
                         decisionTable.designation_id = dakListUserParam.designation_id;
@@ -108,7 +112,46 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 totalPage = (int)Math.Ceiling(pagesize);
             }
         }
+        private GuardFileCategory GetDataList(DakUserParam dakListUserParam)
+        {
+            GuardFileCategory datalist = new GuardFileCategory();
+            List<GuardFileCategory.Record> records = new List<GuardFileCategory.Record>();
+            int recordCount = 0;
+            if (page == 1 && !InternetConnection.Check())
+            {
+                var getlocalData = _guardFileCategoryService.GetLocalGuarFileCategoryData(dakListUserParam, 1);
+                recordCount = getlocalData.data.records.Count();
+                datalist.data = getlocalData.data;
+            }
+            else
+            {
+                datalist.data = new GuardFileCategory.Data { records = records, total_records = 0 };
+            }
 
+            var datalists = _guardFileCategoryService.GetList(dakListUserParam, 1);
+            if (page == 1)
+            {
+               
+                if (datalists != null)
+                {
+                    for (int item = 0; item < datalists.data.records.Count() - recordCount; item++)
+                    {
+                        GuardFileCategory.Record record = new GuardFileCategory.Record();
+                        record= datalists.data.records[item];
+                        datalist.data.records.Add(record);
+                    }
+                   
+                    datalist.data.total_records = datalists.data.total_records;
+                    datalist.status = datalists.status;
+                }
+            }
+            else
+            {
+                datalist = datalists;
+            }
+            return datalist;
+
+        }
         private void typedeleteTableUserControl_ButtonClick(object sender,EventArgs e, int TypeId)
         {
             if (TypeId > 0)

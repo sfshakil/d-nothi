@@ -36,6 +36,7 @@
             this.attachmentShowButton = new FontAwesome.Sharp.IconButton();
             this.typeLabel = new System.Windows.Forms.Label();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +78,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.decisionDeleteButton);
             this.panel2.Controls.Add(this.attachmentShowButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -140,6 +142,20 @@
             this.typeLabel.Text = "ছুটির আইন";
             this.typeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(3);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.label1.Size = new System.Drawing.Size(147, 13);
+            this.label1.TabIndex = 89;
+            this.label1.Text = "অনলাইনে আপলোড  হচ্ছে";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Visible = false;
+            // 
             // GuardFileListRowUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,6 +169,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,5 +184,6 @@
         private System.Windows.Forms.Label typeLabel;
         private System.Windows.Forms.Label typeNameLabel;
         private System.Windows.Forms.ToolTip MyToolTip;
+        private System.Windows.Forms.Label label1;
     }
 }
