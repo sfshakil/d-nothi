@@ -26,7 +26,8 @@ namespace dNothi.Desktop.UI
             _settingsList = settingsList;
 
             InitializeComponent();
-            BodyPanel.Visible = false;
+            showpaginationoffnotification();
+            btnDakSettings_Click(null,null);
         }
         private void DakModuleOff()
         {
@@ -98,19 +99,41 @@ namespace dNothi.Desktop.UI
             btnDakSettings.ForeColor = Color.FromArgb(243, 246, 249);
             nothiSliderPanel.BackColor = Color.FromArgb(27, 197, 189);
             DakSliderPanel.BackColor = Color.White;
-            
+
+            btnNotificationSettings.ForeColor = Color.FromArgb(243, 246, 249);
+            notificationSliderPanel.BackColor = Color.White;
+
+            showpaginationoffnotification();
             SetLabelForNothi();
             NothiModuleOn();
             DakModuleOff();
+        }
+        private void btnNotificationSettings_Click(object sender, EventArgs e)
+        {
+            btnNotificationSettings.ForeColor = Color.White;
+            notificationSliderPanel.BackColor = Color.FromArgb(27, 197, 189);
             
-            if (!BodyPanel.Visible)
-            {
-                BodyPanel.Visible = true;
-            }
-            else
-            {
-                BodyPanel.Visible = false;
-            }
+            btnDakSettings.ForeColor = Color.FromArgb(243, 246, 249);
+            DakSliderPanel.BackColor = Color.White;
+
+            btnNothiSettings.ForeColor = Color.FromArgb(243, 246, 249);
+            nothiSliderPanel.BackColor = Color.White;
+
+            shownotification();
+        }
+        private void showpaginationoffnotification()
+        {
+            NotificationPanel.Visible = false;
+
+            PaginationPanel.Visible = true;
+            this.Height = HeaderPanel.Height + SelectorPanel.Height + PaginationPanel.Height + FooterPanel.Height;
+        }
+        private void shownotification()
+        {
+            NotificationPanel.Visible = true;
+
+            PaginationPanel.Visible = false;
+            this.Height = HeaderPanel.Height + SelectorPanel.Height + NotificationPanel.Height + FooterPanel.Height;
         }
         private void btnDakSettings_Click(object sender, EventArgs e)
         {
@@ -119,18 +142,13 @@ namespace dNothi.Desktop.UI
             DakSliderPanel.BackColor = Color.FromArgb(27, 197, 189);
             nothiSliderPanel.BackColor = Color.White;
 
+            btnNotificationSettings.ForeColor = Color.FromArgb(243, 246, 249);
+            notificationSliderPanel.BackColor = Color.White;
+
+            showpaginationoffnotification();
             SetLabelForDak();
             NothiModuleOff();
             DakModuleOn();
-
-            if (!BodyPanel.Visible)
-            {
-                BodyPanel.Visible = true;
-            }
-            else
-            {
-                BodyPanel.Visible = false;
-            }
         }
         private void BodyPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -253,6 +271,8 @@ namespace dNothi.Desktop.UI
             cbxArchaiveDak.SelectedIndex = returnIndexFromLimit(settings.dakArchaivePagination) ;
             cbxKhoshra.SelectedIndex = returnIndexFromLimit(settings.dakKhoshraPagination) ;
         }
+
+        
         //public Settings getLocalData()
         //{
         //    Settings settings = new Settings();

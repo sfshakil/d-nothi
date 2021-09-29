@@ -69,18 +69,44 @@ namespace dNothi.Desktop.UI
             NothiSharedEditorDataDTO response = _nothiReviewerServices.GetNothiSharedEditorData(dakListUserParam, _nothiShaeredByMeRecord.user.shared_nothi_id);
             if (response != null && response.status == "success")
             {
-                var editorcontent = Encoding.UTF8.GetString(Convert.FromBase64String(response.data.shared_nothi.edited_content));
-                string editortext = getparagraphtext(editorcontent);
-                string addParagraphStartTag = "<p>";
-                string addParagraphEndTag = "</p>";
-                var allText = addParagraphStartTag + editortext + addParagraphEndTag;
-                tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { allText });
-                tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
+                if (_nothiShaeredByMeRecord.nothi.nothi_detail.share_module != "potro")
+                {
+                    var editorcontent = Encoding.UTF8.GetString(Convert.FromBase64String(response.data.shared_nothi.edited_content));
+                    string editortext = getparagraphtext(editorcontent);
+                    string addParagraphStartTag = "<p>";
+                    string addParagraphEndTag = "</p>";
+                    var allText = addParagraphStartTag + editortext + addParagraphEndTag;
+                    tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { allText });
+                    tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
+                }
+                else
+                {
+                    var editorcontent = Base64Decode1(response.data.shared_nothi.edited_content);
+                    tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { editorcontent });
+                    tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
+                }
             }
             else
             {
                 tinyMceEditor.ExecuteScriptAsync("SetContent", new object[] { "" });
                 tinyMceEditor.ExecuteScriptAsync("tinyMCE.execCommand('mceFullScreen')");
+            }
+        }
+        public static string Base64Decode1(string base64EncodedData)
+        {
+            string decodedString = base64EncodedData;
+            try
+            {
+                byte[] data = Convert.FromBase64String(decodedString);
+                decodedString = Encoding.UTF8.GetString(data);
+                return decodedString;
+            }
+            catch
+            {
+                decodedString = decodedString.Replace('-', '+').Replace('_', '/').Replace(',', '=').Replace("&quot;", "");
+                byte[] data = Convert.FromBase64String(decodedString);
+                decodedString = Encoding.UTF8.GetString(data);// &quot;
+                return decodedString;
             }
         }
         public static string Base64Encode(string plainText)
@@ -164,9 +190,18 @@ namespace dNothi.Desktop.UI
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             JavascriptResponse response1 = await tinyMceEditor.EvaluateScriptAsync("GetContent()");
             string sub = response1.Result.ToString();
-            var paragraph = getparagraphtext(sub);
-            var decodecontent = Base64Encode(paragraph);
-            _nothiShaeredByMeRecord.nothi.onucched_subject = decodecontent;
+            if (_nothiShaeredByMeRecord.nothi.nothi_detail.share_module != "potro")
+            {
+                var paragraph = getparagraphtext(sub);
+                var decodecontent = Base64Encode(paragraph);
+                _nothiShaeredByMeRecord.nothi.onucched_subject = decodecontent;
+            }
+            else
+            {
+                var decodecontent = Base64Encode(sub);
+                _nothiShaeredByMeRecord.nothi.onucched_subject = decodecontent;
+            }
+            
             NothiSharedEditorDataSendDTO response = _nothiReviewerServices.GetNothiSharedEditorSaveData(dakListUserParam, _nothiShaeredByMeRecord);
             if (response != null && response.status == "success")
             {

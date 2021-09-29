@@ -49,6 +49,12 @@ namespace dNothi.Desktop.UI.NothiUI
             get { return _onucchedId; }
             set { _onucchedId = value; }
         }
+        private int _potrojariId;
+        public int potrojariId
+        {
+            get { return _potrojariId; }
+            set { _potrojariId = value; }
+        }
         public NothiListInboxNoteRecordsDTO _NoteAllListDataRecordDTO { get; set; }
         public NothiListInboxNoteRecordsDTO noteAllListDataRecordDTO { get { return _NoteAllListDataRecordDTO; } set { _NoteAllListDataRecordDTO = value; } }
 
@@ -351,7 +357,7 @@ namespace dNothi.Desktop.UI.NothiUI
                 NothiListInboxNoteRecordsDTO noteAllListDataRecord = noteAllListDataRecordDTO;
                 User nothiReviewer = new User();
                 var dakuserparam = _userService.GetLocalDakUserParam();
-                var response = _nothiReviewerServices.GetNothiSharedSave(dakuserparam, noteAllListDataRecord, _onucchedId, _selectedUser);
+                var response = _nothiReviewerServices.GetNothiSharedSave(dakuserparam, noteAllListDataRecord, _potrojariId, _onucchedId, _selectedUser);
                 if (response.status == "success")
                 {
                     SuccessMessage("সফলভাবে সংরক্ষণ করা হয়েছে");
@@ -365,7 +371,7 @@ namespace dNothi.Desktop.UI.NothiUI
 
                     }
                     if (this.SharingSaveButton != null)
-                        this.SharingSaveButton(sender, e);
+                        this.SharingSaveButton(response.data, e);
                 }
                 else
                 {

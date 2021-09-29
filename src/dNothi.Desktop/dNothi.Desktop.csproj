@@ -581,6 +581,12 @@
       <DependentUpon>FileViewWebBrowser.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dak\GraphicsExtension.cs" />
+    <Compile Include="UI\Dak\KhoshraToShareWindowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\KhoshraToShareWindowUserControl.Designer.cs">
+      <DependentUpon>KhoshraToShareWindowUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\NoteHeaderUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1642,6 +1648,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\FileViewWebBrowser.resx">
       <DependentUpon>FileViewWebBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\KhoshraToShareWindowUserControl.resx">
+      <DependentUpon>KhoshraToShareWindowUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\NoteHeaderUserControl.resx">
       <DependentUpon>NoteHeaderUserControl.cs</DependentUpon>

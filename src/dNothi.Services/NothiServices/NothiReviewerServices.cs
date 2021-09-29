@@ -110,7 +110,7 @@ namespace dNothi.Services.NothiServices
             }
         }
 
-        public NothiSharedSaveDTO GetNothiSharedSave(DakUserParam dakListUserParam, NothiListInboxNoteRecordsDTO noteAllListDataRecord, long onuchhed_id, List<User> selectedUser)
+        public NothiSharedSaveDTO GetNothiSharedSave(DakUserParam dakListUserParam, NothiListInboxNoteRecordsDTO noteAllListDataRecord, long potrojari_id, long onuchhed_id, List<User> selectedUser)
         {
             try
             {
@@ -124,7 +124,7 @@ namespace dNothi.Services.NothiServices
                 request.AlwaysMultipartFormData = true;
                 //var serializedObject1 = JsonConvert.SerializeObject(dakListUserParam);
                 request.AddParameter("cdesk", "{\"office_id\":" + dakListUserParam.office_id + ",\"office_unit_id\":" + dakListUserParam.office_unit_id + ",\"designation_id\":" + dakListUserParam.designation_id + ",\"officer_id\":" + dakListUserParam.officer_id + ",\"user_id\":" + dakListUserParam.user_id + ",\"office\":\"" + dakListUserParam.office + "\",\"officer\":\"" + dakListUserParam.officer + "\",\"designation_level\":" + dakListUserParam.designation_level + "}");
-                request.AddParameter("nothi", "{\"potrojari_id\":\"0\",\"onucched_id\":\""+ onuchhed_id + "\",\"nothi_id\":\"" + noteAllListDataRecord.nothi.id + "\",\"note_id\":\"" + noteAllListDataRecord.note.nothi_note_id + "\",\"subject\":\"" + noteAllListDataRecord.note.note_subject + "\",\"shared_nothi_id\":\"0\",\"content\":\"\"}");
+                request.AddParameter("nothi", "{\"potrojari_id\":\""+ potrojari_id + "\",\"onucched_id\":\""+ onuchhed_id + "\",\"nothi_id\":\"" + noteAllListDataRecord.nothi.id + "\",\"note_id\":\"" + noteAllListDataRecord.note.nothi_note_id + "\",\"subject\":\"" + noteAllListDataRecord.note.note_subject + "\",\"shared_nothi_id\":\"0\",\"content\":\"\"}");
                 foreach (User user in selectedUser)
                 {
                     i++;

@@ -12,7 +12,7 @@ namespace dNothi.Services.NothiServices
     {
         NothiReviewerDTO GetNothiReviewer(DakUserParam dakuserparam, long nothi_shared_id);
         NothiSharedOffDTO GetNothiSharedOff(DakUserParam dakuserparam, NothiReviewerDTO nothiReviewer);
-        NothiSharedSaveDTO GetNothiSharedSave(DakUserParam dakuserparam, NothiListInboxNoteRecordsDTO noteAllListDataRecord, long onuchhed_id, List<User> selectedUser);
+        NothiSharedSaveDTO GetNothiSharedSave(DakUserParam dakuserparam, NothiListInboxNoteRecordsDTO noteAllListDataRecord, long potrojari_id, long onuchhed_id, List<User> selectedUser);
         NothiShaeredByMeDTO GetNothiSharedByMe(DakUserParam dakuserparam);
         NothiShaeredByMeDTO GetNothiSharedToMe(DakUserParam dakuserparam);
         NothiShaeredByMeDTO GetNothiSharedRecent(DakUserParam dakuserparam);
