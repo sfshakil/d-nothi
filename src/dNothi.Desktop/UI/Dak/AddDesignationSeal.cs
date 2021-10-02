@@ -99,7 +99,7 @@ namespace dNothi.Desktop.UI.Dak
             _dakUserParam = _userService.GetLocalDakUserParam();
             designationSealListResponse = _designationSeal.GetOfficerAddedSealList(_dakUserParam);
 
-            _addedOwnOfficerDesignationSeal = designationSealListResponse.data.own_office;
+            _addedOwnOfficerDesignationSeal = designationSealListResponse.data!=null? designationSealListResponse.data.own_office:null;
             prapokTreeView = new TreeView();
             LoadOwnOfficerTree();
             LoadOwnOfficeRight();
@@ -206,7 +206,8 @@ namespace dNothi.Desktop.UI.Dak
                                 TreeNode childNode = new TreeNode();
                                 childNode.Tag = officer.designation_id;
                                 childNode.Text = officer.NameWithDesignation;
-                                if (_addedOwnOfficerDesignationSeal.Any(a => a.designation_id == officer.designation_id))
+
+                                if (_addedOwnOfficerDesignationSeal!=null && _addedOwnOfficerDesignationSeal.Any(a => a.designation_id == officer.designation_id))
                                 {
                                     childNode.Checked = true;
                                     childNode.ForeColor = Color.Gray;

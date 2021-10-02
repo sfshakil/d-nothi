@@ -148,6 +148,7 @@
             this.confirmButton.Text = "নথিতে উপস্থাপন করুন";
             this.confirmButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.confirmButton.UseVisualStyleBackColor = false;
+            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
             // 
             // actionButton
             // 
@@ -168,6 +169,7 @@
             this.actionButton.Text = "নথি বাছাই করুন";
             this.actionButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.actionButton.UseVisualStyleBackColor = false;
+            this.actionButton.Click += new System.EventHandler(this.actionButton_Click);
             // 
             // iconButton7
             // 

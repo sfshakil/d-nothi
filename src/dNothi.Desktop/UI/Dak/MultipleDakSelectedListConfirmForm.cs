@@ -569,5 +569,15 @@ namespace dNothi.Desktop.UI.Dak
             this.Height = scr.WorkingArea.Height-200;
             this.Width = scr.WorkingArea.Width-200;
         }
+
+        private void confirmButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void actionButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

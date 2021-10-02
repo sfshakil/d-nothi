@@ -80,6 +80,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
         }
         public void LoadGuardFileList()
         {
+           
             int categoryid = typesearchComboBox.selectedId;
             string naemSearchparam = dakSearchSubTextBox.Text;
             var dakListUserParam = _userService.GetLocalDakUserParam();
@@ -88,7 +89,9 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             dakListUserParam.limit = pageLimit;
             dakListUserParam.CategoryId = categoryid;
             dakListUserParam.NameSearchParam = naemSearchparam;
-            var datalist = _guardFileService.GetList(dakListUserParam, 2);
+             var datalist=GetDataList(dakListUserParam);
+
+
             RemoveArbitraryRow(guardFileListTableLayoutPanel, guardFileListTableLayoutPanel.RowCount, 2);
            // guardListTableLayoutPanel.Controls.Clear();
             if (datalist != null)
@@ -163,7 +166,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                             
                             guardFileTable.dakAttachmentDTO = null;
                         }
-
+                        guardFileTable.isOnline = item.offline;
 
                         guardFileTable.id = item.id;
                         guardFileTable.type = item.name_bng;
@@ -203,6 +206,48 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
                 float pagesize = (float)totalrecord / (float)pageLimit;
                 totalPage = (int)Math.Ceiling(pagesize);
             }
+        }
+        private GuardFileModel GetDataList(DakUserParam dakListUserParam)
+        {
+            GuardFileModel datalist = new GuardFileModel();
+            List<GuardFileModel.Record> records = new List<GuardFileModel.Record>();
+
+            int recordCount = 0;
+            if (page == 1 && !InternetConnection.Check())
+            {
+                var getlocalData = _guardFileCategoryService.GetLocalGuarFileData(dakListUserParam, 2);
+                recordCount = getlocalData.data.records.Count();
+                datalist.data = getlocalData.data;
+            }
+            else
+            {
+                datalist.data = new GuardFileModel.Data { records = records, total_records = 0 };
+
+            }
+
+            var datalists = _guardFileService.GetList(dakListUserParam, 2);
+            if (page == 1)
+            {
+
+                if (datalists != null)
+                {
+                    for (int item = 0; item < datalists.data.records.Count() - recordCount; item++)
+                    {
+                        GuardFileModel.Record record = new GuardFileModel.Record();
+                        record = datalists.data.records[item];
+                        datalist.data.records.Add(record);
+                    }
+
+                    datalist.data.total_records = datalists.data.total_records;
+                    datalist.status = datalists.status;
+                }
+            }
+            else
+            {
+                datalist = datalists;
+            }
+            return datalist;
+
         }
         private void guardFileTableUserControl_viewButtonClick(object sender, EventArgs e, int id)
         {

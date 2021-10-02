@@ -372,7 +372,7 @@ namespace dNothi.Desktop.UI
                 issue_date = item.NoteOwner.IssueDate,
                 last_note_date = null,
                 local_nothi_type = null,
-                note_count = 1,
+                note_count = 0,
                 note_current_status = item.NoteOwner.NoteCurrentStatus,
                 nothi_class = 1,
                 nothi_no = null,
@@ -481,11 +481,13 @@ namespace dNothi.Desktop.UI
                 NoteNothiDTO noteNothiDTO = new NoteNothiDTO();
                
                 NothiAllDTO nothi = new NothiAllDTO { id= kasaraPotro.Basic.NothiMasterId};
+                DeskAllDTO desk = new DeskAllDTO {  note_count= kasaraPotro.NoteOwner.NothiNoteId>0?1:0};
 
-                NothiListAllRecordsDTO nothiListAllRecordsDTO = new NothiListAllRecordsDTO {  nothi=nothi};
+                NothiListAllRecordsDTO nothiListAllRecordsDTO = new NothiListAllRecordsDTO {  nothi=nothi, desk=desk};
                 noteNothiDTO.note_id = Convert.ToString(kasaraPotro.Basic.NothiNoteId);
                 noteNothiDTO.id = kasaraPotro.Basic.NothiMasterId;
                 noteNothiDTO.note_subject = kasaraPotro.NoteOwner.NoteSubject;
+                noteNothiDTO.nothi_id = kasaraPotro.Basic.NothiMasterId.ToString();
                 string branchName = kasaraPotro.NoteOwner.OfficeUnit;
                 string nothiName = kasaraPotro.NoteOwner.NothiSubject;
                 khasraPotroTemplateData.potrojari_id = kasaraPotro.NoteOwner.Potrojari;

@@ -71,6 +71,7 @@
             this.attachmentZipDownloadButton.Size = new System.Drawing.Size(31, 24);
             this.attachmentZipDownloadButton.TabIndex = 7;
             this.attachmentZipDownloadButton.UseVisualStyleBackColor = false;
+            this.attachmentZipDownloadButton.Click += new System.EventHandler(this.attachmentZipDownloadButton_Click);
             // 
             // panel2
             // 

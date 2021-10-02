@@ -1,5 +1,6 @@
 ﻿
 
+using dNothi.JsonParser.Entity.Dak;
 using dNothi.Services.BasicService.Models;
 using dNothi.Services.DakServices;
 
@@ -14,7 +15,8 @@ namespace dNothi.Services.BasicService
   public  interface IBasicService
     {
         OfficeUnit GetOfficeUnitList(DakUserParam dakListUserParam);
-      
-        
+        AllDakDownlodModel AllFileDownload(DakUserParam userParam, List<DakAttachmentDTO> attchmentDTos);
+
+
     }
 }

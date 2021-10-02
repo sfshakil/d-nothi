@@ -43,6 +43,11 @@ namespace dNothi.Desktop.UI.Dak
             get { return _attachmentSize; }
             set { _attachmentSize = value; lbAttachmentSize.Text = value; }
         }
-
+        public event EventHandler allAttachmentDownload;
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            if (this.allAttachmentDownload != null)
+                this.allAttachmentDownload(sender,e);
+        }
     }
 }

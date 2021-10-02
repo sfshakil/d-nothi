@@ -56,12 +56,14 @@ namespace dNothi.Services.GuardFile.Model
             public string guard_file_category_name_bng { get; set; }
             //public object attachment { get; set; }
             public Attachment attachment { get; set; }
+            public bool offline { get; set; }
         }
 
         public class Data
         {
             public List<Record> records { get; set; }
             public int total_records { get; set; }
+           
         }
 
        

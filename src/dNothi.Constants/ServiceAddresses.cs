@@ -138,6 +138,9 @@ namespace dNothi.Constants
         public const string NothiSharedEditorDataEndPoint = "/api/potro/import";
         public const string NothiSharedEditorDataSendEndPoint = "/api/potro/export";
 
+        public const string NotificationSettingsEndPoint = "/api/notification/setting/list";
+        public const string NotificationSettingsSaveEndPoint = "/api/notification/setting/save";
+
         public const string DakNibondanBohiEndPoint = "/api/register/dak/nibondhon_bohi";
 
 
@@ -199,8 +202,9 @@ namespace dNothi.Constants
 
         //BasicApi
         public const string OfficeUintEndpoint = "/api/dak/seal/office/show";
+        public const string AllFileDownloadEndpoint = "/api/zip/maker";
 
-
+    
         // Doptor
 
         public const string DoptorDomainAddress = "https://n-doptor-api-stage.nothi.gov.bd";

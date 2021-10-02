@@ -28,7 +28,8 @@ namespace dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls
             MyToolTip.SetToolTip(attachmentShowButton, "দেখুন");
             
         }
-
+        private bool _isOnline { get; set; }
+        public bool isOnline { get=> _isOnline; set { _isOnline = value; label1.Visible = value; } }
         public List<DakAttachmentDTO> _dakAttachmentDTOs { get; set; }
         public List<DakAttachmentDTO> dakAttachmentDTOs { get { return _dakAttachmentDTOs; } set { _dakAttachmentDTOs = value; } }
 

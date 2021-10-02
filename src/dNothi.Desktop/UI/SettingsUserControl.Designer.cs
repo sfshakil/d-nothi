@@ -36,51 +36,51 @@ namespace dNothi.Desktop.UI
             this.panel58 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.panel59 = new System.Windows.Forms.Panel();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
+            this.potrojari_receiveSMSCheckBox = new System.Windows.Forms.CheckBox();
             this.panel60 = new System.Windows.Forms.Panel();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
+            this.potrojari_receiveEmailCheckBox = new System.Windows.Forms.CheckBox();
             this.panel61 = new System.Windows.Forms.Panel();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
+            this.potrojari_receivePushCheckBox = new System.Windows.Forms.CheckBox();
             this.panel62 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel53 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.panel54 = new System.Windows.Forms.Panel();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
+            this.note_receiveSMSCheckBox = new System.Windows.Forms.CheckBox();
             this.panel55 = new System.Windows.Forms.Panel();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.note_receiveEmailCheckBox = new System.Windows.Forms.CheckBox();
             this.panel56 = new System.Windows.Forms.Panel();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
+            this.note_receivePushCheckBox = new System.Windows.Forms.CheckBox();
             this.panel57 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel48 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.panel49 = new System.Windows.Forms.Panel();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.note_permissionSMSCheckBox = new System.Windows.Forms.CheckBox();
             this.panel50 = new System.Windows.Forms.Panel();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.note_permissionEmailCheckBox = new System.Windows.Forms.CheckBox();
             this.panel51 = new System.Windows.Forms.Panel();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.note_permissionPushCheckBox = new System.Windows.Forms.CheckBox();
             this.panel52 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.panel42 = new System.Windows.Forms.Panel();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.nothi_permissionSMSCheckBox = new System.Windows.Forms.CheckBox();
             this.panel44 = new System.Windows.Forms.Panel();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.nothi_permissionEmailCheckBox = new System.Windows.Forms.CheckBox();
             this.panel46 = new System.Windows.Forms.Panel();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.nothi_permissionPushCheckBox = new System.Windows.Forms.CheckBox();
             this.panel47 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel45 = new System.Windows.Forms.Panel();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.dak_receiveSMSCheckBox = new System.Windows.Forms.CheckBox();
             this.panel43 = new System.Windows.Forms.Panel();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.dak_receiveEmailCheckBox = new System.Windows.Forms.CheckBox();
             this.panel37 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.dak_receivePushCheckBox = new System.Windows.Forms.CheckBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -144,7 +144,7 @@ namespace dNothi.Desktop.UI
             this.panel3 = new System.Windows.Forms.Panel();
             this.headingLabel = new System.Windows.Forms.Label();
             this.FooterPanel = new System.Windows.Forms.Panel();
-            this.SaveButton = new System.Windows.Forms.Button();
+            this.PaginationSaveButton = new System.Windows.Forms.Button();
             this.SelectorPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnNotificationSettings = new System.Windows.Forms.Button();
@@ -155,6 +155,7 @@ namespace dNothi.Desktop.UI
             this.btnDakSettings = new System.Windows.Forms.Button();
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
+            this.NotificationSaveButton = new System.Windows.Forms.Button();
             this.SettingsTableLayoutPanel.SuspendLayout();
             this.BodyPanel.SuspendLayout();
             this.Body.SuspendLayout();
@@ -314,7 +315,7 @@ namespace dNothi.Desktop.UI
             // panel59
             // 
             this.panel59.AutoSize = true;
-            this.panel59.Controls.Add(this.checkBox13);
+            this.panel59.Controls.Add(this.potrojari_receiveSMSCheckBox);
             this.panel59.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel59.Location = new System.Drawing.Point(342, 0);
             this.panel59.Margin = new System.Windows.Forms.Padding(0);
@@ -323,27 +324,27 @@ namespace dNothi.Desktop.UI
             this.panel59.Size = new System.Drawing.Size(116, 93);
             this.panel59.TabIndex = 14;
             // 
-            // checkBox13
+            // potrojari_receiveSMSCheckBox
             // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox13.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox13.Location = new System.Drawing.Point(5, 5);
-            this.checkBox13.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(106, 83);
-            this.checkBox13.TabIndex = 1;
-            this.checkBox13.Tag = "";
-            this.checkBox13.Text = "মোবাইল";
-            this.checkBox13.UseVisualStyleBackColor = true;
+            this.potrojari_receiveSMSCheckBox.AutoSize = true;
+            this.potrojari_receiveSMSCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.potrojari_receiveSMSCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.potrojari_receiveSMSCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.potrojari_receiveSMSCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.potrojari_receiveSMSCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.potrojari_receiveSMSCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.potrojari_receiveSMSCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.potrojari_receiveSMSCheckBox.Name = "potrojari_receiveSMSCheckBox";
+            this.potrojari_receiveSMSCheckBox.Size = new System.Drawing.Size(106, 83);
+            this.potrojari_receiveSMSCheckBox.TabIndex = 1;
+            this.potrojari_receiveSMSCheckBox.Tag = "";
+            this.potrojari_receiveSMSCheckBox.Text = "মোবাইল";
+            this.potrojari_receiveSMSCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel60
             // 
             this.panel60.AutoSize = true;
-            this.panel60.Controls.Add(this.checkBox14);
+            this.panel60.Controls.Add(this.potrojari_receiveEmailCheckBox);
             this.panel60.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel60.Location = new System.Drawing.Point(228, 0);
             this.panel60.Margin = new System.Windows.Forms.Padding(0);
@@ -352,29 +353,27 @@ namespace dNothi.Desktop.UI
             this.panel60.Size = new System.Drawing.Size(114, 93);
             this.panel60.TabIndex = 13;
             // 
-            // checkBox14
+            // potrojari_receiveEmailCheckBox
             // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Checked = true;
-            this.checkBox14.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox14.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox14.Location = new System.Drawing.Point(5, 5);
-            this.checkBox14.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(104, 83);
-            this.checkBox14.TabIndex = 1;
-            this.checkBox14.Tag = "";
-            this.checkBox14.Text = "ইমেইল";
-            this.checkBox14.UseVisualStyleBackColor = true;
+            this.potrojari_receiveEmailCheckBox.AutoSize = true;
+            this.potrojari_receiveEmailCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.potrojari_receiveEmailCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.potrojari_receiveEmailCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.potrojari_receiveEmailCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.potrojari_receiveEmailCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.potrojari_receiveEmailCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.potrojari_receiveEmailCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.potrojari_receiveEmailCheckBox.Name = "potrojari_receiveEmailCheckBox";
+            this.potrojari_receiveEmailCheckBox.Size = new System.Drawing.Size(104, 83);
+            this.potrojari_receiveEmailCheckBox.TabIndex = 1;
+            this.potrojari_receiveEmailCheckBox.Tag = "";
+            this.potrojari_receiveEmailCheckBox.Text = "ইমেইল";
+            this.potrojari_receiveEmailCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel61
             // 
             this.panel61.AutoSize = true;
-            this.panel61.Controls.Add(this.checkBox15);
+            this.panel61.Controls.Add(this.potrojari_receivePushCheckBox);
             this.panel61.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel61.Location = new System.Drawing.Point(146, 0);
             this.panel61.Margin = new System.Windows.Forms.Padding(0);
@@ -383,24 +382,22 @@ namespace dNothi.Desktop.UI
             this.panel61.Size = new System.Drawing.Size(82, 93);
             this.panel61.TabIndex = 12;
             // 
-            // checkBox15
+            // potrojari_receivePushCheckBox
             // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Checked = true;
-            this.checkBox15.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox15.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox15.Location = new System.Drawing.Point(5, 5);
-            this.checkBox15.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(72, 83);
-            this.checkBox15.TabIndex = 0;
-            this.checkBox15.Tag = "";
-            this.checkBox15.Text = "পুশ";
-            this.checkBox15.UseVisualStyleBackColor = true;
+            this.potrojari_receivePushCheckBox.AutoSize = true;
+            this.potrojari_receivePushCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.potrojari_receivePushCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.potrojari_receivePushCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.potrojari_receivePushCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.potrojari_receivePushCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.potrojari_receivePushCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.potrojari_receivePushCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.potrojari_receivePushCheckBox.Name = "potrojari_receivePushCheckBox";
+            this.potrojari_receivePushCheckBox.Size = new System.Drawing.Size(72, 83);
+            this.potrojari_receivePushCheckBox.TabIndex = 0;
+            this.potrojari_receivePushCheckBox.Tag = "";
+            this.potrojari_receivePushCheckBox.Text = "পুশ";
+            this.potrojari_receivePushCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel62
             // 
@@ -461,7 +458,7 @@ namespace dNothi.Desktop.UI
             // panel54
             // 
             this.panel54.AutoSize = true;
-            this.panel54.Controls.Add(this.checkBox10);
+            this.panel54.Controls.Add(this.note_receiveSMSCheckBox);
             this.panel54.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel54.Location = new System.Drawing.Point(342, 0);
             this.panel54.Margin = new System.Windows.Forms.Padding(0);
@@ -470,27 +467,27 @@ namespace dNothi.Desktop.UI
             this.panel54.Size = new System.Drawing.Size(116, 49);
             this.panel54.TabIndex = 14;
             // 
-            // checkBox10
+            // note_receiveSMSCheckBox
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox10.Location = new System.Drawing.Point(5, 5);
-            this.checkBox10.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(106, 39);
-            this.checkBox10.TabIndex = 1;
-            this.checkBox10.Tag = "";
-            this.checkBox10.Text = "মোবাইল";
-            this.checkBox10.UseVisualStyleBackColor = true;
+            this.note_receiveSMSCheckBox.AutoSize = true;
+            this.note_receiveSMSCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.note_receiveSMSCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.note_receiveSMSCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.note_receiveSMSCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.note_receiveSMSCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.note_receiveSMSCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.note_receiveSMSCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.note_receiveSMSCheckBox.Name = "note_receiveSMSCheckBox";
+            this.note_receiveSMSCheckBox.Size = new System.Drawing.Size(106, 39);
+            this.note_receiveSMSCheckBox.TabIndex = 1;
+            this.note_receiveSMSCheckBox.Tag = "";
+            this.note_receiveSMSCheckBox.Text = "মোবাইল";
+            this.note_receiveSMSCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel55
             // 
             this.panel55.AutoSize = true;
-            this.panel55.Controls.Add(this.checkBox11);
+            this.panel55.Controls.Add(this.note_receiveEmailCheckBox);
             this.panel55.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel55.Location = new System.Drawing.Point(228, 0);
             this.panel55.Margin = new System.Windows.Forms.Padding(0);
@@ -499,29 +496,27 @@ namespace dNothi.Desktop.UI
             this.panel55.Size = new System.Drawing.Size(114, 49);
             this.panel55.TabIndex = 13;
             // 
-            // checkBox11
+            // note_receiveEmailCheckBox
             // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Checked = true;
-            this.checkBox11.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox11.Location = new System.Drawing.Point(5, 5);
-            this.checkBox11.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(104, 39);
-            this.checkBox11.TabIndex = 1;
-            this.checkBox11.Tag = "";
-            this.checkBox11.Text = "ইমেইল";
-            this.checkBox11.UseVisualStyleBackColor = true;
+            this.note_receiveEmailCheckBox.AutoSize = true;
+            this.note_receiveEmailCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.note_receiveEmailCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.note_receiveEmailCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.note_receiveEmailCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.note_receiveEmailCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.note_receiveEmailCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.note_receiveEmailCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.note_receiveEmailCheckBox.Name = "note_receiveEmailCheckBox";
+            this.note_receiveEmailCheckBox.Size = new System.Drawing.Size(104, 39);
+            this.note_receiveEmailCheckBox.TabIndex = 1;
+            this.note_receiveEmailCheckBox.Tag = "";
+            this.note_receiveEmailCheckBox.Text = "ইমেইল";
+            this.note_receiveEmailCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel56
             // 
             this.panel56.AutoSize = true;
-            this.panel56.Controls.Add(this.checkBox12);
+            this.panel56.Controls.Add(this.note_receivePushCheckBox);
             this.panel56.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel56.Location = new System.Drawing.Point(146, 0);
             this.panel56.Margin = new System.Windows.Forms.Padding(0);
@@ -530,24 +525,22 @@ namespace dNothi.Desktop.UI
             this.panel56.Size = new System.Drawing.Size(82, 49);
             this.panel56.TabIndex = 12;
             // 
-            // checkBox12
+            // note_receivePushCheckBox
             // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Checked = true;
-            this.checkBox12.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox12.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox12.Location = new System.Drawing.Point(5, 5);
-            this.checkBox12.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(72, 39);
-            this.checkBox12.TabIndex = 0;
-            this.checkBox12.Tag = "";
-            this.checkBox12.Text = "পুশ";
-            this.checkBox12.UseVisualStyleBackColor = true;
+            this.note_receivePushCheckBox.AutoSize = true;
+            this.note_receivePushCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.note_receivePushCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.note_receivePushCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.note_receivePushCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.note_receivePushCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.note_receivePushCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.note_receivePushCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.note_receivePushCheckBox.Name = "note_receivePushCheckBox";
+            this.note_receivePushCheckBox.Size = new System.Drawing.Size(72, 39);
+            this.note_receivePushCheckBox.TabIndex = 0;
+            this.note_receivePushCheckBox.Tag = "";
+            this.note_receivePushCheckBox.Text = "পুশ";
+            this.note_receivePushCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel57
             // 
@@ -608,7 +601,7 @@ namespace dNothi.Desktop.UI
             // panel49
             // 
             this.panel49.AutoSize = true;
-            this.panel49.Controls.Add(this.checkBox7);
+            this.panel49.Controls.Add(this.note_permissionSMSCheckBox);
             this.panel49.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel49.Location = new System.Drawing.Point(342, 0);
             this.panel49.Margin = new System.Windows.Forms.Padding(0);
@@ -617,27 +610,27 @@ namespace dNothi.Desktop.UI
             this.panel49.Size = new System.Drawing.Size(116, 49);
             this.panel49.TabIndex = 14;
             // 
-            // checkBox7
+            // note_permissionSMSCheckBox
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox7.Location = new System.Drawing.Point(5, 5);
-            this.checkBox7.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(106, 39);
-            this.checkBox7.TabIndex = 1;
-            this.checkBox7.Tag = "";
-            this.checkBox7.Text = "মোবাইল";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.note_permissionSMSCheckBox.AutoSize = true;
+            this.note_permissionSMSCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.note_permissionSMSCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.note_permissionSMSCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.note_permissionSMSCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.note_permissionSMSCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.note_permissionSMSCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.note_permissionSMSCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.note_permissionSMSCheckBox.Name = "note_permissionSMSCheckBox";
+            this.note_permissionSMSCheckBox.Size = new System.Drawing.Size(106, 39);
+            this.note_permissionSMSCheckBox.TabIndex = 1;
+            this.note_permissionSMSCheckBox.Tag = "";
+            this.note_permissionSMSCheckBox.Text = "মোবাইল";
+            this.note_permissionSMSCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel50
             // 
             this.panel50.AutoSize = true;
-            this.panel50.Controls.Add(this.checkBox8);
+            this.panel50.Controls.Add(this.note_permissionEmailCheckBox);
             this.panel50.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel50.Location = new System.Drawing.Point(228, 0);
             this.panel50.Margin = new System.Windows.Forms.Padding(0);
@@ -646,29 +639,27 @@ namespace dNothi.Desktop.UI
             this.panel50.Size = new System.Drawing.Size(114, 49);
             this.panel50.TabIndex = 13;
             // 
-            // checkBox8
+            // note_permissionEmailCheckBox
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Checked = true;
-            this.checkBox8.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox8.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox8.Location = new System.Drawing.Point(5, 5);
-            this.checkBox8.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(104, 39);
-            this.checkBox8.TabIndex = 1;
-            this.checkBox8.Tag = "";
-            this.checkBox8.Text = "ইমেইল";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.note_permissionEmailCheckBox.AutoSize = true;
+            this.note_permissionEmailCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.note_permissionEmailCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.note_permissionEmailCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.note_permissionEmailCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.note_permissionEmailCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.note_permissionEmailCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.note_permissionEmailCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.note_permissionEmailCheckBox.Name = "note_permissionEmailCheckBox";
+            this.note_permissionEmailCheckBox.Size = new System.Drawing.Size(104, 39);
+            this.note_permissionEmailCheckBox.TabIndex = 1;
+            this.note_permissionEmailCheckBox.Tag = "";
+            this.note_permissionEmailCheckBox.Text = "ইমেইল";
+            this.note_permissionEmailCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel51
             // 
             this.panel51.AutoSize = true;
-            this.panel51.Controls.Add(this.checkBox9);
+            this.panel51.Controls.Add(this.note_permissionPushCheckBox);
             this.panel51.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel51.Location = new System.Drawing.Point(146, 0);
             this.panel51.Margin = new System.Windows.Forms.Padding(0);
@@ -677,24 +668,22 @@ namespace dNothi.Desktop.UI
             this.panel51.Size = new System.Drawing.Size(82, 49);
             this.panel51.TabIndex = 12;
             // 
-            // checkBox9
+            // note_permissionPushCheckBox
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Checked = true;
-            this.checkBox9.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox9.Location = new System.Drawing.Point(5, 5);
-            this.checkBox9.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(72, 39);
-            this.checkBox9.TabIndex = 0;
-            this.checkBox9.Tag = "";
-            this.checkBox9.Text = "পুশ";
-            this.checkBox9.UseVisualStyleBackColor = true;
+            this.note_permissionPushCheckBox.AutoSize = true;
+            this.note_permissionPushCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.note_permissionPushCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.note_permissionPushCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.note_permissionPushCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.note_permissionPushCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.note_permissionPushCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.note_permissionPushCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.note_permissionPushCheckBox.Name = "note_permissionPushCheckBox";
+            this.note_permissionPushCheckBox.Size = new System.Drawing.Size(72, 39);
+            this.note_permissionPushCheckBox.TabIndex = 0;
+            this.note_permissionPushCheckBox.Tag = "";
+            this.note_permissionPushCheckBox.Text = "পুশ";
+            this.note_permissionPushCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel52
             // 
@@ -755,7 +744,7 @@ namespace dNothi.Desktop.UI
             // panel42
             // 
             this.panel42.AutoSize = true;
-            this.panel42.Controls.Add(this.checkBox4);
+            this.panel42.Controls.Add(this.nothi_permissionSMSCheckBox);
             this.panel42.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel42.Location = new System.Drawing.Point(342, 0);
             this.panel42.Margin = new System.Windows.Forms.Padding(0);
@@ -764,27 +753,27 @@ namespace dNothi.Desktop.UI
             this.panel42.Size = new System.Drawing.Size(116, 49);
             this.panel42.TabIndex = 14;
             // 
-            // checkBox4
+            // nothi_permissionSMSCheckBox
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox4.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox4.Location = new System.Drawing.Point(5, 5);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(106, 39);
-            this.checkBox4.TabIndex = 1;
-            this.checkBox4.Tag = "";
-            this.checkBox4.Text = "মোবাইল";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.nothi_permissionSMSCheckBox.AutoSize = true;
+            this.nothi_permissionSMSCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nothi_permissionSMSCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nothi_permissionSMSCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothi_permissionSMSCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothi_permissionSMSCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.nothi_permissionSMSCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.nothi_permissionSMSCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.nothi_permissionSMSCheckBox.Name = "nothi_permissionSMSCheckBox";
+            this.nothi_permissionSMSCheckBox.Size = new System.Drawing.Size(106, 39);
+            this.nothi_permissionSMSCheckBox.TabIndex = 1;
+            this.nothi_permissionSMSCheckBox.Tag = "";
+            this.nothi_permissionSMSCheckBox.Text = "মোবাইল";
+            this.nothi_permissionSMSCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel44
             // 
             this.panel44.AutoSize = true;
-            this.panel44.Controls.Add(this.checkBox5);
+            this.panel44.Controls.Add(this.nothi_permissionEmailCheckBox);
             this.panel44.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel44.Location = new System.Drawing.Point(228, 0);
             this.panel44.Margin = new System.Windows.Forms.Padding(0);
@@ -793,29 +782,27 @@ namespace dNothi.Desktop.UI
             this.panel44.Size = new System.Drawing.Size(114, 49);
             this.panel44.TabIndex = 13;
             // 
-            // checkBox5
+            // nothi_permissionEmailCheckBox
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Checked = true;
-            this.checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox5.Location = new System.Drawing.Point(5, 5);
-            this.checkBox5.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(104, 39);
-            this.checkBox5.TabIndex = 1;
-            this.checkBox5.Tag = "";
-            this.checkBox5.Text = "ইমেইল";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.nothi_permissionEmailCheckBox.AutoSize = true;
+            this.nothi_permissionEmailCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nothi_permissionEmailCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nothi_permissionEmailCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothi_permissionEmailCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothi_permissionEmailCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.nothi_permissionEmailCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.nothi_permissionEmailCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.nothi_permissionEmailCheckBox.Name = "nothi_permissionEmailCheckBox";
+            this.nothi_permissionEmailCheckBox.Size = new System.Drawing.Size(104, 39);
+            this.nothi_permissionEmailCheckBox.TabIndex = 1;
+            this.nothi_permissionEmailCheckBox.Tag = "";
+            this.nothi_permissionEmailCheckBox.Text = "ইমেইল";
+            this.nothi_permissionEmailCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel46
             // 
             this.panel46.AutoSize = true;
-            this.panel46.Controls.Add(this.checkBox6);
+            this.panel46.Controls.Add(this.nothi_permissionPushCheckBox);
             this.panel46.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel46.Location = new System.Drawing.Point(146, 0);
             this.panel46.Margin = new System.Windows.Forms.Padding(0);
@@ -824,24 +811,22 @@ namespace dNothi.Desktop.UI
             this.panel46.Size = new System.Drawing.Size(82, 49);
             this.panel46.TabIndex = 12;
             // 
-            // checkBox6
+            // nothi_permissionPushCheckBox
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Checked = true;
-            this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox6.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox6.Location = new System.Drawing.Point(5, 5);
-            this.checkBox6.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(72, 39);
-            this.checkBox6.TabIndex = 0;
-            this.checkBox6.Tag = "";
-            this.checkBox6.Text = "পুশ";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.nothi_permissionPushCheckBox.AutoSize = true;
+            this.nothi_permissionPushCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.nothi_permissionPushCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nothi_permissionPushCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nothi_permissionPushCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothi_permissionPushCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.nothi_permissionPushCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.nothi_permissionPushCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.nothi_permissionPushCheckBox.Name = "nothi_permissionPushCheckBox";
+            this.nothi_permissionPushCheckBox.Size = new System.Drawing.Size(72, 39);
+            this.nothi_permissionPushCheckBox.TabIndex = 0;
+            this.nothi_permissionPushCheckBox.Tag = "";
+            this.nothi_permissionPushCheckBox.Text = "পুশ";
+            this.nothi_permissionPushCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel47
             // 
@@ -902,7 +887,7 @@ namespace dNothi.Desktop.UI
             // panel45
             // 
             this.panel45.AutoSize = true;
-            this.panel45.Controls.Add(this.checkBox3);
+            this.panel45.Controls.Add(this.dak_receiveSMSCheckBox);
             this.panel45.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel45.Location = new System.Drawing.Point(342, 0);
             this.panel45.Margin = new System.Windows.Forms.Padding(0);
@@ -911,27 +896,27 @@ namespace dNothi.Desktop.UI
             this.panel45.Size = new System.Drawing.Size(116, 49);
             this.panel45.TabIndex = 14;
             // 
-            // checkBox3
+            // dak_receiveSMSCheckBox
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox3.Location = new System.Drawing.Point(5, 5);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(106, 39);
-            this.checkBox3.TabIndex = 1;
-            this.checkBox3.Tag = "";
-            this.checkBox3.Text = "মোবাইল";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.dak_receiveSMSCheckBox.AutoSize = true;
+            this.dak_receiveSMSCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dak_receiveSMSCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dak_receiveSMSCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dak_receiveSMSCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dak_receiveSMSCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.dak_receiveSMSCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.dak_receiveSMSCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.dak_receiveSMSCheckBox.Name = "dak_receiveSMSCheckBox";
+            this.dak_receiveSMSCheckBox.Size = new System.Drawing.Size(106, 39);
+            this.dak_receiveSMSCheckBox.TabIndex = 1;
+            this.dak_receiveSMSCheckBox.Tag = "";
+            this.dak_receiveSMSCheckBox.Text = "মোবাইল";
+            this.dak_receiveSMSCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel43
             // 
             this.panel43.AutoSize = true;
-            this.panel43.Controls.Add(this.checkBox2);
+            this.panel43.Controls.Add(this.dak_receiveEmailCheckBox);
             this.panel43.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel43.Location = new System.Drawing.Point(228, 0);
             this.panel43.Margin = new System.Windows.Forms.Padding(0);
@@ -940,29 +925,27 @@ namespace dNothi.Desktop.UI
             this.panel43.Size = new System.Drawing.Size(114, 49);
             this.panel43.TabIndex = 13;
             // 
-            // checkBox2
+            // dak_receiveEmailCheckBox
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox2.Location = new System.Drawing.Point(5, 5);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(104, 39);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Tag = "";
-            this.checkBox2.Text = "ইমেইল";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.dak_receiveEmailCheckBox.AutoSize = true;
+            this.dak_receiveEmailCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dak_receiveEmailCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dak_receiveEmailCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dak_receiveEmailCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dak_receiveEmailCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.dak_receiveEmailCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.dak_receiveEmailCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.dak_receiveEmailCheckBox.Name = "dak_receiveEmailCheckBox";
+            this.dak_receiveEmailCheckBox.Size = new System.Drawing.Size(104, 39);
+            this.dak_receiveEmailCheckBox.TabIndex = 1;
+            this.dak_receiveEmailCheckBox.Tag = "";
+            this.dak_receiveEmailCheckBox.Text = "ইমেইল";
+            this.dak_receiveEmailCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel37
             // 
             this.panel37.AutoSize = true;
-            this.panel37.Controls.Add(this.checkBox1);
+            this.panel37.Controls.Add(this.dak_receivePushCheckBox);
             this.panel37.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel37.Location = new System.Drawing.Point(146, 0);
             this.panel37.Margin = new System.Windows.Forms.Padding(0);
@@ -971,24 +954,22 @@ namespace dNothi.Desktop.UI
             this.panel37.Size = new System.Drawing.Size(82, 49);
             this.panel37.TabIndex = 12;
             // 
-            // checkBox1
+            // dak_receivePushCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBox1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.checkBox1.Location = new System.Drawing.Point(5, 5);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(72, 39);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Tag = "";
-            this.checkBox1.Text = "পুশ";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.dak_receivePushCheckBox.AutoSize = true;
+            this.dak_receivePushCheckBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dak_receivePushCheckBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dak_receivePushCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dak_receivePushCheckBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dak_receivePushCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.dak_receivePushCheckBox.Location = new System.Drawing.Point(5, 5);
+            this.dak_receivePushCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.dak_receivePushCheckBox.Name = "dak_receivePushCheckBox";
+            this.dak_receivePushCheckBox.Size = new System.Drawing.Size(72, 39);
+            this.dak_receivePushCheckBox.TabIndex = 0;
+            this.dak_receivePushCheckBox.Tag = "";
+            this.dak_receivePushCheckBox.Text = "পুশ";
+            this.dak_receivePushCheckBox.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
@@ -1909,7 +1890,8 @@ namespace dNothi.Desktop.UI
             // 
             // FooterPanel
             // 
-            this.FooterPanel.Controls.Add(this.SaveButton);
+            this.FooterPanel.Controls.Add(this.NotificationSaveButton);
+            this.FooterPanel.Controls.Add(this.PaginationSaveButton);
             this.FooterPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.FooterPanel.Location = new System.Drawing.Point(1, 611);
             this.FooterPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -1918,26 +1900,27 @@ namespace dNothi.Desktop.UI
             this.FooterPanel.Size = new System.Drawing.Size(462, 65);
             this.FooterPanel.TabIndex = 6;
             // 
-            // SaveButton
+            // PaginationSaveButton
             // 
-            this.SaveButton.AutoSize = true;
-            this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.SaveButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SaveButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.SaveButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.SaveButton.FlatAppearance.BorderSize = 0;
-            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.SaveButton.ForeColor = System.Drawing.Color.White;
-            this.SaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SaveButton.Location = new System.Drawing.Point(5, 10);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(0);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(111, 45);
-            this.SaveButton.TabIndex = 18;
-            this.SaveButton.Text = "সংরক্ষণ";
-            this.SaveButton.UseVisualStyleBackColor = false;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            this.PaginationSaveButton.AutoSize = true;
+            this.PaginationSaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.PaginationSaveButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PaginationSaveButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PaginationSaveButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.PaginationSaveButton.FlatAppearance.BorderSize = 0;
+            this.PaginationSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PaginationSaveButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.PaginationSaveButton.ForeColor = System.Drawing.Color.White;
+            this.PaginationSaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.PaginationSaveButton.Location = new System.Drawing.Point(5, 10);
+            this.PaginationSaveButton.Margin = new System.Windows.Forms.Padding(0);
+            this.PaginationSaveButton.Name = "PaginationSaveButton";
+            this.PaginationSaveButton.Size = new System.Drawing.Size(111, 45);
+            this.PaginationSaveButton.TabIndex = 18;
+            this.PaginationSaveButton.Text = "সংরক্ষণ";
+            this.PaginationSaveButton.UseVisualStyleBackColor = false;
+            this.PaginationSaveButton.Visible = false;
+            this.PaginationSaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // SelectorPanel
             // 
@@ -2088,6 +2071,28 @@ namespace dNothi.Desktop.UI
             this.label14.Size = new System.Drawing.Size(85, 34);
             this.label14.TabIndex = 1;
             this.label14.Text = "সেটিংস‌";
+            // 
+            // NotificationSaveButton
+            // 
+            this.NotificationSaveButton.AutoSize = true;
+            this.NotificationSaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.NotificationSaveButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NotificationSaveButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.NotificationSaveButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.NotificationSaveButton.FlatAppearance.BorderSize = 0;
+            this.NotificationSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NotificationSaveButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.NotificationSaveButton.ForeColor = System.Drawing.Color.White;
+            this.NotificationSaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NotificationSaveButton.Location = new System.Drawing.Point(116, 10);
+            this.NotificationSaveButton.Margin = new System.Windows.Forms.Padding(0);
+            this.NotificationSaveButton.Name = "NotificationSaveButton";
+            this.NotificationSaveButton.Size = new System.Drawing.Size(111, 45);
+            this.NotificationSaveButton.TabIndex = 19;
+            this.NotificationSaveButton.Text = "সংরক্ষণ";
+            this.NotificationSaveButton.UseVisualStyleBackColor = false;
+            this.NotificationSaveButton.Visible = false;
+            this.NotificationSaveButton.Click += new System.EventHandler(this.NotificationSaveButton_Click);
             // 
             // SettingsUserControl
             // 
@@ -2265,7 +2270,7 @@ namespace dNothi.Desktop.UI
         private System.Windows.Forms.Label FourthLabel;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button PaginationSaveButton;
         private System.Windows.Forms.Panel panel38;
         private System.Windows.Forms.ComboBox cbxNothiInbox;
         private System.Windows.Forms.Panel panel31;
@@ -2292,53 +2297,54 @@ namespace dNothi.Desktop.UI
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel45;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox dak_receiveSMSCheckBox;
         private System.Windows.Forms.Panel panel43;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox dak_receiveEmailCheckBox;
         private System.Windows.Forms.Panel panel37;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox dak_receivePushCheckBox;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel58;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Panel panel59;
-        private System.Windows.Forms.CheckBox checkBox13;
+        private System.Windows.Forms.CheckBox potrojari_receiveSMSCheckBox;
         private System.Windows.Forms.Panel panel60;
-        private System.Windows.Forms.CheckBox checkBox14;
+        private System.Windows.Forms.CheckBox potrojari_receiveEmailCheckBox;
         private System.Windows.Forms.Panel panel61;
-        private System.Windows.Forms.CheckBox checkBox15;
+        private System.Windows.Forms.CheckBox potrojari_receivePushCheckBox;
         private System.Windows.Forms.Panel panel62;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel53;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Panel panel54;
-        private System.Windows.Forms.CheckBox checkBox10;
+        private System.Windows.Forms.CheckBox note_receiveSMSCheckBox;
         private System.Windows.Forms.Panel panel55;
-        private System.Windows.Forms.CheckBox checkBox11;
+        private System.Windows.Forms.CheckBox note_receiveEmailCheckBox;
         private System.Windows.Forms.Panel panel56;
-        private System.Windows.Forms.CheckBox checkBox12;
+        private System.Windows.Forms.CheckBox note_receivePushCheckBox;
         private System.Windows.Forms.Panel panel57;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel48;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Panel panel49;
-        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox note_permissionSMSCheckBox;
         private System.Windows.Forms.Panel panel50;
-        private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.CheckBox note_permissionEmailCheckBox;
         private System.Windows.Forms.Panel panel51;
-        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.CheckBox note_permissionPushCheckBox;
         private System.Windows.Forms.Panel panel52;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Panel panel42;
-        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox nothi_permissionSMSCheckBox;
         private System.Windows.Forms.Panel panel44;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox nothi_permissionEmailCheckBox;
         private System.Windows.Forms.Panel panel46;
-        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox nothi_permissionPushCheckBox;
         private System.Windows.Forms.Panel panel47;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button NotificationSaveButton;
     }
 }

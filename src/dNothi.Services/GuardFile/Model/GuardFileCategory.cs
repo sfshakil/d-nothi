@@ -18,12 +18,14 @@ namespace dNothi.Services.GuardFile.Model
             public int office_unit_organogram_id { get; set; }
             public string created { get; set; }
             public string guard_file_type_count { get; set; }
+            public bool offline { get; set; }
         }
 
         public class Data
         {
             public List<Record> records { get; set; }
             public int total_records { get; set; }
+           
         }
 
       

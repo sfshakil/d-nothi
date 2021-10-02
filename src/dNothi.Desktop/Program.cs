@@ -292,7 +292,9 @@ namespace dNothi.Desktop
             builder.RegisterType<PotroJariGroupService>().As<IPotroJariGroupService>();
             builder.RegisterType<PotroServices>().As<IPotroServices>();
             builder.RegisterType<ProfileManagementServices>().As<IProfileManagementServices>();
-         
+          
+
+
 
             builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();
             builder.RegisterGeneric(typeof(DakSharingService<>)).As(typeof(IDakSharingService<>)).AsSelf();
@@ -311,7 +313,10 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.KhosraDashboard>().AsSelf();
             builder.RegisterType<UI.PotrojariGroup>().AsSelf();
             builder.RegisterType<PotrojariGroupForm>().AsSelf();
+            builder.RegisterType<DakAttachmentViewForm>().AsSelf();
             
+
+
             builder.RegisterType<UI.ReviewDashBoard>().AsSelf();
             builder.RegisterType<UI.RvwDashContentShowInEditor>().AsSelf();
             builder.RegisterType<UI.Khosra>().AsSelf();
