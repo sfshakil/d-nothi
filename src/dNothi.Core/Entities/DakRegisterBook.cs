@@ -17,9 +17,9 @@ namespace dNothi.Core.Entities
         public int unitId { get; set; }
         public string fromDate { get; set; }
         public string toDate { get; set; }
-        public bool dnb { get; set; }
-        public bool dnc { get; set; }
-        public bool dnd { get; set; }
+        public bool isDakGrahan { get; set; }
+        public bool isDakBili { get; set; }
+        public bool isShakaDiary { get; set; }
 
         [MaxLength]
         public string daklist_json { get; set; }

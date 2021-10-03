@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NothiMasterRegisterReportUserControl));
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
@@ -43,8 +37,6 @@
             this.pageNextButton = new FontAwesome.Sharp.IconButton();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.totalRowlabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dateTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -57,23 +49,13 @@
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.headlineLabel = new System.Windows.Forms.Label();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.registerReportDataGridView = new System.Windows.Forms.DataGridView();
-            this.slDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acceptNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docketingNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sharokNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.applyDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.previousPrapok = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docketingNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registerReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fileWebBrowser = new System.Windows.Forms.WebBrowser();
             this.noRowMessageLabel = new System.Windows.Forms.Label();
             this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.nothiPrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
-            this.fileWebBrowser = new System.Windows.Forms.WebBrowser();
+            this.perPageRowLabel = new System.Windows.Forms.Label();
             this.dateRangeTextBox.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
@@ -81,8 +63,6 @@
             this.headerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.bodyTableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.registerReportDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.registerReportBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // iconButton2
@@ -127,10 +107,10 @@
             // 
             // dateRangeTextBox
             // 
+            this.dateRangeTextBox.Controls.Add(this.perPageRowLabel);
             this.dateRangeTextBox.Controls.Add(this.pageNextButton);
             this.dateRangeTextBox.Controls.Add(this.iconButton3);
             this.dateRangeTextBox.Controls.Add(this.totalRowlabel);
-            this.dateRangeTextBox.Controls.Add(this.panel1);
             this.dateRangeTextBox.Controls.Add(this.panel3);
             this.dateRangeTextBox.Controls.Add(this.panel7);
             this.dateRangeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -184,46 +164,12 @@
             this.totalRowlabel.AutoSize = true;
             this.totalRowlabel.BackColor = System.Drawing.Color.Transparent;
             this.totalRowlabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalRowlabel.Location = new System.Drawing.Point(674, 18);
+            this.totalRowlabel.Location = new System.Drawing.Point(749, 18);
             this.totalRowlabel.Name = "totalRowlabel";
             this.totalRowlabel.Size = new System.Drawing.Size(79, 18);
             this.totalRowlabel.TabIndex = 97;
             this.totalRowlabel.Text = "সর্বমোট ৮১ টি";
             this.totalRowlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Location = new System.Drawing.Point(761, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(1);
-            this.panel1.Size = new System.Drawing.Size(68, 35);
-            this.panel1.TabIndex = 96;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Border_Color_Blue);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.DropDownHeight = 110;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.Items.AddRange(new object[] {
-            "১০",
-            "২০",
-            "৩০",
-            "৪০",
-            "৫০"});
-            this.comboBox1.Location = new System.Drawing.Point(4, 4);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(63, 26);
-            this.comboBox1.TabIndex = 91;
-            this.comboBox1.Text = "১০";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -387,7 +333,6 @@
             this.bodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.bodyTableLayoutPanel.Controls.Add(this.headerPanel, 0, 0);
             this.bodyTableLayoutPanel.Controls.Add(this.dateRangeTextBox, 0, 1);
-            this.bodyTableLayoutPanel.Controls.Add(this.registerReportDataGridView, 0, 2);
             this.bodyTableLayoutPanel.Controls.Add(this.fileWebBrowser, 0, 3);
             this.bodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bodyTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
@@ -400,150 +345,16 @@
             this.bodyTableLayoutPanel.Size = new System.Drawing.Size(913, 584);
             this.bodyTableLayoutPanel.TabIndex = 0;
             // 
-            // registerReportDataGridView
+            // fileWebBrowser
             // 
-            this.registerReportDataGridView.AllowUserToAddRows = false;
-            this.registerReportDataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerReportDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.registerReportDataGridView.AutoGenerateColumns = false;
-            this.registerReportDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.registerReportDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.registerReportDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.registerReportDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5, 10, 8, 10);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.registerReportDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.registerReportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.registerReportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.slDataGridViewTextBoxColumn,
-            this.acceptNumDataGridViewTextBoxColumn,
-            this.docketingNoDataGridViewTextBoxColumn,
-            this.sharokNoDataGridViewTextBoxColumn,
-            this.applyDateDataGridViewTextBoxColumn,
-            this.previousPrapok,
-            this.docketingNo,
-            this.type});
-            this.registerReportDataGridView.DataSource = this.registerReportBindingSource;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(3, 2, 2, 2);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.registerReportDataGridView.DefaultCellStyle = dataGridViewCellStyle10;
-            this.registerReportDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.registerReportDataGridView.EnableHeadersVisualStyles = false;
-            this.registerReportDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
-            this.registerReportDataGridView.Location = new System.Drawing.Point(3, 100);
-            this.registerReportDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.registerReportDataGridView.Name = "registerReportDataGridView";
-            this.registerReportDataGridView.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.registerReportDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.registerReportDataGridView.RowHeadersVisible = false;
-            this.registerReportDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(8);
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.registerReportDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.registerReportDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerReportDataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.registerReportDataGridView.RowTemplate.Height = 40;
-            this.registerReportDataGridView.Size = new System.Drawing.Size(907, 50);
-            this.registerReportDataGridView.TabIndex = 96;
-            this.registerReportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prapokDataGridView_CellContentClick);
-            // 
-            // slDataGridViewTextBoxColumn
-            // 
-            this.slDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.slDataGridViewTextBoxColumn.DataPropertyName = "sl";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.slDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
-            this.slDataGridViewTextBoxColumn.FillWeight = 120F;
-            this.slDataGridViewTextBoxColumn.HeaderText = "ক্রমিক নং";
-            this.slDataGridViewTextBoxColumn.Name = "slDataGridViewTextBoxColumn";
-            this.slDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // acceptNumDataGridViewTextBoxColumn
-            // 
-            this.acceptNumDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.acceptNumDataGridViewTextBoxColumn.DataPropertyName = "sub";
-            this.acceptNumDataGridViewTextBoxColumn.FillWeight = 150F;
-            this.acceptNumDataGridViewTextBoxColumn.HeaderText = "বিষয়";
-            this.acceptNumDataGridViewTextBoxColumn.Name = "acceptNumDataGridViewTextBoxColumn";
-            this.acceptNumDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // docketingNoDataGridViewTextBoxColumn
-            // 
-            this.docketingNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.docketingNoDataGridViewTextBoxColumn.DataPropertyName = "mainPrapok";
-            this.docketingNoDataGridViewTextBoxColumn.FillWeight = 180F;
-            this.docketingNoDataGridViewTextBoxColumn.HeaderText = "প্রেরক";
-            this.docketingNoDataGridViewTextBoxColumn.Name = "docketingNoDataGridViewTextBoxColumn";
-            this.docketingNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sharokNoDataGridViewTextBoxColumn
-            // 
-            this.sharokNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.sharokNoDataGridViewTextBoxColumn.DataPropertyName = "sharokNo";
-            this.sharokNoDataGridViewTextBoxColumn.FillWeight = 180F;
-            this.sharokNoDataGridViewTextBoxColumn.HeaderText = "স্মারক নম্বর";
-            this.sharokNoDataGridViewTextBoxColumn.Name = "sharokNoDataGridViewTextBoxColumn";
-            this.sharokNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // applyDateDataGridViewTextBoxColumn
-            // 
-            this.applyDateDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.applyDateDataGridViewTextBoxColumn.DataPropertyName = "applyDate";
-            this.applyDateDataGridViewTextBoxColumn.FillWeight = 300F;
-            this.applyDateDataGridViewTextBoxColumn.HeaderText = "প্রেরণের তারিখ";
-            this.applyDateDataGridViewTextBoxColumn.Name = "applyDateDataGridViewTextBoxColumn";
-            this.applyDateDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // previousPrapok
-            // 
-            this.previousPrapok.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.previousPrapok.DataPropertyName = "previousPrapok";
-            this.previousPrapok.HeaderText = "প্রাপকসমূহ";
-            this.previousPrapok.Name = "previousPrapok";
-            this.previousPrapok.ReadOnly = true;
-            // 
-            // docketingNo
-            // 
-            this.docketingNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.docketingNo.DataPropertyName = "docketingNo";
-            this.docketingNo.HeaderText = "অনুলিপিসমূহ";
-            this.docketingNo.Name = "docketingNo";
-            this.docketingNo.ReadOnly = true;
-            // 
-            // type
-            // 
-            this.type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.type.DataPropertyName = "type";
-            this.type.HeaderText = "পত্র ধরন";
-            this.type.Name = "type";
-            this.type.ReadOnly = true;
-            // 
-            // registerReportBindingSource
-            // 
-            this.registerReportBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.RegisterReport);
+            this.fileWebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileWebBrowser.Location = new System.Drawing.Point(10, 96);
+            this.fileWebBrowser.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.fileWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.fileWebBrowser.Name = "fileWebBrowser";
+            this.fileWebBrowser.Size = new System.Drawing.Size(893, 488);
+            this.fileWebBrowser.TabIndex = 97;
+            this.fileWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
             // 
             // noRowMessageLabel
             // 
@@ -576,10 +387,6 @@
             this.customDatePicker.Visible = false;
             this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
             // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
             // nothiPrintPreviewDialog
             // 
             this.nothiPrintPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
@@ -591,16 +398,16 @@
             this.nothiPrintPreviewDialog.Name = "dakUploadPrintPreviewDialog";
             this.nothiPrintPreviewDialog.Visible = false;
             // 
-            // fileWebBrowser
+            // perPageRowLabel
             // 
-            this.fileWebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileWebBrowser.Location = new System.Drawing.Point(10, 154);
-            this.fileWebBrowser.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.fileWebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.fileWebBrowser.Name = "fileWebBrowser";
-            this.fileWebBrowser.Size = new System.Drawing.Size(893, 430);
-            this.fileWebBrowser.TabIndex = 97;
-            this.fileWebBrowser.Url = new System.Uri("", System.UriKind.Relative);
+            this.perPageRowLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.perPageRowLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.perPageRowLabel.Location = new System.Drawing.Point(641, 7);
+            this.perPageRowLabel.Name = "perPageRowLabel";
+            this.perPageRowLabel.Size = new System.Drawing.Size(100, 39);
+            this.perPageRowLabel.TabIndex = 100;
+            this.perPageRowLabel.Text = "১ - ১২";
+            this.perPageRowLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // NothiMasterRegisterReportUserControl
             // 
@@ -616,7 +423,6 @@
             this.Load += new System.EventHandler(this.RegisterReportUserControl_Load);
             this.dateRangeTextBox.ResumeLayout(false);
             this.dateRangeTextBox.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -626,8 +432,6 @@
             this.headerPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
             this.bodyTableLayoutPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.registerReportDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.registerReportBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -640,8 +444,6 @@
         private FontAwesome.Sharp.IconButton pageNextButton;
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.Label totalRowlabel;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel3;
         private PlaceholderTextBox.PlaceholderTextBox dateTextBox;
         private System.Windows.Forms.Panel panel4;
@@ -656,19 +458,10 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Label headlineLabel;
         private System.Windows.Forms.TableLayoutPanel bodyTableLayoutPanel;
-        private System.Windows.Forms.DataGridView registerReportDataGridView;
-        private System.Windows.Forms.BindingSource registerReportBindingSource;
         private System.Windows.Forms.Label noRowMessageLabel;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog nothiPrintPreviewDialog;
-        private System.Windows.Forms.DataGridViewTextBoxColumn slDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn acceptNumDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn docketingNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sharokNoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn applyDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn previousPrapok;
-        private System.Windows.Forms.DataGridViewTextBoxColumn docketingNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn type;
         private System.Windows.Forms.WebBrowser fileWebBrowser;
+        private System.Windows.Forms.Label perPageRowLabel;
     }
 }

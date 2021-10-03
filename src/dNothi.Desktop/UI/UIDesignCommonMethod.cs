@@ -20,6 +20,15 @@ namespace dNothi.Desktop.UI
 {
    public class UIDesignCommonMethod
     {
+        public static string copyRightLableText = "© কপিরাইট ২০২১, V:1.15";
+        public static readonly List<string> ImageExtensions = new List<string> { ".JPEG", ".JPG", "JPG", "JPE", "BMP", "GIF", "PNG", ".JPE", ".BMP", ".GIF", ".PNG", "IMAGE", "IMG" };
+        public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF" };
+        public static readonly List<string> ExcelExtension = new List<string> { ".XLS", "XLS" };
+        public static readonly List<string> TxtExtension = new List<string> { ".TXT", ".TEXT", "TXT", "TEXT" };
+        public static readonly List<string> docExtension = new List<string> { "DOCX", "DOC" };
+        public static readonly List<string> PPTExtension = new List<string> { "PPT", "PPTX" };
+        public static readonly List<string> CSVExtension = new List<string> { "CSV" };
+        public static readonly List<string> AudioExtension = new List<string> { "MP3", "M4P", "MP4" };
         public static String ConvertImageURLToBase64(String url)
         {
             StringBuilder _sb = new StringBuilder();
@@ -188,15 +197,6 @@ namespace dNothi.Desktop.UI
             }
         }
 
-
-        public static readonly List<string> ImageExtensions = new List<string> { ".JPEG", ".JPG", "JPG", "JPE", "BMP", "GIF", "PNG", ".JPE", ".BMP", ".GIF", ".PNG", "IMAGE", "IMG" };
-        public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF" };
-        public static readonly List<string> ExcelExtension = new List<string> { ".XLS", "XLS" };
-        public static readonly List<string> TxtExtension = new List<string> { ".TXT",".TEXT", "TXT", "TEXT" };
-        public static readonly List<string> docExtension = new List<string> { "DOCX", "DOC" };
-        public static readonly List<string> PPTExtension = new List<string> { "PPT", "PPTX" };
-        public static readonly List<string> CSVExtension = new List<string> { "CSV" };
-        public static readonly List<string> AudioExtension = new List<string> { "MP3", "M4P", "MP4" };
 
         public static void ShowSingleAttachment(DakAttachmentDTO dakAttachmentDTO, UserControl parentForm)
         {
@@ -472,7 +472,7 @@ namespace dNothi.Desktop.UI
 
        
 
-        public static string copyRightLableText = "© কপিরাইট ২০২১, V:1.14";
+      
 
         public static void SuccessMessage(string Message)
         {

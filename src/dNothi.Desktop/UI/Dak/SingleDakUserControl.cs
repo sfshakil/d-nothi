@@ -603,9 +603,11 @@ namespace dNothi.Desktop.UI.Dak
                 _dakPriority = value;
 
 
+                if (value != "0")
 
-
-                rightInfoPanel.dakPrioriy = value;
+                {
+                    rightInfoPanel.dakPrioriy = value;
+                }
 
 
 

@@ -36,26 +36,14 @@ namespace dNothi.Desktop.UI.NothiUI
         IUserService _userService { get; set; }
         INothiReportService _nothiReportService { get; set; }
         IBasicService _basicService { get; set; }
-        private void RefreshPagination()
-        {
-            
-        }
-
+        
         public NothiMasterRegisterReportUserControl(IUserService userService, INothiReportService nothiReportService, IBasicService basicService)
         {
             _userService = userService;
             _nothiReportService = nothiReportService;
             _basicService = basicService;
             InitializeComponent();
-            fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
-            todate = DateTime.Now.ToString("yyyy/MM/dd");
-            dateTextBox.Text = fromdate + ":" + todate;
-
-            var userparam = _userService.GetLocalDakUserParam();
-            dakPriorityComboBox.DataSource = getShaka(userparam);
-            dakPriorityComboBox.DisplayMember = "Name";
-            dakPriorityComboBox.ValueMember = "Id";
-            dakPriorityComboBox.SelectedValue = userparam.office_unit_id;
+           
         }
 
         private List<ComboBoxItem> getShaka(DakUserParam userparam)
@@ -73,20 +61,7 @@ namespace dNothi.Desktop.UI.NothiUI
             }
             return comboBoxItems;
         }
-        public bool _isNothiPerito { get; set; }
-        public bool _isNothiRegister { get; set; }
-        public bool _isNothiGrahon { get; set; }
-        public bool _isPotraJariBohi { get; set; }
-        private bool _isNothiMasterFile { get; set; }
-
-        public bool isNothiPerito { get { return _isNothiPerito; } set { _isNothiPerito = value; if (value) { headlineLabel.Text = "নথি প্রেরণ নিবন্ধন বহি"; } } }
-        public bool isNothiRegister { get { return _isNothiRegister; } set { _isNothiRegister = value; if (value) { headlineLabel.Text = "নথি নিবন্ধন বহি"; } } }
-        public bool isNothiGrahon { get { return _isNothiGrahon; } set { _isNothiGrahon = value; if (value) { headlineLabel.Text = "নথি গ্রহণ নিবন্ধন বহি"; } } }
-
-        public bool isPotraJariBohi { get { return _isPotraJariBohi; } set { _isPotraJariBohi = value; if (value) { headlineLabel.Text = "পত্রজারি নিবন্ধন বহি"; } } }
-
-        public bool isNothiMasterFile { get { return _isNothiMasterFile; } set { _isNothiMasterFile = value; if (value) { headlineLabel.Text = "মাস্টার ফাইল"; } } }
-
+       
         private void Border_Color_Blue(object sender, PaintEventArgs e)
         {
             ControlPaint.DrawBorder(e.Graphics, (sender as Control).ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
@@ -113,20 +88,21 @@ namespace dNothi.Desktop.UI.NothiUI
             dateTextBox.Text = customDatePicker._date;
 
             customDatePicker.Visible = false;
+            Formload();
+        }
+
+        private void Formload()
+        {
             page = 1;
-            lastCountValue = 1;
-            LoadData();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void prapokDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+            start = 1;
+            LoadData(); 
+            if (totalrecord < 1) { end = totalrecord; }
+            else { end = 1; }
+            NextPreviousButtonShow();
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
 
         }
+       
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
@@ -141,12 +117,12 @@ namespace dNothi.Desktop.UI.NothiUI
         private void LoadData()
         {
             var userParam = _userService.GetLocalDakUserParam();
-            string pagessize = comboBox1.Text;
+          
             string dateRange = dateTextBox.Text;
-            string unitid = dakPriorityComboBox.SelectedValue!=null? dakPriorityComboBox.SelectedValue.ToString():string.Empty;
+            string unitid = dakPriorityComboBox.SelectedValue!=null? dakPriorityComboBox.SelectedValue.ToString(): userParam.office_unit_id.ToString();
             if (dateRange == string.Empty)
             {
-                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+                fromdate = DateTime.Now.AddDays(-6).ToString("yyyy/MM/dd");
                 todate = DateTime.Now.ToString("yyyy/MM/dd");
                 
             }
@@ -156,58 +132,25 @@ namespace dNothi.Desktop.UI.NothiUI
                 todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
             }
 
-            pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(pagessize));
-
             userParam.page = page;
             userParam.limit = pageLimit;
           
-            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam, fromdate, todate, unitid, _isNothiPerito, _isNothiGrahon, _isNothiRegister, _isPotraJariBohi, _isNothiMasterFile);
+            var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam, fromdate, todate, unitid, false, false, false, false, true);
             if (nothiRegisterBook.status == "success")
             {
                 totalRowlabel.Text = "সর্বমোট "+ ConversionMethod.EnglishNumberToBangla( nothiRegisterBook.data.total_records.ToString())+" টি";
                 noRowMessageLabel.Visible = false;
                 lastrecord = nothiRegisterBook.data.records.Count();
-                //lastCountValue = 1;
-                //int serial = 1;
+               
              foreach(var item in nothiRegisterBook.data.records)
                 {
                     fileWebBrowser.Url = new Uri(item.mulpotro.url);
                 }
-                //var columns = (from t in nothiRegisterBook.data.records
-                //               select new
-                //               {
-                //                   sl = ConversionMethod.EnglishNumberToBangla((lastCountValue++).ToString()),
-                //                   sub=t.potrojari.potro_subject,
-                //                   mainPrapok=getPrerok(t.potrojari.recipient.sender),
-                //                   sharokNo= t.potrojari.sarok_no,
-                //                   applyDate=t.basic.issue_date,
-                //                   previousPrapok= getPrapok(t.potrojari.recipient.receiver),
-                //                   docketingNo=getOnulipi(t.potrojari.recipient.onulipi),
 
-                //                   type=t.potrojari.potro_type==1?"অফিস স্বারক": (t.potrojari.potro_type == 2? "সরকারি পত্র" : "আধা সরকারি পত্র"),
-
-                //               }).ToList();
-                //if (columns.Count <= 0)
-                //{
-                //    noRowMessageLabel.Visible = true;
-                //}
-                //else
-                //{
-                //    noRowMessageLabel.Visible = false;
-                //    //lastCountValue = columns.Max(x => x.lastCountValue);
-                //}
-                pageLimit = 1;
+                totalrecord = nothiRegisterBook.data.total_records;
                 float pagesize = (float)(nothiRegisterBook.data.total_records) / (float)pageLimit;
                 totalPage = (int)Math.Ceiling(pagesize);
-               // registerReportDataGridView.DataSource = null;
-               //registerReportDataGridView.DataSource = columns.ToList();
-               
-               // registerReportDataGridView.AutoResizeColumns();
-
-               // registerReportDataGridView.AutoSizeColumnsMode =DataGridViewAutoSizeColumnsMode.Fill;
-
-               // MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
-               // registerReportDataGridView.ColumnHeadersDefaultCellStyle.Font = MemoryFonts.GetFont(0, 12, registerReportDataGridView.Font.Style);
+              
             }
             else
             {
@@ -215,16 +158,18 @@ namespace dNothi.Desktop.UI.NothiUI
             }
 
         }
-        Bitmap bitmap;
-
-     
        
         private void RegisterReportUserControl_Load(object sender, EventArgs e)
         {
-            page = 1;
-            lastCountValue = 1;
-           // LoadData();
-            NextPreviousButtonShow();
+            fromdate = DateTime.Now.AddDays(-6).ToString("yyyy/MM/dd");
+            todate = DateTime.Now.ToString("yyyy/MM/dd");
+            dateTextBox.Text = fromdate + ":" + todate;
+
+            var userparam = _userService.GetLocalDakUserParam();
+            dakPriorityComboBox.DataSource = getShaka(userparam);
+            dakPriorityComboBox.DisplayMember = "Name";
+            dakPriorityComboBox.ValueMember = "Id";
+            dakPriorityComboBox.SelectedValue = userparam.office_unit_id;
         }
 
        
@@ -276,16 +221,14 @@ namespace dNothi.Desktop.UI.NothiUI
             else
             {
                 page = totalPage;
-                start = start;
-                end = end;
-
-
+               
             }
             endrow = end.ToString();
             LoadData();
 
 
             if (totalrecord < end) { endrow = totalrecord.ToString(); }
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
 
             NextPreviousButtonShow();
         }
@@ -304,14 +247,13 @@ namespace dNothi.Desktop.UI.NothiUI
             else
             {
                 page = 1;
-                start = start;
-                end = end;
+                
 
             }
 
 
             LoadData();
-            //perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
             NextPreviousButtonShow();
 
         }
@@ -323,23 +265,11 @@ namespace dNothi.Desktop.UI.NothiUI
             if (dakPriorityComboBox.SelectedValue.ToString() != "dNothi.Desktop.ComboBoxItem")
                 
             {
-                page = 1;
-                lastCountValue = 1;
-                LoadData();
-                NextPreviousButtonShow();
+                Formload();
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            page = 1;
-            lastCountValue = 1;
-            LoadData();
-        }
+      
 
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            e.Graphics.DrawImage(bitmap, 0, 0);
-        }
     }
 }

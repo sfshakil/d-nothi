@@ -1427,6 +1427,12 @@
     <Compile Include="UI\NothiUI\NothiPotrajariRegisterReportUserControl.Designer.cs">
       <DependentUpon>NothiPotrajariRegisterReportUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\NothiUI\NothiRegistersReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NothiUI\NothiRegistersReportUserControl.Designer.cs">
+      <DependentUpon>NothiRegistersReportUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\NothiUI\NothiRegisterReportUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1563,8 +1569,10 @@
       <DependentUpon>UserNamePanel.cs</DependentUpon>
     </Compile>
     <Compile Include="View Model\ConvertProtibedonResponsetoProtibedon.cs" />
+    <Compile Include="View Model\ConvertNothiReport.cs" />
     <Compile Include="View Model\ConvertRegisterResponsetoReport.cs" />
     <Compile Include="View Model\Protibedon.cs" />
+    <Compile Include="View Model\NothiReport.cs" />
     <Compile Include="View Model\RegisterReport.cs" />
     <Compile Include="View Model\OfficerGroup.cs" />
     <Compile Include="View Model\ViewDesignationSealList.cs" />
@@ -2069,6 +2077,9 @@
     <EmbeddedResource Include="UI\NothiUI\NothiPotrajariRegisterReportUserControl.resx">
       <DependentUpon>NothiPotrajariRegisterReportUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\NothiUI\NothiRegistersReportUserControl.resx">
+      <DependentUpon>NothiRegistersReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\NothiUI\NothiRegisterReportUserControl.resx">
       <DependentUpon>NothiRegisterReportUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -2139,6 +2150,7 @@
     <None Include="dNothi.Desktop_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\dNothi.Desktop.View_Model.NothiReport.datasource" />
     <None Include="Properties\DataSources\dNothi.Desktop.View_Model.Protibedon.datasource" />
     <None Include="Properties\DataSources\dNothi.Desktop.View_Model.RegisterReport.datasource" />
     <None Include="Properties\DataSources\dNothi.Desktop.View_Model.ViewDesignationSealList.datasource" />
