@@ -27,7 +27,8 @@ namespace dNothi.Services.UserServices
 
         bool ValidatePassword(char passChar);
         string InvalidPasswordMessage();
+        NotificationSettingsResponse GetNotificationSettings(DakUserParam dakUserParam);
+        NotificationSettingsSaveResponse SaveNotificationSettings(DakUserParam dakUserParam, NotificationSettingsData notificationSettingsData);
 
-     
     }
 }

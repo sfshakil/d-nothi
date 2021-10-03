@@ -131,14 +131,11 @@ namespace dNothi.Desktop.UI.Dak
 
            
 
-            nothiListFlowLayoutPanel.Controls.Clear();
-            nothiListFlowLayoutPanel.AutoScroll = true;
-            nothiListFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            nothiListFlowLayoutPanel.WrapContents = false;
+           
 
             for (int j = 0; j <= nothiInboxs.Count - 1; j++)
             {
-                nothiListFlowLayoutPanel.Controls.Add(nothiInboxs[j]);
+                UIDesignCommonMethod.AddRowinTable(nothiListFlowLayoutPanel, nothiInboxs[j]);
             }
         }
         private void LoadNothiAll()
@@ -223,7 +220,7 @@ namespace dNothi.Desktop.UI.Dak
 
             for (int j = 0; j <= nothiAlls.Count - 1; j++)
             {
-                nothiListFlowLayoutPanel.Controls.Add(nothiAlls[j]);
+                UIDesignCommonMethod.AddRowinTable(nothiListFlowLayoutPanel, nothiAlls[j]);
             }
         }
 

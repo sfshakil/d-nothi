@@ -193,7 +193,7 @@ namespace dNothi.Desktop.UI.Dak
                 {
                     lbDesk.Visible = false; btnNote.Visible = false; btnOnumodito.Visible = false;
                     btnOnishponno.Visible = false; btnNishponno.Visible = false; btnArchive.Visible = false;
-                    lbNoteLastDate.Visible = false; iconButton2.Visible = false; iconButton4.Visible = false;
+                    lbNoteLastDate.Text=""; iconButton2.Visible = false; iconButton4.Visible = false;
                     iconButton5.Visible = false; iconButton6.Visible = false; iconButton7.Visible = false;
                     lbNoteTotal.Visible = false; lbPermitted.Visible = false; lbOnishponno.Visible = false;
                     lbNishponno.Visible = false; lbArchived.Visible = false;
@@ -249,7 +249,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void LoadNote()
         {
-            newAllNoteFlowLayoutPanel.Controls.Clear();
+            allNoteTable.Controls.Clear();
             if (!InternetConnection.Check())
             {
                 var nothiInboxNotUploadedNotes = _nothiInboxNote.GetNotUploadedNoteFromLocal(_userService.GetLocalDakUserParam(), _id, "All");
@@ -293,14 +293,11 @@ namespace dNothi.Desktop.UI.Dak
                         nothiNoteShomuhos.Add(nothiNoteShomuho);
 
                     }
-                    newAllNoteFlowLayoutPanel.Controls.Clear();
-                    newAllNoteFlowLayoutPanel.AutoScroll = true;
-                    newAllNoteFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-                    newAllNoteFlowLayoutPanel.WrapContents = false;
+                   
 
                     for (int j = 0; j <= nothiNoteShomuhos.Count - 1; j++)
                     {
-                        newAllNoteFlowLayoutPanel.Controls.Add(nothiNoteShomuhos[j]);
+                        UIDesignCommonMethod.AddRowinTable(allNoteTable, nothiNoteShomuhos[j]);
                     }
                 }
             }
@@ -406,7 +403,7 @@ namespace dNothi.Desktop.UI.Dak
 
             for (int j = 0; j <= dakNothiteUposthaponNoteLists.Count - 1; j++)
             {
-                newAllNoteFlowLayoutPanel.Controls.Add(dakNothiteUposthaponNoteLists[j]);
+                UIDesignCommonMethod.AddRowinTable(allNoteTable, dakNothiteUposthaponNoteLists[j]);
             }
         }
 

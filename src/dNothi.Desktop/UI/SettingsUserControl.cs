@@ -3,6 +3,7 @@ using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity;
 using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
+using dNothi.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -120,17 +121,61 @@ namespace dNothi.Desktop.UI
             nothiSliderPanel.BackColor = Color.White;
 
             shownotification();
+            loadNotification();
         }
+        private void loadNotification() 
+        {
+            if (InternetConnection.Check())
+            {
+                DakUserParam _dakuserparam = _userService.GetLocalDakUserParam();
+                var response = _userService.GetNotificationSettings(_dakuserparam);
+                loadPushNotification(response.data.push_actions);
+                loadEmailNotification(response.data.email_actions);
+                loadSMSNotification(response.data.sms_actions);
+            }
+            else
+            {
+                UIDesignCommonMethod.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+        }
+        private void loadPushNotification(PushActions pushActions)
+        {
+            dak_receivePushCheckBox.Checked = (Convert.ToInt32(pushActions.dak_receive) == 1) ? true : false;
+            nothi_permissionPushCheckBox.Checked = (Convert.ToInt32(pushActions.nothi_permission) == 1) ? true : false;
+            note_permissionPushCheckBox.Checked = (Convert.ToInt32(pushActions.note_permission) == 1) ? true : false;
+            note_receivePushCheckBox.Checked = (Convert.ToInt32(pushActions.note_receive) == 1) ? true : false;
+            potrojari_receivePushCheckBox.Checked = (Convert.ToInt32(pushActions.potrojari_receive) == 1) ? true : false;
+        }
+        private void loadEmailNotification(EmailActions emailActions)
+        {
+            dak_receiveEmailCheckBox.Checked = (Convert.ToInt32(emailActions.dak_receive) == 1) ? true : false;
+            nothi_permissionEmailCheckBox.Checked = (Convert.ToInt32(emailActions.nothi_permission) == 1) ? true : false;
+            note_permissionEmailCheckBox.Checked = (Convert.ToInt32(emailActions.note_permission) == 1) ? true : false;
+            note_receiveEmailCheckBox.Checked = (Convert.ToInt32(emailActions.note_receive) == 1) ? true : false;
+            potrojari_receiveEmailCheckBox.Checked = (Convert.ToInt32(emailActions.potrojari_receive) == 1) ? true : false;
+        }
+        private void loadSMSNotification(SmsActions smsActions)
+        {
+            dak_receiveSMSCheckBox.Checked = (Convert.ToInt32(smsActions.dak_receive) == 1) ? true : false;
+            nothi_permissionSMSCheckBox.Checked = (Convert.ToInt32(smsActions.nothi_permission) == 1) ? true : false;
+            note_permissionSMSCheckBox.Checked = (Convert.ToInt32(smsActions.note_permission) == 1) ? true : false;
+            note_receiveSMSCheckBox.Checked = (Convert.ToInt32(smsActions.note_receive) == 1) ? true : false;
+            potrojari_receiveSMSCheckBox.Checked = (Convert.ToInt32(smsActions.potrojari_receive) == 1) ? true : false;
+        }
+
         private void showpaginationoffnotification()
         {
             NotificationPanel.Visible = false;
-
+            NotificationSaveButton.Visible = false;
             PaginationPanel.Visible = true;
+            PaginationSaveButton.Visible = true;
             this.Height = HeaderPanel.Height + SelectorPanel.Height + PaginationPanel.Height + FooterPanel.Height;
         }
         private void shownotification()
         {
             NotificationPanel.Visible = true;
+            NotificationSaveButton.Visible = true;
+            PaginationSaveButton.Visible = false;
 
             PaginationPanel.Visible = false;
             this.Height = HeaderPanel.Height + SelectorPanel.Height + NotificationPanel.Height + FooterPanel.Height;
@@ -272,7 +317,71 @@ namespace dNothi.Desktop.UI
             cbxKhoshra.SelectedIndex = returnIndexFromLimit(settings.dakKhoshraPagination) ;
         }
 
-        
+        private void NotificationSaveButton_Click(object sender, EventArgs e)
+        {
+            if (InternetConnection.Check())
+            {
+                DakUserParam _dakuserparam = _userService.GetLocalDakUserParam();
+                NotificationSettingsData notificationSettingsData = new NotificationSettingsData();
+                PushActions pushActions = new PushActions();
+                EmailActions emailActions = new EmailActions();
+                SmsActions smsActions = new SmsActions();
+
+                pushActions = SetPushActions();
+                emailActions = SetEmailActions();
+                smsActions = SetSMSActions();
+
+                notificationSettingsData.push_actions = pushActions;
+                notificationSettingsData.email_actions = emailActions;
+                notificationSettingsData.sms_actions = smsActions;
+
+                var response = _userService.SaveNotificationSettings(_dakuserparam, notificationSettingsData);
+                if (response.status == "success")
+                {
+                    this.Hide();
+                    UIDesignCommonMethod.SuccessMessage("সফলভাবে সংরক্ষণ হয়েছে");
+                }
+                else
+                {
+                    UIDesignCommonMethod.ErrorMessage("দুঃখিত! সংরক্ষণ সম্ভব হচ্ছে না");
+                }
+            }
+            else
+            {
+                UIDesignCommonMethod.ErrorMessage("এই মুহুর্তে ইন্টারনেট সংযোগ স্থাপন করা সম্ভব হচ্ছেনা!");
+            }
+        }
+        private PushActions SetPushActions()
+        {
+            PushActions pushActions = new PushActions();
+            pushActions.dak_receive = (dak_receivePushCheckBox.Checked == true) ? "1" :"0";
+            pushActions.nothi_permission = (nothi_permissionPushCheckBox.Checked == true) ? "1" :"0";
+            pushActions.note_receive = (note_receivePushCheckBox.Checked == true) ? "1" :"0";
+            pushActions.note_permission = (note_permissionPushCheckBox.Checked == true) ? "1" :"0";
+            pushActions.potrojari_receive = (potrojari_receivePushCheckBox.Checked == true) ? "1" :"0";
+            return pushActions;
+        }
+        private EmailActions SetEmailActions()
+        {
+            EmailActions emailActions = new EmailActions();
+            emailActions.dak_receive = (dak_receiveEmailCheckBox.Checked == true) ? "1" : "0";
+            emailActions.nothi_permission = (nothi_permissionEmailCheckBox.Checked == true) ? "1" : "0";
+            emailActions.note_receive = (note_receiveEmailCheckBox.Checked == true) ? 1 : 0;
+            emailActions.note_permission = (note_permissionEmailCheckBox.Checked == true) ? "1" : "0";
+            emailActions.potrojari_receive = (potrojari_receiveEmailCheckBox.Checked == true) ? 1 : 0;
+            return emailActions;
+        }
+        private SmsActions SetSMSActions()
+        {
+            SmsActions smsActions = new SmsActions();
+            smsActions.dak_receive = (dak_receiveSMSCheckBox.Checked == true) ? 1 : 0;
+            smsActions.nothi_permission = (nothi_permissionSMSCheckBox.Checked == true) ? 1 : 0;
+            smsActions.note_receive = (note_receiveSMSCheckBox.Checked == true) ? 1 : 0;
+            smsActions.note_permission = (note_permissionSMSCheckBox.Checked == true) ? 1 : 0;
+            smsActions.potrojari_receive = (potrojari_receiveSMSCheckBox.Checked == true) ? 1 : 0;
+            return smsActions;
+        }
+
         //public Settings getLocalData()
         //{
         //    Settings settings = new Settings();

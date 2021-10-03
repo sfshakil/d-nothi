@@ -457,6 +457,14 @@ namespace dNothi.Services.UserServices
         {
             return DefaultAPIConfiguration.DakNothiCountEndPoint;
         }
+        protected string GetNotificationSettingsEndPoint()
+        {
+            return DefaultAPIConfiguration.NotificationSettingsEndPoint;
+        }
+        protected string GetNotificationSettingsSaveEndPoint()
+        {
+            return DefaultAPIConfiguration.NotificationSettingsSaveEndPoint;
+        }
         public EmployeDakNothiCountResponse GetDakNothiCountResponseUsingEmployeeDesignation(DakUserParam userParam)
         {
             EmployeDakNothiCountResponse dakNothiCount = new EmployeDakNothiCountResponse();
@@ -512,6 +520,60 @@ namespace dNothi.Services.UserServices
                 userItem.responseJson = responseJson;
                 _userItem.Insert(userItem);
 
+            }
+        }
+
+        public NotificationSettingsResponse GetNotificationSettings(DakUserParam dakUserParam)
+        {
+            NotificationSettingsResponse notificationSettingsResponse = new NotificationSettingsResponse();
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNotificationSettingsEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                var serializedObject = JsonConvert.SerializeObject(dakUserParam);
+                request.AddParameter("cdesk", serializedObject);
+                IRestResponse response = client.Execute(request);
+
+
+                var responseJson = response.Content;
+                notificationSettingsResponse = JsonConvert.DeserializeObject<NotificationSettingsResponse>(responseJson);
+                return notificationSettingsResponse;
+            }
+            catch (Exception ex)
+            {
+                return notificationSettingsResponse;
+            }
+        }
+
+        public NotificationSettingsSaveResponse SaveNotificationSettings(DakUserParam dakUserParam, NotificationSettingsData notificationSettingsData)
+        {
+            NotificationSettingsSaveResponse notificationSettingsResponse = new NotificationSettingsSaveResponse();
+            try
+            {
+                var client = new RestClient(GetAPIDomain() + GetNotificationSettingsSaveEndPoint());
+                client.Timeout = -1;
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("api-version", GetAPIVersion());
+                request.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                request.AlwaysMultipartFormData = true;
+                var serializedObject = JsonConvert.SerializeObject(dakUserParam);
+                var notificationSerializedObject = JsonConvert.SerializeObject(notificationSettingsData);
+                request.AddParameter("cdesk", serializedObject);
+                request.AddParameter("actions", notificationSerializedObject);
+                IRestResponse response = client.Execute(request);
+
+
+                var responseJson = response.Content;
+                notificationSettingsResponse = JsonConvert.DeserializeObject<NotificationSettingsSaveResponse>(responseJson);
+                return notificationSettingsResponse;
+            }
+            catch (Exception ex)
+            {
+                return notificationSettingsResponse;
             }
         }
     }
