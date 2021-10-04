@@ -421,10 +421,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             else
             {
                 page = totalPage;
-                start = start;
-                end = end;
-
-
+               
             }
             endrow = end.ToString();
             LoadGuardFileList();
@@ -449,9 +446,7 @@ namespace dNothi.Desktop.UI.OtherModule.GuardFileUserControls
             else
             {
                 page = 1;
-                start = start;
-                end = end;
-
+                
             }
 
 

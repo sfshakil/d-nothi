@@ -5205,8 +5205,7 @@ namespace dNothi.Desktop.UI
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-            searchHeaderTableLayoutPanel.Visible = false;
-            dakSortMetroPanel.Visible = false;
+           
             if (registerPanel.Visible)
             {
                 registerPanel.Visible = false;
@@ -5222,7 +5221,7 @@ namespace dNothi.Desktop.UI
         string todate = DateTime.Now.ToString("yyyy/MM/dd");
         private void registerGrohonButton_Click(object sender, EventArgs e)
         {
-            WaitForm.Show(this);
+            
             searchHeaderTableLayoutPanel.Visible = false;
             dakSortMetroPanel.Visible = false;
             ResetAllMenuButtonSelection();
@@ -5230,25 +5229,20 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
-            _dakuserparam.page = 1;
-            _dakuserparam.limit = 10;
-            DakReportModel registerReportResponse = _registerService.GetDakGrohonResponse(_dakuserparam,fromdate,todate, null);
+           
             RegisterReportUserControl registerReportUserControl = UserControlFactory.Create<RegisterReportUserControl>();
             registerReportUserControl.isDakGrohon = true;
-            registerReportUserControl.totalRecord = registerReportResponse.data.total_records;
-            registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetGrahonRegisterReports(registerReportResponse);
-           
-            UIDesignCommonMethod.AddRowinTable(dakBodyFlowLayoutPanel, registerReportUserControl);
-            // registerReportUserControl.Dock = DockStyle.Fill;
-            // int row = dakBodyFlowLayoutPanel.RowCount++;
-            //  dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0F));
-            //  dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
-            WaitForm.Close();
+
+            registerReportUserControl.Dock = DockStyle.Fill;
+            int row = dakBodyFlowLayoutPanel.RowCount++;
+            dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
+            dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
+            
         }
 
         private void registerBiliButton_Click(object sender, EventArgs e)
         {
-            WaitForm.Show(this);
+           
             searchHeaderTableLayoutPanel.Visible = false;
             dakSortMetroPanel.Visible = false;
             ResetAllMenuButtonSelection();
@@ -5256,25 +5250,20 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
-            _dakuserparam.page = 1;
-            _dakuserparam.limit = 10;
-            RegisterReportResponse registerReportResponse = _registerService.GetDakBiliResponse(_dakuserparam, fromdate, todate, null);
+          
             RegisterReportUserControl registerReportUserControl = UserControlFactory.Create<RegisterReportUserControl>();
             registerReportUserControl.isDakBili = true;
-            registerReportUserControl.totalRecord = registerReportResponse.data.total_records;
-            registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
-
-
+          
             registerReportUserControl.Dock = DockStyle.Fill;
             int row = dakBodyFlowLayoutPanel.RowCount++;
             dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
             dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
-            WaitForm.Close();
+           
         }
 
         private void registerDiaryButton_Click(object sender, EventArgs e)
         {
-            WaitForm.Show(this);
+           
             searchHeaderTableLayoutPanel.Visible = false;
             dakSortMetroPanel.Visible = false;
             ResetAllMenuButtonSelection();
@@ -5282,20 +5271,15 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
-            _dakuserparam.page = 1;
-            _dakuserparam.limit = 10;
-            RegisterReportResponse registerReportResponse = _registerService.GetDakDiaryResponse(_dakuserparam, fromdate, todate, null);
+           
             RegisterReportUserControl registerReportUserControl =UserControlFactory.Create<RegisterReportUserControl>();
             registerReportUserControl.isDakDiary = true;
-            registerReportUserControl.totalRecord = registerReportResponse.data.total_records;
-            registerReportUserControl.registerReports = ConvertRegisterResponsetoReport.GetRegisterReports(registerReportResponse);
-
-
+         
             registerReportUserControl.Dock = DockStyle.Fill;
             int row = dakBodyFlowLayoutPanel.RowCount++;
             dakBodyFlowLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize, 0f));
             dakBodyFlowLayoutPanel.Controls.Add(registerReportUserControl, 0, row);
-            WaitForm.Close();
+          
         }
 
         private void pendingReportButton_Click(object sender, EventArgs e)

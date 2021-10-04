@@ -333,6 +333,8 @@ namespace dNothi.Desktop
             
             builder.RegisterType<ProtibedonUserControl>().AsSelf();
             builder.RegisterType<UI.Dak.RegisterReportUserControl>().AsSelf();
+            builder.RegisterType<NothiRegistersReportUserControl>().AsSelf();
+            
             builder.RegisterType<UI.Dak.AllDakTrakingUserControl>().AsSelf();
 
             

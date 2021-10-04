@@ -15,6 +15,7 @@ using iTextSharp.text.pdf;
 using dNothi.Services.NothiReportService;
 using dNothi.Services.UserServices;
 using dNothi.Services.BasicService;
+using dNothi.Services.DakServices;
 
 namespace dNothi.Desktop.UI.NothiUI
 {
@@ -45,14 +46,7 @@ namespace dNothi.Desktop.UI.NothiUI
             _nothiReportService = nothiReportService;
             _basicService = basicService;
             InitializeComponent();
-            fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
-            todate = DateTime.Now.ToString("yyyy/MM/dd");
-            dateTextBox.Text = fromdate + ":" + todate;
-
-
-            dakPriorityComboBox.DataSource = getShaka();
-            dakPriorityComboBox.DisplayMember = "Name";
-            dakPriorityComboBox.ValueMember = "Id";
+           
         }
 
         private List<ComboBoxItem> getShaka()
@@ -98,9 +92,7 @@ namespace dNothi.Desktop.UI.NothiUI
             dateTextBox.Text = customDatePicker._date;
 
             customDatePicker.Visible = false;
-            page = 1;
-            lastCountValue = 1;
-            LoadData();
+            FormLoad();
 
         }
 
@@ -130,9 +122,11 @@ namespace dNothi.Desktop.UI.NothiUI
            
             string dateRange = dateTextBox.Text;
             string unitid = dakPriorityComboBox.SelectedValue.ToString();
+            string name = pageLimitComboBox.Text;
+            pageLimit = Convert.ToInt32(ConversionMethod.BanglaDigittoEngDigit(name));
             if (dateRange == string.Empty)
             {
-                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+                fromdate = DateTime.Now.AddDays(-6).ToString("yyyy/MM/dd");
                 todate = DateTime.Now.ToString("yyyy/MM/dd");
                 
             }
@@ -148,7 +142,7 @@ namespace dNothi.Desktop.UI.NothiUI
             var nothiRegisterBook = _nothiReportService.NothiProtibedan(userParam,fromdate,todate, unitid);
             if (nothiRegisterBook.status == "success")
             {
-                totalRowlabel.Text = "সর্বমোট "+ ConversionMethod.EnglishNumberToBangla( nothiRegisterBook.data.total_records.ToString())+" টি";
+                totalLabel.Text = "সর্বমোট "+ ConversionMethod.EnglishNumberToBangla( nothiRegisterBook.data.total_records.ToString())+" টি";
                 noRowMessageLabel.Visible = false;
                 lastrecord = nothiRegisterBook.data.records.Count();
                
@@ -193,44 +187,24 @@ namespace dNothi.Desktop.UI.NothiUI
             }
 
         }
-        Bitmap bitmap;
-        private void printPdf()
-        {
-            //Add a Panel control.
-            Panel panel = new Panel();
-            this.Controls.Add(panel);
-
-            //Create a Bitmap of size same as that of the Form.
-            Graphics grp = panel.CreateGraphics();
-            Size formSize = bodyTableLayoutPanel.ClientSize;
-             bitmap = new Bitmap(registerReportDataGridView.Width + bodyTableLayoutPanel.Width, registerReportDataGridView.Height + bodyTableLayoutPanel.Height, grp);
-            grp = Graphics.FromImage(bitmap);
-
-            formSize.Width = registerReportDataGridView.Width + bodyTableLayoutPanel.Width;
-            formSize.Height = registerReportDataGridView.Height + bodyTableLayoutPanel.Height;
-
-            //Copy screen area that that the Panel covers.
-            Point panelLocation = PointToScreen(registerReportDataGridView.Location);
-            grp.CopyFromScreen(panelLocation.X, panelLocation.Y, 0, 0, formSize);
-
-            //Show the Print Preview Dialog.
-            nothiPrintPreviewDialog.Document = printDocument1;
-            nothiPrintPreviewDialog.PrintPreviewControl.Zoom = 1;
-            printDocument1.DefaultPageSettings.Landscape = true;
-            nothiPrintPreviewDialog.ShowDialog();
-        }
+        
         private void DataExportToExcel()
         {
             try
             {
+                DateTime fDate = Convert.ToDateTime(fromdate);
+                DateTime tDate = Convert.ToDateTime(todate);
+                var fdate = ConversionMethod.ConvertIntoBanglaDate(fDate, "bn-BD", "dd MMMM yyyy");
+                var tdate = ConversionMethod.ConvertIntoBanglaDate(tDate, "bn-BD", "dd MMMM yyyy");
+
                 Microsoft.Office.Interop.Excel._Application app = new Microsoft.Office.Interop.Excel.Application();
                 Microsoft.Office.Interop.Excel._Workbook workbook = app.Workbooks.Add(Type.Missing);
                 Microsoft.Office.Interop.Excel._Worksheet worksheet = null;
-                app.Visible = true;
+                app.Visible = false;
                 worksheet = workbook.Sheets["Sheet1"];
                 worksheet = workbook.ActiveSheet;
-                worksheet.Name = "Records";
-
+                worksheet.Name = headlineLabel.Text;
+                string name = headlineLabel.Text + "_" + dakPriorityComboBox.Text + "_" + fdate + "_" + tdate;
                 try
                 {
                     for (int i = 0; i < registerReportDataGridView.Columns.Count; i++)
@@ -256,7 +230,7 @@ namespace dNothi.Desktop.UI.NothiUI
                     SaveFileDialog saveDialog = new SaveFileDialog();
                     saveDialog.Filter = "Excel files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
                     saveDialog.FilterIndex = 2;
-
+                    saveDialog.FileName = name;
                     if (saveDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     {
                         workbook.SaveAs(saveDialog.FileName);
@@ -360,14 +334,32 @@ namespace dNothi.Desktop.UI.NothiUI
        
         private void RegisterReportUserControl_Load(object sender, EventArgs e)
         {
-            page = 1;
-            lastCountValue = 1;
-            LoadData();
-            NextPreviousButtonShow();
-            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+            fromdate = DateTime.Now.AddDays(-6).ToString("yyyy/MM/dd");
+            todate = DateTime.Now.ToString("yyyy/MM/dd");
+            dateTextBox.Text = fromdate + ":" + todate;
 
+
+            var userparam = _userService.GetLocalDakUserParam();
+            dakPriorityComboBox.DataSource = getShaka(userparam);
+            dakPriorityComboBox.DisplayMember = "Name";
+            dakPriorityComboBox.ValueMember = "Id";
+            dakPriorityComboBox.SelectedValue = userparam.office_unit_id;
         }
+        private List<ComboBoxItem> getShaka(DakUserParam userparam)
+        {
+            List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
 
+            var officeUnitResponse = _basicService.GetOfficeUnitList(userparam);
+            if (officeUnitResponse.status == "success")
+            {
+                comboBoxItems.Add(new ComboBoxItem("শাখা নির্বাচন করুন", 0));
+                foreach (var item in officeUnitResponse.data)
+                {
+                    comboBoxItems.Add(new ComboBoxItem(item.unit_name_bng, item.unit_id));
+                }
+            }
+            return comboBoxItems;
+        }
 
         #region Pagination
         private void NextPreviousButtonShow()
@@ -376,34 +368,31 @@ namespace dNothi.Desktop.UI.NothiUI
             {
                 if (page == 1 && totalPage > 1)
                 {
-                    iconButton3.Enabled = false;
+                    PreviousIconButton.Enabled = false;
                 }
                 else
                 {
-                    iconButton3.Enabled = true;
+                    PreviousIconButton.Enabled = true;
 
                 }
-                pageNextButton.Enabled = true;
+                nextIconButton.Enabled = true;
             }
             if (page == totalPage)
             {
                 if (page == 1 && totalPage == 1)
                 {
-                    iconButton3.Enabled = false;
+                    PreviousIconButton.Enabled = false;
 
                 }
                 else
                 {
-                    iconButton3.Enabled = true;
+                    PreviousIconButton.Enabled = true;
 
                 }
-                pageNextButton.Enabled = false;
+                nextIconButton.Enabled = false;
             }
-
-
-
         }
-        private void pageNextButton_Click(object sender, EventArgs e)
+        private void nextIconButton_Click(object sender, EventArgs e)
         {
             string endrow;
 
@@ -417,21 +406,14 @@ namespace dNothi.Desktop.UI.NothiUI
             else
             {
                 page = totalPage;
-                start = start;
-                end = end;
-
-
             }
             endrow = end.ToString();
             LoadData();
-
-
             if (totalrecord < end) { endrow = totalrecord.ToString(); }
-            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
 
             NextPreviousButtonShow();
         }
-        private void iconButton3_Click(object sender, EventArgs e)
+        private void PreviousIconButton_Click(object sender, EventArgs e)
         {
 
             if (page > 1)
@@ -440,20 +422,18 @@ namespace dNothi.Desktop.UI.NothiUI
                 page -= 1;
                 start -= pageLimit;
                 end -= pageLimit;
-                lastCountValue -= (pageLimit+lastrecord);
+                lastCountValue -= (pageLimit + lastrecord);
 
             }
             else
             {
                 page = 1;
-                start = start;
-                end = end;
 
             }
 
 
             LoadData();
-            perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
+
             NextPreviousButtonShow();
 
         }
@@ -465,20 +445,24 @@ namespace dNothi.Desktop.UI.NothiUI
             if (dakPriorityComboBox.SelectedValue.ToString() != "dNothi.Desktop.ComboBoxItem")
                 
             {
-                page = 1;
-                lastCountValue = 1;
-                LoadData();
-                NextPreviousButtonShow();
-                perPageRowLabel.Text = ConversionMethod.EnglishNumberToBangla(start.ToString()) + "-" + ConversionMethod.EnglishNumberToBangla(end.ToString());
-
+                FormLoad();
             }
+        }
+        private void FormLoad()
+        {
+            page = 1;
+            lastCountValue = 1;
+            LoadData();
+            NextPreviousButtonShow();
+        }
+
+     
+
+        private void pageLimitComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FormLoad();
         }
 
        
-
-        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-            e.Graphics.DrawImage(bitmap, 0, 0);
-        }
     }
 }

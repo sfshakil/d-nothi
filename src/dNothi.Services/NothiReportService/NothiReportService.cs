@@ -35,8 +35,6 @@ namespace dNothi.Services.NothiReportService
                 endPoint = DefaultAPIConfiguration.NothiPotrangshoNotePotrojariEndPoint;
             }
             
-
-
             int unitid = 0;
            
             if(branchName!=null)
@@ -172,7 +170,7 @@ namespace dNothi.Services.NothiReportService
             }
             else
             {
-                return "";
+                return "{\"status\":\"success\",\"data\":{\"records\":[],\"total_records\":0},\"options\":[]}";
             }
 
         }

@@ -37,21 +37,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegisterReportUserControl));
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.pdfExportIconButton = new FontAwesome.Sharp.IconButton();
+            this.excelExportIconButton = new FontAwesome.Sharp.IconButton();
             this.dateRangeTextBox = new System.Windows.Forms.Panel();
             this.pageNextButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.previousIconButton = new FontAwesome.Sharp.IconButton();
             this.totalRowlabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pageLimitComboBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dateTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.dakPriorityComboBox = new System.Windows.Forms.ComboBox();
+            this.officeUnitComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.headerPanel = new System.Windows.Forms.Panel();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
@@ -89,50 +89,50 @@
             ((System.ComponentModel.ISupportInitialize)(this.registerReportBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // iconButton1
+            // pdfExportIconButton
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(194)))), ((int)(((byte)(187)))));
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton1.IconSize = 24;
-            this.iconButton1.Location = new System.Drawing.Point(755, 0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(45, 41);
-            this.iconButton1.TabIndex = 68;
-            this.MyToolTip.SetToolTip(this.iconButton1, "পিডিএফ");
-            this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            this.pdfExportIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(194)))), ((int)(((byte)(187)))));
+            this.pdfExportIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pdfExportIconButton.FlatAppearance.BorderSize = 0;
+            this.pdfExportIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.pdfExportIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.pdfExportIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pdfExportIconButton.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            this.pdfExportIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pdfExportIconButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.pdfExportIconButton.IconSize = 24;
+            this.pdfExportIconButton.Location = new System.Drawing.Point(755, 0);
+            this.pdfExportIconButton.Name = "pdfExportIconButton";
+            this.pdfExportIconButton.Size = new System.Drawing.Size(45, 41);
+            this.pdfExportIconButton.TabIndex = 68;
+            this.MyToolTip.SetToolTip(this.pdfExportIconButton, "পিডিএফ");
+            this.pdfExportIconButton.UseVisualStyleBackColor = false;
+            this.pdfExportIconButton.Click += new System.EventHandler(this.pdfExportIconButton_Click);
             // 
-            // iconButton2
+            // excelExportIconButton
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(710, 0);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(45, 41);
-            this.iconButton2.TabIndex = 69;
-            this.MyToolTip.SetToolTip(this.iconButton2, "এক্সেল");
-            this.iconButton2.UseVisualStyleBackColor = false;
-            this.iconButton2.Click += new System.EventHandler(this.iconButton2_Click);
+            this.excelExportIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(150)))), ((int)(((byte)(250)))));
+            this.excelExportIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.excelExportIconButton.FlatAppearance.BorderSize = 0;
+            this.excelExportIconButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.excelExportIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.excelExportIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.excelExportIconButton.IconChar = FontAwesome.Sharp.IconChar.FileExcel;
+            this.excelExportIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.excelExportIconButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.excelExportIconButton.IconSize = 24;
+            this.excelExportIconButton.Location = new System.Drawing.Point(710, 0);
+            this.excelExportIconButton.Name = "excelExportIconButton";
+            this.excelExportIconButton.Size = new System.Drawing.Size(45, 41);
+            this.excelExportIconButton.TabIndex = 69;
+            this.MyToolTip.SetToolTip(this.excelExportIconButton, "এক্সেল");
+            this.excelExportIconButton.UseVisualStyleBackColor = false;
+            this.excelExportIconButton.Click += new System.EventHandler(this.excelExportIconButton_Click);
             // 
             // dateRangeTextBox
             // 
             this.dateRangeTextBox.Controls.Add(this.pageNextButton);
-            this.dateRangeTextBox.Controls.Add(this.iconButton3);
+            this.dateRangeTextBox.Controls.Add(this.previousIconButton);
             this.dateRangeTextBox.Controls.Add(this.totalRowlabel);
             this.dateRangeTextBox.Controls.Add(this.panel1);
             this.dateRangeTextBox.Controls.Add(this.panel3);
@@ -163,24 +163,24 @@
             this.pageNextButton.UseVisualStyleBackColor = false;
             this.pageNextButton.Click += new System.EventHandler(this.pageNextButton_Click);
             // 
-            // iconButton3
+            // previousIconButton
             // 
-            this.iconButton3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 24;
-            this.iconButton3.Location = new System.Drawing.Point(728, 9);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(34, 34);
-            this.iconButton3.TabIndex = 98;
-            this.iconButton3.UseVisualStyleBackColor = false;
-            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            this.previousIconButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.previousIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.previousIconButton.FlatAppearance.BorderSize = 0;
+            this.previousIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.previousIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.previousIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.previousIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.previousIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.previousIconButton.IconSize = 24;
+            this.previousIconButton.Location = new System.Drawing.Point(728, 9);
+            this.previousIconButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.previousIconButton.Name = "previousIconButton";
+            this.previousIconButton.Size = new System.Drawing.Size(34, 34);
+            this.previousIconButton.TabIndex = 98;
+            this.previousIconButton.UseVisualStyleBackColor = false;
+            this.previousIconButton.Click += new System.EventHandler(this.previousIconButton_Click);
             // 
             // totalRowlabel
             // 
@@ -198,7 +198,7 @@
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.pageLimitComboBox);
             this.panel1.Location = new System.Drawing.Point(648, 10);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
@@ -207,27 +207,27 @@
             this.panel1.TabIndex = 96;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Border_Color_Blue);
             // 
-            // comboBox1
+            // pageLimitComboBox
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.DropDownHeight = 110;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.IntegralHeight = false;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.pageLimitComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pageLimitComboBox.DropDownHeight = 110;
+            this.pageLimitComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pageLimitComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageLimitComboBox.FormattingEnabled = true;
+            this.pageLimitComboBox.IntegralHeight = false;
+            this.pageLimitComboBox.Items.AddRange(new object[] {
             "১০",
             "২০",
             "৩০",
             "৪০",
             "৫০"});
-            this.comboBox1.Location = new System.Drawing.Point(4, 4);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(63, 26);
-            this.comboBox1.TabIndex = 91;
-            this.comboBox1.Text = "১০";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.pageLimitComboBox.Location = new System.Drawing.Point(4, 4);
+            this.pageLimitComboBox.Margin = new System.Windows.Forms.Padding(0);
+            this.pageLimitComboBox.Name = "pageLimitComboBox";
+            this.pageLimitComboBox.Size = new System.Drawing.Size(63, 26);
+            this.pageLimitComboBox.TabIndex = 91;
+            this.pageLimitComboBox.Text = "১০";
+            this.pageLimitComboBox.SelectedIndexChanged += new System.EventHandler(this.pageLimitComboBox_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -301,7 +301,7 @@
             // panel7
             // 
             this.panel7.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.panel7.Controls.Add(this.dakPriorityComboBox);
+            this.panel7.Controls.Add(this.officeUnitComboBox);
             this.panel7.Controls.Add(this.label1);
             this.panel7.Location = new System.Drawing.Point(10, 9);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
@@ -311,20 +311,20 @@
             this.panel7.TabIndex = 94;
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.Border_Color_Blue);
             // 
-            // dakPriorityComboBox
+            // officeUnitComboBox
             // 
-            this.dakPriorityComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dakPriorityComboBox.DropDownHeight = 110;
-            this.dakPriorityComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.dakPriorityComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dakPriorityComboBox.FormattingEnabled = true;
-            this.dakPriorityComboBox.IntegralHeight = false;
-            this.dakPriorityComboBox.Location = new System.Drawing.Point(72, 4);
-            this.dakPriorityComboBox.Margin = new System.Windows.Forms.Padding(0);
-            this.dakPriorityComboBox.Name = "dakPriorityComboBox";
-            this.dakPriorityComboBox.Size = new System.Drawing.Size(174, 26);
-            this.dakPriorityComboBox.TabIndex = 91;
-            this.dakPriorityComboBox.SelectedIndexChanged += new System.EventHandler(this.dakPriorityComboBox_SelectedIndexChanged);
+            this.officeUnitComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.officeUnitComboBox.DropDownHeight = 110;
+            this.officeUnitComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.officeUnitComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officeUnitComboBox.FormattingEnabled = true;
+            this.officeUnitComboBox.IntegralHeight = false;
+            this.officeUnitComboBox.Location = new System.Drawing.Point(72, 4);
+            this.officeUnitComboBox.Margin = new System.Windows.Forms.Padding(0);
+            this.officeUnitComboBox.Name = "officeUnitComboBox";
+            this.officeUnitComboBox.Size = new System.Drawing.Size(174, 26);
+            this.officeUnitComboBox.TabIndex = 91;
+            this.officeUnitComboBox.SelectedIndexChanged += new System.EventHandler(this.officeUnitComboBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -342,8 +342,8 @@
             // 
             this.headerPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.headerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(243)))), ((int)(((byte)(253)))));
-            this.headerPanel.Controls.Add(this.iconButton2);
-            this.headerPanel.Controls.Add(this.iconButton1);
+            this.headerPanel.Controls.Add(this.excelExportIconButton);
+            this.headerPanel.Controls.Add(this.pdfExportIconButton);
             this.headerPanel.Controls.Add(this.iconPictureBox1);
             this.headerPanel.Controls.Add(this.headlineLabel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -640,7 +640,6 @@
             this.customDatePicker.TabIndex = 59;
             this.customDatePicker.Visible = false;
             this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
-            this.customDatePicker.Load += new System.EventHandler(this.customDatePicker_Load);
             this.customDatePicker.Click += new System.EventHandler(this.customDatePicker_Click);
             // 
             // RegisterReportUserControl
@@ -679,21 +678,21 @@
         private ManuelUserControl.DakCustomDatePickerUserControl customDatePicker;
         private System.Windows.Forms.Panel dateRangeTextBox;
         private FontAwesome.Sharp.IconButton pageNextButton;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton previousIconButton;
         private System.Windows.Forms.Label totalRowlabel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox pageLimitComboBox;
         private System.Windows.Forms.Panel panel3;
         private PlaceholderTextBox.PlaceholderTextBox dateTextBox;
         private System.Windows.Forms.Panel panel4;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ComboBox dakPriorityComboBox;
+        private System.Windows.Forms.ComboBox officeUnitComboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel headerPanel;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton excelExportIconButton;
+        private FontAwesome.Sharp.IconButton pdfExportIconButton;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private System.Windows.Forms.Label headlineLabel;
         private System.Windows.Forms.TableLayoutPanel bodyTableLayoutPanel;

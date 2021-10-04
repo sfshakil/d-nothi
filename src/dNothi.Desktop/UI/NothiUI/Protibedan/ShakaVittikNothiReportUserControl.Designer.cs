@@ -29,20 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShakaVittikNothiReportUserControl));
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.dateRangeTextBox = new System.Windows.Forms.Panel();
-            this.pageNextButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.totalRowlabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pageLimitComboBox = new System.Windows.Forms.ComboBox();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.PreviousIconButton = new FontAwesome.Sharp.IconButton();
+            this.nextIconButton = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dateTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -67,8 +70,9 @@
             this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.nothiPrintPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
-            this.perPageRowLabel = new System.Windows.Forms.Label();
             this.dateRangeTextBox.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
@@ -122,10 +126,7 @@
             // 
             // dateRangeTextBox
             // 
-            this.dateRangeTextBox.Controls.Add(this.pageNextButton);
-            this.dateRangeTextBox.Controls.Add(this.iconButton3);
-            this.dateRangeTextBox.Controls.Add(this.totalRowlabel);
-            this.dateRangeTextBox.Controls.Add(this.perPageRowLabel);
+            this.dateRangeTextBox.Controls.Add(this.panel1);
             this.dateRangeTextBox.Controls.Add(this.panel3);
             this.dateRangeTextBox.Controls.Add(this.panel7);
             this.dateRangeTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -135,56 +136,98 @@
             this.dateRangeTextBox.Size = new System.Drawing.Size(1238, 55);
             this.dateRangeTextBox.TabIndex = 95;
             // 
-            // pageNextButton
+            // panel1
             // 
-            this.pageNextButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pageNextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.pageNextButton.FlatAppearance.BorderSize = 0;
-            this.pageNextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.pageNextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pageNextButton.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.pageNextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.pageNextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pageNextButton.IconSize = 24;
-            this.pageNextButton.Location = new System.Drawing.Point(1200, 9);
-            this.pageNextButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.pageNextButton.Name = "pageNextButton";
-            this.pageNextButton.Size = new System.Drawing.Size(34, 34);
-            this.pageNextButton.TabIndex = 99;
-            this.pageNextButton.UseVisualStyleBackColor = false;
-            this.pageNextButton.Click += new System.EventHandler(this.pageNextButton_Click);
+            this.panel1.Controls.Add(this.panel5);
+            this.panel1.Controls.Add(this.totalLabel);
+            this.panel1.Controls.Add(this.PreviousIconButton);
+            this.panel1.Controls.Add(this.nextIconButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(967, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.panel1.Size = new System.Drawing.Size(271, 55);
+            this.panel1.TabIndex = 102;
             // 
-            // iconButton3
+            // panel5
             // 
-            this.iconButton3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.iconButton3.FlatAppearance.BorderSize = 0;
-            this.iconButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 24;
-            this.iconButton3.Location = new System.Drawing.Point(1166, 9);
-            this.iconButton3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(34, 34);
-            this.iconButton3.TabIndex = 98;
-            this.iconButton3.UseVisualStyleBackColor = false;
-            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.panel5.Controls.Add(this.pageLimitComboBox);
+            this.panel5.Location = new System.Drawing.Point(125, 9);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(68, 34);
+            this.panel5.TabIndex = 95;
             // 
-            // totalRowlabel
+            // pageLimitComboBox
             // 
-            this.totalRowlabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.totalRowlabel.AutoSize = true;
-            this.totalRowlabel.BackColor = System.Drawing.Color.Transparent;
-            this.totalRowlabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalRowlabel.Location = new System.Drawing.Point(1073, 18);
-            this.totalRowlabel.Name = "totalRowlabel";
-            this.totalRowlabel.Size = new System.Drawing.Size(73, 18);
-            this.totalRowlabel.TabIndex = 97;
-            this.totalRowlabel.Text = "সর্বমোট: ৮১ ";
-            this.totalRowlabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pageLimitComboBox.DropDownHeight = 110;
+            this.pageLimitComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pageLimitComboBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pageLimitComboBox.FormattingEnabled = true;
+            this.pageLimitComboBox.IntegralHeight = false;
+            this.pageLimitComboBox.Items.AddRange(new object[] {
+            "১০",
+            "২০",
+            "৩০",
+            "৪০",
+            "৫০"});
+            this.pageLimitComboBox.Location = new System.Drawing.Point(3, 4);
+            this.pageLimitComboBox.Margin = new System.Windows.Forms.Padding(0);
+            this.pageLimitComboBox.Name = "pageLimitComboBox";
+            this.pageLimitComboBox.Size = new System.Drawing.Size(63, 26);
+            this.pageLimitComboBox.TabIndex = 92;
+            this.pageLimitComboBox.Text = "১০";
+            this.pageLimitComboBox.SelectedIndexChanged += new System.EventHandler(this.pageLimitComboBox_SelectedIndexChanged);
+            // 
+            // totalLabel
+            // 
+            this.totalLabel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+            this.totalLabel.Location = new System.Drawing.Point(5, 0);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(75, 55);
+            this.totalLabel.TabIndex = 33;
+            this.totalLabel.Text = " সর্বমোট: ১২";
+            this.totalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PreviousIconButton
+            // 
+            this.PreviousIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.PreviousIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PreviousIconButton.FlatAppearance.BorderSize = 0;
+            this.PreviousIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.PreviousIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PreviousIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.PreviousIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.PreviousIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.PreviousIconButton.IconSize = 24;
+            this.PreviousIconButton.Location = new System.Drawing.Point(198, 0);
+            this.PreviousIconButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.PreviousIconButton.Name = "PreviousIconButton";
+            this.PreviousIconButton.Size = new System.Drawing.Size(34, 55);
+            this.PreviousIconButton.TabIndex = 34;
+            this.PreviousIconButton.UseVisualStyleBackColor = false;
+            this.PreviousIconButton.Click += new System.EventHandler(this.PreviousIconButton_Click);
+            // 
+            // nextIconButton
+            // 
+            this.nextIconButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.nextIconButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.nextIconButton.FlatAppearance.BorderSize = 0;
+            this.nextIconButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.nextIconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nextIconButton.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.nextIconButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.nextIconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.nextIconButton.IconSize = 24;
+            this.nextIconButton.Location = new System.Drawing.Point(232, 0);
+            this.nextIconButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.nextIconButton.Name = "nextIconButton";
+            this.nextIconButton.Size = new System.Drawing.Size(34, 55);
+            this.nextIconButton.TabIndex = 35;
+            this.nextIconButton.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -364,23 +407,23 @@
             // 
             this.registerReportDataGridView.AllowUserToAddRows = false;
             this.registerReportDataGridView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerReportDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registerReportDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.registerReportDataGridView.AutoGenerateColumns = false;
             this.registerReportDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.registerReportDataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.registerReportDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.registerReportDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5, 10, 8, 10);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.registerReportDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 10, 8, 10);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.registerReportDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.registerReportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.registerReportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.slDataGridViewTextBoxColumn,
@@ -390,15 +433,15 @@
             this.nothiNo,
             this.grahanDate});
             this.registerReportDataGridView.DataSource = this.registerReportBindingSource;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(3, 2, 2, 2);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.registerReportDataGridView.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(3, 2, 2, 2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.registerReportDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
             this.registerReportDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.registerReportDataGridView.EnableHeadersVisualStyles = false;
             this.registerReportDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(234)))), ((int)(((byte)(255)))));
@@ -406,21 +449,21 @@
             this.registerReportDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.registerReportDataGridView.Name = "registerReportDataGridView";
             this.registerReportDataGridView.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.registerReportDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.registerReportDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.registerReportDataGridView.RowHeadersVisible = false;
             this.registerReportDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(8);
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.registerReportDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(8);
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.registerReportDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.registerReportDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registerReportDataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.registerReportDataGridView.RowTemplate.Height = 40;
@@ -432,8 +475,8 @@
             // 
             this.slDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.slDataGridViewTextBoxColumn.DataPropertyName = "sl";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.slDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.slDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.slDataGridViewTextBoxColumn.FillWeight = 120F;
             this.slDataGridViewTextBoxColumn.HeaderText = "ক্রমিক নং";
             this.slDataGridViewTextBoxColumn.Name = "slDataGridViewTextBoxColumn";
@@ -514,10 +557,6 @@
             this.customDatePicker.Visible = false;
             this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
             // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
             // nothiPrintPreviewDialog
             // 
             this.nothiPrintPreviewDialog.AutoScrollMargin = new System.Drawing.Size(0, 0);
@@ -528,19 +567,6 @@
             this.nothiPrintPreviewDialog.Icon = ((System.Drawing.Icon)(resources.GetObject("nothiPrintPreviewDialog.Icon")));
             this.nothiPrintPreviewDialog.Name = "dakUploadPrintPreviewDialog";
             this.nothiPrintPreviewDialog.Visible = false;
-            // 
-            // perPageRowLabel
-            // 
-            this.perPageRowLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.perPageRowLabel.AutoSize = true;
-            this.perPageRowLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.perPageRowLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
-            this.perPageRowLabel.Location = new System.Drawing.Point(1027, 19);
-            this.perPageRowLabel.Name = "perPageRowLabel";
-            this.perPageRowLabel.Size = new System.Drawing.Size(40, 20);
-            this.perPageRowLabel.TabIndex = 100;
-            this.perPageRowLabel.Text = "১ - ১২";
-            this.perPageRowLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ShakaVittikNothiReportUserControl
             // 
@@ -555,7 +581,8 @@
             this.Size = new System.Drawing.Size(1238, 569);
             this.Load += new System.EventHandler(this.RegisterReportUserControl_Load);
             this.dateRangeTextBox.ResumeLayout(false);
-            this.dateRangeTextBox.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -576,9 +603,6 @@
         private System.Windows.Forms.ToolTip MyToolTip;
         private ManuelUserControl.DakCustomDatePickerUserControl customDatePicker;
         private System.Windows.Forms.Panel dateRangeTextBox;
-        private FontAwesome.Sharp.IconButton pageNextButton;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private System.Windows.Forms.Label totalRowlabel;
         private System.Windows.Forms.Panel panel3;
         private PlaceholderTextBox.PlaceholderTextBox dateTextBox;
         private System.Windows.Forms.Panel panel4;
@@ -607,6 +631,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nothisubject;
         private System.Windows.Forms.DataGridViewTextBoxColumn nothiNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn grahanDate;
-        private System.Windows.Forms.Label perPageRowLabel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.ComboBox pageLimitComboBox;
+        private System.Windows.Forms.Label totalLabel;
+        private FontAwesome.Sharp.IconButton PreviousIconButton;
+        private FontAwesome.Sharp.IconButton nextIconButton;
     }
 }
