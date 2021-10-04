@@ -689,6 +689,12 @@
     <Compile Include="UI\Dak\RegisterReportUserControl.Designer.cs">
       <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Dak\ResizableUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Dak\ResizableUserControl.Designer.cs">
+      <DependentUpon>ResizableUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Dak\ReviewDashBoardContent.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1726,6 +1732,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\RegisterReportUserControl.resx">
       <DependentUpon>RegisterReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Dak\ResizableUserControl.resx">
+      <DependentUpon>ResizableUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dak\ReviewDashBoardContent.resx">
       <DependentUpon>ReviewDashBoardContent.cs</DependentUpon>

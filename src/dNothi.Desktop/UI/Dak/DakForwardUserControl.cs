@@ -156,7 +156,7 @@ namespace dNothi.Desktop.UI.Dak
                     selectedDakListUserControl.DeleteDakFromList += delegate (object sender, EventArgs e) { DeleteDak(); };
 
 
-                    selectedDakListFlowLayoutPanel.Controls.Add(selectedDakListUserControl);
+                    UIDesignCommonMethod.AddRowinTable(selectedDakListFlowLayoutPanel, selectedDakListUserControl);
 
 
 
@@ -271,7 +271,7 @@ namespace dNothi.Desktop.UI.Dak
                             decisionTable.isAdded = false;
                         }
 
-                        decisionListFlowLayoutPanel.Controls.Add(decisionTable);
+                        UIDesignCommonMethod.AddRowinTable(decisionListFlowLayoutPanel, decisionTable);
                     }
                 }
             }
