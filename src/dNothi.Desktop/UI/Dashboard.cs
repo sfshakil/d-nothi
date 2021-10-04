@@ -450,7 +450,7 @@ namespace dNothi.Desktop.UI
             dakSendUserControl.AddDesignationButtonClick += delegate (object sender, EventArgs e) { AddDesignationFromForwardWindow_ButtonClick(dakSendUserControl); };
             dakSendUserControl.SucessfullyDakForwarded += delegate (object sender, EventArgs e) { SuccessfullySingleDakForwarded(false, 0, dakSendUserControl._totalSuccessForwardRequest, 0, dakSendUserControl._IsDakLocallyUploaded); };
 
-            dakSendUserControl.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            
             UIDesignCommonMethod.CalPopUpWindow(dakSendUserControl,this);
 
 
@@ -4356,15 +4356,15 @@ namespace dNothi.Desktop.UI
             List<DakListRecordsDTO> daks = new List<DakListRecordsDTO>();
 
 
-            var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<DakInboxUserControl>().ToList();
+            var dakInboxUserControls = dakBodyFlowLayoutPanel.Controls.OfType<SingleDakUserControl>().ToList();
 
             if (dakInboxUserControls.Count > 0)
             {
                 isdakbacai = false;
-                List<DakInboxUserControl> dakInboxSelectedUserControls = dakInboxUserControls.Where(a => a._isChecked == true).ToList();
+                List<SingleDakUserControl> dakInboxSelectedUserControls = dakInboxUserControls.Where(a => a._isChecked == true).ToList();
                 if (dakInboxSelectedUserControls.Count > 0)
                 {
-                    foreach (DakInboxUserControl dakInboxUserControl in dakInboxSelectedUserControls)
+                    foreach (SingleDakUserControl dakInboxUserControl in dakInboxSelectedUserControls)
                     {
                         daks.Add(dakInboxUserControl._dak);
                     }

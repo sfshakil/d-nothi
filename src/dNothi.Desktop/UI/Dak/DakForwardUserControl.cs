@@ -1379,6 +1379,7 @@ namespace dNothi.Desktop.UI.Dak
         {
             Screen scr = Screen.FromPoint(this.Location);
             this.Location = new Point(scr.WorkingArea.Right - this.Width, scr.WorkingArea.Top);
+            this.Height = scr.WorkingArea.Height;
             SetDefaultFont(this.Controls);
             ActionResult = UserControlFactory.Create<MultipleDakSelectedListConfirmForm>();
         }
