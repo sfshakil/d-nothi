@@ -23,6 +23,7 @@ namespace dNothi.Desktop.UI.Dak
         private int originalWidth;
         private int originalHeight;
         INoteSaveService _noteSave { get; set; }
+        INothiAllNoteServices _nothiAllNote { get; set; }
         public int _dak_id;
         public string _dak_type;
         public int _is_copied_dak;
@@ -50,8 +51,9 @@ namespace dNothi.Desktop.UI.Dak
         IUserService _userService { get; set; }
         IDakNothivuktoService _nothivuktoService { get; set; }
         INothiNoteTalikaServices _nothinotetalikaservices { get; set; }
-        public DakModuleSokolNothiListUserControl(INoteSaveService noteSave,INothiInboxNoteServices nothiInboxNote,IDakNothivuktoService dakNothivuktoService, IUserService userService, INothiNoteTalikaServices nothiNoteTalikaServices)
+        public DakModuleSokolNothiListUserControl(INothiAllNoteServices nothiAllNote,INoteSaveService noteSave,INothiInboxNoteServices nothiInboxNote,IDakNothivuktoService dakNothivuktoService, IUserService userService, INothiNoteTalikaServices nothiNoteTalikaServices)
         {
+            _nothiAllNote = nothiAllNote;
             _nothiInboxNote = nothiInboxNote;
             _noteSave = noteSave;
             InitializeComponent();
@@ -302,8 +304,8 @@ namespace dNothi.Desktop.UI.Dak
                 }
             }
 
-
-            var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_userService.GetLocalDakUserParam(), _id, "All", "asc");
+            var nothiInboxNote = _nothiAllNote.GetNothiAllNote(_userService.GetLocalDakUserParam(), _id, "All", "asc");
+           // var nothiInboxNote = _nothiInboxNote.GetNothiInboxNote(_userService.GetLocalDakUserParam(), _id, "All", "asc");
 
           //  NothiNoteListResponse noteAll = new NothiNoteListResponse();
            
@@ -342,6 +344,7 @@ namespace dNothi.Desktop.UI.Dak
                 dakNothiteUposthaponNoteList._noteDto = noteDTO;
                 dakNothiteUposthaponNoteList.note_no = Convert.ToString(noteDTO.note.note_no);
                 dakNothiteUposthaponNoteList.note_subject = noteDTO.note.note_subject;
+                dakNothiteUposthaponNoteList.sub_subject_text = noteDTO.note.note_subject_sub_text;
 
                 //dakNothiteUposthaponNoteList.toofficer = noteDTO.deskConverted.;
                 dakNothiteUposthaponNoteList.potrojari = noteDTO.note.potrojari;
@@ -350,7 +353,8 @@ namespace dNothi.Desktop.UI.Dak
                 // dakNothiteUposthaponNoteList.toofficer = noteDTO;
                 dakNothiteUposthaponNoteList.onucched = noteDTO.note.onucched_count;
                 dakNothiteUposthaponNoteList.nothivukto = noteDTO.note.nothivukto_potro;
-                
+                dakNothiteUposthaponNoteList.can_revert= noteDTO.note.can_revert;
+
                 NoteNothiDTO noteNothiDTO = new NoteNothiDTO();
 
                 if (noteDTO.nothi != null)

@@ -1,9 +1,12 @@
-﻿using dNothi.Desktop.UI.CustomMessageBox;
+﻿using dNothi.Core.Entities;
+using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
+using dNothi.Services.SettingServices;
 using dNothi.Services.UserServices;
+using dNothi.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +24,14 @@ namespace dNothi.Desktop.UI.Dak
         IUserService _userService { get; set; }
         INothiAllServices _nothiAll { get; set; }
         IDakNothivuktoService _nothivuktoService { get; set; }
+        ISettingServices _settingServices { get; set; }
+
+
+        public int pageNo { get; set; }
+        public int pageLimit { get; set; }
+        public int totalPage { get; set; }
+
+       
 
 
         public bool _dakNothiteUposthapitoLocally;
@@ -39,14 +50,19 @@ namespace dNothi.Desktop.UI.Dak
             _khosra = true;
         }
 
-        public DakNothiteUposthapitoForm(IDakNothivuktoService dakNothivuktoService, IUserService userService, INothiAllServices nothiAll, INothiNoteTalikaServices nothiNoteTalikaServices)
+        public DakNothiteUposthapitoForm(ISettingServices settingServices,IDakNothivuktoService dakNothivuktoService, IUserService userService, INothiAllServices nothiAll, INothiNoteTalikaServices nothiNoteTalikaServices)
         {
+            _settingServices = settingServices;
             _nothiAll = nothiAll;
             _nothivuktoService = dakNothivuktoService;
             _userService = userService;
             _nothinotetalikaservices = nothiNoteTalikaServices;
             _userParam = _userService.GetLocalDakUserParam();
-            
+
+            SettingsList setting = _settingServices.GetSettingList(_userParam);
+            pageNo = 1;
+            pageLimit = (setting.nothiAllPagination==0) ? 10: setting.nothiAllPagination;
+
             InitializeComponent();
             LoadNothiAll();
         }
@@ -80,8 +96,8 @@ namespace dNothi.Desktop.UI.Dak
         private void LoadNothiAll()
         {
 
-            _userParam.page = 1;
-            _userParam.limit = 10;
+            _userParam.page = pageNo;
+            _userParam.limit = pageLimit;
 
 
             var nothiAll = _nothiAll.GetNothiAll(_userParam);
@@ -91,10 +107,29 @@ namespace dNothi.Desktop.UI.Dak
                 if (nothiAll.data.records.Count > 0)
                 {
                     LoadNothiAllinPanel(nothiAll.data.records);
+                    SetPagination(nothiAll.data.records.Count,nothiAll.data.total_records);
                 }
 
             }
         }
+
+        private void SetPagination(int count,int total)
+        {
+            int startpage = (pageNo - 1) * pageLimit + 1;
+            int endPage = startpage+count-1;
+            
+
+            totalPage = total/pageLimit;
+            totalPage += ((total % pageLimit) != 0) ? 1 : 0;
+
+
+            paginationLabel.Text = ConversionMethod.EngDigittoBanDigit(startpage.ToString()) + "-" + ConversionMethod.EngDigittoBanDigit(endPage.ToString()) + " সর্বমোট:" + ConversionMethod.EngDigittoBanDigit(total.ToString());
+            
+                prevButton.Enabled = (startpage != 1);
+                nextButton.Enabled = (totalPage != pageNo);
+            
+        }
+
         private void LoadNothiAllinPanel(List<NothiListAllRecordsDTO> nothiAllLists)
         {
             nothiListFlowLayoutPanel.Controls.Clear();
@@ -323,6 +358,17 @@ namespace dNothi.Desktop.UI.Dak
 
         }
 
-       
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            pageNo += 1;
+            LoadNothiAll();
+        }
+
+        private void prevButton_Click(object sender, EventArgs e)
+        {
+
+            pageNo -= 1;
+            LoadNothiAll();
+        }
     }
 }

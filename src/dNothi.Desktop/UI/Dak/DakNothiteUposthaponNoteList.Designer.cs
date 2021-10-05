@@ -68,7 +68,7 @@
             this.nothiteUposthapitoButton.IconColor = System.Drawing.Color.Black;
             this.nothiteUposthapitoButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.nothiteUposthapitoButton.Location = new System.Drawing.Point(7, 7);
-            this.nothiteUposthapitoButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nothiteUposthapitoButton.Margin = new System.Windows.Forms.Padding(4);
             this.nothiteUposthapitoButton.Name = "nothiteUposthapitoButton";
             this.nothiteUposthapitoButton.Size = new System.Drawing.Size(24, 22);
             this.nothiteUposthapitoButton.TabIndex = 64;
@@ -86,7 +86,7 @@
             this.nothiAttachmentButton.IconSize = 24;
             this.nothiAttachmentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.nothiAttachmentButton.Location = new System.Drawing.Point(589, 9);
-            this.nothiAttachmentButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nothiAttachmentButton.Margin = new System.Windows.Forms.Padding(4);
             this.nothiAttachmentButton.Name = "nothiAttachmentButton";
             this.nothiAttachmentButton.Size = new System.Drawing.Size(41, 52);
             this.nothiAttachmentButton.TabIndex = 81;
@@ -117,7 +117,7 @@
             this.subjectPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.subjectPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.subjectPanel.Location = new System.Drawing.Point(0, 68);
-            this.subjectPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.subjectPanel.Margin = new System.Windows.Forms.Padding(4);
             this.subjectPanel.Name = "subjectPanel";
             this.subjectPanel.Size = new System.Drawing.Size(867, 0);
             this.subjectPanel.TabIndex = 86;
@@ -141,7 +141,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(35, 0);
             this.panel3.TabIndex = 63;
@@ -170,7 +170,7 @@
             this.senderAndReceiverPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.senderAndReceiverPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.senderAndReceiverPanel.Location = new System.Drawing.Point(0, 35);
-            this.senderAndReceiverPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.senderAndReceiverPanel.Margin = new System.Windows.Forms.Padding(4);
             this.senderAndReceiverPanel.Name = "senderAndReceiverPanel";
             this.senderAndReceiverPanel.Size = new System.Drawing.Size(867, 33);
             this.senderAndReceiverPanel.TabIndex = 85;
@@ -178,7 +178,7 @@
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(-57, 74);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(267, 30);
             this.panel1.TabIndex = 91;
@@ -205,7 +205,7 @@
             this.rightArrowIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.rightArrowIcon.IconSize = 24;
             this.rightArrowIcon.Location = new System.Drawing.Point(380, 7);
-            this.rightArrowIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rightArrowIcon.Margin = new System.Windows.Forms.Padding(4);
             this.rightArrowIcon.Name = "rightArrowIcon";
             this.rightArrowIcon.Size = new System.Drawing.Size(21, 21);
             this.rightArrowIcon.TabIndex = 69;
@@ -233,7 +233,7 @@
             this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton7.IconSize = 24;
             this.iconButton7.Location = new System.Drawing.Point(177, 2);
-            this.iconButton7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton7.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton7.Name = "iconButton7";
             this.iconButton7.Size = new System.Drawing.Size(27, 28);
             this.iconButton7.TabIndex = 67;
@@ -285,7 +285,7 @@
             this.eyeIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.eyeIcon.IconSize = 27;
             this.eyeIcon.Location = new System.Drawing.Point(636, 4);
-            this.eyeIcon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.eyeIcon.Margin = new System.Windows.Forms.Padding(4);
             this.eyeIcon.Name = "eyeIcon";
             this.eyeIcon.Size = new System.Drawing.Size(40, 27);
             this.eyeIcon.TabIndex = 88;
@@ -313,7 +313,7 @@
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 24;
             this.iconButton1.Location = new System.Drawing.Point(125, 1);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(40, 37);
             this.iconButton1.TabIndex = 63;
@@ -330,7 +330,7 @@
             this.btnNoteDetailsNewTab.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNoteDetailsNewTab.IconSize = 24;
             this.btnNoteDetailsNewTab.Location = new System.Drawing.Point(45, 1);
-            this.btnNoteDetailsNewTab.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNoteDetailsNewTab.Margin = new System.Windows.Forms.Padding(4);
             this.btnNoteDetailsNewTab.Name = "btnNoteDetailsNewTab";
             this.btnNoteDetailsNewTab.Size = new System.Drawing.Size(40, 37);
             this.btnNoteDetailsNewTab.TabIndex = 62;
@@ -347,7 +347,7 @@
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 24;
             this.iconButton5.Location = new System.Drawing.Point(85, 1);
-            this.iconButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton5.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(40, 37);
             this.iconButton5.TabIndex = 61;
@@ -423,7 +423,7 @@
             this.Controls.Add(this.subjectPanel);
             this.Controls.Add(this.senderAndReceiverPanel);
             this.Controls.Add(this.sourcePanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DakNothiteUposthaponNoteList";
             this.Size = new System.Drawing.Size(867, 117);
             this.subjectPanel.ResumeLayout(false);

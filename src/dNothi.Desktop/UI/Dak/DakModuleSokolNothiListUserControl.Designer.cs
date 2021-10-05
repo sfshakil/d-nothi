@@ -211,7 +211,7 @@
             this.tableLayoutPanel3.Controls.Add(this.panel2, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.lbShakha, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.lbNothi, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(113, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
@@ -253,9 +253,10 @@
             this.lbNothi.Location = new System.Drawing.Point(5, 15);
             this.lbNothi.Margin = new System.Windows.Forms.Padding(5, 15, 4, 0);
             this.lbNothi.Name = "lbNothi";
-            this.lbNothi.Size = new System.Drawing.Size(212, 26);
+            this.lbNothi.Size = new System.Drawing.Size(824, 26);
             this.lbNothi.TabIndex = 125;
-            this.lbNothi.Text = " nothiLabel nothiLabel ";
+            this.lbNothi.Text = " nothiLabel nothiLabel  nothiLabel nothiLabel   nothiLabel nothiLabel   nothiLabe" +
+    "l nothiLabel ";
             // 
             // tableLayoutPanel5
             // 

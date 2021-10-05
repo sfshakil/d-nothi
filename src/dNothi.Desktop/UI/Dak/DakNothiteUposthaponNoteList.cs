@@ -15,6 +15,39 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class DakNothiteUposthaponNoteList : UserControl
     {
+
+        public int _can_revert { get; set; }
+        public int can_revert
+        {
+            set
+            {
+                _can_revert = value;
+                if (value == 1)
+                {
+                    nothiteUposthapitoButton.Visible = false;
+                    eyeIcon.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+                }
+            }
+            get
+            {
+                return _can_revert;
+            }
+        }
+        public string _sub_subject_text { get; set; }
+        public string sub_subject_text { 
+            set {
+                _sub_subject_text = value;
+                if(!string.IsNullOrEmpty(value))
+                {
+                    subjectLabel.Text += "(" + value + ")";
+                }
+            }
+            get
+            {
+                return _sub_subject_text;
+            }
+        }
+
         public DakNothiteUposthaponNoteList()
         {
             InitializeComponent();

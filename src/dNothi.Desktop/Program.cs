@@ -37,6 +37,7 @@ using dNothi.Services.BasicService;
 using dNothi.Services.ProfileChangeService;
 using dNothi.Core.Entities.Khosra;
 using dNothi.Services.KasaraPatraDashBoardService;
+using dNothi.Services.SettingServices;
 
 namespace dNothi.Desktop
 {
@@ -247,6 +248,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NothiAllNoteServices>().As<INothiAllNoteServices>();
             builder.RegisterType<NothiReportService>().As<INothiReportService>();
             builder.RegisterType<NothiReviewerServices>().As<INothiReviewerServices>();
+            builder.RegisterType<SettingServices>().As<ISettingServices>();
             
             builder.RegisterType<NothiOutboxService>().As<INothiOutboxServices>();
             builder.RegisterType<NothiNoteTalikaServices>().As<INothiNoteTalikaServices>();
@@ -422,7 +424,7 @@ namespace dNothi.Desktop
 
 
 
-             builder.RegisterType<PotroPublishingForm>().AsSelf();
+           builder.RegisterType<PotroPublishingForm>().AsSelf();
 
             builder.RegisterType<PotrojariGroupContent>().AsSelf();
             builder.RegisterType<PatraJariGroupCreateUserControl>().AsSelf();
