@@ -67,7 +67,7 @@ namespace dNothi.Services.NothiReportService
                 if (isPotrajaribohi || isNothiMasterFile)
                 {
                     request.AddParameter("unit_id", unitid);
-                    search_params = "last_issue_date=" + fromDate + ":" + toDate + "&potro_subject=";
+                    search_params = "last_issue_date=" + fromDate + ":" + toDate + "&potro_subject="+ userParam.NameSearchParam + "";
                 }
                 else
                 {

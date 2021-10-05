@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
+
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using dNothi.Desktop.View_Model;
+
 using dNothi.Utility;
-using System.IO;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
+
 using dNothi.Services.NothiReportService;
 using dNothi.Services.UserServices;
 using dNothi.Services.BasicService;
-using dNothi.Services.NothiReportService.Model;
+
 using dNothi.Services.DakServices;
+using dNothi.Services.KasaraPatraDashBoardService.Models;
+using dNothi.Desktop.UI.Khosra_Potro;
+using dNothi.Services.NothiReportService.Model;
+using dNothi.Services.KasaraPatraDashBoardService;
+using dNothi.Desktop.UI.GuardFileUI.GuardFileUserControls;
 
 namespace dNothi.Desktop.UI.NothiUI
 {
@@ -32,16 +32,20 @@ namespace dNothi.Desktop.UI.NothiUI
         int totalrecord = 0;
         int lastCountValue = 1;
         int lastrecord = 0;
+        string filePath = string.Empty;
         string datetextFromtextbox = string.Empty;
+        NothiRegisterReport.Record nothiMasterFile = new NothiRegisterReport.Record();
         IUserService _userService { get; set; }
         INothiReportService _nothiReportService { get; set; }
         IBasicService _basicService { get; set; }
-        
-        public NothiMasterRegisterReportUserControl(IUserService userService, INothiReportService nothiReportService, IBasicService basicService)
+        IKasaraPatraDashBoardService _kasaraPatraDashBoardService;
+
+        public NothiMasterRegisterReportUserControl(IUserService userService, INothiReportService nothiReportService, IBasicService basicService, IKasaraPatraDashBoardService kasaraPatraDashBoardService)
         {
             _userService = userService;
             _nothiReportService = nothiReportService;
             _basicService = basicService;
+            _kasaraPatraDashBoardService = kasaraPatraDashBoardService;
             InitializeComponent();
            
         }
@@ -134,7 +138,8 @@ namespace dNothi.Desktop.UI.NothiUI
 
             userParam.page = page;
             userParam.limit = pageLimit;
-          
+            userParam.NameSearchParam = dakSearchSubTextBox.Text;
+
             var nothiRegisterBook = _nothiReportService.NothiRegisterBook(userParam, fromdate, todate, unitid, false, false, false, false, true);
             if (nothiRegisterBook.status == "success")
             {
@@ -144,6 +149,8 @@ namespace dNothi.Desktop.UI.NothiUI
                
              foreach(var item in nothiRegisterBook.data.records)
                 {
+                   
+                    nothiMasterFile = item;
                     fileWebBrowser.Url = new Uri(item.mulpotro.url);
                 }
 
@@ -259,6 +266,68 @@ namespace dNothi.Desktop.UI.NothiUI
         }
 
         #endregion
+
+        private void prapokListIconButton_Click(object sender, EventArgs e)
+        {
+            PrapakerTalika prapakerTalika = new PrapakerTalika();
+            var dakListUserParam = _userService.GetLocalDakUserParam();
+            dakListUserParam.limit = pageLimit;
+           
+          prapakerTalika = _kasaraPatraDashBoardService.GetPrapakerTalika(dakListUserParam, nothiMasterFile.basic.id);
+           
+            if (prapakerTalika.status == "success")
+            {
+
+                KhosraPrapokListViewForm khosraPrapokListViewForm = new KhosraPrapokListViewForm();
+                khosraPrapokListViewForm.prapakerTalika = prapakerTalika;
+
+
+                UIDesignCommonMethod.CalPopUpWindow(khosraPrapokListViewForm, this);
+            }
+        }
+
+        private void printIconButton_Click(object sender, EventArgs e)
+        {
+            
+            filePath= UIDesignCommonMethod.DownLoadFiles(nothiMasterFile.mulpotro.url, nothiMasterFile.mulpotro.user_file_name);
+            UIDesignCommonMethod.PrintFile(filePath);
+        }
+
+        private void sampadanIconButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cloneIconButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void portalshareIconButton_Click(object sender, EventArgs e)
+        {
+            PotroPublishingForm potroPublishingForm = FormFactory.Create<PotroPublishingForm>();
+            potroPublishingForm.subject = nothiMasterFile.basic.potro_subject;
+            //potroPublishingForm.domainname= kasaraPotro.Basic
+
+            // potroPublishingForm.dakAttachmentResponse = GetAllMulPattraAndSanjukti(kasaraPotro);
+
+            UIDesignCommonMethod.CalPopUpWindow(potroPublishingForm, this);
+        }
+
+        private void dakSearchUsingTextButton_Click(object sender, EventArgs e)
+        {
+            Formload();
+        }
+
+        private void recycleIconButton_Click(object sender, EventArgs e)
+        {
+            dakSearchSubTextBox.Text = string.Empty;
+        }
+
+        private void dateTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void dakPriorityComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {

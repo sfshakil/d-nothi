@@ -582,13 +582,12 @@
             // 
             // singleDakHeaderLabel
             // 
-            this.singleDakHeaderLabel.AutoSize = true;
             this.singleDakHeaderLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.singleDakHeaderLabel.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.singleDakHeaderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(68)))), ((int)(((byte)(86)))));
             this.singleDakHeaderLabel.Location = new System.Drawing.Point(0, 25);
             this.singleDakHeaderLabel.Name = "singleDakHeaderLabel";
-            this.singleDakHeaderLabel.Size = new System.Drawing.Size(237, 21);
+            this.singleDakHeaderLabel.Size = new System.Drawing.Size(568, 44);
             this.singleDakHeaderLabel.TabIndex = 28;
             this.singleDakHeaderLabel.Text = "পোর্টালে প্রকাশের অপশন নির্বাচন করুন";
             // 

@@ -33,7 +33,15 @@ namespace dNothi.Desktop.View_Model
                     count++;
                 
                 registerReport.nothiNo = registerReportRecordDTO.nothi!=null? registerReportRecordDTO.nothi.nothi_no:string.Empty;
-                registerReport.subject = registerReportRecordDTO.nothi != null ? registerReportRecordDTO.nothi.subject:string.Empty;
+                if(registerReportRecordDTO.nothi != null)
+                {
+                    registerReport.subject = registerReportRecordDTO.nothi != null ? registerReportRecordDTO.nothi.subject : string.Empty;
+                }
+                else
+                {
+                   registerReport.subject = registerReportRecordDTO.potrojari!=null? registerReportRecordDTO.potrojari.potro_subject:string.Empty;
+                }
+
                 //nothi nibandan
 
                 registerReport.previousNothiNo = string.Empty;
@@ -52,14 +60,14 @@ namespace dNothi.Desktop.View_Model
                 //nothi grahon
 
              
-                registerReport.office_shaka = registerReportRecordDTO.to_office_name;
+                registerReport.office_shaka = registerReportRecordDTO.to_office_unit_name;
                 registerReport.receivedDate = registerReportRecordDTO.created;
-                registerReport.previousSender = registerReportRecordDTO.to_officer_name + "," + registerReportRecordDTO.to_office_name;
+                registerReport.previousSender = registerReportRecordDTO.from_officer_name + "," + registerReportRecordDTO.from_office_name;
 
                 //end
 
                 //nothi potrojari
-                registerReport.subject = registerReportRecordDTO.potrojari!=null? registerReportRecordDTO.potrojari.potro_subject:string.Empty;
+                
                 registerReport.sharokNo = registerReportRecordDTO.potrojari != null ? registerReportRecordDTO.potrojari.sarok_no : string.Empty;
                 registerReport.potroType = registerReportRecordDTO.potrojari != null ? (registerReportRecordDTO.potrojari.potro_type == 1 ? "অফিস স্বারক" : (registerReportRecordDTO.potrojari.potro_type == 2 ? "সরকারি পত্র" : "আধা সরকারি পত্র")):string.Empty;
                 registerReport.preronDate = registerReportRecordDTO.basic != null ? registerReportRecordDTO.basic.issue_date : string.Empty;
