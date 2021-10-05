@@ -151,6 +151,7 @@ namespace dNothi.Desktop.UI.NothiUI
         private void AdjustColumnOrderForNothiPerito()
         {
             registerReportDataGridView.Columns["sl"].DisplayIndex = 0;
+            
             registerReportDataGridView.Columns["nothiNo"].Visible = true;
             registerReportDataGridView.Columns["nothiNo"].DisplayIndex = 1;
             registerReportDataGridView.Columns["nothiNo"].HeaderText = "প্রেরিত নথির নং";
@@ -173,6 +174,7 @@ namespace dNothi.Desktop.UI.NothiUI
             registerReportDataGridView.Columns["receivers"].Visible = false;
             registerReportDataGridView.Columns["onulipis"].Visible = false;
             registerReportDataGridView.Columns["potroType"].Visible = false;
+
         }
 
         private void AdjustColumnOrderForNothiGrihita()
@@ -199,6 +201,7 @@ namespace dNothi.Desktop.UI.NothiUI
             registerReportDataGridView.Columns["receivers"].Visible = false;
             registerReportDataGridView.Columns["onulipis"].Visible = false;
             registerReportDataGridView.Columns["potroType"].Visible = false;
+
         }
 
         private void AdjustColumnOrderForNothiNibandan()
@@ -226,6 +229,8 @@ namespace dNothi.Desktop.UI.NothiUI
             registerReportDataGridView.Columns["receivers"].Visible = false;
             registerReportDataGridView.Columns["onulipis"].Visible = false;
             registerReportDataGridView.Columns["potroType"].Visible = false;
+            
+            
         }
 
         private void AdjustColumnOrderForPotrojari()
@@ -254,9 +259,9 @@ namespace dNothi.Desktop.UI.NothiUI
             registerReportDataGridView.Columns["previousSender"].Visible = false;
             registerReportDataGridView.Columns["nextReceiver"].Visible = false;
             registerReportDataGridView.Columns["receivedDate"].Visible = false;
-           
             
-           
+            
+
         }
         private void Formload()
         {

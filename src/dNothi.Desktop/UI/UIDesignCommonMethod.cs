@@ -6,6 +6,7 @@ using dNothi.Services.DakServices;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -13,6 +14,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -338,6 +340,52 @@ namespace dNothi.Desktop.UI
                     Uri uri = new Uri(fileDownloadLink);
                     //string fileName = System.IO.Path.GetFileName(uri.AbsolutePath);
                     client.DownloadFileAsync(uri, folderPath + "/" + fileName);
+                }
+            }
+        }
+        public static string DownLoadFiles(string fileDownloadLink, string fileName)
+        {
+            WebClient client = new WebClient();
+            string folderPath = "";
+            FolderBrowserDialog directchoosedlg = new FolderBrowserDialog();
+            if (fileDownloadLink != "")
+            {
+                if (directchoosedlg.ShowDialog() == DialogResult.OK)
+                {
+                    folderPath = directchoosedlg.SelectedPath;
+                    Uri uri = new Uri(fileDownloadLink);
+                    //string fileName = System.IO.Path.GetFileName(uri.AbsolutePath);
+                    client.DownloadFileAsync(uri, folderPath + "/" + fileName);
+                    return folderPath + "/" + fileName;
+                }
+            }
+            return null;
+        }
+        public static void PrintFile(string filePath)
+        {
+            using (PrintDialog Dialog = new PrintDialog())
+            {
+                Dialog.ShowDialog();
+
+                ProcessStartInfo printProcessInfo = new ProcessStartInfo()
+                {
+                    Verb = "print",
+                    CreateNoWindow = true,
+                    FileName = filePath,
+                    WindowStyle = ProcessWindowStyle.Hidden
+                };
+
+                Process printProcess = new Process();
+                printProcess.StartInfo = printProcessInfo;
+                printProcess.Start();
+
+                printProcess.WaitForInputIdle();
+
+                Thread.Sleep(3000);
+
+                if (false == printProcess.CloseMainWindow())
+                {
+                    printProcess.Kill();
                 }
             }
         }
