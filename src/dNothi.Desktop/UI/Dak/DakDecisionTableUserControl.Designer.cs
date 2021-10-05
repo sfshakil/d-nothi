@@ -60,14 +60,13 @@
             this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.decisionCheckBox, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 3, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(448, 0);
-            this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(448, 34);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(448, 36);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(460, 36);
             this.tableLayoutPanel1.TabIndex = 88;
             // 
             // decisionRadioButton
@@ -107,7 +106,7 @@
             this.decisionNameTextBox.Location = new System.Drawing.Point(0, 0);
             this.decisionNameTextBox.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.decisionNameTextBox.Name = "decisionNameTextBox";
-            this.decisionNameTextBox.Size = new System.Drawing.Size(163, 26);
+            this.decisionNameTextBox.Size = new System.Drawing.Size(163, 34);
             this.decisionNameTextBox.TabIndex = 1;
             this.decisionNameTextBox.Text = "agdsajgdhasgdhasgdhasgdhasgdhasgdjasgdjasgdjashgdajshgdjas";
             this.decisionNameTextBox.Visible = false;
@@ -120,7 +119,7 @@
             this.decisionNameLabel.MaximumSize = new System.Drawing.Size(160, 0);
             this.decisionNameLabel.Name = "decisionNameLabel";
             this.decisionNameLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.decisionNameLabel.Size = new System.Drawing.Size(54, 23);
+            this.decisionNameLabel.Size = new System.Drawing.Size(86, 31);
             this.decisionNameLabel.TabIndex = 0;
             this.decisionNameLabel.Text = "sdsadas";
             // 
@@ -236,10 +235,8 @@
             this.AutoSize = true;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MaximumSize = new System.Drawing.Size(448, 0);
-            this.MinimumSize = new System.Drawing.Size(448, 0);
             this.Name = "DakDecisionTableUserControl";
-            this.Size = new System.Drawing.Size(448, 36);
+            this.Size = new System.Drawing.Size(460, 36);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
