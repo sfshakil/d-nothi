@@ -44,7 +44,6 @@ namespace dNothi.Utility
                 loadthread = null;
 
             }
-
         }
 
         private void LoadingProcess()
@@ -56,31 +55,27 @@ namespace dNothi.Utility
 
         private void LoadingProcess(object parent)
         {
-            Form parent1 = parent as Form;
-            wait = new WaitNothiForm(parent1);
+            wait = new WaitNothiForm(parent as Form);
 
-            //wait.ShowDialog();
-            CalPopUpWindow(wait, parent1);
+            CalPopUpWindow(wait, parent as Form);
         }
         private void CalPopUpWindow(Form form, Form parent)
         {
             Form hideform = new Form();
-
             hideform.BackColor = Color.Black;
             hideform.Height = Screen.PrimaryScreen.WorkingArea.Height; //{Width = 1382 Height = 744}
             hideform.Width = Screen.PrimaryScreen.WorkingArea.Width; //{Width = 1382 Height = 744}
             hideform.Opacity = .4;
             hideform.ShowInTaskbar = false;
-
             hideform.FormBorderStyle = FormBorderStyle.None;
             hideform.StartPosition = FormStartPosition.CenterScreen;
-
             hideform.Shown += delegate (object sr, EventArgs ev) { hideform_Shown(sr, ev, form, parent); };
             hideform.ShowDialog();
         }
         void hideform_Shown(object sender, EventArgs e, Form form, Form parent)
         {
             form.ShowInTaskbar = false;
+            form.TopMost = false;
             form.ShowDialog();
 
             (sender as Form).Hide();
