@@ -14,6 +14,7 @@ using dNothi.JsonParser.Entity.Nothi;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.Utility;
 using dNothi.Core.Entities;
+using dNothi.Services.SettingServices;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -22,6 +23,11 @@ namespace dNothi.Desktop.UI.Dak
         INothiInboxNoteServices _nothiInboxNote { get; set; }
         private int originalWidth;
         private int originalHeight;
+
+        public int pageNo { get; set; }
+        public int pageLimit { get; set; }
+        public int totalPage { get; set; }
+        ISettingServices _settingServices { get; set; }
         INoteSaveService _noteSave { get; set; }
         INothiAllNoteServices _nothiAllNote { get; set; }
         public int _dak_id;
@@ -51,8 +57,9 @@ namespace dNothi.Desktop.UI.Dak
         IUserService _userService { get; set; }
         IDakNothivuktoService _nothivuktoService { get; set; }
         INothiNoteTalikaServices _nothinotetalikaservices { get; set; }
-        public DakModuleSokolNothiListUserControl(INothiAllNoteServices nothiAllNote,INoteSaveService noteSave,INothiInboxNoteServices nothiInboxNote,IDakNothivuktoService dakNothivuktoService, IUserService userService, INothiNoteTalikaServices nothiNoteTalikaServices)
+        public DakModuleSokolNothiListUserControl(ISettingServices settingServices, INothiAllNoteServices nothiAllNote,INoteSaveService noteSave,INothiInboxNoteServices nothiInboxNote,IDakNothivuktoService dakNothivuktoService, IUserService userService, INothiNoteTalikaServices nothiNoteTalikaServices)
         {
+            _settingServices = settingServices;
             _nothiAllNote = nothiAllNote;
             _nothiInboxNote = nothiInboxNote;
             _noteSave = noteSave;
@@ -64,7 +71,19 @@ namespace dNothi.Desktop.UI.Dak
             originalHeight = this.Height;
 
 
+            RefreshPagination();
+
+
+
             SetDefaultFont(this.Controls);
+        }
+
+        private void RefreshPagination()
+        {
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+            SettingsList setting = _settingServices.GetSettingList(dakUserParam);
+            pageNo = 1;
+            pageLimit = (setting.nothiAllPagination == 0) ? 10 : setting.nothiAllPagination;
         }
         void SetDefaultFont(System.Windows.Forms.Control.ControlCollection collection)
         {
@@ -319,6 +338,7 @@ namespace dNothi.Desktop.UI.Dak
                 if (nothiInboxNote.data.records.Count > 0)
                 {
                     LoadNoteAllinPanel(nothiInboxNote.data.records);
+                    SetPagination(nothiInboxNote.data.records.Count, nothiInboxNote.data.total_records);
                 }
 
             }
@@ -504,6 +524,33 @@ namespace dNothi.Desktop.UI.Dak
 
             if (this.NothijatoButton != null)
                 this.NothijatoButton(sender, e);
+        }
+
+        private void SetPagination(int count, int total)
+        {
+            int startpage = (pageNo - 1) * pageLimit + 1;
+            int endPage = startpage + count - 1;
+
+
+            totalPage = total / pageLimit;
+            totalPage += ((total % pageLimit) != 0) ? 1 : 0;
+
+
+            paginationLabel.Text = ConversionMethod.EngDigittoBanDigit(startpage.ToString()) + "-" + ConversionMethod.EngDigittoBanDigit(endPage.ToString()) + " সর্বমোট:" + ConversionMethod.EngDigittoBanDigit(total.ToString());
+
+            prevButton.Enabled = (startpage != 1);
+            nextButton.Enabled = (totalPage != pageNo);
+
+        }
+
+        private void prevButton_Click(object sender, EventArgs e)
+        {
+            pageNo -= 1;
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            pageNo += 1;
         }
     }
 }
