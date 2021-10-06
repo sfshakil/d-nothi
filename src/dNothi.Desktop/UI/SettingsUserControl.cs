@@ -40,6 +40,8 @@ namespace dNothi.Desktop.UI
 
             SixthLabel.Visible = false;
             cbxKhoshra.Visible = false;
+
+            ReportButton.Visible = false;
         }
         private void DakModuleOn()
         {
@@ -51,6 +53,8 @@ namespace dNothi.Desktop.UI
 
             SixthLabel.Visible = true;
             cbxKhoshra.Visible = true;
+
+            ReportButton.Visible = false;
         }
         private void NothiModuleOn()
         {
@@ -59,6 +63,8 @@ namespace dNothi.Desktop.UI
             cbxNothiAll.Visible = true;
             cbxOthersOfficeNothiInbox.Visible = true;
             cbxOthersOfficeNothiSent.Visible = true;
+
+            ReportButton.Visible = false;
         }
         private void NothiModuleOff()
         {
@@ -67,6 +73,8 @@ namespace dNothi.Desktop.UI
             cbxNothiAll.Visible = false;
             cbxOthersOfficeNothiInbox.Visible = false;
             cbxOthersOfficeNothiSent.Visible = false;
+
+            ReportButton.Visible = false;
         }
         private void SetLabelForNothi()
         {
@@ -104,6 +112,9 @@ namespace dNothi.Desktop.UI
             btnNotificationSettings.ForeColor = Color.FromArgb(243, 246, 249);
             notificationSliderPanel.BackColor = Color.White;
 
+            btnOthersSettings.ForeColor = Color.FromArgb(243, 246, 249);
+            othersSliderPanel.BackColor = Color.White;
+
             showpaginationoffnotification();
             SetLabelForNothi();
             NothiModuleOn();
@@ -119,6 +130,9 @@ namespace dNothi.Desktop.UI
 
             btnNothiSettings.ForeColor = Color.FromArgb(243, 246, 249);
             nothiSliderPanel.BackColor = Color.White;
+            
+            btnOthersSettings.ForeColor = Color.FromArgb(243, 246, 249);
+            othersSliderPanel.BackColor = Color.White;
 
             shownotification();
             loadNotification();
@@ -179,6 +193,19 @@ namespace dNothi.Desktop.UI
 
             PaginationPanel.Visible = false;
             this.Height = HeaderPanel.Height + SelectorPanel.Height + NotificationPanel.Height + FooterPanel.Height;
+
+            ReportButton.Visible = false;
+        }
+        private void hidenotification()
+        {
+            NotificationPanel.Visible = false;
+            NotificationSaveButton.Visible = false;
+            PaginationSaveButton.Visible = false;
+
+            PaginationPanel.Visible = false;
+            this.Height = HeaderPanel.Height + SelectorPanel.Height + FooterPanel.Height;
+
+            ReportButton.Visible = false;
         }
         private void btnDakSettings_Click(object sender, EventArgs e)
         {
@@ -189,6 +216,9 @@ namespace dNothi.Desktop.UI
 
             btnNotificationSettings.ForeColor = Color.FromArgb(243, 246, 249);
             notificationSliderPanel.BackColor = Color.White;
+
+            btnOthersSettings.ForeColor = Color.FromArgb(243, 246, 249);
+            othersSliderPanel.BackColor = Color.White;
 
             showpaginationoffnotification();
             SetLabelForDak();
@@ -380,6 +410,33 @@ namespace dNothi.Desktop.UI
             smsActions.note_permission = (note_permissionSMSCheckBox.Checked == true) ? 1 : 0;
             smsActions.potrojari_receive = (potrojari_receiveSMSCheckBox.Checked == true) ? 1 : 0;
             return smsActions;
+        }
+
+        private void btnOthersSettings_Click(object sender, EventArgs e)
+        {
+            btnOthersSettings.ForeColor = Color.White;
+            othersSliderPanel.BackColor = Color.FromArgb(27, 197, 189);
+
+            btnNotificationSettings.ForeColor = Color.FromArgb(243, 246, 249);
+            notificationSliderPanel.BackColor = Color.White;
+
+            btnDakSettings.ForeColor = Color.FromArgb(243, 246, 249);
+            DakSliderPanel.BackColor = Color.White;
+
+            btnNothiSettings.ForeColor = Color.FromArgb(243, 246, 249);
+            nothiSliderPanel.BackColor = Color.White;
+
+            
+
+            NothiModuleOff();
+            DakModuleOff();
+            hidenotification();
+            ReportButton.Visible = true;
+        }
+
+        private void ReportButton_Click(object sender, EventArgs e)
+        {
+
         }
 
         //public Settings getLocalData()
