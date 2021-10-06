@@ -809,7 +809,6 @@ namespace dNothi.Desktop.UI
         {
 
             form.ShowInTaskbar = false;
-            form.TopMost = true;
             form.TopMost = false;
             form.ShowDialog();
 
