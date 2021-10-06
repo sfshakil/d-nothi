@@ -1451,6 +1451,18 @@
     <Compile Include="UI\NothiUI\Protibedan\ShakaVittikNothiReportUserControl.Designer.cs">
       <DependentUpon>ShakaVittikNothiReportUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\NotificationRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NotificationRow.Designer.cs">
+      <DependentUpon>NotificationRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NotificationUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NotificationUserControl.Designer.cs">
+      <DependentUpon>NotificationUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\OfficerRowUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2094,6 +2106,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\NothiUI\Protibedan\ShakaVittikNothiReportUserControl.resx">
       <DependentUpon>ShakaVittikNothiReportUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NotificationRow.resx">
+      <DependentUpon>NotificationRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NotificationUserControl.resx">
+      <DependentUpon>NotificationUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\OfficerRowUserControl.resx">
       <DependentUpon>OfficerRowUserControl.cs</DependentUpon>
