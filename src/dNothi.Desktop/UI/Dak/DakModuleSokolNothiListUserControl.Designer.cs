@@ -71,9 +71,9 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.iconButton8 = new FontAwesome.Sharp.IconButton();
-            this.iconButton9 = new FontAwesome.Sharp.IconButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.nextButton = new FontAwesome.Sharp.IconButton();
+            this.prevButton = new FontAwesome.Sharp.IconButton();
+            this.paginationLabel = new System.Windows.Forms.Label();
             this.newNothiAddButton = new FontAwesome.Sharp.IconButton();
             this.iconButton12 = new FontAwesome.Sharp.IconButton();
             this.iconButton11 = new FontAwesome.Sharp.IconButton();
@@ -723,13 +723,13 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel6.Controls.Add(this.iconButton8, 6, 0);
-            this.tableLayoutPanel6.Controls.Add(this.iconButton9, 7, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label2, 5, 0);
+            this.tableLayoutPanel6.Controls.Add(this.paginationLabel, 5, 0);
             this.tableLayoutPanel6.Controls.Add(this.newNothiAddButton, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.iconButton12, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.iconButton11, 2, 0);
             this.tableLayoutPanel6.Controls.Add(this.iconButton10, 3, 0);
+            this.tableLayoutPanel6.Controls.Add(this.prevButton, 6, 0);
+            this.tableLayoutPanel6.Controls.Add(this.nextButton, 7, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 13);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -738,53 +738,55 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(903, 44);
             this.tableLayoutPanel6.TabIndex = 61;
             // 
-            // iconButton8
+            // nextButton
             // 
-            this.iconButton8.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.iconButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.iconButton8.FlatAppearance.BorderSize = 0;
-            this.iconButton8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton8.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.iconButton8.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton8.IconSize = 24;
-            this.iconButton8.Location = new System.Drawing.Point(814, 3);
-            this.iconButton8.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton8.Name = "iconButton8";
-            this.iconButton8.Size = new System.Drawing.Size(44, 38);
-            this.iconButton8.TabIndex = 65;
-            this.iconButton8.UseVisualStyleBackColor = false;
+            this.nextButton.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.nextButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.nextButton.FlatAppearance.BorderSize = 0;
+            this.nextButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.nextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.nextButton.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.nextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.nextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.nextButton.IconSize = 24;
+            this.nextButton.Location = new System.Drawing.Point(859, 3);
+            this.nextButton.Margin = new System.Windows.Forms.Padding(0);
+            this.nextButton.Name = "nextButton";
+            this.nextButton.Size = new System.Drawing.Size(44, 38);
+            this.nextButton.TabIndex = 65;
+            this.nextButton.UseVisualStyleBackColor = false;
+            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
             // 
-            // iconButton9
+            // prevButton
             // 
-            this.iconButton9.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.iconButton9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
-            this.iconButton9.FlatAppearance.BorderSize = 0;
-            this.iconButton9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
-            this.iconButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton9.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.iconButton9.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
-            this.iconButton9.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton9.IconSize = 24;
-            this.iconButton9.Location = new System.Drawing.Point(858, 3);
-            this.iconButton9.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton9.Name = "iconButton9";
-            this.iconButton9.Size = new System.Drawing.Size(45, 38);
-            this.iconButton9.TabIndex = 64;
-            this.iconButton9.UseVisualStyleBackColor = false;
+            this.prevButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.prevButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(240)))), ((int)(((byte)(245)))));
+            this.prevButton.FlatAppearance.BorderSize = 0;
+            this.prevButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
+            this.prevButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.prevButton.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.prevButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
+            this.prevButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.prevButton.IconSize = 24;
+            this.prevButton.Location = new System.Drawing.Point(814, 3);
+            this.prevButton.Margin = new System.Windows.Forms.Padding(0);
+            this.prevButton.Name = "prevButton";
+            this.prevButton.Size = new System.Drawing.Size(45, 38);
+            this.prevButton.TabIndex = 64;
+            this.prevButton.UseVisualStyleBackColor = false;
+            this.prevButton.Click += new System.EventHandler(this.prevButton_Click);
             // 
-            // label2
+            // paginationLabel
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(717, 9);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 25);
-            this.label2.TabIndex = 63;
-            this.label2.Text = " সর্বমোট: ১২";
+            this.paginationLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.paginationLabel.AutoSize = true;
+            this.paginationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paginationLabel.Location = new System.Drawing.Point(717, 9);
+            this.paginationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.paginationLabel.Name = "paginationLabel";
+            this.paginationLabel.Size = new System.Drawing.Size(93, 25);
+            this.paginationLabel.TabIndex = 63;
+            this.paginationLabel.Text = " সর্বমোট: ১২";
             // 
             // newNothiAddButton
             // 
@@ -975,9 +977,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private FontAwesome.Sharp.IconButton iconButton8;
-        private FontAwesome.Sharp.IconButton iconButton9;
-        private System.Windows.Forms.Label label2;
+        private FontAwesome.Sharp.IconButton nextButton;
+        private FontAwesome.Sharp.IconButton prevButton;
+        private System.Windows.Forms.Label paginationLabel;
         private FontAwesome.Sharp.IconButton newNothiAddButton;
         private FontAwesome.Sharp.IconButton iconButton12;
         private FontAwesome.Sharp.IconButton iconButton11;
