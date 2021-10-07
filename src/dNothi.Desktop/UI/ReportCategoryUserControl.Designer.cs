@@ -96,10 +96,10 @@ namespace dNothi.Desktop.UI
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.57277F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.572095F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.28169F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.14555F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.36633F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.061569F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1363, 802);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -113,7 +113,7 @@ namespace dNothi.Desktop.UI
             this.BodyPanel.Margin = new System.Windows.Forms.Padding(0);
             this.BodyPanel.Name = "BodyPanel";
             this.BodyPanel.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.BodyPanel.Size = new System.Drawing.Size(1363, 513);
+            this.BodyPanel.Size = new System.Drawing.Size(1363, 539);
             this.BodyPanel.TabIndex = 17;
             // 
             // ListFlowLayoutPanel
@@ -304,17 +304,14 @@ namespace dNothi.Desktop.UI
             // 
             this.FooterPanel.Controls.Add(this.btnSend);
             this.FooterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FooterPanel.Location = new System.Drawing.Point(0, 717);
+            this.FooterPanel.Location = new System.Drawing.Point(0, 743);
             this.FooterPanel.Margin = new System.Windows.Forms.Padding(0);
             this.FooterPanel.Name = "FooterPanel";
-            this.FooterPanel.Size = new System.Drawing.Size(1363, 85);
+            this.FooterPanel.Size = new System.Drawing.Size(1363, 59);
             this.FooterPanel.TabIndex = 3;
             // 
             // btnSend
             // 
-            this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSend.AutoSize = true;
             this.btnSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.btnSend.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
@@ -326,7 +323,7 @@ namespace dNothi.Desktop.UI
             this.btnSend.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSend.IconSize = 20;
             this.btnSend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSend.Location = new System.Drawing.Point(13, 30);
+            this.btnSend.Location = new System.Drawing.Point(12, 5);
             this.btnSend.Margin = new System.Windows.Forms.Padding(0);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(158, 48);
@@ -522,21 +519,21 @@ namespace dNothi.Desktop.UI
             // panel9
             // 
             this.panel9.Controls.Add(this.lbPotrojariName);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(56, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
-            this.panel9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel9.Size = new System.Drawing.Size(518, 42);
+            this.panel9.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.panel9.Size = new System.Drawing.Size(1307, 42);
             this.panel9.TabIndex = 3;
             // 
             // lbPotrojariName
             // 
             this.lbPotrojariName.AutoSize = true;
-            this.lbPotrojariName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbPotrojariName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbPotrojariName.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPotrojariName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.lbPotrojariName.Location = new System.Drawing.Point(0, 5);
+            this.lbPotrojariName.Location = new System.Drawing.Point(0, 6);
             this.lbPotrojariName.Margin = new System.Windows.Forms.Padding(0);
             this.lbPotrojariName.Name = "lbPotrojariName";
             this.lbPotrojariName.Size = new System.Drawing.Size(310, 30);

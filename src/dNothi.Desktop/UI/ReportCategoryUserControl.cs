@@ -1,4 +1,8 @@
-﻿using System;
+﻿using dNothi.JsonParser.Entity;
+using dNothi.Services.DakServices;
+using dNothi.Services.ReportServices;
+using dNothi.Services.UserServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +16,37 @@ namespace dNothi.Desktop.UI
 {
     public partial class ReportCategoryUserControl : UserControl
     {
-        public ReportCategoryUserControl()
+        IUserService _userService { get; set; }
+        IReportService _reportService { get; set; }
+        public ReportCategoryUserControl(IUserService userService, IReportService reportService)
         {
+            _userService = userService;
+            _reportService = reportService;
             InitializeComponent();
             loadrow();
             SubHeaderPanel.Height = OntorvuktiHeaderPanel.Height;
         }
         private void loadrow()
         {
-            var row = UserControlFactory.Create<ReportCategoryRowUserControl>();
+            DakUserParam _dakuserparam = _userService.GetLocalDakUserParam();
+            ReportCategoryResponse reportCategoryResponse = _reportService.GetReportCategoryList(_dakuserparam,"list");
+            if (reportCategoryResponse.status == "success")
+            {
+                int i = 1;
+                foreach (ReportCategoryData response in reportCategoryResponse.data)
+                {
+                    var row = UserControlFactory.Create<ReportCategoryRowUserControl>();
+                    response.serialNumber = i;
+                    row.setResponse(response);
+                    UIDesignCommonMethod.AddRowinTable(ListFlowLayoutPanel, row);
+                    i++;
+                }
+            }
+            else
+            {
+                ListFlowLayoutPanel.Controls.Clear();
+            }
             
-            UIDesignCommonMethod.AddRowinTable(ListFlowLayoutPanel, row);
         }
 
         private void OntorvuktiButton_Click(object sender, EventArgs e)

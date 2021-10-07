@@ -272,6 +272,8 @@
     <Compile Include="ProfileChangeService\PasswordChangeParam.cs" />
     <Compile Include="ProfileChangeService\ProfileManagementServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportServices\IReportService.cs" />
+    <Compile Include="ReportServices\ReportService.cs" />
     <Compile Include="SettingServices\SettingServices.cs" />
     <Compile Include="SyncServices\LocalChangeData.cs" />
     <Compile Include="SyncServices\SyncerService.cs" />
