@@ -664,6 +664,7 @@
             this.Controls.Add(this.bodyTableLayoutPanel);
             this.Name = "ProtibedonUserControl";
             this.Size = new System.Drawing.Size(800, 569);
+            this.Load += new System.EventHandler(this.ProtibedonUserControl_Load);
             this.dateRangeTextBox.ResumeLayout(false);
             this.dateRangeTextBox.PerformLayout();
             this.panel1.ResumeLayout(false);

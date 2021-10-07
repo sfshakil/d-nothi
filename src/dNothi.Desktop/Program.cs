@@ -38,6 +38,7 @@ using dNothi.Services.ProfileChangeService;
 using dNothi.Core.Entities.Khosra;
 using dNothi.Services.KasaraPatraDashBoardService;
 using dNothi.Services.SettingServices;
+using dNothi.Desktop.UI.ReportUI;
 
 namespace dNothi.Desktop
 {
@@ -406,6 +407,13 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuardFileBrowseUC>().AsSelf();
             builder.RegisterType<GuardFileRowUserControl>().AsSelf();
             
+            builder.RegisterType<ReportDashboard>().AsSelf();
+            builder.RegisterType<UCAnumatiPraptaUserLis>().AsSelf();
+            
+
+
+
+
             builder.RegisterType<GuardFileListRowUserControl>().AsSelf();
             builder.RegisterType<GaurdFilePortalListRow>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFilePortalCreate>().AsSelf();

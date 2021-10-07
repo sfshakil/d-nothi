@@ -17,6 +17,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using iText.Layout.Element;
+using dNothi.Services.DakServices.DakReports;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -84,41 +85,17 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-
-        public List<Protibedon> _protibedons { get; set; }
-        public List<Protibedon> protibedons
+        public bool isPending { get { return _isPending; } set { _isPending = value; if (value) { headlineLabel.Text = "অমীমাংসিত ডাকসমূহ"; } } }
+        public bool isResolved { get { return _isResolved; } set { _isResolved = value; if (value) { headlineLabel.Text = "মীমাংসিত ডাকসমূহ"; } } }
+        private int _totalRecord { get; set; }
+        public int totalRecord
         {
-            get { return _protibedons; }
+            get => _totalRecord;
             set
             {
-                _protibedons = value;
+                _totalRecord = value;
 
-                //    if (value.Count <= 0)
-                //    {
-                //        noRowMessageLabel.Visible = true;
-                //    }
-                //    else
-                //    {
-                //        noRowMessageLabel.Visible = false;
-                //    }
-
-                //    registerReportDataGridView.DataSource = null;
-                //    registerReportDataGridView.DataSource = value;
-
-
-                //    // Resize the master DataGridView columns to fit the newly loaded data.
-                //    registerReportDataGridView.AutoResizeColumns();
-
-                //    // Configure the details DataGridView so that its columns automatically
-                //    // adjust their widths when the data changes.
-                //    registerReportDataGridView.AutoSizeColumnsMode =
-                //        DataGridViewAutoSizeColumnsMode.AllCells;
-
-                //    MemoryFonts.AddMemoryFont(Properties.Resources.SolaimanLipi);
-                //    registerReportDataGridView.ColumnHeadersDefaultCellStyle.Font = MemoryFonts.GetFont(0, 12, registerReportDataGridView.Font.Style);
             }
-
-
         }
 
         private void ReportingTypeTwo()
@@ -131,43 +108,7 @@ namespace dNothi.Desktop.UI.Dak
 
 
 
-        public bool isPending { get { return _isPending; } set { _isPending = value; if (value) { headlineLabel.Text = "অমীমাংসিত ডাকসমূহ"; } } }
-        public bool isResolved { get { return _isResolved; } set { _isResolved = value; if (value) { headlineLabel.Text = "মীমাংসিত ডাকসমূহ"; } } }
-        private int _totalRecord { get; set; }
-        public int totalRecord
-        {
-            get => _totalRecord;
-            set
-            {
-                _totalRecord = value;
-                totalRowlabel.Text = "সর্বমোট " + ConversionMethod.EnglishNumberToBangla(value.ToString()) + " টি";
-
-                //comboBox1.DisplayMember = "Name";
-                //comboBox1.ValueMember = "Id";
-                //if (value >= 20)
-                //{
-                //    int totalpage = (int)Math.Ceiling((float)value / (float)20);
-                //    int pageSize = 20;
-                //    int page = 0;
-                //    for (int i = 1; i <= totalpage; i++)
-                //    {
-                //        page += pageSize;
-                //        comboBox1.Items.Add(new ComboBoxItem(ConversionMethod.EnglishNumberToBangla(page.ToString()), i));
-                //    }
-                //    comboBox1.SelectedIndex = 0;
-                //}
-                //else
-                //{
-                //comboBox1.Items.Add(new ComboBoxItem("১০", 1));
-                //comboBox1.Items.Add(new ComboBoxItem("২০", 2));
-                //comboBox1.Items.Add(new ComboBoxItem("৩০", 3));
-                //comboBox1.Items.Add(new ComboBoxItem("৪০", 4));
-                //comboBox1.Items.Add(new ComboBoxItem("৫০", 5));
-                //comboBox1.SelectedIndex = 0;
-                // }
-
-            }
-        }
+      
         IProtibedonService _protibedonService { get; set; }
         IUserService _userService { get; set; }
         IBasicService _basicService { get; set; }
@@ -177,14 +118,7 @@ namespace dNothi.Desktop.UI.Dak
             _protibedonService = protibedonService;
             _userService = userService;
             _basicService = basicService;
-            fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
-            todate = DateTime.Now.ToString("yyyy/MM/dd");
-            dateTextBox.Text = fromdate + ":" + todate;
-            var userparam = _userService.GetLocalDakUserParam();
-            dakPriorityComboBox.DataSource = getShaka(userparam);
-            dakPriorityComboBox.DisplayMember = "Name";
-            dakPriorityComboBox.ValueMember = "Id";
-            dakPriorityComboBox.SelectedValue = userparam.office_unit_id;
+           
         }
       
         private List<ComboBoxItem> getShaka(DakUserParam userParam)
@@ -230,9 +164,15 @@ namespace dNothi.Desktop.UI.Dak
             dateTextBox.Text = customDatePicker._date;
 
             customDatePicker.Visible = false;
+            FormLoad();
+        }
+
+        private void FormLoad()
+        {
             page = 1;
             lastCountValue = 0;
             LoadData();
+            NextPreviousButtonShow();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -248,10 +188,7 @@ namespace dNothi.Desktop.UI.Dak
        
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            page = 1;
-            lastCountValue = 0;
-            LoadData();
-            NextPreviousButtonShow();
+            FormLoad();
 
         }
 
@@ -279,7 +216,7 @@ namespace dNothi.Desktop.UI.Dak
             }
             else
             {
-                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+                fromdate = DateTime.Now.AddDays(-6).ToString("yyyy/MM/dd");
                 todate = DateTime.Now.ToString("yyyy/MM/dd");
             }
 
@@ -287,38 +224,43 @@ namespace dNothi.Desktop.UI.Dak
 
             dakListUserParam.page = pages;
             dakListUserParam.limit = limit;
+            DakReportModel protibedonResponse = _protibedonService.GetProtibedonResponse(dakListUserParam, fromdate, todate, unit,isPending,isResolved,isNothiteUposthapito,isPotrojari,isNothijato);
+            ConvertProtibedonResponsetoProtibedon.lastCount = lastCountValue;
+            // protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedans(protibedonResponse);
+            totalRecord = protibedonResponse.data.total_records;
 
-            if (isPending)
-            {
-                ProtibedonResponse protibedonResponse = _protibedonService.GetPendingProtibedonResponse(dakListUserParam, fromdate, todate, unit);
-                ConvertProtibedonResponsetoProtibedon.lastCount = lastCountValue;
-                protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
-            }
-            if (isResolved)
-            {
-                ProtibedonResponse protibedonResponse = _protibedonService.GetResolvedProtibedonResponse(dakListUserParam, fromdate, todate, unit);
-                ConvertProtibedonResponsetoProtibedon.lastCount = lastCountValue;
-                protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
-            }
-            if (isNothiteUposthapito)
-            {
-                DakProtibedonResponse protibedonResponse = _protibedonService.GetNothiteUposthapitoProtibedonResponse(dakListUserParam, fromdate, todate, unit);
-                ConvertProtibedonResponsetoProtibedon.lastCount = lastCountValue;
-                protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
-            }
-            if (isPotrojari)
-            {
-                DakProtibedonResponse protibedonResponse = _protibedonService.GetPotrojariProtibedonResponse(dakListUserParam, fromdate, todate, unit);
-                ConvertProtibedonResponsetoProtibedon.lastCount = lastCountValue;
-                protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            //if (isPending)
+            //{
+            //    ProtibedonResponse protibedonResponse = _protibedonService.GetPendingProtibedonResponse(dakListUserParam, fromdate, todate, unit);
+            //    ConvertProtibedonResponsetoProtibedon.lastCount = lastCountValue;
+            //    protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            //}
+            //if (isResolved)
+            //{
+            //    ProtibedonResponse protibedonResponse = _protibedonService.GetResolvedProtibedonResponse(dakListUserParam, fromdate, todate, unit);
+            //    ConvertProtibedonResponsetoProtibedon.lastCount = lastCountValue;
+            //    protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            //}
+            //if (isNothiteUposthapito)
+            //{
+            //    DakProtibedonResponse protibedonResponse = _protibedonService.GetNothiteUposthapitoProtibedonResponse(dakListUserParam, fromdate, todate, unit);
+            //    ConvertProtibedonResponsetoProtibedon.lastCount = lastCountValue;
+            //    protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            //}
+            //if (isPotrojari)
+            //{
+            //    DakProtibedonResponse protibedonResponse = _protibedonService.GetPotrojariProtibedonResponse(dakListUserParam, fromdate, todate, unit);
+            //    ConvertProtibedonResponsetoProtibedon.lastCount = lastCountValue;
+            //    protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
 
-            }
-            if (isNothijato)
-            {
-                DakProtibedonResponse protibedonResponse = _protibedonService.GetNothijatoProtibedonResponse(dakListUserParam, fromdate, todate, unit);
-                ConvertProtibedonResponsetoProtibedon.lastCount = lastCountValue;
-                protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
-            }
+            //}
+            //if (isNothijato)
+            //{
+            //    DakProtibedonResponse protibedonResponse = _protibedonService.GetNothijatoProtibedonResponse(dakListUserParam, fromdate, todate, unit);
+            //    ConvertProtibedonResponsetoProtibedon.lastCount = lastCountValue;
+            //    protibedonlist = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            //}
             return protibedonlist;
         }
         private void LoadData()
@@ -337,6 +279,8 @@ namespace dNothi.Desktop.UI.Dak
                 noRowMessageLabel.Visible = false;
                 lastCountValue = protibedonlist.Max(x => x.sln);
             }
+            totalRowlabel.Text = "সর্বমোট " + ConversionMethod.EnglishNumberToBangla(totalRecord.ToString()) + " টি";
+
 
             float pagesize = (float)_totalRecord / (float)pageLimit;
             totalPage = (int)Math.Ceiling(pagesize);
@@ -405,10 +349,7 @@ namespace dNothi.Desktop.UI.Dak
             else
             {
                 page = totalPage;
-                start = start;
-                end = end;
-
-
+                
             }
             endrow = end.ToString();
             LoadData();
@@ -418,14 +359,6 @@ namespace dNothi.Desktop.UI.Dak
 
             NextPreviousButtonShow();
         }
-
-        private void dakPriorityComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            page = 1;
-            lastCountValue = 0;
-            LoadData();
-        }
-
         private void iconButton3_Click(object sender, EventArgs e)
         {
 
@@ -454,7 +387,13 @@ namespace dNothi.Desktop.UI.Dak
         }
 
         #endregion
-
+        private void dakPriorityComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (dakPriorityComboBox.SelectedValue.ToString() != "dNothi.Desktop.ComboBoxItem")
+            {
+                FormLoad();
+            }
+        }
         private void DataExportToExcel()
         {
             try
@@ -558,6 +497,18 @@ namespace dNothi.Desktop.UI.Dak
             }
 
             return dt;
+        }
+
+        private void ProtibedonUserControl_Load(object sender, EventArgs e)
+        {
+            fromdate = DateTime.Now.AddDays(-6).ToString("yyyy/MM/dd");
+            todate = DateTime.Now.ToString("yyyy/MM/dd");
+            dateTextBox.Text = fromdate + ":" + todate;
+            var userparam = _userService.GetLocalDakUserParam();
+            dakPriorityComboBox.DataSource = getShaka(userparam);
+            dakPriorityComboBox.DisplayMember = "Name";
+            dakPriorityComboBox.ValueMember = "Id";
+            dakPriorityComboBox.SelectedValue = userparam.office_unit_id;
         }
 
         private void DataExportToPDF()
