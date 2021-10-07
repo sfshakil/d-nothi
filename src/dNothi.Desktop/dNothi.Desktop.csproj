@@ -1511,6 +1511,18 @@
     <Compile Include="UI\Profile\UploadPictureUserControl.Designer.cs">
       <DependentUpon>UploadPictureUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ReportCategoryRowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ReportCategoryRowUserControl.Designer.cs">
+      <DependentUpon>ReportCategoryRowUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportCategoryUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ReportCategoryUserControl.Designer.cs">
+      <DependentUpon>ReportCategoryUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ReviewDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2136,6 +2148,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Profile\UploadPictureUserControl.resx">
       <DependentUpon>UploadPictureUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportCategoryRowUserControl.resx">
+      <DependentUpon>ReportCategoryRowUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportCategoryUserControl.resx">
+      <DependentUpon>ReportCategoryUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReviewDashBoard.resx">
       <DependentUpon>ReviewDashBoard.cs</DependentUpon>
