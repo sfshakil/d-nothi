@@ -144,18 +144,21 @@ namespace dNothi.Desktop.UI
             this.panel3 = new System.Windows.Forms.Panel();
             this.headingLabel = new System.Windows.Forms.Label();
             this.FooterPanel = new System.Windows.Forms.Panel();
+            this.ReportButton = new System.Windows.Forms.Button();
+            this.NotificationSaveButton = new System.Windows.Forms.Button();
             this.PaginationSaveButton = new System.Windows.Forms.Button();
             this.SelectorPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.othersSliderPanel = new System.Windows.Forms.Panel();
+            this.btnOthersSettings = new System.Windows.Forms.Button();
+            this.btnNothiSettings = new System.Windows.Forms.Button();
             this.btnNotificationSettings = new System.Windows.Forms.Button();
             this.notificationSliderPanel = new System.Windows.Forms.Panel();
             this.nothiSliderPanel = new System.Windows.Forms.Panel();
             this.DakSliderPanel = new System.Windows.Forms.Panel();
-            this.btnNothiSettings = new System.Windows.Forms.Button();
             this.btnDakSettings = new System.Windows.Forms.Button();
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
-            this.NotificationSaveButton = new System.Windows.Forms.Button();
             this.SettingsTableLayoutPanel.SuspendLayout();
             this.BodyPanel.SuspendLayout();
             this.Body.SuspendLayout();
@@ -278,6 +281,7 @@ namespace dNothi.Desktop.UI
             this.NotificationPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NotificationPanel.Location = new System.Drawing.Point(1, 308);
             this.NotificationPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.NotificationPanel.MinimumSize = new System.Drawing.Size(0, 301);
             this.NotificationPanel.Name = "NotificationPanel";
             this.NotificationPanel.Padding = new System.Windows.Forms.Padding(1);
             this.NotificationPanel.Size = new System.Drawing.Size(460, 301);
@@ -1019,6 +1023,7 @@ namespace dNothi.Desktop.UI
             this.PaginationPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.PaginationPanel.Location = new System.Drawing.Point(1, 1);
             this.PaginationPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.PaginationPanel.MinimumSize = new System.Drawing.Size(0, 307);
             this.PaginationPanel.Name = "PaginationPanel";
             this.PaginationPanel.Padding = new System.Windows.Forms.Padding(1);
             this.PaginationPanel.Size = new System.Drawing.Size(460, 307);
@@ -1890,6 +1895,7 @@ namespace dNothi.Desktop.UI
             // 
             // FooterPanel
             // 
+            this.FooterPanel.Controls.Add(this.ReportButton);
             this.FooterPanel.Controls.Add(this.NotificationSaveButton);
             this.FooterPanel.Controls.Add(this.PaginationSaveButton);
             this.FooterPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1899,6 +1905,50 @@ namespace dNothi.Desktop.UI
             this.FooterPanel.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.FooterPanel.Size = new System.Drawing.Size(462, 65);
             this.FooterPanel.TabIndex = 6;
+            // 
+            // ReportButton
+            // 
+            this.ReportButton.AutoSize = true;
+            this.ReportButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.ReportButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ReportButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ReportButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.ReportButton.FlatAppearance.BorderSize = 0;
+            this.ReportButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.ReportButton.ForeColor = System.Drawing.Color.White;
+            this.ReportButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ReportButton.Location = new System.Drawing.Point(227, 10);
+            this.ReportButton.Margin = new System.Windows.Forms.Padding(0);
+            this.ReportButton.Name = "ReportButton";
+            this.ReportButton.Size = new System.Drawing.Size(111, 45);
+            this.ReportButton.TabIndex = 20;
+            this.ReportButton.Text = "রিপোর্ট ";
+            this.ReportButton.UseVisualStyleBackColor = false;
+            this.ReportButton.Visible = false;
+            this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
+            // 
+            // NotificationSaveButton
+            // 
+            this.NotificationSaveButton.AutoSize = true;
+            this.NotificationSaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.NotificationSaveButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NotificationSaveButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.NotificationSaveButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.NotificationSaveButton.FlatAppearance.BorderSize = 0;
+            this.NotificationSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NotificationSaveButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.NotificationSaveButton.ForeColor = System.Drawing.Color.White;
+            this.NotificationSaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.NotificationSaveButton.Location = new System.Drawing.Point(116, 10);
+            this.NotificationSaveButton.Margin = new System.Windows.Forms.Padding(0);
+            this.NotificationSaveButton.Name = "NotificationSaveButton";
+            this.NotificationSaveButton.Size = new System.Drawing.Size(111, 45);
+            this.NotificationSaveButton.TabIndex = 19;
+            this.NotificationSaveButton.Text = "সংরক্ষণ";
+            this.NotificationSaveButton.UseVisualStyleBackColor = false;
+            this.NotificationSaveButton.Visible = false;
+            this.NotificationSaveButton.Click += new System.EventHandler(this.NotificationSaveButton_Click);
             // 
             // PaginationSaveButton
             // 
@@ -1938,16 +1988,19 @@ namespace dNothi.Desktop.UI
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnCount = 5;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 223F));
-            this.tableLayoutPanel2.Controls.Add(this.btnNotificationSettings, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.notificationSliderPanel, 2, 1);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 137F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.tableLayoutPanel2.Controls.Add(this.othersSliderPanel, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btnOthersSettings, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnNothiSettings, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnNotificationSettings, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.notificationSliderPanel, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.nothiSliderPanel, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.DakSliderPanel, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnNothiSettings, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnDakSettings, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
@@ -1958,54 +2011,34 @@ namespace dNothi.Desktop.UI
             this.tableLayoutPanel2.Size = new System.Drawing.Size(464, 42);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // btnNotificationSettings
+            // othersSliderPanel
             // 
-            this.btnNotificationSettings.AutoSize = true;
-            this.btnNotificationSettings.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnNotificationSettings.FlatAppearance.BorderSize = 0;
-            this.btnNotificationSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnNotificationSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnNotificationSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotificationSettings.Font = new System.Drawing.Font("SolaimanLipi", 7.8F);
-            this.btnNotificationSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnNotificationSettings.Location = new System.Drawing.Point(111, 0);
-            this.btnNotificationSettings.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNotificationSettings.Name = "btnNotificationSettings";
-            this.btnNotificationSettings.Size = new System.Drawing.Size(130, 34);
-            this.btnNotificationSettings.TabIndex = 7;
-            this.btnNotificationSettings.Text = "নোটিফিকেশন";
-            this.btnNotificationSettings.UseVisualStyleBackColor = true;
-            this.btnNotificationSettings.Click += new System.EventHandler(this.btnNotificationSettings_Click);
+            this.othersSliderPanel.BackColor = System.Drawing.Color.White;
+            this.othersSliderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.othersSliderPanel.Location = new System.Drawing.Point(98, 34);
+            this.othersSliderPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.othersSliderPanel.Name = "othersSliderPanel";
+            this.othersSliderPanel.Size = new System.Drawing.Size(86, 8);
+            this.othersSliderPanel.TabIndex = 11;
             // 
-            // notificationSliderPanel
+            // btnOthersSettings
             // 
-            this.notificationSliderPanel.BackColor = System.Drawing.Color.White;
-            this.notificationSliderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.notificationSliderPanel.Location = new System.Drawing.Point(111, 34);
-            this.notificationSliderPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.notificationSliderPanel.Name = "notificationSliderPanel";
-            this.notificationSliderPanel.Size = new System.Drawing.Size(130, 8);
-            this.notificationSliderPanel.TabIndex = 6;
-            // 
-            // nothiSliderPanel
-            // 
-            this.nothiSliderPanel.BackColor = System.Drawing.Color.White;
-            this.nothiSliderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.nothiSliderPanel.Location = new System.Drawing.Point(64, 34);
-            this.nothiSliderPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.nothiSliderPanel.Name = "nothiSliderPanel";
-            this.nothiSliderPanel.Size = new System.Drawing.Size(47, 8);
-            this.nothiSliderPanel.TabIndex = 5;
-            // 
-            // DakSliderPanel
-            // 
-            this.DakSliderPanel.BackColor = System.Drawing.Color.White;
-            this.DakSliderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DakSliderPanel.Location = new System.Drawing.Point(0, 34);
-            this.DakSliderPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.DakSliderPanel.Name = "DakSliderPanel";
-            this.DakSliderPanel.Size = new System.Drawing.Size(64, 8);
-            this.DakSliderPanel.TabIndex = 4;
+            this.btnOthersSettings.AutoSize = true;
+            this.btnOthersSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOthersSettings.FlatAppearance.BorderSize = 0;
+            this.btnOthersSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnOthersSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnOthersSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOthersSettings.Font = new System.Drawing.Font("SolaimanLipi", 7.8F);
+            this.btnOthersSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnOthersSettings.Location = new System.Drawing.Point(98, 0);
+            this.btnOthersSettings.Margin = new System.Windows.Forms.Padding(0);
+            this.btnOthersSettings.Name = "btnOthersSettings";
+            this.btnOthersSettings.Size = new System.Drawing.Size(86, 34);
+            this.btnOthersSettings.TabIndex = 9;
+            this.btnOthersSettings.Text = "অন্যান্য";
+            this.btnOthersSettings.UseVisualStyleBackColor = true;
+            this.btnOthersSettings.Click += new System.EventHandler(this.btnOthersSettings_Click);
             // 
             // btnNothiSettings
             // 
@@ -2017,14 +2050,63 @@ namespace dNothi.Desktop.UI
             this.btnNothiSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNothiSettings.Font = new System.Drawing.Font("SolaimanLipi", 7.8F);
             this.btnNothiSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.btnNothiSettings.Location = new System.Drawing.Point(64, 0);
+            this.btnNothiSettings.Location = new System.Drawing.Point(50, 0);
             this.btnNothiSettings.Margin = new System.Windows.Forms.Padding(0);
             this.btnNothiSettings.Name = "btnNothiSettings";
-            this.btnNothiSettings.Size = new System.Drawing.Size(47, 34);
-            this.btnNothiSettings.TabIndex = 1;
+            this.btnNothiSettings.Size = new System.Drawing.Size(48, 34);
+            this.btnNothiSettings.TabIndex = 8;
             this.btnNothiSettings.Text = "নথি";
             this.btnNothiSettings.UseVisualStyleBackColor = true;
             this.btnNothiSettings.Click += new System.EventHandler(this.btnNothiSettings_Click);
+            // 
+            // btnNotificationSettings
+            // 
+            this.btnNotificationSettings.AutoSize = true;
+            this.btnNotificationSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNotificationSettings.FlatAppearance.BorderSize = 0;
+            this.btnNotificationSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnNotificationSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnNotificationSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificationSettings.Font = new System.Drawing.Font("SolaimanLipi", 7.8F);
+            this.btnNotificationSettings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
+            this.btnNotificationSettings.Location = new System.Drawing.Point(184, 0);
+            this.btnNotificationSettings.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNotificationSettings.Name = "btnNotificationSettings";
+            this.btnNotificationSettings.Size = new System.Drawing.Size(137, 34);
+            this.btnNotificationSettings.TabIndex = 7;
+            this.btnNotificationSettings.Text = "নোটিফিকেশন";
+            this.btnNotificationSettings.UseVisualStyleBackColor = true;
+            this.btnNotificationSettings.Click += new System.EventHandler(this.btnNotificationSettings_Click);
+            // 
+            // notificationSliderPanel
+            // 
+            this.notificationSliderPanel.BackColor = System.Drawing.Color.White;
+            this.notificationSliderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.notificationSliderPanel.Location = new System.Drawing.Point(184, 34);
+            this.notificationSliderPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.notificationSliderPanel.Name = "notificationSliderPanel";
+            this.notificationSliderPanel.Size = new System.Drawing.Size(137, 8);
+            this.notificationSliderPanel.TabIndex = 6;
+            // 
+            // nothiSliderPanel
+            // 
+            this.nothiSliderPanel.BackColor = System.Drawing.Color.White;
+            this.nothiSliderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nothiSliderPanel.Location = new System.Drawing.Point(50, 34);
+            this.nothiSliderPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.nothiSliderPanel.Name = "nothiSliderPanel";
+            this.nothiSliderPanel.Size = new System.Drawing.Size(48, 8);
+            this.nothiSliderPanel.TabIndex = 5;
+            // 
+            // DakSliderPanel
+            // 
+            this.DakSliderPanel.BackColor = System.Drawing.Color.White;
+            this.DakSliderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DakSliderPanel.Location = new System.Drawing.Point(0, 34);
+            this.DakSliderPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.DakSliderPanel.Name = "DakSliderPanel";
+            this.DakSliderPanel.Size = new System.Drawing.Size(50, 8);
+            this.DakSliderPanel.TabIndex = 4;
             // 
             // btnDakSettings
             // 
@@ -2039,7 +2121,7 @@ namespace dNothi.Desktop.UI
             this.btnDakSettings.Location = new System.Drawing.Point(0, 0);
             this.btnDakSettings.Margin = new System.Windows.Forms.Padding(0);
             this.btnDakSettings.Name = "btnDakSettings";
-            this.btnDakSettings.Size = new System.Drawing.Size(64, 34);
+            this.btnDakSettings.Size = new System.Drawing.Size(50, 34);
             this.btnDakSettings.TabIndex = 0;
             this.btnDakSettings.Text = "ডাক";
             this.btnDakSettings.UseVisualStyleBackColor = true;
@@ -2071,28 +2153,6 @@ namespace dNothi.Desktop.UI
             this.label14.Size = new System.Drawing.Size(85, 34);
             this.label14.TabIndex = 1;
             this.label14.Text = "সেটিংস‌";
-            // 
-            // NotificationSaveButton
-            // 
-            this.NotificationSaveButton.AutoSize = true;
-            this.NotificationSaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.NotificationSaveButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.NotificationSaveButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.NotificationSaveButton.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.NotificationSaveButton.FlatAppearance.BorderSize = 0;
-            this.NotificationSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NotificationSaveButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.NotificationSaveButton.ForeColor = System.Drawing.Color.White;
-            this.NotificationSaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NotificationSaveButton.Location = new System.Drawing.Point(116, 10);
-            this.NotificationSaveButton.Margin = new System.Windows.Forms.Padding(0);
-            this.NotificationSaveButton.Name = "NotificationSaveButton";
-            this.NotificationSaveButton.Size = new System.Drawing.Size(111, 45);
-            this.NotificationSaveButton.TabIndex = 19;
-            this.NotificationSaveButton.Text = "সংরক্ষণ";
-            this.NotificationSaveButton.UseVisualStyleBackColor = false;
-            this.NotificationSaveButton.Visible = false;
-            this.NotificationSaveButton.Click += new System.EventHandler(this.NotificationSaveButton_Click);
             // 
             // SettingsUserControl
             // 
@@ -2227,7 +2287,6 @@ namespace dNothi.Desktop.UI
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel nothiSliderPanel;
         private System.Windows.Forms.Panel DakSliderPanel;
-        private System.Windows.Forms.Button btnNothiSettings;
         private System.Windows.Forms.Button btnDakSettings;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label headingLabel;
@@ -2346,5 +2405,9 @@ namespace dNothi.Desktop.UI
         private System.Windows.Forms.Panel panel47;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button NotificationSaveButton;
+        private System.Windows.Forms.Button ReportButton;
+        private System.Windows.Forms.Panel othersSliderPanel;
+        private System.Windows.Forms.Button btnOthersSettings;
+        private System.Windows.Forms.Button btnNothiSettings;
     }
 }

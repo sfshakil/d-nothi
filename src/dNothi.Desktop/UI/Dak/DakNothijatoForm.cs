@@ -1,9 +1,12 @@
-﻿using dNothi.Desktop.UI.CustomMessageBox;
+﻿using dNothi.Core.Entities;
+using dNothi.Desktop.UI.CustomMessageBox;
 using dNothi.JsonParser.Entity.Dak;
 using dNothi.JsonParser.Entity.Nothi;
 using dNothi.Services.DakServices;
 using dNothi.Services.NothiServices;
+using dNothi.Services.SettingServices;
 using dNothi.Services.UserServices;
+using dNothi.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +21,11 @@ namespace dNothi.Desktop.UI.Dak
 {
     public partial class DakNothijatoForm : Form
     {
+        public int pageNo { get; set; }
+        public int pageLimit { get; set; }
+        public int totalPage { get; set; }
+        ISettingServices _settingServices { get; set; }
+
         IUserService _userService { get; set; }
         INothiInboxServices _nothiInbox { get; set; }
         INothiAllServices _nothiAll { get; set; }
@@ -31,8 +39,9 @@ namespace dNothi.Desktop.UI.Dak
 
         public DakUserParam _userParam = new DakUserParam();
 
-        public DakNothijatoForm(IDakNothijatoService dakNothijatoService, IUserService userService, INothiAllServices nothiAll, INothiNoteTalikaServices nothiNoteTalikaServices,INothiInboxServices inboxServices)
+        public DakNothijatoForm(ISettingServices settingServices, IDakNothijatoService dakNothijatoService, IUserService userService, INothiAllServices nothiAll, INothiNoteTalikaServices nothiNoteTalikaServices,INothiInboxServices inboxServices)
         {
+            _settingServices = settingServices;
             _nothiInbox = inboxServices;
             _nothiAll = nothiAll;
             _nothijatoService = dakNothijatoService;
@@ -40,8 +49,19 @@ namespace dNothi.Desktop.UI.Dak
             _nothinotetalikaservices = nothiNoteTalikaServices;
             _userParam = _userService.GetLocalDakUserParam();
             InitializeComponent();
+
+            RefreshPagination();
+
             LoadNothiAll();
         }
+
+        private void RefreshPagination()
+        {
+            SettingsList setting = _settingServices.GetSettingList(_userParam);
+            pageNo = 1;
+            pageLimit = (setting.nothiAllPagination == 0) ? 10 : setting.nothiAllPagination;
+        }
+
         public int _dak_id;
         public string _dak_type;
         public int _is_copied_dak;
@@ -90,10 +110,29 @@ namespace dNothi.Desktop.UI.Dak
                     {
 
                         LoadNothiInboxinPanel(nothiInbox.data.records);
+                        SetPagination(nothiInbox.data.records.Count, nothiInbox.data.total_records);
 
                     }
                 }
             }
+
+        }
+
+
+        private void SetPagination(int count, int total)
+        {
+            int startpage = (pageNo - 1) * pageLimit + 1;
+            int endPage = startpage + count - 1;
+
+
+            totalPage = total / pageLimit;
+            totalPage += ((total % pageLimit) != 0) ? 1 : 0;
+
+
+            paginationLabel.Text = ConversionMethod.EngDigittoBanDigit(startpage.ToString()) + "-" + ConversionMethod.EngDigittoBanDigit(endPage.ToString()) + " সর্বমোট:" + ConversionMethod.EngDigittoBanDigit(total.ToString());
+
+            prevButton.Enabled = (startpage != 1);
+            nextButton.Enabled = (totalPage != pageNo);
 
         }
 
@@ -152,6 +191,7 @@ namespace dNothi.Desktop.UI.Dak
                     if (nothiAll.data.records.Count > 0)
                     {
                         LoadNothiAllinPanel(nothiAll.data.records);
+                        SetPagination(nothiAll.data.records.Count, nothiAll.data.total_records);
                     }
 
                 }
@@ -330,6 +370,7 @@ namespace dNothi.Desktop.UI.Dak
 
         private void nothiTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            RefreshPagination();
             if (nothiTypeComboBox.SelectedItem.ToString() == "সকল নথি")
             {
                 LoadNothiAll();
@@ -338,6 +379,16 @@ namespace dNothi.Desktop.UI.Dak
             {
                 LoadNothiInbox();
             }
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            pageNo += 1;
+        }
+
+        private void prevButton_Click(object sender, EventArgs e)
+        {
+            pageNo -= 1;
         }
     }
 }

@@ -5887,7 +5887,7 @@ namespace dNothi.Desktop.UI
             if (!settingsUserControl.Visible)
             {
                 settingsUserControl.Visible = true;
-                settingsUserControl.Location = new System.Drawing.Point(SettingsButton.Location.X, SettingsButton.Height);
+                settingsUserControl.Location = new System.Drawing.Point(panel11.Location.X + SettingsButton.Location.X, SettingsButton.Height);
                 Controls.Add(settingsUserControl);
                 settingsUserControl.BringToFront();
                 settingsUserControl.SettingsSaveButton += delegate (object sender1, EventArgs e1) { SettingsSaveButton_Click(sender1 as Settings, e1); };
@@ -5937,6 +5937,30 @@ namespace dNothi.Desktop.UI
         {
             if (e.KeyCode == Keys.Enter)
                 dakSearchUsingTextButton.PerformClick();
+        }
+        public Form NotificationControlToForm(Control control)
+        {
+            Form form = new Form();
+            form.Name = "ExtraNotificationForm";
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - control.Width, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            //form.Size = control.Size;
+            form.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            form.Width = control.Width;
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            control.Height = form.Height;
+            form.Controls.Add(control);
+            return form;
+        }
+        private void NotificationBellButton_Click(object sender, EventArgs e)
+        {
+            var notificationUserControl = UserControlFactory.Create<NotificationUserControl>();
+            var form = NotificationControlToForm(notificationUserControl);
+            UIDesignCommonMethod.CalPopUpWindow(form, this);
         }
 
         private void iconButton3_Click(object sender, EventArgs e)

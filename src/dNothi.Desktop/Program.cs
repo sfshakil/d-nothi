@@ -436,6 +436,10 @@ namespace dNothi.Desktop
 
             builder.RegisterType<PotrojariGroupContent>().AsSelf();
             builder.RegisterType<PatraJariGroupCreateUserControl>().AsSelf();
+            builder.RegisterType<NotificationUserControl>().AsSelf();
+            builder.RegisterType<NotificationRow>().AsSelf();
+            builder.RegisterType<ReportCategoryUserControl>().AsSelf();
+            builder.RegisterType<ReportCategoryRowUserControl>().AsSelf();
             builder.RegisterType<KhosraDakNoteDetailForm>().AsSelf();
             
             builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();
