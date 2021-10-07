@@ -436,7 +436,11 @@ namespace dNothi.Desktop.UI
 
         private void ReportButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
 
+            ReportDashboard reportform = FormFactory.Create<ReportDashboard>();
+
+            reportform.ShowDialog();
         }
 
         //public Settings getLocalData()

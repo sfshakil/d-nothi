@@ -1529,6 +1529,12 @@
     <Compile Include="UI\ReportCategoryUserControl.Designer.cs">
       <DependentUpon>ReportCategoryUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ReportUI\UCAnumatiPraptaUserList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ReportUI\UCAnumatiPraptaUserList.Designer.cs">
+      <DependentUpon>UCAnumatiPraptaUserList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ReviewDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2163,6 +2169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportCategoryUserControl.resx">
       <DependentUpon>ReportCategoryUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportUI\UCAnumatiPraptaUserList.resx">
+      <DependentUpon>UCAnumatiPraptaUserList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReviewDashBoard.resx">
       <DependentUpon>ReviewDashBoard.cs</DependentUpon>
