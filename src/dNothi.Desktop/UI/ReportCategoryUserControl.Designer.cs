@@ -47,21 +47,21 @@ namespace dNothi.Desktop.UI
             this.FooterPanel = new System.Windows.Forms.Panel();
             this.btnSend = new FontAwesome.Sharp.IconButton();
             this.SubHeaderPanel = new System.Windows.Forms.Panel();
+            this.OntorvuktiPanel = new System.Windows.Forms.Panel();
+            this.TextBoxPanel = new System.Windows.Forms.Panel();
+            this.placeholderTextBox2 = new PlaceholderTextBox.PlaceholderTextBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.DeleteButton = new FontAwesome.Sharp.IconButton();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.OntorvuktiHeaderPanel = new System.Windows.Forms.Panel();
             this.OntorvuktiButton = new FontAwesome.Sharp.IconButton();
             this.HederPanel = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lbPotrojariName = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.OntorvuktiHeaderPanel = new System.Windows.Forms.Panel();
-            this.OntorvuktiPanel = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.DeleteButton = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.TextBoxPanel = new System.Windows.Forms.Panel();
-            this.placeholderTextBox2 = new PlaceholderTextBox.PlaceholderTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.BodyPanel.SuspendLayout();
             this.TableHeaderPanel.SuspendLayout();
@@ -73,14 +73,14 @@ namespace dNothi.Desktop.UI
             this.panel1.SuspendLayout();
             this.FooterPanel.SuspendLayout();
             this.SubHeaderPanel.SuspendLayout();
+            this.OntorvuktiPanel.SuspendLayout();
+            this.TextBoxPanel.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.OntorvuktiHeaderPanel.SuspendLayout();
             this.HederPanel.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.OntorvuktiHeaderPanel.SuspendLayout();
-            this.OntorvuktiPanel.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.TextBoxPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -334,7 +334,6 @@ namespace dNothi.Desktop.UI
             this.btnSend.Text = "ক্রম সংশোধন";
             this.btnSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSend.UseVisualStyleBackColor = false;
-            this.btnSend.Visible = false;
             // 
             // SubHeaderPanel
             // 
@@ -346,6 +345,142 @@ namespace dNothi.Desktop.UI
             this.SubHeaderPanel.Name = "SubHeaderPanel";
             this.SubHeaderPanel.Size = new System.Drawing.Size(1363, 162);
             this.SubHeaderPanel.TabIndex = 1;
+            // 
+            // OntorvuktiPanel
+            // 
+            this.OntorvuktiPanel.Controls.Add(this.TextBoxPanel);
+            this.OntorvuktiPanel.Controls.Add(this.panel10);
+            this.OntorvuktiPanel.Controls.Add(this.panel7);
+            this.OntorvuktiPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OntorvuktiPanel.Location = new System.Drawing.Point(0, 49);
+            this.OntorvuktiPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.OntorvuktiPanel.Name = "OntorvuktiPanel";
+            this.OntorvuktiPanel.Size = new System.Drawing.Size(1363, 113);
+            this.OntorvuktiPanel.TabIndex = 1;
+            this.OntorvuktiPanel.Visible = false;
+            // 
+            // TextBoxPanel
+            // 
+            this.TextBoxPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.TextBoxPanel.Controls.Add(this.placeholderTextBox2);
+            this.TextBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TextBoxPanel.Location = new System.Drawing.Point(0, 31);
+            this.TextBoxPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.TextBoxPanel.MinimumSize = new System.Drawing.Size(0, 43);
+            this.TextBoxPanel.Name = "TextBoxPanel";
+            this.TextBoxPanel.Padding = new System.Windows.Forms.Padding(10, 8, 10, 5);
+            this.TextBoxPanel.Size = new System.Drawing.Size(1363, 43);
+            this.TextBoxPanel.TabIndex = 5;
+            this.TextBoxPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TextBoxPanel_Paint);
+            // 
+            // placeholderTextBox2
+            // 
+            this.placeholderTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.placeholderTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.placeholderTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.placeholderTextBox2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.placeholderTextBox2.Location = new System.Drawing.Point(10, 8);
+            this.placeholderTextBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.placeholderTextBox2.Name = "placeholderTextBox2";
+            this.placeholderTextBox2.PlaceholderText = "অন্তর্ভুক্তি";
+            this.placeholderTextBox2.Size = new System.Drawing.Size(1343, 27);
+            this.placeholderTextBox2.TabIndex = 3;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.iconButton2);
+            this.panel10.Controls.Add(this.DeleteButton);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel10.Location = new System.Drawing.Point(0, 74);
+            this.panel10.Margin = new System.Windows.Forms.Padding(0);
+            this.panel10.Name = "panel10";
+            this.panel10.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.panel10.Size = new System.Drawing.Size(1363, 39);
+            this.panel10.TabIndex = 3;
+            this.panel10.Visible = false;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.AutoSize = true;
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.iconButton2.ForeColor = System.Drawing.Color.White;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton2.IconColor = System.Drawing.SystemColors.Window;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 20;
+            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton2.Location = new System.Drawing.Point(1040, 0);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(161, 39);
+            this.iconButton2.TabIndex = 70;
+            this.iconButton2.Text = "সংরক্ষণ করুন";
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.AutoSize = true;
+            this.DeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.DeleteButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.DeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.DeleteButton.ForeColor = System.Drawing.Color.White;
+            this.DeleteButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.DeleteButton.IconColor = System.Drawing.SystemColors.Window;
+            this.DeleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.DeleteButton.IconSize = 20;
+            this.DeleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.DeleteButton.Location = new System.Drawing.Point(1201, 0);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(0);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(152, 39);
+            this.DeleteButton.TabIndex = 69;
+            this.DeleteButton.Text = "বাতিল করুন";
+            this.DeleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.DeleteButton.UseVisualStyleBackColor = false;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label6);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Margin = new System.Windows.Forms.Padding(0);
+            this.panel7.Name = "panel7";
+            this.panel7.Padding = new System.Windows.Forms.Padding(8, 5, 0, 0);
+            this.panel7.Size = new System.Drawing.Size(1363, 31);
+            this.panel7.TabIndex = 2;
+            this.panel7.Visible = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.label6.Location = new System.Drawing.Point(8, 5);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 22);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "অন্তর্ভুক্তি";
+            // 
+            // OntorvuktiHeaderPanel
+            // 
+            this.OntorvuktiHeaderPanel.Controls.Add(this.OntorvuktiButton);
+            this.OntorvuktiHeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.OntorvuktiHeaderPanel.Location = new System.Drawing.Point(0, 0);
+            this.OntorvuktiHeaderPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.OntorvuktiHeaderPanel.Name = "OntorvuktiHeaderPanel";
+            this.OntorvuktiHeaderPanel.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.OntorvuktiHeaderPanel.Size = new System.Drawing.Size(1363, 49);
+            this.OntorvuktiHeaderPanel.TabIndex = 0;
             // 
             // OntorvuktiButton
             // 
@@ -374,6 +509,7 @@ namespace dNothi.Desktop.UI
             // 
             // HederPanel
             // 
+            this.HederPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(241)))), ((int)(((byte)(252)))));
             this.HederPanel.Controls.Add(this.panel9);
             this.HederPanel.Controls.Add(this.panel8);
             this.HederPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -391,7 +527,7 @@ namespace dNothi.Desktop.UI
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
             this.panel9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel9.Size = new System.Drawing.Size(309, 42);
+            this.panel9.Size = new System.Drawing.Size(518, 42);
             this.panel9.TabIndex = 3;
             // 
             // lbPotrojariName
@@ -401,11 +537,11 @@ namespace dNothi.Desktop.UI
             this.lbPotrojariName.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPotrojariName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
             this.lbPotrojariName.Location = new System.Drawing.Point(0, 5);
-            this.lbPotrojariName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPotrojariName.Margin = new System.Windows.Forms.Padding(0);
             this.lbPotrojariName.Name = "lbPotrojariName";
-            this.lbPotrojariName.Size = new System.Drawing.Size(156, 30);
+            this.lbPotrojariName.Size = new System.Drawing.Size(310, 30);
             this.lbPotrojariName.TabIndex = 1;
-            this.lbPotrojariName.Text = "রিপোর্ট ক্যাটাগরি";
+            this.lbPotrojariName.Text = "রিপোর্ট ক্যাটাগরি                      ";
             // 
             // panel8
             // 
@@ -435,142 +571,6 @@ namespace dNothi.Desktop.UI
             this.iconButton3.TabIndex = 5;
             this.iconButton3.UseVisualStyleBackColor = false;
             // 
-            // OntorvuktiHeaderPanel
-            // 
-            this.OntorvuktiHeaderPanel.Controls.Add(this.OntorvuktiButton);
-            this.OntorvuktiHeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.OntorvuktiHeaderPanel.Location = new System.Drawing.Point(0, 0);
-            this.OntorvuktiHeaderPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.OntorvuktiHeaderPanel.Name = "OntorvuktiHeaderPanel";
-            this.OntorvuktiHeaderPanel.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.OntorvuktiHeaderPanel.Size = new System.Drawing.Size(1363, 49);
-            this.OntorvuktiHeaderPanel.TabIndex = 0;
-            // 
-            // OntorvuktiPanel
-            // 
-            this.OntorvuktiPanel.Controls.Add(this.TextBoxPanel);
-            this.OntorvuktiPanel.Controls.Add(this.panel10);
-            this.OntorvuktiPanel.Controls.Add(this.panel7);
-            this.OntorvuktiPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OntorvuktiPanel.Location = new System.Drawing.Point(0, 49);
-            this.OntorvuktiPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.OntorvuktiPanel.Name = "OntorvuktiPanel";
-            this.OntorvuktiPanel.Size = new System.Drawing.Size(1363, 113);
-            this.OntorvuktiPanel.TabIndex = 1;
-            this.OntorvuktiPanel.Visible = false;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.label6);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 0);
-            this.panel7.Margin = new System.Windows.Forms.Padding(0);
-            this.panel7.Name = "panel7";
-            this.panel7.Padding = new System.Windows.Forms.Padding(8, 5, 0, 0);
-            this.panel7.Size = new System.Drawing.Size(1363, 31);
-            this.panel7.TabIndex = 2;
-            this.panel7.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label6.Font = new System.Drawing.Font("SolaimanLipi", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.label6.Location = new System.Drawing.Point(8, 5);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 22);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "অন্তর্ভুক্তি";
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.iconButton2);
-            this.panel10.Controls.Add(this.DeleteButton);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(0, 74);
-            this.panel10.Margin = new System.Windows.Forms.Padding(0);
-            this.panel10.Name = "panel10";
-            this.panel10.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.panel10.Size = new System.Drawing.Size(1363, 39);
-            this.panel10.TabIndex = 3;
-            this.panel10.Visible = false;
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.AutoSize = true;
-            this.DeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.DeleteButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.DeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.DeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.DeleteButton.ForeColor = System.Drawing.Color.White;
-            this.DeleteButton.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.DeleteButton.IconColor = System.Drawing.SystemColors.Window;
-            this.DeleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.DeleteButton.IconSize = 20;
-            this.DeleteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DeleteButton.Location = new System.Drawing.Point(1201, 0);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(0);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(152, 39);
-            this.DeleteButton.TabIndex = 69;
-            this.DeleteButton.Text = "বাতিল করুন";
-            this.DeleteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.DeleteButton.UseVisualStyleBackColor = false;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.AutoSize = true;
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.SystemColors.Window;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(1040, 0);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(161, 39);
-            this.iconButton2.TabIndex = 70;
-            this.iconButton2.Text = "সংরক্ষণ করুন";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = false;
-            // 
-            // TextBoxPanel
-            // 
-            this.TextBoxPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.TextBoxPanel.Controls.Add(this.placeholderTextBox2);
-            this.TextBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TextBoxPanel.Location = new System.Drawing.Point(0, 31);
-            this.TextBoxPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.TextBoxPanel.MinimumSize = new System.Drawing.Size(0, 43);
-            this.TextBoxPanel.Name = "TextBoxPanel";
-            this.TextBoxPanel.Padding = new System.Windows.Forms.Padding(10, 8, 10, 5);
-            this.TextBoxPanel.Size = new System.Drawing.Size(1363, 43);
-            this.TextBoxPanel.TabIndex = 5;
-            this.TextBoxPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TextBoxPanel_Paint);
-            // 
-            // placeholderTextBox2
-            // 
-            this.placeholderTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.placeholderTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.placeholderTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.placeholderTextBox2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholderTextBox2.Location = new System.Drawing.Point(10, 8);
-            this.placeholderTextBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.placeholderTextBox2.Name = "placeholderTextBox2";
-            this.placeholderTextBox2.PlaceholderText = "অন্তর্ভুক্তি";
-            this.placeholderTextBox2.Size = new System.Drawing.Size(1343, 27);
-            this.placeholderTextBox2.TabIndex = 3;
-            // 
             // ReportCategoryUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -597,19 +597,19 @@ namespace dNothi.Desktop.UI
             this.FooterPanel.ResumeLayout(false);
             this.FooterPanel.PerformLayout();
             this.SubHeaderPanel.ResumeLayout(false);
+            this.OntorvuktiPanel.ResumeLayout(false);
+            this.TextBoxPanel.ResumeLayout(false);
+            this.TextBoxPanel.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.OntorvuktiHeaderPanel.ResumeLayout(false);
+            this.OntorvuktiHeaderPanel.PerformLayout();
             this.HederPanel.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
-            this.OntorvuktiHeaderPanel.ResumeLayout(false);
-            this.OntorvuktiHeaderPanel.PerformLayout();
-            this.OntorvuktiPanel.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.TextBoxPanel.ResumeLayout(false);
-            this.TextBoxPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
