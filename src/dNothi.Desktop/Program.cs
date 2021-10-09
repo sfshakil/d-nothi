@@ -39,6 +39,7 @@ using dNothi.Core.Entities.Khosra;
 using dNothi.Services.KasaraPatraDashBoardService;
 using dNothi.Services.SettingServices;
 using dNothi.Desktop.UI.ReportUI;
+using dNothi.Services.ReportPermited;
 
 namespace dNothi.Desktop
 {
@@ -295,9 +296,9 @@ namespace dNothi.Desktop
             builder.RegisterType<PotroJariGroupService>().As<IPotroJariGroupService>();
             builder.RegisterType<PotroServices>().As<IPotroServices>();
             builder.RegisterType<ProfileManagementServices>().As<IProfileManagementServices>();
-          
 
-
+            builder.RegisterType<ReportPermissionServices>().As<IReportPermissionServices>();
+            
 
             builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();
             builder.RegisterGeneric(typeof(DakSharingService<>)).As(typeof(IDakSharingService<>)).AsSelf();
@@ -408,7 +409,7 @@ namespace dNothi.Desktop
             builder.RegisterType<GuardFileRowUserControl>().AsSelf();
             
             builder.RegisterType<ReportDashboard>().AsSelf();
-            builder.RegisterType<UCAnumatiPraptaUserLis>().AsSelf();
+            builder.RegisterType<UCAnumatiPraptaUserList>().AsSelf();
             
 
 

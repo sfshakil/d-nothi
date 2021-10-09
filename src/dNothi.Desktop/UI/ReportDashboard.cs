@@ -257,16 +257,15 @@ namespace dNothi.Desktop.UI
         private void reportModuleButton_Click(object sender, EventArgs e)
         {
 
-
             ResetAllMenuButtonSelection();
             SelectButton(reportModuleButton);
             bodyTableLayoutPanel.Controls.Clear();
-            var userListuc = UserControlFactory.Create<UCAnumatiPraptaUserLis>();
+            var usersListuc = UserControlFactory.Create<UCAnumatiPraptaUserList>();
 
-            bodyTableLayoutPanel.Controls.Add(userListuc);
-            userListuc.Dock = DockStyle.Fill;
-
-            userListuc.Show();
+            bodyTableLayoutPanel.Controls.Add(usersListuc);
+            usersListuc.Dock = DockStyle.Fill;
+            
+            usersListuc.Show();
 
         }
         private void SelectButton(Button button)
@@ -330,12 +329,12 @@ namespace dNothi.Desktop.UI
         private void ReportDashboard_Shown(object sender, EventArgs e)
         {
             bodyTableLayoutPanel.Controls.Clear();
-            var userListuc = UserControlFactory.Create<UCAnumatiPraptaUserLis>();
+            var usersListuc = UserControlFactory.Create<UCAnumatiPraptaUserList>();
 
-            bodyTableLayoutPanel.Controls.Add(userListuc);
-            userListuc.Dock = DockStyle.Fill;
+            bodyTableLayoutPanel.Controls.Add(usersListuc);
+            usersListuc.Dock = DockStyle.Fill;
 
-            userListuc.Show();
+            usersListuc.Show();
         }
     }
 }
