@@ -39,8 +39,11 @@ namespace dNothi.Desktop.UI
             this.panel1 = new System.Windows.Forms.Panel();
             this.CategoryLabel = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.btnWriteOnuchhed = new FontAwesome.Sharp.IconButton();
+            this.ReportCategoryEditButton = new FontAwesome.Sharp.IconButton();
+            this.ReportCategoryDeleteButton = new FontAwesome.Sharp.IconButton();
+            this.ReportCategoryTextBox = new System.Windows.Forms.TextBox();
+            this.EditSaveButton = new FontAwesome.Sharp.IconButton();
+            this.EditCancelButton = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -121,6 +124,7 @@ namespace dNothi.Desktop.UI
             this.ReportSerialNumberTextBox.Name = "ReportSerialNumberTextBox";
             this.ReportSerialNumberTextBox.Size = new System.Drawing.Size(183, 31);
             this.ReportSerialNumberTextBox.TabIndex = 0;
+            this.ReportSerialNumberTextBox.TextChanged += new System.EventHandler(this.ReportSerialNumberTextBox_TextChanged);
             // 
             // panel2
             // 
@@ -152,12 +156,13 @@ namespace dNothi.Desktop.UI
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.ReportCategoryTextBox);
             this.panel1.Controls.Add(this.CategoryLabel);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(104, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(5, 17, 0, 0);
+            this.panel1.Padding = new System.Windows.Forms.Padding(5, 17, 5, 5);
             this.panel1.Size = new System.Drawing.Size(597, 56);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
@@ -178,8 +183,10 @@ namespace dNothi.Desktop.UI
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.iconButton1);
-            this.panel4.Controls.Add(this.btnWriteOnuchhed);
+            this.panel4.Controls.Add(this.EditCancelButton);
+            this.panel4.Controls.Add(this.EditSaveButton);
+            this.panel4.Controls.Add(this.ReportCategoryEditButton);
+            this.panel4.Controls.Add(this.ReportCategoryDeleteButton);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(1121, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
@@ -188,41 +195,96 @@ namespace dNothi.Desktop.UI
             this.panel4.TabIndex = 10;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // iconButton1
+            // ReportCategoryEditButton
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.iconButton1.IconColor = System.Drawing.SystemColors.Window;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 24;
-            this.iconButton1.Location = new System.Drawing.Point(62, 5);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(50, 46);
-            this.iconButton1.TabIndex = 70;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.ReportCategoryEditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.ReportCategoryEditButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.ReportCategoryEditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportCategoryEditButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.ReportCategoryEditButton.ForeColor = System.Drawing.Color.White;
+            this.ReportCategoryEditButton.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.ReportCategoryEditButton.IconColor = System.Drawing.SystemColors.Window;
+            this.ReportCategoryEditButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ReportCategoryEditButton.IconSize = 24;
+            this.ReportCategoryEditButton.Location = new System.Drawing.Point(62, 5);
+            this.ReportCategoryEditButton.Margin = new System.Windows.Forms.Padding(0);
+            this.ReportCategoryEditButton.Name = "ReportCategoryEditButton";
+            this.ReportCategoryEditButton.Size = new System.Drawing.Size(50, 46);
+            this.ReportCategoryEditButton.TabIndex = 70;
+            this.ReportCategoryEditButton.UseVisualStyleBackColor = false;
+            this.ReportCategoryEditButton.Click += new System.EventHandler(this.ReportCategoryEditButton_Click);
             // 
-            // btnWriteOnuchhed
+            // ReportCategoryDeleteButton
             // 
-            this.btnWriteOnuchhed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.btnWriteOnuchhed.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.btnWriteOnuchhed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWriteOnuchhed.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.btnWriteOnuchhed.ForeColor = System.Drawing.Color.White;
-            this.btnWriteOnuchhed.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            this.btnWriteOnuchhed.IconColor = System.Drawing.SystemColors.Window;
-            this.btnWriteOnuchhed.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnWriteOnuchhed.IconSize = 22;
-            this.btnWriteOnuchhed.Location = new System.Drawing.Point(112, 5);
-            this.btnWriteOnuchhed.Margin = new System.Windows.Forms.Padding(0);
-            this.btnWriteOnuchhed.Name = "btnWriteOnuchhed";
-            this.btnWriteOnuchhed.Size = new System.Drawing.Size(50, 46);
-            this.btnWriteOnuchhed.TabIndex = 69;
-            this.btnWriteOnuchhed.UseVisualStyleBackColor = false;
+            this.ReportCategoryDeleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.ReportCategoryDeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.ReportCategoryDeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ReportCategoryDeleteButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.ReportCategoryDeleteButton.ForeColor = System.Drawing.Color.White;
+            this.ReportCategoryDeleteButton.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.ReportCategoryDeleteButton.IconColor = System.Drawing.SystemColors.Window;
+            this.ReportCategoryDeleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ReportCategoryDeleteButton.IconSize = 22;
+            this.ReportCategoryDeleteButton.Location = new System.Drawing.Point(112, 5);
+            this.ReportCategoryDeleteButton.Margin = new System.Windows.Forms.Padding(0);
+            this.ReportCategoryDeleteButton.Name = "ReportCategoryDeleteButton";
+            this.ReportCategoryDeleteButton.Size = new System.Drawing.Size(50, 46);
+            this.ReportCategoryDeleteButton.TabIndex = 69;
+            this.ReportCategoryDeleteButton.UseVisualStyleBackColor = false;
+            this.ReportCategoryDeleteButton.Click += new System.EventHandler(this.ReportCategoryDeleteButton_Click);
+            // 
+            // ReportCategoryTextBox
+            // 
+            this.ReportCategoryTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReportCategoryTextBox.Font = new System.Drawing.Font("SolaimanLipi", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReportCategoryTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.ReportCategoryTextBox.Location = new System.Drawing.Point(326, 17);
+            this.ReportCategoryTextBox.Margin = new System.Windows.Forms.Padding(0);
+            this.ReportCategoryTextBox.Multiline = true;
+            this.ReportCategoryTextBox.Name = "ReportCategoryTextBox";
+            this.ReportCategoryTextBox.Size = new System.Drawing.Size(266, 34);
+            this.ReportCategoryTextBox.TabIndex = 2;
+            this.ReportCategoryTextBox.Visible = false;
+            // 
+            // EditSaveButton
+            // 
+            this.EditSaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.EditSaveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.EditSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditSaveButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.EditSaveButton.ForeColor = System.Drawing.Color.White;
+            this.EditSaveButton.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+            this.EditSaveButton.IconColor = System.Drawing.SystemColors.Window;
+            this.EditSaveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EditSaveButton.IconSize = 28;
+            this.EditSaveButton.Location = new System.Drawing.Point(62, 5);
+            this.EditSaveButton.Margin = new System.Windows.Forms.Padding(0);
+            this.EditSaveButton.Name = "EditSaveButton";
+            this.EditSaveButton.Size = new System.Drawing.Size(50, 46);
+            this.EditSaveButton.TabIndex = 71;
+            this.EditSaveButton.UseVisualStyleBackColor = false;
+            this.EditSaveButton.Visible = false;
+            this.EditSaveButton.Click += new System.EventHandler(this.EditSaveButton_Click);
+            // 
+            // EditCancelButton
+            // 
+            this.EditCancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.EditCancelButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.EditCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditCancelButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.EditCancelButton.ForeColor = System.Drawing.Color.White;
+            this.EditCancelButton.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
+            this.EditCancelButton.IconColor = System.Drawing.SystemColors.Window;
+            this.EditCancelButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EditCancelButton.IconSize = 28;
+            this.EditCancelButton.Location = new System.Drawing.Point(112, 5);
+            this.EditCancelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.EditCancelButton.Name = "EditCancelButton";
+            this.EditCancelButton.Size = new System.Drawing.Size(50, 46);
+            this.EditCancelButton.TabIndex = 72;
+            this.EditCancelButton.UseVisualStyleBackColor = false;
+            this.EditCancelButton.Visible = false;
+            this.EditCancelButton.Click += new System.EventHandler(this.EditCancelButton_Click);
             // 
             // ReportCategoryRowUserControl
             // 
@@ -259,7 +321,10 @@ namespace dNothi.Desktop.UI
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox ReportSerialNumberTextBox;
         private System.Windows.Forms.Panel panel4;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton btnWriteOnuchhed;
+        private FontAwesome.Sharp.IconButton ReportCategoryEditButton;
+        private FontAwesome.Sharp.IconButton ReportCategoryDeleteButton;
+        private System.Windows.Forms.TextBox ReportCategoryTextBox;
+        private FontAwesome.Sharp.IconButton EditCancelButton;
+        private FontAwesome.Sharp.IconButton EditSaveButton;
     }
 }
