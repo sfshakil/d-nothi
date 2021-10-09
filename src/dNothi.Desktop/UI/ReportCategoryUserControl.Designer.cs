@@ -45,13 +45,14 @@ namespace dNothi.Desktop.UI
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.FooterPanel = new System.Windows.Forms.Panel();
-            this.btnSend = new FontAwesome.Sharp.IconButton();
+            this.SerialUpdateButton = new FontAwesome.Sharp.IconButton();
             this.SubHeaderPanel = new System.Windows.Forms.Panel();
             this.OntorvuktiPanel = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.TextBoxPanel = new System.Windows.Forms.Panel();
-            this.placeholderTextBox2 = new PlaceholderTextBox.PlaceholderTextBox();
+            this.OntorvuktiTextBox = new PlaceholderTextBox.PlaceholderTextBox();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.OntorvuktiSaveButton = new FontAwesome.Sharp.IconButton();
             this.DeleteButton = new FontAwesome.Sharp.IconButton();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -74,6 +75,7 @@ namespace dNothi.Desktop.UI
             this.FooterPanel.SuspendLayout();
             this.SubHeaderPanel.SuspendLayout();
             this.OntorvuktiPanel.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.TextBoxPanel.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -96,10 +98,10 @@ namespace dNothi.Desktop.UI
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.57277F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.572095F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.28169F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.14555F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.36633F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.061569F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1363, 802);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -113,7 +115,7 @@ namespace dNothi.Desktop.UI
             this.BodyPanel.Margin = new System.Windows.Forms.Padding(0);
             this.BodyPanel.Name = "BodyPanel";
             this.BodyPanel.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.BodyPanel.Size = new System.Drawing.Size(1363, 513);
+            this.BodyPanel.Size = new System.Drawing.Size(1363, 539);
             this.BodyPanel.TabIndex = 17;
             // 
             // ListFlowLayoutPanel
@@ -302,38 +304,36 @@ namespace dNothi.Desktop.UI
             // 
             // FooterPanel
             // 
-            this.FooterPanel.Controls.Add(this.btnSend);
+            this.FooterPanel.Controls.Add(this.SerialUpdateButton);
             this.FooterPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FooterPanel.Location = new System.Drawing.Point(0, 717);
+            this.FooterPanel.Location = new System.Drawing.Point(0, 743);
             this.FooterPanel.Margin = new System.Windows.Forms.Padding(0);
             this.FooterPanel.Name = "FooterPanel";
-            this.FooterPanel.Size = new System.Drawing.Size(1363, 85);
+            this.FooterPanel.Size = new System.Drawing.Size(1363, 59);
             this.FooterPanel.TabIndex = 3;
             // 
-            // btnSend
+            // SerialUpdateButton
             // 
-            this.btnSend.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSend.AutoSize = true;
-            this.btnSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnSend.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSend.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.btnSend.ForeColor = System.Drawing.Color.White;
-            this.btnSend.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSend.IconColor = System.Drawing.SystemColors.Window;
-            this.btnSend.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSend.IconSize = 20;
-            this.btnSend.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSend.Location = new System.Drawing.Point(13, 30);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(158, 48);
-            this.btnSend.TabIndex = 67;
-            this.btnSend.Text = "ক্রম সংশোধন";
-            this.btnSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSend.UseVisualStyleBackColor = false;
+            this.SerialUpdateButton.AutoSize = true;
+            this.SerialUpdateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.SerialUpdateButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.SerialUpdateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SerialUpdateButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.SerialUpdateButton.ForeColor = System.Drawing.Color.White;
+            this.SerialUpdateButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.SerialUpdateButton.IconColor = System.Drawing.SystemColors.Window;
+            this.SerialUpdateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SerialUpdateButton.IconSize = 20;
+            this.SerialUpdateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SerialUpdateButton.Location = new System.Drawing.Point(12, 5);
+            this.SerialUpdateButton.Margin = new System.Windows.Forms.Padding(0);
+            this.SerialUpdateButton.Name = "SerialUpdateButton";
+            this.SerialUpdateButton.Size = new System.Drawing.Size(158, 48);
+            this.SerialUpdateButton.TabIndex = 67;
+            this.SerialUpdateButton.Text = "ক্রম সংশোধন";
+            this.SerialUpdateButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SerialUpdateButton.UseVisualStyleBackColor = false;
+            this.SerialUpdateButton.Click += new System.EventHandler(this.SerialUpdateButton_Click);
             // 
             // SubHeaderPanel
             // 
@@ -348,7 +348,7 @@ namespace dNothi.Desktop.UI
             // 
             // OntorvuktiPanel
             // 
-            this.OntorvuktiPanel.Controls.Add(this.TextBoxPanel);
+            this.OntorvuktiPanel.Controls.Add(this.panel6);
             this.OntorvuktiPanel.Controls.Add(this.panel10);
             this.OntorvuktiPanel.Controls.Add(this.panel7);
             this.OntorvuktiPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -359,36 +359,47 @@ namespace dNothi.Desktop.UI
             this.OntorvuktiPanel.TabIndex = 1;
             this.OntorvuktiPanel.Visible = false;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.TextBoxPanel);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 31);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
+            this.panel6.Name = "panel6";
+            this.panel6.Padding = new System.Windows.Forms.Padding(10, 0, 350, 0);
+            this.panel6.Size = new System.Drawing.Size(1363, 43);
+            this.panel6.TabIndex = 4;
+            // 
             // TextBoxPanel
             // 
             this.TextBoxPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.TextBoxPanel.Controls.Add(this.placeholderTextBox2);
+            this.TextBoxPanel.Controls.Add(this.OntorvuktiTextBox);
             this.TextBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TextBoxPanel.Location = new System.Drawing.Point(0, 31);
+            this.TextBoxPanel.Location = new System.Drawing.Point(10, 0);
             this.TextBoxPanel.Margin = new System.Windows.Forms.Padding(0);
             this.TextBoxPanel.MinimumSize = new System.Drawing.Size(0, 43);
             this.TextBoxPanel.Name = "TextBoxPanel";
             this.TextBoxPanel.Padding = new System.Windows.Forms.Padding(10, 8, 10, 5);
-            this.TextBoxPanel.Size = new System.Drawing.Size(1363, 43);
-            this.TextBoxPanel.TabIndex = 5;
+            this.TextBoxPanel.Size = new System.Drawing.Size(1003, 43);
+            this.TextBoxPanel.TabIndex = 6;
             this.TextBoxPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TextBoxPanel_Paint);
             // 
-            // placeholderTextBox2
+            // OntorvuktiTextBox
             // 
-            this.placeholderTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
-            this.placeholderTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.placeholderTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.placeholderTextBox2.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.placeholderTextBox2.Location = new System.Drawing.Point(10, 8);
-            this.placeholderTextBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.placeholderTextBox2.Name = "placeholderTextBox2";
-            this.placeholderTextBox2.PlaceholderText = "অন্তর্ভুক্তি";
-            this.placeholderTextBox2.Size = new System.Drawing.Size(1343, 27);
-            this.placeholderTextBox2.TabIndex = 3;
+            this.OntorvuktiTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
+            this.OntorvuktiTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.OntorvuktiTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OntorvuktiTextBox.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OntorvuktiTextBox.Location = new System.Drawing.Point(10, 8);
+            this.OntorvuktiTextBox.Margin = new System.Windows.Forms.Padding(0);
+            this.OntorvuktiTextBox.Name = "OntorvuktiTextBox";
+            this.OntorvuktiTextBox.PlaceholderText = "অন্তর্ভুক্তি";
+            this.OntorvuktiTextBox.Size = new System.Drawing.Size(983, 27);
+            this.OntorvuktiTextBox.TabIndex = 3;
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.iconButton2);
+            this.panel10.Controls.Add(this.OntorvuktiSaveButton);
             this.panel10.Controls.Add(this.DeleteButton);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel10.Location = new System.Drawing.Point(0, 74);
@@ -399,28 +410,29 @@ namespace dNothi.Desktop.UI
             this.panel10.TabIndex = 3;
             this.panel10.Visible = false;
             // 
-            // iconButton2
+            // OntorvuktiSaveButton
             // 
-            this.iconButton2.AutoSize = true;
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.iconButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.iconButton2.ForeColor = System.Drawing.Color.White;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton2.IconColor = System.Drawing.SystemColors.Window;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 20;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(1040, 0);
-            this.iconButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(161, 39);
-            this.iconButton2.TabIndex = 70;
-            this.iconButton2.Text = "সংরক্ষণ করুন";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.OntorvuktiSaveButton.AutoSize = true;
+            this.OntorvuktiSaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.OntorvuktiSaveButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.OntorvuktiSaveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.OntorvuktiSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OntorvuktiSaveButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.OntorvuktiSaveButton.ForeColor = System.Drawing.Color.White;
+            this.OntorvuktiSaveButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.OntorvuktiSaveButton.IconColor = System.Drawing.SystemColors.Window;
+            this.OntorvuktiSaveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.OntorvuktiSaveButton.IconSize = 20;
+            this.OntorvuktiSaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OntorvuktiSaveButton.Location = new System.Drawing.Point(1040, 0);
+            this.OntorvuktiSaveButton.Margin = new System.Windows.Forms.Padding(0);
+            this.OntorvuktiSaveButton.Name = "OntorvuktiSaveButton";
+            this.OntorvuktiSaveButton.Size = new System.Drawing.Size(161, 39);
+            this.OntorvuktiSaveButton.TabIndex = 70;
+            this.OntorvuktiSaveButton.Text = "সংরক্ষণ করুন";
+            this.OntorvuktiSaveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.OntorvuktiSaveButton.UseVisualStyleBackColor = false;
+            this.OntorvuktiSaveButton.Click += new System.EventHandler(this.OntorvuktiSaveButton_Click);
             // 
             // DeleteButton
             // 
@@ -522,21 +534,21 @@ namespace dNothi.Desktop.UI
             // panel9
             // 
             this.panel9.Controls.Add(this.lbPotrojariName);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(56, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
-            this.panel9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel9.Size = new System.Drawing.Size(518, 42);
+            this.panel9.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.panel9.Size = new System.Drawing.Size(1307, 42);
             this.panel9.TabIndex = 3;
             // 
             // lbPotrojariName
             // 
             this.lbPotrojariName.AutoSize = true;
-            this.lbPotrojariName.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbPotrojariName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbPotrojariName.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPotrojariName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.lbPotrojariName.Location = new System.Drawing.Point(0, 5);
+            this.lbPotrojariName.Location = new System.Drawing.Point(0, 6);
             this.lbPotrojariName.Margin = new System.Windows.Forms.Padding(0);
             this.lbPotrojariName.Name = "lbPotrojariName";
             this.lbPotrojariName.Size = new System.Drawing.Size(310, 30);
@@ -598,6 +610,7 @@ namespace dNothi.Desktop.UI
             this.FooterPanel.PerformLayout();
             this.SubHeaderPanel.ResumeLayout(false);
             this.OntorvuktiPanel.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.TextBoxPanel.ResumeLayout(false);
             this.TextBoxPanel.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -627,7 +640,7 @@ namespace dNothi.Desktop.UI
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label lbPotrojariName;
         private FontAwesome.Sharp.IconButton OntorvuktiButton;
-        private FontAwesome.Sharp.IconButton btnSend;
+        private FontAwesome.Sharp.IconButton SerialUpdateButton;
         private System.Windows.Forms.Panel TableHeaderPanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel5;
@@ -643,11 +656,12 @@ namespace dNothi.Desktop.UI
         private System.Windows.Forms.Panel OntorvuktiPanel;
         private System.Windows.Forms.Panel OntorvuktiHeaderPanel;
         private System.Windows.Forms.Panel panel10;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton OntorvuktiSaveButton;
         private FontAwesome.Sharp.IconButton DeleteButton;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel TextBoxPanel;
-        private PlaceholderTextBox.PlaceholderTextBox placeholderTextBox2;
+        private PlaceholderTextBox.PlaceholderTextBox OntorvuktiTextBox;
     }
 }

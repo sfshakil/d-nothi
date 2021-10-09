@@ -39,6 +39,7 @@ using dNothi.Core.Entities.Khosra;
 using dNothi.Services.KasaraPatraDashBoardService;
 using dNothi.Services.SettingServices;
 using dNothi.Desktop.UI.ReportUI;
+using dNothi.Services.ReportServices;
 using dNothi.Services.ReportPermited;
 
 namespace dNothi.Desktop
@@ -284,6 +285,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NoteOnucchedRevertServices>().As<INoteOnucchedRevertServices>();
             builder.RegisterType<OnucchedFileUploadService>().As<IOnucchedFileUploadService>();
             builder.RegisterType<NothiDecisionListService>().As<INothiDecisionListService>();
+            builder.RegisterType<ReportService>().As<IReportService>();
 
             builder.RegisterType<AllPotroParser>().As<IAllPotroParser>();
             builder.RegisterType<NothivuktoPotroParser>().As<INothivuktoPotroParser>();

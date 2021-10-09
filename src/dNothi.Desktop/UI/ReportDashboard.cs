@@ -308,7 +308,7 @@ namespace dNothi.Desktop.UI
 
             bodyTableLayoutPanel.Controls.Add(userListuc);
             userListuc.Dock = DockStyle.Fill;
-
+            userListuc.Height = panel2.Height; 
             userListuc.Show();
         }
         private void ShowSubMenu(Panel reportSettingDropDownPanel)

@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportDashboard));
-            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse3 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
+            dNothi.JsonParser.Entity.EmployeDakNothiCountResponse employeDakNothiCountResponse4 = new dNothi.JsonParser.Entity.EmployeDakNothiCountResponse();
             this.panel4 = new System.Windows.Forms.Panel();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.profilePanel = new System.Windows.Forms.Panel();
@@ -86,7 +86,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.headerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
             this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -108,6 +107,8 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button26 = new System.Windows.Forms.Button();
             this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.panel4.SuspendLayout();
             this.profilePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
@@ -129,6 +130,7 @@
             this.modulePanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel4
@@ -952,9 +954,9 @@
             // 
             this.rightDashboardBodyTableLayoutPanel.ColumnCount = 1;
             this.rightDashboardBodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.rightDashboardBodyTableLayoutPanel.Controls.Add(this.bodyTableLayoutPanel, 0, 1);
             this.rightDashboardBodyTableLayoutPanel.Controls.Add(this.headerTableLayoutPanel, 0, 0);
             this.rightDashboardBodyTableLayoutPanel.Controls.Add(this.footerTableLayoutPanel, 0, 2);
+            this.rightDashboardBodyTableLayoutPanel.Controls.Add(this.panel2, 0, 1);
             this.rightDashboardBodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rightDashboardBodyTableLayoutPanel.Location = new System.Drawing.Point(290, 0);
             this.rightDashboardBodyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -963,8 +965,7 @@
             this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.rightDashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(738, 609);
+            this.rightDashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(984, 750);
             this.rightDashboardBodyTableLayoutPanel.TabIndex = 29;
             // 
             // bodyTableLayoutPanel
@@ -1012,12 +1013,12 @@
             this.onlineToggleButton2.AutoSize = true;
             this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
             this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.onlineToggleButton2.Location = new System.Drawing.Point(319, 0);
+            this.onlineToggleButton2.Location = new System.Drawing.Point(453, 0);
             this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
-            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(40, 0);
+            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(53, 0);
             this.onlineToggleButton2.Name = "onlineToggleButton2";
-            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.onlineToggleButton2.Size = new System.Drawing.Size(40, 49);
+            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.onlineToggleButton2.Size = new System.Drawing.Size(53, 61);
             this.onlineToggleButton2.TabIndex = 107;
             // 
             // footerTableLayoutPanel
@@ -1325,9 +1326,9 @@
             this.designationDetailsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
             this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            employeDakNothiCountResponse3.data = null;
-            employeDakNothiCountResponse3.status = null;
-            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse3;
+            employeDakNothiCountResponse4.data = null;
+            employeDakNothiCountResponse4.status = null;
+            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse4;
             this.designationDetailsPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.designationDetailsPanel.Location = new System.Drawing.Point(1180, 49);
             this.designationDetailsPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -1337,6 +1338,34 @@
             this.designationDetailsPanel.TabIndex = 51;
             this.designationDetailsPanel.Visible = false;
             this.designationDetailsPanel.Load += new System.EventHandler(this.designationDetailsPanel_Load);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.bodyTableLayoutPanel);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 61);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.panel2.Size = new System.Drawing.Size(984, 645);
+            this.panel2.TabIndex = 35;
+            // 
+            // bodyTableLayoutPanel
+            // 
+            this.bodyTableLayoutPanel.AutoSize = true;
+            this.bodyTableLayoutPanel.ColumnCount = 1;
+            this.bodyTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.bodyTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.bodyTableLayoutPanel.Location = new System.Drawing.Point(0, 20);
+            this.bodyTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.bodyTableLayoutPanel.Name = "bodyTableLayoutPanel";
+            this.bodyTableLayoutPanel.RowCount = 4;
+            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(984, 0);
+            this.bodyTableLayoutPanel.TabIndex = 55;
             // 
             // ReportDashboard
             // 
@@ -1391,6 +1420,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1448,7 +1479,6 @@
         private System.Windows.Forms.TableLayoutPanel headerTableLayoutPanel;
         private System.Windows.Forms.TableLayoutPanel menuTableLayoutPanel;
         private FontAwesome.Sharp.IconButton reportModuleButton;
-        private System.Windows.Forms.TableLayoutPanel bodyTableLayoutPanel;
         private FontAwesome.Sharp.IconButton moduleButton;
         private System.Windows.Forms.Panel modulePanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -1477,5 +1507,7 @@
         private System.Windows.Forms.Panel reportSettingDropDownPanel;
         private System.Windows.Forms.Button categoryOfficeMappingButton;
         private System.Windows.Forms.Button reportCategoryButton;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TableLayoutPanel bodyTableLayoutPanel;
     }
 }

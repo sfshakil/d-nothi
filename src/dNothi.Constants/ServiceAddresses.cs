@@ -143,6 +143,7 @@ namespace dNothi.Constants
         public const string NotificationSettingsSaveEndPoint = "/api/notification/setting/save";
 
         public const string DakNibondanBohiEndPoint = "/api/register/dak/nibondhon_bohi";
+        public const string ReportCategoryEndPoint = "/api/report/category";
 
 
         //KasaraPattraDashBoardApi
