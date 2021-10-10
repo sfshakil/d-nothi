@@ -58,7 +58,6 @@
             this.selectAllCheckBox = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
             this.detailsDakSearcPanel = new System.Windows.Forms.Panel();
-            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
             this.searchTopTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.datePickerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -76,8 +75,6 @@
             this.searchDakSecurityComboBox = new System.Windows.Forms.ComboBox();
             this.searchDakPriorityComboBox = new System.Windows.Forms.ComboBox();
             this.searchDakTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
-            this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -170,6 +167,12 @@
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.dakSearchUsingTextButton = new FontAwesome.Sharp.IconButton();
             this.resetSubjectSearchButton = new FontAwesome.Sharp.IconButton();
+<<<<<<< HEAD
+=======
+            this.dashboardButton = new FontAwesome.Sharp.IconButton();
+            this.SettingsButton = new FontAwesome.Sharp.IconButton();
+            this.NotificationBellButton = new FontAwesome.Sharp.IconButton();
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.rightDashboardBodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -185,6 +188,12 @@
             this.searchHeaderTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.detailPanelDropDownButton = new FontAwesome.Sharp.IconButton();
             this.headerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+<<<<<<< HEAD
+=======
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.BelliconLabel = new System.Windows.Forms.Label();
+            this.moduleButton = new FontAwesome.Sharp.IconButton();
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.footerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.button30 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
@@ -193,6 +202,19 @@
             this.button26 = new System.Windows.Forms.Button();
             this.dakTagPanel = new System.Windows.Forms.Panel();
             this.dakTagListBox = new System.Windows.Forms.ListBox();
+<<<<<<< HEAD
+=======
+            this.modulePanel = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.potrojariButton = new FontAwesome.Sharp.IconButton();
+            this.guardFileModuleButton = new FontAwesome.Sharp.IconButton();
+            this.reviewDashBoardButton = new FontAwesome.Sharp.IconButton();
+            this.khosraButton = new FontAwesome.Sharp.IconButton();
+            this.khosraPotroButton = new FontAwesome.Sharp.IconButton();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button11 = new System.Windows.Forms.Button();
             this.showHideInfoPanel = new System.Windows.Forms.TableLayoutPanel();
@@ -202,6 +224,14 @@
             this.subShowHideCheckBox = new System.Windows.Forms.CheckBox();
             this.mainReceiverShowHideCheckBox = new System.Windows.Forms.CheckBox();
             this.senderShowHideCheckBox = new System.Windows.Forms.CheckBox();
+<<<<<<< HEAD
+=======
+            this.designationDetailsPanel = new dNothi.Desktop.designationSelect();
+            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
+            this.searchOfficeDetailSearch = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
+            this.officerSearchList = new dNothi.Desktop.UI.ManuelUserControl.SearchComboBox();
+            this.onlineToggleButton2 = new dNothi.Desktop.UI.CustomMessageBox.OnlineToggleButton();
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.panel4.SuspendLayout();
             this.settingsPanel.SuspendLayout();
             this.multipleSelectionPanel.SuspendLayout();
@@ -245,6 +275,11 @@
             this.dakSortMetroPanel.SuspendLayout();
             this.noDakTableLayoutPanel.SuspendLayout();
             this.searchHeaderTableLayoutPanel.SuspendLayout();
+<<<<<<< HEAD
+=======
+            this.headerTableLayoutPanel.SuspendLayout();
+            this.panel11.SuspendLayout();
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.footerTableLayoutPanel.SuspendLayout();
             this.dakTagPanel.SuspendLayout();
             this.showHideInfoPanel.SuspendLayout();
@@ -267,6 +302,227 @@
             this.vScrollBar1.Size = new System.Drawing.Size(17, 523);
             this.vScrollBar1.TabIndex = 0;
             // 
+<<<<<<< HEAD
+=======
+            // profilePanel
+            // 
+            this.profilePanel.AutoSize = true;
+            this.profilePanel.Controls.Add(this.userPictureBox);
+            this.profilePanel.Controls.Add(this.onlineStatus);
+            this.profilePanel.Controls.Add(this.userNameLabel);
+            this.profilePanel.Controls.Add(this.profileShowArrowButton);
+            this.profilePanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.profilePanel.Location = new System.Drawing.Point(632, 5);
+            this.profilePanel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.profilePanel.Name = "profilePanel";
+            this.profilePanel.Padding = new System.Windows.Forms.Padding(3, 5, 10, 5);
+            this.profilePanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.profilePanel.Size = new System.Drawing.Size(373, 40);
+            this.profilePanel.TabIndex = 28;
+            this.profilePanel.Click += new System.EventHandler(this.profileShowArrowButton_Click);
+            this.profilePanel.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
+            this.profilePanel.MouseLeave += new System.EventHandler(this.profileShowArrowButton_MouseLeave);
+            // 
+            // userPictureBox
+            // 
+            this.userPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.userPictureBox.Dock = System.Windows.Forms.DockStyle.Right;
+            this.userPictureBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.userPictureBox.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
+            this.userPictureBox.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.userPictureBox.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.userPictureBox.IconSize = 30;
+            this.userPictureBox.InitialImage = null;
+            this.userPictureBox.Location = new System.Drawing.Point(3, 5);
+            this.userPictureBox.Margin = new System.Windows.Forms.Padding(5, 10, 3, 3);
+            this.userPictureBox.Name = "userPictureBox";
+            this.userPictureBox.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.userPictureBox.Size = new System.Drawing.Size(39, 30);
+            this.userPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.userPictureBox.TabIndex = 29;
+            this.userPictureBox.TabStop = false;
+            this.userPictureBox.Click += new System.EventHandler(this.profileShowArrowButton_Click);
+            // 
+            // onlineStatus
+            // 
+            this.onlineStatus.AutoSize = true;
+            this.onlineStatus.BackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.Dock = System.Windows.Forms.DockStyle.Right;
+            this.onlineStatus.FlatAppearance.BorderSize = 0;
+            this.onlineStatus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.onlineStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.onlineStatus.IconChar = FontAwesome.Sharp.IconChar.Circle;
+            this.onlineStatus.IconColor = System.Drawing.Color.Silver;
+            this.onlineStatus.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.onlineStatus.IconSize = 15;
+            this.onlineStatus.Location = new System.Drawing.Point(42, 5);
+            this.onlineStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineStatus.Name = "onlineStatus";
+            this.onlineStatus.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.onlineStatus.Size = new System.Drawing.Size(21, 30);
+            this.onlineStatus.TabIndex = 30;
+            this.onlineStatus.UseVisualStyleBackColor = false;
+            // 
+            // userNameLabel
+            // 
+            this.userNameLabel.AutoSize = true;
+            this.userNameLabel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.userNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(146)))), ((int)(((byte)(197)))));
+            this.userNameLabel.Location = new System.Drawing.Point(63, 5);
+            this.userNameLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.userNameLabel.Size = new System.Drawing.Size(287, 25);
+            this.userNameLabel.TabIndex = 23;
+            this.userNameLabel.Text = "মোঃ হাসানুজ্জামান (সল্যুশন আর্কিটেক্ট, টেকনোলজি) ";
+            this.userNameLabel.Click += new System.EventHandler(this.profileShowArrowButton_Click);
+            this.userNameLabel.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
+            this.userNameLabel.MouseLeave += new System.EventHandler(this.profileShowArrowButton_MouseLeave);
+            // 
+            // profileShowArrowButton
+            // 
+            this.profileShowArrowButton.BackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.profileShowArrowButton.FlatAppearance.BorderSize = 0;
+            this.profileShowArrowButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.profileShowArrowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.profileShowArrowButton.IconChar = FontAwesome.Sharp.IconChar.ChevronDown;
+            this.profileShowArrowButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(181)))), ((int)(((byte)(195)))));
+            this.profileShowArrowButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.profileShowArrowButton.IconSize = 20;
+            this.profileShowArrowButton.Location = new System.Drawing.Point(350, 5);
+            this.profileShowArrowButton.Name = "profileShowArrowButton";
+            this.profileShowArrowButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.profileShowArrowButton.Size = new System.Drawing.Size(13, 30);
+            this.profileShowArrowButton.TabIndex = 27;
+            this.profileShowArrowButton.UseVisualStyleBackColor = false;
+            this.profileShowArrowButton.Click += new System.EventHandler(this.profileShowArrowButton_Click);
+            this.profileShowArrowButton.MouseEnter += new System.EventHandler(this.profileShowArrowButton_MouseEnter);
+            this.profileShowArrowButton.MouseLeave += new System.EventHandler(this.profileShowArrowButton_MouseLeave);
+            // 
+            // nothiModulePanel
+            // 
+            this.nothiModulePanel.BackColor = System.Drawing.Color.Transparent;
+            this.nothiModulePanel.Controls.Add(this.nothiModuleNameLabel);
+            this.nothiModulePanel.Controls.Add(this.iconButton2);
+            this.nothiModulePanel.Controls.Add(this.moduleNothiCountLabel);
+            this.nothiModulePanel.Location = new System.Drawing.Point(140, 3);
+            this.nothiModulePanel.Name = "nothiModulePanel";
+            this.nothiModulePanel.Size = new System.Drawing.Size(134, 43);
+            this.nothiModulePanel.TabIndex = 26;
+            this.nothiModulePanel.Click += new System.EventHandler(this.nothiModulePanel_Click);
+            this.nothiModulePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.nothiModulePanel_Paint);
+            this.nothiModulePanel.MouseLeave += new System.EventHandler(this.nothiModulePanel_MouseLeave);
+            this.nothiModulePanel.MouseHover += new System.EventHandler(this.nothiModulePanel_MouseHover);
+            // 
+            // nothiModuleNameLabel
+            // 
+            this.nothiModuleNameLabel.AutoSize = true;
+            this.nothiModuleNameLabel.Font = new System.Drawing.Font("SolaimanLipi", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nothiModuleNameLabel.ForeColor = System.Drawing.Color.Black;
+            this.nothiModuleNameLabel.Location = new System.Drawing.Point(47, 11);
+            this.nothiModuleNameLabel.Name = "nothiModuleNameLabel";
+            this.nothiModuleNameLabel.Size = new System.Drawing.Size(31, 21);
+            this.nothiModuleNameLabel.TabIndex = 19;
+            this.nothiModuleNameLabel.Text = "নথি";
+            this.nothiModuleNameLabel.Click += new System.EventHandler(this.nothiModulePanel_Click);
+            this.nothiModuleNameLabel.MouseLeave += new System.EventHandler(this.nothiModulePanel_MouseLeave);
+            this.nothiModuleNameLabel.MouseHover += new System.EventHandler(this.nothiModulePanel_MouseHover);
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Book;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 24;
+            this.iconButton2.Location = new System.Drawing.Point(6, 8);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(36, 30);
+            this.iconButton2.TabIndex = 4;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            this.iconButton2.Click += new System.EventHandler(this.nothiModulePanel_Click);
+            this.iconButton2.MouseLeave += new System.EventHandler(this.nothiModulePanel_MouseLeave);
+            this.iconButton2.MouseHover += new System.EventHandler(this.nothiModulePanel_MouseHover);
+            // 
+            // moduleNothiCountLabel
+            // 
+            this.moduleNothiCountLabel.AutoEllipsis = true;
+            this.moduleNothiCountLabel.AutoSize = true;
+            this.moduleNothiCountLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.moduleNothiCountLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moduleNothiCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.moduleNothiCountLabel.Location = new System.Drawing.Point(87, 12);
+            this.moduleNothiCountLabel.Name = "moduleNothiCountLabel";
+            this.moduleNothiCountLabel.Size = new System.Drawing.Size(31, 18);
+            this.moduleNothiCountLabel.TabIndex = 18;
+            this.moduleNothiCountLabel.Text = "১২২";
+            this.moduleNothiCountLabel.Click += new System.EventHandler(this.nothiModulePanel_Click);
+            this.moduleNothiCountLabel.MouseLeave += new System.EventHandler(this.nothiModulePanel_MouseLeave);
+            this.moduleNothiCountLabel.MouseHover += new System.EventHandler(this.nothiModulePanel_MouseHover);
+            // 
+            // dakModulePanel
+            // 
+            this.dakModulePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.dakModulePanel.Controls.Add(this.label1);
+            this.dakModulePanel.Controls.Add(this.iconButton1);
+            this.dakModulePanel.Controls.Add(this.moduleDakCountLabel);
+            this.dakModulePanel.Location = new System.Drawing.Point(0, 3);
+            this.dakModulePanel.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.dakModulePanel.Name = "dakModulePanel";
+            this.dakModulePanel.Size = new System.Drawing.Size(134, 43);
+            this.dakModulePanel.TabIndex = 100;
+            this.dakModulePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("SolaimanLipi", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(47, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 21);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "ডাক";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Inbox;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(184)))), ((int)(((byte)(204)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 32;
+            this.iconButton1.Location = new System.Drawing.Point(6, 7);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(36, 30);
+            this.iconButton1.TabIndex = 4;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // moduleDakCountLabel
+            // 
+            this.moduleDakCountLabel.AutoEllipsis = true;
+            this.moduleDakCountLabel.AutoSize = true;
+            this.moduleDakCountLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.moduleDakCountLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moduleDakCountLabel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.moduleDakCountLabel.Location = new System.Drawing.Point(92, 12);
+            this.moduleDakCountLabel.Name = "moduleDakCountLabel";
+            this.moduleDakCountLabel.Size = new System.Drawing.Size(23, 18);
+            this.moduleDakCountLabel.TabIndex = 18;
+            this.moduleDakCountLabel.Text = "১২";
+            this.moduleDakCountLabel.SizeChanged += new System.EventHandler(this.label1_SizeChanged);
+            this.moduleDakCountLabel.Paint += new System.Windows.Forms.PaintEventHandler(this.moduleDakCountLabel_Paint);
+            this.moduleDakCountLabel.Resize += new System.EventHandler(this.label1_Resize);
+            // 
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             // dakSearchSubTextBox
             // 
             this.dakSearchSubTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -279,7 +535,11 @@
             this.dakSearchSubTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.dakSearchSubTextBox.Name = "dakSearchSubTextBox";
             this.dakSearchSubTextBox.PlaceholderText = "বিষয়/সিদ্ধান্ত দিয়ে খুঁজুন ";
+<<<<<<< HEAD
             this.dakSearchSubTextBox.Size = new System.Drawing.Size(865, 23);
+=======
+            this.dakSearchSubTextBox.Size = new System.Drawing.Size(834, 19);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakSearchSubTextBox.TabIndex = 3;
             this.dakSearchSubTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dakSearchSubTextBox_KeyDown);
             // 
@@ -294,7 +554,11 @@
             this.label3.Location = new System.Drawing.Point(4, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
+<<<<<<< HEAD
             this.label3.Size = new System.Drawing.Size(1043, 25);
+=======
+            this.label3.Size = new System.Drawing.Size(996, 20);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.label3.TabIndex = 0;
             this.label3.Text = "কোনো ডাক নেই";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -307,7 +571,11 @@
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
             this.label15.RightToLeft = System.Windows.Forms.RightToLeft.No;
+<<<<<<< HEAD
             this.label15.Size = new System.Drawing.Size(1059, 1);
+=======
+            this.label15.Size = new System.Drawing.Size(1008, 1);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.label15.TabIndex = 51;
             // 
             // settingsPanel
@@ -582,8 +850,13 @@
             this.dakPriorityComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakPriorityComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.dakPriorityComboBox.FormattingEnabled = true;
+<<<<<<< HEAD
             this.dakPriorityComboBox.Location = new System.Drawing.Point(477, 6);
             this.dakPriorityComboBox.Margin = new System.Windows.Forms.Padding(13, 12, 13, 12);
+=======
+            this.dakPriorityComboBox.Location = new System.Drawing.Point(360, 5);
+            this.dakPriorityComboBox.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakPriorityComboBox.Name = "dakPriorityComboBox";
             this.dakPriorityComboBox.Size = new System.Drawing.Size(159, 33);
             this.dakPriorityComboBox.TabIndex = 3;
@@ -597,8 +870,13 @@
             this.dakTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakTypeComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.dakTypeComboBox.FormattingEnabled = true;
+<<<<<<< HEAD
             this.dakTypeComboBox.Location = new System.Drawing.Point(318, 6);
             this.dakTypeComboBox.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+=======
+            this.dakTypeComboBox.Location = new System.Drawing.Point(240, 5);
+            this.dakTypeComboBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakTypeComboBox.Name = "dakTypeComboBox";
             this.dakTypeComboBox.Size = new System.Drawing.Size(159, 33);
             this.dakTypeComboBox.TabIndex = 4;
@@ -612,8 +890,13 @@
             this.dakSecretComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dakSecretComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.dakSecretComboBox.FormattingEnabled = true;
+<<<<<<< HEAD
             this.dakSecretComboBox.Location = new System.Drawing.Point(159, 6);
             this.dakSecretComboBox.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+=======
+            this.dakSecretComboBox.Location = new System.Drawing.Point(120, 5);
+            this.dakSecretComboBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakSecretComboBox.Name = "dakSecretComboBox";
             this.dakSecretComboBox.Size = new System.Drawing.Size(159, 33);
             this.dakSecretComboBox.TabIndex = 6;
@@ -629,8 +912,13 @@
             this.dakStatusComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(130)))), ((int)(((byte)(153)))));
             this.dakStatusComboBox.FormattingEnabled = true;
             this.dakStatusComboBox.IntegralHeight = false;
+<<<<<<< HEAD
             this.dakStatusComboBox.Location = new System.Drawing.Point(0, 6);
             this.dakStatusComboBox.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+=======
+            this.dakStatusComboBox.Location = new System.Drawing.Point(0, 5);
+            this.dakStatusComboBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakStatusComboBox.Name = "dakStatusComboBox";
             this.dakStatusComboBox.Size = new System.Drawing.Size(159, 33);
             this.dakStatusComboBox.TabIndex = 5;
@@ -641,8 +929,12 @@
             this.totalLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(28)))), ((int)(((byte)(50)))));
+<<<<<<< HEAD
             this.totalLabel.Location = new System.Drawing.Point(890, 0);
             this.totalLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+=======
+            this.totalLabel.Location = new System.Drawing.Point(877, 0);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.totalLabel.Name = "totalLabel";
             this.totalLabel.Size = new System.Drawing.Size(75, 65);
             this.totalLabel.TabIndex = 7;
@@ -681,7 +973,11 @@
             this.label21.Margin = new System.Windows.Forms.Padding(0);
             this.label21.Name = "label21";
             this.label21.RightToLeft = System.Windows.Forms.RightToLeft.No;
+<<<<<<< HEAD
             this.label21.Size = new System.Drawing.Size(1059, 1);
+=======
+            this.label21.Size = new System.Drawing.Size(1008, 1);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.label21.TabIndex = 53;
             // 
             // detailsDakSearcPanel
@@ -705,6 +1001,7 @@
             this.detailsDakSearcPanel.Location = new System.Drawing.Point(0, 49);
             this.detailsDakSearcPanel.Margin = new System.Windows.Forms.Padding(0);
             this.detailsDakSearcPanel.Name = "detailsDakSearcPanel";
+<<<<<<< HEAD
             this.detailsDakSearcPanel.Size = new System.Drawing.Size(1059, 523);
             this.detailsDakSearcPanel.TabIndex = 0;
             this.detailsDakSearcPanel.Visible = false;
@@ -729,6 +1026,12 @@
             this.customDatePicker.Click += new System.EventHandler(this.customDatePicker_Click);
             this.customDatePicker.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
             // 
+=======
+            this.detailsDakSearcPanel.Size = new System.Drawing.Size(1008, 425);
+            this.detailsDakSearcPanel.TabIndex = 0;
+            this.detailsDakSearcPanel.Visible = false;
+            // 
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             // searchTopTableLayoutPanel
             // 
             this.searchTopTableLayoutPanel.ColumnCount = 3;
@@ -1001,6 +1304,7 @@
             this.searchDakTypeComboBox.Size = new System.Drawing.Size(281, 34);
             this.searchDakTypeComboBox.TabIndex = 4;
             // 
+<<<<<<< HEAD
             // searchOfficeDetailSearch
             // 
             this.searchOfficeDetailSearch.AutoSize = true;
@@ -1033,6 +1337,8 @@
             this.officerSearchList.Size = new System.Drawing.Size(688, 78);
             this.officerSearchList.TabIndex = 52;
             // 
+=======
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             // label11
             // 
             this.label11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -1040,7 +1346,11 @@
             this.label11.Location = new System.Drawing.Point(0, 58);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
+<<<<<<< HEAD
             this.label11.Size = new System.Drawing.Size(1059, 1);
+=======
+            this.label11.Size = new System.Drawing.Size(1008, 1);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.label11.TabIndex = 34;
             // 
             // panel5
@@ -1050,7 +1360,11 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
+<<<<<<< HEAD
             this.panel5.Size = new System.Drawing.Size(1059, 58);
+=======
+            this.panel5.Size = new System.Drawing.Size(1008, 47);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.panel5.TabIndex = 51;
             // 
             // label8
@@ -1359,10 +1673,17 @@
             this.searchBoxPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(252)))), ((int)(((byte)(253)))));
             this.searchBoxPanel.Controls.Add(this.dakSearchSubTextBox);
             this.searchBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+<<<<<<< HEAD
             this.searchBoxPanel.Location = new System.Drawing.Point(45, 0);
             this.searchBoxPanel.Margin = new System.Windows.Forms.Padding(0);
             this.searchBoxPanel.Name = "searchBoxPanel";
             this.searchBoxPanel.Size = new System.Drawing.Size(916, 49);
+=======
+            this.searchBoxPanel.Location = new System.Drawing.Point(43, 0);
+            this.searchBoxPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.searchBoxPanel.Name = "searchBoxPanel";
+            this.searchBoxPanel.Size = new System.Drawing.Size(872, 40);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.searchBoxPanel.TabIndex = 4;
             this.searchBoxPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.searchBoxPanel_Paint);
             // 
@@ -1373,8 +1694,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.label9.Location = new System.Drawing.Point(764, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+=======
+            this.label9.Location = new System.Drawing.Point(792, 0);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(78, 36);
             this.label9.TabIndex = 33;
@@ -1761,7 +2086,11 @@
             this.dakBacaikarnMenuPanel.Location = new System.Drawing.Point(0, 657);
             this.dakBacaikarnMenuPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakBacaikarnMenuPanel.Name = "dakBacaikarnMenuPanel";
+<<<<<<< HEAD
             this.dakBacaikarnMenuPanel.Size = new System.Drawing.Size(312, 57);
+=======
+            this.dakBacaikarnMenuPanel.Size = new System.Drawing.Size(312, 46);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakBacaikarnMenuPanel.TabIndex = 64;
             // 
             // dakBacaiDownArrow
@@ -1781,7 +2110,11 @@
             this.dakBacaiDownArrow.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakBacaiDownArrow.IconSize = 16;
             this.dakBacaiDownArrow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< HEAD
             this.dakBacaiDownArrow.Location = new System.Drawing.Point(240, 0);
+=======
+            this.dakBacaiDownArrow.Location = new System.Drawing.Point(258, 0);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakBacaiDownArrow.Margin = new System.Windows.Forms.Padding(0);
             this.dakBacaiDownArrow.Name = "dakBacaiDownArrow";
             this.dakBacaiDownArrow.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
@@ -2040,7 +2373,11 @@
             this.protibedonPanel.Location = new System.Drawing.Point(0, 973);
             this.protibedonPanel.Margin = new System.Windows.Forms.Padding(0);
             this.protibedonPanel.Name = "protibedonPanel";
+<<<<<<< HEAD
             this.protibedonPanel.Size = new System.Drawing.Size(312, 197);
+=======
+            this.protibedonPanel.Size = new System.Drawing.Size(312, 160);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.protibedonPanel.TabIndex = 63;
             this.protibedonPanel.Visible = false;
             // 
@@ -2061,7 +2398,11 @@
             this.nothijatoListReportButton.Location = new System.Drawing.Point(0, 140);
             this.nothijatoListReportButton.Margin = new System.Windows.Forms.Padding(4);
             this.nothijatoListReportButton.Name = "nothijatoListReportButton";
+<<<<<<< HEAD
             this.nothijatoListReportButton.Size = new System.Drawing.Size(312, 35);
+=======
+            this.nothijatoListReportButton.Size = new System.Drawing.Size(312, 30);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.nothijatoListReportButton.TabIndex = 25;
             this.nothijatoListReportButton.Text = "         - নথিজাত ডাক তালিকা";
             this.nothijatoListReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2086,7 +2427,11 @@
             this.PotrojariListReportButton.Location = new System.Drawing.Point(0, 105);
             this.PotrojariListReportButton.Margin = new System.Windows.Forms.Padding(4);
             this.PotrojariListReportButton.Name = "PotrojariListReportButton";
+<<<<<<< HEAD
             this.PotrojariListReportButton.Size = new System.Drawing.Size(312, 35);
+=======
+            this.PotrojariListReportButton.Size = new System.Drawing.Size(312, 30);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.PotrojariListReportButton.TabIndex = 24;
             this.PotrojariListReportButton.Text = "         - পত্রজারি ডাক তালিকা";
             this.PotrojariListReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2111,7 +2456,11 @@
             this.nothiteUposthapitoListReportButton.Location = new System.Drawing.Point(0, 70);
             this.nothiteUposthapitoListReportButton.Margin = new System.Windows.Forms.Padding(4);
             this.nothiteUposthapitoListReportButton.Name = "nothiteUposthapitoListReportButton";
+<<<<<<< HEAD
             this.nothiteUposthapitoListReportButton.Size = new System.Drawing.Size(312, 35);
+=======
+            this.nothiteUposthapitoListReportButton.Size = new System.Drawing.Size(312, 30);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.nothiteUposthapitoListReportButton.TabIndex = 23;
             this.nothiteUposthapitoListReportButton.Text = "         - নথিতে উপস্থাপিত ডাক তালিকা";
             this.nothiteUposthapitoListReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2136,7 +2485,11 @@
             this.resolvedReportButton.Location = new System.Drawing.Point(0, 35);
             this.resolvedReportButton.Margin = new System.Windows.Forms.Padding(4);
             this.resolvedReportButton.Name = "resolvedReportButton";
+<<<<<<< HEAD
             this.resolvedReportButton.Size = new System.Drawing.Size(312, 35);
+=======
+            this.resolvedReportButton.Size = new System.Drawing.Size(312, 30);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.resolvedReportButton.TabIndex = 22;
             this.resolvedReportButton.Text = "         - মীমাংসিত ডাক তালিকা";
             this.resolvedReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2161,7 +2514,11 @@
             this.pendingReportButton.Location = new System.Drawing.Point(0, 0);
             this.pendingReportButton.Margin = new System.Windows.Forms.Padding(4);
             this.pendingReportButton.Name = "pendingReportButton";
+<<<<<<< HEAD
             this.pendingReportButton.Size = new System.Drawing.Size(312, 35);
+=======
+            this.pendingReportButton.Size = new System.Drawing.Size(312, 30);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.pendingReportButton.TabIndex = 21;
             this.pendingReportButton.Text = "         -অমীমাংসিত ডাক তালিকা";
             this.pendingReportButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2179,7 +2536,11 @@
             this.registerPanel.Location = new System.Drawing.Point(0, 785);
             this.registerPanel.Margin = new System.Windows.Forms.Padding(0);
             this.registerPanel.Name = "registerPanel";
+<<<<<<< HEAD
             this.registerPanel.Size = new System.Drawing.Size(312, 123);
+=======
+            this.registerPanel.Size = new System.Drawing.Size(312, 100);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.registerPanel.TabIndex = 61;
             this.registerPanel.Visible = false;
             // 
@@ -2200,7 +2561,11 @@
             this.registerDiaryButton.Location = new System.Drawing.Point(0, 70);
             this.registerDiaryButton.Margin = new System.Windows.Forms.Padding(4);
             this.registerDiaryButton.Name = "registerDiaryButton";
+<<<<<<< HEAD
             this.registerDiaryButton.Size = new System.Drawing.Size(312, 35);
+=======
+            this.registerDiaryButton.Size = new System.Drawing.Size(312, 30);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.registerDiaryButton.TabIndex = 23;
             this.registerDiaryButton.Text = "         - শাখা ডায়েরি নিবন্ধন বহি";
             this.registerDiaryButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2225,7 +2590,11 @@
             this.registerBiliButton.Location = new System.Drawing.Point(0, 35);
             this.registerBiliButton.Margin = new System.Windows.Forms.Padding(4);
             this.registerBiliButton.Name = "registerBiliButton";
+<<<<<<< HEAD
             this.registerBiliButton.Size = new System.Drawing.Size(312, 35);
+=======
+            this.registerBiliButton.Size = new System.Drawing.Size(312, 30);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.registerBiliButton.TabIndex = 22;
             this.registerBiliButton.Text = "         - ডাক বিলি নিবন্ধন বহি";
             this.registerBiliButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2250,7 +2619,11 @@
             this.registerGrohonButton.Location = new System.Drawing.Point(0, 0);
             this.registerGrohonButton.Margin = new System.Windows.Forms.Padding(4);
             this.registerGrohonButton.Name = "registerGrohonButton";
+<<<<<<< HEAD
             this.registerGrohonButton.Size = new System.Drawing.Size(312, 35);
+=======
+            this.registerGrohonButton.Size = new System.Drawing.Size(312, 30);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.registerGrohonButton.TabIndex = 21;
             this.registerGrohonButton.Text = "         -ডাক গ্রহণ নিবন্ধন বহি";
             this.registerGrohonButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2264,7 +2637,11 @@
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.Location = new System.Drawing.Point(3, 714);
             this.label12.Name = "label12";
+<<<<<<< HEAD
             this.label12.Size = new System.Drawing.Size(306, 2);
+=======
+            this.label12.Size = new System.Drawing.Size(308, 2);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.label12.TabIndex = 59;
             // 
             // label2
@@ -2274,17 +2651,28 @@
             this.label2.Location = new System.Drawing.Point(4, 599);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
+<<<<<<< HEAD
             this.label2.Size = new System.Drawing.Size(304, 1);
+=======
+            this.label2.Size = new System.Drawing.Size(306, 1);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.label2.TabIndex = 58;
             // 
             // dakSortingUserFlowLayoutPanel
             // 
             this.dakSortingUserFlowLayoutPanel.AutoSize = true;
             this.dakSortingUserFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+<<<<<<< HEAD
             this.dakSortingUserFlowLayoutPanel.Location = new System.Drawing.Point(3, 718);
             this.dakSortingUserFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dakSortingUserFlowLayoutPanel.MaximumSize = new System.Drawing.Size(312, 0);
             this.dakSortingUserFlowLayoutPanel.MinimumSize = new System.Drawing.Size(312, 0);
+=======
+            this.dakSortingUserFlowLayoutPanel.Location = new System.Drawing.Point(2, 580);
+            this.dakSortingUserFlowLayoutPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dakSortingUserFlowLayoutPanel.MaximumSize = new System.Drawing.Size(234, 0);
+            this.dakSortingUserFlowLayoutPanel.MinimumSize = new System.Drawing.Size(234, 0);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakSortingUserFlowLayoutPanel.Name = "dakSortingUserFlowLayoutPanel";
             this.dakSortingUserFlowLayoutPanel.Size = new System.Drawing.Size(312, 0);
             this.dakSortingUserFlowLayoutPanel.TabIndex = 34;
@@ -2311,8 +2699,13 @@
             this.personalFolderButton.Location = new System.Drawing.Point(0, 600);
             this.personalFolderButton.Margin = new System.Windows.Forms.Padding(0);
             this.personalFolderButton.Name = "personalFolderButton";
+<<<<<<< HEAD
             this.personalFolderButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.personalFolderButton.Size = new System.Drawing.Size(312, 57);
+=======
+            this.personalFolderButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.personalFolderButton.Size = new System.Drawing.Size(312, 46);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.personalFolderButton.TabIndex = 46;
             this.personalFolderButton.Text = "   ফোল্ডার";
             this.personalFolderButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2338,8 +2731,13 @@
             this.khasraDakButton.Location = new System.Drawing.Point(0, 542);
             this.khasraDakButton.Margin = new System.Windows.Forms.Padding(0);
             this.khasraDakButton.Name = "khasraDakButton";
+<<<<<<< HEAD
             this.khasraDakButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.khasraDakButton.Size = new System.Drawing.Size(312, 57);
+=======
+            this.khasraDakButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.khasraDakButton.Size = new System.Drawing.Size(312, 46);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.khasraDakButton.TabIndex = 40;
             this.khasraDakButton.Text = "   খসড়া ডাক";
             this.khasraDakButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2355,7 +2753,11 @@
             this.dakUploadDropDownPanel.Location = new System.Drawing.Point(0, 464);
             this.dakUploadDropDownPanel.Margin = new System.Windows.Forms.Padding(0);
             this.dakUploadDropDownPanel.Name = "dakUploadDropDownPanel";
+<<<<<<< HEAD
             this.dakUploadDropDownPanel.Size = new System.Drawing.Size(312, 78);
+=======
+            this.dakUploadDropDownPanel.Size = new System.Drawing.Size(312, 63);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakUploadDropDownPanel.TabIndex = 22;
             this.dakUploadDropDownPanel.Visible = false;
             // 
@@ -2376,7 +2778,11 @@
             this.nagorikDakUploadMenuButton.Location = new System.Drawing.Point(0, 35);
             this.nagorikDakUploadMenuButton.Margin = new System.Windows.Forms.Padding(4);
             this.nagorikDakUploadMenuButton.Name = "nagorikDakUploadMenuButton";
+<<<<<<< HEAD
             this.nagorikDakUploadMenuButton.Size = new System.Drawing.Size(312, 35);
+=======
+            this.nagorikDakUploadMenuButton.Size = new System.Drawing.Size(312, 30);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.nagorikDakUploadMenuButton.TabIndex = 22;
             this.nagorikDakUploadMenuButton.Text = "         - নাগরিক";
             this.nagorikDakUploadMenuButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2401,7 +2807,11 @@
             this.daptorikDakUploadButton.Location = new System.Drawing.Point(0, 0);
             this.daptorikDakUploadButton.Margin = new System.Windows.Forms.Padding(4);
             this.daptorikDakUploadButton.Name = "daptorikDakUploadButton";
+<<<<<<< HEAD
             this.daptorikDakUploadButton.Size = new System.Drawing.Size(312, 35);
+=======
+            this.daptorikDakUploadButton.Size = new System.Drawing.Size(312, 30);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.daptorikDakUploadButton.TabIndex = 21;
             this.daptorikDakUploadButton.Text = "         - দাপ্তরিক";
             this.daptorikDakUploadButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2430,8 +2840,13 @@
             this.dakArchiveButton.Location = new System.Drawing.Point(0, 342);
             this.dakArchiveButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakArchiveButton.Name = "dakArchiveButton";
+<<<<<<< HEAD
             this.dakArchiveButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.dakArchiveButton.Size = new System.Drawing.Size(312, 57);
+=======
+            this.dakArchiveButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakArchiveButton.Size = new System.Drawing.Size(312, 46);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakArchiveButton.TabIndex = 42;
             this.dakArchiveButton.Text = "   আর্কাইভকৃত ডাক";
             this.dakArchiveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2459,8 +2874,13 @@
             this.dakNothijatoButton.Location = new System.Drawing.Point(0, 285);
             this.dakNothijatoButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakNothijatoButton.Name = "dakNothijatoButton";
+<<<<<<< HEAD
             this.dakNothijatoButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.dakNothijatoButton.Size = new System.Drawing.Size(312, 57);
+=======
+            this.dakNothijatoButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakNothijatoButton.Size = new System.Drawing.Size(312, 46);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakNothijatoButton.TabIndex = 41;
             this.dakNothijatoButton.Text = "   নথিজাত ডাক";
             this.dakNothijatoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2488,8 +2908,13 @@
             this.dakNotivuktoButton.Location = new System.Drawing.Point(0, 228);
             this.dakNotivuktoButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakNotivuktoButton.Name = "dakNotivuktoButton";
+<<<<<<< HEAD
             this.dakNotivuktoButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.dakNotivuktoButton.Size = new System.Drawing.Size(312, 57);
+=======
+            this.dakNotivuktoButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakNotivuktoButton.Size = new System.Drawing.Size(312, 46);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakNotivuktoButton.TabIndex = 39;
             this.dakNotivuktoButton.Text = "   নথিতে উপস্থাপিত ডাক";
             this.dakNotivuktoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2517,8 +2942,13 @@
             this.dakOutboxButton.Location = new System.Drawing.Point(0, 171);
             this.dakOutboxButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakOutboxButton.Name = "dakOutboxButton";
+<<<<<<< HEAD
             this.dakOutboxButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.dakOutboxButton.Size = new System.Drawing.Size(312, 57);
+=======
+            this.dakOutboxButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakOutboxButton.Size = new System.Drawing.Size(312, 46);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakOutboxButton.TabIndex = 38;
             this.dakOutboxButton.Text = "   প্রেরিত ডাক";
             this.dakOutboxButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2544,8 +2974,13 @@
             this.dakSortButton.Location = new System.Drawing.Point(0, 114);
             this.dakSortButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakSortButton.Name = "dakSortButton";
+<<<<<<< HEAD
             this.dakSortButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.dakSortButton.Size = new System.Drawing.Size(312, 57);
+=======
+            this.dakSortButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakSortButton.Size = new System.Drawing.Size(312, 46);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakSortButton.TabIndex = 37;
             this.dakSortButton.Text = "   বাছাইকৃত ডাক";
             this.dakSortButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2573,8 +3008,13 @@
             this.dakInboxButton.Location = new System.Drawing.Point(0, 57);
             this.dakInboxButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakInboxButton.Name = "dakInboxButton";
+<<<<<<< HEAD
             this.dakInboxButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.dakInboxButton.Size = new System.Drawing.Size(312, 57);
+=======
+            this.dakInboxButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakInboxButton.Size = new System.Drawing.Size(312, 46);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakInboxButton.TabIndex = 36;
             this.dakInboxButton.Text = "   আগত ডাক";
             this.dakInboxButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2601,8 +3041,13 @@
             this.dakSearchButton.Location = new System.Drawing.Point(0, 0);
             this.dakSearchButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakSearchButton.Name = "dakSearchButton";
+<<<<<<< HEAD
             this.dakSearchButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
             this.dakSearchButton.Size = new System.Drawing.Size(312, 57);
+=======
+            this.dakSearchButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.dakSearchButton.Size = new System.Drawing.Size(312, 46);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakSearchButton.TabIndex = 35;
             this.dakSearchButton.Text = "   ডাক সার্চ";
             this.dakSearchButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -2641,8 +3086,13 @@
             this.button2.Location = new System.Drawing.Point(32, 0);
             this.button2.Margin = new System.Windows.Forms.Padding(19, 0, 4, 0);
             this.button2.Name = "button2";
+<<<<<<< HEAD
             this.button2.Padding = new System.Windows.Forms.Padding(4);
             this.button2.Size = new System.Drawing.Size(231, 62);
+=======
+            this.button2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.button2.Size = new System.Drawing.Size(173, 50);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.button2.TabIndex = 2;
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -2709,10 +3159,17 @@
             this.dakSearchUsingTextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(225)))), ((int)(((byte)(221)))));
             this.dakSearchUsingTextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.dakSearchUsingTextButton.IconSize = 32;
+<<<<<<< HEAD
             this.dakSearchUsingTextButton.Location = new System.Drawing.Point(961, 0);
             this.dakSearchUsingTextButton.Margin = new System.Windows.Forms.Padding(0);
             this.dakSearchUsingTextButton.Name = "dakSearchUsingTextButton";
             this.dakSearchUsingTextButton.Size = new System.Drawing.Size(50, 49);
+=======
+            this.dakSearchUsingTextButton.Location = new System.Drawing.Point(915, 0);
+            this.dakSearchUsingTextButton.Margin = new System.Windows.Forms.Padding(0);
+            this.dakSearchUsingTextButton.Name = "dakSearchUsingTextButton";
+            this.dakSearchUsingTextButton.Size = new System.Drawing.Size(48, 40);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakSearchUsingTextButton.TabIndex = 30;
             this.MyToolTip.SetToolTip(this.dakSearchUsingTextButton, "খুঁজুন");
             this.dakSearchUsingTextButton.UseVisualStyleBackColor = false;
@@ -2729,15 +3186,81 @@
             this.resetSubjectSearchButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.resetSubjectSearchButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.resetSubjectSearchButton.IconSize = 32;
+<<<<<<< HEAD
             this.resetSubjectSearchButton.Location = new System.Drawing.Point(1011, 0);
             this.resetSubjectSearchButton.Margin = new System.Windows.Forms.Padding(0);
             this.resetSubjectSearchButton.Name = "resetSubjectSearchButton";
             this.resetSubjectSearchButton.Size = new System.Drawing.Size(48, 49);
+=======
+            this.resetSubjectSearchButton.Location = new System.Drawing.Point(963, 0);
+            this.resetSubjectSearchButton.Margin = new System.Windows.Forms.Padding(0);
+            this.resetSubjectSearchButton.Name = "resetSubjectSearchButton";
+            this.resetSubjectSearchButton.Size = new System.Drawing.Size(45, 40);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.resetSubjectSearchButton.TabIndex = 31;
             this.MyToolTip.SetToolTip(this.resetSubjectSearchButton, "রিসেট");
             this.resetSubjectSearchButton.UseVisualStyleBackColor = false;
             this.resetSubjectSearchButton.Click += new System.EventHandler(this.resetSubjectSearchButton_Click);
             // 
+<<<<<<< HEAD
+=======
+            // dashboardButton
+            // 
+            this.dashboardButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashboardButton.FlatAppearance.BorderSize = 0;
+            this.dashboardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dashboardButton.IconChar = FontAwesome.Sharp.IconChar.Columns;
+            this.dashboardButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.dashboardButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.dashboardButton.IconSize = 32;
+            this.dashboardButton.Location = new System.Drawing.Point(472, 3);
+            this.dashboardButton.Name = "dashboardButton";
+            this.dashboardButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.dashboardButton.Size = new System.Drawing.Size(26, 44);
+            this.dashboardButton.TabIndex = 107;
+            this.MyToolTip.SetToolTip(this.dashboardButton, "ড্যাশবোর্ড");
+            this.dashboardButton.UseVisualStyleBackColor = true;
+            this.dashboardButton.Click += new System.EventHandler(this.dashboardButton_Click);
+            // 
+            // SettingsButton
+            // 
+            this.SettingsButton.AutoSize = true;
+            this.SettingsButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SettingsButton.FlatAppearance.BorderSize = 0;
+            this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SettingsButton.IconChar = FontAwesome.Sharp.IconChar.Cogs;
+            this.SettingsButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.SettingsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.SettingsButton.IconSize = 38;
+            this.SettingsButton.Location = new System.Drawing.Point(0, 0);
+            this.SettingsButton.Margin = new System.Windows.Forms.Padding(0);
+            this.SettingsButton.Name = "SettingsButton";
+            this.SettingsButton.Size = new System.Drawing.Size(44, 50);
+            this.SettingsButton.TabIndex = 113;
+            this.MyToolTip.SetToolTip(this.SettingsButton, "সেটিংস‌");
+            this.SettingsButton.UseVisualStyleBackColor = true;
+            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
+            // NotificationBellButton
+            // 
+            this.NotificationBellButton.AutoSize = true;
+            this.NotificationBellButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.NotificationBellButton.FlatAppearance.BorderSize = 0;
+            this.NotificationBellButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NotificationBellButton.IconChar = FontAwesome.Sharp.IconChar.Bell;
+            this.NotificationBellButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.NotificationBellButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.NotificationBellButton.IconSize = 38;
+            this.NotificationBellButton.Location = new System.Drawing.Point(44, 0);
+            this.NotificationBellButton.Margin = new System.Windows.Forms.Padding(0);
+            this.NotificationBellButton.Name = "NotificationBellButton";
+            this.NotificationBellButton.Size = new System.Drawing.Size(44, 50);
+            this.NotificationBellButton.TabIndex = 114;
+            this.MyToolTip.SetToolTip(this.NotificationBellButton, "নোটিফিকেশন");
+            this.NotificationBellButton.UseVisualStyleBackColor = true;
+            this.NotificationBellButton.Click += new System.EventHandler(this.NotificationBellButton_Click);
+            // 
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -2755,7 +3278,11 @@
             this.dashboardBodyTableLayoutPanel.Name = "dashboardBodyTableLayoutPanel";
             this.dashboardBodyTableLayoutPanel.RowCount = 1;
             this.dashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+<<<<<<< HEAD
             this.dashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(1371, 741);
+=======
+            this.dashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(1242, 602);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dashboardBodyTableLayoutPanel.TabIndex = 4;
             // 
             // rightDashboardBodyTableLayoutPanel
@@ -2773,8 +3300,13 @@
             this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+<<<<<<< HEAD
             this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.rightDashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(1059, 741);
+=======
+            this.rightDashboardBodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.rightDashboardBodyTableLayoutPanel.Size = new System.Drawing.Size(1008, 602);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.rightDashboardBodyTableLayoutPanel.TabIndex = 29;
             // 
             // bodyTableLayoutPanel
@@ -2802,8 +3334,13 @@
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+<<<<<<< HEAD
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.bodyTableLayoutPanel.Size = new System.Drawing.Size(1059, 697);
+=======
+            this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(1008, 517);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.bodyTableLayoutPanel.TabIndex = 54;
             // 
             // detailsFlowLayoutPanel
@@ -2817,7 +3354,11 @@
             this.detailsFlowLayoutPanel.Name = "detailsFlowLayoutPanel";
             this.detailsFlowLayoutPanel.RowCount = 1;
             this.detailsFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+<<<<<<< HEAD
             this.detailsFlowLayoutPanel.Size = new System.Drawing.Size(1051, 1);
+=======
+            this.detailsFlowLayoutPanel.Size = new System.Drawing.Size(1002, 1);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.detailsFlowLayoutPanel.TabIndex = 56;
             // 
             // bodyPanel
@@ -2828,7 +3369,11 @@
             this.bodyPanel.Location = new System.Drawing.Point(4, 676);
             this.bodyPanel.Margin = new System.Windows.Forms.Padding(4);
             this.bodyPanel.Name = "bodyPanel";
+<<<<<<< HEAD
             this.bodyPanel.Size = new System.Drawing.Size(1051, 9);
+=======
+            this.bodyPanel.Size = new System.Drawing.Size(1002, 1);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.bodyPanel.TabIndex = 0;
             // 
             // dakBodyFlowLayoutPanel
@@ -2844,7 +3389,11 @@
             this.dakBodyFlowLayoutPanel.RowCount = 1;
             this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.dakBodyFlowLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 1F));
+<<<<<<< HEAD
             this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(1051, 0);
+=======
+            this.dakBodyFlowLayoutPanel.Size = new System.Drawing.Size(1002, 0);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakBodyFlowLayoutPanel.TabIndex = 55;
             // 
             // dakSortMetroPanel
@@ -2874,7 +3423,11 @@
             this.dakSortMetroPanel.Name = "dakSortMetroPanel";
             this.dakSortMetroPanel.RowCount = 1;
             this.dakSortMetroPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+<<<<<<< HEAD
             this.dakSortMetroPanel.Size = new System.Drawing.Size(1059, 65);
+=======
+            this.dakSortMetroPanel.Size = new System.Drawing.Size(1008, 52);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakSortMetroPanel.TabIndex = 54;
             // 
             // pageNextButton
@@ -2888,8 +3441,13 @@
             this.pageNextButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.pageNextButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.pageNextButton.IconSize = 24;
+<<<<<<< HEAD
             this.pageNextButton.Location = new System.Drawing.Point(1014, 4);
             this.pageNextButton.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+=======
+            this.pageNextButton.Location = new System.Drawing.Point(974, 3);
+            this.pageNextButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.pageNextButton.Name = "pageNextButton";
             this.pageNextButton.Size = new System.Drawing.Size(45, 57);
             this.pageNextButton.TabIndex = 32;
@@ -2907,8 +3465,13 @@
             this.pagePrevButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.pagePrevButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.pagePrevButton.IconSize = 24;
+<<<<<<< HEAD
             this.pagePrevButton.Location = new System.Drawing.Point(969, 4);
             this.pagePrevButton.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+=======
+            this.pagePrevButton.Location = new System.Drawing.Point(940, 3);
+            this.pagePrevButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.pagePrevButton.Name = "pagePrevButton";
             this.pagePrevButton.Size = new System.Drawing.Size(45, 57);
             this.pagePrevButton.TabIndex = 31;
@@ -2940,7 +3503,11 @@
             this.noDakTableLayoutPanel.Name = "noDakTableLayoutPanel";
             this.noDakTableLayoutPanel.RowCount = 1;
             this.noDakTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+<<<<<<< HEAD
             this.noDakTableLayoutPanel.Size = new System.Drawing.Size(1051, 25);
+=======
+            this.noDakTableLayoutPanel.Size = new System.Drawing.Size(1002, 20);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.noDakTableLayoutPanel.TabIndex = 0;
             // 
             // searchHeaderTableLayoutPanel
@@ -2960,7 +3527,11 @@
             this.searchHeaderTableLayoutPanel.Name = "searchHeaderTableLayoutPanel";
             this.searchHeaderTableLayoutPanel.RowCount = 1;
             this.searchHeaderTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+<<<<<<< HEAD
             this.searchHeaderTableLayoutPanel.Size = new System.Drawing.Size(1059, 49);
+=======
+            this.searchHeaderTableLayoutPanel.Size = new System.Drawing.Size(1008, 40);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.searchHeaderTableLayoutPanel.TabIndex = 4;
             // 
             // detailPanelDropDownButton
@@ -2978,7 +3549,11 @@
             this.detailPanelDropDownButton.Location = new System.Drawing.Point(0, 0);
             this.detailPanelDropDownButton.Margin = new System.Windows.Forms.Padding(0);
             this.detailPanelDropDownButton.Name = "detailPanelDropDownButton";
+<<<<<<< HEAD
             this.detailPanelDropDownButton.Size = new System.Drawing.Size(45, 49);
+=======
+            this.detailPanelDropDownButton.Size = new System.Drawing.Size(43, 40);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.detailPanelDropDownButton.TabIndex = 29;
             this.detailPanelDropDownButton.UseVisualStyleBackColor = false;
             this.detailPanelDropDownButton.Click += new System.EventHandler(this.detailPanelDropDownButton_Click);
@@ -2990,6 +3565,7 @@
             // headerTableLayoutPanel
             // 
             this.headerTableLayoutPanel.AutoSize = true;
+<<<<<<< HEAD
             this.headerTableLayoutPanel.ColumnCount = 1;
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -2998,15 +3574,85 @@
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+=======
+            this.headerTableLayoutPanel.ColumnCount = 7;
+            this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.headerTableLayoutPanel.Controls.Add(this.dashboardButton, 3, 0);
+            this.headerTableLayoutPanel.Controls.Add(this.panel11, 4, 0);
+            this.headerTableLayoutPanel.Controls.Add(this.profilePanel, 6, 0);
+            this.headerTableLayoutPanel.Controls.Add(this.nothiModulePanel, 1, 0);
+            this.headerTableLayoutPanel.Controls.Add(this.dakModulePanel, 0, 0);
+            this.headerTableLayoutPanel.Controls.Add(this.moduleButton, 1, 0);
+            this.headerTableLayoutPanel.Controls.Add(this.onlineToggleButton2, 5, 0);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.headerTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headerTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.headerTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.headerTableLayoutPanel.Name = "headerTableLayoutPanel";
             this.headerTableLayoutPanel.RowCount = 1;
+<<<<<<< HEAD
             this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.headerTableLayoutPanel.Size = new System.Drawing.Size(1059, 1);
             this.headerTableLayoutPanel.TabIndex = 9;
             // 
+=======
+            this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.headerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.headerTableLayoutPanel.Size = new System.Drawing.Size(1008, 50);
+            this.headerTableLayoutPanel.TabIndex = 9;
+            // 
+            // panel11
+            // 
+            this.panel11.AutoSize = true;
+            this.panel11.Controls.Add(this.BelliconLabel);
+            this.panel11.Controls.Add(this.SettingsButton);
+            this.panel11.Controls.Add(this.NotificationBellButton);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(501, 0);
+            this.panel11.Margin = new System.Windows.Forms.Padding(0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(88, 50);
+            this.panel11.TabIndex = 9;
+            // 
+            // BelliconLabel
+            // 
+            this.BelliconLabel.AutoSize = true;
+            this.BelliconLabel.BackColor = System.Drawing.Color.Red;
+            this.BelliconLabel.Font = new System.Drawing.Font("SolaimanLipi", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BelliconLabel.ForeColor = System.Drawing.Color.White;
+            this.BelliconLabel.Location = new System.Drawing.Point(72, 0);
+            this.BelliconLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.BelliconLabel.Name = "BelliconLabel";
+            this.BelliconLabel.Size = new System.Drawing.Size(14, 16);
+            this.BelliconLabel.TabIndex = 115;
+            this.BelliconLabel.Text = "১";
+            this.BelliconLabel.Visible = false;
+            // 
+            // moduleButton
+            // 
+            this.moduleButton.AutoSize = true;
+            this.moduleButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.moduleButton.FlatAppearance.BorderSize = 0;
+            this.moduleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.moduleButton.IconChar = FontAwesome.Sharp.IconChar.ThLarge;
+            this.moduleButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.moduleButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.moduleButton.IconSize = 32;
+            this.moduleButton.Location = new System.Drawing.Point(280, 3);
+            this.moduleButton.Name = "moduleButton";
+            this.moduleButton.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.moduleButton.Size = new System.Drawing.Size(38, 44);
+            this.moduleButton.TabIndex = 106;
+            this.moduleButton.UseVisualStyleBackColor = true;
+            this.moduleButton.Click += new System.EventHandler(this.moduleButton_Click);
+            // 
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             // footerTableLayoutPanel
             // 
             this.footerTableLayoutPanel.ColumnCount = 9;
@@ -3033,8 +3679,13 @@
             this.footerTableLayoutPanel.Name = "footerTableLayoutPanel";
             this.footerTableLayoutPanel.RowCount = 1;
             this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+<<<<<<< HEAD
             this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.footerTableLayoutPanel.Size = new System.Drawing.Size(1051, 36);
+=======
+            this.footerTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.footerTableLayoutPanel.Size = new System.Drawing.Size(1002, 29);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.footerTableLayoutPanel.TabIndex = 34;
             // 
             // button30
@@ -3047,8 +3698,12 @@
             this.button30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button30.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button30.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+<<<<<<< HEAD
             this.button30.Location = new System.Drawing.Point(850, 4);
             this.button30.Margin = new System.Windows.Forms.Padding(4);
+=======
+            this.button30.Location = new System.Drawing.Point(850, 3);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(33, 28);
             this.button30.TabIndex = 29;
@@ -3064,8 +3719,12 @@
             this.button29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button29.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+<<<<<<< HEAD
             this.button29.Location = new System.Drawing.Point(891, 4);
             this.button29.Margin = new System.Windows.Forms.Padding(4);
+=======
+            this.button29.Location = new System.Drawing.Point(881, 3);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(33, 28);
             this.button29.TabIndex = 28;
@@ -3081,8 +3740,12 @@
             this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button28.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+<<<<<<< HEAD
             this.button28.Location = new System.Drawing.Point(932, 4);
             this.button28.Margin = new System.Windows.Forms.Padding(4);
+=======
+            this.button28.Location = new System.Drawing.Point(912, 3);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(33, 28);
             this.button28.TabIndex = 27;
@@ -3098,8 +3761,12 @@
             this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button27.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+<<<<<<< HEAD
             this.button27.Location = new System.Drawing.Point(973, 4);
             this.button27.Margin = new System.Windows.Forms.Padding(4);
+=======
+            this.button27.Location = new System.Drawing.Point(943, 3);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(33, 28);
             this.button27.TabIndex = 26;
@@ -3115,8 +3782,12 @@
             this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button26.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+<<<<<<< HEAD
             this.button26.Location = new System.Drawing.Point(1014, 4);
             this.button26.Margin = new System.Windows.Forms.Padding(4);
+=======
+            this.button26.Location = new System.Drawing.Point(974, 3);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(33, 28);
             this.button26.TabIndex = 25;
@@ -3130,8 +3801,13 @@
             this.dakTagPanel.Location = new System.Drawing.Point(0, 0);
             this.dakTagPanel.Margin = new System.Windows.Forms.Padding(4);
             this.dakTagPanel.Name = "dakTagPanel";
+<<<<<<< HEAD
             this.dakTagPanel.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.dakTagPanel.Size = new System.Drawing.Size(204, 118);
+=======
+            this.dakTagPanel.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.dakTagPanel.Size = new System.Drawing.Size(153, 96);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.dakTagPanel.TabIndex = 105;
             this.dakTagPanel.Visible = false;
             // 
@@ -3149,6 +3825,192 @@
             this.dakTagListBox.Size = new System.Drawing.Size(190, 106);
             this.dakTagListBox.TabIndex = 101;
             // 
+<<<<<<< HEAD
+=======
+            // modulePanel
+            // 
+            this.modulePanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.modulePanel.Controls.Add(this.tableLayoutPanel1);
+            this.modulePanel.Controls.Add(this.panel1);
+            this.modulePanel.Location = new System.Drawing.Point(527, 35);
+            this.modulePanel.Name = "modulePanel";
+            this.modulePanel.Size = new System.Drawing.Size(331, 363);
+            this.modulePanel.TabIndex = 106;
+            this.modulePanel.Visible = false;
+            this.modulePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.Drop_Shadow);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.potrojariButton, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.guardFileModuleButton, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.reviewDashBoardButton, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.khosraButton, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.khosraPotroButton, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.iconButton3, 1, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 91);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(331, 272);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // potrojariButton
+            // 
+            this.potrojariButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.potrojariButton.FlatAppearance.BorderSize = 0;
+            this.potrojariButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.potrojariButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.potrojariButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
+            this.potrojariButton.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.potrojariButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
+            this.potrojariButton.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.potrojariButton.IconSize = 35;
+            this.potrojariButton.Location = new System.Drawing.Point(4, 182);
+            this.potrojariButton.Name = "potrojariButton";
+            this.potrojariButton.Size = new System.Drawing.Size(158, 86);
+            this.potrojariButton.TabIndex = 4;
+            this.potrojariButton.Text = "পত্রজারি গ্রুপ";
+            this.potrojariButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.potrojariButton.UseVisualStyleBackColor = true;
+            this.potrojariButton.Click += new System.EventHandler(this.potrojariButton_Click);
+            // 
+            // guardFileModuleButton
+            // 
+            this.guardFileModuleButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guardFileModuleButton.FlatAppearance.BorderSize = 0;
+            this.guardFileModuleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.guardFileModuleButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guardFileModuleButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
+            this.guardFileModuleButton.IconChar = FontAwesome.Sharp.IconChar.ShieldAlt;
+            this.guardFileModuleButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
+            this.guardFileModuleButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.guardFileModuleButton.IconSize = 32;
+            this.guardFileModuleButton.Location = new System.Drawing.Point(169, 93);
+            this.guardFileModuleButton.Name = "guardFileModuleButton";
+            this.guardFileModuleButton.Size = new System.Drawing.Size(158, 82);
+            this.guardFileModuleButton.TabIndex = 3;
+            this.guardFileModuleButton.Text = "গার্ড ফাইল";
+            this.guardFileModuleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.guardFileModuleButton.UseVisualStyleBackColor = true;
+            this.guardFileModuleButton.Click += new System.EventHandler(this.guardFileModuleButton_Click);
+            // 
+            // reviewDashBoardButton
+            // 
+            this.reviewDashBoardButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reviewDashBoardButton.FlatAppearance.BorderSize = 0;
+            this.reviewDashBoardButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reviewDashBoardButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reviewDashBoardButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
+            this.reviewDashBoardButton.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
+            this.reviewDashBoardButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
+            this.reviewDashBoardButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.reviewDashBoardButton.IconSize = 32;
+            this.reviewDashBoardButton.Location = new System.Drawing.Point(4, 93);
+            this.reviewDashBoardButton.Name = "reviewDashBoardButton";
+            this.reviewDashBoardButton.Size = new System.Drawing.Size(158, 82);
+            this.reviewDashBoardButton.TabIndex = 2;
+            this.reviewDashBoardButton.Text = "রিভিউ ড্যাশবোর্ড";
+            this.reviewDashBoardButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.reviewDashBoardButton.UseVisualStyleBackColor = true;
+            this.reviewDashBoardButton.Click += new System.EventHandler(this.reviewDashBoardButton_Click);
+            // 
+            // khosraButton
+            // 
+            this.khosraButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.khosraButton.FlatAppearance.BorderSize = 0;
+            this.khosraButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.khosraButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.khosraButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
+            this.khosraButton.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
+            this.khosraButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
+            this.khosraButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.khosraButton.IconSize = 32;
+            this.khosraButton.Location = new System.Drawing.Point(169, 4);
+            this.khosraButton.Name = "khosraButton";
+            this.khosraButton.Size = new System.Drawing.Size(158, 82);
+            this.khosraButton.TabIndex = 1;
+            this.khosraButton.Text = "খসড়া";
+            this.khosraButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.khosraButton.UseVisualStyleBackColor = true;
+            this.khosraButton.Click += new System.EventHandler(this.khosraButton_Click);
+            // 
+            // khosraPotroButton
+            // 
+            this.khosraPotroButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.khosraPotroButton.FlatAppearance.BorderSize = 0;
+            this.khosraPotroButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.khosraPotroButton.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.khosraPotroButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
+            this.khosraPotroButton.IconChar = FontAwesome.Sharp.IconChar.EnvelopeOpen;
+            this.khosraPotroButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
+            this.khosraPotroButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.khosraPotroButton.IconSize = 32;
+            this.khosraPotroButton.Location = new System.Drawing.Point(4, 4);
+            this.khosraPotroButton.Name = "khosraPotroButton";
+            this.khosraPotroButton.Size = new System.Drawing.Size(158, 82);
+            this.khosraPotroButton.TabIndex = 0;
+            this.khosraPotroButton.Text = "খসড়া-পত্র ড্যাশবোর্ড";
+            this.khosraPotroButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.khosraPotroButton.UseVisualStyleBackColor = true;
+            this.khosraPotroButton.Click += new System.EventHandler(this.khosraPotroButton_Click);
+            // 
+            // iconButton3
+            // 
+            this.iconButton3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconButton3.FlatAppearance.BorderSize = 0;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.Font = new System.Drawing.Font("SolaimanLipi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Registered;
+            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.IconSize = 32;
+            this.iconButton3.Location = new System.Drawing.Point(168, 181);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(160, 88);
+            this.iconButton3.TabIndex = 5;
+            this.iconButton3.Text = "Report";
+            this.iconButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.iconButton3_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = global::dNothi.Desktop.Properties.Resources.bg_1;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(84)))), ((int)(((byte)(101)))));
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(331, 91);
+            this.panel1.TabIndex = 0;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("SolaimanLipi", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(115, 36);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(107, 24);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "অন্যান্য মডিউল";
+            // 
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             // backgroundWorker1
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
@@ -3319,19 +4181,117 @@
             this.senderShowHideCheckBox.UseVisualStyleBackColor = false;
             this.senderShowHideCheckBox.CheckedChanged += new System.EventHandler(this.senderShowHideCheckBox_CheckedChanged);
             // 
+<<<<<<< HEAD
+=======
+            // designationDetailsPanel
+            // 
+            this.designationDetailsPanel._designationId = 0;
+            this.designationDetailsPanel._officeInfos = null;
+            this.designationDetailsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.designationDetailsPanel.AutoSize = true;
+            this.designationDetailsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.designationDetailsPanel.BackColor = System.Drawing.Color.White;
+            this.designationDetailsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            employeDakNothiCountResponse1.data = null;
+            employeDakNothiCountResponse1.status = null;
+            this.designationDetailsPanel.employeDakNothiCountResponse = employeDakNothiCountResponse1;
+            this.designationDetailsPanel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.designationDetailsPanel.Location = new System.Drawing.Point(1983, 49);
+            this.designationDetailsPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.designationDetailsPanel.Name = "designationDetailsPanel";
+            this.designationDetailsPanel.officeInfos = null;
+            this.designationDetailsPanel.Size = new System.Drawing.Size(434, 91);
+            this.designationDetailsPanel.TabIndex = 51;
+            this.designationDetailsPanel.Visible = false;
+            this.designationDetailsPanel.LogoutButtonClick += new System.EventHandler(this.designationDetailsPanel_LogoutButtonClick);
+            // 
+            // customDatePicker
+            // 
+            this.customDatePicker._date = null;
+            this.customDatePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.customDatePicker.AutoSize = true;
+            this.customDatePicker.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.customDatePicker.BackColor = System.Drawing.Color.White;
+            this.customDatePicker.dateFrom = new System.DateTime(((long)(0)));
+            this.customDatePicker.dateTo = new System.DateTime(((long)(0)));
+            this.customDatePicker.Location = new System.Drawing.Point(613, 96);
+            this.customDatePicker.Margin = new System.Windows.Forms.Padding(0);
+            this.customDatePicker.Name = "customDatePicker";
+            this.customDatePicker.Size = new System.Drawing.Size(152, 230);
+            this.customDatePicker.TabIndex = 57;
+            this.customDatePicker.Visible = false;
+            this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
+            this.customDatePicker.Click += new System.EventHandler(this.customDatePicker_Click);
+            this.customDatePicker.Paint += new System.Windows.Forms.PaintEventHandler(this.dakModulePanel_Paint);
+            // 
+            // searchOfficeDetailSearch
+            // 
+            this.searchOfficeDetailSearch.AutoSize = true;
+            this.searchOfficeDetailSearch.BackColor = System.Drawing.Color.White;
+            this.searchOfficeDetailSearch.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchOfficeDetailSearch.isListShown = false;
+            this.searchOfficeDetailSearch.itemList = null;
+            this.searchOfficeDetailSearch.Location = new System.Drawing.Point(560, 197);
+            this.searchOfficeDetailSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchOfficeDetailSearch.MinimumSize = new System.Drawing.Size(140, 0);
+            this.searchOfficeDetailSearch.Name = "searchOfficeDetailSearch";
+            this.searchOfficeDetailSearch.searchButtonText = "অফিস খুঁজুন";
+            this.searchOfficeDetailSearch.selectedId = 0;
+            this.searchOfficeDetailSearch.Size = new System.Drawing.Size(534, 63);
+            this.searchOfficeDetailSearch.TabIndex = 53;
+            // 
+            // officerSearchList
+            // 
+            this.officerSearchList.AutoSize = true;
+            this.officerSearchList.BackColor = System.Drawing.Color.White;
+            this.officerSearchList.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.officerSearchList.isListShown = false;
+            this.officerSearchList.itemList = null;
+            this.officerSearchList.Location = new System.Drawing.Point(21, 197);
+            this.officerSearchList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.officerSearchList.MinimumSize = new System.Drawing.Size(140, 0);
+            this.officerSearchList.Name = "officerSearchList";
+            this.officerSearchList.searchButtonText = "নাম/পদবী দিয়ে খুঁজুন";
+            this.officerSearchList.selectedId = 0;
+            this.officerSearchList.Size = new System.Drawing.Size(516, 63);
+            this.officerSearchList.TabIndex = 52;
+            // 
+            // onlineToggleButton2
+            // 
+            this.onlineToggleButton2.AutoSize = true;
+            this.onlineToggleButton2.BackColor = System.Drawing.Color.Transparent;
+            this.onlineToggleButton2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.onlineToggleButton2.Location = new System.Drawing.Point(589, 0);
+            this.onlineToggleButton2.Margin = new System.Windows.Forms.Padding(0);
+            this.onlineToggleButton2.MinimumSize = new System.Drawing.Size(40, 0);
+            this.onlineToggleButton2.Name = "onlineToggleButton2";
+            this.onlineToggleButton2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.onlineToggleButton2.Size = new System.Drawing.Size(40, 50);
+            this.onlineToggleButton2.TabIndex = 4;
+            // 
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1371, 741);
+=======
+            this.ClientSize = new System.Drawing.Size(1242, 602);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.Controls.Add(this.showHideInfoPanel);
             this.Controls.Add(this.dakTagPanel);
             this.Controls.Add(this.dashboardBodyTableLayoutPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+<<<<<<< HEAD
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(1362, 687);
+=======
+            this.MinimumSize = new System.Drawing.Size(1026, 565);
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
@@ -3410,6 +4370,13 @@
             this.noDakTableLayoutPanel.ResumeLayout(false);
             this.noDakTableLayoutPanel.PerformLayout();
             this.searchHeaderTableLayoutPanel.ResumeLayout(false);
+<<<<<<< HEAD
+=======
+            this.headerTableLayoutPanel.ResumeLayout(false);
+            this.headerTableLayoutPanel.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
             this.footerTableLayoutPanel.ResumeLayout(false);
             this.footerTableLayoutPanel.PerformLayout();
             this.dakTagPanel.ResumeLayout(false);
@@ -3596,6 +4563,15 @@
         private System.Windows.Forms.CheckBox senderShowHideCheckBox;
         private FontAwesome.Sharp.IconButton DakTrakingIconButton;
         private FontAwesome.Sharp.IconButton resetButton;
+<<<<<<< HEAD
+=======
+        private FontAwesome.Sharp.IconButton dashboardButton;
+        private System.Windows.Forms.Panel panel11;
+        private FontAwesome.Sharp.IconButton SettingsButton;
+        private FontAwesome.Sharp.IconButton NotificationBellButton;
+        private System.Windows.Forms.Label BelliconLabel;
+        private FontAwesome.Sharp.IconButton iconButton3;
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
     }
 }
 

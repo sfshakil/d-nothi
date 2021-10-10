@@ -38,8 +38,14 @@ using dNothi.Services.ProfileChangeService;
 using dNothi.Core.Entities.Khosra;
 using dNothi.Services.KasaraPatraDashBoardService;
 using dNothi.Services.SettingServices;
+<<<<<<< HEAD
 using dNothi.Desktop.UI.ManuelUserControl;
 using dNothi.Services.EmailBoxService;
+=======
+using dNothi.Desktop.UI.ReportUI;
+using dNothi.Services.ReportServices;
+using dNothi.Services.ReportPermited;
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
 
 namespace dNothi.Desktop
 {
@@ -179,6 +185,8 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteSendItemAction>>().As<IRepository<dNothi.Core.Entities.NoteSendItemAction>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.OnuchhedSaveItemAction>>().As<IRepository<dNothi.Core.Entities.OnuchhedSaveItemAction>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.FileUploadAction>>().As<IRepository<dNothi.Core.Entities.FileUploadAction>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.ReportCategoryItem>>().As<IRepository<dNothi.Core.Entities.ReportCategoryItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.ReportCategoryAddItem>>().As<IRepository<dNothi.Core.Entities.ReportCategoryAddItem>>();
 
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItemDetails>>().As<IRepository<dNothi.Core.Entities.DakItemDetails>>();
@@ -285,6 +293,7 @@ namespace dNothi.Desktop
             builder.RegisterType<NoteOnucchedRevertServices>().As<INoteOnucchedRevertServices>();
             builder.RegisterType<OnucchedFileUploadService>().As<IOnucchedFileUploadService>();
             builder.RegisterType<NothiDecisionListService>().As<INothiDecisionListService>();
+            builder.RegisterType<ReportService>().As<IReportService>();
 
             builder.RegisterType<AllPotroParser>().As<IAllPotroParser>();
             builder.RegisterType<NothivuktoPotroParser>().As<INothivuktoPotroParser>();
@@ -297,11 +306,16 @@ namespace dNothi.Desktop
             builder.RegisterType<PotroJariGroupService>().As<IPotroJariGroupService>();
             builder.RegisterType<PotroServices>().As<IPotroServices>();
             builder.RegisterType<ProfileManagementServices>().As<IProfileManagementServices>();
+<<<<<<< HEAD
             builder.RegisterType<EmailBoxService>().As<IEmailBoxService>();
           
           
 
+=======
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
 
+            builder.RegisterType<ReportPermissionServices>().As<IReportPermissionServices>();
+            
 
             builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();
             builder.RegisterGeneric(typeof(DakSharingService<>)).As(typeof(IDakSharingService<>)).AsSelf();
@@ -413,6 +427,13 @@ namespace dNothi.Desktop
             builder.RegisterType<GuardFileRowUserControl>().AsSelf();
             builder.RegisterType<HeaderUserControl>().AsSelf();
             
+            builder.RegisterType<ReportDashboard>().AsSelf();
+            builder.RegisterType<UCAnumatiPraptaUserList>().AsSelf();
+            
+
+
+
+
             builder.RegisterType<GuardFileListRowUserControl>().AsSelf();
             builder.RegisterType<GaurdFilePortalListRow>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.UCGuardFilePortalCreate>().AsSelf();
@@ -435,6 +456,10 @@ namespace dNothi.Desktop
 
             builder.RegisterType<PotrojariGroupContent>().AsSelf();
             builder.RegisterType<PatraJariGroupCreateUserControl>().AsSelf();
+            builder.RegisterType<NotificationUserControl>().AsSelf();
+            builder.RegisterType<NotificationRow>().AsSelf();
+            builder.RegisterType<ReportCategoryUserControl>().AsSelf();
+            builder.RegisterType<ReportCategoryRowUserControl>().AsSelf();
             builder.RegisterType<KhosraDakNoteDetailForm>().AsSelf();
             
             builder.RegisterGeneric(typeof(GuardFileService<,>)).As(typeof(IGuardFileService<,>)).AsSelf();

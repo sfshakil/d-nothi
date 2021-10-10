@@ -778,6 +778,11 @@
     </Compile>
     <Compile Include="UI\ManuelUserControl\HeaderUserControl.Designer.cs">
       <DependentUpon>HeaderUserControl.cs</DependentUpon>
+    <Compile Include="UI\ReportDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ReportDashboard.Designer.cs">
+      <DependentUpon>ReportDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ModalLoginMenuUserControl.cs">
       <SubType>UserControl</SubType>
@@ -1469,6 +1474,18 @@
     <Compile Include="UI\NothiUI\Protibedan\ShakaVittikNothiReportUserControl.Designer.cs">
       <DependentUpon>ShakaVittikNothiReportUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\NotificationRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NotificationRow.Designer.cs">
+      <DependentUpon>NotificationRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NotificationUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\NotificationUserControl.Designer.cs">
+      <DependentUpon>NotificationUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\OfficerRowUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1516,6 +1533,30 @@
     </Compile>
     <Compile Include="UI\Profile\UploadPictureUserControl.Designer.cs">
       <DependentUpon>UploadPictureUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportCategoryRowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ReportCategoryRowUserControl.Designer.cs">
+      <DependentUpon>ReportCategoryRowUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportCategoryUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ReportCategoryUserControl.Designer.cs">
+      <DependentUpon>ReportCategoryUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportUI\UCAnumatiPraptaUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ReportUI\UCAnumatiPraptaUser.Designer.cs">
+      <DependentUpon>UCAnumatiPraptaUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReportUI\UCAnumatiPraptaUserList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ReportUI\UCAnumatiPraptaUserList.Designer.cs">
+      <DependentUpon>UCAnumatiPraptaUserList.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ReviewDashBoard.cs">
       <SubType>Form</SubType>
@@ -1800,6 +1841,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ManuelUserControl\HeaderUserControl.resx">
       <DependentUpon>HeaderUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\ReportDashboard.resx">
+      <DependentUpon>ReportDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ModalLoginMenuUserControl.resx">
       <DependentUpon>ModalLoginMenuUserControl.cs</DependentUpon>
@@ -2122,6 +2165,12 @@
     <EmbeddedResource Include="UI\NothiUI\Protibedan\ShakaVittikNothiReportUserControl.resx">
       <DependentUpon>ShakaVittikNothiReportUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\NotificationRow.resx">
+      <DependentUpon>NotificationRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\NotificationUserControl.resx">
+      <DependentUpon>NotificationUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\OfficerRowUserControl.resx">
       <DependentUpon>OfficerRowUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -2145,6 +2194,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Profile\UploadPictureUserControl.resx">
       <DependentUpon>UploadPictureUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportCategoryRowUserControl.resx">
+      <DependentUpon>ReportCategoryRowUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportCategoryUserControl.resx">
+      <DependentUpon>ReportCategoryUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportUI\UCAnumatiPraptaUser.resx">
+      <DependentUpon>UCAnumatiPraptaUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportUI\UCAnumatiPraptaUserList.resx">
+      <DependentUpon>UCAnumatiPraptaUserList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReviewDashBoard.resx">
       <DependentUpon>ReviewDashBoard.cs</DependentUpon>

@@ -17,6 +17,7 @@ namespace dNothi.Constants
         public const string PermittedPotroEndPoint = "/api/potro/permitted";
         public const string NothijatoProtibedonEndPoint = "/api/reports/dak/nothijato";
         public const string NothiteUposthapitoProtibedonEndPoint = "/api/reports/dak/nothite_uposthapito";
+        public const string NothiVoiktaEndPoint="/api/reports/dak/nothivukto";
         public const string PotrojariProtibedonEndPoint = "/api/reports/dak/jarikrito";
         public const string PendingProtibedonEndPoint = "/api/reports/dak/pending";
         public const string ResolvesProtibedonEndPoint = "/api/reports/dak/resolved";
@@ -143,6 +144,7 @@ namespace dNothi.Constants
         public const string NotificationSettingsSaveEndPoint = "/api/notification/setting/save";
 
         public const string DakNibondanBohiEndPoint = "/api/register/dak/nibondhon_bohi";
+        public const string ReportCategoryEndPoint = "/api/report/category";
 
 
         //KasaraPattraDashBoardApi
@@ -205,7 +207,10 @@ namespace dNothi.Constants
         public const string OfficeUintEndpoint = "/api/dak/seal/office/show";
         public const string AllFileDownloadEndpoint = "/api/zip/maker";
 
-    
+        //ReportApi
+        public const string ReportPermitUserEndpoint = "/api/report/permission";
+
+
         // Doptor
 
         public const string DoptorDomainAddress = "https://n-doptor-api-stage.nothi.gov.bd";

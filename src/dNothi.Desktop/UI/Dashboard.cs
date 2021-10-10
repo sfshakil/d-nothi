@@ -5166,13 +5166,13 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
-            _dakuserparam.page = 1;
-            _dakuserparam.limit = 10;
-            ProtibedonResponse protibedonResponse = _protibedonService.GetPendingProtibedonResponse(_dakuserparam, fromdate, todate, null);
+            //_dakuserparam.page = 1;
+            //_dakuserparam.limit = 10;
+            //ProtibedonResponse protibedonResponse = _protibedonService.GetPendingProtibedonResponse(_dakuserparam, fromdate, todate, null);
             ProtibedonUserControl protibedonUserControl =UserControlFactory.Create<ProtibedonUserControl>();
             protibedonUserControl.isPending = true;
-            protibedonUserControl.totalRecord = protibedonResponse.data.total_records;
-            protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            //protibedonUserControl.totalRecord = protibedonResponse.data.total_records;
+            //protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
                
            // protibedonUserControl.comboBoxSelectedIndexChanged +=  gridviewpagination_selectedChanged;
            
@@ -5213,12 +5213,12 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
-            _dakuserparam.limit = 10;
-            _dakuserparam.page = 1;
-            ProtibedonResponse protibedonResponse = _protibedonService.GetResolvedProtibedonResponse(_dakuserparam, fromdate, todate, null);
+            //_dakuserparam.limit = 10;
+            //_dakuserparam.page = 1;
+           // ProtibedonResponse protibedonResponse = _protibedonService.GetResolvedProtibedonResponse(_dakuserparam, fromdate, todate, null);
             ProtibedonUserControl protibedonUserControl = UserControlFactory.Create<ProtibedonUserControl>();
             protibedonUserControl.isResolved = true;
-            protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            //protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
 
 
 
@@ -5231,8 +5231,8 @@ namespace dNothi.Desktop.UI
 
         private void protibedonButton_Click(object sender, EventArgs e)
         {
-            searchHeaderTableLayoutPanel.Visible = false;
-            dakSortMetroPanel.Visible = false;
+            //searchHeaderTableLayoutPanel.Visible = false;
+            //dakSortMetroPanel.Visible = false;
             if (protibedonPanel.Visible)
             {
                 protibedonPanel.Visible = false;
@@ -5256,12 +5256,12 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
-            _dakuserparam.page = 1;
-            _dakuserparam.limit = 10;
-            DakProtibedonResponse protibedonResponse = _protibedonService.GetNothiteUposthapitoProtibedonResponse(_dakuserparam, fromdate, todate, null);
+            //_dakuserparam.page = 1;
+            //_dakuserparam.limit = 10;
+            //DakProtibedonResponse protibedonResponse = _protibedonService.GetNothiteUposthapitoProtibedonResponse(_dakuserparam, fromdate, todate, null);
             ProtibedonUserControl protibedonUserControl = UserControlFactory.Create<ProtibedonUserControl>();
             protibedonUserControl.isNothiteUposthapito = true;
-           protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+           //protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
 
 
 
@@ -5283,12 +5283,12 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
-            _dakuserparam.limit = 10;
-            _dakuserparam.page = 1;
-            DakProtibedonResponse protibedonResponse = _protibedonService.GetPotrojariProtibedonResponse(_dakuserparam, fromdate, todate, null);
+            //_dakuserparam.limit = 10;
+            //_dakuserparam.page = 1;
+            //DakProtibedonResponse protibedonResponse = _protibedonService.GetPotrojariProtibedonResponse(_dakuserparam, fromdate, todate, null);
             ProtibedonUserControl protibedonUserControl = UserControlFactory.Create<ProtibedonUserControl>();
             protibedonUserControl.isPotrojari = true;
-            protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+            //protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
 
 
 
@@ -5309,12 +5309,12 @@ namespace dNothi.Desktop.UI
 
             dakBodyFlowLayoutPanel.Controls.Clear();
             dakBodyFlowLayoutPanel.RowCount = 0;
-            _dakuserparam.page = 1;
-            _dakuserparam.limit = 10;
-            DakProtibedonResponse protibedonResponse = _protibedonService.GetNothijatoProtibedonResponse(_dakuserparam, fromdate, todate, null);
+            //_dakuserparam.page = 1;
+            //_dakuserparam.limit = 10;
+            //DakProtibedonResponse protibedonResponse = _protibedonService.GetNothijatoProtibedonResponse(_dakuserparam, fromdate, todate, null);
             ProtibedonUserControl protibedonUserControl = UserControlFactory.Create<ProtibedonUserControl>();
             protibedonUserControl.isNothijato = true;
-            protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
+           // protibedonUserControl.protibedons = ConvertProtibedonResponsetoProtibedon.GetProtibedons(protibedonResponse);
 
 
 
@@ -5709,8 +5709,29 @@ namespace dNothi.Desktop.UI
             
             System.Diagnostics.Process.Start(DefaultAPIConfiguration.DoptorDomainAddressLocal+"/application/"+_dakuserparam.doptor_token);
         }
+<<<<<<< HEAD
        
         
+=======
+        SettingsUserControl settingsUserControl = UserControlFactory.Create<SettingsUserControl>();
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            if (!settingsUserControl.Visible)
+            {
+                settingsUserControl.Visible = true;
+                settingsUserControl.Location = new System.Drawing.Point(panel11.Location.X + SettingsButton.Location.X, SettingsButton.Height);
+                Controls.Add(settingsUserControl);
+                settingsUserControl.BringToFront();
+                settingsUserControl.SettingsSaveButton += delegate (object sender1, EventArgs e1) { SettingsSaveButton_Click(sender1 as Settings, e1); };
+
+            }
+            else
+            {
+                settingsUserControl.Visible = false;
+                //modulePanel.Width = 334;
+            }
+        }
+>>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
         private void SettingsSaveButton_Click(Settings settings, EventArgs e)
         {
             AgotoPageLimitFromsettings = settings.dakInboxPagination;
@@ -5749,6 +5770,39 @@ namespace dNothi.Desktop.UI
         {
             if (e.KeyCode == Keys.Enter)
                 dakSearchUsingTextButton.PerformClick();
+        }
+        public Form NotificationControlToForm(Control control)
+        {
+            Form form = new Form();
+            form.Name = "ExtraNotificationForm";
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.BackColor = Color.White;
+            form.AutoSize = true;
+            form.Location = new System.Drawing.Point(Screen.PrimaryScreen.WorkingArea.Width - control.Width, 0);
+            control.Location = new System.Drawing.Point(0, 0);
+            //form.Size = control.Size;
+            form.Height = Screen.PrimaryScreen.WorkingArea.Height;
+            form.Width = control.Width;
+            control.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            control.Height = form.Height;
+            form.Controls.Add(control);
+            return form;
+        }
+        private void NotificationBellButton_Click(object sender, EventArgs e)
+        {
+            var notificationUserControl = UserControlFactory.Create<NotificationUserControl>();
+            var form = NotificationControlToForm(notificationUserControl);
+            UIDesignCommonMethod.CalPopUpWindow(form, this);
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+           
+            ReportDashboard reportform = FormFactory.Create<ReportDashboard>();
+
+            reportform.ShowDialog();
         }
     }
 

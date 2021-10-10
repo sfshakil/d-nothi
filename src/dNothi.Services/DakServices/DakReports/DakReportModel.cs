@@ -126,12 +126,30 @@ namespace dNothi.Services.DakServices.DakReports
             public string name_eng { get; set; }
             public string name_bng { get; set; }
         }
-
+        public class Nothi
+        {
+            public int nothi_master_id { get; set; }
+            public int nothi_note_id { get; set; }
+            public int nothi_potro_id { get; set; }
+            public int dak_id { get; set; }
+            public string dak_type { get; set; }
+            public int is_copied_dak { get; set; }
+            public int id { get; set; }
+            public string nothi_no { get; set; }
+            public string subject { get; set; }
+            public int office_id { get; set; }
+            public string office_name { get; set; }
+            public int office_unit_id { get; set; }
+            public string office_unit_name { get; set; }
+        }
         public class Record
         {
             public MovementStatus movement_status { get; set; }
             public DakUser dak_user { get; set; }
             public DakOrigin dak_origin { get; set; }
+            public List<object> dak_tags { get; set; }
+            public int attachment_count { get; set; }
+            public Nothi nothi { get; set; }
         }
 
         public class Data

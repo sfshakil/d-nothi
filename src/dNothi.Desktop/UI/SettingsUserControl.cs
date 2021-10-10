@@ -433,10 +433,21 @@ namespace dNothi.Desktop.UI
             hidenotification();
             ReportButton.Visible = true;
         }
-
+        private void DoSomethingAsync(object sender, EventArgs e)
+        {
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f.Name != "ReportDashboard")
+                { BeginInvoke((Action)(() => f.Hide())); }
+            }
+        }
         private void ReportButton_Click(object sender, EventArgs e)
         {
-
+            var form = FormFactory.Create<ReportDashboard>();
+            form.TopMost = true;
+            BeginInvoke((Action)(() => form.ShowDialog()));
+            BeginInvoke((Action)(() => form.TopMost = false));
+            form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
 
         //public Settings getLocalData()

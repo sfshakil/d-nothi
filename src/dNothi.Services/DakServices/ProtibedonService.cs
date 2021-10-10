@@ -1,5 +1,6 @@
 ﻿using dNothi.Constants;
 using dNothi.JsonParser.Entity.Dak;
+using dNothi.Services.DakServices.DakReports;
 using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
@@ -111,8 +112,9 @@ namespace dNothi.Services.DakServices
                 protibedonRequest.AddParameter("designation_id", dakUserParam.designation_id);
                 protibedonRequest.AddParameter("office_id", dakUserParam.office_id);
 
-                protibedonRequest.AddParameter("start_date", fromDate);
-                protibedonRequest.AddParameter("end_date", toDate);
+                //protibedonRequest.AddParameter("start_date", fromDate);
+                //protibedonRequest.AddParameter("end_date", toDate);
+                protibedonRequest.AddParameter("search_params", "last_modified_date="+ fromDate + ":"+ toDate + "");
                 protibedonRequest.AddParameter("unit_id", branchName);
                 protibedonRequest.AddParameter("length", dakUserParam.limit);
                 protibedonRequest.AddParameter("page", dakUserParam.page);
@@ -120,9 +122,7 @@ namespace dNothi.Services.DakServices
 
                 IRestResponse protibedonResponseIRest = protibedonAPI.Execute(protibedonRequest);
 
-
-
-
+  
                 var protibedonResponseJson = ConversionMethod.FilterJsonResponse(protibedonResponseIRest.Content);
 
 
@@ -137,7 +137,6 @@ namespace dNothi.Services.DakServices
 
 
         }
-
         public DakProtibedonResponse GetNothiteUposthapitoProtibedonResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName)
         {
             DakProtibedonResponse protibedonResponse = new DakProtibedonResponse();
@@ -217,9 +216,54 @@ namespace dNothi.Services.DakServices
                 return protibedonResponse;
             }
 
-
         }
 
+        public DakReportModel GetProtibedonResponse(DakUserParam dakUserParam, string fromDate, string toDate, string unitid,bool isPending, bool isResolved, bool isNothiteUposthapito, bool isPotrojari, bool isNothijato)
+        {
+
+            DakReportModel pendingProtibedonResponse = new DakReportModel();
+
+            try
+            {
+                string endPoint = string.Empty;
+                if (isPending)
+                    endPoint = DefaultAPIConfiguration.PendingProtibedonEndPoint;
+                if (isResolved)
+                    endPoint = DefaultAPIConfiguration.ResolvesProtibedonEndPoint;
+                if (isNothiteUposthapito)
+                    endPoint = DefaultAPIConfiguration.NothiVoiktaEndPoint;
+                if (isPotrojari)
+                    endPoint = DefaultAPIConfiguration.PotrojariProtibedonEndPoint;
+                if (isNothijato)
+                    endPoint = DefaultAPIConfiguration.NothijatoProtibedonEndPoint;
+                var pendingProtibedonAPI = new RestClient(GetAPIDomain() + endPoint);
+                pendingProtibedonAPI.Timeout = -1;
+                var protibedonRequest = new RestRequest(Method.POST);
+                protibedonRequest.AddHeader("api-version", GetAPIVersion());
+                protibedonRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                protibedonRequest.AlwaysMultipartFormData = true;
+                protibedonRequest.AddParameter("designation_id", dakUserParam.designation_id);
+                protibedonRequest.AddParameter("office_id", dakUserParam.office_id);
+                protibedonRequest.AddParameter("search_params", "last_modified_date=" + fromDate + ":" + toDate + "");
+                protibedonRequest.AddParameter("unit_id", unitid);
+                protibedonRequest.AddParameter("length", dakUserParam.limit);
+                protibedonRequest.AddParameter("page", dakUserParam.page);
+
+
+                IRestResponse pendingProtibedonResponseIRest = pendingProtibedonAPI.Execute(protibedonRequest);
+
+                var pendingProtibedonResponseJson = ConversionMethod.FilterJsonResponse(pendingProtibedonResponseIRest.Content);
+
+                pendingProtibedonResponse = JsonConvert.DeserializeObject<DakReportModel>(pendingProtibedonResponseJson);
+                return pendingProtibedonResponse;
+            }
+            catch (Exception ex)
+            {
+                return pendingProtibedonResponse;
+            }
+
+
+        }
 
         protected string GetAPIVersion()
         {
@@ -233,8 +277,6 @@ namespace dNothi.Services.DakServices
         {
             return ConfigurationManager.AppSettings[key];
         }
-
-
         protected string GetAPIDomain()
         {
             return ReadAppSettings("api-endpoint") ?? DefaultAPIConfiguration.DefaultAPIDomainAddress;
@@ -269,5 +311,7 @@ namespace dNothi.Services.DakServices
         DakProtibedonResponse GetPotrojariProtibedonResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName);
         DakProtibedonResponse GetNothiteUposthapitoProtibedonResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName);
         DakProtibedonResponse GetNothijatoProtibedonResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName);
+        DakReportModel GetProtibedonResponse(DakUserParam dakUserParam, string fromDate, string toDate, string unitid, bool isPending, bool isResolved, bool isNothiteUposthapito, bool isPotrojari, bool isNothijato);
+
     }
 }
