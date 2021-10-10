@@ -10,8 +10,6 @@ namespace dNothi.Core.Entities
 {
     public class NothiItem : BaseEntity
     {
-
-
         public bool is_nothi_inbox { get; set; }
         public bool is_nothi_outbox { get; set; }
         public bool is_nothi_all { get; set; }
