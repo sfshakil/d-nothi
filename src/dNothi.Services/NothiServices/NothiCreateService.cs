@@ -55,6 +55,7 @@ namespace dNothi.Services.NothiServices
                 nothiCreateItemAction.nothi_subject = nothi_subject;
                 nothiCreateItemAction.nothi_class = nothi_class;
                 nothiCreateItemAction.currentYear = currentYear;
+                nothiCreateItemAction.nothi_type_name = UserParam.nothi_type_name;
 
                 _nothiCreateItemAction.Insert(nothiCreateItemAction);
 
@@ -71,7 +72,9 @@ namespace dNothi.Services.NothiServices
                 request.AddParameter("office_id", +UserParam.office_id);
                 request.AddParameter("designation_id", +UserParam.designation_id);
                 request.AddParameter("model", "NothiMasters");
-                request.AddParameter("data", "{\"id\":\""+ id +"\",\"office_id\":\"" + UserParam.office_id + "\",\"office_name\":\"" + UserParam.officer_name + "\",\"office_unit_id\":\"" + UserParam.office_unit_id + "\",\"office_unit_name\":\"" + nothishkha + "\",\"office_unit_organogram_id\":\"" + UserParam.designation_id + "\",\"office_designation_name\":\"" + UserParam.designation + "\",\"nothi_type_id\":\"" + nothi_type_id + "\",\"nothi_no\":\"" + nothi_no + "\",\"subject\":\"" + nothi_subject + "\",\"description\":\"NULL\",\"nothi_class\":\"" + nothi_class + "\",\"nothi_created_date\":\"" + currentYear + "\"}");
+                request.AddParameter("data", "{\"id\":\""+ id +"\",\"office_id\":\"" + UserParam.office_id + "\",\"office_name\":\"" + UserParam.officer_name + "\",\"office_unit_id\":\"" + UserParam.office_unit_id + "\",\"office_unit_name\":\"" + nothishkha + "\",\"office_unit_organogram_id\":\"" + UserParam.designation_id + "\",\"office_designation_name\":\"" + UserParam.designation + "\",\"nothi_type_id\":\"" + nothi_type_id + "\",\"nothi_no\":\"" + nothi_no + "\",\"subject\":\"" + nothi_subject + "\",\"description\":\"NULL\",\"nothi_class\":\"" + nothi_class + "\",\"nothi_created_date\":\"" + currentYear + "\",\"nothi_type_name\":\"" + UserParam.nothi_type_name + "\"}");
+                request.AddParameter("cdesk", "{\"office_id\":\"" + UserParam.office_id + "\",\"office_unit_id\":\"" + UserParam.office_unit_id + "\",\"designation_id\":\"" + UserParam.designation_id + "\"}");
+
                 IRestResponse response = client.Execute(request);
 
                 var responseJson = response.Content;
@@ -99,6 +102,7 @@ namespace dNothi.Services.NothiServices
                     userParam.unit_id = nothiCreateItemAction.office_unit_id;
                     userParam.designation_label = nothiCreateItemAction.designation;
                     userParam.token = dakUserParam.token;
+                    userParam.nothi_type_name = nothiCreateItemAction.nothi_type_name;
                     var nothiCreateResponse = GetNothiCreate(userParam, "0", nothiCreateItemAction.nothishkha, nothiCreateItemAction.nothi_no, nothiCreateItemAction.nothi_type_id, nothiCreateItemAction.nothi_subject, nothiCreateItemAction.nothi_class, nothiCreateItemAction.currentYear);
 
                     if (nothiCreateResponse != null && (nothiCreateResponse.status == "error" || nothiCreateResponse.status == "success"))
