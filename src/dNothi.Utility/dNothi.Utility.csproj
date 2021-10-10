@@ -93,6 +93,7 @@
     <Compile Include="DakType.cs" />
     <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="DefaultFontStyle.cs" />
+    <Compile Include="EmailOperationList.cs" />
     <Compile Include="EmailSender.cs" />
     <Compile Include="IDelayedProvider.cs" />
     <Compile Include="IEmailSender.cs" />

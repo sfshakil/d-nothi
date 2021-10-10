@@ -159,7 +159,7 @@ namespace dNothi.Desktop.UI
                 {
                     foreach (SettingsList settingsList in settingsListDB)
                     {
-                        settingsUserControl.setupcbxFromDB(settingsList);
+                    
                         AgotoPageLimitFromsettings = settingsList.dakInboxPagination;
                         SentPageLimitFromsettings = settingsList.dakSentPagination;
                         NothiteUposthapitoPageLimitFromsettings = settingsList.dakNothiteUposthapitoPagination;
@@ -491,23 +491,9 @@ namespace dNothi.Desktop.UI
 
         private void RefreshDaakCount()
         {
-            DakUserParam dakUser = _userService.GetLocalDakUserParam();
-         
-            EmployeDakNothiCountResponse employeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(dakUser);
 
-            try
-            {
-               
-              
-                moduleDakCountLabel.Text = ConversionMethod.EnglishNumberToBangla((employeDakNothiCountResponse.data.total.dak).ToString());
-                designationDetailsPanel.ChangeDaakCount(employeDakNothiCountResponse.data.total.dak);
-
-            }
-            catch
-            {
-
-            }
-            }
+            headerControl.RefreshDaakCount();
+        }
 
         private void GetDakMovementList(int dak_id, string dak_type, int is_copied_dak, DakListRecordsDTO dak)
         {
@@ -668,16 +654,7 @@ namespace dNothi.Desktop.UI
             this.dakArchiveButton.ForeColor = Color.Black;
         }
 
-        private void label1_Resize(object sender, EventArgs e)
-        {
-            this.moduleDakCountLabel.Size = new System.Drawing.Size(19, 20);
-            this.moduleDakCountLabel.AutoSize = true;
-        }
-
-        private void label1_SizeChanged(object sender, EventArgs e)
-        {
-            this.moduleDakCountLabel.Size = new System.Drawing.Size(19, 20);
-        }
+       
 
 
 
@@ -978,7 +955,8 @@ namespace dNothi.Desktop.UI
             dateTo = DateTime.Now;
             label7.Text = UIDesignCommonMethod.copyRightLableText;
             _dakuserparam = _userService.GetLocalDakUserParam();
-            userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
+
+            LoadHeader();
 
             LoadDakPriority();
             LoadDakSecurite();
@@ -988,6 +966,21 @@ namespace dNothi.Desktop.UI
             LoadThirtPartyService();
             
 
+        }
+      public   HeaderUserControl headerControl { get; set; }
+        private void LoadHeader()
+        {
+            headerControl = UserControlFactory.Create<HeaderUserControl>();
+            headerControl.ChangeUserClick += delegate (object sender1, EventArgs e1) { ChangeUser(sender1, e1); };
+            headerControl.SettingsSaveButton += delegate (object sender1, EventArgs e1) { SettingsSaveButton_Click(sender1 as Settings, e1); };
+            UIDesignCommonMethod.AddRowinTable(headerTableLayoutPanel, headerControl);
+        }
+
+       
+
+        private void ChangeUser(object sender1, EventArgs e1)
+        {
+            RefreshdDakList();
         }
 
         private void LoadThirtPartyService()
@@ -2547,7 +2540,7 @@ namespace dNothi.Desktop.UI
             detailsDakSearcPanel.Visible = false;
             dakSortMetroPanel.Visible = true;
             searchHeaderTableLayoutPanel.Visible = true;
-            designationDetailsPanel.Visible = false;
+         
 
             if(isAllTypeSearch || IsArchiveSearch || IsDakInboxSearch || IsOutboxSearch || IsNothiJatoSearch || isNothivuktoSearched || IsSortedSearch || IsKhosraSearch)
             {
@@ -2574,7 +2567,7 @@ namespace dNothi.Desktop.UI
             detailsDakSearcPanel.Visible = false;
             dakSortMetroPanel.Visible = true;
             searchHeaderTableLayoutPanel.Visible = true;
-            designationDetailsPanel.Visible = false;
+         
 
         }
 
@@ -3670,10 +3663,7 @@ namespace dNothi.Desktop.UI
             ControlPaint.DrawBorder(e.Graphics, this.searchBoxPanel.ClientRectangle, Color.FromArgb(203, 225, 248), ButtonBorderStyle.Solid);
         }
 
-        private void dakModulePanel_MouseHover(object sender, EventArgs e)
-        {
-            dakModulePanel.BackColor = Color.FromArgb(245, 245, 249);
-        }
+       
 
         private void moduleDakCountLabel_Paint(object sender, PaintEventArgs e)
         {
@@ -3704,17 +3694,7 @@ namespace dNothi.Desktop.UI
         {
             this.Hide();
         }
-        private void nothiModulePanel_MouseHover(object sender, EventArgs e)
-        {
-            nothiModulePanel.BackColor = Color.FromArgb(245, 245, 249);
-            nothiModuleNameLabel.ForeColor = Color.Blue;
-        }
-
-        private void nothiModulePanel_MouseLeave(object sender, EventArgs e)
-        {
-            nothiModulePanel.BackColor = Color.Transparent;
-            nothiModuleNameLabel.ForeColor = Color.Black;
-        }
+       
 
         private void dakTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -3731,39 +3711,9 @@ namespace dNothi.Desktop.UI
 
         }
 
-        private void profileShowArrowButton_Click(object sender, EventArgs e)
-        {
-            if (!designationDetailsPanel.Visible)
-            {
-                int designationPanleX = this.Width - designationDetailsPanel.Width - 25;
-                int designationPanleY = profilePanel.Location.Y + profilePanel.Height;
-                designationDetailsPanel.Location = new Point(designationPanleX, designationPanleY);
+        
 
-                designationDetailsPanel.Visible = true;
-
-
-            }
-            else
-            {
-                designationDetailsPanel.Visible = false;
-            }
-        }
-
-        private void ChageUser(int designationId)
-        {
-            _userService.MakeThisOfficeCurrent(designationId);
-            dakListUserParam = _dakuserparam = _userService.GetLocalDakUserParam();
-            userNameLabel.Text = _dakuserparam.officer_name + "(" + _dakuserparam.designation_label + "," + _dakuserparam.unit_label + ")";
-
-            EmployeDakNothiCountResponse employeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(_dakuserparam);
-            var employeDakNothiCountResponseTotal = employeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == _dakuserparam.designation_id.ToString());
-
-            moduleDakCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.dak.ToString());
-            moduleNothiCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.own_office_nothi.ToString());
-
-
-            RefreshdDakList();
-        }
+       
 
         private void RefreshdDakList()
         {
@@ -3854,20 +3804,7 @@ namespace dNothi.Desktop.UI
 
         }
 
-        private void profileShowArrowButton_Enter(object sender, EventArgs e)
-        {
-            profilePanel.BackColor = Color.FromArgb(245, 245, 249);
-        }
-
-        private void profileShowArrowButton_MouseLeave(object sender, EventArgs e)
-        {
-            profilePanel.BackColor = Color.Transparent;
-        }
-
-        private void profileShowArrowButton_MouseEnter(object sender, EventArgs e)
-        {
-            profilePanel.BackColor = Color.FromArgb(245, 245, 249);
-        }
+       
 
         private void personalFolderButton_Click(object sender, EventArgs e)
         {
@@ -4537,55 +4474,7 @@ namespace dNothi.Desktop.UI
 
             
 
-            try
-            {
-                EmployeDakNothiCountResponse employeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(dakUserParam);
-                var employeDakNothiCountResponseTotal = employeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == dakUserParam.designation_id.ToString());
-
-                moduleDakCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.dak.ToString());
-                moduleNothiCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.own_office_nothi.ToString());
-
-            }
-            catch (Exception Ex)
-            {
-
-            }
-
-
-
-
-
-            List<OfficeInfoDTO> officeInfoDTO = _userService.GetAllLocalOfficeInfo();
-
-
-            foreach (OfficeInfoDTO officeInfoDTO1 in officeInfoDTO)
-            {
-                dakUserParam.designation_id = officeInfoDTO1.office_unit_organogram_id;
-                dakUserParam.office_id = officeInfoDTO1.office_id;
-                try
-                {
-                    EmployeDakNothiCountResponse singleOfficeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(dakUserParam);
-                    var singleOfficeDakNothiCount = singleOfficeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == dakUserParam.designation_id.ToString());
-
-                    officeInfoDTO1.dakCount = singleOfficeDakNothiCount.Value.dak;
-                    officeInfoDTO1.nothiCount = singleOfficeDakNothiCount.Value.own_office_nothi;
-                }
-                catch
-                {
-
-                }
-            }
-
-
-
-            designationDetailsPanel.officeInfos = officeInfoDTO;
-
-            designationDetailsPanel._designationId = dakUserParam.designation_id;
-
-
-
-            designationDetailsPanel.ChangeUserClick += delegate (object changeButtonSender, EventArgs changeButtonEvent) { ChageUser(designationDetailsPanel._designationId); };
-
+           
 
             NormalizeDashBoard();
             selectDakBoxHolderPanel.Visible = true;
@@ -5175,29 +5064,14 @@ namespace dNothi.Desktop.UI
         private void khosraButton_Click(object sender, EventArgs e)
         {
             UIDesignCommonMethod.returnForm = this;
-            modulePanel.Hide();
+           
             var form = FormFactory.Create<Khosra>();
             BeginInvoke((Action)(() => form.ShowDialog()));
             form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
 
         }
 
-        private void moduleButton_Click(object sender, EventArgs e)
-        {
-            if (!modulePanel.Visible)
-            {
-                modulePanel.Location = new Point(moduleButton.Location.X+leftMenuBarTableLayoutPanel.Width , moduleButton.Location.Y + moduleButton.Height);
-                modulePanel.Visible = true;
-
-
-            }
-            else
-            {
-                modulePanel.Visible = false;
-            }
-
-        }
-
+       
         private void detailsDakSearcPanel_Paint(object sender, PaintEventArgs e)
         {
 
@@ -5545,67 +5419,21 @@ namespace dNothi.Desktop.UI
 
 
 
+            if(headerControl !=null)
+            {
+                headerControl.ChangeOnlineStatus();
+            }
+
             if (InternetConnection.Check())
             {
 
                 _syncerServices.SyncLocaltoRemoteData();
-                if (onlineStatus.IconColor != Color.LimeGreen)
-                {
-
-
-
-                    if (IsHandleCreated)
-                    {
-                        onlineStatus.Invoke(new MethodInvoker(delegate
-
-                        {
-                            onlineStatus.IconColor = Color.LimeGreen;
-                            MyToolTip.SetToolTip(onlineStatus, "Online");
-
-                        }));
-                    }
-                    else
-                    {
-
-                    }
-
-
-
-
-                    //dakUploadBackgorundWorker.RunWorkerAsync();
-                }
-
-
-
-
-
-            }
-            else
-            {
-                if (IsHandleCreated)
-                {
-                    onlineStatus.Invoke(new MethodInvoker(delegate
-
-                    {
-                        onlineStatus.IconColor = Color.Silver;
-                        MyToolTip.SetToolTip(onlineStatus, "Offline");
-
-                    }));
-                }
-                else
-                {
-
-                }
-
-
-
             }
 
 
 
 
-
-
+           
         }
 
 
@@ -5881,24 +5709,8 @@ namespace dNothi.Desktop.UI
             
             System.Diagnostics.Process.Start(DefaultAPIConfiguration.DoptorDomainAddressLocal+"/application/"+_dakuserparam.doptor_token);
         }
-        SettingsUserControl settingsUserControl = UserControlFactory.Create<SettingsUserControl>();
-        private void SettingsButton_Click(object sender, EventArgs e)
-        {
-            if (!settingsUserControl.Visible)
-            {
-                settingsUserControl.Visible = true;
-                settingsUserControl.Location = new System.Drawing.Point(SettingsButton.Location.X, SettingsButton.Height);
-                Controls.Add(settingsUserControl);
-                settingsUserControl.BringToFront();
-                settingsUserControl.SettingsSaveButton += delegate (object sender1, EventArgs e1) { SettingsSaveButton_Click(sender1 as Settings, e1); };
-
-            }
-            else
-            {
-                settingsUserControl.Visible = false;
-                //modulePanel.Width = 334;
-            }
-        }
+       
+        
         private void SettingsSaveButton_Click(Settings settings, EventArgs e)
         {
             AgotoPageLimitFromsettings = settings.dakInboxPagination;

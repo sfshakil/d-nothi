@@ -22,7 +22,10 @@ namespace dNothi.Desktop.UI
 {
    public class UIDesignCommonMethod
     {
+      
+
         public static string copyRightLableText = "© কপিরাইট ২০২১, V:1.15";
+
         public static readonly List<string> ImageExtensions = new List<string> { ".JPEG", ".JPG", "JPG", "JPE", "BMP", "GIF", "PNG", ".JPE", ".BMP", ".GIF", ".PNG", "IMAGE", "IMG" };
         public static readonly List<string> PdfExtensions = new List<string> { ".PDF", "PDF" };
         public static readonly List<string> ExcelExtension = new List<string> { ".XLS", "XLS" };

@@ -83,5 +83,24 @@ namespace dNothi.Desktop.UI
             BeginInvoke((Action)(() => potrojariGroup.TopMost = false));
             potrojariGroup.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
+
+        
+
+        private void Border_Color_Gray(object sender, PaintEventArgs e)
+        {
+            UIDesignCommonMethod.Border_Color_Gray(sender, e);
+        }
+
+        private void emailButton_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            foreach (Form f in Application.OpenForms)
+            { BeginInvoke((Action)(() => f.Hide())); }
+            var email = FormFactory.Create<EmailBox>();
+            email.TopMost = true;
+            BeginInvoke((Action)(() => email.ShowDialog()));
+            BeginInvoke((Action)(() => email.TopMost = false));
+            email.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+        }
     }
 }

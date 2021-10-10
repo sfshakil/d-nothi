@@ -43,7 +43,7 @@ namespace dNothi.Desktop
             set
             {
                 _officeInfos = value;
-                designationRowFlowLayoutPanel.Controls.Clear();
+                designationRowTableLayoutPanel.Controls.Clear();
                 if(value != null)
                 {
                     foreach (var officeInfo in officeInfos)
@@ -57,7 +57,7 @@ namespace dNothi.Desktop
                         designationRow.dakTotalNumber = officeInfo.dakCount;
                         designationRow.nothiTotalNumber = officeInfo.nothiCount;
 
-                        designationRowFlowLayoutPanel.Controls.Add(designationRow);
+                        UIDesignCommonMethod.AddRowinTable(designationRowTableLayoutPanel, designationRow);
 
                     }
                 }
@@ -80,7 +80,7 @@ namespace dNothi.Desktop
 
         public void ChangeDaakCount(int i)
         {
-            var designationRow = designationRowFlowLayoutPanel.Controls.OfType<DesignationRow>().FirstOrDefault(a=>a._designationId==_designationId);
+            var designationRow = designationRowTableLayoutPanel.Controls.OfType<DesignationRow>().FirstOrDefault(a=>a._designationId==_designationId);
             
             if(designationRow != null)
             {

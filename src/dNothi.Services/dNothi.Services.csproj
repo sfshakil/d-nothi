@@ -171,6 +171,7 @@
     <Compile Include="DakServices\IDesignationSealService.cs" />
     <Compile Include="DakServices\ProtibedonService.cs" />
     <Compile Include="DakServices\RegisterService.cs" />
+    <Compile Include="EmailBoxService\EmailBoxService.cs" />
     <Compile Include="GuardFile\CommonSetting.cs" />
     <Compile Include="GuardFile\GuardFileService.cs" />
     <Compile Include="GuardFile\IGuardFileService.cs" />
