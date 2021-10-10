@@ -38,6 +38,9 @@ using dNothi.Services.ProfileChangeService;
 using dNothi.Core.Entities.Khosra;
 using dNothi.Services.KasaraPatraDashBoardService;
 using dNothi.Services.SettingServices;
+using dNothi.Desktop.UI.ManuelUserControl;
+using dNothi.Services.EmailBoxService;
+
 using dNothi.Desktop.UI.ReportUI;
 using dNothi.Services.ReportServices;
 using dNothi.Services.ReportPermited;
@@ -155,6 +158,7 @@ namespace dNothi.Desktop
 
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.UserItem>>().As<IRepository<dNothi.Core.Entities.UserItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.EmailList>>().As<IRepository<dNothi.Core.Entities.EmailList>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiItem>>().As<IRepository<dNothi.Core.Entities.NothiItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NothiNotePermissionItem>>().As<IRepository<dNothi.Core.Entities.NothiNotePermissionItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.NoteSearchItem>>().As<IRepository<dNothi.Core.Entities.NoteSearchItem>>();
@@ -301,6 +305,10 @@ namespace dNothi.Desktop
             builder.RegisterType<PotroServices>().As<IPotroServices>();
             builder.RegisterType<ProfileManagementServices>().As<IProfileManagementServices>();
 
+            builder.RegisterType<EmailBoxService>().As<IEmailBoxService>();
+          
+          
+
             builder.RegisterType<ReportPermissionServices>().As<IReportPermissionServices>();
             
 
@@ -400,6 +408,7 @@ namespace dNothi.Desktop
            
             builder.RegisterType<CreateGuardFileTypeForm>().AsSelf();
             builder.RegisterType<SelectOfficerForm>().AsSelf();
+            builder.RegisterType<EmailBox>().AsSelf();
             
 
 
@@ -411,6 +420,7 @@ namespace dNothi.Desktop
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuarFileListViewDeleteUC>().AsSelf();
             builder.RegisterType<UI.OtherModule.GuardFileUserControls.GuardFileBrowseUC>().AsSelf();
             builder.RegisterType<GuardFileRowUserControl>().AsSelf();
+            builder.RegisterType<HeaderUserControl>().AsSelf();
             
             builder.RegisterType<ReportDashboard>().AsSelf();
             builder.RegisterType<UCAnumatiPraptaUserList>().AsSelf();

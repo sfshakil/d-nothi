@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\Email\SendEmailResponse.cs" />
     <Compile Include="Entity\Khosra\GetSarokNoResponse.cs" />
     <Compile Include="Entity\Khosra\PermittedPotroResponse.cs" />
     <Compile Include="Entity\LocalOfficesResponse.cs" />
