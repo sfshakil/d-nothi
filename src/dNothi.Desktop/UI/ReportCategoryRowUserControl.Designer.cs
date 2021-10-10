@@ -37,13 +37,14 @@ namespace dNothi.Desktop.UI
             this.panel2 = new System.Windows.Forms.Panel();
             this.SerialNumberLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ReportCategoryTextBox = new System.Windows.Forms.TextBox();
             this.CategoryLabel = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.EditCancelButton = new FontAwesome.Sharp.IconButton();
+            this.EditSaveButton = new FontAwesome.Sharp.IconButton();
             this.ReportCategoryEditButton = new FontAwesome.Sharp.IconButton();
             this.ReportCategoryDeleteButton = new FontAwesome.Sharp.IconButton();
-            this.ReportCategoryTextBox = new System.Windows.Forms.TextBox();
-            this.EditSaveButton = new FontAwesome.Sharp.IconButton();
-            this.EditCancelButton = new FontAwesome.Sharp.IconButton();
+            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -96,9 +97,9 @@ namespace dNothi.Desktop.UI
             this.OfficeNoLabel.Location = new System.Drawing.Point(5, 17);
             this.OfficeNoLabel.Margin = new System.Windows.Forms.Padding(0);
             this.OfficeNoLabel.Name = "OfficeNoLabel";
-            this.OfficeNoLabel.Size = new System.Drawing.Size(20, 22);
+            this.OfficeNoLabel.Size = new System.Drawing.Size(19, 22);
             this.OfficeNoLabel.TabIndex = 1;
-            this.OfficeNoLabel.Text = "৬";
+            this.OfficeNoLabel.Text = "0";
             this.OfficeNoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel5
@@ -151,7 +152,7 @@ namespace dNothi.Desktop.UI
             this.SerialNumberLabel.Name = "SerialNumberLabel";
             this.SerialNumberLabel.Size = new System.Drawing.Size(19, 22);
             this.SerialNumberLabel.TabIndex = 1;
-            this.SerialNumberLabel.Text = "১";
+            this.SerialNumberLabel.Text = "0";
             this.SerialNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -166,6 +167,19 @@ namespace dNothi.Desktop.UI
             this.panel1.Size = new System.Drawing.Size(597, 56);
             this.panel1.TabIndex = 4;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // ReportCategoryTextBox
+            // 
+            this.ReportCategoryTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ReportCategoryTextBox.Font = new System.Drawing.Font("SolaimanLipi", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReportCategoryTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
+            this.ReportCategoryTextBox.Location = new System.Drawing.Point(326, 17);
+            this.ReportCategoryTextBox.Margin = new System.Windows.Forms.Padding(0);
+            this.ReportCategoryTextBox.Multiline = true;
+            this.ReportCategoryTextBox.Name = "ReportCategoryTextBox";
+            this.ReportCategoryTextBox.Size = new System.Drawing.Size(266, 34);
+            this.ReportCategoryTextBox.TabIndex = 2;
+            this.ReportCategoryTextBox.Visible = false;
             // 
             // CategoryLabel
             // 
@@ -183,6 +197,7 @@ namespace dNothi.Desktop.UI
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnSchedule);
             this.panel4.Controls.Add(this.EditCancelButton);
             this.panel4.Controls.Add(this.EditSaveButton);
             this.panel4.Controls.Add(this.ReportCategoryEditButton);
@@ -194,6 +209,46 @@ namespace dNothi.Desktop.UI
             this.panel4.Size = new System.Drawing.Size(222, 56);
             this.panel4.TabIndex = 10;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // EditCancelButton
+            // 
+            this.EditCancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.EditCancelButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
+            this.EditCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditCancelButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.EditCancelButton.ForeColor = System.Drawing.Color.White;
+            this.EditCancelButton.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
+            this.EditCancelButton.IconColor = System.Drawing.SystemColors.Window;
+            this.EditCancelButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EditCancelButton.IconSize = 28;
+            this.EditCancelButton.Location = new System.Drawing.Point(112, 5);
+            this.EditCancelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.EditCancelButton.Name = "EditCancelButton";
+            this.EditCancelButton.Size = new System.Drawing.Size(50, 46);
+            this.EditCancelButton.TabIndex = 72;
+            this.EditCancelButton.UseVisualStyleBackColor = false;
+            this.EditCancelButton.Visible = false;
+            this.EditCancelButton.Click += new System.EventHandler(this.EditCancelButton_Click);
+            // 
+            // EditSaveButton
+            // 
+            this.EditSaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
+            this.EditSaveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.EditSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.EditSaveButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
+            this.EditSaveButton.ForeColor = System.Drawing.Color.White;
+            this.EditSaveButton.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
+            this.EditSaveButton.IconColor = System.Drawing.SystemColors.Window;
+            this.EditSaveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.EditSaveButton.IconSize = 28;
+            this.EditSaveButton.Location = new System.Drawing.Point(62, 5);
+            this.EditSaveButton.Margin = new System.Windows.Forms.Padding(0);
+            this.EditSaveButton.Name = "EditSaveButton";
+            this.EditSaveButton.Size = new System.Drawing.Size(50, 46);
+            this.EditSaveButton.TabIndex = 71;
+            this.EditSaveButton.UseVisualStyleBackColor = false;
+            this.EditSaveButton.Visible = false;
+            this.EditSaveButton.Click += new System.EventHandler(this.EditSaveButton_Click);
             // 
             // ReportCategoryEditButton
             // 
@@ -233,58 +288,24 @@ namespace dNothi.Desktop.UI
             this.ReportCategoryDeleteButton.UseVisualStyleBackColor = false;
             this.ReportCategoryDeleteButton.Click += new System.EventHandler(this.ReportCategoryDeleteButton_Click);
             // 
-            // ReportCategoryTextBox
+            // btnSchedule
             // 
-            this.ReportCategoryTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ReportCategoryTextBox.Font = new System.Drawing.Font("SolaimanLipi", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReportCategoryTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(70)))), ((int)(((byte)(117)))));
-            this.ReportCategoryTextBox.Location = new System.Drawing.Point(326, 17);
-            this.ReportCategoryTextBox.Margin = new System.Windows.Forms.Padding(0);
-            this.ReportCategoryTextBox.Multiline = true;
-            this.ReportCategoryTextBox.Name = "ReportCategoryTextBox";
-            this.ReportCategoryTextBox.Size = new System.Drawing.Size(266, 34);
-            this.ReportCategoryTextBox.TabIndex = 2;
-            this.ReportCategoryTextBox.Visible = false;
-            // 
-            // EditSaveButton
-            // 
-            this.EditSaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(197)))), ((int)(((byte)(189)))));
-            this.EditSaveButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.EditSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditSaveButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.EditSaveButton.ForeColor = System.Drawing.Color.White;
-            this.EditSaveButton.IconChar = FontAwesome.Sharp.IconChar.CheckCircle;
-            this.EditSaveButton.IconColor = System.Drawing.SystemColors.Window;
-            this.EditSaveButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EditSaveButton.IconSize = 28;
-            this.EditSaveButton.Location = new System.Drawing.Point(62, 5);
-            this.EditSaveButton.Margin = new System.Windows.Forms.Padding(0);
-            this.EditSaveButton.Name = "EditSaveButton";
-            this.EditSaveButton.Size = new System.Drawing.Size(50, 46);
-            this.EditSaveButton.TabIndex = 71;
-            this.EditSaveButton.UseVisualStyleBackColor = false;
-            this.EditSaveButton.Visible = false;
-            this.EditSaveButton.Click += new System.EventHandler(this.EditSaveButton_Click);
-            // 
-            // EditCancelButton
-            // 
-            this.EditCancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.EditCancelButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
-            this.EditCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditCancelButton.Font = new System.Drawing.Font("SolaimanLipi", 12F);
-            this.EditCancelButton.ForeColor = System.Drawing.Color.White;
-            this.EditCancelButton.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
-            this.EditCancelButton.IconColor = System.Drawing.SystemColors.Window;
-            this.EditCancelButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.EditCancelButton.IconSize = 28;
-            this.EditCancelButton.Location = new System.Drawing.Point(112, 5);
-            this.EditCancelButton.Margin = new System.Windows.Forms.Padding(0);
-            this.EditCancelButton.Name = "EditCancelButton";
-            this.EditCancelButton.Size = new System.Drawing.Size(50, 46);
-            this.EditCancelButton.TabIndex = 72;
-            this.EditCancelButton.UseVisualStyleBackColor = false;
-            this.EditCancelButton.Visible = false;
-            this.EditCancelButton.Click += new System.EventHandler(this.EditCancelButton_Click);
+            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSchedule.Enabled = false;
+            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
+            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSchedule.IconSize = 28;
+            this.btnSchedule.Location = new System.Drawing.Point(62, 8);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(33, 38);
+            this.btnSchedule.TabIndex = 121;
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Visible = false;
             // 
             // ReportCategoryRowUserControl
             // 
@@ -326,5 +347,6 @@ namespace dNothi.Desktop.UI
         private System.Windows.Forms.TextBox ReportCategoryTextBox;
         private FontAwesome.Sharp.IconButton EditCancelButton;
         private FontAwesome.Sharp.IconButton EditSaveButton;
+        private FontAwesome.Sharp.IconButton btnSchedule;
     }
 }

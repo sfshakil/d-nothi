@@ -50,6 +50,13 @@ namespace dNothi.Desktop.UI
                 officeNo =  collection.Count.ToString();
             }
         }
+        public void setLocalData(string category_name)
+        {
+            category = category_name;
+            btnSchedule.Visible = true;
+            ReportCategoryEditButton.Visible = false;
+            ReportCategoryDeleteButton.Visible = false;
+        }
         private string _serialNumber;
         private string _reportSerialNumber;
         private string _category;

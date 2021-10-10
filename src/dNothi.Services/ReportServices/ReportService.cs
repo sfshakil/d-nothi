@@ -3,6 +3,7 @@ using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
 using dNothi.JsonParser.Entity;
 using dNothi.Services.DakServices;
+using dNothi.Services.UserServices;
 using dNothi.Utility;
 using Newtonsoft.Json;
 using RestSharp;
@@ -18,9 +19,13 @@ namespace dNothi.Services.ReportServices
     public class ReportService : IReportService
     {
         IRepository<ReportCategoryItem> _reportCategoryItem;
-        public ReportService(IRepository<ReportCategoryItem> reportCategoryItem)
+        IRepository<ReportCategoryAddItem> _reportCategoryAddItem;
+        IUserService _userService { get; set; }
+        public ReportService(IUserService userService, IRepository<ReportCategoryItem> reportCategoryItem, IRepository<ReportCategoryAddItem> reportCategoryAddItem)
         {
+            _userService = userService;
             _reportCategoryItem = reportCategoryItem;
+            _reportCategoryAddItem = reportCategoryAddItem;
         }
         public ReportCategoryResponse GetReportCategoryList(DakUserParam userParam, string type)
         {
@@ -121,6 +126,20 @@ namespace dNothi.Services.ReportServices
 
         public ReportCategoryAddResponse GetReportCategoryAdd(DakUserParam userParam, ReportCategoryAddData reportCategoryAddData)
         {
+            ReportCategoryAddResponse reportCategoryResponse = new ReportCategoryAddResponse();
+            if (!InternetConnection.Check())
+            {
+                reportCategoryResponse.status = "success";
+                reportCategoryResponse.message = "Local";
+
+                ReportCategoryAddItem reportCategoryAddItem = new ReportCategoryAddItem();
+                reportCategoryAddItem.type = reportCategoryAddData.type;
+                reportCategoryAddItem.category_name = reportCategoryAddData.category_name;
+
+                _reportCategoryAddItem.Insert(reportCategoryAddItem);
+
+                return reportCategoryResponse;
+            }
             try
             {
                 var client = new RestClient(GetAPIDomain() + GetReportCategoryEndPoint());
@@ -152,13 +171,41 @@ namespace dNothi.Services.ReportServices
                 IRestResponse response = client.Execute(request);
                 var responseJson = response.Content;
 
-                ReportCategoryAddResponse reportCategoryResponse = JsonConvert.DeserializeObject<ReportCategoryAddResponse>(responseJson);
+                reportCategoryResponse = JsonConvert.DeserializeObject<ReportCategoryAddResponse>(responseJson);
                 return reportCategoryResponse;
             }
             catch (Exception ex)
             {
                 throw;
             }
+        }
+        public bool SendReportCategoryAddFromLocal()
+        {
+            bool isForwarded = false;
+            DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+            List<ReportCategoryAddItem> nothiTypeItemActions = _reportCategoryAddItem.Table.Where(a => a.type == "add").ToList();
+            if (nothiTypeItemActions != null && nothiTypeItemActions.Count > 0)
+            {
+                foreach (ReportCategoryAddItem nothiTypeItemAction in nothiTypeItemActions)
+                {
+                    ReportCategoryAddData reportCategoryAddItem = new ReportCategoryAddData();
+                    reportCategoryAddItem.type = nothiTypeItemAction.type;
+                    reportCategoryAddItem.category_name = nothiTypeItemAction.category_name;
+
+                    var dakForwardResponse = GetReportCategoryAdd(dakUserParam, reportCategoryAddItem);
+
+                    if (dakForwardResponse != null && (dakForwardResponse.status == "error" || dakForwardResponse.status == "success"))
+
+                    {
+                        _reportCategoryAddItem.Delete(nothiTypeItemAction);
+                        isForwarded = true;
+
+                    }
+                }
+            }
+
+
+            return isForwarded;
         }
         public ReportCategoryDeleteResponse GetReportCategoryDelete(DakUserParam userParam, ReportCategoryAddData reportCategoryAddData)
         {

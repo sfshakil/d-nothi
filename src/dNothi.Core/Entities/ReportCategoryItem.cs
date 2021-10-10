@@ -15,4 +15,10 @@ namespace dNothi.Core.Entities
         [MaxLength]
         public string jsonResponse { get; set; }
     }
+    public class ReportCategoryAddItem : BaseEntity
+    {
+        public string type { get; set; }
+        public string category_name { get; set; }
+
+    }
 }

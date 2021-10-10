@@ -16,4 +16,12 @@ namespace dNothi.Infrastructure.Mappings.Nothi
             this.HasKey(a => a.Id);
         }
     }
+    public class ReportCategoryAddItemMap : NothiEntityTypeConfiguration<ReportCategoryAddItem>
+    {
+        public ReportCategoryAddItemMap()
+        {
+            this.ToTable("ReportCategoryAddItem");
+            this.HasKey(a => a.Id);
+        }
+    }
 }

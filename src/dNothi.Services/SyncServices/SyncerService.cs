@@ -11,6 +11,7 @@ using dNothi.Services.GuardFile;
 using dNothi.Services.GuardFile.Model;
 using dNothi.Services.KhasraService;
 using dNothi.Services.NothiServices;
+using dNothi.Services.ReportServices;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
 using Newtonsoft.Json;
@@ -56,6 +57,7 @@ namespace dNothi.Services.SyncServices
         IDakForwardService _dakForwardService { get; set; }
         IAccountService _accountService { get; set; }
         IOnucchedFileUploadService _onucchedFileUploadService { get; set; }
+        IReportService _reportService { get; set; }
         IDakSharingService<ResponseModel> _dakSharingService { get; set; }
         IRepository<SyncStatus> _sycnRepository;
         IGuardFileService<GuardFileModel, GuardFileModel.Record> _guardFileService;
@@ -89,7 +91,7 @@ namespace dNothi.Services.SyncServices
             IDakInboxServices dakInboxService,
 
             IAccountService accountService,
-
+            IReportService reportService,
             IRepository<SyncStatus> sycnRepository,
             IDakSharingService<ResponseModel> dakSharingService,
             IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService,
@@ -128,6 +130,7 @@ namespace dNothi.Services.SyncServices
             _guardFileService = guardFileService;
             _khosraSaveService = khosraSaveService;
             _potrojariServices = potrojariServices;
+            _reportService = reportService;
         }
         /****************=========================================================================***************************
          ****************=========================================================================***************************
@@ -203,6 +206,7 @@ namespace dNothi.Services.SyncServices
                 {
                     LocalChangeData._isdakNothijatoReverted = true;
                 }
+                _reportService.SendReportCategoryAddFromLocal();
                 _nothiTypeSave.SendNothiTypeListFromLocal();
                 _nothiCreateServices.SendNothiCreateListFromLocal();
                 _noteSave.SendNoteListFromLocal();
