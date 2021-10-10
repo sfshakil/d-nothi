@@ -320,7 +320,7 @@ namespace dNothi.Desktop.UI.ManuelUserControl
 
 
                 settingsUserControl.Location = new Point(locationOnForm.X, locationOnForm.Y + SettingsButton.Height + 1);
-                Controls.Add(settingsUserControl);
+                form.Controls.Add(settingsUserControl);
                 
                 settingsUserControl.SettingsSaveButton += delegate (object sender1, EventArgs e1) { SettingsSaveButton_Click(sender1 as Settings, e1); };
 

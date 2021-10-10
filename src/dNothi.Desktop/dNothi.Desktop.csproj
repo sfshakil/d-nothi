@@ -778,6 +778,7 @@
     </Compile>
     <Compile Include="UI\ManuelUserControl\HeaderUserControl.Designer.cs">
       <DependentUpon>HeaderUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ReportDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1841,6 +1842,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ManuelUserControl\HeaderUserControl.resx">
       <DependentUpon>HeaderUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportDashboard.resx">
       <DependentUpon>ReportDashboard.cs</DependentUpon>
     </EmbeddedResource>

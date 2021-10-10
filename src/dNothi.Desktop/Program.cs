@@ -38,14 +38,12 @@ using dNothi.Services.ProfileChangeService;
 using dNothi.Core.Entities.Khosra;
 using dNothi.Services.KasaraPatraDashBoardService;
 using dNothi.Services.SettingServices;
-<<<<<<< HEAD
 using dNothi.Desktop.UI.ManuelUserControl;
 using dNothi.Services.EmailBoxService;
-=======
+
 using dNothi.Desktop.UI.ReportUI;
 using dNothi.Services.ReportServices;
 using dNothi.Services.ReportPermited;
->>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
 
 namespace dNothi.Desktop
 {
@@ -306,13 +304,10 @@ namespace dNothi.Desktop
             builder.RegisterType<PotroJariGroupService>().As<IPotroJariGroupService>();
             builder.RegisterType<PotroServices>().As<IPotroServices>();
             builder.RegisterType<ProfileManagementServices>().As<IProfileManagementServices>();
-<<<<<<< HEAD
+
             builder.RegisterType<EmailBoxService>().As<IEmailBoxService>();
           
           
-
-=======
->>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
 
             builder.RegisterType<ReportPermissionServices>().As<IReportPermissionServices>();
             

@@ -5709,29 +5709,6 @@ namespace dNothi.Desktop.UI
             
             System.Diagnostics.Process.Start(DefaultAPIConfiguration.DoptorDomainAddressLocal+"/application/"+_dakuserparam.doptor_token);
         }
-<<<<<<< HEAD
-       
-        
-=======
-        SettingsUserControl settingsUserControl = UserControlFactory.Create<SettingsUserControl>();
-        private void SettingsButton_Click(object sender, EventArgs e)
-        {
-            if (!settingsUserControl.Visible)
-            {
-                settingsUserControl.Visible = true;
-                settingsUserControl.Location = new System.Drawing.Point(panel11.Location.X + SettingsButton.Location.X, SettingsButton.Height);
-                Controls.Add(settingsUserControl);
-                settingsUserControl.BringToFront();
-                settingsUserControl.SettingsSaveButton += delegate (object sender1, EventArgs e1) { SettingsSaveButton_Click(sender1 as Settings, e1); };
-
-            }
-            else
-            {
-                settingsUserControl.Visible = false;
-                //modulePanel.Width = 334;
-            }
-        }
->>>>>>> 944f24dad1afddd0b9ccbbd2a40a69024a20fe15
         private void SettingsSaveButton_Click(Settings settings, EventArgs e)
         {
             AgotoPageLimitFromsettings = settings.dakInboxPagination;
