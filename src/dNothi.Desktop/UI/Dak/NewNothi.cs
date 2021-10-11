@@ -405,6 +405,7 @@ namespace dNothi.Desktop.UI.Dak
             var nothishkha = lbNothiShakha.Text;
             var nothi_no = lbNothiNo.Text + lbNothilast4digit.Text + cbxLast2digitNothiNo.SelectedItem;
             var nothi_type_id = nothi_type_codes[cbxNothiType.SelectedIndex];
+            UserParam.nothi_type_name = cbxNothiType.Text;
             var nothi_subject = txtNothiSubject.Text;
             string nothiclass = "0";
 

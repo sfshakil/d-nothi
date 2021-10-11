@@ -114,6 +114,7 @@
     <Compile Include="Mappings\Dak\OtherMap.cs" />
     <Compile Include="Mappings\Dak\PotroTemplateListMap.cs" />
     <Compile Include="Mappings\Dak\ToMap.cs" />
+    <Compile Include="Mappings\EmailBox\EmailListMap.cs" />
     <Compile Include="Mappings\GuardFile\GuardFileUploadMap.cs" />
     <Compile Include="Mappings\GuardFile\GuardFileMap.cs" />
     <Compile Include="Mappings\GuardFile\GuardFileListMap.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Mappings\NothiEntityTypeConfiguration.cs" />
     <Compile Include="Mappings\Nothi\FileUploadActionMap.cs" />
     <Compile Include="Mappings\Nothi\AllOfficeItemMap.cs" />
+    <Compile Include="Mappings\Nothi\ReportCategoryItemMap.cs" />
     <Compile Include="Mappings\Nothi\NothiNotePermissionItemMap.cs" />
     <Compile Include="Mappings\Nothi\NoteSearchItemMap.cs" />
     <Compile Include="Mappings\Nothi\NothiInboxSearchItemMap.cs" />

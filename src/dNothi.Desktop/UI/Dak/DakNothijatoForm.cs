@@ -179,8 +179,8 @@ namespace dNothi.Desktop.UI.Dak
         }
         private void LoadNothiAll()
         {
-            _userParam.limit = 10;
-            _userParam.page = 1;
+            _userParam.limit = pageLimit;
+            _userParam.page = pageNo;
             nothiListFlowLayoutPanel.Controls.Clear();
             var nothiAll = _nothiAll.GetNothiAll(_userParam);
 

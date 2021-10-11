@@ -731,6 +731,18 @@
     <Compile Include="UI\Dak\SetKarjodibosh.Designer.cs">
       <DependentUpon>SetKarjodibosh.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\EmailBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EmailBox.Designer.cs">
+      <DependentUpon>EmailBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmailBoxModule\preritoEmailRowUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\EmailBoxModule\preritoEmailRowUserControl.Designer.cs">
+      <DependentUpon>preritoEmailRowUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -760,6 +772,12 @@
     </Compile>
     <Compile Include="UI\Khosra Potro\KhosraDakNoteDetailForm.Designer.cs">
       <DependentUpon>KhosraDakNoteDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ManuelUserControl\HeaderUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ManuelUserControl\HeaderUserControl.Designer.cs">
+      <DependentUpon>HeaderUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ReportDashboard.cs">
       <SubType>Form</SubType>
@@ -1807,6 +1825,12 @@
     <EmbeddedResource Include="UI\Dak\SingleDakUserControl.resx">
       <DependentUpon>SingleDakUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\EmailBox.resx">
+      <DependentUpon>EmailBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\EmailBoxModule\preritoEmailRowUserControl.resx">
+      <DependentUpon>preritoEmailRowUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\GuardFileUI\GuardFileUserControls\GaurdFilePortalListRow.resx">
       <DependentUpon>GaurdFilePortalListRow.cs</DependentUpon>
     </EmbeddedResource>
@@ -1821,6 +1845,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Khosra Potro\KhosraDakNoteDetailForm.resx">
       <DependentUpon>KhosraDakNoteDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ManuelUserControl\HeaderUserControl.resx">
+      <DependentUpon>HeaderUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportDashboard.resx">
       <DependentUpon>ReportDashboard.cs</DependentUpon>

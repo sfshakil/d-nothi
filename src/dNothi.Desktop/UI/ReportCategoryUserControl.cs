@@ -1,4 +1,6 @@
-﻿using dNothi.JsonParser.Entity;
+﻿using dNothi.Core.Entities;
+using dNothi.Core.Interfaces;
+using dNothi.JsonParser.Entity;
 using dNothi.Services.DakServices;
 using dNothi.Services.ReportServices;
 using dNothi.Services.UserServices;
@@ -20,10 +22,12 @@ namespace dNothi.Desktop.UI
         IReportService _reportService { get; set; }
         List<Category> categories = new List<Category>();
         List<Category> updateCategories = new List<Category>();
-        public ReportCategoryUserControl(IUserService userService, IReportService reportService)
+        IRepository<ReportCategoryAddItem> _reportCategoryAddItem;
+        public ReportCategoryUserControl(IUserService userService, IReportService reportService, IRepository<ReportCategoryAddItem> reportCategoryAddItem)
         {
             _userService = userService;
             _reportService = reportService;
+            _reportCategoryAddItem = reportCategoryAddItem;
             InitializeComponent();
             loadrow();
             SubHeaderPanel.Height = OntorvuktiHeaderPanel.Height;
@@ -146,7 +150,7 @@ namespace dNothi.Desktop.UI
             reportCategoryAddData.category_name = OntorvuktiTextBox.Text;
 
             ReportCategoryAddResponse reportCategorySerialUpdateResponse = _reportService.GetReportCategoryAdd(_dakuserparam, reportCategoryAddData);
-            if (reportCategorySerialUpdateResponse.status == "success")
+            if (reportCategorySerialUpdateResponse.status == "success" && reportCategorySerialUpdateResponse.message != "Local")
             {
                 UIDesignCommonMethod.SuccessMessage("ক্যাটাগরি অন্তর্ভুক্ত করা হয়েছে");
                 updateCategories.Clear();
@@ -154,6 +158,29 @@ namespace dNothi.Desktop.UI
                 ListFlowLayoutPanel.Controls.Clear();
                 DeleteButton_Click(null,null);
                 loadrow();
+            }
+            else if (reportCategorySerialUpdateResponse.status == "success" && reportCategorySerialUpdateResponse.message == "Local")
+            {
+                UIDesignCommonMethod.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে ক্যাটাগরি অন্তর্ভুক্ত করা হবে");
+                updateCategories.Clear();
+                categories.Clear();
+                ListFlowLayoutPanel.Controls.Clear();
+                DeleteButton_Click(null, null);
+                loadLocalData();
+                loadrow();
+            }
+        }
+        public void loadLocalData()
+        {
+            List<ReportCategoryAddItem> nothiTypeItemActions = _reportCategoryAddItem.Table.Where(a => a.type == "add").ToList();
+            if (nothiTypeItemActions != null && nothiTypeItemActions.Count > 0)
+            {
+                foreach (ReportCategoryAddItem nothiTypeItemAction in nothiTypeItemActions)
+                {
+                    var row = UserControlFactory.Create<ReportCategoryRowUserControl>();
+                    row.setLocalData(nothiTypeItemAction.category_name);
+                    UIDesignCommonMethod.AddRowinTable(ListFlowLayoutPanel, row);
+                }
             }
         }
     }
