@@ -80,7 +80,7 @@ namespace dNothi.Services.UserServices
             
         }
 
-        public void GetDoptorToken(UserParam userParam)
+        public DoptorTokenResponse GetDoptorToken(UserParam userParam)
         {
             try
             {
@@ -107,13 +107,13 @@ namespace dNothi.Services.UserServices
                     SaveOrUpdateUser(userParam.username, userResponse.data.token);
 
 
-                 
+                return userResponse;
 
                 
             }
             catch (Exception ex)
             {
-               
+                return null;
             }
 
 
