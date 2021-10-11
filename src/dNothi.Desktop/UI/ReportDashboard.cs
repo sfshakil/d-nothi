@@ -57,14 +57,14 @@ namespace dNothi.Desktop.UI
             UIDesignCommonMethod.CallAllModulePanel(moduleButton, this);
         }
 
+       
         private void ReportDashboard_Load(object sender, EventArgs e)
         {
-           
+            backgroundWorker1.RunWorkerAsync();
+            label7.Text = UIDesignCommonMethod.copyRightLableText;
             UserProfile();
-
-           
         }
-       
+
         private void UserProfile()
         {
             DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
@@ -170,79 +170,75 @@ namespace dNothi.Desktop.UI
         public bool InternetConnectionTemp;
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            //if (InternetConnection.Check())
-            //{
+            if (InternetConnection.Check())
+            {
 
-            //    _syncerServices.SyncLocaltoRemoteData();
-            //    if (onlineStatus.IconColor != Color.LimeGreen)
-            //    {
-
-
-
-            //        if (IsHandleCreated)
-            //        {
-            //            onlineStatus.Invoke(new MethodInvoker(delegate
-
-            //            {
-            //                onlineStatus.IconColor = Color.LimeGreen;
-            //                MyToolTip.SetToolTip(onlineStatus, "Online");
-
-            //            }));
-            //        }
-            //        else
-            //        {
-
-            //        }
+                _syncerServices.SyncLocaltoRemoteData();
+                if (onlineStatus.IconColor != Color.LimeGreen)
+                {
 
 
 
+                    if (IsHandleCreated)
+                    {
+                        onlineStatus.Invoke(new MethodInvoker(delegate
 
-            //        //dakUploadBackgorundWorker.RunWorkerAsync();
-            //    }
+                        {
+                            onlineStatus.IconColor = Color.LimeGreen;
+                            MyToolTip.SetToolTip(onlineStatus, "Online");
+
+                        }));
+                    }
+                    else
+                    {
+
+                    }
 
 
 
 
-
-            //}
-            //else
-            //{
-            //    if (IsHandleCreated)
-            //    {
-            //        onlineStatus.Invoke(new MethodInvoker(delegate
-
-            //        {
-            //            onlineStatus.IconColor = Color.Silver;
-            //            MyToolTip.SetToolTip(onlineStatus, "Offline");
-
-            //        }));
-            //    }
-            //    else
-            //    {
-
-            //    }
+                    //dakUploadBackgorundWorker.RunWorkerAsync();
+                }
 
 
 
-            //}
+
+
+            }
+            else
+            {
+                if (IsHandleCreated)
+                {
+                    onlineStatus.Invoke(new MethodInvoker(delegate
+
+                    {
+                        onlineStatus.IconColor = Color.Silver;
+                        MyToolTip.SetToolTip(onlineStatus, "Offline");
+
+                    }));
+                }
+                else
+                {
+
+                }
+
+
+
+            }
         }
         private void backgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
 
-            //if (!backgroundWorker1.IsBusy && this.Visible)
-            //{
+            if (!backgroundWorker1.IsBusy && this.Visible)
+            {
 
-            //    backgroundWorker1.RunWorkerAsync();
-            //}
+                backgroundWorker1.RunWorkerAsync();
+            }
 
 
         }
-        private void KhosraDashboard_Load(object sender, EventArgs e)
-        {
-            backgroundWorker1.RunWorkerAsync();
-            label7.Text = UIDesignCommonMethod.copyRightLableText;
-        }
+        
 
         private void reportSettingButton_Click(object sender, EventArgs e)
         {

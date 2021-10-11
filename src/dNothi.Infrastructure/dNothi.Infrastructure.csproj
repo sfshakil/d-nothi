@@ -96,6 +96,7 @@
     <Compile Include="Mappings\Dak\DakItemDetailsMap.cs" />
     <Compile Include="Mappings\Dak\DakItemMap.cs" />
     <Compile Include="Mappings\Dak\DakListMap.cs" />
+    <Compile Include="Mappings\Dak\DakProtibedanMap.cs" />
     <Compile Include="Mappings\Dak\NothiRegisterBookMap.cs" />
     <Compile Include="Mappings\Dak\DakRegisterBookMap.cs" />
     <Compile Include="Mappings\Dak\DakTypeMap.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Mappings\Nothi\NoteOnuchhedListItemMap.cs" />
     <Compile Include="Mappings\Nothi\NothiPotrangshoItemMap.cs" />
     <Compile Include="Mappings\Nothi\NothiTypeListItemMap.cs" />
+    <Compile Include="Mappings\Report\ReportPermissionMap.cs" />
     <Compile Include="Mappings\Sync\SyncStatusMap.cs" />
     <Compile Include="Mappings\Users\EmployeeInfoMap.cs" />
     <Compile Include="Mappings\Users\OfficeInfoMap.cs" />

@@ -81,6 +81,7 @@
     <Compile Include="Entities\DakBacaiKaran.cs" />
     <Compile Include="Entities\DakBacaiKaranList.cs" />
     <Compile Include="Entities\DakBoxSharedToOfficer.cs" />
+    <Compile Include="Entities\DakProtibedan.cs" />
     <Compile Include="Entities\GuardFileUpload.cs" />
     <Compile Include="Entities\GuardFileInsert.cs" />
     <Compile Include="Entities\GuardFileList.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Entities\NothiNotePermissionItem.cs" />
     <Compile Include="Entities\NoteSearchItem.cs" />
     <Compile Include="Entities\NothiInboxSearchItem.cs" />
+    <Compile Include="Entities\ReportPermission.cs" />
     <Compile Include="Entities\SettingsList.cs" />
     <Compile Include="Entities\NoteList.cs" />
     <Compile Include="Entities\NothiRegisterBook.cs" />
