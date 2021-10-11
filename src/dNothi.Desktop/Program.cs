@@ -222,9 +222,11 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<PermittedPotroLocal>>().As<IRepository<PermittedPotroLocal>>();
             builder.RegisterType<EfRepository<SarokNoLocal>>().As<IRepository<SarokNoLocal>>();
             builder.RegisterType<EfRepository<kosraAnumodanLocal>>().As<IRepository<kosraAnumodanLocal>>();
+
+            builder.RegisterType<EfRepository<ReportPermission>>().As<IRepository<ReportPermission>>();
+            builder.RegisterType<EfRepository<DakProtibedan>>().As<IRepository<DakProtibedan>>();
+
             
-
-
 
 
             builder.RegisterType<BasicService>().As<IBasicService>();

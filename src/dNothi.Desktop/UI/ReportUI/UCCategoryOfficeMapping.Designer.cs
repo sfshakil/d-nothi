@@ -1,6 +1,6 @@
 ﻿namespace dNothi.Desktop.UI.ReportUI
 {
-    partial class UCAnumatiPraptaUserList
+    partial class UCCategoryOfficeMapping
     {
         /// <summary> 
         /// Required designer variable.
@@ -95,7 +95,7 @@
             this.listTypeLabel.Name = "listTypeLabel";
             this.listTypeLabel.Size = new System.Drawing.Size(415, 51);
             this.listTypeLabel.TabIndex = 37;
-            this.listTypeLabel.Text = "রিপোর্ট মডুলে অনুমতিপ্রাপ্তদের তালিকা";
+            this.listTypeLabel.Text = "ক্যাটাগরি - অফিস ম্যাপিং";
             this.listTypeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // iconButton
@@ -172,7 +172,7 @@
             this.userIdSaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.userIdSaveButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.userIdSaveButton.FlatAppearance.BorderSize = 0;
-            this.userIdSaveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.userIdSaveButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(204)))), ((int)(((byte)(198)))));
             this.userIdSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.userIdSaveButton.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.userIdSaveButton.IconChar = FontAwesome.Sharp.IconChar.Ad;
@@ -309,14 +309,14 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "নাম";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // UCAnumatiPraptaUserList
+            // UCCategoryOfficeMapping
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.userListTableLayoutPanel);
-            this.Name = "UCAnumatiPraptaUserList";
+            this.Name = "UCCategoryOfficeMapping";
             this.Size = new System.Drawing.Size(784, 552);
             this.Load += new System.EventHandler(this.UCAnumatiPraptaUserList_Load);
             this.userListTableLayoutPanel.ResumeLayout(false);

@@ -12,6 +12,7 @@ using dNothi.Services.GuardFile.Model;
 using dNothi.Services.KhasraService;
 using dNothi.Services.NothiServices;
 using dNothi.Services.ReportServices;
+using dNothi.Services.ReportPermited;
 using dNothi.Services.UserServices;
 using dNothi.Utility;
 using Newtonsoft.Json;
@@ -63,6 +64,7 @@ namespace dNothi.Services.SyncServices
         IGuardFileService<GuardFileModel, GuardFileModel.Record> _guardFileService;
         IKhosraSaveService _khosraSaveService;
         IPotrojariServices _potrojariServices;
+        IReportPermissionServices _reportPermissionServices;
         public SyncerService(
               INoteSaveService noteSave,
               INothiNotePermissionService nothiNotePermissionSave,
@@ -96,7 +98,8 @@ namespace dNothi.Services.SyncServices
             IDakSharingService<ResponseModel> dakSharingService,
             IGuardFileService<GuardFileModel, GuardFileModel.Record> guardFileService,
              IKhosraSaveService khosraSaveService,
-             IPotrojariServices potrojariServices)
+             IPotrojariServices potrojariServices,
+             IReportPermissionServices reportPermissionServices)
         {
             _nothiCreateServices = nothiCreateServices;
             _nothiTypeSave = nothiTypeSave;
@@ -131,6 +134,7 @@ namespace dNothi.Services.SyncServices
             _khosraSaveService = khosraSaveService;
             _potrojariServices = potrojariServices;
             _reportService = reportService;
+            _reportPermissionServices = reportPermissionServices;
         }
         /****************=========================================================================***************************
          ****************=========================================================================***************************
@@ -221,6 +225,7 @@ namespace dNothi.Services.SyncServices
                 _guardFileService.SendGuradFileLocalDataTOServer(_userService.GetLocalDakUserParam());
                 _khosraSaveService.SendKosraLocalDataTOServer(_userService.GetLocalDakUserParam());
                 _potrojariServices.SendAnumodanLocalDataTOServer(_userService.GetLocalDakUserParam());
+                _reportPermissionServices.SendLocalReportPermissionDataTOServer(_userService.GetLocalDakUserParam());
             }
 
 

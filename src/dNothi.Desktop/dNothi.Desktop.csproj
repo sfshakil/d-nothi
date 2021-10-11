@@ -1553,6 +1553,12 @@
     <Compile Include="UI\ReportUI\UCAnumatiPraptaUser.Designer.cs">
       <DependentUpon>UCAnumatiPraptaUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ReportUI\UCCategoryOfficeMapping.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ReportUI\UCCategoryOfficeMapping.Designer.cs">
+      <DependentUpon>UCCategoryOfficeMapping.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ReportUI\UCAnumatiPraptaUserList.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -2205,6 +2211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportUI\UCAnumatiPraptaUser.resx">
       <DependentUpon>UCAnumatiPraptaUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReportUI\UCCategoryOfficeMapping.resx">
+      <DependentUpon>UCCategoryOfficeMapping.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ReportUI\UCAnumatiPraptaUserList.resx">
       <DependentUpon>UCAnumatiPraptaUserList.cs</DependentUpon>

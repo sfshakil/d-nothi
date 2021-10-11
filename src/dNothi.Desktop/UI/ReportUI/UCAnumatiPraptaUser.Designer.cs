@@ -103,7 +103,7 @@
             this.decisionDeleteButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.decisionDeleteButton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
             this.decisionDeleteButton.FlatAppearance.BorderSize = 0;
-            this.decisionDeleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.decisionDeleteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.decisionDeleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.decisionDeleteButton.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.decisionDeleteButton.IconColor = System.Drawing.Color.White;
