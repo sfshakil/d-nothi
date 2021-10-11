@@ -24,4 +24,20 @@ namespace dNothi.Infrastructure.Mappings.Nothi
             this.HasKey(a => a.Id);
         }
     }
+    public class ReportCategoryDeleteItemMap : NothiEntityTypeConfiguration<ReportCategoryDeleteItem>
+    {
+        public ReportCategoryDeleteItemMap()
+        {
+            this.ToTable("ReportCategoryDeleteItem");
+            this.HasKey(a => a.Id);
+        }
+    }
+    public class ReportCategorySerialUpdateItemMap : NothiEntityTypeConfiguration<ReportCategorySerialUpdateItem>
+    {
+        public ReportCategorySerialUpdateItemMap()
+        {
+            this.ToTable("ReportCategorySerialUpdateItem");
+            this.HasKey(a => a.Id);
+        }
+    }
 }

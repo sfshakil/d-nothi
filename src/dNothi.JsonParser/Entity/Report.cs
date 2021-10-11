@@ -37,12 +37,14 @@ namespace dNothi.JsonParser.Entity
     public class ReportCategorySerialUpdateResponse
     {
         public string status { get; set; }
+        public string message { get; set; }
         public string data { get; set; }
         public List<object> options { get; set; }
     }
     public class ReportCategoryDeleteResponse
     {
         public string status { get; set; }
+        public string message { get; set; }
         public string data { get; set; }
         public List<object> options { get; set; }
     }

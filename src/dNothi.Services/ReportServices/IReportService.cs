@@ -15,5 +15,7 @@ namespace dNothi.Services.ReportServices
         ReportCategoryAddResponse GetReportCategoryAdd(DakUserParam userParam, ReportCategoryAddData reportCategoryAddData);
         ReportCategoryDeleteResponse GetReportCategoryDelete(DakUserParam userParam, ReportCategoryAddData reportCategoryAddData);
         bool SendReportCategoryAddFromLocal();
+        bool SendReportCategoryDeleteFromLocal();
+        bool SendReportCategorySerialUpdateFromLocal();
     }
 }

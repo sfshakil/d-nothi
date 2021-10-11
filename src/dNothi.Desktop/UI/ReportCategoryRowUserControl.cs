@@ -1,4 +1,5 @@
 ﻿using dNothi.JsonParser.Entity;
+using dNothi.Utility;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -120,28 +121,63 @@ namespace dNothi.Desktop.UI
         public event EventHandler btnDeleteClick;
         private void EditSaveButton_Click(object sender, EventArgs e)
         {
-            ReportCategoryAddData reportCategoryAddData = new ReportCategoryAddData();
-            reportCategoryAddData.type = "add";
-            reportCategoryAddData.category_id = id.ToString();
-            reportCategoryAddData.category_name = ReportCategoryTextBox.Text;
-            reportCategoryAddData.serial = Convert.ToInt32(ReportSerialNumberTextBox.Text);
-            if (this.btnEditSaveClick != null)
+            if (InternetConnection.Check())
             {
-                this.btnEditSaveClick(reportCategoryAddData, e);
+                ReportCategoryAddData reportCategoryAddData = new ReportCategoryAddData();
+                reportCategoryAddData.type = "add";
+                reportCategoryAddData.category_id = id.ToString();
+                reportCategoryAddData.category_name = ReportCategoryTextBox.Text;
+                reportCategoryAddData.serial = Convert.ToInt32(ReportSerialNumberTextBox.Text);
+                if (this.btnEditSaveClick != null)
+                {
+                    this.btnEditSaveClick(reportCategoryAddData, e);
+                }
             }
+            else
+            {
+                ReportCategoryAddData reportCategoryAddData = new ReportCategoryAddData();
+                reportCategoryAddData.type = "add";
+                reportCategoryAddData.category_id = id.ToString();
+                reportCategoryAddData.category_name = ReportCategoryTextBox.Text;
+                reportCategoryAddData.serial = Convert.ToInt32(ReportSerialNumberTextBox.Text);
+                if (this.btnEditSaveClick != null)
+                {
+                    this.btnEditSaveClick(reportCategoryAddData, e);
+                }
+                EditCancelButton_Click(null,null);
+            }
+            
         }
 
         private void ReportCategoryDeleteButton_Click(object sender, EventArgs e)
         {
-            ReportCategoryAddData reportCategoryAddData = new ReportCategoryAddData();
-
-            reportCategoryAddData.type = "delete";
-            reportCategoryAddData.category_id = id.ToString();
-            reportCategoryAddData.category_name = CategoryLabel.Text;
-
-            if (this.btnDeleteClick != null)
+            
+            if (InternetConnection.Check())
             {
-                this.btnDeleteClick(reportCategoryAddData, e);
+                ReportCategoryAddData reportCategoryAddData = new ReportCategoryAddData();
+
+                reportCategoryAddData.type = "delete";
+                reportCategoryAddData.category_id = id.ToString();
+                reportCategoryAddData.category_name = CategoryLabel.Text;
+
+                if (this.btnDeleteClick != null)
+                {
+                    this.btnDeleteClick(reportCategoryAddData, e);
+                }
+            }
+            else
+            {
+                this.Hide();
+                ReportCategoryAddData reportCategoryAddData = new ReportCategoryAddData();
+
+                reportCategoryAddData.type = "delete";
+                reportCategoryAddData.category_id = id.ToString();
+                reportCategoryAddData.category_name = CategoryLabel.Text;
+
+                if (this.btnDeleteClick != null)
+                {
+                    this.btnDeleteClick(reportCategoryAddData, e);
+                }
             }
         }
     }

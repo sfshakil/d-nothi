@@ -40,11 +40,11 @@ namespace dNothi.Desktop.UI
             this.ReportCategoryTextBox = new System.Windows.Forms.TextBox();
             this.CategoryLabel = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.EditCancelButton = new FontAwesome.Sharp.IconButton();
             this.EditSaveButton = new FontAwesome.Sharp.IconButton();
             this.ReportCategoryEditButton = new FontAwesome.Sharp.IconButton();
             this.ReportCategoryDeleteButton = new FontAwesome.Sharp.IconButton();
-            this.btnSchedule = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -210,6 +210,25 @@ namespace dNothi.Desktop.UI
             this.panel4.TabIndex = 10;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // btnSchedule
+            // 
+            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
+            this.btnSchedule.Enabled = false;
+            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.FlatAppearance.BorderSize = 0;
+            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
+            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSchedule.IconSize = 28;
+            this.btnSchedule.Location = new System.Drawing.Point(62, 8);
+            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSchedule.Name = "btnSchedule";
+            this.btnSchedule.Size = new System.Drawing.Size(33, 38);
+            this.btnSchedule.TabIndex = 121;
+            this.btnSchedule.UseVisualStyleBackColor = false;
+            this.btnSchedule.Visible = false;
+            // 
             // EditCancelButton
             // 
             this.EditCancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(78)))), ((int)(((byte)(96)))));
@@ -287,25 +306,6 @@ namespace dNothi.Desktop.UI
             this.ReportCategoryDeleteButton.TabIndex = 69;
             this.ReportCategoryDeleteButton.UseVisualStyleBackColor = false;
             this.ReportCategoryDeleteButton.Click += new System.EventHandler(this.ReportCategoryDeleteButton_Click);
-            // 
-            // btnSchedule
-            // 
-            this.btnSchedule.BackColor = System.Drawing.Color.Transparent;
-            this.btnSchedule.Enabled = false;
-            this.btnSchedule.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnSchedule.FlatAppearance.BorderSize = 0;
-            this.btnSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSchedule.IconChar = FontAwesome.Sharp.IconChar.CalendarPlus;
-            this.btnSchedule.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.btnSchedule.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSchedule.IconSize = 28;
-            this.btnSchedule.Location = new System.Drawing.Point(62, 8);
-            this.btnSchedule.Margin = new System.Windows.Forms.Padding(0);
-            this.btnSchedule.Name = "btnSchedule";
-            this.btnSchedule.Size = new System.Drawing.Size(33, 38);
-            this.btnSchedule.TabIndex = 121;
-            this.btnSchedule.UseVisualStyleBackColor = false;
-            this.btnSchedule.Visible = false;
             // 
             // ReportCategoryRowUserControl
             // 

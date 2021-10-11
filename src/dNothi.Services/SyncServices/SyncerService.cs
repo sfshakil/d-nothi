@@ -207,6 +207,8 @@ namespace dNothi.Services.SyncServices
                     LocalChangeData._isdakNothijatoReverted = true;
                 }
                 _reportService.SendReportCategoryAddFromLocal();
+                _reportService.SendReportCategoryDeleteFromLocal();
+                _reportService.SendReportCategorySerialUpdateFromLocal();
                 _nothiTypeSave.SendNothiTypeListFromLocal();
                 _nothiCreateServices.SendNothiCreateListFromLocal();
                 _noteSave.SendNoteListFromLocal();

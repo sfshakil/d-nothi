@@ -19,6 +19,23 @@ namespace dNothi.Core.Entities
     {
         public string type { get; set; }
         public string category_name { get; set; }
+        public string category_id { get; set; }
+        public string serial { get; set; }
+
+    }
+    public class ReportCategoryDeleteItem : BaseEntity
+    {
+        public string type { get; set; }
+        public string category_name { get; set; }
+        public string category_id { get; set; }
+        public string serial { get; set; }
+
+    }
+    public class ReportCategorySerialUpdateItem : BaseEntity
+    {
+        public string type { get; set; }
+        [MaxLength]
+        public string json_serial_data { get; set; }
 
     }
 }

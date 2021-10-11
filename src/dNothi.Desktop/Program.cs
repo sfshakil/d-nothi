@@ -185,6 +185,8 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<dNothi.Core.Entities.FileUploadAction>>().As<IRepository<dNothi.Core.Entities.FileUploadAction>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.ReportCategoryItem>>().As<IRepository<dNothi.Core.Entities.ReportCategoryItem>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.ReportCategoryAddItem>>().As<IRepository<dNothi.Core.Entities.ReportCategoryAddItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.ReportCategoryDeleteItem>>().As<IRepository<dNothi.Core.Entities.ReportCategoryDeleteItem>>();
+            builder.RegisterType<EfRepository<dNothi.Core.Entities.ReportCategorySerialUpdateItem>>().As<IRepository<dNothi.Core.Entities.ReportCategorySerialUpdateItem>>();
 
 
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakItemDetails>>().As<IRepository<dNothi.Core.Entities.DakItemDetails>>();

@@ -61,7 +61,7 @@ namespace dNothi.Desktop.UI
         {
             DakUserParam _dakuserparam = _userService.GetLocalDakUserParam();
             ReportCategoryAddResponse reportCategorySerialUpdateResponse = _reportService.GetReportCategoryAdd(_dakuserparam, reportCategoryAddData);
-            if (reportCategorySerialUpdateResponse.status == "success")
+            if (reportCategorySerialUpdateResponse.status == "success" && reportCategorySerialUpdateResponse.message != "Local")
             {
                 UIDesignCommonMethod.SuccessMessage("ক্যাটাগরি অন্তর্ভুক্ত করা হয়েছে");
                 updateCategories.Clear();
@@ -69,18 +69,26 @@ namespace dNothi.Desktop.UI
                 ListFlowLayoutPanel.Controls.Clear();
                 loadrow();
             }
+            else if (reportCategorySerialUpdateResponse.status == "success" && reportCategorySerialUpdateResponse.message == "Local")
+            {
+                UIDesignCommonMethod.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে ক্যাটাগরি অন্তর্ভুক্ত করা হবে");
+            }
         }
         private void btnDelete_ButtonClick(ReportCategoryAddData reportCategoryAddData, EventArgs e)
         {
             DakUserParam _dakuserparam = _userService.GetLocalDakUserParam();
             ReportCategoryDeleteResponse reportCategorySerialUpdateResponse = _reportService.GetReportCategoryDelete(_dakuserparam, reportCategoryAddData);
-            if (reportCategorySerialUpdateResponse.status == "success")
+            if (reportCategorySerialUpdateResponse.status == "success" && reportCategorySerialUpdateResponse.message != "Local")
             {
                 UIDesignCommonMethod.SuccessMessage("ক্যাটাগরি মুছে ফেলা হয়েছে।");
                 updateCategories.Clear();
                 categories.Clear();
                 ListFlowLayoutPanel.Controls.Clear();
                 loadrow();
+            }
+            else if (reportCategorySerialUpdateResponse.status == "success" && reportCategorySerialUpdateResponse.message == "Local")
+            {
+                UIDesignCommonMethod.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে ক্যাটাগরি মুছে ফেলা হবে");
             }
         }
         private void OntorvuktiButton_Click(object sender, EventArgs e)
@@ -126,13 +134,17 @@ namespace dNothi.Desktop.UI
             {
                 DakUserParam _dakuserparam = _userService.GetLocalDakUserParam();
                 ReportCategorySerialUpdateResponse reportCategorySerialUpdateResponse = _reportService.GetReportCategorySerialUpdate(_dakuserparam, "serial_update", updateCategories);
-                if (reportCategorySerialUpdateResponse.status == "success")
+                if (reportCategorySerialUpdateResponse.status == "success" && reportCategorySerialUpdateResponse.message != "Local")
                 {
                     UIDesignCommonMethod.SuccessMessage("ক্রম সংশোধন করা হয়েছে");
                     updateCategories.Clear();
                     categories.Clear();
                     ListFlowLayoutPanel.Controls.Clear();
                     loadrow();
+                }
+                else if (reportCategorySerialUpdateResponse.status == "success" && reportCategorySerialUpdateResponse.message == "Local")
+                {
+                    UIDesignCommonMethod.SuccessMessage("ইন্টারনেট সংযোগ ফিরে এলে ক্রম সংশোধন করা হবে");
                 }
             }
             else
@@ -177,9 +189,13 @@ namespace dNothi.Desktop.UI
             {
                 foreach (ReportCategoryAddItem nothiTypeItemAction in nothiTypeItemActions)
                 {
-                    var row = UserControlFactory.Create<ReportCategoryRowUserControl>();
-                    row.setLocalData(nothiTypeItemAction.category_name);
-                    UIDesignCommonMethod.AddRowinTable(ListFlowLayoutPanel, row);
+                    if (nothiTypeItemAction.category_id == null || nothiTypeItemAction.category_id == "")
+                    {
+                        var row = UserControlFactory.Create<ReportCategoryRowUserControl>();
+                        row.setLocalData(nothiTypeItemAction.category_name);
+                        UIDesignCommonMethod.AddRowinTable(ListFlowLayoutPanel, row);
+                    }
+                    
                 }
             }
         }
