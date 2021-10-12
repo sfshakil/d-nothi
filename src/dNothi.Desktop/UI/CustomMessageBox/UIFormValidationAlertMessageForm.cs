@@ -60,6 +60,7 @@ namespace dNothi.Desktop.UI.CustomMessageBox
 
         private void UIFormValidationAlertMessageForm_Load(object sender, EventArgs e)
         {
+            this.Width = tableLayoutPanel1.Width + 10;
             Screen scr = Screen.FromPoint(this.Location);
             this.Location = new Point((Screen.PrimaryScreen.Bounds.Size.Width / 2) - (this.Size.Width / 2), scr.WorkingArea.Top);
 
