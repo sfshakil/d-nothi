@@ -102,5 +102,10 @@ namespace dNothi.Desktop.UI
             BeginInvoke((Action)(() => email.TopMost = false));
             email.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
         }
+
+        private void dashboardButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://dnothi-dashboard.tappware.com/dashboard/personal");
+        }
     }
 }

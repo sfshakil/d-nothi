@@ -87,11 +87,6 @@ namespace dNothi.Desktop.UI
 
                     DoptorTokenResponse doptorTokenResponse = _userService.GetDoptorToken(userParam);
 
-
-                    
-
-                        _accountService.SaveOrUpdateUser(userName, password, isRemember);
-
                         // Sign Assign
                         resmessage.data.user.SignBase64 = resmessage.data.signature.encode_sign;
                         resmessage.data.user.profile_photo = UIDesignCommonMethod.ConvertImageURLToBase64(resmessage.data.profile_photo);
@@ -100,8 +95,9 @@ namespace dNothi.Desktop.UI
                         SaveOrUpdateEmployee(resmessage?.data?.employee_info);
                         SaveOrUpdateOffice(resmessage?.data?.office_info);
                         SaveOrUpdateToken(resmessage?.data?.token);
+                        _accountService.SaveOrUpdateUser(userName, password, isRemember);
 
-                        DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                    DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
                         // _syncerservice.SyncDak(dakUserParam);
 
 
