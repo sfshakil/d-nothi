@@ -363,7 +363,7 @@ namespace dNothi.Desktop.UI.ManuelUserControl
                 var notification = new System.Windows.Forms.NotifyIcon()
                 {
                     Visible = true,
-                    //Icon = Resources.nothi_icon,
+                    Icon = new System.Drawing.Icon("Icon.ico"),
                     BalloonTipIcon = ToolTipIcon.Info,
                     BalloonTipTitle = "My Title",
                     BalloonTipText = "My long description...",
