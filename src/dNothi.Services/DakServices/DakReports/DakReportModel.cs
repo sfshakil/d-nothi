@@ -45,7 +45,15 @@ namespace dNothi.Services.DakServices.DakReports
             public string officer { get; set; }
             public string attention_type { get; set; }
         }
-
+        public class DakTag
+        {
+            public int id { get; set; }
+            public int dak_custom_label_id { get; set; }
+            public int dak_id { get; set; }
+            public string dak_type { get; set; }
+            public int is_copied_dak { get; set; }
+            public string tag { get; set; }
+        }
         public class MovementStatus
         {
             public Other other { get; set; }
@@ -147,9 +155,11 @@ namespace dNothi.Services.DakServices.DakReports
             public MovementStatus movement_status { get; set; }
             public DakUser dak_user { get; set; }
             public DakOrigin dak_origin { get; set; }
-            public List<object> dak_tags { get; set; }
+            public List<DakTag> dak_tags { get; set; }
             public int attachment_count { get; set; }
             public Nothi nothi { get; set; }
+
+           
         }
 
         public class Data

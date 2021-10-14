@@ -147,7 +147,7 @@ namespace dNothi.Desktop.View_Model
         }
 
 
-        public static List<RegisterReport> GetDakTrakingReports(dakTrakingModel registerReportResponse)
+        public static List<RegisterReport> GetDakTrakingReports(DakReportModel registerReportResponse)
         {
            
 
@@ -156,7 +156,7 @@ namespace dNothi.Desktop.View_Model
             try
             {
                 int count = 0;
-                foreach (dakTrakingModel.Record registerReportRecordDTO in registerReportResponse.data.records)
+                foreach (DakReportModel.Record registerReportRecordDTO in registerReportResponse.data.records)
                 {
 
                     RegisterReport registerReport = new RegisterReport();
@@ -166,13 +166,13 @@ namespace dNothi.Desktop.View_Model
                    
                     registerReport.acceptNum = (registerReportRecordDTO.nothi!=null? registerReportRecordDTO.nothi.nothi_no:string.Empty);
 
-                    string applyDate = ConversionMethod.BanglaDigittoEngDigit(registerReportRecordDTO.last_movement_date);
-                    DateTime dateTime2 = Convert.ToDateTime(applyDate);
-                    registerReport.applyDate = ConversionMethod.EngDigittoBanDigit(dateTime2.ToString("dd-MM-yyyy HH:mm:ss"));
-                   
-                    registerReport.sub = registerReportRecordDTO.dak_subject;
-                    registerReport.applicant = registerReportRecordDTO.office;
-                    registerReport.finalState = registerReportRecordDTO.dak_decision;
+                    //string applyDate = ConversionMethod.BanglaDigittoEngDigit(registerReportRecordDTO.last_movement_date);
+                    //DateTime dateTime2 = Convert.ToDateTime(applyDate);
+                    //registerReport.applyDate = ConversionMethod.EngDigittoBanDigit(dateTime2.ToString("dd-MM-yyyy HH:mm:ss"));
+                    registerReport.applyDate = registerReportRecordDTO.dak_origin.receiving_date;
+                    registerReport.sub = registerReportRecordDTO.dak_user.dak_subject;
+                    registerReport.applicant = registerReportRecordDTO.dak_origin.receiving_office_name+","+ registerReportRecordDTO.dak_origin.receiving_office_unit_name;
+                    registerReport.finalState = registerReportRecordDTO.dak_user.dak_decision;
 
 
 

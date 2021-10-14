@@ -21,9 +21,12 @@ namespace dNothi.Services.DakServices
    public class RegisterService:IRegisterService
     {
         IRepository<DakRegisterBook> _localDakRegisterBookRepository;
-        public RegisterService(IRepository<DakRegisterBook> localDakRegisterBookRepository)
+        IRepository<DakTraking> _localDakTrakingRepository;
+        
+        public RegisterService(IRepository<DakRegisterBook> localDakRegisterBookRepository, IRepository<DakTraking> localDakTrakingRepository)
         {
             _localDakRegisterBookRepository = localDakRegisterBookRepository;
+            _localDakTrakingRepository = localDakTrakingRepository;
         }
         public DakReportModel GetDakGrohonResponse(DakUserParam dakUserParam,string fromDate, string toDate, string branchName, bool isDakGrahan, bool isDakBili, bool isShakaDiary)
         {
@@ -241,50 +244,49 @@ namespace dNothi.Services.DakServices
 
         }
         */
-        public dakTrakingModel GetDakTrakingResponse(DakUserParam dakUserParam, string fromDate, string toDate, string mobile,string subject,string getapplication)
+        public DakReportModel GetDakTrakingResponse(DakUserParam dakUserParam, string fromDate, string toDate, string mobile,string subject,string getapplication)
         {
+            string searchParam = "dak_subject=" + subject + "&dak_received_no=" + getapplication + "&phone=" + mobile + "&last_modified_date =" + fromDate + ":" + toDate + "";
+            DakReportModel registerReportResponse = new DakReportModel();
+            if (!InternetConnection.Check())
+            {
 
-            dakTrakingModel registerReportResponse = new dakTrakingModel();
-            //if (!InternetConnection.Check())
-            //{
 
+                registerReportResponse = JsonConvert.DeserializeObject<DakReportModel>(GetLocalDakTraking(dakUserParam, searchParam));
+                return registerReportResponse;
 
-            //    registerReportResponse = JsonConvert.DeserializeObject<RegisterReportResponse>(GetLocalDakRegisterBook(dakUserParam, fromDate, toDate, unitid, dnb, dnc, dnd));
-            //    return registerReportResponse;
-
-            //}
+            }
 
             try
             {
-                var dakGrohonAPI = new RestClient(GetAPIDomain() + DefaultAPIConfiguration.DakSearchEndPoint);
-                dakGrohonAPI.Timeout = -1;
-                var dakGrohonRequest = new RestRequest(Method.POST);
-                dakGrohonRequest.AddHeader("api-version", GetOldAPIVersion());
-                dakGrohonRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
-                dakGrohonRequest.AlwaysMultipartFormData = true;
-                dakGrohonRequest.AddParameter("designation_id", dakUserParam.designation_id);
-                dakGrohonRequest.AddParameter("office_id", dakUserParam.office_id);
-                dakGrohonRequest.AddParameter("user_id", dakUserParam.user_id);
-
-                string searchParam = "dak_subject=" + subject + "&dak_received_no=" + getapplication + "&phone=" + mobile + "&last_modified_date =" + fromDate + ":" + toDate + "";
-
-                dakGrohonRequest.AddParameter("search_params", searchParam);
-                dakGrohonRequest.AddParameter("dak_list_type", "dak_tracking");
-                dakGrohonRequest.AddParameter("length", dakUserParam.limit);
-                dakGrohonRequest.AddParameter("page", dakUserParam.page);
+                var dakTrakingAPI = new RestClient(GetAPIDomain() + DefaultAPIConfiguration.DakSearchEndPoint);
+                dakTrakingAPI.Timeout = -1;
+                var dakTrakingRequest = new RestRequest(Method.POST);
+                dakTrakingRequest.AddHeader("api-version", GetOldAPIVersion());
+                dakTrakingRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
+                dakTrakingRequest.AlwaysMultipartFormData = true;
+                dakTrakingRequest.AddParameter("designation_id", dakUserParam.designation_id);
+                dakTrakingRequest.AddParameter("office_id", dakUserParam.office_id);
+                //dakGrohonRequest.AddParameter("user_id", dakUserParam.user_id);
 
 
-
-                IRestResponse dakGrohonResponseIRest = dakGrohonAPI.Execute(dakGrohonRequest);
+                // dakGrohonRequest.AddParameter("search_params", "dak_subject=&dak_received_no=&phone=&last_modified_date=2021/09/14:2021/10/13");
+                dakTrakingRequest.AddParameter("search_params", searchParam);
+                // dakGrohonRequest.AddParameter("dak_list_type", "dak_tracking");
+                // dakGrohonRequest.AddParameter("length", dakUserParam.limit);
+                dakTrakingRequest.AddParameter("limit", dakUserParam.limit);
+                dakTrakingRequest.AddParameter("page", dakUserParam.page);
 
 
 
+                IRestResponse dakTrakingResponseIRest = dakTrakingAPI.Execute(dakTrakingRequest);
 
-                var dakGrohonResponseJson = dakGrohonResponseIRest.Content;
-                //var data = SaveLocalDakRegisterBook(dakGrohonResponseJson, dakUserParam, fromDate, toDate, unitid, dnb, dnc, dnd);
-                //var data2 = JsonConvert.DeserializeObject<Dictionary<string, object>>(responseJson2)["data"].ToString();
-                // var rec = JsonConvert.DeserializeObject<Dictionary<string, object>>(data2)["records"].ToString();
-                registerReportResponse = JsonConvert.DeserializeObject<dakTrakingModel>(dakGrohonResponseJson);
+
+
+
+                var dakTrakingResponseJson = dakTrakingResponseIRest.Content;
+                SaveLocalDakTraking(dakTrakingResponseJson, dakUserParam, searchParam);
+                registerReportResponse = JsonConvert.DeserializeObject<DakReportModel>(dakTrakingResponseJson);
                 return registerReportResponse;
             }
             catch (Exception ex)
@@ -294,6 +296,46 @@ namespace dNothi.Services.DakServices
 
 
         }
+        private string GetLocalDakTraking(DakUserParam dakListUserParam,string searchparam)
+        {
+            var dakBox = _localDakTrakingRepository.Table.Where(q => q.designation_id == dakListUserParam.designation_id && q.office_id == dakListUserParam.office_id && q.limit == dakListUserParam.limit && q.page == dakListUserParam.page && q.search_params==searchparam).FirstOrDefault();
+
+            if (dakBox != null)
+            {
+                return dakBox.daklist_json;
+            }
+            else
+            {
+                string data = "{\"status\":\"success\",\"data\":{\"records\":[],\"total_records\":0},\"options\":[]}";
+                return data;
+            }
+
+        }
+        private void SaveLocalDakTraking(string dakBoxResponseJson, DakUserParam dakListUserParam, string searchParam)
+        {
+            var dakBox = _localDakTrakingRepository.Table.Where(q => q.designation_id == dakListUserParam.designation_id && q.office_id == dakListUserParam.office_id && q.limit == dakListUserParam.limit && q.page == dakListUserParam.page && q.search_params==searchParam).FirstOrDefault();
+
+            if (dakBox != null)
+            {
+                dakBox.daklist_json = dakBoxResponseJson;
+                _localDakTrakingRepository.Update(dakBox);
+            }
+            else
+            {
+                DakTraking localDakTraking = new DakTraking
+                {
+                    designation_id = dakListUserParam.designation_id,
+                    office_id = dakListUserParam.office_id,
+                    daklist_json = dakBoxResponseJson,
+                    page = dakListUserParam.page,
+                    limit = dakListUserParam.limit,
+                    search_params=searchParam
+                };
+                _localDakTrakingRepository.Insert(localDakTraking);
+            }
+
+        }
+
         protected string GetAPIVersion()
         {
             return ReadAppSettings("newapi-version") ?? DefaultAPIConfiguration.NewAPIversion;
@@ -331,7 +373,7 @@ namespace dNothi.Services.DakServices
         DakReportModel GetDakGrohonResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName, bool isDakGrahan, bool isDakBili, bool isShakaDiary);
         //RegisterReportResponse GetDakBiliResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName);
         //RegisterReportResponse GetDakDiaryResponse(DakUserParam dakUserParam, string fromDate, string toDate, string branchName);
-        dakTrakingModel GetDakTrakingResponse(DakUserParam dakUserParam, string fromDate, string toDate, string mobile, string subject, string application_no);
+        DakReportModel GetDakTrakingResponse(DakUserParam dakUserParam, string fromDate, string toDate, string mobile, string subject, string application_no);
         
 
         }

@@ -85,8 +85,16 @@ namespace dNothi.Desktop.UI.Dak
             }
 
         }
-        public bool isPending { get { return _isPending; } set { _isPending = value; if (value) { headlineLabel.Text = "অমীমাংসিত ডাকসমূহ"; } } }
-        public bool isResolved { get { return _isResolved; } set { _isResolved = value; if (value) { headlineLabel.Text = "মীমাংসিত ডাকসমূহ"; } } }
+        public bool isPending { get { return _isPending; } set { _isPending = value; if (value) { headlineLabel.Text = "অমীমাংসিত ডাকসমূহ";
+                    registerReportDataGridView.Columns["finalState"].Visible = false;
+                    registerReportDataGridView.Columns["pendingTime"].Visible = false;
+                    registerReportDataGridView.Columns["nothiNo"].Visible = false;
+                } } }
+        public bool isResolved { get { return _isResolved; } set { _isResolved = value; if (value) { headlineLabel.Text = "মীমাংসিত ডাকসমূহ";
+                    registerReportDataGridView.Columns["finalState"].Visible = false;
+                    registerReportDataGridView.Columns["pendingTime"].Visible = false;
+                    registerReportDataGridView.Columns["nothiNo"].Visible = false;
+                } } }
         private int _totalRecord { get; set; }
         public int totalRecord
         {

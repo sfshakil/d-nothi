@@ -86,7 +86,8 @@ namespace dNothi.Desktop.UI
 
                 if (resmessage.status == "success")
                 {
-
+                    //PusherNotification pusherNotification = new PusherNotification();
+                    //pusherNotification.Start();
                     _accountService.SaveOrUpdateUser(userName, password, isRemember);
 
                     // Sign Assign

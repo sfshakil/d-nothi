@@ -12,6 +12,7 @@ namespace dNothi.Desktop.View_Model
         public string sl { get; set; }
         public string acceptNum { get; set; }
         public string docketingNo { get; set; }
+        public string nothiNo { get; set; }
         public string sharokNo { get; set; }
         public string applyDate { get; set; }
        // public string type { get; set; }

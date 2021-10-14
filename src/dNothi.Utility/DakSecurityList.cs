@@ -45,10 +45,10 @@ namespace dNothi.Utility
         }
         public DakSecurityList(bool isCombobox)
         {
-            _dakSecurities.Add(new DakSecurity("2", "সীমিত", "সীমিত-Icon-PNG2"));
+            _dakSecurities.Add(new DakSecurity("5", "সীমিত", "সীমিত-Icon-PNG2"));
             _dakSecurities.Add(new DakSecurity("3", "গোপনীয়", "গোপনীয়-Icon-PNG"));
            // _dakSecurities.Add(new DakSecurity("4", "বিশেষ গোপনীয়", "বিশেষ গোপনীয়-Icon-PNG"));
-            _dakSecurities.Add(new DakSecurity("5", "অতি গোপনীয়", "অতি গোপনীয়-Icon-PNG"));
+            _dakSecurities.Add(new DakSecurity("2", "অতি গোপনীয়", "অতি গোপনীয়-Icon-PNG"));
             _dakSecurities.Add(new DakSecurity("0", "বাছাই করুন", ""));
 
 
