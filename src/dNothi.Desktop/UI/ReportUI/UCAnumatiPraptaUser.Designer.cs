@@ -52,13 +52,13 @@
             this.EditUpdatetableLayoutPanel.Controls.Add(this.panel2, 3, 0);
             this.EditUpdatetableLayoutPanel.Controls.Add(this.dateLabel, 1, 0);
             this.EditUpdatetableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.EditUpdatetableLayoutPanel.Location = new System.Drawing.Point(3, 0);
-            this.EditUpdatetableLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.EditUpdatetableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.EditUpdatetableLayoutPanel.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.EditUpdatetableLayoutPanel.Name = "EditUpdatetableLayoutPanel";
-            this.EditUpdatetableLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.EditUpdatetableLayoutPanel.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
             this.EditUpdatetableLayoutPanel.RowCount = 1;
             this.EditUpdatetableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.EditUpdatetableLayoutPanel.Size = new System.Drawing.Size(620, 44);
+            this.EditUpdatetableLayoutPanel.Size = new System.Drawing.Size(835, 54);
             this.EditUpdatetableLayoutPanel.TabIndex = 3;
             this.EditUpdatetableLayoutPanel.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.Cell_Color_Blue);
             // 
@@ -66,11 +66,12 @@
             // 
             this.userIdlabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.userIdlabel.AutoSize = true;
-            this.userIdlabel.Location = new System.Drawing.Point(99, 15);
-            this.userIdlabel.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
+            this.userIdlabel.Font = new System.Drawing.Font("SolaimanLipi", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userIdlabel.Location = new System.Drawing.Point(134, 18);
+            this.userIdlabel.Margin = new System.Windows.Forms.Padding(7, 0, 4, 0);
             this.userIdlabel.Name = "userIdlabel";
-            this.userIdlabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.userIdlabel.Size = new System.Drawing.Size(39, 13);
+            this.userIdlabel.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.userIdlabel.Size = new System.Drawing.Size(51, 18);
             this.userIdlabel.TabIndex = 86;
             this.userIdlabel.Text = "label";
             this.userIdlabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -79,11 +80,11 @@
             // 
             this.serialLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.serialLabel.AutoSize = true;
-            this.serialLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.serialLabel.Location = new System.Drawing.Point(5, 13);
-            this.serialLabel.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
+            this.serialLabel.Font = new System.Drawing.Font("SolaimanLipi", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.serialLabel.Location = new System.Drawing.Point(7, 18);
+            this.serialLabel.Margin = new System.Windows.Forms.Padding(7, 0, 4, 0);
             this.serialLabel.Name = "serialLabel";
-            this.serialLabel.Size = new System.Drawing.Size(54, 18);
+            this.serialLabel.Size = new System.Drawing.Size(61, 18);
             this.serialLabel.TabIndex = 0;
             this.serialLabel.Text = "sdsadas";
             // 
@@ -92,9 +93,10 @@
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.decisionDeleteButton);
-            this.panel2.Location = new System.Drawing.Point(537, 3);
+            this.panel2.Location = new System.Drawing.Point(723, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(77, 38);
+            this.panel2.Size = new System.Drawing.Size(103, 47);
             this.panel2.TabIndex = 85;
             // 
             // decisionDeleteButton
@@ -110,10 +112,11 @@
             this.decisionDeleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.decisionDeleteButton.IconSize = 20;
             this.decisionDeleteButton.Location = new System.Drawing.Point(0, 0);
-            this.decisionDeleteButton.MaximumSize = new System.Drawing.Size(34, 36);
-            this.decisionDeleteButton.MinimumSize = new System.Drawing.Size(34, 36);
+            this.decisionDeleteButton.Margin = new System.Windows.Forms.Padding(4);
+            this.decisionDeleteButton.MaximumSize = new System.Drawing.Size(45, 44);
+            this.decisionDeleteButton.MinimumSize = new System.Drawing.Size(45, 44);
             this.decisionDeleteButton.Name = "decisionDeleteButton";
-            this.decisionDeleteButton.Size = new System.Drawing.Size(34, 36);
+            this.decisionDeleteButton.Size = new System.Drawing.Size(45, 44);
             this.decisionDeleteButton.TabIndex = 88;
             this.decisionDeleteButton.UseVisualStyleBackColor = false;
             this.decisionDeleteButton.Click += new System.EventHandler(this.decisionDeleteButton_Click);
@@ -122,25 +125,25 @@
             // 
             this.dateLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(319, 15);
-            this.dateLabel.Margin = new System.Windows.Forms.Padding(5, 0, 3, 0);
+            this.dateLabel.Font = new System.Drawing.Font("SolaimanLipi", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLabel.Location = new System.Drawing.Point(430, 18);
+            this.dateLabel.Margin = new System.Windows.Forms.Padding(7, 0, 4, 0);
             this.dateLabel.Name = "dateLabel";
-            this.dateLabel.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.dateLabel.Size = new System.Drawing.Size(39, 13);
+            this.dateLabel.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.dateLabel.Size = new System.Drawing.Size(51, 18);
             this.dateLabel.TabIndex = 2;
             this.dateLabel.Text = "label";
             this.dateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // UCAnumatiPraptaUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.EditUpdatetableLayoutPanel);
-            this.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UCAnumatiPraptaUser";
-            this.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
-            this.Size = new System.Drawing.Size(626, 44);
+            this.Size = new System.Drawing.Size(835, 54);
             this.EditUpdatetableLayoutPanel.ResumeLayout(false);
             this.EditUpdatetableLayoutPanel.PerformLayout();
             this.panel2.ResumeLayout(false);

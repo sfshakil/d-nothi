@@ -79,10 +79,13 @@ namespace dNothi.Desktop.UI
             var password = txtPassword.Text.Trim();
             var isRemember = true;
             UserParam userParam = new UserParam(userName, password);
-            try
+            if (InternetConnection.Check())
             {
-                var resmessage = await _userService.GetUserMessageAsync(userParam);
-               
+                try
+                {
+                    var resmessage = await _userService.GetUserMessageAsync(userParam);
+
+                    DoptorTokenResponse doptorTokenResponse = _userService.GetDoptorToken(userParam);
 
                 if (resmessage.status == "success")
                 {
@@ -94,54 +97,66 @@ namespace dNothi.Desktop.UI
                     resmessage.data.user.SignBase64 = resmessage.data.signature.encode_sign;
                     resmessage.data.user.profile_photo =UIDesignCommonMethod.ConvertImageURLToBase64(resmessage.data.profile_photo);
 
-                    SaveOrUpdateUser(resmessage?.data?.user);
-                    SaveOrUpdateEmployee(resmessage?.data?.employee_info);
-                    SaveOrUpdateOffice(resmessage?.data?.office_info);
-                    SaveOrUpdateToken(resmessage?.data?.token);
+                        SaveOrUpdateUser(resmessage?.data?.user);
+                        SaveOrUpdateEmployee(resmessage?.data?.employee_info);
+                        SaveOrUpdateOffice(resmessage?.data?.office_info);
+                        SaveOrUpdateToken(resmessage?.data?.token);
+                        _accountService.SaveOrUpdateUser(userName, password, isRemember);
 
                     DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
-                    // _syncerservice.SyncDak(dakUserParam);
+                        // _syncerservice.SyncDak(dakUserParam);
 
 
-                    HideAndSHow();
-                    WaitForm.Close();
-                    _userService.GetDoptorToken(userParam);
-                    var form = FormFactory.Create<Dashboard>();
-                    form.TopMost = true;
-                    BeginInvoke((Action)(() => form.ShowDialog()));
-                    BeginInvoke((Action)(() => form.TopMost = false));
-                    form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+                        HideAndSHow();
+                        WaitForm.Close();
 
+                        var form = FormFactory.Create<Dashboard>();
+                        form.TopMost = true;
+                        BeginInvoke((Action)(() => form.ShowDialog()));
+                        BeginInvoke((Action)(() => form.TopMost = false));
+                        form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+
+                    
+                  
                 }
-                else
+                catch (Exception Ex)
                 {
                     WaitForm.Close();
                     UIMessageBox.ShowAlertMessage("আপনি ভূল ইউজার নেম অথবা পাসওয়ার্ড ইনপুট দিয়েছেন।");
+
+
                 }
-                //WaitForm.Close();
             }
-            catch(Exception Ex)
+            else
             {
                 WaitForm.Close();
-                var appUser = _accountService.LoginUser(userName, password);
-                if (appUser != null)
-                {
-                    HideAndSHow();
-                    var form = FormFactory.Create<Dashboard>();
-                    form.TopMost = true;
-                    BeginInvoke((Action)(() => form.ShowDialog()));
-                    BeginInvoke((Action)(() => form.TopMost = false));
-                    form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
-                }
-
-                else
-                {
-                    UIMessageBox.ShowAlertMessage("আপনার ইন্টারনেট সংযোগ বিচ্ছিন্ন রযেছে।");
-                }
+                LocalLogin(userParam);
 
             }
 
+            
+
         }
+
+        private void LocalLogin(UserParam userParam)
+        {
+            var appUser = _accountService.LoginUser(userParam.username, userParam.password);
+            if (appUser != null)
+            {
+                HideAndSHow();
+                var form = FormFactory.Create<Dashboard>();
+                form.TopMost = true;
+                BeginInvoke((Action)(() => form.ShowDialog()));
+                BeginInvoke((Action)(() => form.TopMost = false));
+                form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
+            }
+
+            else
+            {
+                UIMessageBox.ShowAlertMessage("আপনার ইন্টারনেট সংযোগ বিচ্ছিন্ন রযেছে।");
+            }
+        }
+
         private void DoSomethingAsync(object sender, EventArgs e)
         {
             this.Hide();

@@ -32,7 +32,7 @@ namespace dNothi.Desktop.UI
             InitializeComponent();
             _userService = userService;
             _syncerServices = syncerServices;
-           
+            designationDetailsPanel.Visible = false;
         }
 
 
@@ -148,7 +148,7 @@ namespace dNothi.Desktop.UI
         {
 
         }
-
+        designationSelect designationDetailsPanel = new designationSelect();
         private void profileShowArrowButton_Click(object sender, EventArgs e)
         {
             if (!designationDetailsPanel.Visible)
@@ -156,7 +156,8 @@ namespace dNothi.Desktop.UI
                 int designationPanleX = this.Width - designationDetailsPanel.Width - 25;
                 int designationPanleY = profilePanel.Location.Y + profilePanel.Height;
                 designationDetailsPanel.Location = new Point(designationPanleX, designationPanleY);
-
+                Controls.Add(designationDetailsPanel);
+                designationDetailsPanel.BringToFront();
                 designationDetailsPanel.Visible = true;
 
 
@@ -260,7 +261,7 @@ namespace dNothi.Desktop.UI
 
             bodyTableLayoutPanel.Controls.Add(usersListuc);
             usersListuc.Dock = DockStyle.Fill;
-            
+            usersListuc.Height = panel2.Height;
             usersListuc.Show();
 
         }
@@ -329,8 +330,27 @@ namespace dNothi.Desktop.UI
 
             bodyTableLayoutPanel.Controls.Add(usersListuc);
             usersListuc.Dock = DockStyle.Fill;
-
+            usersListuc.Height = panel2.Height;
             usersListuc.Show();
+        }
+        SettingsUserControl settingsUserControl = UserControlFactory.Create<SettingsUserControl>();
+        private void SettingsButton_Click(object sender, EventArgs e)
+        {
+            var x = SettingsButton.Parent;
+            if (!settingsUserControl.Visible)
+            {
+                settingsUserControl.Visible = true;
+                settingsUserControl.Location = new System.Drawing.Point(SettingsButton.Location.X, SettingsButton.Height);
+                Controls.Add(settingsUserControl);
+                settingsUserControl.BringToFront();
+                //settingsUserControl.SettingsSaveButton += delegate (object sender1, EventArgs e1) { SettingsSaveButton_Click(sender1 as Settings, e1); };
+
+            }
+            else
+            {
+                settingsUserControl.Visible = false;
+                //modulePanel.Width = 334;
+            }
         }
     }
 }

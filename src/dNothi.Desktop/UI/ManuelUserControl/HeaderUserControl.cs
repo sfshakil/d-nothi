@@ -345,5 +345,11 @@ namespace dNothi.Desktop.UI.ManuelUserControl
             if (this.SettingsSaveButton != null)
                 this.SettingsSaveButton(settings, e);
         }
+
+        private void NotificationBellButton_Click(object sender, EventArgs e)
+        {
+            var notificationUC = UserControlFactory.Create<NotificationUserControl>();
+            UIDesignCommonMethod.CalPopUpWindow(UIDesignCommonMethod.ControlToForm(notificationUC), this.FindForm());
+        }
     }
 }
