@@ -87,6 +87,12 @@ namespace dNothi.Desktop.UI
 
                     DoptorTokenResponse doptorTokenResponse = _userService.GetDoptorToken(userParam);
 
+                    if (resmessage.status == "success")
+                    {
+                        //PusherNotification pusherNotification = new PusherNotification();
+                        //pusherNotification.Start();
+                        _accountService.SaveOrUpdateUser(userName, password, isRemember);
+
                         // Sign Assign
                         resmessage.data.user.SignBase64 = resmessage.data.signature.encode_sign;
                         resmessage.data.user.profile_photo = UIDesignCommonMethod.ConvertImageURLToBase64(resmessage.data.profile_photo);
@@ -97,7 +103,7 @@ namespace dNothi.Desktop.UI
                         SaveOrUpdateToken(resmessage?.data?.token);
                         _accountService.SaveOrUpdateUser(userName, password, isRemember);
 
-                    DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
+                        DakUserParam dakUserParam = _userService.GetLocalDakUserParam();
                         // _syncerservice.SyncDak(dakUserParam);
 
 
@@ -110,8 +116,9 @@ namespace dNothi.Desktop.UI
                         BeginInvoke((Action)(() => form.TopMost = false));
                         form.Shown += delegate (object sr, EventArgs ev) { DoSomethingAsync(sr, ev); };
 
-                    
-                  
+
+
+                    }
                 }
                 catch (Exception Ex)
                 {

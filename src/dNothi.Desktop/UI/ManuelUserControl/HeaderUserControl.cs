@@ -1,5 +1,6 @@
 ﻿using dNothi.Core.Entities;
 using dNothi.Core.Interfaces;
+using dNothi.Desktop.Properties;
 using dNothi.JsonParser.Entity;
 using dNothi.Services.DakServices;
 using dNothi.Services.UserServices;
@@ -12,6 +13,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -322,7 +324,7 @@ namespace dNothi.Desktop.UI.ManuelUserControl
                 settingsUserControl.Location = new Point(locationOnForm.X, locationOnForm.Y + SettingsButton.Height + 1);
                 form.Controls.Add(settingsUserControl);
                 
-                settingsUserControl.SettingsSaveButton += delegate (object sender1, EventArgs e1) { SettingsSaveButton_Click(sender1 as Settings, e1); };
+                settingsUserControl.SettingsSaveButton += delegate (object sender1, EventArgs e1) { SettingsSaveButton_Click(sender1 as JsonParser.Entity.Settings, e1); };
 
             }
 
@@ -340,10 +342,42 @@ namespace dNothi.Desktop.UI.ManuelUserControl
             }
         }
         public event EventHandler SettingsSaveButton;
-        private void SettingsSaveButton_Click(Settings settings, EventArgs e)
+        private void SettingsSaveButton_Click(JsonParser.Entity.Settings settings, EventArgs e)
         {
             if (this.SettingsSaveButton != null)
                 this.SettingsSaveButton(settings, e);
+        }
+
+        private void NotificationBellButton_Click(object sender, EventArgs e)
+        {
+            var notificationUC = UserControlFactory.Create<NotificationUserControl>();
+            UIDesignCommonMethod.CalPopUpWindow(UIDesignCommonMethod.ControlToForm(notificationUC), this.FindForm());
+            for (int i = 1; i <= 5; i++)
+            {
+                //PopupNotifier popup = new PopupNotifier();
+                //popup.TitleText = "BE HAPPY";
+                //popup.ContentText = "Thank you";
+                //popup.Popup();// show  
+                //popup.Delay = 1000;
+
+                var notification = new System.Windows.Forms.NotifyIcon()
+                {
+                    Visible = true,
+                    Icon = new System.Drawing.Icon("Icon.ico"),
+                    BalloonTipIcon = ToolTipIcon.Info,
+                    BalloonTipTitle = "My Title",
+                    BalloonTipText = "My long description...",
+                };
+
+                // Display for 5 seconds.
+                notification.ShowBalloonTip(5000);
+
+                Thread.Sleep(1000);
+
+                // The notification should be disposed when you don't need it anymore,
+                // but doing so will immediately close the balloon if it's visible.
+                notification.Dispose();
+            }
         }
     }
 }

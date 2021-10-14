@@ -97,6 +97,7 @@
     <Compile Include="Mappings\Dak\DakItemMap.cs" />
     <Compile Include="Mappings\Dak\DakListMap.cs" />
     <Compile Include="Mappings\Dak\DakProtibedanMap.cs" />
+    <Compile Include="Mappings\Dak\DakTrakingMap.cs" />
     <Compile Include="Mappings\Dak\NothiRegisterBookMap.cs" />
     <Compile Include="Mappings\Dak\DakRegisterBookMap.cs" />
     <Compile Include="Mappings\Dak\DakTypeMap.cs" />

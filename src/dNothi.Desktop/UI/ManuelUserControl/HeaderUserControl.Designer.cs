@@ -48,6 +48,7 @@ namespace dNothi.Desktop.UI.ManuelUserControl
             this.moduleButton = new FontAwesome.Sharp.IconButton();
             this.SettingsButton = new FontAwesome.Sharp.IconButton();
             this.MyToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.NotificationBellButton = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.nothiModulePanel.SuspendLayout();
             this.dakModulePanel.SuspendLayout();
@@ -58,7 +59,7 @@ namespace dNothi.Desktop.UI.ManuelUserControl
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.ColumnCount = 7;
+            this.tableLayoutPanel1.ColumnCount = 8;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -66,12 +67,14 @@ namespace dNothi.Desktop.UI.ManuelUserControl
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.nothiModulePanel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.dakModulePanel, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.profilePanel, 6, 0);
-            this.tableLayoutPanel1.Controls.Add(this.onlineToggleButton2, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.profilePanel, 7, 0);
+            this.tableLayoutPanel1.Controls.Add(this.onlineToggleButton2, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.moduleButton, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.SettingsButton, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.NotificationBellButton, 5, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
@@ -372,7 +375,7 @@ namespace dNothi.Desktop.UI.ManuelUserControl
             this.SettingsButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
             this.SettingsButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SettingsButton.IconSize = 32;
-            this.SettingsButton.Location = new System.Drawing.Point(474, 4);
+            this.SettingsButton.Location = new System.Drawing.Point(418, 4);
             this.SettingsButton.Margin = new System.Windows.Forms.Padding(4);
             this.SettingsButton.Name = "SettingsButton";
             this.SettingsButton.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
@@ -380,6 +383,25 @@ namespace dNothi.Desktop.UI.ManuelUserControl
             this.SettingsButton.TabIndex = 113;
             this.SettingsButton.UseVisualStyleBackColor = true;
             this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
+            // 
+            // NotificationBellButton
+            // 
+            this.NotificationBellButton.AutoSize = true;
+            this.NotificationBellButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NotificationBellButton.FlatAppearance.BorderSize = 0;
+            this.NotificationBellButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.NotificationBellButton.IconChar = FontAwesome.Sharp.IconChar.Bell;
+            this.NotificationBellButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(168)))), ((int)(((byte)(0)))));
+            this.NotificationBellButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.NotificationBellButton.IconSize = 32;
+            this.NotificationBellButton.Location = new System.Drawing.Point(477, 4);
+            this.NotificationBellButton.Margin = new System.Windows.Forms.Padding(4);
+            this.NotificationBellButton.Name = "NotificationBellButton";
+            this.NotificationBellButton.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
+            this.NotificationBellButton.Size = new System.Drawing.Size(48, 55);
+            this.NotificationBellButton.TabIndex = 117;
+            this.NotificationBellButton.UseVisualStyleBackColor = true;
+            this.NotificationBellButton.Click += new System.EventHandler(this.NotificationBellButton_Click);
             // 
             // HeaderUserControl
             // 
@@ -424,5 +446,6 @@ namespace dNothi.Desktop.UI.ManuelUserControl
         private System.Windows.Forms.TableLayoutPanel dakModulePanel;
         private System.Windows.Forms.TableLayoutPanel nothiModulePanel;
         private System.Windows.Forms.ToolTip MyToolTip;
+        private FontAwesome.Sharp.IconButton NotificationBellButton;
     }
 }

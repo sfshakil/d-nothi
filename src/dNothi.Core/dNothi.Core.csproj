@@ -81,6 +81,7 @@
     <Compile Include="Entities\DakBacaiKaran.cs" />
     <Compile Include="Entities\DakBacaiKaranList.cs" />
     <Compile Include="Entities\DakBoxSharedToOfficer.cs" />
+    <Compile Include="Entities\DakTraking.cs" />
     <Compile Include="Entities\EmailList.cs" />
     <Compile Include="Entities\DakProtibedan.cs" />
     <Compile Include="Entities\GuardFileUpload.cs" />

@@ -197,16 +197,19 @@ namespace dNothi.Desktop.View_Model
 
                     protibedon.acceptNum = ConversionMethod.EnglishNumberToBangla(protibedonResponseRecordDTO.dak_origin.dak_received_no);
 
-                    protibedon.docketingNo = ConversionMethod.EnglishNumberToBangla(protibedonResponseRecordDTO.dak_user.docketing_no.ToString());
+                    protibedon.docketingNo = ConversionMethod.EnglishNumberToBangla(protibedonResponseRecordDTO.dak_origin.docketing_no.ToString());
                     protibedon.sharokNo = ConversionMethod.EngDigittoBanDigit(protibedonResponseRecordDTO.dak_origin.sender_sarok_no);
-
+                    protibedon.nothiNo = protibedonResponseRecordDTO.nothi!=null? protibedonResponseRecordDTO.nothi.nothi_no:string.Empty;
                     //String dateString = ConversionMethod.BanglaDigittoEngDigit(protibedonResponseRecordDTO.dak_user.created);
                     //DateTime dateTime2 = Convert.ToDateTime(dateString);
-                    //protibedon.applyDate = ConversionMethod.EngDigittoBanDigit(dateTime2.ToString("dd-MM-yyyy HH:mm:ss"));
+                    protibedon.applyDate = protibedonResponseRecordDTO.dak_origin.receiving_date;
                     protibedon.sub = protibedonResponseRecordDTO.dak_user.dak_subject;
-                    //protibedon.applicant = protibedonResponseRecordDTO.sender_name + ", " + protibedonResponseRecordDTO.sender_officer_designation_label + "," + protibedonResponseRecordDTO.sender_office_unit_name + "," + protibedonResponseRecordDTO.sender_office_name;
-                    //protibedon.mainPrapok = protibedonResponseRecordDTO.receiving_officer_name + ", " + protibedonResponseRecordDTO.receiving_officer_designation_label + "," + protibedonResponseRecordDTO.receiving_office_unit_name;
-
+                    protibedon.applicant = protibedonResponseRecordDTO.dak_origin.sender_name + ", " + protibedonResponseRecordDTO.dak_origin.sender_officer_designation_label + "," + protibedonResponseRecordDTO.dak_origin.sender_office_unit_name + "," + protibedonResponseRecordDTO.dak_origin.sender_office_name;
+                    var mulprapok = protibedonResponseRecordDTO.movement_status.to.FirstOrDefault();
+                    if (mulprapok != null)
+                        protibedon.mainPrapok = mulprapok.officer + ", " + mulprapok.designation + "," + mulprapok.office_unit + "," + mulprapok.office;
+                    else
+                        protibedon.mainPrapok = string.Empty;
                     //String dateString1 = ConversionMethod.BanglaDigittoEngDigit(protibedonResponseRecordDTO.dak_user.last_movement_date);
                     //DateTime dateTime = Convert.ToDateTime(dateString1);
                     //protibedon.Date = ConversionMethod.EngDigittoBanDigit(dateTime.ToString("dd-MM-yyyy HH:mm:ss"));
@@ -214,23 +217,25 @@ namespace dNothi.Desktop.View_Model
                     //applyDate sub applicant mainPrapok PotrojariDate NothiJatoDate NothiteUposthapitoDate security priority finalState pendingTime
 
                     //PotrojariDate 
-                   // NothiJatoDate 
-                    //NothiteUposthapitoDate
+                    // NothiJatoDate 
+                    protibedon.Date = protibedonResponseRecordDTO.dak_user.last_movement_date;
 
                     DakPriorityList dakPriorityList = new DakPriorityList(true);
                     DakSecurityList dakSecurityList = new DakSecurityList(true);
 
-
-                    protibedon.priority = dakPriorityList.GetDakPriorityName(Convert.ToString(protibedonResponseRecordDTO.dak_user.dak_priority));
-                    protibedon.security = dakSecurityList.GetDakSecuritiesName(Convert.ToString(protibedonResponseRecordDTO.dak_user.dak_security));
-                    if (protibedon.priority == null || protibedon.priority == "")
-                    {
-                        protibedon.priority = protibedonResponseRecordDTO.dak_user.dak_priority;
-                    }
-                    if (protibedon.security == null || protibedon.security == "")
-                    {
-                        protibedon.security = protibedonResponseRecordDTO.dak_user.dak_security;
-                    }
+                    var priority = dakPriorityList.GetDakPriorityName(Convert.ToString(protibedonResponseRecordDTO.dak_user.dak_priority));
+                    var security= dakSecurityList.GetDakSecuritiesName(Convert.ToString(protibedonResponseRecordDTO.dak_user.dak_security));
+                    protibedon.priority = priority != "বাছাই করুন" ? priority : string.Empty;
+                    protibedon.security = security != "বাছাই করুন" ? security : string.Empty;
+                    
+                    //if (protibedon.priority == null || protibedon.priority == "")
+                    //{
+                    //    protibedon.priority = protibedonResponseRecordDTO.dak_user.dak_priority;
+                    //}
+                    //if (protibedon.security == null || protibedon.security == "")
+                    //{
+                    //    protibedon.security = protibedonResponseRecordDTO.dak_user.dak_security;
+                    //}
 
 
                     protibedon.finalState = protibedonResponseRecordDTO.dak_user.to_officer_name + "," + protibedonResponseRecordDTO.dak_user.to_officer_designation_label + "," + protibedonResponseRecordDTO.dak_origin.sender_office_unit_name;
