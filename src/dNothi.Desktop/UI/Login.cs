@@ -87,9 +87,15 @@ namespace dNothi.Desktop.UI
 
                     DoptorTokenResponse doptorTokenResponse = _userService.GetDoptorToken(userParam);
 
-                        // Sign Assign
-                        resmessage.data.user.SignBase64 = resmessage.data.signature.encode_sign;
-                        resmessage.data.user.profile_photo = UIDesignCommonMethod.ConvertImageURLToBase64(resmessage.data.profile_photo);
+                if (resmessage.status == "success")
+                {
+                    //PusherNotification pusherNotification = new PusherNotification();
+                    //pusherNotification.Start();
+                    _accountService.SaveOrUpdateUser(userName, password, isRemember);
+
+                    // Sign Assign
+                    resmessage.data.user.SignBase64 = resmessage.data.signature.encode_sign;
+                    resmessage.data.user.profile_photo =UIDesignCommonMethod.ConvertImageURLToBase64(resmessage.data.profile_photo);
 
                         SaveOrUpdateUser(resmessage?.data?.user);
                         SaveOrUpdateEmployee(resmessage?.data?.employee_info);

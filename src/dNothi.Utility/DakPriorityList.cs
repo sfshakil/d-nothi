@@ -22,6 +22,8 @@ namespace dNothi.Utility
             //dakPriorityDatas.Add(new DakPriorityData{_id= "2", _typeName= "অবিলম্বে" });
             //dakPriorityDatas.Add(new DakPriorityData{_id= "1", _typeName= "জরুরি" });
 
+
+
             dakPriorityDatas.Add(new DakPriorityData { _id = "4", _typeName = "সর্বোচ্চ অগ্রাধিকার" });
             dakPriorityDatas.Add(new DakPriorityData { _id = "3", _typeName = "অবিলম্বে" });
             dakPriorityDatas.Add(new DakPriorityData { _id = "2", _typeName = "জরুরি" });

@@ -44,6 +44,7 @@ using dNothi.Services.EmailBoxService;
 using dNothi.Desktop.UI.ReportUI;
 using dNothi.Services.ReportServices;
 using dNothi.Services.ReportPermited;
+using dNothi.Infrastructure.Mappings.Dak;
 
 namespace dNothi.Desktop
 {
@@ -203,6 +204,8 @@ namespace dNothi.Desktop
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakOrigin>>().As<IRepository<dNothi.Core.Entities.DakOrigin>>();
             builder.RegisterType<EfRepository<dNothi.Core.Entities.DakAttachment>>().As<IRepository<dNothi.Core.Entities.DakAttachment>>();
 
+            builder.RegisterType<EfRepository<DakTraking>>().As<IRepository<DakTraking>>();
+            
 
             builder.RegisterType<EfRepository<DakBoxSharedToOfficer>>().As<IRepository<DakBoxSharedToOfficer>>();
             builder.RegisterType<EfRepository<DakBoxSharing>>().As<IRepository<DakBoxSharing>>();

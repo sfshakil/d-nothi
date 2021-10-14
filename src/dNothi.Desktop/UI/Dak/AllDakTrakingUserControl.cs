@@ -17,6 +17,7 @@ using dNothi.Services.UserServices;
 using dNothi.JsonParser.Entity;
 using dNothi.Services.BasicService;
 using dNothi.Services.BasicService.Models;
+using dNothi.Services.DakServices.DakReports;
 
 namespace dNothi.Desktop.UI.Dak
 {
@@ -263,14 +264,14 @@ namespace dNothi.Desktop.UI.Dak
             DakUserParam dakListUserParam = _userService.GetLocalDakUserParam();
             string dateRange = dateTextBox.Text;
 
-            if (dateRange == string.Empty)
+            if (dateRange != string.Empty)
             {
                 fromdate = dateRange.Substring(0, dateRange.IndexOf(":"));
                 todate = dateRange.Substring(dateRange.IndexOf(":") + 1);
             }
             else
             {
-                fromdate = DateTime.Now.AddDays(-29).ToString("yyyy/MM/dd");
+                fromdate = DateTime.Now.AddDays(-6).ToString("yyyy/MM/dd");
                 todate = DateTime.Now.ToString("yyyy/MM/dd");
             }
 
@@ -281,7 +282,7 @@ namespace dNothi.Desktop.UI.Dak
             dakListUserParam.page = pages;
             dakListUserParam.limit = limit;
 
-            dakTrakingModel registerReportResponse = _registerService.GetDakTrakingResponse(dakListUserParam, fromdate, todate, mobile, subject, application_no);
+            DakReportModel registerReportResponse = _registerService.GetDakTrakingResponse(dakListUserParam, fromdate, todate, mobile, subject, application_no);
 
             RegisterReportlist = ConvertRegisterResponsetoReport.GetDakTrakingReports(registerReportResponse);
             return RegisterReportlist;

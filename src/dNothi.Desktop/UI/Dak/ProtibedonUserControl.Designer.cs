@@ -57,10 +57,16 @@
             this.headlineLabel = new System.Windows.Forms.Label();
             this.bodyTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.registerReportDataGridView = new System.Windows.Forms.DataGridView();
+            this.protibedonBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.registerReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.noRowMessageLabel = new System.Windows.Forms.Label();
+            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
+            this.protibedonBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.slDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acceptNumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.docketingNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sharokNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nothiNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.applyDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.subDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.applicantDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,11 +78,6 @@
             this.priorityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.finalState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pendingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.protibedonBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.registerReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.noRowMessageLabel = new System.Windows.Forms.Label();
-            this.customDatePicker = new dNothi.Desktop.UI.ManuelUserControl.DakCustomDatePickerUserControl();
-            this.protibedonBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dateRangeTextBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -104,7 +105,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.iconButton2.IconSize = 24;
-            this.iconButton2.Location = new System.Drawing.Point(710, 0);
+            this.iconButton2.Location = new System.Drawing.Point(1002, 0);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(45, 41);
             this.iconButton2.TabIndex = 69;
@@ -124,7 +125,7 @@
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.iconButton1.IconSize = 24;
-            this.iconButton1.Location = new System.Drawing.Point(755, 0);
+            this.iconButton1.Location = new System.Drawing.Point(1047, 0);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(45, 41);
             this.iconButton1.TabIndex = 68;
@@ -144,7 +145,7 @@
             this.dateRangeTextBox.Location = new System.Drawing.Point(0, 41);
             this.dateRangeTextBox.Margin = new System.Windows.Forms.Padding(0);
             this.dateRangeTextBox.Name = "dateRangeTextBox";
-            this.dateRangeTextBox.Size = new System.Drawing.Size(800, 55);
+            this.dateRangeTextBox.Size = new System.Drawing.Size(1092, 55);
             this.dateRangeTextBox.TabIndex = 95;
             // 
             // iconButton4
@@ -158,7 +159,7 @@
             this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 24;
-            this.iconButton4.Location = new System.Drawing.Point(762, 9);
+            this.iconButton4.Location = new System.Drawing.Point(1054, 9);
             this.iconButton4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(34, 34);
@@ -177,7 +178,7 @@
             this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(66)))), ((int)(((byte)(84)))));
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 24;
-            this.iconButton3.Location = new System.Drawing.Point(728, 9);
+            this.iconButton3.Location = new System.Drawing.Point(1020, 9);
             this.iconButton3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(34, 34);
@@ -191,7 +192,7 @@
             this.totalRowlabel.AutoSize = true;
             this.totalRowlabel.BackColor = System.Drawing.Color.Transparent;
             this.totalRowlabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalRowlabel.Location = new System.Drawing.Point(550, 17);
+            this.totalRowlabel.Location = new System.Drawing.Point(842, 17);
             this.totalRowlabel.Name = "totalRowlabel";
             this.totalRowlabel.Size = new System.Drawing.Size(79, 18);
             this.totalRowlabel.TabIndex = 97;
@@ -201,7 +202,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Location = new System.Drawing.Point(657, 8);
+            this.panel1.Location = new System.Drawing.Point(947, 8);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(1);
@@ -352,7 +353,7 @@
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Margin = new System.Windows.Forms.Padding(0);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(800, 41);
+            this.headerPanel.Size = new System.Drawing.Size(1092, 41);
             this.headerPanel.TabIndex = 1;
             // 
             // iconPictureBox1
@@ -402,7 +403,7 @@
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.bodyTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(800, 569);
+            this.bodyTableLayoutPanel.Size = new System.Drawing.Size(1092, 569);
             this.bodyTableLayoutPanel.TabIndex = 0;
             // 
             // registerReportDataGridView
@@ -433,6 +434,7 @@
             this.acceptNumDataGridViewTextBoxColumn,
             this.docketingNo,
             this.sharokNoDataGridViewTextBoxColumn,
+            this.nothiNo,
             this.applyDateDataGridViewTextBoxColumn,
             this.subDataGridViewTextBoxColumn,
             this.applicantDataGridViewTextBoxColumn,
@@ -479,9 +481,52 @@
             this.registerReportDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registerReportDataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.registerReportDataGridView.RowTemplate.Height = 40;
-            this.registerReportDataGridView.Size = new System.Drawing.Size(794, 465);
+            this.registerReportDataGridView.Size = new System.Drawing.Size(1086, 465);
             this.registerReportDataGridView.TabIndex = 96;
             this.registerReportDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prapokDataGridView_CellContentClick);
+            // 
+            // protibedonBindingSource1
+            // 
+            this.protibedonBindingSource1.DataSource = typeof(dNothi.Desktop.View_Model.Protibedon);
+            // 
+            // registerReportBindingSource
+            // 
+            this.registerReportBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.RegisterReport);
+            // 
+            // noRowMessageLabel
+            // 
+            this.noRowMessageLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.noRowMessageLabel.AutoSize = true;
+            this.noRowMessageLabel.BackColor = System.Drawing.Color.Transparent;
+            this.noRowMessageLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noRowMessageLabel.ForeColor = System.Drawing.Color.Red;
+            this.noRowMessageLabel.Location = new System.Drawing.Point(494, 147);
+            this.noRowMessageLabel.Name = "noRowMessageLabel";
+            this.noRowMessageLabel.Size = new System.Drawing.Size(169, 18);
+            this.noRowMessageLabel.TabIndex = 97;
+            this.noRowMessageLabel.Text = "দুঃখিত কোন তথ্য পাওয়া যায় নি।";
+            this.noRowMessageLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // customDatePicker
+            // 
+            this.customDatePicker._date = null;
+            this.customDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.customDatePicker.AutoSize = true;
+            this.customDatePicker.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.customDatePicker.BackColor = System.Drawing.Color.White;
+            this.customDatePicker.dateFrom = new System.DateTime(((long)(0)));
+            this.customDatePicker.dateTo = new System.DateTime(((long)(0)));
+            this.customDatePicker.Location = new System.Drawing.Point(275, 111);
+            this.customDatePicker.Margin = new System.Windows.Forms.Padding(0);
+            this.customDatePicker.Name = "customDatePicker";
+            this.customDatePicker.Size = new System.Drawing.Size(152, 230);
+            this.customDatePicker.TabIndex = 59;
+            this.customDatePicker.Visible = false;
+            this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
+            // 
+            // protibedonBindingSource
+            // 
+            this.protibedonBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.Protibedon);
             // 
             // slDataGridViewTextBoxColumn
             // 
@@ -517,6 +562,14 @@
             this.sharokNoDataGridViewTextBoxColumn.Name = "sharokNoDataGridViewTextBoxColumn";
             this.sharokNoDataGridViewTextBoxColumn.ReadOnly = true;
             this.sharokNoDataGridViewTextBoxColumn.Width = 113;
+            // 
+            // nothiNo
+            // 
+            this.nothiNo.DataPropertyName = "nothiNo";
+            this.nothiNo.HeaderText = "নথির নং";
+            this.nothiNo.Name = "nothiNo";
+            this.nothiNo.ReadOnly = true;
+            this.nothiNo.Width = 95;
             // 
             // applyDateDataGridViewTextBoxColumn
             // 
@@ -558,7 +611,7 @@
             this.PotrojariDate.Name = "PotrojariDate";
             this.PotrojariDate.ReadOnly = true;
             this.PotrojariDate.Visible = false;
-            this.PotrojariDate.Width = 142;
+            this.PotrojariDate.Width = 141;
             // 
             // NothiJatoDate
             // 
@@ -567,7 +620,7 @@
             this.NothiJatoDate.Name = "NothiJatoDate";
             this.NothiJatoDate.ReadOnly = true;
             this.NothiJatoDate.Visible = false;
-            this.NothiJatoDate.Width = 150;
+            this.NothiJatoDate.Width = 147;
             // 
             // NothiteUposthapitoDate
             // 
@@ -576,7 +629,7 @@
             this.NothiteUposthapitoDate.Name = "NothiteUposthapitoDate";
             this.NothiteUposthapitoDate.ReadOnly = true;
             this.NothiteUposthapitoDate.Visible = false;
-            this.NothiteUposthapitoDate.Width = 198;
+            this.NothiteUposthapitoDate.Width = 194;
             // 
             // securityDataGridViewTextBoxColumn
             // 
@@ -610,49 +663,6 @@
             this.pendingTime.ReadOnly = true;
             this.pendingTime.Width = 115;
             // 
-            // protibedonBindingSource1
-            // 
-            this.protibedonBindingSource1.DataSource = typeof(dNothi.Desktop.View_Model.Protibedon);
-            // 
-            // registerReportBindingSource
-            // 
-            this.registerReportBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.RegisterReport);
-            // 
-            // noRowMessageLabel
-            // 
-            this.noRowMessageLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.noRowMessageLabel.AutoSize = true;
-            this.noRowMessageLabel.BackColor = System.Drawing.Color.Transparent;
-            this.noRowMessageLabel.Font = new System.Drawing.Font("SolaimanLipi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noRowMessageLabel.ForeColor = System.Drawing.Color.Red;
-            this.noRowMessageLabel.Location = new System.Drawing.Point(348, 147);
-            this.noRowMessageLabel.Name = "noRowMessageLabel";
-            this.noRowMessageLabel.Size = new System.Drawing.Size(169, 18);
-            this.noRowMessageLabel.TabIndex = 97;
-            this.noRowMessageLabel.Text = "দুঃখিত কোন তথ্য পাওয়া যায় নি।";
-            this.noRowMessageLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // customDatePicker
-            // 
-            this.customDatePicker._date = null;
-            this.customDatePicker.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.customDatePicker.AutoSize = true;
-            this.customDatePicker.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.customDatePicker.BackColor = System.Drawing.Color.White;
-            this.customDatePicker.dateFrom = new System.DateTime(((long)(0)));
-            this.customDatePicker.dateTo = new System.DateTime(((long)(0)));
-            this.customDatePicker.Location = new System.Drawing.Point(275, 111);
-            this.customDatePicker.Margin = new System.Windows.Forms.Padding(0);
-            this.customDatePicker.Name = "customDatePicker";
-            this.customDatePicker.Size = new System.Drawing.Size(152, 230);
-            this.customDatePicker.TabIndex = 59;
-            this.customDatePicker.Visible = false;
-            this.customDatePicker.OptionClick += new System.EventHandler(this.customDatePicker_OptionClick);
-            // 
-            // protibedonBindingSource
-            // 
-            this.protibedonBindingSource.DataSource = typeof(dNothi.Desktop.View_Model.Protibedon);
-            // 
             // ProtibedonUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -663,7 +673,7 @@
             this.Controls.Add(this.noRowMessageLabel);
             this.Controls.Add(this.bodyTableLayoutPanel);
             this.Name = "ProtibedonUserControl";
-            this.Size = new System.Drawing.Size(800, 569);
+            this.Size = new System.Drawing.Size(1092, 569);
             this.Load += new System.EventHandler(this.ProtibedonUserControl_Load);
             this.dateRangeTextBox.ResumeLayout(false);
             this.dateRangeTextBox.PerformLayout();
@@ -718,6 +728,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn acceptNumDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn docketingNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn sharokNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nothiNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn applyDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn subDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn applicantDataGridViewTextBoxColumn;
