@@ -39,6 +39,7 @@ namespace dNothi.Constants
         public const string DakNothijatoEndpoint = "/api/nothi/dak/nothijato";
         public const string DakNothijatoRevertEndpoint = "/api/nothi/dak/revert/nothijato";
         public const string DakDecisionListEndpoint = "/api/dak/decision/list/custom";
+        public const string DakDecisionListEndpointNew = "/api/dak/decision/list";
         public const string DakArchiveEndPoint = "/api/dak/action/archive";
         public const string DakDecisionAddEndpoint = "/api/dak/decision/add";
         public const string DakDecisionDeleteEndpoint = "/api/dak/decision/delete";

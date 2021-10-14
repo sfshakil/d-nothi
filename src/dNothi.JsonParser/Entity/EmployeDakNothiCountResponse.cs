@@ -13,6 +13,8 @@ namespace dNothi.JsonParser.Entity
     public class EmployeDakNothiCountResponseTotal
     {
         public int dak { get; set; }
+        public int dak_draft { get; set; }
+
         public int own_office_nothi { get; set; }
         public int other_office_nothi { get; set; }
     }

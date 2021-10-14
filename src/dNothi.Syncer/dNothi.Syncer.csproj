@@ -123,6 +123,10 @@
       <Project>{14F70AAB-7796-479A-8F54-32F90A8A399D}</Project>
       <Name>dNothi.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\dNothi.Desktop\dNothi.Desktop.csproj">
+      <Project>{856DBAEE-2A55-49D6-A44F-A086D9D85D08}</Project>
+      <Name>dNothi.Desktop</Name>
+    </ProjectReference>
     <ProjectReference Include="..\dNothi.Infrastructure\dNothi.Infrastructure.csproj">
       <Project>{2F9C4AB9-D653-4E32-9FAF-5B0F5959E0AC}</Project>
       <Name>dNothi.Infrastructure</Name>

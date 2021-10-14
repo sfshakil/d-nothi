@@ -682,7 +682,7 @@ namespace dNothi.Desktop.UI
         private void LoadDakOutbox()
         {
             WaitForm.Show(this);
-            //RefreshDetailsSearchAllInput();
+           
             RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
@@ -964,16 +964,38 @@ namespace dNothi.Desktop.UI
             LoadPotroTemplate();
             LoadDakStatus();
             LoadThirtPartyService();
-            
+            LoadDakCountMenu();
+
+
+
 
         }
-      public   HeaderUserControl headerControl { get; set; }
+
+        private void LoadDakCountMenu()
+        {
+            try
+            {
+                EmployeDakNothiCountResponse employeDakNothiCountResponse = _userService.GetDakNothiCountResponseUsingEmployeeDesignation(_dakuserparam);
+                var employeDakNothiCountResponseTotal = employeDakNothiCountResponse.data.designation.FirstOrDefault(a => a.Key == _dakuserparam.designation_id.ToString());
+
+                dakInboxCountLabel.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.dak.ToString());
+                dakDraftButtonCount.Text = ConversionMethod.EnglishNumberToBangla(employeDakNothiCountResponseTotal.Value.dak_draft.ToString());
+
+            }
+            catch (Exception Ex)
+            {
+
+            }
+        }
+
+        public   HeaderUserControl headerControl { get; set; }
         private void LoadHeader()
         {
             headerControl = UserControlFactory.Create<HeaderUserControl>();
             headerControl.ChangeUserClick += delegate (object sender1, EventArgs e1) { ChangeUser(sender1, e1); };
             headerControl.SettingsSaveButton += delegate (object sender1, EventArgs e1) { SettingsSaveButton_Click(sender1 as Settings, e1); };
             UIDesignCommonMethod.AddRowinTable(headerTableLayoutPanel, headerControl);
+           
         }
 
        
@@ -1082,6 +1104,7 @@ namespace dNothi.Desktop.UI
         {
             WaitForm.Show(this);
             // RefreshDetailsSearchAllInput();
+           
             RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
@@ -1906,6 +1929,7 @@ namespace dNothi.Desktop.UI
             SelectButton(dakInboxButton);
             DakListLoad();
             LoadDakInbox();
+          
         }
 
         private void ResetAllMenuButtonSelection()
@@ -1919,9 +1943,17 @@ namespace dNothi.Desktop.UI
         {
             foreach (Control ctrl in collection)
             {
+               
+                  if (!(ctrl is Label))
+                     {
+                    
+                  
+                
+                    ctrl.BackColor = Color.FromArgb(254, 254, 254);
+                    ctrl.ForeColor = Color.FromArgb(97, 99, 114);
+                }
 
-                ctrl.BackColor = Color.FromArgb(254, 254, 254);
-                ctrl.ForeColor = Color.FromArgb(97, 99, 114);
+
 
 
                 IterateControlsReseatSelection(ctrl.Controls);
@@ -1933,6 +1965,20 @@ namespace dNothi.Desktop.UI
         {
             button.BackColor = Color.FromArgb(243, 246, 249);
             button.ForeColor = Color.FromArgb(78, 165, 254);
+        }
+        private void SelectButton(TableLayoutPanel button)
+        {
+            button.BackColor = Color.FromArgb(243, 246, 249);
+
+            foreach (Control control in button.Controls)
+            {
+                control.BackColor = Color.FromArgb(243, 246, 249);
+
+                if (control is FontAwesome.Sharp.IconButton)
+                {
+                    control.ForeColor = Color.FromArgb(78, 165, 254);
+                }
+            }
         }
 
 
@@ -1985,6 +2031,7 @@ namespace dNothi.Desktop.UI
         {
             WaitForm.Show(this);
             //RefreshDetailsSearchAllInput();
+          
             RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
@@ -2296,6 +2343,8 @@ namespace dNothi.Desktop.UI
         {
             WaitForm.Show(this);
             // RefreshDetailsSearchAllInput();
+          
+
             RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
@@ -2575,6 +2624,7 @@ namespace dNothi.Desktop.UI
         {
             WaitForm.Show(this);
             //RefreshDetailsSearchAllInput();
+           
             RefreshDaakCount();
             dakBodyFlowLayoutPanel.Controls.Clear();
             ResetAllMenuButtonSelection();
@@ -2780,6 +2830,8 @@ namespace dNothi.Desktop.UI
         private void LoadDakListSorted()
         {
             WaitForm.Show(this);
+            
+
             RefreshDaakCount();
             _currentDakCatagory.isSorted = true;
             NormalizeDashBoard();
@@ -3203,8 +3255,7 @@ namespace dNothi.Desktop.UI
             searchHeaderTableLayoutPanel.Visible = true;
             dakSortMetroPanel.Visible = true;
             RefreshPagination();
-          
-            SelectButton(sender as Button);
+            
             LoadDakKhasraList();
         }
 
@@ -3212,6 +3263,8 @@ namespace dNothi.Desktop.UI
         {
             WaitForm.Show(this);
             //RefreshDetailsSearchAllInput();
+            ResetAllMenuButtonSelection();
+            SelectButton(khasraDakButton);
             RefreshDaakCount();
             _currentDakCatagory.isKhosra = true;
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -3987,6 +4040,7 @@ namespace dNothi.Desktop.UI
         private void LoadDakBacaikaran(int assignor_designation_id)
         {
             //RefreshDetailsSearchAllInput();
+          
             RefreshDaakCount();
             _assignor_designation_id = assignor_designation_id;
             dakBodyFlowLayoutPanel.Controls.Clear();
@@ -5780,6 +5834,36 @@ namespace dNothi.Desktop.UI
             ReportDashboard reportform = FormFactory.Create<ReportDashboard>();
 
             reportform.ShowDialog();
+        }
+
+        
+
+        private void menuButton_MouseHover(object sender, EventArgs e)
+        {
+          
+
+            if((sender is TableLayoutPanel))
+            {
+                (sender as Control).BackColor = Color.FromArgb(243, 246, 249);
+            }
+            else
+            {
+                (sender as Control).Parent.BackColor = Color.FromArgb(243, 246, 249);
+            }
+        }
+
+        private void menuButton_MouseLeave(object sender, EventArgs e)
+        {
+            if ((sender is TableLayoutPanel))
+            {
+                (sender as Control).BackColor = Color.FromArgb(254, 254, 254);
+            }
+            else
+            {
+                (sender as Control).Parent.BackColor = Color.FromArgb(254, 254, 254);
+            }
+           
+          
         }
     }
 

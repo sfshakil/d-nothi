@@ -240,7 +240,7 @@ namespace dNothi.Services.DakServices
         }
          protected string GetDakDecisionListEndpoint()
         {
-            return DefaultAPIConfiguration.DakDecisionListEndpoint;
+            return DefaultAPIConfiguration.DakDecisionListEndpointNew;
         }
         protected string GetDakDecisionAddEndpoint()
         {
@@ -330,7 +330,10 @@ namespace dNothi.Services.DakServices
                 dakDecisionListRequest.AddHeader("api-version", GetOldAPIVersion());
                 dakDecisionListRequest.AddHeader("Authorization", "Bearer " + dakUserParam.token);
                 dakDecisionListRequest.AlwaysMultipartFormData = true;
-                dakDecisionListRequest.AddParameter("user_id", dakUserParam.user_id);
+               // dakDecisionListRequest.AddParameter("user_id", dakUserParam.user_id);
+                dakDecisionListRequest.AddParameter("designation_id", dakUserParam.designation_id);
+                dakDecisionListRequest.AddParameter("office_id", dakUserParam.office_id);
+                dakDecisionListRequest.AddParameter("employee_id", dakUserParam.employee_record_id);
                 
                 IRestResponse dakDecisionResponseAPI = DakDecisionListApi.Execute(dakDecisionListRequest);
 
