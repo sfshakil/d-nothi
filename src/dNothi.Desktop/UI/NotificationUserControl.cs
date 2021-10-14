@@ -32,7 +32,7 @@ namespace dNothi.Desktop.UI
 
             foreach (Form f in openForms)
             {
-                if (f.Name == "ExtraNotificationForm")
+                if (f.Name == "ExtraForm")
                     f.Close();
             }
         }
