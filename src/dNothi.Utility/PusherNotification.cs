@@ -60,7 +60,7 @@ public class PusherNotification
                     channel.Bind("my-event", (PusherEvent eventData) =>
                     {
                         MessageBox.Show(eventData.Data);
-                        this.GetDataFromServer(eventData.Data as object, null);
+                        //this.GetDataFromServer(eventData.Data as object, null);
                         //ChatMessage data = JsonConvert.DeserializeObject<ChatMessage>(eventData.Data);
                         //MessageBox.Show($"{Environment.NewLine}[{data.Name}] {data.Message}");
                     });
