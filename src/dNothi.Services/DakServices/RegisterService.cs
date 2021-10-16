@@ -247,6 +247,7 @@ namespace dNothi.Services.DakServices
         public DakReportModel GetDakTrakingResponse(DakUserParam dakUserParam, string fromDate, string toDate, string mobile,string subject,string getapplication)
         {
             string searchParam = "dak_subject=" + subject + "&dak_received_no=" + getapplication + "&phone=" + mobile + "&last_modified_date =" + fromDate + ":" + toDate + "";
+           // string searchParam = "dak_subject=&dak_received_no=&phone=&last_modified_date=2021/09/14:2021/10/13";
             DakReportModel registerReportResponse = new DakReportModel();
             if (!InternetConnection.Check())
             {
@@ -280,8 +281,6 @@ namespace dNothi.Services.DakServices
 
 
                 IRestResponse dakTrakingResponseIRest = dakTrakingAPI.Execute(dakTrakingRequest);
-
-
 
 
                 var dakTrakingResponseJson = dakTrakingResponseIRest.Content;
