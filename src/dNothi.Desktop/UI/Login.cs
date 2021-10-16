@@ -89,8 +89,8 @@ namespace dNothi.Desktop.UI
 
                     if (resmessage.status == "success")
                     {
-                        //PusherNotification pusherNotification = new PusherNotification();
-                        //pusherNotification.Start();
+                        PusherNotification pusherNotification = new PusherNotification();
+                        pusherNotification.Start();
                         _accountService.SaveOrUpdateUser(userName, password, isRemember);
 
                         // Sign Assign
@@ -124,8 +124,6 @@ namespace dNothi.Desktop.UI
                 {
                     WaitForm.Close();
                     UIMessageBox.ShowAlertMessage("আপনি ভূল ইউজার নেম অথবা পাসওয়ার্ড ইনপুট দিয়েছেন।");
-
-
                 }
             }
             else
@@ -134,8 +132,6 @@ namespace dNothi.Desktop.UI
                 LocalLogin(userParam);
 
             }
-
-            
 
         }
 
