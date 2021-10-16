@@ -363,14 +363,14 @@ namespace dNothi.Desktop.UI.ManuelUserControl
                 var notification = new System.Windows.Forms.NotifyIcon()
                 {
                     Visible = true,
-                    Icon = new System.Drawing.Icon("Icon.ico"),
+                    Icon = new System.Drawing.Icon("C:/Users/hp/source/Repos/d-nothi/src/dNothi.Desktop/Resources/$this.Icon.ico"),
                     BalloonTipIcon = ToolTipIcon.Info,
                     BalloonTipTitle = "My Title",
                     BalloonTipText = "My long description...",
                 };
 
                 // Display for 5 seconds.
-                notification.ShowBalloonTip(5000);
+                notification.ShowBalloonTip(1000);
 
                 Thread.Sleep(1000);
 
