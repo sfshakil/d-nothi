@@ -822,7 +822,14 @@ namespace dNothi.Desktop.UI.Dak
             dak.email = emailXTextBox.Text;
             dak.mobile_no = mobileXTextBox.Text;
             //dak.nationality = searchNationalityUserController1.searchButtonText.ToString();
-            dak.nationality = searchNationalityUserController.SelectedItem.ToString();
+            if(otherNationalityLabel.Visible)
+            {
+                dak.nationality = otherNationalityTextBox.Text;
+            }
+            else
+            {
+                dak.nationality = searchNationalityUserController.SelectedItem.ToString();
+            }
             //dak.gender = genderSearchButton.searchButtonText.ToString();
             dak.gender = genderSearchButton1.SelectedItem.ToString();
             //dak.religion = searchReligionUserController.searchButtonText.ToString();
@@ -1183,6 +1190,18 @@ namespace dNothi.Desktop.UI.Dak
             else
             {
 
+            }
+        }
+
+        private void searchNationalityUserController_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(searchNationalityUserController.Text== "অন্যান্য")
+            {
+                otherNationalityPanel.Visible = otherNationalityLabel.Visible = true;
+            }
+            else
+            {
+                otherNationalityPanel.Visible = otherNationalityLabel.Visible = false;
             }
         }
     }
