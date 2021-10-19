@@ -245,35 +245,42 @@ namespace dNothi.Desktop.UI.Dak
 
         public void LoadDecisionList()
         {
-            decisionListFlowLayoutPanel.Controls.Clear();
-            DakUserParam userParam = _userService.GetLocalDakUserParam();
-
-            DakDecisionListResponse dakDecisionListResponse = _dakForwardService.GetDakDecisionListResponse(userParam);
-            if (dakDecisionListResponse != null)
+            try
             {
-                if (dakDecisionListResponse.data.Count > 0)
+                decisionListFlowLayoutPanel.Controls.Clear();
+                DakUserParam userParam = _userService.GetLocalDakUserParam();
+
+                DakDecisionListResponse dakDecisionListResponse = _dakForwardService.GetDakDecisionListResponse(userParam);
+                if (dakDecisionListResponse != null)
                 {
-                    foreach (DakDecisionDTO dakDecisionDTO in dakDecisionListResponse.data)
+                    if (dakDecisionListResponse.data.Count > 0)
                     {
-                        var decisionTable = UserControlFactory.Create<DakDecisionTableUserControl>();
-                        decisionTable.id = dakDecisionDTO.id;
-                        decisionTable.decision = dakDecisionDTO.dak_decision;
-                        decisionTable.RadioButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_RadioButtonClick(sender, e, dakDecisionDTO.id); };
-
-                        
-                        if (dakDecisionDTO.dak_decision_employee == 1)
+                        foreach (DakDecisionDTO dakDecisionDTO in dakDecisionListResponse.data)
                         {
-                            decisionTable.isAdded = true;
-                            decisionComboBox.Items.Add(dakDecisionDTO.dak_decision);
-                        }
-                        else
-                        {
-                            decisionTable.isAdded = false;
-                        }
+                            var decisionTable = UserControlFactory.Create<DakDecisionTableUserControl>();
+                            decisionTable.id = dakDecisionDTO.id;
+                            decisionTable.decision = dakDecisionDTO.dak_decision;
+                            decisionTable.RadioButtonClick += delegate (object sender, EventArgs e) { dakDecisionTableUserControl_RadioButtonClick(sender, e, dakDecisionDTO.id); };
 
-                        UIDesignCommonMethod.AddRowinTable(decisionListFlowLayoutPanel, decisionTable);
+
+                            if (dakDecisionDTO.dak_decision_employee == 1)
+                            {
+                                decisionTable.isAdded = true;
+                                decisionComboBox.Items.Add(dakDecisionDTO.dak_decision);
+                            }
+                            else
+                            {
+                                decisionTable.isAdded = false;
+                            }
+
+                            UIDesignCommonMethod.AddRowinTable(decisionListFlowLayoutPanel, decisionTable);
+                        }
                     }
                 }
+            }
+            catch
+            {
+
             }
         }
         private DesignationSealListResponse _designationSealListResponse;

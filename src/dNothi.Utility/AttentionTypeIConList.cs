@@ -12,9 +12,10 @@ namespace dNothi.Utility
 
        public AttentionTypeList()
         {
-            attentionTypes.Add(new AttentionType("0", "অনুলিপি", "অনুলিপি-PNG1"));
+            attentionTypes.Add(new AttentionType("0", "জ্ঞাতার্থে অনুলিপি", "অনুলিপি-PNG1"));
             attentionTypes.Add(new AttentionType("1", "মূল-প্রাপক", "মূল-প্রাপক-PNG1"));
             attentionTypes.Add(new AttentionType("2", "দৃষ্টি আকর্ষণ", "মূল-প্রাপক-PNG1"));
+            attentionTypes.Add(new AttentionType("3", "কার্যার্থে অনুলিপি", "মূল-প্রাপক-PNG1"));
            
         }
 
