@@ -10,7 +10,15 @@ public class PusherNotification
         private Pusher pusher;
         private Channel channel;
         public event EventHandler GetDataFromServer;
-
+       
+      private enum serverValue
+        {
+           dev=1,
+           test=2, 
+           stage=3, 
+           live=4, 
+           preProduction=5
+        }
         public async Task Start()
         {
             //if (instance == null)
@@ -24,16 +32,27 @@ public class PusherNotification
             //DontDestroyOnLoad(gameObject);
             await InitialisePusher();
         }
+        private int _employeeId { get; set; }
+        public int employeeId
+        {
+            get => _employeeId;
 
+            set => _employeeId = value;
+
+        }
+       
         private async Task InitialisePusher()
         {
+            int value = (int)serverValue.dev;
+            string channelName = "private-nothi-channel_" + value.ToString() + "_" + _employeeId.ToString();
 
+            
             if (pusher == null)
             {
 
                 pusher = new Pusher("cff47fef296bc38258cb", new PusherOptions()
                 {
-                    //Authorizer = new HttpAuthorizer("https://localhost:5000/pusher/auth"),
+                    Authorizer = new HttpAuthorizer("http://localhost:5000/pusher/auth"),
                     Cluster = "mt1",
                     Encrypted = true
                   
@@ -49,7 +68,11 @@ public class PusherNotification
                     // Subscribe to private channel
                     try
                     {
-                        channel = pusher.SubscribeAsync("my-channel").Result;
+                        channel = pusher.SubscribeAsync(channelName).Result;
+                        
+                       // channel = pusher.SubscribeAsync("private-nothi-channel_1_116861").Result;
+                        
+                    //1->dev, 2->test, 3->stage, 4->live, 5->pre-production
                     }
                     catch (ChannelUnauthorizedException unauthorizedException)
                     {
@@ -57,7 +80,7 @@ public class PusherNotification
                         MessageBox.Show($"Authorization failed for {unauthorizedException.ChannelName}. {unauthorizedException.Message}");
                     }
 
-                    channel.Bind("my-event", (PusherEvent eventData) =>
+                    channel.Bind("nothi-event", (PusherEvent eventData) =>
                     {
                         MessageBox.Show(eventData.Data);
                         //this.GetDataFromServer(eventData.Data as object, null);

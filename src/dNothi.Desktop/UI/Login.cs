@@ -90,6 +90,7 @@ namespace dNothi.Desktop.UI
                     if (resmessage.status == "success")
                     {
                         PusherNotification pusherNotification = new PusherNotification();
+                        pusherNotification.employeeId = resmessage.data.employee_info.id;
                         pusherNotification.Start();
                         _accountService.SaveOrUpdateUser(userName, password, isRemember);
 

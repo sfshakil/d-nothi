@@ -2284,6 +2284,7 @@
     <None Include="Resources\icons8-share-30.png" />
     <None Include="Resources\icons8-share-301.png" />
     <None Include="Resources\icons8-share-20.png" />
+    <Content Include="bin\Debug\Icon.ico" />
     <Content Include="Resources\fa-cloud.png" />
     <Content Include="Resources\search.png" />
     <Content Include="tinymce\js\tinymce\jquery _3.6.js" />
